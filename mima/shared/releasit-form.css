@@ -114,6 +114,51 @@
 }
 
 /* -----------------------------------------------------------------------------
+   2b. Banner de cabecera
+   -----------------------------------------------------------------------------
+   Bloque de imagen del Form Designer (custom_image → ImageItem). La app solo
+   deja configurar URL y ancho en %; llega pegado al bloque de abajo y con la
+   imagen a escuadra, que junto al resto del modal a 12px de radio la delata
+   como pieza pegada encima en vez de parte del formulario.
+
+   El radio va en la IMAGEN, no en el contenedor. Verificado en vivo: el
+   .rsi-image-item-wrapper ya trae sus 12px de la propia app, pero es
+   overflow:visible, así que no recorta nada y la imagen cuadrada se dibuja
+   igual por encima de las esquinas redondeadas.
+
+   El contorno va como box-shadow y no como border: sigue el radio igual, pero
+   no ocupa caja, así que no depende del box-sizing que traiga la app ni
+   desplaza el ancho del bloque.
+   -------------------------------------------------------------------------- */
+
+/* El bloque de imagen es global a la tienda: se pinta en el formulario de
+   TODOS los productos. La app no deja limitarlo — el panel del bloque solo
+   tiene URL y tamaño, y el mecanismo de Releasit para servir formularios
+   distintos son las "Versiones del Formulario", que son de plan Unlimited.
+
+   Así que el interruptor vive aquí. Oculto por defecto; cada landing que
+   quiera banner lo declara con data-rsi-banner en su elemento raíz.
+
+   Va con :has() sobre el documento porque el <dialog> del formulario cuelga
+   de <body>, fuera del bloque de la landing: no hay forma de alcanzarlo con
+   un descendiente. Si :has() no resolviera, el banner no sale — que es el
+   lado seguro por el que fallar. */
+#rsi_form_wrapper .rsi-image-item-wrapper {
+	display: none !important;
+	margin-bottom: 14px !important;
+}
+
+body:has([data-rsi-banner]) #rsi_form_wrapper .rsi-image-item-wrapper {
+	display: flex !important;
+}
+
+#rsi_form_wrapper .rsi-image-item-image {
+	display: block;
+	border-radius: var(--mima-radius) !important;
+	box-shadow: 0 0 0 1px var(--mima-border);
+}
+
+/* -----------------------------------------------------------------------------
    3. Resumen del pedido
    -------------------------------------------------------------------------- */
 
@@ -278,7 +323,39 @@
 
 /* -----------------------------------------------------------------------------
    4b. Método de envío
+   -----------------------------------------------------------------------------
+   El bloque se oculta: con una sola tarifa ("Envío gratis") no es una elección,
+   es un paso más que alarga el formulario justo antes de pagar, y la promesa de
+   envío gratis ya está dicha en la landing y en los sellos del propio modal.
+   La app no trae interruptor para esto, así que va por CSS.
+
+   Se oculta visualmente, NO con display:none: el nodo sigue renderizado y el
+   radio sigue marcado, así que la tarifa se envía igual con el pedido. Con
+   display:none dependeríamos de que la app no lea nada del DOM al enviar.
+
+   OJO: esto solo es correcto mientras haya UNA tarifa. Si algún día se añade
+   una segunda (envío exprés, zonas con recargo), esta regla la escondería y el
+   cliente pagaría siempre la primera sin poder elegir. Quitar la regla antes de
+   configurar cualquier tarifa adicional en Releasit.
+
+   Verificado en vivo el 2026-08-27 sobre el formulario publicado: el título
+   "Método de envío" cuelga del mismo wrapper, así que se va con él; el bloque
+   pasa de 87px a 1px y el radio sigue marcado con valor "1_Envío gratis".
    -------------------------------------------------------------------------- */
+
+#rsi_form_wrapper .rsi-shipping-rates-wrapper {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	overflow: hidden !important;
+	clip-path: inset(50%) !important;
+	pointer-events: none !important;
+}
+
+/* Las reglas de abajo dejan de aplicar mientras el bloque esté oculto, pero se
+   quedan: al reactivar el envío, el selector vuelve ya con la piel de marca. */
 
 #rsi_form_wrapper .rsi-shipping-rates-item {
 	border-color: var(--mima-border) !important;

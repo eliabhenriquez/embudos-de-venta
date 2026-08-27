@@ -239,6 +239,97 @@ confirmar que entran.
 
 ---
 
+## 7c. Banner de cabecera — PENDIENTE de dos ajustes
+
+Añadido el 2026-08-27 como bloque de imagen (`custom_image`), en posición 0.
+La app solo deja configurar URL y tamaño en %; el radio, el contorno y la
+separación con el bloque de abajo los pone `releasit-form.css` §2b.
+
+Quedan dos cosas que **solo se pueden hacer desde la app**:
+
+**1. Limitarlo a SKNGLOW — RESUELTO, y no desde aquí.** El panel del bloque de
+imagen solo tiene URL y tamaño: no expone restricción por producto, aunque el
+dato `productsEnabled` sí viaje en la configuración. El mecanismo que ofrece
+Releasit para servir formularios distintos son las **Versiones del Formulario**,
+que son de plan Unlimited.
+
+Resuelto por CSS, con interruptor por landing (`releasit-form.css` §2b): el
+banner va oculto por defecto y solo se enciende donde el elemento raíz de la
+landing lleva `data-rsi-banner`. Verificado en vivo: sin el atributo el bloque
+queda en `display:none` y 0px de alto; con él, `display:flex` y 113px.
+
+Si algún día se pasa al plan Unlimited, las Versiones del Formulario son mejor
+sitio para esto: permitirían además tener oferta de cantidad y textos distintos
+por landing, no solo el banner.
+
+**2. La oferta de cantidad se fue al fondo.** Al colocar el banner, el bloque
+`quantity_offer` pasó de la posición 1 a la 16. En escritorio no se nota porque
+cae en la columna derecha, pero **en móvil aparece a 1036px de scroll**, después
+de nombre, apellido, teléfono, correo, dirección, departamento y ciudad. El
+cliente ve "Lleva 2 con 30% de descuento" cuando ya rellenó todo el formulario,
+que es justo cuando cambiar de cantidad se siente como volver atrás. Antes
+estaba arriba, donde se elige cantidad *antes* de invertir esfuerzo. Conviene
+devolverla a la posición 1, debajo del banner.
+
+**Sobre el tamaño en escritorio.** A partir de ~485px el formulario se parte en
+dos columnas y el banner cae en la izquierda, a 245px de ancho — más pequeño que
+en móvil (339px). No tiene arreglo por CSS: las columnas son dos y un bloque no
+puede cruzarlas. Los elementos van a la derecha solo si tienen `layoutPosition`,
+y aun así seguirían siendo una columna. Si el texto pequeño molesta, la salida
+es una versión más compacta del banner, no un cambio de maquetación.
+
+## 7d. Upsell de MIMANAD — el flujo del documento NO es posible tal cual
+
+Analizado sobre el bundle de la app (form v443) el 2026-08-27.
+
+`mima/docs/copy/order_bump_upsell.md` pide una pantalla de upsell **solo para
+quien elige pago anticipado**. Releasit no puede hacer eso, y no es cuestión de
+configurarlo mejor: **el concepto de método de pago no existe en la app**.
+Búsqueda en el bundle: `paymentMethod`, `paymentType`, `prepaid`, `isPrepaid` →
+**0 apariciones**. No hay dónde poner esa condición.
+
+### Los dos únicos modos que existen
+
+El orden de páginas lo decide una sola línea:
+
+```js
+Mt = o?.isPostPurchase ? [$t, or] : [or, $t]   // $t = fields, or = upsells
+```
+
+| `isPostPurchase` | Orden | Cuándo lo ve el cliente |
+|---|---|---|
+| `false` | `[upsells, fields]` | Al abrir el modal, **antes** de rellenar nada |
+| `true` | `[fields, upsells]` | Después de crear el pedido contraentrega |
+
+Con `false` la pantalla sale la primera, cuando el cliente todavía no ha elegido
+forma de pago — y el copy "ESPERA. ANTES DE CONTINUAR" no tendría de qué
+continuar.
+
+Con `true` se dispara desde el envío del formulario (`create-order-new`), que es
+la ruta **contraentrega**. El botón de pago anticipado no pasa por ahí: crea un
+borrador (`lr.isDraft = !0`) y se va al checkout de Shopify. Releasit ya no
+controla la pantalla.
+
+### Qué sí se puede
+
+1. **Upsell post-compra en contraentrega** (`isEnabled: true`, `isPostPurchase:
+   true`). Sin código. Alcanza a la mayoría del volumen. Hay que reescribir el
+   copy: va después del pedido, no antes.
+2. **Upsell al abrir el modal** (`isPostPurchase: false`). Sin código, pero pide
+   el añadido antes de que el cliente se haya comprometido con el producto
+   principal. No recomendado.
+3. **Para pago anticipado**: no es territorio de Releasit. El sitio correcto es la
+   capa **post-purchase de Shopify** (pantalla posterior al pago), que es
+   exactamente el formato que describe el documento y le llega justo a ese
+   público. Requiere app de post-purchase o extensión propia — y confirmar que
+   funciona sobre checkouts originados en borrador de pedido.
+
+### El order bump sí funciona ya
+
+`one_tick_upsells` está activo (posición 18) y vive dentro del formulario, antes
+de los botones: le llega a **las dos** formas de pago. Solo falta cargarle el copy
+de MIMA Calm del documento.
+
 ## 8. Qué NO tocar desde el Form Designer
 
 Estos ya los resuelve `releasit-form.css` y configurarlos también en la app

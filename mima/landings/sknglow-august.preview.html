@@ -23,19 +23,24 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 	CTA → abre el modal de Releasit mediante las clases de integración
 	_rsi-cod-form-gempages-button-overwrite y _rsi-cod-form-is-gempage.
 
-	⚠ ANTES DE PUBLICAR
-	El selector de pago muestra $79.900 para pago anticipado, pero hoy
-	AMBAS opciones abren el formulario contraentrega de Releasit a
-	$89.900. No publicar hasta cablear la ruta de pago anticipado:
-	el usuario vería un precio distinto al prometido y eso rompe la
-	confianza justo en el momento de pagar.
+	PAGO ANTICIPADO — resuelto (verificado el 2026-08-27)
+	El aviso anterior decía que no se podía publicar porque ambas rutas
+	cobraban $89.900. Ya no: el formulario de Releasit tiene activo el
+	botón "Paga con tarjeta o PSE" con descuento fijo de $10.000
+	(código RSI_ADDITIONAL_CHECKOUT_BUTTON_935459008), así que el
+	$79.900 que promete el hero es el que se cobra por esa vía.
+	Si algún día se desactiva ese botón o cambia el descuento, hay que
+	quitar el chip .sg-price__prepay del hero.
 
 	Imágenes: Shopify CDN. Requieren subir a Contenido → Archivos los
 	10 ficheros landings-sknglow-*.webp de landings/assets/sknglow/
 	conservando el nombre exacto.
 -->
 
-<section class="sg-lp" id="sg-sknglow">
+<!-- data-rsi-banner: esta landing muestra el banner del formulario de
+     Releasit. El bloque de imagen es global a la tienda, así que la piel
+     lo oculta por defecto y solo lo enciende donde está este atributo. -->
+<section class="sg-lp" id="sg-sknglow" data-rsi-banner>
 
 	<!-- =========================== CABECERA ========================= -->
 	<header class="sg-topbar">
@@ -49,24 +54,22 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 
 	<!-- ============================ HERO ============================ -->
 	<section class="sg-hero">
-		<img class="sg-hero__bg"
-			src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-hero-bg.webp?width=900"
-			srcset="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-hero-bg.webp?width=520 520w,
-			        https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-hero-bg.webp?width=900 900w"
-			sizes="100vw"
-			width="860" height="1839"
-			alt="" aria-hidden="true"
-			fetchpriority="high" decoding="async">
-		<div class="sg-hero__scrim" aria-hidden="true"></div>
 		<div class="sg-shell sg-hero__grid">
 			<div class="sg-hero__head">
 				<h1 class="sg-h1">Tu próxima piel empieza hoy</h1>
-				<p class="sg-hero__claim">Más firme. Más pareja. Más luminosa.</p>
 				<p class="sg-lead"><strong>Sknglow</strong> trabaja desde adentro para que vuelvas a ver el cuidado que le das a tu piel</p>
 			</div>
 
 
 			<figure class="sg-hero__media">
+				<img class="sg-hero__portrait"
+					src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-hero-isabella.webp?width=900"
+					srcset="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-hero-isabella.webp?width=520 520w,
+					        https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-hero-isabella.webp?width=900 900w"
+					sizes="(max-width: 899px) 92vw, 44vw"
+					width="900" height="1200"
+					alt="" aria-hidden="true"
+					fetchpriority="high" decoding="async">
 				<img class="sg-hero__bottle"
 					src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-product.webp?width=460"
 					srcset="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-product.webp?width=340 340w,
@@ -75,6 +78,8 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 					width="581" height="1000"
 					alt="Frasco de Sknglow con Resveratrol y Biotina, 120 dulces duros sabor kiwi"
 					fetchpriority="high" decoding="async">
+
+				<figcaption class="sg-hero__claim">Más firme. Más pareja. Más luminosa.</figcaption>
 			</figure>
 
 			<div class="sg-hero__specs">
@@ -83,7 +88,7 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 					<li>120 Dulces duros sabor a kiwi</li>
 					<!-- <li>Biotina + Resveratrol</li> -->
 					<!-- <li>120 dulces duros</li> -->
-					<li>4 al día · 30 días de uso</li>
+					<li>4 al día por 30 días</li>
 				</ul>
 			</div>
 
@@ -115,6 +120,7 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 
 			<div class="sg-hero__buy">
 				<p class="sg-price"><span class="sg-price__amount">$89.900</span> <span class="sg-price__note">Envío gratis a Colombia</span></p>
+				<p class="sg-price__prepay"><strong>$79.900</strong> si pagas con tarjeta o PSE</p>
 				<button type="button" class="sg-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI SKNGLOW</button>
 
 				<ul class="sg-trust">
@@ -130,13 +136,41 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 	<section class="sg-band">
 		<div class="sg-shell sg-band__inner">
 			<p class="sg-band__title">Tu piel cambia</p>
-			<ul class="sg-band__list">
-				<li>Con el estrés</li>
-				<li>Con el sol</li>
-				<li>Con las hormonas</li>
-				<li>Con las noches largas</li>
+			<p class="sg-band__sub">Y casi nunca por una sola razón</p>
+
+			<ul class="sg-band__causes">
+				<li class="sg-band__cause">
+					<span class="sg-band__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.4"/><path d="M7.3 12.4 9.5 7.8l2.1 8 2-5.6 1.6 3.4h1.5"/></svg></span>
+					<div>
+						<p class="sg-band__cause-title">El estrés</p>
+						<p class="sg-band__cause-note">Los días tensos también se ven en la cara</p>
+					</div>
+				</li>
+				<li class="sg-band__cause">
+					<span class="sg-band__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.3"/><path d="M12 2.4v2.3M12 19.3v2.3M2.4 12h2.3M19.3 12h2.3M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"/></svg></span>
+					<div>
+						<p class="sg-band__cause-title">El sol</p>
+						<p class="sg-band__cause-note">Cada exposición va dejando huella</p>
+					</div>
+				</li>
+				<li class="sg-band__cause">
+					<span class="sg-band__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.7 10.6A7.7 7.7 0 0 1 18.4 8.1"/><path d="M19.3 13.4A7.7 7.7 0 0 1 5.6 15.9"/><path d="M18.9 4.6v3.7h-3.7"/><path d="M5.1 19.4v-3.7h3.7"/></svg></span>
+					<div>
+						<p class="sg-band__cause-title">Las hormonas</p>
+						<p class="sg-band__cause-note">Cada ciclo y cada etapa se notan</p>
+					</div>
+				</li>
+				<li class="sg-band__cause">
+					<span class="sg-band__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.3 14.5A8.5 8.5 0 0 1 9.5 3.7 8.5 8.5 0 1 0 20.3 14.5Z"/><path d="M17.4 3.4v2.6M16.1 4.7h2.6"/></svg></span>
+					<div>
+						<p class="sg-band__cause-title">Las noches largas</p>
+						<p class="sg-band__cause-note">Dormir poco se ve al día siguiente</p>
+					</div>
+				</li>
 			</ul>
-			<p class="sg-band__foot">Con cada etapa que deja marcas, textura, celulitis o falta de luminosidad.<br><strong>Sknglow convierte el cuidado de tu piel en un hábito fácil de sostener.</strong></p>
+
+			<p class="sg-band__foot">Con cada etapa que deja marcas, textura, celulitis o falta de luminosidad.</p>
+			<p class="sg-band__claim">Sknglow convierte el cuidado de tu piel en un hábito fácil de sostener.</p>
 		</div>
 	</section>
 
@@ -145,7 +179,7 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 		<div class="sg-shell">
 			<div class="sg-headline">
 				<p class="sg-overline">Esa es la diferencia de Sknglow</p>
-				<h2 class="sg-h2">Estructura + Protección</h2>
+				<h2 class="sg-h2"><span class="sg-h2__mech"><svg class="sg-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3.5 8.5h17M3.5 15.5h17M8.5 3.5v17M15.5 3.5v17"/></svg> Estructura</span> + <span class="sg-h2__mech"><svg class="sg-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 19 5.8v5.4c0 4.2-2.8 7.3-7 8.8-4.2-1.5-7-4.6-7-8.8V5.8L12 3Z"/><circle cx="12" cy="11" r="2"/><path d="M12 7.6v.7M12 14.4v-.7M8.6 11h.7M15.4 11h-.7"/></svg> Protección</span></h2>
 				<p class="sg-sub">Dos acciones para una piel que se nota</p>
 			</div>
 
@@ -157,15 +191,33 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 
 			<div class="sg-duo">
 				<article class="sg-card sg-card--structure">
-					<p class="sg-card__tag">Estructura</p>
-					<h3 class="sg-card__title">Biotina</h3>
+					<div class="sg-card__head">
+						<div>
+							<p class="sg-card__tag"><svg class="sg-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3.5 8.5h17M3.5 15.5h17M8.5 3.5v17M15.5 3.5v17"/></svg> Estructura</p>
+							<h3 class="sg-card__title">Biotina</h3>
+						</div>
+						<figure class="sg-card__media">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/biotina.webp?width=320"
+								width="1254" height="1254" loading="lazy" decoding="async"
+								alt="Biotina en polvo sobre una cuchara de madera">
+						</figure>
+					</div>
 					<p>Apoya la salud de los tejidos de piel, uñas y cabello</p>
 					<p>Ayuda a cuidar una piel que quieres ver más firme, más cuidada y con mejor apariencia</p>
 				</article>
 
 				<article class="sg-card sg-card--protection">
-					<p class="sg-card__tag">Protección</p>
-					<h3 class="sg-card__title">Resveratrol</h3>
+					<div class="sg-card__head">
+						<div>
+							<p class="sg-card__tag"><svg class="sg-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 19 5.8v5.4c0 4.2-2.8 7.3-7 8.8-4.2-1.5-7-4.6-7-8.8V5.8L12 3Z"/><circle cx="12" cy="11" r="2"/><path d="M12 7.6v.7M12 14.4v-.7M8.6 11h.7M15.4 11h-.7"/></svg> Protección</p>
+							<h3 class="sg-card__title">Resveratrol</h3>
+						</div>
+						<figure class="sg-card__media">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/resveratrol.webp?width=320"
+								width="1254" height="1254" loading="lazy" decoding="async"
+								alt="Resveratrol en polvo junto a un racimo de uvas negras">
+						</figure>
+					</div>
 					<p>Trabaja frente al desgaste oxidativo que puede apagar la apariencia de tu piel</p>
 					<p>Ayuda a conservar ese aspecto luminoso y uniforme que quieres recuperar frente al espejo</p>
 				</article>
@@ -186,6 +238,36 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 						<li>Un cuidado que puedes sostener</li>
 					</ul>
 				</div>
+
+				<!-- El collage no decora: es la prueba de que el hábito ya lo
+				     sostienen mujeres distintas, en casas distintas. -->
+				<ul class="sg-habit__bento" aria-label="Clientas de MIMA con su frasco de Sknglow">
+					<li class="sg-habit__tile sg-habit__tile--lead">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-bento-isabella.webp?width=520"
+							width="507" height="568" loading="lazy" decoding="async"
+							alt="Clienta de MIMA sonriendo con su frasco de Sknglow entre las manos">
+					</li>
+					<li class="sg-habit__tile sg-habit__tile--a">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-bento-camila.webp?width=300"
+							width="507" height="568" loading="lazy" decoding="async"
+							alt="Clienta sonriendo sostiene su frasco de Sknglow a la altura del pecho">
+					</li>
+					<li class="sg-habit__tile sg-habit__tile--b">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-bento-juli.webp?width=300"
+							width="508" height="569" loading="lazy" decoding="async"
+							alt="Clienta sonriendo muestra a cámara su frasco de Sknglow">
+					</li>
+					<li class="sg-habit__tile sg-habit__tile--c">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-bento-shelyka.webp?width=300"
+							width="595" height="666" loading="lazy" decoding="async"
+							alt="Clienta sonriendo con su frasco de Sknglow junto al rostro">
+					</li>
+					<li class="sg-habit__tile sg-habit__tile--extra">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-bento-leidy.webp?width=300"
+							width="512" height="573" loading="lazy" decoding="async"
+							alt="Clienta sonriendo levanta su frasco de Sknglow hacia la cámara">
+					</li>
+				</ul>
 			</div>
 
 			<div class="sg-cta-row">
@@ -912,9 +994,11 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 		line-height: 1.5;
 		color: var(--sg-muted);
 		margin-top: 8px;
-		/* Se corta antes de llegar al rostro: así esa franja puede ir casi
-		   sin velo sin que ningún texto pierda contraste encima. */
-		max-width: 31ch;
+		margin-bottom: 5px;
+		/* Antes se cortaba en 31ch para no invadir el rostro, cuando la foto
+		   iba de fondo. Ya no hace falta: con la foto fuera del texto, la
+		   medida puede respirar y el párrafo cae en dos líneas en vez de tres. */
+		max-width: 46ch;
 	}
 
 	.sg-lp .sg-headline {
@@ -1048,7 +1132,7 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 
 	.sg-lp .sg-topbar {
 		background: var(--sg-lilac-soft);
-		padding-block: clamp(10px, 2.4vw, 20px);
+		padding-block: clamp(6px, 1.5vw, 14px);
 	}
 
 	.sg-lp .sg-topbar__inner {
@@ -1057,7 +1141,7 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 	}
 
 	.sg-lp .sg-topbar img {
-		width: clamp(74px, 12vw, 96px);
+		width: clamp(60px, 9.5vw, 84px);
 		height: auto;
 	}
 
@@ -1067,54 +1151,21 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 		position: relative;
 		overflow: hidden;
 		background: linear-gradient(168deg, var(--sg-lilac-soft) 0%, #fff 62%);
-		padding-block: clamp(22px, 5vw, 84px) clamp(35px, 7vw, 104px);
-	}
-
-	/* El elemento humano pasa a capa de fondo: queda detrás de todo y el
-	   producto manda en primer plano. */
-	.sg-lp .sg-hero__bg {
-		position: absolute;
-		inset: 0;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		object-position: 72% 8%;
-		filter: brightness(1.13) saturate(0.96);
-	}
-
-	/* Velo de marca: deja ver a la persona arriba a la derecha y se vuelve
-	   sólido hacia el texto, que es lo que garantiza la lectura. */
-	.sg-lp .sg-hero__scrim {
-		position: absolute;
-		inset: 0;
-		pointer-events: none;
-		background:
-			/* horizontal: sólido donde se lee el texto, casi limpio sobre ella */
-			linear-gradient(100deg,
-				rgba(246, 235, 245, 0.92) 0%,
-				rgba(246, 235, 245, 0.78) 40%,
-				rgba(246, 235, 245, 0.36) 72%,
-				rgba(246, 235, 245, 0.2) 100%),
-			/* vertical: se cierra abajo para que precio, CTA y datos queden limpios */
-			linear-gradient(180deg,
-				rgba(246, 235, 245, 0) 0%,
-				rgba(246, 235, 245, 0.04) 30%,
-				rgba(246, 235, 245, 0.34) 44%,
-				rgba(246, 235, 245, 0.8) 62%,
-				var(--sg-lilac-soft) 88%);
+		padding-block: clamp(8px, 2vw, 44px) clamp(35px, 7vw, 104px);
 	}
 
 	.sg-lp .sg-hero__grid {
 		position: relative;
 		display: grid;
-		grid-template-columns: 46% 1fr;
+		grid-template-columns: 1fr;
 		grid-template-areas:
-			'head   head'
-			'media  specs'
-			'mech   mech'
-			'buy    buy';
+			'head'
+			'media'
+			'specs'
+			'mech'
+			'buy';
 		column-gap: 14px;
-		row-gap: 16px;
+		row-gap: clamp(12px, 2.8vw, 22px);
 		align-items: center;
 	}
 
@@ -1122,15 +1173,41 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 	.sg-lp .sg-hero__media { grid-area: media; }
 	.sg-lp .sg-hero__specs { grid-area: specs; align-self: end; }
 	.sg-lp .sg-hero__mech { grid-area: mech; }
-	.sg-lp .sg-hero__buy { grid-area: buy; }
+	.sg-lp .sg-hero__buy { grid-area: buy; text-align: center; }
 
 	.sg-lp .sg-hero .sg-h1 { font-size: clamp(28.8px, 6.2vw, 56px); }
 
+
+	/* El claim se lee mejor dentro de la foto que debajo del titular: ahí
+	   remata la imagen en vez de competir con ella. La banda solo alcanza el
+	   borde inferior —cuello y jersey—, nunca la cara. Blanco sobre ella da
+	   8:1, así que el degradado puede quedarse suave. */
 	.sg-lp .sg-hero__claim {
-		margin-top: 8px;
-		font-size: clamp(16.8px, 3vw, 22.4px);
+		position: absolute;
+		inset-inline: 0;
+		bottom: 0;
+		padding: 46px 16px 15px;
+		border-radius: 0 0 var(--sg-radius-lg) var(--sg-radius-lg);
+		background: linear-gradient(180deg,
+			rgba(43, 20, 41, 0) 0%,
+			rgba(43, 20, 41, 0.55) 46%,
+			rgba(43, 20, 41, 0.86) 100%);
+		color: #fff;
+		font-size: clamp(15px, 3.6vw, 18px);
 		font-weight: 700;
-		color: var(--sg-ink);
+		letter-spacing: -0.005em;
+		text-align: center;
+	}
+
+	/* La línea de acento: separa el rótulo de la foto sin necesidad de caja. */
+	.sg-lp .sg-hero__claim::before {
+		content: '';
+		display: block;
+		width: 34px;
+		height: 3px;
+		margin: 0 auto 9px;
+		border-radius: 999px;
+		background: var(--sg-magenta);
 	}
 
 	/* Mecanismo: qué hace cada activo, en esquema en vez de en prosa.
@@ -1194,10 +1271,13 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 		color: var(--sg-purple);
 	}
 
+	/* En paralelo: son dos datos cortos, uno debajo del otro solo gastaba
+	   alto. El margen superior sobraba —el row-gap de la rejilla ya separa
+	   la foto de este bloque—. */
 	.sg-lp .sg-facts {
 		display: grid;
-		gap: 7px;
-		margin-top: 14px;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 7px 12px;
 	}
 
 	.sg-lp .sg-facts li {
@@ -1221,6 +1301,7 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 	.sg-lp .sg-price {
 		display: flex;
 		align-items: center;
+		justify-content: center;
 		flex-wrap: wrap;
 		gap: 12px;
 	}
@@ -1241,75 +1322,166 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 		border-radius: 999px;
 	}
 
-	.sg-lp .sg-hero__buy .sg-cta { margin-top: 14px; }
+	/* Pago anticipado. No compite con el precio principal —ni por tamaño ni
+	   por peso— pero el magenta y el aro lo hacen imposible de pasar por alto.
+	   Fondo blanco a propósito: sobre él, el magenta de marca da 4.6:1 y pasa
+	   AA incluso a este cuerpo; sobre el lila de la sección se quedaría en 3.5. */
+	.sg-lp .sg-price__prepay {
+		display: inline-flex;
+		align-items: baseline;
+		gap: 7px;
+		margin-top: 10px;
+		padding: 8px 15px;
+		border-radius: 999px;
+		background: var(--sg-surface);
+		border: 1.5px solid rgba(224, 0, 143, 0.4);
+		box-shadow: 0 4px 14px rgba(224, 0, 143, 0.12);
+		font-size: 13.5px;
+		font-weight: 600;
+		color: var(--sg-ink);
+	}
 
+	.sg-lp .sg-price__prepay strong {
+		font-size: 17px;
+		font-weight: 800;
+		color: var(--sg-magenta-deep);
+	}
+
+	.sg-lp .sg-hero__buy .sg-cta { margin-top: 12px; }
+
+	/* La foto era el fondo a sangre de todo el hero, con el texto encima. Eso
+	   obliga a un velo permanente para que se lea, y el velo apaga la piel —que
+	   es justo lo único que este producto tiene que enseñar—. Cuanto más se
+	   aclaraba el velo, peor el contraste; cuanto más se subía, más lavada la
+	   cara. No había punto medio: el problema era la estructura.
+
+	   Ahora la foto tiene su propio sitio: se ve entera, sin un solo píxel de
+	   velo, y el texto se lee sobre el fondo liso sin pelear con nada. */
 	.sg-lp .sg-hero__media {
 		position: relative;
-		display: flex;
-		justify-content: center;
+		display: block;
 	}
 
-	/* Halo claro detrás del frasco: lo separa del fondo fotográfico sin
-	   recuadro, que sobre una foto sería lo peor que se puede hacer. */
-	.sg-lp .sg-hero__media::before {
-		content: '';
-		position: absolute;
-		inset-block-start: 4%;
-		inset-inline-start: 50%;
-		translate: -50% 0;
-		width: 138%;
-		aspect-ratio: 1;
-		border-radius: 50%;
-		background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 64%);
-		pointer-events: none;
-	}
-
-	.sg-lp .sg-hero__bottle {
-		position: relative;
+	/* Cuadrada en vertical: a 3/4 el hero crecía 275px y empujaba el CTA
+	   fuera de pantalla. El recuadro cuadrado recorta pelo y jersey, nunca
+	   la cara, que entera cabe de sobra. */
+	.sg-lp .sg-hero__portrait {
+		display: block;
 		width: 100%;
+		aspect-ratio: 7 / 6;
+		object-fit: cover;
+		object-position: 50% 26%;
+		border-radius: var(--sg-radius-lg);
+	}
+
+	/* El frasco se apoya en la esquina de la foto: sin ese solape, producto e
+	   imagen se leen como dos bloques pegados en vez de una composición. */
+	.sg-lp .sg-hero__bottle {
+		position: absolute;
+		left: 3%;
+		bottom: 15%;
+		width: 44%;
 		/* drop-shadow sigue el recorte del PNG; box-shadow dibujaría un rectángulo */
-		filter: drop-shadow(0 16px 24px rgba(109, 31, 44, 0.36));
+		filter: drop-shadow(0 16px 28px rgba(109, 31, 44, 0.4));
 	}
 
 	/* ---------- Banda "tu piel cambia" ---------- */
 
+	/* Los dos halos sacan a la banda del morado plano sin tocar el
+	   contraste: el punto más claro que generan sigue dando 5.6:1 con
+	   texto blanco. Van en esquinas opuestas para que no se sumen. */
 	.sg-lp .sg-band {
-		background: var(--sg-ink);
+		background:
+			radial-gradient(115% 85% at 10% -12%, rgba(255, 0, 165, 0.24), transparent 58%),
+			radial-gradient(95% 80% at 92% 112%, rgba(225, 173, 221, 0.18), transparent 62%),
+			var(--sg-ink);
 		color: #fff;
-		padding-block: clamp(40px, 6vw, 64px);
+		padding-block: clamp(46px, 7vw, 74px);
 	}
 
 	.sg-lp .sg-band__inner { text-align: center; }
 
 	.sg-lp .sg-band__title {
-		font-size: clamp(20.8px, 3.4vw, 28px);
+		font-size: clamp(23px, 4vw, 34px);
 		font-weight: 800;
+		letter-spacing: -0.015em;
+		line-height: 1.12;
+	}
+
+	.sg-lp .sg-band__sub {
+		margin-top: 8px;
+		color: rgba(255, 255, 255, 0.82);
+		font-size: clamp(15px, 2.2vw, 17px);
+	}
+
+	.sg-lp .sg-band__causes {
+		display: grid;
+		gap: 12px;
+		margin-top: clamp(26px, 4vw, 36px);
+		text-align: left;
+	}
+
+	.sg-lp .sg-band__cause {
+		display: flex;
+		align-items: center;
+		gap: 14px;
+		padding: 16px 18px;
+		border-radius: 20px;
+		background:
+			linear-gradient(165deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06));
+		border: 1px solid rgba(255, 255, 255, 0.2);
+	}
+
+	/* El icono no es decoración suelta: el disco lo ancla al tamaño del
+	   texto para que la tarjeta no se lea como dos piezas sueltas. */
+	.sg-lp .sg-band__icon {
+		display: grid;
+		place-items: center;
+		flex-shrink: 0;
+		width: 52px;
+		height: 52px;
+		border-radius: 50%;
+		background: linear-gradient(150deg, rgba(255, 0, 165, 0.42), rgba(225, 173, 221, 0.14));
+		border: 1px solid rgba(255, 255, 255, 0.26);
+		color: #fff;
+	}
+
+	.sg-lp .sg-band__icon svg {
+		width: 26px;
+		height: 26px;
+	}
+
+	.sg-lp .sg-band__cause-title {
+		font-weight: 800;
+		font-size: 16.5px;
 		letter-spacing: -0.01em;
 	}
 
-	.sg-lp .sg-band__list {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		gap: 10px 12px;
-		margin-top: 20px;
-	}
-
-	.sg-lp .sg-band__list li {
-		padding: 8px 18px;
-		border: 1px solid rgba(255, 255, 255, 0.34);
-		border-radius: 999px;
-		font-size: 15px;
+	.sg-lp .sg-band__cause-note {
+		margin-top: 3px;
+		color: rgba(255, 255, 255, 0.8);
+		font-size: 14.5px;
+		line-height: 1.35;
 	}
 
 	.sg-lp .sg-band__foot {
-		margin-top: 22px;
-		color: rgba(255, 255, 255, 0.86);
+		margin-top: clamp(26px, 4vw, 34px);
+		color: rgba(255, 255, 255, 0.9);
 		max-width: 56ch;
 		margin-inline: auto;
+		text-wrap: balance;
 	}
 
-	.sg-lp .sg-band__foot strong { color: #fff; }
+	/* Dos párrafos y no un <br>: cada frase equilibra sus líneas por su
+	   cuenta y la segunda deja de partirse con una palabra suelta. */
+	.sg-lp .sg-band__claim {
+		margin-top: 6px;
+		max-width: 52ch;
+		margin-inline: auto;
+		font-weight: 800;
+		color: #fff;
+		text-wrap: balance;
+	}
 
 	/* ---------- Mecanismo ---------- */
 
@@ -1341,9 +1513,33 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 	.sg-lp .sg-card--structure { background: var(--sg-lilac-soft); border-color: transparent; }
 	.sg-lp .sg-card--protection { background: var(--sg-surface); }
 
+	/* Los dos pictogramas del hero acompañan a Estructura y Protección
+	   allí donde aparecen como etiqueta: el par se reconoce de un vistazo
+	   sin tener que releer. En prosa no se ponen, ahí serían ruido. */
+	.sg-lp .sg-ico {
+		flex-shrink: 0;
+		width: 1em;
+		height: 1em;
+	}
+
+	.sg-lp .sg-h2__mech {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.26em;
+		white-space: nowrap;
+	}
+
+	.sg-lp .sg-h2__mech .sg-ico {
+		width: 0.74em;
+		height: 0.74em;
+		color: var(--sg-magenta-deep);
+	}
+
 	.sg-lp .sg-card p.sg-card__tag {
-		display: inline-block;
-		padding: 5px 14px;
+		display: inline-flex;
+		align-items: center;
+		gap: 7px;
+		padding: 5px 14px 5px 12px;
 		border-radius: 999px;
 		background: var(--sg-ink);
 		color: #fff;
@@ -1353,17 +1549,48 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 		text-transform: uppercase;
 	}
 
+	.sg-lp .sg-card__tag .sg-ico { width: 15px; height: 15px; }
+
 	.sg-lp .sg-card--structure p.sg-card__tag { background: var(--sg-lilac); color: #4d2749; }
 
 	.sg-lp .sg-card__title {
 		margin-top: 16px;
-		font-size: clamp(24px, 3.6vw, 32px);
+		font-size: clamp(22px, 3.6vw, 32px);
 		font-weight: 800;
 		letter-spacing: -0.01em;
 	}
 
+	.sg-lp .sg-card__head {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: clamp(14px, 2.4vw, 26px);
+	}
+
+	/* Las dos fotos vienen sobre fondo blanco. El disco recoge ese blanco
+	   para que se lea como medallón y no como un recorte pegado encima, y
+	   funciona igual sobre la tarjeta lila que sobre la blanca.
+	   contain y no cover: el ingrediente se ve entero, sin recortes. */
+	.sg-lp .sg-card__media {
+		flex-shrink: 0;
+		width: clamp(80px, 16vw, 152px);
+		aspect-ratio: 1;
+		border-radius: 50%;
+		background: var(--sg-surface);
+		border: 1px solid var(--sg-border);
+		box-shadow: 0 10px 24px rgba(123, 62, 118, 0.1);
+		overflow: hidden;
+	}
+
+	.sg-lp .sg-card__media img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		padding: 7px;
+	}
+
 	.sg-lp .sg-card p + p { margin-top: 12px; }
-	.sg-lp .sg-card__title + p { margin-top: 14px; color: var(--sg-muted); }
+	.sg-lp .sg-card__head + p { margin-top: clamp(16px, 2.4vw, 22px); }
 	.sg-lp .sg-card p { color: var(--sg-muted); }
 
 	.sg-lp .sg-habit {
@@ -1376,7 +1603,15 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 		background: var(--sg-lilac-soft);
 		border: 1px solid var(--sg-border);
 		text-align: left;
+		grid-template-areas:
+			'media'
+			'copy'
+			'bento';
 	}
+
+	.sg-lp .sg-habit__media { grid-area: media; }
+	.sg-lp .sg-habit__copy { grid-area: copy; }
+	.sg-lp .sg-habit__bento { grid-area: bento; }
 
 	.sg-lp .sg-habit__media img {
 		width: 100%;
@@ -1415,6 +1650,50 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 		height: 17px;
 		border-radius: 50%;
 		background: var(--sg-magenta-deep) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E") center / 11px no-repeat;
+	}
+
+	/* ---------- Collage de clientas ----------
+	   Bento de caras reales. Todas las teselas comparten la proporción
+	   del recorte de origen (1:1.12), así que ninguna cara ni ningún
+	   frasco se parte al encajar en la rejilla.
+	   Las filas van a 1fr sobre una altura que fija aspect-ratio: sin esa
+	   altura definida la tesela grande no tendría contra qué estirarse. */
+	.sg-lp .sg-habit__bento {
+		display: grid;
+		gap: 6px;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		grid-template-areas:
+			'lead a'
+			'b c';
+		aspect-ratio: 2 / 2.24;
+	}
+
+	.sg-lp .sg-habit__tile {
+		position: relative;
+		overflow: hidden;
+		border-radius: 12px;
+		background: #fff;
+	}
+
+	.sg-lp .sg-habit__tile img {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.sg-lp .sg-habit__tile--lead { grid-area: lead; }
+	.sg-lp .sg-habit__tile--a { grid-area: a; }
+	.sg-lp .sg-habit__tile--b { grid-area: b; }
+	.sg-lp .sg-habit__tile--c { grid-area: c; }
+
+	/* La quinta foto entra cuando la rejilla se abre a partir de 700px.
+	   En móvil no se descarga: lazy + display:none nunca entra en viewport. */
+	.sg-lp .sg-habit__tile--extra {
+		display: none;
+		grid-area: d;
 	}
 
 	/* ---------- Dolores ---------- */
@@ -2407,10 +2686,10 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 			row-gap: 26px;
 		}
 
-		/* En horizontal la foto se recorta por otro eje: hay que reencuadrar
-		   para que la cara siga entrando. */
-		.sg-lp .sg-hero__bg { object-position: 76% 32%; }
-		.sg-lp .sg-hero__media { align-self: center; max-width: 300px; justify-self: end; }
+		/* El tope de 300px era para el frasco solo; ahora la pieza es la foto.
+		   Con la columna entera para ella recupera el 3/4, que le sienta mejor. */
+		.sg-lp .sg-hero__media { align-self: center; max-width: 430px; justify-self: end; }
+		.sg-lp .sg-hero__portrait { aspect-ratio: 3 / 4; }
 		.sg-lp .sg-hero .sg-lead { font-size: 17px; margin-top: 18px; }
 
 		/* En horizontal el "+" lee mejor como unión entre los dos activos */
@@ -2419,6 +2698,8 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 		.sg-lp .sg-hero .sg-facts li { font-size: 16px; padding-left: 26px; }
 		.sg-lp .sg-hero__buy .sg-cta { margin-top: 24px; }
 		.sg-lp .sg-hero__buy .sg-trust { justify-content: flex-start; }
+		.sg-lp .sg-hero .sg-price { justify-content: flex-start; }
+		.sg-lp .sg-hero__buy { text-align: left; }
 		.sg-lp .sg-duo { grid-template-columns: repeat(2, 1fr); gap: 24px; }
 		.sg-lp .sg-usage {
 			grid-template-columns: 1.15fr 0.85fr;
@@ -2440,10 +2721,67 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 		.sg-lp .sg-sticky { display: none; }
 	}
 
-	@media (min-width: 700px) {
-		/* El hábito pasa a foto + texto en cuanto hay ancho para ello */
-		.sg-lp .sg-habit { grid-template-columns: 0.62fr 1.38fr; }
+	@media (min-width: 620px) {
+		.sg-lp .sg-band__causes { grid-template-columns: repeat(2, 1fr); }
+	}
 
+	@media (min-width: 1000px) {
+		/* En fila, la tarjeta se pone vertical: a 240px de ancho el icono
+		   al lado dejaría el texto en dos palabras por línea. */
+		.sg-lp .sg-band__causes {
+			grid-template-columns: repeat(4, 1fr);
+			gap: 14px;
+		}
+
+		/* Todas a la misma altura: con el texto de largo distinto, cualquier
+		   desnivel se lee como error de maquetación, no como ritmo. */
+		.sg-lp .sg-band__cause {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 16px;
+			padding: 24px 22px 26px;
+		}
+	}
+
+	@media (min-width: 700px) {
+		/* El hábito pasa a foto + texto en cuanto hay ancho para ello.
+		   El collage todavía no cabe al lado, así que cruza la tarjeta. */
+		.sg-lp .sg-habit {
+			grid-template-columns: 0.62fr 1.38fr;
+			grid-template-areas:
+				'media copy'
+				'bento bento';
+		}
+
+		/* Cruzando la tarjeta entera, el bento se comería medio bloque.
+		   En tira de cinco se lee como un friso y ocupa lo que debe. */
+		.sg-lp .sg-habit__bento {
+			grid-template-columns: repeat(5, 1fr);
+			grid-template-rows: 1fr;
+			grid-template-areas: 'lead a b c d';
+			aspect-ratio: 5 / 1.12;
+		}
+
+		.sg-lp .sg-habit__tile--extra { display: block; }
+	}
+
+	@media (min-width: 1040px) {
+		/* Con sitio de sobra el collage ocupa el hueco de la derecha en vez
+		   de estirar la tarjeta hacia abajo, y recupera la jerarquía del
+		   bento: una cara grande que ancla y cuatro que acompañan. */
+		.sg-lp .sg-habit {
+			grid-template-columns: 0.6fr 0.85fr 1.45fr;
+			grid-template-areas: 'media copy bento';
+		}
+
+		.sg-lp .sg-habit__bento {
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-rows: repeat(2, 1fr);
+			grid-template-areas:
+				'lead lead a b'
+				'lead lead c d';
+			aspect-ratio: 4 / 2.24;
+		}
 	}
 
 	@media (min-width: 900px) {
