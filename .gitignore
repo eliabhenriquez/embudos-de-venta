@@ -3,6 +3,7 @@
 # mima/landings/assets/, que van al CDN de Shopify. Los originales pesan más que
 # todo el resto del repositorio junto y no aportan nada al control de versiones.
 humanized-images/
+product-images/
 
 # Ruido de macOS
 .DS_Store
