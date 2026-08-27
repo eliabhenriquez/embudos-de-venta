@@ -1,0 +1,8 @@
+# Imágenes fuente sin optimizar.
+# Se trabajan en local y lo que se publica son las versiones optimizadas de
+# mima/landings/assets/, que van al CDN de Shopify. Los originales pesan más que
+# todo el resto del repositorio junto y no aportan nada al control de versiones.
+mima/humanized-images/
+
+# Ruido de macOS
+.DS_Store

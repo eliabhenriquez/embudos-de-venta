@@ -1,0 +1,111 @@
+# Optimización de imágenes
+
+Guía transversal. Las landings viven en Shopify y el tráfico es mayoritariamente mobile de pago:
+el peso de las imágenes es la palanca de rendimiento más grande que tenemos.
+
+## 1. Formato: WebP
+
+Medido sobre una foto real de producto (`IMG_5671`, 4284×5712) reducida a 1200px de ancho:
+
+| Formato | Peso | vs JPEG |
+|---|---|---|
+| JPEG q82 | 192 KB | — |
+| **WebP q82** | **60 KB** | **−69%** |
+| AVIF q60 | 36 KB | −81% |
+
+**Usamos WebP, no AVIF**, aunque AVIF pese un 40% menos. El motivo es el CDN de Shopify: procesa
+WebP de forma nativa (incluye el redimensionado con `?width=`), mientras que un AVIF subido a
+Archivos se sirve tal cual, sin transformaciones. Perderíamos las imágenes responsive por ahorrar
+unos KB. AVIF se reevalúa cuando Shopify lo soporte en su pipeline.
+
+## 2. El CDN de Shopify ya hace la mitad del trabajo
+
+Verificado en `mimacolombia.com` sobre un archivo real:
+
+```
+imagen original ................................. 176 KB
+?width=600 ...................................... 62 KB   (redimensiona en servidor)
+?width=600 + Accept: image/webp ................. 38 KB   (convierte a WebP solo)
+```
+
+Es decir: **Shopify negocia el formato con el navegador y sirve WebP automáticamente**, y `?width=`
+genera la variante del tamaño pedido. Por eso:
+
+- Se sube **una sola** imagen por asset, ya optimizada, al tamaño máximo que se vaya a mostrar.
+- En el HTML se usa `?width=` con `srcset` y `sizes`, y el CDN se encarga del resto.
+- No hace falta generar y subir 3 tamaños a mano.
+
+## 3. Dónde se optimiza: aquí, en el repo
+
+La optimización es un paso versionado del repo, no algo que se haga a mano en una web externa.
+Así el resultado es reproducible, revisable y consistente entre marcas.
+
+Los originales se quedan en `<marca>/docs/products/<producto>/images/` y
+`<marca>/humanized-images/<producto>/`. Los optimizados salen a
+`<marca>/landings/assets/<producto>/`.
+
+Requiere ImageMagick (`brew install imagemagick`).
+
+```sh
+# Foto de producto → 1200px de ancho para hero, 1000px para secciones
+magick origen.jpg -resize '1200x>' -strip -quality 82 destino.webp
+
+# UGC (nativas ~510px): NUNCA escalar hacia arriba, solo convertir
+magick origen.png -resize '510x>' -strip -quality 84 destino.webp
+```
+
+- `-resize '1200x>'` — el `>` evita ampliar imágenes que ya son más pequeñas. Ampliar solo añade
+  peso y emborrona.
+- `-strip` — quita EXIF: menos peso y, en fotos de UGC, evita publicar geolocalización.
+- `q82–84` — el punto donde WebP deja de distinguirse del original a simple vista.
+
+## 4. Tamaños de referencia
+
+| Uso | Ancho a subir |
+|---|---|
+| Hero de producto | 1200 px |
+| Foto de sección | 1000 px |
+| Card / testimonio | tamaño nativo si es UGC (~510 px) |
+| Icono o logo | SVG, no bitmap |
+
+## 5. Nombres y organización en Shopify
+
+**Shopify Archivos (Contenido → Archivos) no tiene carpetas: es una lista plana.** La organización se
+consigue con prefijos en el nombre, que además agrupan al ordenar alfabéticamente y funcionan con el
+buscador:
+
+```
+landings-sknglow-bottle-hero.webp
+landings-sknglow-ugc-isabella.webp
+landings-mimacalm-hero.webp
+```
+
+Patrón: `landings-<producto>-<uso>.webp`. El nombre del repo y el del CDN deben ser **idénticos**
+para poder rastrear cualquier imagen de la landing hasta su original.
+
+La URL resultante es predecible y no necesita el `?v=`:
+
+```
+https://www.mimacolombia.com/cdn/shop/files/<nombre-del-archivo>
+```
+
+## 6. En el HTML
+
+```html
+<img
+	src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-bottle-hero.webp?width=900"
+	srcset="…?width=600 600w, …?width=900 900w, …?width=1200 1200w"
+	sizes="(max-width: 900px) 92vw, 46vw"
+	width="1200" height="1600"
+	alt="Descripción real de lo que se ve"
+	fetchpriority="high" decoding="async">
+```
+
+- `width` y `height` **siempre**, con las dimensiones reales: es lo que evita el salto de layout (CLS).
+- `fetchpriority="high"` y **sin** `loading="lazy"` solo en la imagen del hero (el LCP).
+- Todo lo demás: `loading="lazy" decoding="async"`.
+
+## 7. Referencia: el set de SKNGLOW
+
+8 imágenes, **472 KB en total** antes de que el CDN aplique `?width=`: 4 de producto (1200/1000 px) y
+4 de UGC a resolución nativa. Los originales sumaban 113 MB.

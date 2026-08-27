@@ -1,0 +1,464 @@
+/* =============================================================================
+   MIMA · Skin del formulario COD de Releasit
+   -----------------------------------------------------------------------------
+   Objetivo: que el modal de pago se sienta MIMA. Por defecto es un formulario
+   genérico en Public Sans con azul, negro, naranja y cajas de borde discontinuo
+   rojo y azul. Es justo lo que la landing pasa 12 secciones intentando evitar.
+
+   ÁMBITO
+   Todo cuelga de #rsi_form_wrapper, que es el <dialog> del formulario. Nada de
+   este archivo puede afectar al resto de la página.
+
+   GANCHOS
+   Cada nodo del formulario lleva DOS clases:
+     · un hash de styled-components  → .sc-gjNGSd   VOLÁTIL, cambia en cada
+                                                     build de la app. NUNCA usar.
+     · una clase semántica estable   → .rsi-text-input-field   ← estas.
+   Inventario verificado: docs/releasit-form-styling.md §6.
+
+   LÍMITE
+   Lo que Releasit pinta con estilo INLINE no se toca desde aquí; va en el Form
+   Designer. Lista exacta en mima/shared/releasit-form-designer.md.
+
+   Verificado en vivo el 2026-08-26 sobre mimacolombia.com (form v443,
+   main-Bmp3jl8I.js), viewport 390px y 475px.
+   ============================================================================= */
+
+#rsi_form_wrapper {
+	/* Paleta oficial — Manual de Marca MIMA 2025 */
+	--mima-lilac: #e1addd;
+	--mima-purple: #aa6aa6;
+	--mima-magenta: #ff00a5;
+
+	/* Magenta que sí sostiene texto blanco: #FF00A5 se queda en 3.6:1 y no
+	   pasa AA. Este llega a 4.6:1 y es el mismo que usan los CTA de la landing. */
+	--mima-magenta-deep: #e0008f;
+
+	/* El manual no trae tono oscuro. Derivado de --mima-purple: 7.5:1 sobre
+	   blanco, es el color de texto de la landing. */
+	--mima-ink: #7b3e76;
+
+	/* Neutros teñidos de lila: coherentes con la marca, no grises de sistema */
+	--mima-text: #241f24;
+	--mima-text-muted: #6b5f6a;
+	--mima-border: #ded0dc;
+	--mima-surface: #ffffff;
+	--mima-surface-alt: #faf5f9;
+
+	/* El error se mantiene rojo: es un código universal y en magenta se
+	   confundiría con el resto de la interfaz. 5.9:1 sobre blanco. */
+	--mima-error: #c0261f;
+
+	--mima-radius: 12px;
+	--mima-radius-lg: 18px;
+	--mima-field-h: 52px;
+
+	/* Solo resuelve a la tipografía de marca si el @font-face está declarado
+	   en el documento. En las landings lo declara el propio bloque de la
+	   landing; fuera de ellas hace falta el tema (docs/brand-typography.md §5). */
+	--mima-font: 'AOK Buenos Aires', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* -----------------------------------------------------------------------------
+   1. Contenedor y velo
+   -------------------------------------------------------------------------- */
+
+#rsi_form_wrapper::backdrop {
+	/* El velo gris neutro rompe la atmósfera de la landing justo en el momento
+	   de pagar. Este es el morado de marca a baja opacidad. */
+	background: rgba(36, 31, 36, 0.55);
+	backdrop-filter: blur(2px);
+}
+
+#rsi_form_wrapper .rsi-form-main {
+	font-family: var(--mima-font);
+	color: var(--mima-text);
+	border: 0;
+	border-radius: var(--mima-radius-lg);
+	box-shadow: 0 18px 50px rgba(36, 31, 36, 0.22);
+}
+
+/* La tipografía no se hereda sola: styled-components la fija en varios nodos.
+   Se fuerza por etiqueta, que es lo que gana a una regla de clase heredada. */
+#rsi_form_wrapper h1, #rsi_form_wrapper h2, #rsi_form_wrapper h3,
+#rsi_form_wrapper p, #rsi_form_wrapper span, #rsi_form_wrapper label,
+#rsi_form_wrapper input, #rsi_form_wrapper select, #rsi_form_wrapper button,
+#rsi_form_wrapper div {
+	font-family: var(--mima-font);
+}
+
+/* -----------------------------------------------------------------------------
+   2. Cabecera
+   -------------------------------------------------------------------------- */
+
+#rsi_form_wrapper .rsi-form-header {
+	background: var(--mima-surface-alt);
+	border-bottom: 1px solid var(--mima-border);
+	border-radius: var(--mima-radius-lg) var(--mima-radius-lg) 0 0;
+}
+
+#rsi_form_wrapper .rsi-form-title-container {
+	color: var(--mima-ink);
+	letter-spacing: 0.02em;
+}
+
+#rsi_form_wrapper .rsi-form-close-button {
+	color: var(--mima-text-muted);
+	border-radius: 50%;
+	transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+#rsi_form_wrapper .rsi-form-close-button:hover {
+	background: rgba(122, 62, 118, 0.08);
+	color: var(--mima-ink);
+}
+
+/* -----------------------------------------------------------------------------
+   3. Resumen del pedido
+   -------------------------------------------------------------------------- */
+
+#rsi_form_wrapper .rsi-product-item-name {
+	color: var(--mima-text);
+	font-weight: 700;
+}
+
+#rsi_form_wrapper .rsi-product-item-quantity {
+	background: var(--mima-ink);
+	color: #fff;
+	font-weight: 700;
+}
+
+#rsi_form_wrapper .rsi-total-summary-wrapper {
+	/* Por defecto es un gris de sistema. En lila suave deja de parecer un
+	   bloque de depuración y pasa a ser parte de la marca. */
+	background: var(--mima-surface-alt) !important;
+	border-color: var(--mima-border) !important;
+	border-radius: var(--mima-radius) !important;
+}
+
+#rsi_form_wrapper .rsi-total-summary-label {
+	color: var(--mima-text-muted);
+}
+
+#rsi_form_wrapper .rsi-total-summary-total-label,
+#rsi_form_wrapper .rsi-total-summary-total-value {
+	color: var(--mima-ink);
+	font-weight: 800;
+}
+
+/* -----------------------------------------------------------------------------
+   4. Método de envío
+   -------------------------------------------------------------------------- */
+
+/* El color vive en el <span> interior, no en el <p>: hay que alcanzar a ambos. */
+#rsi_form_wrapper .rsi-shipping-rates-label,
+#rsi_form_wrapper .rsi-custom-text,
+#rsi_form_wrapper .rsi-custom-text span,
+#rsi_form_wrapper .rsi-custom-text strong {
+	color: var(--mima-ink) !important;
+	font-weight: 700;
+}
+
+/* -----------------------------------------------------------------------------
+   5. Campos
+   -----------------------------------------------------------------------------
+   El input viene con radio asimétrico (0 20px 20px 0) porque el icono vive en
+   una caja hermana y cada mitad pinta su propio fondo. El resultado parece un
+   campo roto. Se mueve el marco a la fila y se dejan icono y campo en
+   transparente: un solo control, con un solo borde y un solo radio.
+   -------------------------------------------------------------------------- */
+
+#rsi_form_wrapper .rsi-text-input-row,
+#rsi_form_wrapper .rsi-select-input-row {
+	background: var(--mima-surface) !important;
+	border: 1.5px solid var(--mima-border) !important;
+	border-radius: var(--mima-radius) !important;
+	min-height: var(--mima-field-h);
+	overflow: hidden;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+#rsi_form_wrapper .rsi-text-input-row:focus-within,
+#rsi_form_wrapper .rsi-select-input-row:focus-within {
+	border-color: var(--mima-magenta-deep);
+	box-shadow: 0 0 0 3px rgba(224, 0, 143, 0.16);
+}
+
+#rsi_form_wrapper .rsi-text-input-field,
+#rsi_form_wrapper .rsi-select-field {
+	background: transparent !important;
+	border: 0 !important;
+	border-radius: 0 !important;
+	color: var(--mima-text) !important;
+	/* 16px es el mínimo que evita que iOS haga zoom al enfocar y descuadre
+	   el modal. Por debajo de eso, el formulario salta en cada campo. */
+	font-size: 16px !important;
+	min-height: calc(var(--mima-field-h) - 3px);
+}
+
+#rsi_form_wrapper .rsi-text-input-field::placeholder {
+	color: var(--mima-text-muted);
+	opacity: 1;
+}
+
+#rsi_form_wrapper .rsi-text-input-icon {
+	background: transparent !important;
+	color: var(--mima-purple);
+}
+
+#rsi_form_wrapper .rsi-text-input-label,
+#rsi_form_wrapper .rsi-select-label {
+	color: var(--mima-text);
+	font-size: 14px;
+	font-weight: 600;
+}
+
+/* El asterisco en rojo puro lee como error antes de que haya error. Se baja a
+   un tono de marca: sigue marcando obligatoriedad sin gritar. */
+#rsi_form_wrapper .rsi-text-input-required,
+#rsi_form_wrapper .rsi-select-required,
+#rsi_form_wrapper .rsi-text-input-required *,
+#rsi_form_wrapper .rsi-select-required * {
+	color: var(--mima-purple) !important;
+}
+
+/* -----------------------------------------------------------------------------
+   6. Botones
+   -----------------------------------------------------------------------------
+   Hay dos, y deben leerse como principal y secundario. Hoy son negro y naranja:
+   dos primarios compitiendo, ninguno de marca.
+   -------------------------------------------------------------------------- */
+
+#rsi_form_wrapper .rsi-custom-button {
+	border-radius: 999px !important;
+	font-weight: 800 !important;
+	letter-spacing: 0.02em;
+	transition: transform 0.12s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+#rsi_form_wrapper .rsi-custom-button:active {
+	transform: translateY(1px);
+}
+
+/* Principal — pago anticipado (tarjeta o PSE).
+   Es la opción recomendada en la estructura de la landing: mejor precio para la
+   clienta y cobro asegurado para la marca. */
+#rsi_form_wrapper .rsi-additionals_checkout_button {
+	background: var(--mima-magenta-deep) !important;
+	color: #fff !important;
+	border: 0 !important;
+	box-shadow: 0 8px 22px rgba(224, 0, 143, 0.28);
+}
+
+#rsi_form_wrapper .rsi-additionals_checkout_button:hover {
+	background: var(--mima-magenta) !important;
+}
+
+/* Secundario — contraentrega.
+   Contorno, no relleno: es la alternativa, no la recomendada. Pero NO se
+   castiga: mismo tamaño, mismo peso tipográfico y texto en --mima-ink, que da
+   7.5:1 sobre blanco. Contraentrega sigue siendo la vía de compra mayoritaria
+   en Colombia y esconderla costaría pedidos. */
+#rsi_form_wrapper .rsi-submit_button {
+	background: transparent !important;
+	color: var(--mima-ink) !important;
+	border: 2px solid var(--mima-ink) !important;
+	box-shadow: none !important;
+}
+
+#rsi_form_wrapper .rsi-submit_button:hover {
+	background: rgba(122, 62, 118, 0.06) !important;
+}
+
+/* La sacudida es un recurso de urgencia falsa y aquí además se aplica al botón
+   secundario, que es el que menos la necesita. */
+#rsi_form_wrapper .rsi_animation_shake {
+	animation: none !important;
+}
+
+/* -----------------------------------------------------------------------------
+   4b. Método de envío
+   -------------------------------------------------------------------------- */
+
+#rsi_form_wrapper .rsi-shipping-rates-item {
+	border-color: var(--mima-border) !important;
+	border-radius: var(--mima-radius) !important;
+}
+
+#rsi_form_wrapper .rsi-shipping-rates-item:has(input:checked) {
+	border-color: var(--mima-magenta-deep) !important;
+	background: rgba(224, 0, 143, 0.04);
+}
+
+#rsi_form_wrapper .rsi-shipping-rates-title {
+	color: var(--mima-text);
+}
+
+/* accent-color con valor literal: la app lo fija a #2458D2 en esta misma clase
+   y una variable heredada complica innecesariamente el desempate. */
+#rsi_form_wrapper,
+#rsi_form_wrapper .rsi-shipping-rates-radio,
+#rsi_form_wrapper .rsi-checkbox-input,
+#rsi_form_wrapper .rsi-onetick-wrapper,
+#rsi_form_wrapper input[type='radio'],
+#rsi_form_wrapper input[type='checkbox'] {
+	accent-color: #e0008f !important;
+}
+
+/* -----------------------------------------------------------------------------
+   7. Order bump y extras
+   -----------------------------------------------------------------------------
+   Por defecto son dos cajas de fondo saturado y borde discontinuo: amarillo con
+   rojo y azul con azul. El borde discontinuo en colores de alerta es el patrón
+   visual del dropshipping barato, y aparece justo en el momento de pagar.
+
+   El contenedor real es .rsi-onetick-wrapper. El <label> de dentro no lleva
+   fondo propio: si se estiliza, salen dos cajas anidadas.
+   -------------------------------------------------------------------------- */
+
+#rsi_form_wrapper .rsi-onetick-wrapper {
+	background: var(--mima-surface-alt) !important;
+	border: 1.5px solid var(--mima-border) !important;
+	border-radius: var(--mima-radius) !important;
+	/* el trazo discontinuo se pinta como outline, no como border */
+	outline: none !important;
+}
+
+#rsi_form_wrapper .rsi-onetick-text {
+	color: var(--mima-text) !important;
+	font-weight: 700;
+}
+
+#rsi_form_wrapper .rsi-onetick-desc {
+	color: var(--mima-text-muted) !important;
+}
+
+/* Cuando la clienta lo marca, entonces sí se destaca: el énfasis va después de
+   la decisión, no antes. */
+#rsi_form_wrapper .rsi-onetick-wrapper:has(input:checked) {
+	border-color: var(--mima-magenta-deep) !important;
+	background: rgba(224, 0, 143, 0.05) !important;
+}
+
+#rsi_form_wrapper .rsi-checkbox-label {
+	color: var(--mima-text-muted);
+	font-size: 14px;
+}
+
+/* -----------------------------------------------------------------------------
+   7b. Oferta de cantidad
+   -----------------------------------------------------------------------------
+   Los escalones vienen en violeta #D946EF sobre #FDF4FF, que no es la marca, y
+   con bordes de 3px que pesan demasiado dentro de un modal.
+
+   Ojo: el color de selección también se puede fijar en la app (selBC / selBgC
+   de la oferta). Se resuelve aquí para no tener la paleta definida en dos
+   sitios: la app decide qué se ofrece, el CSS cómo se ve.
+
+   El estado seleccionado no añade clase; se detecta con :has(input:checked).
+   -------------------------------------------------------------------------- */
+
+#rsi_form_wrapper .rsi-quantity-product {
+	background: var(--mima-surface) !important;
+	border: 1.5px solid var(--mima-border) !important;
+	border-radius: var(--mima-radius) !important;
+	transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+#rsi_form_wrapper .rsi-quantity-product:has(input:checked) {
+	border-color: var(--mima-magenta-deep) !important;
+	background: rgba(224, 0, 143, 0.05) !important;
+}
+
+#rsi_form_wrapper .rsi-quantity-title {
+	color: var(--mima-text) !important;
+	font-weight: 700;
+	line-height: 1.3;
+}
+
+#rsi_form_wrapper .rsi-quantity-image {
+	border-radius: var(--mima-radius) !important;
+}
+
+/* Precio: el tachado se aparta, el vigente manda. */
+#rsi_form_wrapper .rsi-quantity-old-price,
+#rsi_form_wrapper .rsi-quantity-old-price span {
+	color: var(--mima-text-muted) !important;
+	font-weight: 400;
+}
+
+#rsi_form_wrapper .rsi-quantity-price-wrapper > span:last-child {
+	color: var(--mima-ink) !important;
+	font-weight: 800;
+}
+
+/* Los importes no se parten nunca.
+   Con decimales ("$125.860,00") la cifra no cabe junto al badge y rompe a mitad
+   de número: "$125.860," / "00". Se fuerza a una sola pieza y se deja que lo
+   que baje de línea sea el badge, no el precio. */
+#rsi_form_wrapper .rsi-quantity-price-container {
+	display: flex !important;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 4px 8px;
+}
+
+/* El badge nunca se encoge: si no cabe junto al precio, baja de línea. */
+#rsi_form_wrapper .rsi-quantity-plaque {
+	flex-shrink: 0;
+}
+
+#rsi_form_wrapper .rsi-quantity-price-wrapper,
+#rsi_form_wrapper .rsi-quantity-price-wrapper span {
+	white-space: nowrap !important;
+}
+
+/* Badge de ahorro */
+#rsi_form_wrapper .rsi-quantity-plaque {
+	background: var(--mima-magenta-deep) !important;
+	color: #fff !important;
+	border-radius: 999px !important;
+	font-weight: 700;
+	letter-spacing: 0.01em;
+}
+
+/* El primer escalón es la unidad suelta (pos 0) y su badge dice "Ahorra 0%".
+   En magenta llamaría la atención sobre la opción que menos interesa, así que
+   se deja neutro. Mejor aún: darle un texto propio en la app. */
+#rsi_form_wrapper .rsi-quantity-product:first-of-type .rsi-quantity-plaque {
+	background: var(--mima-border) !important;
+	color: var(--mima-text-muted) !important;
+}
+
+/* El radio es un input con appearance:none: el círculo se dibuja con el borde. */
+#rsi_form_wrapper .rsi-quantity-product input[type='radio'] {
+	border-color: var(--mima-border) !important;
+}
+
+#rsi_form_wrapper .rsi-quantity-product input[type='radio']:checked {
+	border-color: var(--mima-magenta-deep) !important;
+}
+
+/* -----------------------------------------------------------------------------
+   8. Errores
+   -------------------------------------------------------------------------- */
+
+#rsi_form_wrapper .rsi-checkbox-error-row,
+#rsi_form_wrapper [class*='error'] {
+	color: var(--mima-error);
+}
+
+#rsi_form_wrapper .rsi-text-input-row:has(input[aria-invalid='true']) {
+	border-color: var(--mima-error);
+}
+
+/* -----------------------------------------------------------------------------
+   9. Accesibilidad
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+	#rsi_form_wrapper * {
+		animation: none !important;
+		transition: none !important;
+	}
+}
