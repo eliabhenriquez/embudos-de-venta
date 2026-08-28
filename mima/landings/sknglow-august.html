@@ -46,7 +46,27 @@
 
 
 			<figure class="sg-hero__media">
-				<img class="sg-hero__portrait"
+				<!-- Foto y frasco van en una sola imagen: dos peticiones y 276 KB pasan a
+				     una y 94 KB en móvil. El frasco tapa justo la zona de pelo rizado, que
+				     es la más cara de comprimir, así que la compuesta pesa menos que la
+				     foto sola. Cada recorte se sirve a su breakpoint: el móvil nunca
+				     descarga el de escritorio.
+				     El marcado por capas de antes queda abajo comentado, con sus estilos
+				     intactos en la hoja, por si hay que volver a separarlos. -->
+				<picture>
+					<source media="(min-width: 900px)"
+						srcset="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-hero-escritorio.webp?width=860">
+					<img class="sg-hero__composite"
+						src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-hero-movil-v1.webp?width=860"
+						width="860" height="737"
+						alt="Frasco de Sknglow con Resveratrol y Biotina junto al rostro de una clienta"
+						fetchpriority="high" decoding="async">
+				</picture>
+
+				<figcaption class="sg-hero__claim">Más firme. Más pareja. Más luminosa.</figcaption>
+
+				<!-- Versión por capas — no borrar:
+							<img class="sg-hero__portrait"
 					src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-hero-isabella.webp?width=900"
 					srcset="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-hero-isabella.webp?width=520 520w,
 					        https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-hero-isabella.webp?width=900 900w"
@@ -63,7 +83,8 @@
 					alt="Frasco de Sknglow con Resveratrol y Biotina, 120 dulces duros sabor kiwi"
 					fetchpriority="high" decoding="async">
 
-				<figcaption class="sg-hero__claim">Más firme. Más pareja. Más luminosa.</figcaption>
+				-->
+
 			</figure>
 
 			<div class="sg-hero__specs">
@@ -793,13 +814,7 @@
 		font-display: swap;
 	}
 
-	@font-face {
-		font-family: 'AOK Buenos Aires';
-		src: url('https://www.mimacolombia.com/cdn/shop/files/aok-buenos-aires-400-italic.woff2') format('woff2');
-		font-weight: 400;
-		font-style: italic;
-		font-display: swap;
-	}
+	
 
 	@font-face {
 		font-family: 'AOK Buenos Aires';
@@ -1349,6 +1364,27 @@
 	/* Cuadrada en vertical: a 3/4 el hero crecía 275px y empujaba el CTA
 	   fuera de pantalla. El recuadro cuadrado recorta pelo y jersey, nunca
 	   la cara, que entera cabe de sobra. */
+	/* Foto y frasco vienen ya compuestos en una sola imagen. La proporción se
+	   fija aquí y no con los atributos width/height, porque cada breakpoint
+	   sirve un recorte distinto y el intrínseco cambia con él. */
+	.sg-lp .sg-hero__composite {
+		display: block;
+		width: 100%;
+		/* El lienzo lleva 25px de más arriba —la parte del frasco que asoma por
+		   encima de la foto— en transparente. El margen negativo devuelve esa
+		   franja al layout, así que la tarjeta ocupa lo mismo que antes.
+		   Los porcentajes de margin se resuelven contra el ANCHO, que es
+		   justamente la referencia del lienzo: -25/860. */
+		aspect-ratio: 860 / 762;
+		margin-top: -2.907%;
+	}
+
+	/* Las esquinas van horneadas en la imagen, no en CSS: el redondeo es de la
+	   foto, y el borde del elemento incluye la franja transparente del frasco. */
+
+	/* --- Reglas de la versión por capas. No se usan mientras el hero vaya
+	   compuesto, pero se quedan: volver a separar foto y frasco es descomentar
+	   el marcado, sin reescribir nada de esto. --- */
 	.sg-lp .sg-hero__portrait {
 		display: block;
 		width: 100%;
@@ -2673,6 +2709,8 @@
 		/* El tope de 300px era para el frasco solo; ahora la pieza es la foto.
 		   Con la columna entera para ella recupera el 3/4, que le sienta mejor. */
 		.sg-lp .sg-hero__media { align-self: center; max-width: 430px; justify-self: end; }
+		/* En horizontal el frasco no asoma: lienzo sin franja ni margen. */
+		.sg-lp .sg-hero__composite { aspect-ratio: 860 / 1147; margin-top: 0; }
 		.sg-lp .sg-hero__portrait { aspect-ratio: 3 / 4; }
 		.sg-lp .sg-hero .sg-lead { font-size: 17px; margin-top: 18px; }
 
