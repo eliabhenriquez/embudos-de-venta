@@ -7,7 +7,7 @@
 # encogido. Este script añade la misma cabecera que usa el tema para que la
 # vista previa coincida con producción.
 #
-#   ./preview.sh mima/landings/sknglow-august.html
+#   ./preview.sh mima/landings/sknglow/piel/august.html
 #
 # Genera <nombre>.preview.html junto al fragmento. Es un archivo derivado:
 # se regenera, nunca se edita a mano.

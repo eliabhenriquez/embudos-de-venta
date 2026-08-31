@@ -40,9 +40,10 @@ genera la variante del tamaño pedido. Por eso:
 La optimización es un paso versionado del repo, no algo que se haga a mano en una web externa.
 Así el resultado es reproducible, revisable y consistente entre marcas.
 
-Los originales se quedan en `<marca>/docs/products/<producto>/images/` y
-`<marca>/humanized-images/<producto>/`. Los optimizados salen a
-`<marca>/landings/assets/<producto>/`.
+Los originales se quedan en `product-images/<producto>/` (foto de producto) y
+`humanized-images/<producto>/<persona>/` (UGC), **ambos en la raíz del repo y fuera de git**. Los
+optimizados salen a `<marca>/landings/<producto>/assets/`, que comparten todos los ángulos del
+producto: antes de optimizar una imagen, comprueba si ya está ahí.
 
 Requiere ImageMagick (`brew install imagemagick`).
 

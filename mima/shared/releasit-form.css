@@ -322,6 +322,96 @@ body:has([data-rsi-banner]) #rsi_form_wrapper .rsi-image-item-wrapper {
 }
 
 /* -----------------------------------------------------------------------------
+   6b. La elección hecha en la landing manda dentro del formulario
+   -----------------------------------------------------------------------------
+   La landing pregunta "elige cómo pagar" y el formulario abría igual para las
+   dos respuestas: los dos botones al mismo peso. La clienta que acababa de
+   elegir pago anticipado volvía a ver contraentrega como si no hubiera elegido
+   nada. Es la queja que llegó.
+
+   La landing escribe su respuesta en <html data-sg-pay="prepaid|cod"> y aquí se
+   recoge. Sin ese atributo no cambia absolutamente nada, así que las landings
+   que no lo implementen siguen igual que hoy.
+
+   ATENUAR, NO ESCONDER. Contraentrega es la vía de compra mayoritaria en
+   Colombia. Si la clienta abre el formulario, se lo repiensa y no encuentra
+   cómo pagar al recibir, el pedido se pierde. Aquí la opción descartada sigue
+   existiendo y sigue siendo clicable: solo deja de competir. Al final de la
+   sección está la regla para ocultarla del todo, comentada.
+   -------------------------------------------------------------------------- */
+
+/* No se reordenan. Comprobado en el DOM del formulario: cada botón vive en su
+   propia .rsi-custom-button-row dentro de su propia .rsi-custom-button-wrapper,
+   así que son contenedores flex distintos y `order` no puede moverlos entre
+   ellos. El único padre común es un <div> sin clase, y colgar de él un selector
+   estructural se rompería con cualquier versión nueva de la app. La atenuación
+   de abajo ya deja clara la jerarquía sin necesidad de mover nada.
+
+   La opción descartada baja a enlace discreto. */
+html[data-sg-pay="prepaid"] #rsi_form_wrapper .rsi-submit_button,
+html[data-sg-pay="cod"] #rsi_form_wrapper .rsi-additionals_checkout_button {
+	background: transparent !important;
+	color: var(--mima-text-muted) !important;
+	border: 0 !important;
+	box-shadow: none !important;
+	min-height: 0 !important;
+	height: auto !important;
+	padding: 12px 8px !important;
+	font-weight: 600 !important;
+}
+
+html[data-sg-pay="prepaid"] #rsi_form_wrapper .rsi-submit_button:hover,
+html[data-sg-pay="cod"] #rsi_form_wrapper .rsi-additionals_checkout_button:hover {
+	background: transparent !important;
+	color: var(--mima-ink) !important;
+}
+
+/* Y la elegida pasa a principal. En la sección 6 contraentrega va en contorno
+   porque por defecto es la alternativa; pero si la clienta la eligió a
+   propósito, es SU opción y tiene que verse como tal. Así los dos estados son
+   simétricos: la elegida rellena, la descartada en enlace. */
+html[data-sg-pay="cod"] #rsi_form_wrapper .rsi-submit_button {
+	background: var(--mima-magenta-deep) !important;
+	border: 0 !important;
+	box-shadow: 0 8px 22px rgba(224, 0, 143, 0.28);
+}
+
+html[data-sg-pay="cod"] #rsi_form_wrapper .rsi-submit_button,
+html[data-sg-pay="cod"] #rsi_form_wrapper .rsi-submit_button * {
+	color: #fff !important;
+}
+
+html[data-sg-pay="cod"] #rsi_form_wrapper .rsi-submit_button:hover {
+	background: var(--mima-magenta) !important;
+}
+
+/* Sin icono y sin subtítulo: es un enlace, no un botón. */
+html[data-sg-pay="prepaid"] #rsi_form_wrapper .rsi-submit_button .rsi-icon,
+html[data-sg-pay="prepaid"] #rsi_form_wrapper .rsi-submit_button .rsi-custom-button-content > p,
+html[data-sg-pay="cod"] #rsi_form_wrapper .rsi-additionals_checkout_button .rsi-icon,
+html[data-sg-pay="cod"] #rsi_form_wrapper .rsi-additionals_checkout_button .rsi-custom-button-content > p {
+	display: none !important;
+}
+
+html[data-sg-pay="prepaid"] #rsi_form_wrapper .rsi-submit_button .rsi-custom-button-content > span,
+html[data-sg-pay="cod"] #rsi_form_wrapper .rsi-additionals_checkout_button .rsi-custom-button-content > span {
+	font-size: 14px !important;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+/* ALTERNATIVA — ocultar del todo la opción descartada.
+   Quitar los comentarios para probarlo. Medir antes de dejarlo fijo: el riesgo
+   es perder los pedidos de quien cambia de idea ya dentro del formulario, que
+   con contraentrega en Colombia no es un caso raro.
+
+html[data-sg-pay="prepaid"] #rsi_form_wrapper .rsi-custom-button-row:has(.rsi-submit_button),
+html[data-sg-pay="cod"] #rsi_form_wrapper .rsi-custom-button-row:has(.rsi-additionals_checkout_button) {
+	display: none !important;
+}
+*/
+
+/* -----------------------------------------------------------------------------
    4b. Método de envío
    -----------------------------------------------------------------------------
    El bloque se oculta: con una sola tarifa ("Envío gratis") no es una elección,

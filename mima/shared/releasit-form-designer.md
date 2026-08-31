@@ -105,7 +105,7 @@ del formulario: ese consentimiento se pide mejor en el correo de confirmación.
 
 ## 4. Order bump — MIMA Calm
 
-El copy aprobado (`docs/products/sknglow/copy/order_bump_upsell.md`) ocupa cinco
+El copy aprobado (`landings/sknglow/piel/order_bump_upsell.md`) ocupa cinco
 líneas dentro de una caja de checkout. Versión corta, mismo mensaje:
 
 > **Agrega MIMA Calm por $39.950**
@@ -341,3 +341,54 @@ dejaría la definición duplicada en dos sitios:
 - Estados de foco y de selección
 
 La regla: **la app decide qué se dice y qué se cobra; el CSS decide cómo se ve.**
+
+---
+
+## 7e. Condicionar el formulario según la elección de la landing
+
+**Problema reportado (2026-08-28).** En «Elige cómo pagar» la clienta marca pago
+anticipado, pulsa el CTA, y el formulario abre mostrando contraentrega con el
+mismo peso visual. Elegir no servía de nada.
+
+### Cómo está montado
+
+La landing escribe la elección en `<html data-sg-pay="prepaid|cod">` desde su
+propio `sync()`, y la piel del formulario la recoge en la sección 6b.
+
+Se escribe la elección **real**, no el `mode` interno, porque el script tiene una
+bandera `PREPAID_ENABLED` que fuerza todo a `cod`. Así esto funciona aunque esa
+bandera siga apagada.
+
+### Lo que se encontró en el DOM del formulario
+
+| Elemento | Selector |
+|---|---|
+| Botón de pago anticipado | `.rsi-custom-button.rsi-additionals_checkout_button` |
+| Botón de contraentrega | `.rsi-custom-button.rsi-submit_button` |
+| Título del botón | `.rsi-custom-button-content > span` |
+| Subtítulo | `.rsi-custom-button-content > p` |
+| Icono | `.rsi-icon` |
+
+**No se pueden reordenar.** Cada botón vive en su propia
+`.rsi-custom-button-row` dentro de su propia `.rsi-custom-button-wrapper`, o sea
+contenedores flex distintos: `order` no puede moverlos entre sí. El único padre
+común es un `<div>` sin clase y colgar de ahí un selector estructural se rompería
+con cualquier versión nueva de la app.
+
+### Comportamiento resultante
+
+| Estado | Anticipado | Contraentrega |
+|---|---|---|
+| Sin atributo | relleno magenta | contorno |
+| `prepaid` | relleno magenta | **enlace subrayado** |
+| `cod` | **enlace subrayado** | relleno magenta |
+
+Verificado inyectando la sección 6b sobre el formulario publicado y capturando
+los tres estados.
+
+### Atenuar, no esconder
+
+Contraentrega es la vía mayoritaria en Colombia. Si la clienta abre el
+formulario, se lo repiensa y no encuentra cómo pagar al recibir, se pierde el
+pedido. La opción descartada sigue existiendo y sigue siendo clicable: solo deja
+de competir. La regla para ocultarla del todo está al final de 6b, comentada.

@@ -42,7 +42,7 @@ borde) rompe la continuidad visual justo en el momento de dar los datos personal
 causas principales de la percepción de "esto parece estafa" que este proyecto viene a corregir. Por eso
 esta guía existe: **la coherencia visual entre landing y formulario es una palanca de CRO, no un detalle.**
 
-Referencias de copy del flujo completo: `<marca>/docs/products/<producto>/copy/order_bump_upsell.md`.
+Referencias de copy del flujo completo: `<marca>/landings/<producto>/<ángulo>/order_bump_upsell.md`.
 
 ---
 

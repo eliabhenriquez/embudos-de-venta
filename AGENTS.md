@@ -1,8 +1,16 @@
 # AGENTS.md
 
-Contexto raíz del repositorio. Aplica a **todas** las marcas. Cada marca puede tener su propio
-`<marca>/AGENTS.md` con contexto específico (tono, paleta, productos, restricciones legales propias);
-ese archivo **sobrescribe** lo que se diga aquí en caso de conflicto.
+Contexto raíz del repositorio. Aplica a **todas** las marcas.
+
+El contexto está en **tres niveles que cascadean**, del general al específico:
+
+| Nivel | Archivo | Qué contiene |
+|---|---|---|
+| Global | `AGENTS.md` | Stack, reglas técnicas, rendimiento, principios de CRO |
+| Marca | `<marca>/AGENTS.md` | Identidad, paleta, tipografía, tono, tema de Shopify, formulario |
+| Producto | `<marca>/landings/<producto>/AGENTS.md` | Qué es, precio, ángulos, prefijo CSS, claims, funnel |
+
+**El más específico gana** en caso de conflicto. Lee los tres antes de tocar una landing.
 
 ---
 
@@ -24,27 +32,51 @@ de compra, sin engañarlo? Si la respuesta no es un sí claro, no se hace.
 
 ```
 /
-├── AGENTS.md                 # este archivo (contexto global)
-├── docs/                     # guías transversales de plataforma (todas las marcas)
+├── AGENTS.md                       # este archivo (contexto global, todas las marcas)
+├── preview.sh                      # vista previa local de un fragmento (ver §9)
+├── docs/                           # guías transversales de plataforma
 │   ├── releasit-form-styling.md
 │   ├── image-optimization.md
 │   └── brand-typography.md
-├── <marca>/                  # una carpeta por marca (mima, nambu, ...)
-│   ├── AGENTS.md             # contexto específico de la marca
-│   ├── docs/                 # fuente de verdad de la marca
-│   │   ├── branding.pdf      # identidad visual (colores, tipografías, logo, tono)
-│   │   └── products/
-│   │       └── <producto>/
-│   │           ├── copy/     # copies aprobados (landing, order bump, upsell, ads)
-│   │           └── images/   # material fotográfico crudo del producto
-│   ├── shared/               # activos transversales de la marca (skin del form, tokens)
-│   └── landings/             # entregables: <producto>-<campaña>.html
+├── humanized-images/               # UGC crudo, por producto y persona  ┐ gitignored:
+├── product-images/                 # foto de producto cruda            ┘ pesan más que el repo
+└── <marca>/                        # mima, nambu
+    ├── AGENTS.md                   # contexto de la marca
+    ├── docs/                       # info GENERAL de marca: branding, logos, informes
+    ├── theme/                      # tema Liquid de Shopify (lo que envuelve la landing)
+    ├── shared/                     # activos transversales de la marca (skin de Releasit, fuentes)
+    └── landings/
+        └── <producto>/             # sknglow, mimacalm, mimanad
+            ├── AGENTS.md           # contexto del producto
+            ├── assets/             # .webp optimizados, COMPARTIDOS por todos los ángulos
+            └── <ángulo>/           # piel, cabello, ...
+                ├── <campaña>.html  # el entregable (august.html)
+                └── *.md            # copy aprobado de ese ángulo
 ```
 
-Marcas activas: `mima` (productos: **SKNGLOW**, **MIMACALM**, **MIMANAD**), `nambu`.
+**Qué es un ángulo.** El mismo producto vendido con un argumento distinto a un público distinto.
+SKNGLOW sirve para la piel y para el cabello, así que tiene `piel/` y `cabello/`: misma variante de
+Shopify y mismo precio, pero landing, copy y promesa propios. Un ángulo nuevo es una carpeta nueva,
+nunca un condicional dentro de una landing existente.
 
-**Regla:** antes de escribir una sola línea de una landing, leer `docs/` de esa marca y producto
-(branding + copy). El copy y los claims salen de ahí, **no se inventan**.
+**Los tres `AGENTS.md` cascadean.** Global → marca → producto. El más específico **gana** en caso de
+conflicto. Antes de tocar una landing hay que haber leído los tres.
+
+**Dónde va cada cosa — reglas que no se negocian:**
+
+| Contenido | Ubicación | Por qué ahí |
+|---|---|---|
+| Branding, paleta, logo, tono | `<marca>/docs/` | Es de la marca, no de un producto |
+| Copy, claims, precios | `<producto>/<ángulo>/*.md` | Cada ángulo tiene su propio argumento |
+| Imágenes optimizadas | `<producto>/assets/` | Se comparten entre ángulos; duplicarlas es un error |
+| Imágenes crudas | `humanized-images/`, `product-images/` | Fuera de git; ver `docs/image-optimization.md` |
+| Skin de Releasit, fuentes | `<marca>/shared/` | Un solo formulario para toda la marca |
+
+Marcas activas: `mima` (productos: **SKNGLOW**, **MIMACALM**, **MIMANAD**), `nambu` (aún vacía).
+
+**Regla:** antes de escribir una sola línea de una landing, leer el `AGENTS.md` del producto, el
+`docs/` de la marca (branding) y el copy del ángulo. El copy y los claims salen de ahí, **no se
+inventan**.
 
 ---
 
@@ -113,9 +145,10 @@ El tráfico es mayoritariamente **mobile y de paid**: cada 100 ms cuentan.
   + `decoding="async"`.
 - **CLS:** `width` y `height` explícitos en toda imagen y vídeo. Reservar espacio de todo lo que
   aparezca dinámicamente (contadores, badges, sliders).
-- **Imágenes:** WebP, servidas desde el CDN de Shopify con `?width=` y `srcset`. Las fotos de
-  `docs/products/*/images` son crudas (2–3 MB): **hay que optimizarlas antes de usarlas**, nunca
-  referenciarlas tal cual. Procedimiento, comandos y tamaños: **`docs/image-optimization.md`**.
+- **Imágenes:** WebP, servidas desde el CDN de Shopify con `?width=` y `srcset`. Las de
+  `product-images/` y `humanized-images/` son crudas (2–3 MB): **hay que optimizarlas antes de
+  usarlas**, nunca referenciarlas tal cual. Las optimizadas viven en `<producto>/assets/` y las
+  comparten todos los ángulos. Procedimiento, comandos y tamaños: **`docs/image-optimization.md`**.
 - **Tipografías:** las landings **no declaran `font-family`**, heredan la del tema. La tipografía de
   marca se instala una sola vez en el tema: ver **`docs/brand-typography.md`**.
 - **Animaciones:** solo `transform` y `opacity`. Respetar `prefers-reduced-motion`.
@@ -128,7 +161,8 @@ El tráfico es mayoritariamente **mobile y de paid**: cada 100 ms cuentan.
 - Naming (clases, funciones, archivos, variables) **en inglés**; el **contenido visible en español**
   (mercado LATAM, ver §8).
 - **camelCase** en JS. Clases CSS en **kebab-case** con prefijo de marca/producto.
-- Archivos de landing: `<producto>-<campaña>.html` (ej. `sknglow-august.html`).
+- Archivos de landing: `<campaña>.html` (ej. `august.html`). La ruta ya dice marca, producto
+  y ángulo — repetirlo en el nombre es ruido.
 - **Indentación con tabs**, siempre. Comillas **simples** en JS. Sin punto y coma final en JS.
 - Comentarios breves y concretos, solo donde el "por qué" no sea obvio.
 - **Sin magic numbers/strings**: precios, IDs de variante, textos repetidos, breakpoints y colores van
@@ -178,7 +212,7 @@ Principios:
 - **Pagos:** pago anticipado (con descuento) y **contraentrega**. Confirmación y seguimiento por
   **WhatsApp**. Envío gratis. Entrega 3–5 días hábiles.
 - **Funnel:** landing → **formulario Releasit** con **order bump** → **upsell** one-time → thank you page
-  (copy en `docs/products/*/copy/order_bump_upsell.md`; estilos en `docs/releasit-form-styling.md`).
+  (copy en `landings/<producto>/<ángulo>/order_bump_upsell.md`; estilos en `docs/releasit-form-styling.md`).
 - **Claims de salud — crítico.** Son suplementos, no medicamentos. El copy habla siempre de
   **apariencia y cuidado** ("ayuda a que la piel se vea…"), nunca de curar, tratar o prevenir
   enfermedades. No modificar ni "mejorar" un claim del copy aprobado por cuenta propia.
@@ -190,7 +224,8 @@ Principios:
 
 ## 9. Flujo de trabajo del agente
 
-1. Identificar **marca y producto**; leer su `AGENTS.md`, `docs/branding.*` y el `copy/` correspondiente.
+1. Identificar **marca, producto y ángulo**; leer los tres `AGENTS.md`, el `docs/` de la marca
+   (branding) y el copy del ángulo.
 2. Si falta información (variante de Shopify, imagen, claim, precio), **preguntar**; no rellenar con
    supuestos ni con placeholders que puedan acabar en producción.
 3. Construir el bloque autocontenido siguiendo §4–§6. Si la landing toca el botón o el formulario de
@@ -199,8 +234,8 @@ Principios:
    sin errores de consola, imágenes con dimensiones, CTAs funcionando, textos coincidiendo con el copy.
    **Comprobar los colores computados, no solo el CSS escrito:** una regla genérica de elemento
    (`.card p`) gana a una de clase (`.card__tag`) y deja texto ilegible sin avisar.
-5. **Para verlo fuera de GemPages:** `./preview.sh <marca>/landings/<archivo>.html` genera un
+5. **Para verlo fuera de GemPages:** `./preview.sh <marca>/landings/<producto>/<ángulo>/<campaña>.html` genera un
    `.preview.html` con la cabecera del tema. Los fragmentos **no llevan `<meta viewport>`** —lo pone
    Shopify—, así que abiertos en crudo el móvil los renderiza a ~980 px, con el layout de escritorio
    encogido. No es un fallo de la landing: es que le falta el documento que la envuelve.
-5. No tocar producción (publicar/despublicar páginas, cambiar el tema) sin petición explícita.
+6. No tocar producción (publicar/despublicar páginas, cambiar el tema) sin petición explícita.
