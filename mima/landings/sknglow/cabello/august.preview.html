@@ -1,31 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>august · vista previa</title>
+<style>
+body{margin:0}
+html{font-size:16px}
+body{font-size:16px;font-family:Helvetica,Arial,sans-serif}
+a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:empty,h6:empty,p:empty,section:empty,ul:empty{display:none}
+.h0,.h1,.h2,.h3,.h4,.h5,h1,h2,h3,h4,h5{font-family:Georgia,serif}
+</style>
+</head>
+<body>
 <!--
-	MIMA · SKNGLOW — Landing de venta (campaña agosto)
+	MIMA · SKNGLOW — Landing de venta, ángulo CABELLO (campaña agosto)
 	=================================================================
 	Bloque autocontenido para pegar en GemPages (elemento HTML/Liquid).
 	Sin <html>, <head> ni <body>. Todo el CSS va namespaced bajo .sg-lp.
 
+	Mismo producto, misma variante y mismo precio que el ángulo piel:
+	lo único que cambia es el argumento. Estructura y estilos heredados
+	de landings/sknglow/piel/august.html, con dos bloques nuevos:
+	el carrusel de UGC tras el hero y la línea de tiempo (Parte 5).
+
 	CTA → abre el modal de Releasit mediante las clases de integración
 	_rsi-cod-form-gempages-button-overwrite y _rsi-cod-form-is-gempage.
 
-	PAGO ANTICIPADO — resuelto (verificado el 2026-08-27)
-	El aviso anterior decía que no se podía publicar porque ambas rutas
-	cobraban $89.900. Ya no: el formulario de Releasit tiene activo el
-	botón "Paga con tarjeta o PSE" con descuento fijo de $10.000
-	(código RSI_ADDITIONAL_CHECKOUT_BUTTON_935459008), así que el
-	$79.900 que promete el hero es el que se cobra por esa vía.
-	Si algún día se desactiva ese botón o cambia el descuento, hay que
-	quitar el chip .sg-price__prepay del hero.
+	PENDIENTES ANTES DE PUBLICAR — ver AGENTS.md del producto:
+	  1. AUTORIDAD: la tarjeta del NIH cita un estudio de 2,5 mg de
+	     Biotina al día. La tabla nutricional del propio producto
+	     (slide 5 del hero) declara 9 µg por porción de 3 dulces:
+	     unas 280 veces menos. Esa cifra hay que quitarla o acotarla.
+	  2. AUTORIDAD: el estudio de Resveratrol y densidad capilar usa
+	     una fórmula TÓPICA y Sknglow es oral. En revisión.
+	  3. El handle de esta página debe añadirse a `paid_landings`
+	     en theme.gempages.blank.liquid o hereda el tema completo.
 
 	Imágenes: Shopify CDN. Requieren subir a Contenido → Archivos los
-	10 ficheros landings-sknglow-*.webp de landings/sknglow/assets/
+	17 ficheros landings-sknglow-cab-*.webp de landings/sknglow/assets/
 	conservando el nombre exacto.
+
+	VERSIONADO — el CDN de Shopify cachea por nombre de archivo y no
+	suelta la versión vieja ni borrándola. Por eso una imagen que ya se
+	subió NUNCA se reemplaza con el mismo nombre: se sube con sufijo
+	-v2, -v3... y se actualiza la referencia aquí. Ver la regla completa
+	en docs/image-optimization.md. El resto ya está subido por piel.
 -->
 
 <!-- data-rsi-banner: enciende el banner del formulario de Releasit, que va
      oculto por defecto porque el bloque de imagen es global a la tienda.
-     El VALOR elige qué banner se pinta: "piel" carga el suyo desde
+     El VALOR elige qué banner se pinta: "cabello" carga el suyo desde
      shared/releasit-form.css. Sin valor se queda el que tenga puesto la app. -->
-<section class="sg-lp" id="sg-sknglow" data-rsi-banner="piel">
+<section class="sg-lp" id="sg-sknglow" data-rsi-banner="cabello">
 
 	<!-- =========================== CABECERA ========================= -->
 	<header class="sg-topbar">
@@ -41,10 +69,9 @@
 	<section class="sg-hero">
 		<div class="sg-shell sg-hero__grid">
 			<div class="sg-hero__head">
-				<h1 class="sg-h1">Tu próxima piel empieza hoy</h1>
-				<p class="sg-lead"><strong>Sknglow</strong> trabaja desde adentro para que vuelvas a ver el cuidado que le das a tu piel</p>
+				<h1 class="sg-h1">El cabello fuerte empieza antes de que lo veas</h1>
+				<p class="sg-lead"><strong>Sknglow</strong> trabaja en la raíz y en la estructura para que tu cabello gane cuerpo, tus uñas resistencia y tu piel luz</p>
 			</div>
-
 
 			<figure class="sg-hero__media">
 				<!-- Slider nativo: scroll con snap, sin librería. El JS solo sincroniza
@@ -54,24 +81,11 @@
 					<ul class="sg-slider__track" data-sg-slider-track tabindex="0"
 						role="region" aria-label="Imágenes de Sknglow">
 					<li class="sg-slider__slide">
-						<!-- La compuesta de piel: foto y frasco horneados en una sola
-						     imagen. Recortada de 860 a 800 de ancho por el borde derecho
-						     (el frasco queda intacto) para que su proporción sea la misma
-						     que la de la caja del slider: así llena el hueco en vez de
-						     dejar banda arriba, y las cuatro infografías solo pierden un
-						     2,4% por lado, que cabe en sus márgenes.
-
-						     OJO: esta imagen trae el redondeo horneado en el alfa (radio
-						     45px sobre 800, más una banda de 25px arriba por la que asoma
-						     el tapón). El recorte se llevó las dos esquinas derechas y
-						     quedaron en pico; la v2 se las devuelve copiando en espejo el
-						     alfa de las izquierdas. Si se vuelve a recortar de ancho, hay
-						     que rehacer ese espejo. -->
-						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-piel-hero-1-v2.webp?width=800"
-							width="800" height="762"
-							alt="Frasco de Sknglow con Resveratrol y Biotina junto al rostro de una clienta"
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-hero-1.webp?width=860"
+							width="860" height="860"
+							alt="Clienta de MIMA con el cabello suelto sosteniendo su frasco de Sknglow"
 							fetchpriority="high" decoding="async">
-						<figcaption class="sg-hero__claim">Más firme. Más pareja. Más luminosa.</figcaption>
+						<figcaption class="sg-hero__claim">Más cuerpo. Más fuerza. Más luz.</figcaption>
 					</li>
 					<li class="sg-slider__slide">
 						<!-- Sin ?width=: Shopify reencoda peor que nosotros. Su variante de
@@ -120,9 +134,7 @@
 
 			<div class="sg-hero__specs">
 				<ul class="sg-facts">
-					<li>120 Dulces duros</li>
-					<!-- <li>Biotina + Resveratrol</li> -->
-					<!-- <li>120 dulces duros</li> -->
+					<li>120 Dulces duros sabor a kiwi</li>
 					<li>4 al día por 30 días</li>
 				</ul>
 			</div>
@@ -167,61 +179,71 @@
 		</div>
 	</section>
 
-	<!-- ======================= PUENTE: TU PIEL CAMBIA ================ -->
+	<!-- ==================== CARRUSEL UGC (PARTE 2) ================== -->
+	<section class="sg-section sg-section--tight">
+		<div class="sg-gallery">
+			<ul class="sg-gallery__track" tabindex="0" role="region" aria-label="Mujeres que ya usan Sknglow">
+				<li class="sg-gallery__item"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-ugc-juli.webp?width=420" width="510" height="900" loading="lazy" decoding="async" alt="Clienta de MIMA sosteniendo su frasco de Sknglow"></li>
+				<li class="sg-gallery__item"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-ugc-camila.webp?width=420" width="510" height="900" loading="lazy" decoding="async" alt="Clienta con su frasco de Sknglow y el cabello suelto"></li>
+				<li class="sg-gallery__item"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-ugc-natalia.webp?width=420" width="510" height="900" loading="lazy" decoding="async" alt="Clienta tomando uno de los dulces duros de Sknglow"></li>
+				<li class="sg-gallery__item"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-ugc-leidy.webp?width=420" width="510" height="900" loading="lazy" decoding="async" alt="Clienta mostrando a cámara su frasco de Sknglow"></li>
+				<li class="sg-gallery__item"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-ugc-genesis.webp?width=420" width="510" height="900" loading="lazy" decoding="async" alt="Clienta con los dulces duros de Sknglow en la mano"></li>
+				<li class="sg-gallery__item"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-ugc-anny.webp?width=420" width="510" height="900" loading="lazy" decoding="async" alt="Clienta de MIMA con su frasco de Sknglow"></li>
+				<li class="sg-gallery__item"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-ugc-shelyka.webp?width=420" width="510" height="900" loading="lazy" decoding="async" alt="Clienta sonriendo con su frasco de Sknglow"></li>
+			</ul>
+			<p class="sg-gallery__note">Contenido en colaboración con MIMA</p>
+		</div>
+	</section>
+
+	<!-- ============ PUENTE: MECANISMO DEL PROBLEMA (PARTE 3) ======== -->
 	<section class="sg-band">
 		<div class="sg-shell sg-band__inner">
-			<p class="sg-band__title">Tu piel cambia</p>
-			<p class="sg-band__sub">Y casi nunca por una sola razón</p>
+			<p class="sg-band__title">Tu cabello puede empezar a verse más delgado</p>
+			<p class="sg-band__sub">Más frágil. Con menos cuerpo. Y muchas veces lo notas tarde</p>
 
 			<ul class="sg-band__causes">
 				<li class="sg-band__cause">
-					<span class="sg-band__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.4"/><path d="M7.3 12.4 9.5 7.8l2.1 8 2-5.6 1.6 3.4h1.5"/></svg></span>
+					<span class="sg-band__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 3.5h9v5.5h-9z"/><path d="M9 9v11M12 9v11M15 9v11"/></svg></span>
 					<div>
-						<p class="sg-band__cause-title">El estrés</p>
-						<p class="sg-band__cause-note">Los días tensos también se ven en la cara</p>
+						<p class="sg-band__cause-title">En el cepillo</p>
+						<p class="sg-band__cause-note">Cuando ves más pelo del que esperabas</p>
 					</div>
 				</li>
 				<li class="sg-band__cause">
-					<span class="sg-band__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.3"/><path d="M12 2.4v2.3M12 19.3v2.3M2.4 12h2.3M19.3 12h2.3M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"/></svg></span>
+					<span class="sg-band__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.2c-3.6 0-6.5 2.9-6.5 6.5 0 4.4 1.4 7.4 2.6 10.4"/><path d="M12 3.2c3.6 0 6.5 2.9 6.5 6.5 0 4.4-1.4 7.4-2.6 10.4"/><path d="M12 7.5v9"/></svg></span>
 					<div>
-						<p class="sg-band__cause-title">El sol</p>
-						<p class="sg-band__cause-note">Cada exposición va dejando huella</p>
+						<p class="sg-band__cause-title">En el volumen</p>
+						<p class="sg-band__cause-note">Cuando te recoges el cabello y sientes menos cuerpo</p>
 					</div>
 				</li>
 				<li class="sg-band__cause">
-					<span class="sg-band__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.7 10.6A7.7 7.7 0 0 1 18.4 8.1"/><path d="M19.3 13.4A7.7 7.7 0 0 1 5.6 15.9"/><path d="M18.9 4.6v3.7h-3.7"/><path d="M5.1 19.4v-3.7h3.7"/></svg></span>
+					<span class="sg-band__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 20.5V9.2c0-2 1.6-3.6 3.5-3.6s3.5 1.6 3.5 3.6v11.3z"/><path d="M8.5 12.8h7"/><path d="M10.4 16.4l3.2 3.2M13.6 16.4l-3.2 3.2"/></svg></span>
 					<div>
-						<p class="sg-band__cause-title">Las hormonas</p>
-						<p class="sg-band__cause-note">Cada ciclo y cada etapa se notan</p>
-					</div>
-				</li>
-				<li class="sg-band__cause">
-					<span class="sg-band__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.3 14.5A8.5 8.5 0 0 1 9.5 3.7 8.5 8.5 0 1 0 20.3 14.5Z"/><path d="M17.4 3.4v2.6M16.1 4.7h2.6"/></svg></span>
-					<div>
-						<p class="sg-band__cause-title">Las noches largas</p>
-						<p class="sg-band__cause-note">Dormir poco se ve al día siguiente</p>
+						<p class="sg-band__cause-title">En las uñas</p>
+						<p class="sg-band__cause-note">Cuando se parten apenas empiezan a crecer</p>
 					</div>
 				</li>
 			</ul>
 
-			<p class="sg-band__foot">Con cada etapa que deja marcas, textura, celulitis o falta de luminosidad.</p>
-			<p class="sg-band__claim">Sknglow convierte el cuidado de tu piel en un hábito fácil de sostener.</p>
+			<p class="sg-band__foot">Sknglow reúne Biotina y Resveratrol para trabajar tres partes que importan.</p>
+			<p class="sg-band__claim">La fuerza de tu cabello. La calidad de tus uñas. Y la apariencia luminosa de tu piel.</p>
 		</div>
 	</section>
 
-	<!-- ========================= MECANISMO ========================== -->
+	<!-- ============ MECANISMO DE LA SOLUCIÓN (PARTE 4) ============== -->
 	<section class="sg-section">
 		<div class="sg-shell">
 			<div class="sg-headline">
 				<p class="sg-overline">Esa es la diferencia de Sknglow</p>
-				<h2 class="sg-h2"><span class="sg-h2__mech"><svg class="sg-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3.5 8.5h17M3.5 15.5h17M8.5 3.5v17M15.5 3.5v17"/></svg> Estructura</span> + <span class="sg-h2__mech"><svg class="sg-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 19 5.8v5.4c0 4.2-2.8 7.3-7 8.8-4.2-1.5-7-4.6-7-8.8V5.8L12 3Z"/><circle cx="12" cy="11" r="2"/><path d="M12 7.6v.7M12 14.4v-.7M8.6 11h.7M15.4 11h-.7"/></svg> Protección</span></h2>
-				<p class="sg-sub">Dos acciones para una piel que se nota</p>
+				<h2 class="sg-h2"><span class="sg-h2__mech"><svg class="sg-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.2c-3.6 0-6.5 2.9-6.5 6.5 0 4.4 1.4 7.4 2.6 10.4"/><path d="M12 3.2c3.6 0 6.5 2.9 6.5 6.5 0 4.4-1.4 7.4-2.6 10.4"/><path d="M12 7.5v9"/></svg> Raíz</span> + <span class="sg-h2__mech"><svg class="sg-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3.5 8.5h17M3.5 15.5h17M8.5 3.5v17M15.5 3.5v17"/></svg> Estructura</span></h2>
+				<p class="sg-sub">La fórmula detrás de un cabello que se siente más fuerte</p>
 			</div>
 
 			<div class="sg-reason">
-				<p>Una piel que se ve <strong>firme</strong> necesita estructura.</p>
-				<p>Una piel que se ve <strong>luminosa</strong> necesita protección frente al desgaste.</p>
-				<p class="sg-reason__foot">Sknglow combina dos ingredientes que trabajan desde dos frentes</p>
+				<p>El cabello gana <strong>fuerza</strong> desde la raíz.</p>
+				<p>Las uñas ganan <strong>resistencia</strong> desde su estructura.</p>
+				<p>La piel recupera <strong>luz</strong> cuando recibe cuidado de forma constante.</p>
+				<p class="sg-reason__foot">Sknglow une dos ingredientes que trabajan en esas partes</p>
 			</div>
 
 			<div class="sg-duo">
@@ -237,8 +259,8 @@
 								alt="Biotina en polvo sobre una cuchara de madera">
 						</figure>
 					</div>
-					<p>Apoya la salud de los tejidos de piel, uñas y cabello</p>
-					<p>Ayuda a cuidar una piel que quieres ver más firme, más cuidada y con mejor apariencia</p>
+					<p>La Biotina participa en procesos relacionados con cabello, uñas y piel</p>
+					<p>Es el ingrediente que habla con esa parte de ti que quiere dejar de ver uñas quebradizas y cabello sin fuerza</p>
 				</article>
 
 				<article class="sg-card sg-card--protection">
@@ -253,24 +275,24 @@
 								alt="Resveratrol en polvo junto a un racimo de uvas negras">
 						</figure>
 					</div>
-					<p>Trabaja frente al desgaste oxidativo que puede apagar la apariencia de tu piel</p>
-					<p>Ayuda a conservar ese aspecto luminoso y uniforme que quieres recuperar frente al espejo</p>
+					<p>El Resveratrol trabaja frente al desgaste oxidativo que puede afectar la apariencia del cabello, las uñas y la piel</p>
+					<p>Un ingrediente asociado al cuidado de la piel y la protección de las células frente a factores externos</p>
 				</article>
 			</div>
 
 			<div class="sg-habit">
 				<figure class="sg-habit__media">
 					<img
-						src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ugc-anny.webp?width=560"
-						width="640" height="799" loading="lazy" decoding="async"
-						alt="Mujer sosteniendo en la palma los dulces duros de Sknglow">
+						src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-story-camila.webp?width=560"
+						width="510" height="900" loading="lazy" decoding="async"
+						alt="Clienta de MIMA con la mano en el cabello sosteniendo su frasco de Sknglow">
 				</figure>
 				<div class="sg-habit__copy">
 					<p class="sg-habit__title">4 dulces duros al día</p>
 					<ul class="sg-habit__list">
-						<li>Un hábito sencillo</li>
-						<li>Un sabor que disfrutas</li>
-						<li>Un cuidado que puedes sostener</li>
+						<li>Un hábito fácil</li>
+						<li>Sabor kiwi</li>
+						<li>Un frasco para 30 días</li>
 					</ul>
 				</div>
 
@@ -278,29 +300,29 @@
 				     sostienen mujeres distintas, en casas distintas. -->
 				<ul class="sg-habit__bento" aria-label="Clientas de MIMA con su frasco de Sknglow">
 					<li class="sg-habit__tile sg-habit__tile--lead">
-						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-bento-isabella.webp?width=520"
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-bento-anny.webp?width=520"
 							width="507" height="568" loading="lazy" decoding="async"
-							alt="Clienta de MIMA sonriendo con su frasco de Sknglow entre las manos">
+							alt="Clienta sonriendo con el cabello suelto sobre los hombros">
 					</li>
 					<li class="sg-habit__tile sg-habit__tile--a">
-						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-bento-camila.webp?width=300"
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-bento-juli-v2.webp?width=300"
 							width="507" height="568" loading="lazy" decoding="async"
-							alt="Clienta sonriendo sostiene su frasco de Sknglow a la altura del pecho">
+							alt="Clienta al aire libre sosteniendo su frasco de Sknglow">
 					</li>
 					<li class="sg-habit__tile sg-habit__tile--b">
-						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-bento-juli.webp?width=300"
-							width="508" height="569" loading="lazy" decoding="async"
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-bento-leidy.webp?width=300"
+							width="507" height="568" loading="lazy" decoding="async"
 							alt="Clienta sonriendo muestra a cámara su frasco de Sknglow">
 					</li>
 					<li class="sg-habit__tile sg-habit__tile--c">
-						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-bento-shelyka.webp?width=300"
-							width="595" height="666" loading="lazy" decoding="async"
-							alt="Clienta sonriendo con su frasco de Sknglow junto al rostro">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-bento-genesis.webp?width=300"
+							width="507" height="568" loading="lazy" decoding="async"
+							alt="Clienta con el cabello largo y los dulces duros de Sknglow en la mano">
 					</li>
 					<li class="sg-habit__tile sg-habit__tile--extra">
-						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-bento-leidy.webp?width=300"
-							width="512" height="573" loading="lazy" decoding="async"
-							alt="Clienta sonriendo levanta su frasco de Sknglow hacia la cámara">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-bento-natalia.webp?width=300"
+							width="507" height="568" loading="lazy" decoding="async"
+							alt="Clienta de MIMA tomando su dosis diaria de Sknglow">
 					</li>
 				</ul>
 			</div>
@@ -311,59 +333,69 @@
 		</div>
 	</section>
 
-	<!-- ========================== DOLORES =========================== -->
+	<!-- ============ LÍNEA DE TIEMPO (PARTE 5) — bloque nuevo ========
+	     No existe en el ángulo piel. Aquí sí hace falta: el resultado en
+	     cabello tarda más en verse, y decirlo por adelantado evita que la
+	     clienta abandone a las tres semanas creyendo que no funciona.
+	     Todo el texto va en clave de apariencia, nunca de resultado
+	     garantizado: "empieza a", "pueden ganar", "se acumula". -->
 	<section class="sg-section sg-section--soft">
 		<div class="sg-shell">
 			<div class="sg-headline">
-				<h2 class="sg-h2">Tu piel te está hablando</h2>
-				<p class="sg-sub">Aprende a escuchar lo que ves</p>
+				<p class="sg-overline">Tu camino hacia un cabello más fuerte</p>
+				<h2 class="sg-h2">Las decisiones pequeñas se notan con el tiempo</h2>
+				<p class="sg-sub">Esto es lo que sostiene la constancia, mes a mes</p>
 			</div>
 
-			<div class="sg-pains">
-				<article class="sg-pain">
-					<h3 class="sg-pain__title">Celulitis</h3>
-					<figure class="sg-pain__media">
-					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-case-celulitis.webp?width=360" width="440" height="550" loading="lazy" decoding="async" alt="Mujer de cuerpo entero">
-					</figure>
-					<p>La textura cambia. La piel empieza a marcarse más.</p>
-					<p>Y una termina pensando dos veces antes de ponerse esa falda que sí le gustaba.</p>
-					<p class="sg-pain__answer">Sknglow trabaja desde adentro para ayudar a que la piel vuelva a verse más firme, más uniforme y más cuidada</p>
-				</article>
+			<ol class="sg-timeline">
+				<li class="sg-timeline__step">
+					<p class="sg-timeline__when">Días 1 a 30</p>
+					<h3 class="sg-timeline__title">La base empieza aquí</h3>
+					<ul class="sg-timeline__list">
+						<li>Empiezas a darle a tu cabello, uñas y piel Biotina y Resveratrol todos los días</li>
+						<li>Cuatro dulces duros sabor kiwi</li>
+						<li>Un hábito simple que empieza a sumar a la fuerza que quieres volver a ver</li>
+					</ul>
+				</li>
 
-				<article class="sg-pain">
-					<h3 class="sg-pain__title">Manchas hormonales</h3>
-					<figure class="sg-pain__media">
-					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-case-manchas.webp?width=360" width="440" height="550" loading="lazy" decoding="async" alt="Mujer con la mano en el cuello">
-					</figure>
-					<p>Aparecen justo cuando sentías que estabas haciendo todo bien. Se vuelven parte de tu reflejo.</p>
-					<p>Y empiezas a probar productos sin saber qué necesita realmente tu piel.</p>
-					<p class="sg-pain__answer">Sknglow trabaja para una apariencia más uniforme y luminosa</p>
-				</article>
+				<li class="sg-timeline__step">
+					<p class="sg-timeline__when">Días 31 a 60</p>
+					<h3 class="sg-timeline__title">La fuerza empieza a notarse</h3>
+					<ul class="sg-timeline__list">
+						<li>Tu cabello empieza a sentirse más cuidado</li>
+						<li>Las uñas pueden ganar una apariencia más firme y menos frágil</li>
+						<li>Tu piel empieza a verse más atendida y luminosa</li>
+					</ul>
+				</li>
 
-				<article class="sg-pain">
-					<h3 class="sg-pain__title">Piel envejecida</h3>
-					<figure class="sg-pain__media">
-					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-case-envejecida.webp?width=360" width="440" height="550" loading="lazy" decoding="async" alt="Mujer de pelo cano apoyando la mano en la mejilla">
-					</figure>
-					<p>Hay días en los que tienes energía, pero tu piel parece contar otra historia.</p>
-					<p>Menos brillo. Más textura. Una apariencia más cansada de la que realmente sientes.</p>
-					<p class="sg-pain__answer">Sknglow trabaja para que tu piel vuelva a reflejar vitalidad</p>
-				</article>
+				<li class="sg-timeline__step sg-timeline__step--last">
+					<p class="sg-timeline__when">Días 61 a 90</p>
+					<h3 class="sg-timeline__title">Resultados que se acumulan</h3>
+					<ul class="sg-timeline__list">
+						<li>Cabello con más cuerpo</li>
+						<li>Uñas con más resistencia</li>
+						<li>Piel con una apariencia más luminosa y cuidada</li>
+					</ul>
+				</li>
+			</ol>
 
-				<article class="sg-pain">
-					<h3 class="sg-pain__title">Piel opaca</h3>
-					<figure class="sg-pain__media">
-					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-case-opaca.webp?width=360" width="440" height="550" loading="lazy" decoding="async" alt="Mujer sonriendo con la mano en el pecho">
-					</figure>
-					<p>Tu piel puede verse apagada incluso cuando cumples con el cuidado externo.</p>
-					<p>Porque la luminosidad también se construye con lo que haces todos los días.</p>
-					<p class="sg-pain__answer">Sknglow trabaja desde adentro para que tu piel vuelva a verse viva, fresca y luminosa</p>
-				</article>
+			<div class="sg-timeline__foot">
+				<p class="sg-timeline__claim">La fuerza de tu cabello no se construye en un solo día</p>
+				<p class="sg-timeline__note">Se construye cada vez que eliges cuidarte</p>
+
+				<dl class="sg-stats sg-stats--pair">
+					<div class="sg-stat"><dt>4</dt><dd>dulces duros al día</dd></div>
+					<div class="sg-stat"><dt>30</dt><dd>días por frasco</dd></div>
+				</dl>
+			</div>
+
+			<div class="sg-cta-row">
+				<button type="button" class="sg-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO EMPEZAR CON SKNGLOW</button>
 			</div>
 		</div>
 	</section>
 
-	<!-- ========================= USO SIMPLE ========================= -->
+	<!-- ==================== MODO DE USO (PARTE 6) =================== -->
 	<section class="sg-section">
 		<div class="sg-shell sg-usage">
 			<div class="sg-usage__head">
@@ -382,11 +414,11 @@
 			<div class="sg-usage__body">
 				<ul class="sg-moments">
 					<li>Después del desayuno</li>
-					<li>Durante tu pausa de la tarde</li>
-					<li>Cuando termina el día y empieza tu momento de cuidado</li>
+					<li>Durante una pausa</li>
+					<li>Al final del día</li>
 				</ul>
 
-				<p class="sg-usage__foot">Lo importante es convertirlo en parte de tu día</p>
+				<p class="sg-usage__foot">Lo importante es volverlo parte de tu vida</p>
 
 				<dl class="sg-stats">
 					<div class="sg-stat"><dt>4</dt><dd>dulces duros al día</dd></div>
@@ -399,24 +431,10 @@
 					<button type="button" class="sg-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI SKNGLOW</button>
 				</div>
 			</div>
-
-		</div>
-
-		<div class="sg-gallery">
-			<ul class="sg-gallery__track" tabindex="0" role="region" aria-label="Mujeres que ya usan Sknglow">
-				<li class="sg-gallery__item"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ugc-genesis.webp?width=420" width="510" height="903" loading="lazy" decoding="async" alt="Mujer tomando uno de los dulces duros de Sknglow en casa"></li>
-				<li class="sg-gallery__item"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ugc-juli.webp?width=420" width="510" height="900" loading="lazy" decoding="async" alt="Mujer sujetando su frasco de Sknglow"></li>
-				<li class="sg-gallery__item"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ugc-camila.webp?width=420" width="510" height="900" loading="lazy" decoding="async" alt="Mujer con su frasco de Sknglow al aire libre"></li>
-				<li class="sg-gallery__item"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ugc-leidy.webp?width=420" width="510" height="901" loading="lazy" decoding="async" alt="Mujer mostrando su frasco de Sknglow"></li>
-				<li class="sg-gallery__item"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ugc-natalia.webp?width=420" width="507" height="906" loading="lazy" decoding="async" alt="Mujer con su frasco de Sknglow en la cocina"></li>
-				<li class="sg-gallery__item"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ugc-camila-l.webp?width=420" width="507" height="911" loading="lazy" decoding="async" alt="Mujer sosteniendo su frasco de Sknglow con las dos manos"></li>
-				<li class="sg-gallery__item"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ugc-shelyka.webp?width=420" width="510" height="924" loading="lazy" decoding="async" alt="Mujer con su frasco de Sknglow"></li>
-			</ul>
-			<p class="sg-gallery__note">Contenido en colaboración con MIMA</p>
 		</div>
 	</section>
 
-	<!-- ======================= SELECTOR DE PAGO ===================== -->
+	<!-- ================ SELECTOR DE PAGO (PARTE 7) ================== -->
 	<section class="sg-section sg-section--soft" id="sg-payment">
 		<div class="sg-shell sg-narrow">
 			<figure class="sg-pay__product">
@@ -480,84 +498,87 @@
 		</div>
 	</section>
 
-	<!-- ============================ BONO ============================ -->
+	<!-- ======================= BONO (PARTE 8) ======================= -->
 	<section class="sg-section sg-section--bonus">
 		<div class="sg-shell sg-bonus">
 			<div class="sg-bonus__visual">
 				<p class="sg-bonus__included">Incluido con tu compra de Sknglow</p>
 				<figure class="sg-bonus__cover">
+					<!-- Mockup propio del ángulo. Viene del render sobre fondo gris de
+					     estudio: se le recortó el fondo y la sombra se pasó al canal
+					     alfa, así que NO lleva mix-blend-mode (ver el CSS de abajo). -->
 					<img
-						src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ebook.webp?width=520"
-						width="720" height="900" loading="lazy" decoding="async"
-						alt="Portada de la guía digital 28 días para proteger tu piel">
+						src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-ebook.webp?width=760"
+						width="990" height="1274" loading="lazy" decoding="async"
+						alt="Portada de la guía digital de 28 días para cuidar tu cabello, incluida con la compra">
 				</figure>
 			</div>
 
 			<div class="sg-bonus__copy">
 				<p class="sg-overline sg-overline--accent">Bono gratis</p>
-				<h2 class="sg-h2">28 días para evitar que tus manchas se marquen más</h2>
-				<p class="sg-sub">Con tu compra de Sknglow recibes una guía práctica para cuidar tu piel con más criterio</p>
+				<h2 class="sg-h2">28 días para dejar de tratar tu cabello como si fuera indestructible</h2>
+				<p class="sg-sub">Con tu compra de Sknglow recibes una guía práctica para cuidar tu cabello, uñas y piel con más criterio</p>
 
 				<ul class="sg-checklist">
-					<li>Aprende a proteger tu piel del sol</li>
-					<li>Reduce errores que la irritan</li>
-					<li>Identifica señales que vale la pena observar</li>
-					<li>Elige mejor los productos que usas en tu cuidado de piel</li>
+					<li>Aprende a detectar hábitos que debilitan tu cabello</li>
+					<li>Reduce errores que quiebran y maltratan las puntas</li>
+					<li>Entiende qué señales mirar en uñas frágiles</li>
+					<li>Crea un cuidado externo que sume a lo que estás consumiendo</li>
 				</ul>
 
-				<p class="sg-bonus__who">Un plan de 28 días para mujeres que sienten que las manchas, la textura irregular o la sensibilidad les impiden ver su piel como quieren</p>
+				<p class="sg-bonus__who">Un plan de 28 días para dejar de improvisar cada vez que tu cabello, uñas o piel te piden atención</p>
 			</div>
 		</div>
 	</section>
 
-	<!-- ========================== HISTORIAS ========================= -->
+	<!-- ==================== HISTORIAS (PARTE 9) ===================== -->
 	<section class="sg-section sg-section--soft">
 		<div class="sg-shell">
 			<div class="sg-headline">
 				<p class="sg-overline">Historias compartidas con MIMA</p>
-				<h2 class="sg-h2">Mujeres hablando de lo que quieren volver a ver en su piel</h2>
+				<h2 class="sg-h2">Mujeres que decidieron volver a cuidar su cabello</h2>
 				<p class="sg-sub">Contenido en colaboración con MIMA</p>
 			</div>
 
 			<div class="sg-stories">
 				<article class="sg-story">
 					<img
-						src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ugc-isabella.webp?width=510"
-						width="510" height="902" loading="lazy" decoding="async"
-						alt="Isabella con su frasco de Sknglow">
+						src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-story-anny.webp?width=510"
+						width="510" height="900" loading="lazy" decoding="async"
+						alt="Anny con su frasco de Sknglow">
 					<div class="sg-story__body">
-						<p class="sg-story__who">Isabella <span>· Bogotá</span></p>
-						<p>Yo estaba en ese punto en el que me maquillaba y aun así sentía que mi cara se veía cansada. Como apagada.</p>
-						<p>Empecé a consumir Sknglow porque quería hacer algo que también sumara a mi cuidado desde adentro.</p>
-						<p>Lo que más me gustó fue volverlo fácil. Son cuatro dulces duros sabor kiwi y ya. Siento que mi piel se ve mucho más cuidada.</p>
+						<p class="sg-story__who">Anny <span>· Bogotá</span></p>
+						<p>Yo sentía que mi pelo se veía diferente. Más delgado. Más apagado.</p>
+						<p>Y cada vez que me peinaba terminaba revisando cuánto se había quedado en el cepillo.</p>
+						<p>Empecé con Sknglow porque quería sumar algo fácil a mi cuidado. Los dulces duros saben rico y se volvieron parte de mi día.</p>
 						<p class="sg-story__tag">Colaboración con MIMA</p>
 					</div>
 				</article>
 
 				<article class="sg-story">
 					<img
-						src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ugc-catalina.webp?width=510"
-						width="507" height="905" loading="lazy" decoding="async"
-						alt="Catalina con su frasco de Sknglow">
+						src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-story-camila.webp?width=510"
+						width="510" height="900" loading="lazy" decoding="async"
+						alt="Camila con su frasco de Sknglow">
 					<div class="sg-story__body">
-						<p class="sg-story__who">Catalina <span>· Medellín</span></p>
-						<p>Les voy a contar algo que me daba pena admitir. Yo dejé de ponerme falda muchas veces por cómo se me marcaba la celulitis.</p>
-						<p>Sknglow me gustó porque se volvió una forma sencilla de ser constante con mi cuidado. No tengo que preparar nada.</p>
-						<p>Tomo mis cuatro dulces duros y sigo con mi día. Me gusta sentir que estoy haciendo algo por mí sin volverlo complicado.</p>
+						<p class="sg-story__who">Camila <span>· Medellín</span></p>
+						<p>A mí me pasaba que las uñas jamás lograban crecer. Apenas estaban bonitas, se partían.</p>
+						<p>Entonces empecé a consumir Sknglow por las uñas y terminé feliz con lo práctico que es.</p>
+						<p>Cuatro dulces duros al día, sabor kiwi, y una forma de ser más constante conmigo.</p>
 						<p class="sg-story__tag">Colaboración con MIMA</p>
 					</div>
 				</article>
 
 				<article class="sg-story">
 					<img
-						src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ugc-sonia.webp?width=510"
-						width="508" height="906" loading="lazy" decoding="async"
-						alt="Sonia con su frasco de Sknglow">
+						src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-story-natalia.webp?width=510"
+						width="510" height="900" loading="lazy" decoding="async"
+						alt="Natalia con su frasco de Sknglow">
 					<div class="sg-story__body">
-						<p class="sg-story__who">Sonia <span>· Cali</span></p>
-						<p>Las manchas hormonales son de esas cosas que una nota en cada foto. En cada espejo. En cada momento en que se quita el maquillaje.</p>
-						<p>Empecé a consumir Sknglow y también a seguir la guía que viene con la compra.</p>
-						<p>Me ayudó a tener mucho más cuidado con el sol y con los productos que uso. Ahora siento que entiendo mucho mejor lo que mi piel necesita.</p>
+						<p class="sg-story__who">Natalia <span>· Cali</span></p>
+						<p>Yo lo pedí pensando en mi cabello.</p>
+						<p>Pero empecé a sentir que mis uñas también se veían mucho más cuidadas. Eso fue lo que más me gustó.</p>
+						<p>Sentir que un mismo hábito también suma a mi piel, uñas y pelo.</p>
 						<p class="sg-story__tag">Colaboración con MIMA</p>
 					</div>
 				</article>
@@ -565,69 +586,63 @@
 		</div>
 	</section>
 
-	<!-- ========================== AUTORIDAD ========================= -->
+	<!-- ==================== AUTORIDAD (PARTE 10) ==================== -->
 	<section class="sg-section">
 		<div class="sg-shell">
 			<div class="sg-headline">
 				<p class="sg-overline">El ingrediente detrás de Sknglow</p>
-				<h2 class="sg-h2">El Resveratrol ha puesto a la piel en la conversación</h2>
-				<p class="sg-sub">Sknglow reúne Biotina y Resveratrol en dulces duros sabor kiwi para trabajar el cuidado de piel, uñas y cabello desde una mirada más completa</p>
+				<h2 class="sg-h2">Biotina y Resveratrol en la conversación sobre cabello y uñas</h2>
+				<p class="sg-sub">Sknglow reúne dos ingredientes estudiados por su relación con la salud de cabello, uñas y piel</p>
 			</div>
-
 		</div>
 
 		<div class="sg-sources">
-			<ul class="sg-sources__track" tabindex="0" role="region" aria-label="El Resveratrol en medios y estudios">
+			<ul class="sg-sources__track" tabindex="0" role="region" aria-label="La Biotina y el Resveratrol en estudios y organismos de referencia">
 				<li class="sg-sources__item">
 					<article class="sg-source">
-						<p class="sg-source__name"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-logo-univision.webp?width=232" width="116" height="96" loading="lazy" decoding="async" alt="Univision"></p>
-						<h3 class="sg-source__title">Resveratrol y exposición solar</h3>
-						<p>Univision destaca al Resveratrol por su relación con el cuidado de la piel frente al impacto de los rayos solares</p>
-						<p class="sg-source__note">Un antioxidante que lleva el cuidado de la piel mucho más allá de la superficie</p>
-				</article>
+						<p class="sg-source__name"><img src="https://www.mimacolombia.com/cdn/shop/files/nih-logo.webp?width=520" width="260" height="96" loading="lazy" decoding="async" alt="National Institutes of Health"></p>
+						<h3 class="sg-source__title">Biotina, uñas quebradizas y caída del cabello</h3>
+						<p>El National Institutes of Health identifica la caída del cabello y las uñas quebradizas entre los signos que pueden aparecer en una deficiencia de Biotina</p>
+						<!-- EN REVISIÓN: la cifra de 2,5 mg se ha enviado al copywriter.
+						     Implica una dosis que la ficha del producto aún no confirma. -->
+						<p class="sg-source__note">También recoge estudios clínicos pequeños donde 2,5 mg al día se asoció con uñas más firmes y duras en personas con uñas frágiles</p>
+					</article>
 				</li>
 				<li class="sg-sources__item">
 					<article class="sg-source">
-						<p class="sg-source__name"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-logo-elpais.webp?width=744" width="372" height="96" loading="lazy" decoding="async" alt="EL PAÍS"></p>
-						<h3 class="sg-source__title">Un activo que la dermatología mira de cerca</h3>
-						<p>EL PAÍS recoge la conversación dermatológica alrededor del Resveratrol y su papel frente a signos visibles de edad como manchas, arrugas y flacidez</p>
-						<p class="sg-source__note">El cuidado antiedad empieza por proteger la piel del desgaste que se acumula con el tiempo</p>
-				</article>
+						<p class="sg-source__name"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-logo-pubmed.webp?width=540" width="270" height="96" loading="lazy" decoding="async" alt="PubMed"></p>
+						<h3 class="sg-source__title">Biotina y uñas más firmes</h3>
+						<p>Una revisión dermatológica publicada en PubMed reporta mejoras en firmeza, dureza y grosor de uñas frágiles con Biotina oral en estudios clínicos</p>
+						<p class="sg-source__note">Por eso la Biotina sigue siendo uno de los ingredientes más buscados por quienes quieren uñas con mejor resistencia</p>
+					</article>
 				</li>
 				<li class="sg-sources__item">
 					<article class="sg-source">
-						<p class="sg-source__name"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-logo-vanguardia.webp?width=1286" width="643" height="96" loading="lazy" decoding="async" alt="La Vanguardia"></p>
-						<h3 class="sg-source__title">La piel de la uva negra guarda un antioxidante poderoso</h3>
-						<p>La Vanguardia identifica al Resveratrol como uno de los antioxidantes presentes en la piel de las uvas negras</p>
-						<p class="sg-source__note">Su función se relaciona con bloquear radicales libres vinculados al envejecimiento celular</p>
-				</article>
+						<p class="sg-source__name"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-logo-pubmed.webp?width=540" width="270" height="96" loading="lazy" decoding="async" alt="PubMed"></p>
+						<h3 class="sg-source__title">Cabello, uñas y Biotina</h3>
+						<p>Una revisión clínica sobre Biotina para cabello y uñas analizó 18 reportes de mejoría en personas con condiciones asociadas a crecimiento capilar o ungueal deficiente</p>
+						<p class="sg-source__note">La Biotina se mantiene como uno de los nutrientes más relacionados con la conversación sobre fuerza capilar y uñas quebradizas</p>
+					</article>
 				</li>
 				<li class="sg-sources__item">
 					<article class="sg-source">
-						<p class="sg-source__name"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-logo-pubmed.webp?width=540" width="270" height="96" loading="lazy" decoding="async" alt="PubMed Central"></p>
-						<h3 class="sg-source__title">Resveratrol y funciones de la piel</h3>
-						<p>Una revisión dermatológica indexada en PubMed Central documenta la acción antioxidante, antiinflamatoria y protectora del Resveratrol para funciones cutáneas</p>
-						<p class="sg-source__note">La piel se expone todos los días al sol, la contaminación y el estrés oxidativo. Por eso protegerla también importa</p>
-				</article>
-				</li>
-				<li class="sg-sources__item">
-					<article class="sg-source">
-						<p class="sg-source__name">Revisión sistemática</p>
-						<h3 class="sg-source__title">41 estudios alrededor del Resveratrol y la piel</h3>
-						<p>Una revisión sistemática analizó 41 investigaciones sobre Resveratrol, cicatrización, marcas cutáneas y fotoenvejecimiento</p>
-						<p class="sg-source__note">El Resveratrol destaca por su acción antioxidante y su relación con la protección de la piel frente al desgaste asociado al tiempo y la exposición solar</p>
-				</article>
+						<p class="sg-source__name"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-logo-pubmed.webp?width=540" width="270" height="96" loading="lazy" decoding="async" alt="PubMed"></p>
+						<h3 class="sg-source__title">Resveratrol y densidad capilar</h3>
+						<!-- EN REVISIÓN: el estudio citado usa una fórmula TÓPICA y
+						     Sknglow es oral. Enviado al copywriter. -->
+						<p>Un estudio clínico aleatorizado en 79 mujeres encontró un aumento significativo de densidad capilar desde el mes y medio con una fórmula tópica que incluía Resveratrol</p>
+						<p class="sg-source__note">El estudio también mostró que el Resveratrol redujo el estrés oxidativo en células del folículo capilar analizadas en laboratorio</p>
+					</article>
 				</li>
 			</ul>
 		</div>
 
 		<div class="sg-shell">
-
-			<p class="sg-disclaimer">Estas fuentes hablan del Resveratrol como ingrediente, no de Sknglow. Sknglow es un suplemento alimenticio y no es un medicamento.</p>
+			<p class="sg-disclaimer">Estas fuentes hablan de la Biotina y el Resveratrol como ingredientes, no de Sknglow. Sknglow es un suplemento alimenticio y no es un medicamento.</p>
 		</div>
 	</section>
 
-	<!-- ========================== QUÉ RECIBES ======================= -->
+	<!-- =================== QUÉ RECIBES (PARTE 11) =================== -->
 	<section class="sg-section sg-section--soft">
 		<div class="sg-shell sg-receive">
 			<div class="sg-receive__copy">
@@ -638,7 +653,7 @@
 					<li>1 frasco de Sknglow</li>
 					<li>120 dulces duros sabor kiwi</li>
 					<li>30 días de uso</li>
-					<li>Guía digital de 28 días para evitar que tus manchas se marquen más</li>
+					<li>Guía digital de 28 días para dejar de tratar tu cabello como si fuera indestructible</li>
 					<li>Envío gratis a Colombia</li>
 					<li>Confirmación de pedido por WhatsApp</li>
 				</ul>
@@ -665,7 +680,7 @@
 		</div>
 	</section>
 
-	<!-- =========================== GARANTÍA ========================= -->
+	<!-- ==================== GARANTÍA (PARTE 12) ===================== -->
 	<section class="sg-section">
 		<div class="sg-shell sg-narrow">
 			<div class="sg-guarantee">
@@ -693,7 +708,7 @@
 		</div>
 	</section>
 
-	<!-- ============================= FAQ ============================ -->
+	<!-- ====================== FAQ (PARTE 13) ======================== -->
 	<section class="sg-section sg-section--soft">
 		<div class="sg-shell sg-narrow">
 			<div class="sg-headline">
@@ -704,21 +719,32 @@
 				<details class="sg-faq__item">
 					<summary>¿Cómo tomo Sknglow?</summary>
 					<div class="sg-faq__body">
-						<p>Consume 4 dulces duros al día. Elige el momento que te resulte más fácil de sostener todos los días.</p>
-						<p>Cada frasco trae 120 dulces duros, así que dura 30 días.</p>
+						<p>Consume 4 dulces duros al día.</p>
+						<p>Elige el momento que te resulte más fácil de sostener todos los días.</p>
 					</div>
+				</details>
+				<details class="sg-faq__item">
+					<summary>¿Cuánto dura un frasco?</summary>
+					<div class="sg-faq__body"><p>Cada frasco trae 120 dulces duros. Dura 30 días consumiendo 4 al día.</p></div>
 				</details>
 				<details class="sg-faq__item">
 					<summary>¿A qué saben?</summary>
 					<div class="sg-faq__body"><p>Tienen sabor kiwi.</p></div>
 				</details>
 				<details class="sg-faq__item">
-					<summary>¿Puedo usar Sknglow junto con mis productos de skincare?</summary>
-					<div class="sg-faq__body"><p>Sí. Puedes consumir Sknglow junto a los productos de cuidado externo que ya usas.</p></div>
+					<summary>¿Sknglow es solo para el cabello?</summary>
+					<div class="sg-faq__body">
+						<p>Sknglow está pensado para cabello, uñas y piel.</p>
+						<p>Muchas personas lo buscan por la fuerza del cabello y terminan disfrutando que también suma al cuidado de sus uñas y piel.</p>
+					</div>
+				</details>
+				<details class="sg-faq__item">
+					<summary>¿Puedo usar Sknglow junto con shampoo, mascarillas o tratamientos capilares?</summary>
+					<div class="sg-faq__body"><p>Sí. Puedes consumir Sknglow junto a los productos externos que ya usas para tu cabello.</p></div>
 				</details>
 				<details class="sg-faq__item">
 					<summary>¿Qué incluye el bono?</summary>
-					<div class="sg-faq__body"><p>Recibes una guía digital de 28 días con pasos diarios para proteger tu piel del sol, reducir errores que la irritan y elegir productos con más criterio.</p></div>
+					<div class="sg-faq__body"><p>Recibes una guía digital de 28 días para detectar hábitos que debilitan tu cabello, reducir errores que maltratan las puntas y cuidar uñas y piel con más criterio.</p></div>
 				</details>
 				<details class="sg-faq__item">
 					<summary>¿Puedo pagar cuando reciba el pedido?</summary>
@@ -740,18 +766,18 @@
 		</div>
 	</section>
 
-	<!-- ============================ CIERRE ========================== -->
+	<!-- ===================== CIERRE (PARTE 14) ====================== -->
 	<section class="sg-section sg-close">
 		<div class="sg-close__glow" aria-hidden="true"></div>
 		<div class="sg-shell sg-narrow sg-close__inner">
-			<h2 class="sg-h2">Tu próxima piel empieza hoy</h2>
-			<p class="sg-sub">Haz que vuelva a verse firme, uniforme y luminosa</p>
+			<h2 class="sg-h2">El cabello fuerte empieza antes de que lo veas</h2>
+			<p class="sg-sub">Dale fuerza a tu cabello, resistencia a tus uñas y luz a tu piel</p>
 
 			<figure class="sg-close__media">
 				<img
-					src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-close-isabella.webp?width=520"
-					width="640" height="800" loading="lazy" decoding="async"
-					alt="Isabella sosteniendo su frasco de Sknglow">
+					src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-close.webp?width=520"
+					width="510" height="638" loading="lazy" decoding="async"
+					alt="Clienta de MIMA sonriendo con su frasco de Sknglow">
 			</figure>
 
 			<p class="sg-close__product">SKNGLOW <span>$89.900</span></p>
@@ -961,7 +987,7 @@
 		width: 100%;
 		max-width: var(--sg-shell);
 		margin-inline: auto;
-		padding-inline: 16px;
+		padding-inline: 20px;
 	}
 
 	.sg-lp .sg-narrow { max-width: var(--sg-narrow); }
@@ -1020,7 +1046,7 @@
 		font-size: 14px;
 		line-height: 1.5;
 		color: var(--sg-muted);
-		margin-top: 5px;
+		margin-top: 8px;
 		/* Antes se cortaba en 31ch para no invadir el rostro, cuando la foto
 		   iba de fondo. Ya no hace falta: con la foto fuera del texto, la
 		   medida puede respirar y el párrafo cae en dos líneas en vez de tres. */
@@ -1177,9 +1203,21 @@
 		position: relative;
 		overflow: hidden;
 		background: linear-gradient(168deg, var(--sg-lilac-soft) 0%, #fff 62%);
-		padding-block: 0 clamp(35px, 7vw, 104px);
+		/* El inferior baja mucho respecto a piel: allí el hero da paso a una
+		   banda de color, aquí a un carrusel de fotos que ya trae su propio
+		   aire. Con los 35px de antes se sumaban 81px de hueco. */
+		padding-block: 0 clamp(20px, 3vw, 44px);
 	}
 
+	/* Hero "superpuesto" — variante propia del ángulo cabello.
+	   Piel apila titular → foto → datos → mecanismo → compra, y con la foto a
+	   4:5 el precio y el CTA caían fuera de la primera pantalla.
+	   Aquí la foto es CUADRADA (recorte ceñido, sin pared muerta) y la
+	   tarjeta de compra se monta sobre su borde inferior. Se recupera altura
+	   y el bloque se lee como ficha de producto en vez de como artículo, que
+	   es lo que lo diferencia del otro ángulo.
+	   Los datos rápidos (120 dulces, 4 al día) van DEBAJO de la tarjeta: son
+	   detalle, no deciden la compra, y arriba empujaban el CTA 44px. */
 	.sg-lp .sg-hero__grid {
 		position: relative;
 		display: grid;
@@ -1187,18 +1225,60 @@
 		grid-template-areas:
 			'head'
 			'media'
+			'buy'
 			'specs'
-			'mech'
-			'buy';
+			'mech';
 		column-gap: 14px;
-		row-gap: clamp(12px, 2.8vw, 22px);
+		row-gap: 0;
 		align-items: center;
+	}
+	.sg-lp .sg-hero__head { margin-bottom: 10px; }
+	.sg-lp .sg-hero__specs { margin-top: 16px; }
+	.sg-lp .sg-hero__mech { margin-top: 18px; }
+
+	/* La tarjeta pisa la foto. z-index porque el rótulo de la foto va
+	   posicionado y si no se cuela por encima del borde de la tarjeta. */
+	.sg-lp .sg-hero__buy {
+		position: relative;
+		z-index: 2;
+		max-width: 404px;
+		margin: -30px auto 0;
+		padding: 18px 14px;
+		background: var(--sg-surface);
+		border: 1px solid var(--sg-border);
+		border-radius: var(--sg-radius-lg);
+		box-shadow: 0 14px 34px rgba(43, 20, 41, .12);
+	}
+
+	/* Pantallas por debajo de 380px: aquí la tarjeta de compra se come 30px
+	   por lado entre padding y borde, y la fila del precio se queda en 250px
+	   cuando necesita 275. Envolvía, y envolver le cuesta 38px de alto justo
+	   encima del CTA. Se recupera apretando el marco y bajando el precio a
+	   28px, no el chip: ese ya está en su mínimo legible.
+
+	   Piel no necesita nada de esto: su bloque de compra no es tarjeta, así
+	   que a 320px ya dispone de 288px. */
+	@media (max-width: 379px) {
+		.sg-lp .sg-shell { padding-inline: 16px; }
+		.sg-lp .sg-hero__buy { padding-left: 10px; padding-right: 10px; }
+		.sg-lp .sg-hero .sg-price__amount { font-size: 28px; }
+		.sg-lp .sg-hero .sg-price__note { padding-left: 9px; padding-right: 9px; }
+
+		/* El chip de pago anticipado pide 270px y a 320 tampoco entraba:
+		   partía "tarjeta o PSE" y se iba de 39px a 60px de alto. */
+		.sg-lp .sg-hero .sg-price__prepay {
+			padding-left: 11px;
+			padding-right: 11px;
+			font-size: 12.5px;
+		}
+
+		.sg-lp .sg-hero .sg-price__prepay strong { font-size: 16px; }
 	}
 
 	.sg-lp .sg-hero__head { grid-area: head; }
 	/* Entre tablet y escritorio la foto cuadrada a ancho completo se iba a
-	   645px de lado y disparaba el hero a 1159px. Por debajo de 420px el
-	   tope no hace nada. */
+	   660px de lado y disparaba el hero a 1193px. El tope la deja en un
+	   tamaño de retrato razonable; por debajo de 420px no hace nada. */
 	.sg-lp .sg-hero__media {
 		grid-area: media;
 		max-width: 420px;
@@ -1216,13 +1296,14 @@
 	   remata la imagen en vez de competir con ella. La banda solo alcanza el
 	   borde inferior —cuello y jersey—, nunca la cara. Blanco sobre ella da
 	   8:1, así que el degradado puede quedarse suave.
-	   El relleno inferior subió de 15px a 42px: los puntos del slider viven
-	   dentro de esta misma banda, debajo del texto. */
+	   El relleno inferior es mayor que en piel porque aquí tiene que salvar
+	   dos cosas: la tarjeta de compra, que pisa los 30px de abajo, y los
+	   puntos, que van a 42px. El texto queda por encima de ambos. */
 	.sg-lp .sg-hero__claim {
 		position: absolute;
 		inset-inline: 0;
 		bottom: 0;
-		padding: 46px 16px 42px;
+		padding: 46px 12px 72px;
 		border-radius: 0 0 var(--sg-radius-lg) var(--sg-radius-lg);
 		background: linear-gradient(180deg,
 			rgba(43, 20, 41, 0) 0%,
@@ -1285,28 +1366,23 @@
 		scroll-snap-stop: always;
 	}
 
-	/* La caja va a la proporción de la compuesta (800/762), no a 1:1. Con
-	   1:1 la compuesta dejaba una banda vacía del 11% arriba. Bajar la caja
-	   a su proporción natural la elimina y recorta el hero 17px, y a las
-	   cuatro infografías cuadradas solo les cuesta un 2,4% arriba y abajo:
-	   comprobado que ni la tabla nutricional ni las cabeceras se tocan.
-	   (A 1:1 exacto el recorte habría sido del 5,7% por lado y partía la
-	   tabla nutricional por abajo.) */
 	.sg-lp .sg-slider__slide img {
 		display: block;
 		width: 100%;
-		aspect-ratio: 800 / 762;
+		aspect-ratio: 1 / 1;
 		object-fit: cover;
 		border-radius: var(--sg-radius-lg);
 	}
 
 	/* ---------- Puntos ----------
+	   Van dentro de la foto pero por encima del borde que tapa la tarjeta de
+	   compra (que sube 30px): de ahí el bottom de 42px.
 	   La píldora oscura es obligatoria, no decorativa: hay slides con fondo
 	   blanco donde unos puntos claros desaparecerían. */
 	.sg-lp .sg-slider__dots {
 		position: absolute;
 		left: 50%;
-		bottom: 14px;
+		bottom: 42px;
 		transform: translateX(-50%);
 		z-index: 2;
 		display: flex;
@@ -1431,7 +1507,7 @@
 	.sg-lp .sg-facts li {
 		position: relative;
 		padding-left: 20px;
-		font-size: 13px;
+		font-size: 15px;
 		line-height: 1.35;
 		color: var(--sg-text);
 	}
@@ -1530,18 +1606,47 @@
 	/* Foto y frasco vienen ya compuestos en una sola imagen. La proporción se
 	   fija aquí y no con los atributos width/height, porque cada breakpoint
 	   sirve un recorte distinto y el intrínseco cambia con él. */
+	/* En piel esta imagen es un montaje foto+frasco con una franja
+	   transparente arriba, y por eso llevaba un margen negativo. Aquí la
+	   toma original ya trae el frasco en la mano: es una foto normal, con
+	   su proporción real (4:5) y el redondeo en CSS en vez de horneado. */
 	.sg-lp .sg-hero__composite {
 		display: block;
 		width: 100%;
-		/* El lienzo lleva 25px de más arriba —la parte del frasco que asoma por
-		   encima de la foto— en transparente. El margen negativo devuelve esa
-		   franja al layout, así que la tarjeta ocupa lo mismo que antes.
-		   Los porcentajes de margin se resuelven contra el ANCHO, que es
-		   justamente la referencia del lienzo: -25/860. */
+		/* Cuadrada: a 4:5 el hero crecía 90px sin enseñar más pelo, y a 3:4
+		   en columna estrecha el recorte se lo comía. El cuadrado es el
+		   punto donde cabe la melena entera sin robar primera pantalla. */
+		aspect-ratio: 1 / 1;
+		object-fit: cover;
+		border-radius: var(--sg-radius-lg);
 	}
+
 
 	/* Las esquinas van horneadas en la imagen, no en CSS: el redondeo es de la
 	   foto, y el borde del elemento incluye la franja transparente del frasco. */
+
+	/* --- Reglas de la versión por capas. No se usan mientras el hero vaya
+	   compuesto, pero se quedan: volver a separar foto y frasco es descomentar
+	   el marcado, sin reescribir nada de esto. --- */
+	.sg-lp .sg-hero__portrait {
+		display: block;
+		width: 100%;
+		aspect-ratio: 7 / 6;
+		object-fit: cover;
+		object-position: 50% 26%;
+		border-radius: var(--sg-radius-lg);
+	}
+
+	/* El frasco se apoya en la esquina de la foto: sin ese solape, producto e
+	   imagen se leen como dos bloques pegados en vez de una composición. */
+	.sg-lp .sg-hero__bottle {
+		position: absolute;
+		left: 3%;
+		bottom: 15%;
+		width: 44%;
+		/* drop-shadow sigue el recorte del PNG; box-shadow dibujaría un rectángulo */
+		filter: drop-shadow(0 16px 28px rgba(109, 31, 44, 0.4));
+	}
 
 	/* ---------- Banda "tu piel cambia" ---------- */
 
@@ -2242,12 +2347,14 @@
 		pointer-events: none;
 	}
 
-	/* La portada viene con fondo blanco sólido. multiply lo vuelve
-	   invisible sobre fondo claro, así el libro no arrastra su recuadro. */
+	/* Sin mix-blend-mode, a diferencia de piel. Aquel mockup traía fondo
+	   blanco sólido y multiply era la forma de hacerlo desaparecer; este
+	   llega ya recortado, con la sombra dentro del canal alfa. Con multiply
+	   encima, el halo rosa del ::before teñiría el libro y la sombra se
+	   oscurecería dos veces. */
 	.sg-lp .sg-bonus__cover img {
 		position: relative;
 		width: 100%;
-		mix-blend-mode: multiply;
 	}
 
 	.sg-lp .sg-bonus .sg-checklist { margin-top: 24px; }
@@ -2847,8 +2954,24 @@
 		/* El tope de 300px era para el frasco solo; ahora la pieza es la foto.
 		   Con la columna entera para ella recupera el 3/4, que le sienta mejor. */
 		.sg-lp .sg-hero__media { align-self: center; max-width: 430px; justify-self: end; }
-		/* En horizontal el frasco no asoma: lienzo sin franja ni margen. */
+		/* La foto es cuadrada; forzarle 3/4 aquí le recortaría el pelo por
+		   los lados justo donde hay sitio de sobra para enseñarlo. */
 		.sg-lp .sg-hero__composite { aspect-ratio: 1 / 1; margin-top: 0; }
+
+		/* La tarjeta superpuesta es un recurso de móvil: en dos columnas la
+		   compra ya tiene su propia columna y no pisa nada. */
+		.sg-lp .sg-hero__buy {
+			margin: 0;
+			padding: 0;
+			background: none;
+			border: 0;
+			box-shadow: none;
+		}
+		.sg-lp .sg-hero__head,
+		.sg-lp .sg-hero__specs { margin-bottom: 0; }
+		.sg-lp .sg-hero__mech { margin-top: 0; }
+		.sg-lp .sg-hero__claim { padding-bottom: 15px; }
+		.sg-lp .sg-hero__portrait { aspect-ratio: 3 / 4; }
 		.sg-lp .sg-hero .sg-lead { font-size: 17px; margin-top: 18px; }
 
 		/* En horizontal el "+" lee mejor como unión entre los dos activos */
@@ -2961,6 +3084,184 @@
 		}
 		.sg-lp .sg-cta:active { transform: none; }
 		.sg-lp .sg-cta::after { animation: none; opacity: 0; }
+	}
+
+	/* =========================================================
+	   AÑADIDOS DEL ÁNGULO CABELLO
+	   Todo lo anterior es idéntico al ángulo piel. Lo que sigue
+	   solo existe aquí: la línea de tiempo, la dosis de cada
+	   activo y dos utilidades de espaciado.
+	   ========================================================= */
+
+	/* El carrusel de UGC va pegado al hero: sin el padding completo de
+	   sección, las caras entran en pantalla antes de scrollear. */
+	.sg-lp .sg-section--tight {
+		padding-top: 0;
+		padding-bottom: 18px;
+	}
+
+	/* .sg-gallery trae 26px de margen superior porque en el ángulo piel va
+	   detrás de contenido. Aquí es lo único de su sección y se apilaba con
+	   el padding del hero. */
+	.sg-lp .sg-section--tight .sg-gallery { margin-top: 0; }
+
+	/* Dosis por activo. Sin uso ahora mismo: la tabla nutricional declara
+	   9 µg de Biotina por porción de 3 dulces y no declara Resveratrol, así
+	   que no hay una cifra que sostenga un chip aquí. La regla se queda para
+	   cuando el cliente confirme cómo quiere expresarlo. */
+	.sg-lp .sg-card__dose {
+		margin: 4px 0 0;
+		font-size: 12px;
+		font-weight: 600;
+		letter-spacing: .02em;
+		color: var(--sg-muted);
+	}
+
+	/* ---------- Línea de tiempo ----------
+	   Tres tramos con una guía vertical que los cose. La guía se dibuja
+	   con un ::before sobre el <li>, no con un elemento vacío: el tema
+	   (Dawn) trae `div:empty{display:none}` y cualquier capa vacía
+	   desaparecería en producción sin avisar. */
+	.sg-lp .sg-timeline {
+		list-style: none;
+		margin: 28px 0 0;
+		padding: 0;
+		display: grid;
+		gap: 0;
+	}
+
+	.sg-lp .sg-timeline__step {
+		position: relative;
+		padding: 0 0 26px 34px;
+	}
+
+	/* La guía baja desde el centro del punto hasta el siguiente tramo */
+	.sg-lp .sg-timeline__step::before {
+		content: '';
+		position: absolute;
+		left: 8px;
+		top: 20px;
+		bottom: 0;
+		width: 2px;
+		background: var(--sg-border);
+	}
+
+	.sg-lp .sg-timeline__step--last::before { display: none; }
+
+	.sg-lp .sg-timeline__step::after {
+		content: '';
+		position: absolute;
+		left: 2px;
+		top: 7px;
+		width: 14px;
+		height: 14px;
+		border-radius: 50%;
+		background: var(--sg-magenta-deep);
+		box-shadow: 0 0 0 4px var(--sg-surface);
+	}
+
+	.sg-lp .sg-timeline__when {
+		margin: 0;
+		font-size: 12px;
+		font-weight: 700;
+		letter-spacing: .1em;
+		text-transform: uppercase;
+		color: var(--sg-magenta-deep);
+	}
+
+	.sg-lp .sg-timeline__title {
+		margin: 4px 0 10px;
+		font-size: 19px;
+		line-height: 1.25;
+		font-weight: 700;
+		color: var(--sg-ink);
+	}
+
+	.sg-lp .sg-timeline__list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: 8px;
+	}
+
+	.sg-lp .sg-timeline__list li {
+		position: relative;
+		padding-left: 18px;
+		font-size: 15px;
+		line-height: 1.5;
+		color: var(--sg-text);
+	}
+
+	.sg-lp .sg-timeline__list li::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: .62em;
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background: var(--sg-lilac);
+	}
+
+	.sg-lp .sg-timeline__foot {
+		margin-top: 6px;
+		padding: 22px 20px;
+		text-align: center;
+		background: var(--sg-surface);
+		border: 1px solid var(--sg-border);
+		border-radius: var(--sg-radius-lg);
+	}
+
+	.sg-lp .sg-timeline__claim {
+		margin: 0;
+		font-size: 18px;
+		line-height: 1.3;
+		font-weight: 700;
+		color: var(--sg-ink);
+	}
+
+	.sg-lp .sg-timeline__note {
+		margin: 6px 0 0;
+		font-size: 15px;
+		color: var(--sg-muted);
+	}
+
+	/* Dos datos en vez de cuatro: la rejilla de .sg-stats reparte por
+	   auto-fit y con dos quedaban descentrados. */
+	.sg-lp .sg-stats--pair {
+		margin-top: 18px;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		max-width: 320px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	@media (min-width: 760px) {
+		.sg-lp .sg-timeline {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: 22px;
+		}
+
+		/* En escritorio los tramos van en paralelo: la guía pasa a ser
+		   horizontal y arranca del punto hacia la derecha. */
+		.sg-lp .sg-timeline__step {
+			padding: 34px 0 0 0;
+		}
+
+		.sg-lp .sg-timeline__step::before {
+			left: 20px;
+			right: -22px;
+			top: 8px;
+			bottom: auto;
+			width: auto;
+			height: 2px;
+		}
+
+		.sg-lp .sg-timeline__step::after {
+			left: 0;
+			top: 1px;
+		}
 	}
 </style>
 
@@ -3168,3 +3469,5 @@
 		}
 	})()
 </script>
+</body>
+</html>

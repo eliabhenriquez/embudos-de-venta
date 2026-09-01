@@ -262,7 +262,38 @@ Si algún día se pasa al plan Unlimited, las Versiones del Formulario son mejor
 sitio para esto: permitirían además tener oferta de cantidad y textos distintos
 por landing, no solo el banner.
 
-**2. La oferta de cantidad se fue al fondo.** Al colocar el banner, el bloque
+**1b. Un banner distinto por ángulo — RESUELTO, también por CSS.** El banner de
+piel habla de piel, así que cabello necesitaba el suyo. El bloque de imagen
+sigue siendo uno y su URL se configura en la app, de modo que el cambio se hace
+con `content: url()` sobre el `<img>`: sustituye lo que se pinta sin tocar el
+`src`. El interruptor es el **valor** de `data-rsi-banner` (`"piel"`,
+`"cabello"`), y la regla vive en `releasit-form.css` §2b.
+
+Medido sobre el formulario real en móvil de 390px:
+
+| | |
+|---|---|
+| Bloques de imagen en el DOM | **1** (`.rsi-image-item-wrapper`, sin `id` ni `data-*`: solo `class`) |
+| Banner en vivo | `banner-image-form-final-sknglow.webp`, 2172×724, **201 KB y es un JPEG** con nombre `.webp` |
+| Caja pintada | 339×113 |
+| Con el banner de cabello (1870×841) | 339×**152**, o sea **+39px** antes de los campos |
+
+Dos cosas que conviene saber:
+
+- **Se descargan las dos imágenes**, la del `src` y la del `content`. Comprobado
+  con el panel de red: son dos peticiones. En cabello eso son ~290 KB al abrir
+  el modal. Si molesta, la salida es poner un 1×1 transparente como URL del
+  bloque en la app y pintar los banners como `background-image` desde el CSS;
+  entonces solo se descarga el visible.
+- **`check-cdn.sh` no ve estos banners**, porque se referencian desde el CSS de
+  Releasit y no desde el HTML de la landing. Hay que comprobarlos a mano.
+
+**2. La oferta de cantidad se fue al fondo — YA CORREGIDO.** Verificado en vivo
+el 2026-08-31 abriendo el formulario en móvil: vuelve a salir en la posición 1,
+justo debajo del banner. Se deja escrito el diagnóstico porque explica por qué
+esa posición importa y conviene no volver a perderla.
+
+Lo que pasaba: al colocar el banner, el bloque
 `quantity_offer` pasó de la posición 1 a la 16. En escritorio no se nota porque
 cae en la columna derecha, pero **en móvil aparece a 1036px de scroll**, después
 de nombre, apellido, teléfono, correo, dirección, departamento y ciudad. El

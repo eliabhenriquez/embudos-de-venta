@@ -84,11 +84,45 @@ landings-mimacalm-hero.webp
 Patrón: `landings-<producto>-<uso>.webp`. El nombre del repo y el del CDN deben ser **idénticos**
 para poder rastrear cualquier imagen de la landing hasta su original.
 
-La URL resultante es predecible y no necesita el `?v=`:
+La URL resultante es predecible:
 
 ```
 https://www.mimacolombia.com/cdn/shop/files/<nombre-del-archivo>
 ```
+
+### 🔴 Versionado: nunca reemplaces una imagen con el mismo nombre
+
+**El CDN de Shopify cachea por nombre de archivo y no suelta la versión vieja.** Subir un fichero nuevo
+encima de uno que ya existía no basta, y **borrarlo de Contenido → Archivos tampoco**: el origen
+devuelve 404 pero los navegadores y los nodos de borde siguen sirviendo la copia antigua durante mucho
+tiempo. En la práctica el cambio no se ve, y no hay forma de forzarlo desde el HTML.
+
+La única solución fiable es **cambiar la URL**, y eso significa cambiar el nombre:
+
+| Situación | Nombre |
+|---|---|
+| Imagen nueva, nunca subida | `landings-sknglow-cab-hero.webp` |
+| Se modifica esa imagen | `landings-sknglow-cab-hero-v2.webp` |
+| Se vuelve a modificar | `landings-sknglow-cab-hero-v3.webp` |
+
+La primera versión **no lleva sufijo**. Cada reemplazo posterior sube el contador. Se actualiza la
+referencia en el HTML de la landing y se sube el fichero nuevo; **la versión anterior la borra el
+responsable de la tienda** cuando el cambio ya está publicado y verificado.
+
+No sirven las alternativas que parecen más cómodas:
+
+- `?v=2` o cualquier query propia — Shopify usa `?width=` para generar derivados y **ignora los
+  parámetros que no conoce**, así que la URL cacheada es la misma.
+- Borrar y volver a subir con el mismo nombre — es exactamente el caso que falla.
+
+**Antes de dar por buena una imagen modificada, comprueba qué hay realmente publicado:**
+
+```sh
+./check-cdn.sh mima/landings/sknglow/cabello/august.html
+```
+
+Lista cada imagen referenciada y si responde 200 (ya está) o 404 (falta subirla). Es la forma de
+detectar tanto una imagen que falta como una que se cambió sin versionar.
 
 ## 6. En el HTML
 

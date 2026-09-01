@@ -37,8 +37,13 @@ TITLE=$(basename "${SRC%.html}")
 	# --- Simulación del entorno real de Shopify + tema Dawn ---
 	# Sin esto la vista previa miente: el bloque se ve perfecto en local y
 	# se rompe al publicar. Estas tres reglas son las del tema en producción.
-	printf '%s\n' 'html{font-size:62.5%}          /* 1rem = 10px, no 16px */'
-	printf '%s\n' 'body{font-size:1.5rem;font-family:Helvetica,Arial,sans-serif}'
+	# MEDIDO en la página viva, no supuesto: html va a 16px y body a 16px.
+	# Antes aquí había un font-size:62.5% heredado de otro tema, y hacía que
+	# cualquier medida en rem se viera un 60% más pequeña en local que en
+	# producción. Un bloque con rem pasaba la vista previa y salía gigante al
+	# publicar. Si algún día cambia el tema, se vuelve a medir; no se supone.
+	printf '%s\n' 'html{font-size:16px}'
+	printf '%s\n' 'body{font-size:16px;font-family:Helvetica,Arial,sans-serif}'
 	printf '%s\n' 'a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:empty,h6:empty,p:empty,section:empty,ul:empty{display:none}'
 	# Fuente deliberadamente distinta: si un titular sale en serif, es que
 	# la regla de etiqueta del tema le está ganando a la nuestra.

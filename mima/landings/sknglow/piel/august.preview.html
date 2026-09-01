@@ -7,8 +7,8 @@
 <title>august · vista previa</title>
 <style>
 body{margin:0}
-html{font-size:62.5%}          /* 1rem = 10px, no 16px */
-body{font-size:1.5rem;font-family:Helvetica,Arial,sans-serif}
+html{font-size:16px}
+body{font-size:16px;font-family:Helvetica,Arial,sans-serif}
 a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:empty,h6:empty,p:empty,section:empty,ul:empty{display:none}
 .h0,.h1,.h2,.h3,.h4,.h5,h1,h2,h3,h4,h5{font-family:Georgia,serif}
 </style>
@@ -37,10 +37,11 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 	conservando el nombre exacto.
 -->
 
-<!-- data-rsi-banner: esta landing muestra el banner del formulario de
-     Releasit. El bloque de imagen es global a la tienda, así que la piel
-     lo oculta por defecto y solo lo enciende donde está este atributo. -->
-<section class="sg-lp" id="sg-sknglow" data-rsi-banner>
+<!-- data-rsi-banner: enciende el banner del formulario de Releasit, que va
+     oculto por defecto porque el bloque de imagen es global a la tienda.
+     El VALOR elige qué banner se pinta: "piel" carga el suyo desde
+     shared/releasit-form.css. Sin valor se queda el que tenga puesto la app. -->
+<section class="sg-lp" id="sg-sknglow" data-rsi-banner="piel">
 
 	<!-- =========================== CABECERA ========================= -->
 	<header class="sg-topbar">
@@ -62,51 +63,80 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 
 
 			<figure class="sg-hero__media">
-				<!-- Foto y frasco van en una sola imagen: dos peticiones y 276 KB pasan a
-				     una y 94 KB en móvil. El frasco tapa justo la zona de pelo rizado, que
-				     es la más cara de comprimir, así que la compuesta pesa menos que la
-				     foto sola. Cada recorte se sirve a su breakpoint: el móvil nunca
-				     descarga el de escritorio.
-				     El marcado por capas de antes queda abajo comentado, con sus estilos
-				     intactos en la hoja, por si hay que volver a separarlos. -->
-				<picture>
-					<source media="(min-width: 900px)"
-						srcset="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-hero-escritorio.webp?width=860">
-					<img class="sg-hero__composite"
-						src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-hero-movil-v1.webp?width=860"
-						width="860" height="737"
-						alt="Frasco de Sknglow con Resveratrol y Biotina junto al rostro de una clienta"
-						fetchpriority="high" decoding="async">
-				</picture>
+				<!-- Slider nativo: scroll con snap, sin librería. El JS solo sincroniza
+				     los puntos; si falla, sigue siendo un carrusel deslizable.
+				     La primera imagen es el LCP y va sin lazy; las otras cuatro sí. -->
+				<div class="sg-slider" data-sg-slider>
+					<ul class="sg-slider__track" data-sg-slider-track tabindex="0"
+						role="region" aria-label="Imágenes de Sknglow">
+					<li class="sg-slider__slide">
+						<!-- La compuesta de piel: foto y frasco horneados en una sola
+						     imagen. Recortada de 860 a 800 de ancho por el borde derecho
+						     (el frasco queda intacto) para que su proporción sea la misma
+						     que la de la caja del slider: así llena el hueco en vez de
+						     dejar banda arriba, y las cuatro infografías solo pierden un
+						     2,4% por lado, que cabe en sus márgenes.
 
-				<figcaption class="sg-hero__claim">Más firme. Más pareja. Más luminosa.</figcaption>
+						     OJO: esta imagen trae el redondeo horneado en el alfa (radio
+						     45px sobre 800, más una banda de 25px arriba por la que asoma
+						     el tapón). El recorte se llevó las dos esquinas derechas y
+						     quedaron en pico; la v2 se las devuelve copiando en espejo el
+						     alfa de las izquierdas. Si se vuelve a recortar de ancho, hay
+						     que rehacer ese espejo. -->
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-piel-hero-1-v2.webp?width=800"
+							width="800" height="762"
+							alt="Frasco de Sknglow con Resveratrol y Biotina junto al rostro de una clienta"
+							fetchpriority="high" decoding="async">
+						<figcaption class="sg-hero__claim">Más firme. Más pareja. Más luminosa.</figcaption>
+					</li>
+					<li class="sg-slider__slide">
+						<!-- Sin ?width=: Shopify reencoda peor que nosotros. Su variante de
+						     860px pesaba 82 KB; este fichero da 1050px por 63 KB, que además
+						     es exactamente lo que pinta un móvil DPR3 (caja de 350 CSS px).
+						     Con parámetro volvería a pasar por su reencode. -->
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-hero-2-v2.webp"
+							width="1050" height="1050"
+							alt="Sknglow actúa sobre piel, cabello y uñas"
+							loading="lazy" decoding="async">
+					</li>
+					<li class="sg-slider__slide">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-hero-3.webp?width=860"
+							width="1254" height="1254"
+							alt="Ingredientes clave de Sknglow: Biotina y Resveratrol"
+							loading="lazy" decoding="async">
+					</li>
+					<li class="sg-slider__slide">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-hero-4.webp?width=860"
+							width="1254" height="1254"
+							alt="Modo de uso: 4 dulces duros al día durante 30 días, 120 por frasco"
+							loading="lazy" decoding="async">
+					</li>
+					<li class="sg-slider__slide">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-hero-5.webp?width=860"
+							width="1254" height="1254"
+							alt="Información nutricional de Sknglow"
+							loading="lazy" decoding="async">
+					</li>
+					</ul>
 
-				<!-- Versión por capas — no borrar:
-							<img class="sg-hero__portrait"
-					src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-hero-isabella.webp?width=900"
-					srcset="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-hero-isabella.webp?width=520 520w,
-					        https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-hero-isabella.webp?width=900 900w"
-					sizes="(max-width: 899px) 92vw, 44vw"
-					width="900" height="1200"
-					alt="" aria-hidden="true"
-					fetchpriority="high" decoding="async">
-				<img class="sg-hero__bottle"
-					src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-product.webp?width=460"
-					srcset="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-product.webp?width=340 340w,
-					        https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-product.webp?width=460 460w"
-					sizes="(max-width: 899px) 44vw, 22vw"
-					width="581" height="1000"
-					alt="Frasco de Sknglow con Resveratrol y Biotina, 120 dulces duros sabor kiwi"
-					fetchpriority="high" decoding="async">
-
-				-->
-
+					<div class="sg-slider__dots" data-sg-slider-dots>
+					<button type="button" class="sg-slider__dot is-active" data-sg-dot="0"
+						aria-label="Ver imagen 1 de 5" aria-current="true"></button>
+					<button type="button" class="sg-slider__dot" data-sg-dot="1"
+						aria-label="Ver imagen 2 de 5"></button>
+					<button type="button" class="sg-slider__dot" data-sg-dot="2"
+						aria-label="Ver imagen 3 de 5"></button>
+					<button type="button" class="sg-slider__dot" data-sg-dot="3"
+						aria-label="Ver imagen 4 de 5"></button>
+					<button type="button" class="sg-slider__dot" data-sg-dot="4"
+						aria-label="Ver imagen 5 de 5"></button>
+					</div>
+				</div>
 			</figure>
 
 			<div class="sg-hero__specs">
-
 				<ul class="sg-facts">
-					<li>120 Dulces duros sabor a kiwi</li>
+					<li>120 Dulces duros</li>
 					<!-- <li>Biotina + Resveratrol</li> -->
 					<!-- <li>120 dulces duros</li> -->
 					<li>4 al día por 30 días</li>
@@ -947,7 +977,7 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 		width: 100%;
 		max-width: var(--sg-shell);
 		margin-inline: auto;
-		padding-inline: 20px;
+		padding-inline: 16px;
 	}
 
 	.sg-lp .sg-narrow { max-width: var(--sg-narrow); }
@@ -1003,11 +1033,10 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 	}
 
 	.sg-lp .sg-lead {
-		font-size: 15.8px;
+		font-size: 14px;
 		line-height: 1.5;
 		color: var(--sg-muted);
-		margin-top: 8px;
-		margin-bottom: 5px;
+		margin-top: 5px;
 		/* Antes se cortaba en 31ch para no invadir el rostro, cuando la foto
 		   iba de fondo. Ya no hace falta: con la foto fuera del texto, la
 		   medida puede respirar y el párrafo cae en dos líneas en vez de tres. */
@@ -1164,7 +1193,7 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 		position: relative;
 		overflow: hidden;
 		background: linear-gradient(168deg, var(--sg-lilac-soft) 0%, #fff 62%);
-		padding-block: clamp(8px, 2vw, 44px) clamp(35px, 7vw, 104px);
+		padding-block: 0 clamp(35px, 7vw, 104px);
 	}
 
 	.sg-lp .sg-hero__grid {
@@ -1183,23 +1212,33 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 	}
 
 	.sg-lp .sg-hero__head { grid-area: head; }
-	.sg-lp .sg-hero__media { grid-area: media; }
+	/* Entre tablet y escritorio la foto cuadrada a ancho completo se iba a
+	   645px de lado y disparaba el hero a 1159px. Por debajo de 420px el
+	   tope no hace nada. */
+	.sg-lp .sg-hero__media {
+		grid-area: media;
+		max-width: 420px;
+		margin-inline: auto;
+		width: 100%;
+	}
 	.sg-lp .sg-hero__specs { grid-area: specs; align-self: end; }
 	.sg-lp .sg-hero__mech { grid-area: mech; }
 	.sg-lp .sg-hero__buy { grid-area: buy; text-align: center; }
 
-	.sg-lp .sg-hero .sg-h1 { font-size: clamp(28.8px, 6.2vw, 56px); }
+	.sg-lp .sg-hero .sg-h1 { font-size: clamp(23px, 6.2vw, 53px); }
 
 
 	/* El claim se lee mejor dentro de la foto que debajo del titular: ahí
 	   remata la imagen en vez de competir con ella. La banda solo alcanza el
 	   borde inferior —cuello y jersey—, nunca la cara. Blanco sobre ella da
-	   8:1, así que el degradado puede quedarse suave. */
+	   8:1, así que el degradado puede quedarse suave.
+	   El relleno inferior subió de 15px a 42px: los puntos del slider viven
+	   dentro de esta misma banda, debajo del texto. */
 	.sg-lp .sg-hero__claim {
 		position: absolute;
 		inset-inline: 0;
 		bottom: 0;
-		padding: 46px 16px 15px;
+		padding: 46px 16px 42px;
 		border-radius: 0 0 var(--sg-radius-lg) var(--sg-radius-lg);
 		background: linear-gradient(180deg,
 			rgba(43, 20, 41, 0) 0%,
@@ -1223,6 +1262,115 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 		background: var(--sg-magenta);
 	}
 
+	/* ---------- Slider del hero ----------
+	   Scroll nativo con snap: sin librería, sin JS para deslizar. El JS solo
+	   pinta el punto activo, así que sin él sigue funcionando el gesto.
+	   Sustituye al rótulo superpuesto del ángulo piel: con cinco imágenes ese
+	   rótulo solo valía para la primera y peleaba con los puntos por el sitio. */
+	.sg-lp .sg-slider {
+		position: relative;
+	}
+
+	.sg-lp .sg-slider__track {
+		display: flex;
+		gap: 0;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		scroll-behavior: smooth;
+		overscroll-behavior-inline: contain;
+		-webkit-overflow-scrolling: touch;
+		border-radius: var(--sg-radius-lg);
+		/* La barra sobra: para eso están los puntos */
+		scrollbar-width: none;
+	}
+
+	.sg-lp .sg-slider__track::-webkit-scrollbar { display: none; }
+
+	.sg-lp .sg-slider__track:focus-visible {
+		outline: 3px solid var(--sg-magenta-deep);
+		outline-offset: 3px;
+	}
+
+	.sg-lp .sg-slider__slide {
+		position: relative;
+		flex: 0 0 100%;
+		scroll-snap-align: center;
+		scroll-snap-stop: always;
+	}
+
+	/* La caja va a la proporción de la compuesta (800/762), no a 1:1. Con
+	   1:1 la compuesta dejaba una banda vacía del 11% arriba. Bajar la caja
+	   a su proporción natural la elimina y recorta el hero 17px, y a las
+	   cuatro infografías cuadradas solo les cuesta un 2,4% arriba y abajo:
+	   comprobado que ni la tabla nutricional ni las cabeceras se tocan.
+	   (A 1:1 exacto el recorte habría sido del 5,7% por lado y partía la
+	   tabla nutricional por abajo.) */
+	.sg-lp .sg-slider__slide img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 800 / 762;
+		object-fit: cover;
+		border-radius: var(--sg-radius-lg);
+	}
+
+	/* ---------- Puntos ----------
+	   La píldora oscura es obligatoria, no decorativa: hay slides con fondo
+	   blanco donde unos puntos claros desaparecerían. */
+	.sg-lp .sg-slider__dots {
+		position: absolute;
+		left: 50%;
+		bottom: 14px;
+		transform: translateX(-50%);
+		z-index: 2;
+		display: flex;
+		align-items: center;
+		gap: 7px;
+		padding: 7px 10px;
+		border-radius: 999px;
+		background: rgba(43, 20, 41, 0.55);
+		backdrop-filter: blur(6px);
+		-webkit-backdrop-filter: blur(6px);
+	}
+
+	.sg-lp .sg-slider__dot {
+		width: 7px;
+		height: 7px;
+		padding: 0;
+		border: 0;
+		border-radius: 50%;
+		background: rgba(255, 255, 255, 0.45);
+		cursor: pointer;
+		transition: background 180ms ease, width 180ms ease;
+		/* El punto se ve de 7px pero el área tocable llega a 24px: por debajo
+		   de eso fallan los dedos. */
+		position: relative;
+	}
+
+	.sg-lp .sg-slider__dot::after {
+		content: '';
+		position: absolute;
+		inset: -9px;
+	}
+
+	.sg-lp .sg-slider__dot.is-active {
+		width: 18px;
+		border-radius: 999px;
+		background: #fff;
+	}
+
+	.sg-lp .sg-slider__dot:focus-visible {
+		outline: 2px solid #fff;
+		outline-offset: 3px;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.sg-lp .sg-slider__track { scroll-behavior: auto; }
+		.sg-lp .sg-slider__dot { transition: none; }
+	}
+
 	/* Mecanismo: qué hace cada activo, en esquema en vez de en prosa.
 	   SVG en línea, sin peso de red y nítido a cualquier densidad. */
 	.sg-lp .sg-mechanism {
@@ -1230,14 +1378,17 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 		flex-wrap: wrap;
 		align-items: center;
 		justify-content: center;
-		gap: 8px;
+		gap: 7px;
 	}
 
+	/* Compacto a propósito: es un apoyo, no un titular, y cada píxel que
+	   ocupa aquí empuja el precio y el CTA fuera de la primera pantalla.
+	   El alto lo manda el círculo del icono, no el texto. */
 	.sg-lp .sg-mechanism__step {
 		display: flex;
 		align-items: center;
-		gap: 9px;
-		padding: 6px 13px 6px 6px;
+		gap: 8px;
+		padding: 4px 11px 4px 4px;
 		border-radius: 999px;
 		background: var(--sg-lilac-soft);
 		border: 1px solid var(--sg-border);
@@ -1248,14 +1399,14 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 		align-items: center;
 		justify-content: center;
 		flex: 0 0 auto;
-		width: 29px;
-		height: 29px;
+		width: 24px;
+		height: 24px;
 		border-radius: 50%;
 		background: #fff;
 		color: var(--sg-ink);
 	}
 
-	.sg-lp .sg-mechanism__icon svg { width: 16px; height: 16px; }
+	.sg-lp .sg-mechanism__icon svg { width: 14px; height: 14px; }
 
 	.sg-lp .sg-mechanism__text {
 		display: flex;
@@ -1265,7 +1416,7 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 	}
 
 	.sg-lp .sg-mechanism__label {
-		font-size: 12px;
+		font-size: 11px;
 		font-weight: 800;
 		letter-spacing: 0.07em;
 		text-transform: uppercase;
@@ -1273,12 +1424,12 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 	}
 
 	.sg-lp .sg-mechanism__source {
-		font-size: 13px;
+		font-size: 12px;
 		color: var(--sg-muted);
 	}
 
 	.sg-lp .sg-mechanism__join {
-		font-size: 15px;
+		font-size: 14px;
 		font-weight: 700;
 		line-height: 1;
 		color: var(--sg-purple);
@@ -1296,7 +1447,7 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 	.sg-lp .sg-facts li {
 		position: relative;
 		padding-left: 20px;
-		font-size: 15px;
+		font-size: 13px;
 		line-height: 1.35;
 		color: var(--sg-text);
 	}
@@ -1316,22 +1467,36 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 		align-items: center;
 		justify-content: center;
 		flex-wrap: wrap;
-		gap: 12px;
+		gap: 10px;
 	}
 
+	/* line-height propio: el 1.6 de .sg-lp está pensado para párrafos y aquí
+	   inflaba la caja a 51px cuando los glifos ocupan 38 (ascendente 31 +
+	   descendente 7, medido de la fuente). Eran 13px de interlínea muerta
+	   delante del CTA. Se ve como caja y no como texto porque .sg-price es
+	   flex: eso bloquea el span y su rectángulo pasa a ser la línea entera. */
 	.sg-lp .sg-price__amount {
 		font-size: clamp(32px, 5.4vw, 41.6px);
+		line-height: 1.15;
 		font-weight: 800;
 		letter-spacing: -0.02em;
 		color: var(--sg-text);
 	}
 
+	/* Compacto para que quepa en la misma línea que el precio hasta 320px.
+	   Si envuelve, la fila pasa de 51px a 99px de golpe: el chip cae debajo
+	   y empuja el CTA media pantalla.
+
+	   El clamp no es decorativo: el precio ya ocupa 111px por sí solo y con
+	   13px fijos no cabía. Da 13px de 380 en adelante y encoge por debajo.
+	   El punto que manda es 360 (el Android más común) con la tarjeta
+	   estrecha de cabello: ahí quedan 290px útiles y hacen falta 286. */
 	.sg-lp .sg-price__note {
-		font-size: 15px;
+		font-size: clamp(11.5px, calc(2.5vw + 3.5px), 13px);
 		font-weight: 700;
 		color: var(--sg-ink);
 		background: var(--sg-lilac-soft);
-		padding: 6px 14px;
+		padding: 5px 11px;
 		border-radius: 999px;
 	}
 
@@ -1389,35 +1554,10 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 		   franja al layout, así que la tarjeta ocupa lo mismo que antes.
 		   Los porcentajes de margin se resuelven contra el ANCHO, que es
 		   justamente la referencia del lienzo: -25/860. */
-		aspect-ratio: 860 / 762;
-		margin-top: -2.907%;
 	}
 
 	/* Las esquinas van horneadas en la imagen, no en CSS: el redondeo es de la
 	   foto, y el borde del elemento incluye la franja transparente del frasco. */
-
-	/* --- Reglas de la versión por capas. No se usan mientras el hero vaya
-	   compuesto, pero se quedan: volver a separar foto y frasco es descomentar
-	   el marcado, sin reescribir nada de esto. --- */
-	.sg-lp .sg-hero__portrait {
-		display: block;
-		width: 100%;
-		aspect-ratio: 7 / 6;
-		object-fit: cover;
-		object-position: 50% 26%;
-		border-radius: var(--sg-radius-lg);
-	}
-
-	/* El frasco se apoya en la esquina de la foto: sin ese solape, producto e
-	   imagen se leen como dos bloques pegados en vez de una composición. */
-	.sg-lp .sg-hero__bottle {
-		position: absolute;
-		left: 3%;
-		bottom: 15%;
-		width: 44%;
-		/* drop-shadow sigue el recorte del PNG; box-shadow dibujaría un rectángulo */
-		filter: drop-shadow(0 16px 28px rgba(109, 31, 44, 0.4));
-	}
 
 	/* ---------- Banda "tu piel cambia" ---------- */
 
@@ -2724,13 +2864,12 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 		   Con la columna entera para ella recupera el 3/4, que le sienta mejor. */
 		.sg-lp .sg-hero__media { align-self: center; max-width: 430px; justify-self: end; }
 		/* En horizontal el frasco no asoma: lienzo sin franja ni margen. */
-		.sg-lp .sg-hero__composite { aspect-ratio: 860 / 1147; margin-top: 0; }
-		.sg-lp .sg-hero__portrait { aspect-ratio: 3 / 4; }
+		.sg-lp .sg-hero__composite { aspect-ratio: 1 / 1; margin-top: 0; }
 		.sg-lp .sg-hero .sg-lead { font-size: 17px; margin-top: 18px; }
 
 		/* En horizontal el "+" lee mejor como unión entre los dos activos */
 		.sg-lp .sg-hero .sg-mechanism { justify-content: flex-start; gap: 10px; }
-		.sg-lp .sg-mechanism__label { font-size: 13px; }
+		.sg-lp .sg-mechanism__label { font-size: 12px; }
 		.sg-lp .sg-hero .sg-facts li { font-size: 16px; padding-left: 26px; }
 		.sg-lp .sg-hero__buy .sg-cta { margin-top: 24px; }
 		.sg-lp .sg-hero__buy .sg-trust { justify-content: flex-start; }
@@ -2905,6 +3044,76 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 			sync()
 		}
 
+		function initHeroSlider(root) {
+			var slider = root.querySelector('[data-sg-slider]')
+			if (!slider) return
+
+			var track = slider.querySelector('[data-sg-slider-track]')
+			var dots = slider.querySelectorAll('[data-sg-dot]')
+			if (!track || !dots.length) return
+
+			var slides = track.querySelectorAll('.sg-slider__slide')
+			if (slides.length !== dots.length) return
+
+			var current = -1
+
+			function paint(index) {
+				if (index === current) return
+				current = index
+
+				Array.prototype.forEach.call(dots, function (dot, i) {
+					var active = i === index
+					dot.classList.toggle('is-active', active)
+					// aria-current y no aria-selected: esto no es un tablist,
+					// son atajos a posiciones de un scroll.
+					if (active) dot.setAttribute('aria-current', 'true')
+					else dot.removeAttribute('aria-current')
+				})
+			}
+
+			// El índice sale de la posición de scroll y no de un contador
+			// propio: así el punto sigue al dedo aunque el usuario arrastre a
+			// mano, que es como se va a usar el 99% de las veces.
+			function readIndex() {
+				var width = track.clientWidth
+				if (!width) return
+				paint(Math.round(track.scrollLeft / width))
+			}
+
+			var ticking = false
+			track.addEventListener('scroll', function () {
+				if (ticking) return
+				ticking = true
+				window.requestAnimationFrame(function () {
+					ticking = false
+					readIndex()
+				})
+			}, { passive: true })
+
+			Array.prototype.forEach.call(dots, function (dot) {
+				dot.addEventListener('click', function () {
+					var i = parseInt(dot.getAttribute('data-sg-dot'), 10)
+					if (isNaN(i)) return
+					track.scrollTo({ left: track.clientWidth * i, behavior: 'smooth' })
+				})
+			})
+
+			// Al cambiar de orientación o de ancho el scrollLeft deja de
+			// cuadrar con el slide: se recoloca sobre el que estaba.
+			if (typeof window.ResizeObserver === 'function') {
+				var last = track.clientWidth
+				new window.ResizeObserver(function () {
+					if (track.clientWidth === last) return
+					var i = current < 0 ? 0 : current
+					last = track.clientWidth
+					track.scrollLeft = last * i
+				}).observe(track)
+			}
+
+			readIndex()
+			paint(current < 0 ? 0 : current)
+		}
+
 		function initStickyCta(root) {
 			var sticky = root.querySelector('[data-sg-sticky]')
 			var hero = root.querySelector('.sg-hero')
@@ -2963,6 +3172,7 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 
 			root.dataset[READY_FLAG] = 'true'
 			initPaymentSelector(root)
+			initHeroSlider(root)
 			initStickyCta(root)
 		}
 

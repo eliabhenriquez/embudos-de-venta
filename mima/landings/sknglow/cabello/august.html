@@ -1,0 +1,3455 @@
+<!--
+	MIMA · SKNGLOW — Landing de venta, ángulo CABELLO (campaña agosto)
+	=================================================================
+	Bloque autocontenido para pegar en GemPages (elemento HTML/Liquid).
+	Sin <html>, <head> ni <body>. Todo el CSS va namespaced bajo .sg-lp.
+
+	Mismo producto, misma variante y mismo precio que el ángulo piel:
+	lo único que cambia es el argumento. Estructura y estilos heredados
+	de landings/sknglow/piel/august.html, con dos bloques nuevos:
+	el carrusel de UGC tras el hero y la línea de tiempo (Parte 5).
+
+	CTA → abre el modal de Releasit mediante las clases de integración
+	_rsi-cod-form-gempages-button-overwrite y _rsi-cod-form-is-gempage.
+
+	PENDIENTES ANTES DE PUBLICAR — ver AGENTS.md del producto:
+	  1. AUTORIDAD: la tarjeta del NIH cita un estudio de 2,5 mg de
+	     Biotina al día. La tabla nutricional del propio producto
+	     (slide 5 del hero) declara 9 µg por porción de 3 dulces:
+	     unas 280 veces menos. Esa cifra hay que quitarla o acotarla.
+	  2. AUTORIDAD: el estudio de Resveratrol y densidad capilar usa
+	     una fórmula TÓPICA y Sknglow es oral. En revisión.
+	  3. El handle de esta página debe añadirse a `paid_landings`
+	     en theme.gempages.blank.liquid o hereda el tema completo.
+
+	Imágenes: Shopify CDN. Requieren subir a Contenido → Archivos los
+	17 ficheros landings-sknglow-cab-*.webp de landings/sknglow/assets/
+	conservando el nombre exacto.
+
+	VERSIONADO — el CDN de Shopify cachea por nombre de archivo y no
+	suelta la versión vieja ni borrándola. Por eso una imagen que ya se
+	subió NUNCA se reemplaza con el mismo nombre: se sube con sufijo
+	-v2, -v3... y se actualiza la referencia aquí. Ver la regla completa
+	en docs/image-optimization.md. El resto ya está subido por piel.
+-->
+
+<!-- data-rsi-banner: enciende el banner del formulario de Releasit, que va
+     oculto por defecto porque el bloque de imagen es global a la tienda.
+     El VALOR elige qué banner se pinta: "cabello" carga el suyo desde
+     shared/releasit-form.css. Sin valor se queda el que tenga puesto la app. -->
+<section class="sg-lp" id="sg-sknglow" data-rsi-banner="cabello">
+
+	<!-- =========================== CABECERA ========================= -->
+	<header class="sg-topbar">
+		<div class="sg-shell sg-topbar__inner">
+			<img
+				src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-mima-mark.webp?width=200"
+				width="300" height="151" decoding="async"
+				alt="MIMA">
+		</div>
+	</header>
+
+	<!-- ============================ HERO ============================ -->
+	<section class="sg-hero">
+		<div class="sg-shell sg-hero__grid">
+			<div class="sg-hero__head">
+				<h1 class="sg-h1">El cabello fuerte empieza antes de que lo veas</h1>
+				<p class="sg-lead"><strong>Sknglow</strong> trabaja en la raíz y en la estructura para que tu cabello gane cuerpo, tus uñas resistencia y tu piel luz</p>
+			</div>
+
+			<figure class="sg-hero__media">
+				<!-- Slider nativo: scroll con snap, sin librería. El JS solo sincroniza
+				     los puntos; si falla, sigue siendo un carrusel deslizable.
+				     La primera imagen es el LCP y va sin lazy; las otras cuatro sí. -->
+				<div class="sg-slider" data-sg-slider>
+					<ul class="sg-slider__track" data-sg-slider-track tabindex="0"
+						role="region" aria-label="Imágenes de Sknglow">
+					<li class="sg-slider__slide">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-hero-1.webp?width=860"
+							width="860" height="860"
+							alt="Clienta de MIMA con el cabello suelto sosteniendo su frasco de Sknglow"
+							fetchpriority="high" decoding="async">
+						<figcaption class="sg-hero__claim">Más cuerpo. Más fuerza. Más luz.</figcaption>
+					</li>
+					<li class="sg-slider__slide">
+						<!-- Sin ?width=: Shopify reencoda peor que nosotros. Su variante de
+						     860px pesaba 82 KB; este fichero da 1050px por 63 KB, que además
+						     es exactamente lo que pinta un móvil DPR3 (caja de 350 CSS px).
+						     Con parámetro volvería a pasar por su reencode. -->
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-hero-2-v2.webp"
+							width="1050" height="1050"
+							alt="Sknglow actúa sobre piel, cabello y uñas"
+							loading="lazy" decoding="async">
+					</li>
+					<li class="sg-slider__slide">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-hero-3.webp?width=860"
+							width="1254" height="1254"
+							alt="Ingredientes clave de Sknglow: Biotina y Resveratrol"
+							loading="lazy" decoding="async">
+					</li>
+					<li class="sg-slider__slide">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-hero-4.webp?width=860"
+							width="1254" height="1254"
+							alt="Modo de uso: 4 dulces duros al día durante 30 días, 120 por frasco"
+							loading="lazy" decoding="async">
+					</li>
+					<li class="sg-slider__slide">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-hero-5.webp?width=860"
+							width="1254" height="1254"
+							alt="Información nutricional de Sknglow"
+							loading="lazy" decoding="async">
+					</li>
+					</ul>
+
+					<div class="sg-slider__dots" data-sg-slider-dots>
+					<button type="button" class="sg-slider__dot is-active" data-sg-dot="0"
+						aria-label="Ver imagen 1 de 5" aria-current="true"></button>
+					<button type="button" class="sg-slider__dot" data-sg-dot="1"
+						aria-label="Ver imagen 2 de 5"></button>
+					<button type="button" class="sg-slider__dot" data-sg-dot="2"
+						aria-label="Ver imagen 3 de 5"></button>
+					<button type="button" class="sg-slider__dot" data-sg-dot="3"
+						aria-label="Ver imagen 4 de 5"></button>
+					<button type="button" class="sg-slider__dot" data-sg-dot="4"
+						aria-label="Ver imagen 5 de 5"></button>
+					</div>
+				</div>
+			</figure>
+
+			<div class="sg-hero__specs">
+				<ul class="sg-facts">
+					<li>120 Dulces duros sabor a kiwi</li>
+					<li>4 al día por 30 días</li>
+				</ul>
+			</div>
+
+			<div class="sg-hero__mech">
+				<ul class="sg-mechanism" aria-label="Cómo trabaja Sknglow">
+					<li class="sg-mechanism__step">
+						<span class="sg-mechanism__icon" aria-hidden="true">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3.5 8.5h17M3.5 15.5h17M8.5 3.5v17M15.5 3.5v17"/></svg>
+						</span>
+						<span class="sg-mechanism__text">
+							<span class="sg-mechanism__label">Estructura</span>
+							<span class="sg-mechanism__source">Biotina</span>
+						</span>
+					</li>
+
+					<li class="sg-mechanism__join" aria-hidden="true">+</li>
+
+					<li class="sg-mechanism__step">
+						<span class="sg-mechanism__icon" aria-hidden="true">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 19 5.8v5.4c0 4.2-2.8 7.3-7 8.8-4.2-1.5-7-4.6-7-8.8V5.8L12 3Z"/><circle cx="12" cy="11" r="2"/><path d="M12 7.6v.7M12 14.4v-.7M8.6 11h.7M15.4 11h-.7"/></svg>
+						</span>
+						<span class="sg-mechanism__text">
+							<span class="sg-mechanism__label">Protección</span>
+							<span class="sg-mechanism__source">Resveratrol</span>
+						</span>
+					</li>
+				</ul>
+			</div>
+
+			<div class="sg-hero__buy">
+				<p class="sg-price"><span class="sg-price__amount">$89.900</span> <span class="sg-price__note">Envío gratis a Colombia</span></p>
+				<p class="sg-price__prepay"><strong>$79.900</strong> si pagas con tarjeta o PSE</p>
+				<button type="button" class="sg-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI SKNGLOW</button>
+
+				<ul class="sg-trust">
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="12" rx="2.5"/><circle cx="12" cy="12" r="2.6"/><path d="M6 12h.01M18 12h.01"/></svg> Pagas al recibir</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h3.7l2.8 3v4h-6.5z"/><circle cx="7" cy="18" r="1.7"/><circle cx="17" cy="18" r="1.7"/></svg> Envío gratis · 3 a 5 días</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.3 7.5L3.6 20.4l1.4-4.4A8.4 8.4 0 1 1 20.5 11.6Z"/></svg> Confirmamos por WhatsApp</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- ==================== CARRUSEL UGC (PARTE 2) ================== -->
+	<section class="sg-section sg-section--tight">
+		<div class="sg-gallery">
+			<ul class="sg-gallery__track" tabindex="0" role="region" aria-label="Mujeres que ya usan Sknglow">
+				<li class="sg-gallery__item"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-ugc-juli.webp?width=420" width="510" height="900" loading="lazy" decoding="async" alt="Clienta de MIMA sosteniendo su frasco de Sknglow"></li>
+				<li class="sg-gallery__item"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-ugc-camila.webp?width=420" width="510" height="900" loading="lazy" decoding="async" alt="Clienta con su frasco de Sknglow y el cabello suelto"></li>
+				<li class="sg-gallery__item"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-ugc-natalia.webp?width=420" width="510" height="900" loading="lazy" decoding="async" alt="Clienta tomando uno de los dulces duros de Sknglow"></li>
+				<li class="sg-gallery__item"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-ugc-leidy.webp?width=420" width="510" height="900" loading="lazy" decoding="async" alt="Clienta mostrando a cámara su frasco de Sknglow"></li>
+				<li class="sg-gallery__item"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-ugc-genesis.webp?width=420" width="510" height="900" loading="lazy" decoding="async" alt="Clienta con los dulces duros de Sknglow en la mano"></li>
+				<li class="sg-gallery__item"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-ugc-anny.webp?width=420" width="510" height="900" loading="lazy" decoding="async" alt="Clienta de MIMA con su frasco de Sknglow"></li>
+				<li class="sg-gallery__item"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-ugc-shelyka.webp?width=420" width="510" height="900" loading="lazy" decoding="async" alt="Clienta sonriendo con su frasco de Sknglow"></li>
+			</ul>
+			<p class="sg-gallery__note">Contenido en colaboración con MIMA</p>
+		</div>
+	</section>
+
+	<!-- ============ PUENTE: MECANISMO DEL PROBLEMA (PARTE 3) ======== -->
+	<section class="sg-band">
+		<div class="sg-shell sg-band__inner">
+			<p class="sg-band__title">Tu cabello puede empezar a verse más delgado</p>
+			<p class="sg-band__sub">Más frágil. Con menos cuerpo. Y muchas veces lo notas tarde</p>
+
+			<ul class="sg-band__causes">
+				<li class="sg-band__cause">
+					<span class="sg-band__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 3.5h9v5.5h-9z"/><path d="M9 9v11M12 9v11M15 9v11"/></svg></span>
+					<div>
+						<p class="sg-band__cause-title">En el cepillo</p>
+						<p class="sg-band__cause-note">Cuando ves más pelo del que esperabas</p>
+					</div>
+				</li>
+				<li class="sg-band__cause">
+					<span class="sg-band__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.2c-3.6 0-6.5 2.9-6.5 6.5 0 4.4 1.4 7.4 2.6 10.4"/><path d="M12 3.2c3.6 0 6.5 2.9 6.5 6.5 0 4.4-1.4 7.4-2.6 10.4"/><path d="M12 7.5v9"/></svg></span>
+					<div>
+						<p class="sg-band__cause-title">En el volumen</p>
+						<p class="sg-band__cause-note">Cuando te recoges el cabello y sientes menos cuerpo</p>
+					</div>
+				</li>
+				<li class="sg-band__cause">
+					<span class="sg-band__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 20.5V9.2c0-2 1.6-3.6 3.5-3.6s3.5 1.6 3.5 3.6v11.3z"/><path d="M8.5 12.8h7"/><path d="M10.4 16.4l3.2 3.2M13.6 16.4l-3.2 3.2"/></svg></span>
+					<div>
+						<p class="sg-band__cause-title">En las uñas</p>
+						<p class="sg-band__cause-note">Cuando se parten apenas empiezan a crecer</p>
+					</div>
+				</li>
+			</ul>
+
+			<p class="sg-band__foot">Sknglow reúne Biotina y Resveratrol para trabajar tres partes que importan.</p>
+			<p class="sg-band__claim">La fuerza de tu cabello. La calidad de tus uñas. Y la apariencia luminosa de tu piel.</p>
+		</div>
+	</section>
+
+	<!-- ============ MECANISMO DE LA SOLUCIÓN (PARTE 4) ============== -->
+	<section class="sg-section">
+		<div class="sg-shell">
+			<div class="sg-headline">
+				<p class="sg-overline">Esa es la diferencia de Sknglow</p>
+				<h2 class="sg-h2"><span class="sg-h2__mech"><svg class="sg-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.2c-3.6 0-6.5 2.9-6.5 6.5 0 4.4 1.4 7.4 2.6 10.4"/><path d="M12 3.2c3.6 0 6.5 2.9 6.5 6.5 0 4.4-1.4 7.4-2.6 10.4"/><path d="M12 7.5v9"/></svg> Raíz</span> + <span class="sg-h2__mech"><svg class="sg-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3.5 8.5h17M3.5 15.5h17M8.5 3.5v17M15.5 3.5v17"/></svg> Estructura</span></h2>
+				<p class="sg-sub">La fórmula detrás de un cabello que se siente más fuerte</p>
+			</div>
+
+			<div class="sg-reason">
+				<p>El cabello gana <strong>fuerza</strong> desde la raíz.</p>
+				<p>Las uñas ganan <strong>resistencia</strong> desde su estructura.</p>
+				<p>La piel recupera <strong>luz</strong> cuando recibe cuidado de forma constante.</p>
+				<p class="sg-reason__foot">Sknglow une dos ingredientes que trabajan en esas partes</p>
+			</div>
+
+			<div class="sg-duo">
+				<article class="sg-card sg-card--structure">
+					<div class="sg-card__head">
+						<div>
+							<p class="sg-card__tag"><svg class="sg-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3.5 8.5h17M3.5 15.5h17M8.5 3.5v17M15.5 3.5v17"/></svg> Estructura</p>
+							<h3 class="sg-card__title">Biotina</h3>
+						</div>
+						<figure class="sg-card__media">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/biotina.webp?width=320"
+								width="1254" height="1254" loading="lazy" decoding="async"
+								alt="Biotina en polvo sobre una cuchara de madera">
+						</figure>
+					</div>
+					<p>La Biotina participa en procesos relacionados con cabello, uñas y piel</p>
+					<p>Es el ingrediente que habla con esa parte de ti que quiere dejar de ver uñas quebradizas y cabello sin fuerza</p>
+				</article>
+
+				<article class="sg-card sg-card--protection">
+					<div class="sg-card__head">
+						<div>
+							<p class="sg-card__tag"><svg class="sg-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 19 5.8v5.4c0 4.2-2.8 7.3-7 8.8-4.2-1.5-7-4.6-7-8.8V5.8L12 3Z"/><circle cx="12" cy="11" r="2"/><path d="M12 7.6v.7M12 14.4v-.7M8.6 11h.7M15.4 11h-.7"/></svg> Protección</p>
+							<h3 class="sg-card__title">Resveratrol</h3>
+						</div>
+						<figure class="sg-card__media">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/resveratrol.webp?width=320"
+								width="1254" height="1254" loading="lazy" decoding="async"
+								alt="Resveratrol en polvo junto a un racimo de uvas negras">
+						</figure>
+					</div>
+					<p>El Resveratrol trabaja frente al desgaste oxidativo que puede afectar la apariencia del cabello, las uñas y la piel</p>
+					<p>Un ingrediente asociado al cuidado de la piel y la protección de las células frente a factores externos</p>
+				</article>
+			</div>
+
+			<div class="sg-habit">
+				<figure class="sg-habit__media">
+					<img
+						src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-story-camila.webp?width=560"
+						width="510" height="900" loading="lazy" decoding="async"
+						alt="Clienta de MIMA con la mano en el cabello sosteniendo su frasco de Sknglow">
+				</figure>
+				<div class="sg-habit__copy">
+					<p class="sg-habit__title">4 dulces duros al día</p>
+					<ul class="sg-habit__list">
+						<li>Un hábito fácil</li>
+						<li>Sabor kiwi</li>
+						<li>Un frasco para 30 días</li>
+					</ul>
+				</div>
+
+				<!-- El collage no decora: es la prueba de que el hábito ya lo
+				     sostienen mujeres distintas, en casas distintas. -->
+				<ul class="sg-habit__bento" aria-label="Clientas de MIMA con su frasco de Sknglow">
+					<li class="sg-habit__tile sg-habit__tile--lead">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-bento-anny.webp?width=520"
+							width="507" height="568" loading="lazy" decoding="async"
+							alt="Clienta sonriendo con el cabello suelto sobre los hombros">
+					</li>
+					<li class="sg-habit__tile sg-habit__tile--a">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-bento-juli-v2.webp?width=300"
+							width="507" height="568" loading="lazy" decoding="async"
+							alt="Clienta al aire libre sosteniendo su frasco de Sknglow">
+					</li>
+					<li class="sg-habit__tile sg-habit__tile--b">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-bento-leidy.webp?width=300"
+							width="507" height="568" loading="lazy" decoding="async"
+							alt="Clienta sonriendo muestra a cámara su frasco de Sknglow">
+					</li>
+					<li class="sg-habit__tile sg-habit__tile--c">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-bento-genesis.webp?width=300"
+							width="507" height="568" loading="lazy" decoding="async"
+							alt="Clienta con el cabello largo y los dulces duros de Sknglow en la mano">
+					</li>
+					<li class="sg-habit__tile sg-habit__tile--extra">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-bento-natalia.webp?width=300"
+							width="507" height="568" loading="lazy" decoding="async"
+							alt="Clienta de MIMA tomando su dosis diaria de Sknglow">
+					</li>
+				</ul>
+			</div>
+
+			<div class="sg-cta-row">
+				<button type="button" class="sg-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO EMPEZAR CON SKNGLOW</button>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============ LÍNEA DE TIEMPO (PARTE 5) — bloque nuevo ========
+	     No existe en el ángulo piel. Aquí sí hace falta: el resultado en
+	     cabello tarda más en verse, y decirlo por adelantado evita que la
+	     clienta abandone a las tres semanas creyendo que no funciona.
+	     Todo el texto va en clave de apariencia, nunca de resultado
+	     garantizado: "empieza a", "pueden ganar", "se acumula". -->
+	<section class="sg-section sg-section--soft">
+		<div class="sg-shell">
+			<div class="sg-headline">
+				<p class="sg-overline">Tu camino hacia un cabello más fuerte</p>
+				<h2 class="sg-h2">Las decisiones pequeñas se notan con el tiempo</h2>
+				<p class="sg-sub">Esto es lo que sostiene la constancia, mes a mes</p>
+			</div>
+
+			<ol class="sg-timeline">
+				<li class="sg-timeline__step">
+					<p class="sg-timeline__when">Días 1 a 30</p>
+					<h3 class="sg-timeline__title">La base empieza aquí</h3>
+					<ul class="sg-timeline__list">
+						<li>Empiezas a darle a tu cabello, uñas y piel Biotina y Resveratrol todos los días</li>
+						<li>Cuatro dulces duros sabor kiwi</li>
+						<li>Un hábito simple que empieza a sumar a la fuerza que quieres volver a ver</li>
+					</ul>
+				</li>
+
+				<li class="sg-timeline__step">
+					<p class="sg-timeline__when">Días 31 a 60</p>
+					<h3 class="sg-timeline__title">La fuerza empieza a notarse</h3>
+					<ul class="sg-timeline__list">
+						<li>Tu cabello empieza a sentirse más cuidado</li>
+						<li>Las uñas pueden ganar una apariencia más firme y menos frágil</li>
+						<li>Tu piel empieza a verse más atendida y luminosa</li>
+					</ul>
+				</li>
+
+				<li class="sg-timeline__step sg-timeline__step--last">
+					<p class="sg-timeline__when">Días 61 a 90</p>
+					<h3 class="sg-timeline__title">Resultados que se acumulan</h3>
+					<ul class="sg-timeline__list">
+						<li>Cabello con más cuerpo</li>
+						<li>Uñas con más resistencia</li>
+						<li>Piel con una apariencia más luminosa y cuidada</li>
+					</ul>
+				</li>
+			</ol>
+
+			<div class="sg-timeline__foot">
+				<p class="sg-timeline__claim">La fuerza de tu cabello no se construye en un solo día</p>
+				<p class="sg-timeline__note">Se construye cada vez que eliges cuidarte</p>
+
+				<dl class="sg-stats sg-stats--pair">
+					<div class="sg-stat"><dt>4</dt><dd>dulces duros al día</dd></div>
+					<div class="sg-stat"><dt>30</dt><dd>días por frasco</dd></div>
+				</dl>
+			</div>
+
+			<div class="sg-cta-row">
+				<button type="button" class="sg-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO EMPEZAR CON SKNGLOW</button>
+			</div>
+		</div>
+	</section>
+
+	<!-- ==================== MODO DE USO (PARTE 6) =================== -->
+	<section class="sg-section">
+		<div class="sg-shell sg-usage">
+			<div class="sg-usage__head">
+				<p class="sg-overline">Lo haces fácil</p>
+				<h2 class="sg-h2">Cuatro dulces duros.<br>Todos los días.</h2>
+				<p class="sg-sub">El momento lo eliges tú</p>
+			</div>
+
+			<figure class="sg-usage__product">
+				<img
+					src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-product.webp?width=340"
+					width="581" height="1000" loading="lazy" decoding="async"
+					alt="Frasco de Sknglow con varios dulces duros apoyados a su lado">
+			</figure>
+
+			<div class="sg-usage__body">
+				<ul class="sg-moments">
+					<li>Después del desayuno</li>
+					<li>Durante una pausa</li>
+					<li>Al final del día</li>
+				</ul>
+
+				<p class="sg-usage__foot">Lo importante es volverlo parte de tu vida</p>
+
+				<dl class="sg-stats">
+					<div class="sg-stat"><dt>4</dt><dd>dulces duros al día</dd></div>
+					<div class="sg-stat"><dt>120</dt><dd>dulces duros por frasco</dd></div>
+					<div class="sg-stat"><dt>30</dt><dd>días de uso</dd></div>
+					<div class="sg-stat"><dt>Kiwi</dt><dd>sabor</dd></div>
+				</dl>
+
+				<div class="sg-cta-row sg-cta-row--start">
+					<button type="button" class="sg-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI SKNGLOW</button>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ================ SELECTOR DE PAGO (PARTE 7) ================== -->
+	<section class="sg-section sg-section--soft" id="sg-payment">
+		<div class="sg-shell sg-narrow">
+			<figure class="sg-pay__product">
+				<img
+					src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-product.webp?width=240"
+					width="581" height="1000" loading="lazy" decoding="async"
+					alt="Frasco de Sknglow">
+			</figure>
+
+			<div class="sg-headline">
+				<p class="sg-overline">Elige cómo pagar</p>
+				<h2 class="sg-h2">Sknglow vale $89.900</h2>
+				<p class="sg-sub">Luego eliges la opción que más te conviene</p>
+			</div>
+
+			<fieldset class="sg-pay">
+				<legend class="sg-visually-hidden">Forma de pago</legend>
+
+				<label class="sg-pay__option" for="sg-pay-prepaid">
+					<input type="radio" name="sg-payment" id="sg-pay-prepaid" value="prepaid" checked>
+					<span class="sg-pay__box">
+						<span class="sg-pay__badge">Recomendado</span>
+						<span class="sg-pay__name">Pago anticipado</span>
+						<span class="sg-pay__amount">$79.900</span>
+						<span class="sg-pay__save">Ahorras $10.000</span>
+						<span class="sg-pay__detail">Recibes confirmación y seguimiento por WhatsApp</span>
+						<span class="sg-pay__methods">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-pay-visa.webp?width=222" width="222" height="72" loading="lazy" decoding="async" alt="Visa">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-pay-mastercard.webp?width=92" width="92" height="72" loading="lazy" decoding="async" alt="Mastercard">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-pay-pse.webp?width=72" width="72" height="72" loading="lazy" decoding="async" alt="PSE">
+						</span>
+					</span>
+				</label>
+
+				<label class="sg-pay__option" for="sg-pay-cod">
+					<input type="radio" name="sg-payment" id="sg-pay-cod" value="cod">
+					<span class="sg-pay__box">
+						<span class="sg-pay__name">Pago contraentrega</span>
+						<span class="sg-pay__amount">$89.900</span>
+						<span class="sg-pay__detail">Pagas cuando recibes tu pedido</span>
+					</span>
+				</label>
+			</fieldset>
+
+			<ul class="sg-pay__same">
+				<li>El mismo producto</li>
+				<li>La misma cantidad</li>
+				<li>La elección es tuya</li>
+			</ul>
+
+			<div class="sg-cta-row">
+				<button type="button" class="sg-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage" data-sg-cta-price>ELEGIR MI FORMA DE PAGO</button>
+			</div>
+
+			<ul class="sg-trust">
+				<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="12" rx="2.5"/><circle cx="12" cy="12" r="2.6"/><path d="M6 12h.01M18 12h.01"/></svg> Pagas al recibir</li>
+				<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h3.7l2.8 3v4h-6.5z"/><circle cx="7" cy="18" r="1.7"/><circle cx="17" cy="18" r="1.7"/></svg> Envío gratis · 3 a 5 días</li>
+				<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.3 7.5L3.6 20.4l1.4-4.4A8.4 8.4 0 1 1 20.5 11.6Z"/></svg> Confirmamos por WhatsApp</li>
+				<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg> Registro INVIMA RSA-0156-2025</li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- ======================= BONO (PARTE 8) ======================= -->
+	<section class="sg-section sg-section--bonus">
+		<div class="sg-shell sg-bonus">
+			<div class="sg-bonus__visual">
+				<p class="sg-bonus__included">Incluido con tu compra de Sknglow</p>
+				<figure class="sg-bonus__cover">
+					<!-- Mockup propio del ángulo. Viene del render sobre fondo gris de
+					     estudio: se le recortó el fondo y la sombra se pasó al canal
+					     alfa, así que NO lleva mix-blend-mode (ver el CSS de abajo). -->
+					<img
+						src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-ebook.webp?width=760"
+						width="990" height="1274" loading="lazy" decoding="async"
+						alt="Portada de la guía digital de 28 días para cuidar tu cabello, incluida con la compra">
+				</figure>
+			</div>
+
+			<div class="sg-bonus__copy">
+				<p class="sg-overline sg-overline--accent">Bono gratis</p>
+				<h2 class="sg-h2">28 días para dejar de tratar tu cabello como si fuera indestructible</h2>
+				<p class="sg-sub">Con tu compra de Sknglow recibes una guía práctica para cuidar tu cabello, uñas y piel con más criterio</p>
+
+				<ul class="sg-checklist">
+					<li>Aprende a detectar hábitos que debilitan tu cabello</li>
+					<li>Reduce errores que quiebran y maltratan las puntas</li>
+					<li>Entiende qué señales mirar en uñas frágiles</li>
+					<li>Crea un cuidado externo que sume a lo que estás consumiendo</li>
+				</ul>
+
+				<p class="sg-bonus__who">Un plan de 28 días para dejar de improvisar cada vez que tu cabello, uñas o piel te piden atención</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ==================== HISTORIAS (PARTE 9) ===================== -->
+	<section class="sg-section sg-section--soft">
+		<div class="sg-shell">
+			<div class="sg-headline">
+				<p class="sg-overline">Historias compartidas con MIMA</p>
+				<h2 class="sg-h2">Mujeres que decidieron volver a cuidar su cabello</h2>
+				<p class="sg-sub">Contenido en colaboración con MIMA</p>
+			</div>
+
+			<div class="sg-stories">
+				<article class="sg-story">
+					<img
+						src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-story-anny.webp?width=510"
+						width="510" height="900" loading="lazy" decoding="async"
+						alt="Anny con su frasco de Sknglow">
+					<div class="sg-story__body">
+						<p class="sg-story__who">Anny <span>· Bogotá</span></p>
+						<p>Yo sentía que mi pelo se veía diferente. Más delgado. Más apagado.</p>
+						<p>Y cada vez que me peinaba terminaba revisando cuánto se había quedado en el cepillo.</p>
+						<p>Empecé con Sknglow porque quería sumar algo fácil a mi cuidado. Los dulces duros saben rico y se volvieron parte de mi día.</p>
+						<p class="sg-story__tag">Colaboración con MIMA</p>
+					</div>
+				</article>
+
+				<article class="sg-story">
+					<img
+						src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-story-camila.webp?width=510"
+						width="510" height="900" loading="lazy" decoding="async"
+						alt="Camila con su frasco de Sknglow">
+					<div class="sg-story__body">
+						<p class="sg-story__who">Camila <span>· Medellín</span></p>
+						<p>A mí me pasaba que las uñas jamás lograban crecer. Apenas estaban bonitas, se partían.</p>
+						<p>Entonces empecé a consumir Sknglow por las uñas y terminé feliz con lo práctico que es.</p>
+						<p>Cuatro dulces duros al día, sabor kiwi, y una forma de ser más constante conmigo.</p>
+						<p class="sg-story__tag">Colaboración con MIMA</p>
+					</div>
+				</article>
+
+				<article class="sg-story">
+					<img
+						src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-story-natalia.webp?width=510"
+						width="510" height="900" loading="lazy" decoding="async"
+						alt="Natalia con su frasco de Sknglow">
+					<div class="sg-story__body">
+						<p class="sg-story__who">Natalia <span>· Cali</span></p>
+						<p>Yo lo pedí pensando en mi cabello.</p>
+						<p>Pero empecé a sentir que mis uñas también se veían mucho más cuidadas. Eso fue lo que más me gustó.</p>
+						<p>Sentir que un mismo hábito también suma a mi piel, uñas y pelo.</p>
+						<p class="sg-story__tag">Colaboración con MIMA</p>
+					</div>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<!-- ==================== AUTORIDAD (PARTE 10) ==================== -->
+	<section class="sg-section">
+		<div class="sg-shell">
+			<div class="sg-headline">
+				<p class="sg-overline">El ingrediente detrás de Sknglow</p>
+				<h2 class="sg-h2">Biotina y Resveratrol en la conversación sobre cabello y uñas</h2>
+				<p class="sg-sub">Sknglow reúne dos ingredientes estudiados por su relación con la salud de cabello, uñas y piel</p>
+			</div>
+		</div>
+
+		<div class="sg-sources">
+			<ul class="sg-sources__track" tabindex="0" role="region" aria-label="La Biotina y el Resveratrol en estudios y organismos de referencia">
+				<li class="sg-sources__item">
+					<article class="sg-source">
+						<p class="sg-source__name"><img src="https://www.mimacolombia.com/cdn/shop/files/nih-logo.webp?width=520" width="260" height="96" loading="lazy" decoding="async" alt="National Institutes of Health"></p>
+						<h3 class="sg-source__title">Biotina, uñas quebradizas y caída del cabello</h3>
+						<p>El National Institutes of Health identifica la caída del cabello y las uñas quebradizas entre los signos que pueden aparecer en una deficiencia de Biotina</p>
+						<!-- EN REVISIÓN: la cifra de 2,5 mg se ha enviado al copywriter.
+						     Implica una dosis que la ficha del producto aún no confirma. -->
+						<p class="sg-source__note">También recoge estudios clínicos pequeños donde 2,5 mg al día se asoció con uñas más firmes y duras en personas con uñas frágiles</p>
+					</article>
+				</li>
+				<li class="sg-sources__item">
+					<article class="sg-source">
+						<p class="sg-source__name"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-logo-pubmed.webp?width=540" width="270" height="96" loading="lazy" decoding="async" alt="PubMed"></p>
+						<h3 class="sg-source__title">Biotina y uñas más firmes</h3>
+						<p>Una revisión dermatológica publicada en PubMed reporta mejoras en firmeza, dureza y grosor de uñas frágiles con Biotina oral en estudios clínicos</p>
+						<p class="sg-source__note">Por eso la Biotina sigue siendo uno de los ingredientes más buscados por quienes quieren uñas con mejor resistencia</p>
+					</article>
+				</li>
+				<li class="sg-sources__item">
+					<article class="sg-source">
+						<p class="sg-source__name"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-logo-pubmed.webp?width=540" width="270" height="96" loading="lazy" decoding="async" alt="PubMed"></p>
+						<h3 class="sg-source__title">Cabello, uñas y Biotina</h3>
+						<p>Una revisión clínica sobre Biotina para cabello y uñas analizó 18 reportes de mejoría en personas con condiciones asociadas a crecimiento capilar o ungueal deficiente</p>
+						<p class="sg-source__note">La Biotina se mantiene como uno de los nutrientes más relacionados con la conversación sobre fuerza capilar y uñas quebradizas</p>
+					</article>
+				</li>
+				<li class="sg-sources__item">
+					<article class="sg-source">
+						<p class="sg-source__name"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-logo-pubmed.webp?width=540" width="270" height="96" loading="lazy" decoding="async" alt="PubMed"></p>
+						<h3 class="sg-source__title">Resveratrol y densidad capilar</h3>
+						<!-- EN REVISIÓN: el estudio citado usa una fórmula TÓPICA y
+						     Sknglow es oral. Enviado al copywriter. -->
+						<p>Un estudio clínico aleatorizado en 79 mujeres encontró un aumento significativo de densidad capilar desde el mes y medio con una fórmula tópica que incluía Resveratrol</p>
+						<p class="sg-source__note">El estudio también mostró que el Resveratrol redujo el estrés oxidativo en células del folículo capilar analizadas en laboratorio</p>
+					</article>
+				</li>
+			</ul>
+		</div>
+
+		<div class="sg-shell">
+			<p class="sg-disclaimer">Estas fuentes hablan de la Biotina y el Resveratrol como ingredientes, no de Sknglow. Sknglow es un suplemento alimenticio y no es un medicamento.</p>
+		</div>
+	</section>
+
+	<!-- =================== QUÉ RECIBES (PARTE 11) =================== -->
+	<section class="sg-section sg-section--soft">
+		<div class="sg-shell sg-receive">
+			<div class="sg-receive__copy">
+				<p class="sg-overline">Recibes esto</p>
+				<h2 class="sg-h2">Todo para empezar</h2>
+
+				<ul class="sg-checklist">
+					<li>1 frasco de Sknglow</li>
+					<li>120 dulces duros sabor kiwi</li>
+					<li>30 días de uso</li>
+					<li>Guía digital de 28 días para dejar de tratar tu cabello como si fuera indestructible</li>
+					<li>Envío gratis a Colombia</li>
+					<li>Confirmación de pedido por WhatsApp</li>
+				</ul>
+
+				<div class="sg-cta-row sg-cta-row--start">
+					<button type="button" class="sg-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI SKNGLOW</button>
+				</div>
+			</div>
+
+			<div class="sg-receive__media">
+				<figure>
+					<img
+						src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-bottle-hand.webp?width=560"
+						width="1000" height="1333" loading="lazy" decoding="async"
+						alt="Frasco de Sknglow sostenido en la mano, con la etiqueta visible">
+				</figure>
+				<figure>
+					<img
+						src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-pills-hand.webp?width=560"
+						width="1000" height="1333" loading="lazy" decoding="async"
+						alt="Dulces duros de Sknglow en la palma de la mano, junto al frasco abierto">
+				</figure>
+			</div>
+		</div>
+	</section>
+
+	<!-- ==================== GARANTÍA (PARTE 12) ===================== -->
+	<section class="sg-section">
+		<div class="sg-shell sg-narrow">
+			<div class="sg-guarantee">
+				<img class="sg-guarantee__brand"
+					src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-mima-badge.webp?width=140"
+					width="176" height="176" loading="lazy" decoding="async"
+					alt="MIMA">
+				<p class="sg-overline">Garantía de entrega</p>
+				<h2 class="sg-h2">Tu pedido llega o respondemos por él</h2>
+				<p class="sg-sub">Te cuidamos desde que confirmas tu compra hasta que recibes tu Sknglow</p>
+
+				<ul class="sg-checklist sg-checklist--center">
+					<li>Tu pedido llega entre 3 y 5 días hábiles</li>
+					<li>Si no llega dentro de ese tiempo, reenviamos tu producto</li>
+					<li>Si elegiste pago anticipado y prefieres no esperar el reenvío, devolvemos tu dinero</li>
+				</ul>
+
+				<p class="sg-guarantee__foot">
+					<span class="sg-guarantee__shield" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+					</span>
+					Tu pedido está respaldado
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ====================== FAQ (PARTE 13) ======================== -->
+	<section class="sg-section sg-section--soft">
+		<div class="sg-shell sg-narrow">
+			<div class="sg-headline">
+				<h2 class="sg-h2">Preguntas frecuentes</h2>
+			</div>
+
+			<div class="sg-faq">
+				<details class="sg-faq__item">
+					<summary>¿Cómo tomo Sknglow?</summary>
+					<div class="sg-faq__body">
+						<p>Consume 4 dulces duros al día.</p>
+						<p>Elige el momento que te resulte más fácil de sostener todos los días.</p>
+					</div>
+				</details>
+				<details class="sg-faq__item">
+					<summary>¿Cuánto dura un frasco?</summary>
+					<div class="sg-faq__body"><p>Cada frasco trae 120 dulces duros. Dura 30 días consumiendo 4 al día.</p></div>
+				</details>
+				<details class="sg-faq__item">
+					<summary>¿A qué saben?</summary>
+					<div class="sg-faq__body"><p>Tienen sabor kiwi.</p></div>
+				</details>
+				<details class="sg-faq__item">
+					<summary>¿Sknglow es solo para el cabello?</summary>
+					<div class="sg-faq__body">
+						<p>Sknglow está pensado para cabello, uñas y piel.</p>
+						<p>Muchas personas lo buscan por la fuerza del cabello y terminan disfrutando que también suma al cuidado de sus uñas y piel.</p>
+					</div>
+				</details>
+				<details class="sg-faq__item">
+					<summary>¿Puedo usar Sknglow junto con shampoo, mascarillas o tratamientos capilares?</summary>
+					<div class="sg-faq__body"><p>Sí. Puedes consumir Sknglow junto a los productos externos que ya usas para tu cabello.</p></div>
+				</details>
+				<details class="sg-faq__item">
+					<summary>¿Qué incluye el bono?</summary>
+					<div class="sg-faq__body"><p>Recibes una guía digital de 28 días para detectar hábitos que debilitan tu cabello, reducir errores que maltratan las puntas y cuidar uñas y piel con más criterio.</p></div>
+				</details>
+				<details class="sg-faq__item">
+					<summary>¿Puedo pagar cuando reciba el pedido?</summary>
+					<div class="sg-faq__body"><p>Sí. Tu Sknglow vale $89.900 y pagas cuando recibes el pedido.</p></div>
+				</details>
+				<details class="sg-faq__item">
+					<summary>¿Qué pasa si pago anticipado?</summary>
+					<div class="sg-faq__body"><p>Tu Sknglow queda en $79.900. Ahorras $10.000. Además recibes confirmación y seguimiento por WhatsApp.</p></div>
+				</details>
+				<details class="sg-faq__item">
+					<summary>¿Cuándo llega mi pedido?</summary>
+					<div class="sg-faq__body"><p>Tu pedido llega entre 3 y 5 días hábiles. Si no llega en ese tiempo, lo reenviamos. Si pagaste anticipado y prefieres no esperar, devolvemos tu dinero.</p></div>
+				</details>
+				<details class="sg-faq__item">
+					<summary>¿Puedo consumir Sknglow durante el embarazo o la lactancia?</summary>
+					<div class="sg-faq__body"><p>Consulta con tu médico antes de iniciar cualquier suplemento durante el embarazo o la lactancia.</p></div>
+				</details>
+			</div>
+		</div>
+	</section>
+
+	<!-- ===================== CIERRE (PARTE 14) ====================== -->
+	<section class="sg-section sg-close">
+		<div class="sg-close__glow" aria-hidden="true"></div>
+		<div class="sg-shell sg-narrow sg-close__inner">
+			<h2 class="sg-h2">El cabello fuerte empieza antes de que lo veas</h2>
+			<p class="sg-sub">Dale fuerza a tu cabello, resistencia a tus uñas y luz a tu piel</p>
+
+			<figure class="sg-close__media">
+				<img
+					src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-close.webp?width=520"
+					width="510" height="638" loading="lazy" decoding="async"
+					alt="Clienta de MIMA sonriendo con su frasco de Sknglow">
+			</figure>
+
+			<p class="sg-close__product">SKNGLOW <span>$89.900</span></p>
+
+			<div class="sg-close__options">
+				<div class="sg-close__option sg-close__option--best">
+					<span class="sg-close__badge">Recomendado</span>
+					<p class="sg-close__label">Pago anticipado</p>
+					<p class="sg-close__amount">$79.900</p>
+					<p class="sg-close__save">Ahorras $10.000</p>
+				</div>
+				<div class="sg-close__option">
+					<p class="sg-close__label">Pago contraentrega</p>
+					<p class="sg-close__amount">$89.900</p>
+				</div>
+			</div>
+
+			<div class="sg-cta-row">
+				<button type="button" class="sg-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO ELEGIR MI FORMA DE PAGO</button>
+			</div>
+
+			<ul class="sg-trust">
+				<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="12" rx="2.5"/><circle cx="12" cy="12" r="2.6"/><path d="M6 12h.01M18 12h.01"/></svg> Pagas al recibir</li>
+				<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h3.7l2.8 3v4h-6.5z"/><circle cx="7" cy="18" r="1.7"/><circle cx="17" cy="18" r="1.7"/></svg> Envío gratis · 3 a 5 días</li>
+				<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.3 7.5L3.6 20.4l1.4-4.4A8.4 8.4 0 1 1 20.5 11.6Z"/></svg> Confirmamos por WhatsApp</li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- =========================== INSTAGRAM ======================== -->
+	<section class="sg-section sg-social">
+		<div class="sg-social__aura" aria-hidden="true"></div>
+		<div class="sg-shell sg-narrow">
+			<figure class="sg-social__card">
+				<img
+					src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-instagram-u.webp?width=1000"
+					width="1000" height="398" loading="lazy" decoding="async"
+					alt="Perfil de Instagram de MIMA, @mima_tiendaoficial, con 106 mil seguidores">
+			</figure>
+		</div>
+	</section>
+
+	<!-- ============================ FOOTER ========================== -->
+	<footer class="sg-footer">
+		<div class="sg-shell sg-footer__inner">
+			<img class="sg-footer__logo"
+				src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-mima-white.webp?width=200"
+				width="300" height="180" loading="lazy" decoding="async"
+				alt="MIMA">
+
+			<dl class="sg-footer__data">
+				<div class="sg-footer__block">
+					<dt>Registro INVIMA</dt>
+					<dd>RSA-0156-2025</dd>
+				</div>
+				<div class="sg-footer__block">
+					<dt>Atención al cliente MIMA</dt>
+					<dd><a href="tel:+573006964582">300 696 4582</a></dd>
+				</div>
+			</dl>
+
+			<p class="sg-footer__maker">Fabricado por Vitaliah S.A.S. · Calle 24 B N° 26-06, Bogotá, Colombia · Industria colombiana</p>
+			<p class="sg-footer__legal">Contiene edulcorantes. Consulta la información nutricional de cada producto.</p>
+		</div>
+	</footer>
+
+	<!-- ========================= CTA STICKY ========================= -->
+	<div class="sg-sticky" data-sg-sticky hidden>
+		<div class="sg-sticky__inner">
+			<p class="sg-sticky__price"><strong data-sg-sticky-price>$89.900</strong> <span>Envío gratis</span></p>
+			<button type="button" class="sg-cta sg-cta--sm _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI SKNGLOW</button>
+		</div>
+	</div>
+
+</section>
+
+<style>
+	/* =========================================================
+	   Tipografía de marca — AOK Buenos Aires
+	   Alojada en Contenido → Archivos de Shopify, que sirve con
+	   Access-Control-Allow-Origin: *. Por eso la misma URL absoluta
+	   funciona igual en GemPages y en la vista previa local.
+	   ========================================================= */
+
+	@font-face {
+		font-family: 'AOK Buenos Aires';
+		src: url('https://www.mimacolombia.com/cdn/shop/files/aok-buenos-aires-400.woff2') format('woff2');
+		font-weight: 400;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'AOK Buenos Aires';
+		src: url('https://www.mimacolombia.com/cdn/shop/files/aok-buenos-aires-600.woff2') format('woff2');
+		font-weight: 600;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'AOK Buenos Aires';
+		src: url('https://www.mimacolombia.com/cdn/shop/files/aok-buenos-aires-700.woff2') format('woff2');
+		/* El peso más alto que existe es Bold. Se declara cubriendo 700-800
+		   para que los titulares usen el archivo real y no una negrita
+		   simulada por el navegador, que deforma las letras. */
+		font-weight: 700 800;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	/* =========================================================
+	   MIMA · SKNGLOW landing
+	   Todo bajo .sg-lp para no colisionar con el tema de Shopify.
+	   Paleta: Manual de Marca MIMA 2025.
+	   ========================================================= */
+
+	.sg-lp {
+		/* Paleta oficial */
+		--sg-lilac: #e1addd;
+		--sg-purple: #aa6aa6;
+		--sg-magenta: #ff00a5;
+		--sg-pink: #fc4fc7;
+
+		/* Dos tonos derivados. El manual no trae versiones oscuras y ninguno
+		   de sus colores alcanza AA con texto blanco: #aa6aa6 da 3.94:1 y
+		   #ff00a5 da 3.62:1. Estos sí, y quedan visualmente muy cerca.
+		   Los oficiales se reservan para fondos, bordes y texto grande. */
+		--sg-ink: #7b3e76;         /* 7.5:1 sobre blanco */
+		--sg-magenta-deep: #e0008f; /* 4.6:1 con texto blanco */
+
+		/* Vino del packaging, solo como acento del producto */
+		--sg-wine: #6d1f2c;
+
+		--sg-text: #241f24;
+		--sg-muted: #6b5f6a;
+		--sg-border: #ece0ea;
+		--sg-surface: #ffffff;
+		--sg-soft: #faf5f9;
+		--sg-lilac-soft: #f6ebf5;
+
+		--sg-font: 'AOK Buenos Aires', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+		--sg-radius: 16px;
+		--sg-radius-lg: 24px;
+		--sg-shell: 1080px;
+		--sg-narrow: 720px;
+		--sg-pad: clamp(38px, 6.5vw, 88px);
+
+		box-sizing: border-box;
+		display: block;
+		color: var(--sg-text);
+		background: var(--sg-surface);
+		font-family: var(--sg-font);
+		font-size: 17px;
+		line-height: 1.6;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	.sg-lp *,
+	.sg-lp *::before,
+	.sg-lp *::after { box-sizing: inherit; }
+
+	.sg-lp p,
+	.sg-lp h1,
+	.sg-lp h2,
+	.sg-lp h3,
+	.sg-lp ul,
+	.sg-lp ol,
+	.sg-lp dl,
+	.sg-lp dd,
+	.sg-lp figure,
+	.sg-lp fieldset { margin: 0; padding: 0; }
+
+	/* El tema de Shopify (Dawn) trae `div:empty{display:none}` y ese
+	   selector mata todas nuestras capas decorativas, que por definición
+	   van vacías: el velo del hero, los halos del cierre y de Instagram.
+	   Sin esta línea el texto del hero queda ilegible sobre la foto. */
+	.sg-lp div:empty { display: block; }
+
+	/* El tema define font-family en h1/h2/h3/p/button… por etiqueta, y una
+	   regla de etiqueta gana siempre a la herencia. Sin esto los titulares
+	   salen con la fuente del tema (Archivo Black) en vez de la de marca. */
+	.sg-lp h1, .sg-lp h2, .sg-lp h3, .sg-lp h4,
+	.sg-lp p, .sg-lp li, .sg-lp dt, .sg-lp dd,
+	.sg-lp a, .sg-lp button, .sg-lp summary, .sg-lp span, .sg-lp strong {
+		font-family: var(--sg-font);
+	}
+
+	.sg-lp ul { list-style: none; }
+	.sg-lp fieldset { border: 0; }
+	.sg-lp img { display: block; max-width: 100%; height: auto; }
+
+	.sg-visually-hidden {
+		position: absolute;
+		width: 1px; height: 1px;
+		margin: -1px; padding: 0;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		white-space: nowrap;
+		border: 0;
+	}
+
+	/* ---------- Layout ---------- */
+
+	.sg-lp .sg-shell {
+		width: 100%;
+		max-width: var(--sg-shell);
+		margin-inline: auto;
+		padding-inline: 20px;
+	}
+
+	.sg-lp .sg-narrow { max-width: var(--sg-narrow); }
+
+	.sg-lp .sg-section { padding-block: var(--sg-pad); }
+	.sg-lp .sg-section--soft { background: var(--sg-soft); }
+
+	/* ---------- Tipografía ---------- */
+
+	.sg-lp .sg-h1 {
+		font-size: clamp(33.6px, 6.4vw, 56px);
+		line-height: 1.08;
+		letter-spacing: -0.02em;
+		font-weight: 800;
+		color: var(--sg-text);
+	}
+
+	.sg-lp .sg-h2 {
+		font-size: clamp(27.2px, 4.6vw, 41.6px);
+		line-height: 1.15;
+		letter-spacing: -0.015em;
+		font-weight: 800;
+		color: var(--sg-text);
+	}
+
+	.sg-lp .sg-overline {
+		font-size: 13px;
+		font-weight: 700;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--sg-ink);
+		margin-bottom: 12px;
+	}
+
+	/* En el bono va como pastilla llena: destaca sin bajar de AA */
+	.sg-lp .sg-overline--accent {
+		display: inline-block;
+		padding: 6px 16px;
+		border-radius: 999px;
+		background: var(--sg-magenta-deep);
+		color: #fff;
+	}
+
+	.sg-lp .sg-sub {
+		font-size: clamp(16.8px, 2.4vw, 20px);
+		color: var(--sg-muted);
+		margin-top: 14px;
+	}
+
+	.sg-lp .sg-lead strong {
+		font-weight: 800;
+		color: var(--sg-text);
+	}
+
+	.sg-lp .sg-lead {
+		font-size: 14px;
+		line-height: 1.5;
+		color: var(--sg-muted);
+		margin-top: 8px;
+		/* Antes se cortaba en 31ch para no invadir el rostro, cuando la foto
+		   iba de fondo. Ya no hace falta: con la foto fuera del texto, la
+		   medida puede respirar y el párrafo cae en dos líneas en vez de tres. */
+		max-width: 46ch;
+	}
+
+	.sg-lp .sg-headline {
+		text-align: center;
+		max-width: 42ch;
+		margin-inline: auto;
+		margin-bottom: clamp(22px, 3.6vw, 44px);
+	}
+
+	/* ---------- CTA ---------- */
+
+	.sg-lp .sg-cta {
+		position: relative;
+		overflow: hidden;
+		isolation: isolate;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		max-width: 420px;
+		min-height: 52px;
+		padding: 13px 22px;
+		border: 0;
+		border-radius: 999px;
+		background: var(--sg-magenta-deep);
+		color: #fff;
+		font: inherit;
+		/* 15px en móvil: por encima, los CTA largos parten en dos líneas */
+		font-size: clamp(15px, 3.2vw, 17px);
+		font-weight: 800;
+		line-height: 1.25;
+		letter-spacing: 0.02em;
+		text-transform: uppercase;
+		cursor: pointer;
+		box-shadow: 0 10px 26px rgba(224, 0, 143, 0.26);
+		transition: transform 0.12s ease, box-shadow 0.18s ease, filter 0.18s ease;
+	}
+
+	/* Barrido de luz que cruza el botón y luego descansa. El gesto dura menos
+	   de un segundo y ocupa solo el 14% del ciclo: el resto del tiempo el CTA
+	   está quieto, así llama la atención sin convertirse en ruido. */
+	.sg-lp .sg-cta::after {
+		content: '';
+		position: absolute;
+		inset-block: 0;
+		inset-inline-start: -55%;
+		width: 42%;
+		background: linear-gradient(
+			100deg,
+			rgba(255, 255, 255, 0) 0%,
+			rgba(255, 255, 255, 0.38) 50%,
+			rgba(255, 255, 255, 0) 100%
+		);
+		pointer-events: none;
+		transform: translateX(0) skewX(-18deg);
+		animation: sg-cta-sweep 5s cubic-bezier(0.4, 0, 0.2, 1) 2s infinite;
+	}
+
+	@keyframes sg-cta-sweep {
+		0% { transform: translateX(0) skewX(-18deg); }
+		14% { transform: translateX(380%) skewX(-18deg); }
+		100% { transform: translateX(380%) skewX(-18deg); }
+	}
+
+	/* Al pasar el ratón el usuario ya está atento: el barrido sobra */
+	.sg-lp .sg-cta:hover::after { animation-play-state: paused; }
+
+	.sg-lp .sg-cta:hover { filter: brightness(0.94); box-shadow: 0 12px 30px rgba(224, 0, 143, 0.32); }
+	.sg-lp .sg-cta:active { transform: translateY(1px); }
+	.sg-lp .sg-cta:focus-visible { outline: 3px solid var(--sg-ink); outline-offset: 3px; }
+
+	.sg-lp .sg-cta--sm {
+		min-height: 44px;
+		font-size: 14px;
+		padding: 11px 18px;
+		width: auto;
+		box-shadow: none;
+	}
+
+	.sg-lp .sg-cta-row { margin-top: clamp(28px, 4vw, 40px); text-align: center; }
+	.sg-lp .sg-cta-row--start { text-align: left; }
+
+	/* ---------- Señales de confianza bajo los CTA ----------
+	   Solo afirman lo que de verdad ocurre en el flujo: se paga al recibir,
+	   el envío es gratis y hay confirmación humana. Nada de sellos genéricos
+	   tipo "compra 100% segura", que en esta categoría restan credibilidad. */
+
+	.sg-lp .sg-trust {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 8px 18px;
+		margin-top: 16px;
+	}
+
+	.sg-lp .sg-trust li {
+		display: flex;
+		align-items: center;
+		gap: 7px;
+		font-size: 13px;
+		line-height: 1.3;
+		color: var(--sg-muted);
+	}
+
+	.sg-lp .sg-trust svg {
+		flex: 0 0 auto;
+		width: 17px;
+		height: 17px;
+		color: var(--sg-ink);
+	}
+
+	/* Los logos de tarjeta van DENTRO de la opción de pago anticipado, no
+	   sueltos en la página: en contraentrega no se paga con tarjeta y
+	   mostrarlos como método general sería prometer algo que no ocurre. */
+	.sg-lp .sg-pay__methods {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		margin-top: 12px;
+	}
+
+	.sg-lp .sg-pay__methods img {
+		height: 22px;
+		width: auto;
+	}
+
+	/* ---------- Cabecera ----------
+	   Arranca en el mismo lila con el que empieza el degradado del hero, así
+	   no hay costura: se lee como una sola zona superior, no como una barra
+	   pegada encima. */
+
+	.sg-lp .sg-topbar {
+		background: var(--sg-lilac-soft);
+		padding-block: clamp(6px, 1.5vw, 14px);
+	}
+
+	.sg-lp .sg-topbar__inner {
+		display: flex;
+		justify-content: center;
+	}
+
+	.sg-lp .sg-topbar img {
+		width: clamp(60px, 9.5vw, 84px);
+		height: auto;
+	}
+
+	/* ---------- Hero ---------- */
+
+	.sg-lp .sg-hero {
+		position: relative;
+		overflow: hidden;
+		background: linear-gradient(168deg, var(--sg-lilac-soft) 0%, #fff 62%);
+		/* El inferior baja mucho respecto a piel: allí el hero da paso a una
+		   banda de color, aquí a un carrusel de fotos que ya trae su propio
+		   aire. Con los 35px de antes se sumaban 81px de hueco. */
+		padding-block: 0 clamp(20px, 3vw, 44px);
+	}
+
+	/* Hero "superpuesto" — variante propia del ángulo cabello.
+	   Piel apila titular → foto → datos → mecanismo → compra, y con la foto a
+	   4:5 el precio y el CTA caían fuera de la primera pantalla.
+	   Aquí la foto es CUADRADA (recorte ceñido, sin pared muerta) y la
+	   tarjeta de compra se monta sobre su borde inferior. Se recupera altura
+	   y el bloque se lee como ficha de producto en vez de como artículo, que
+	   es lo que lo diferencia del otro ángulo.
+	   Los datos rápidos (120 dulces, 4 al día) van DEBAJO de la tarjeta: son
+	   detalle, no deciden la compra, y arriba empujaban el CTA 44px. */
+	.sg-lp .sg-hero__grid {
+		position: relative;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			'head'
+			'media'
+			'buy'
+			'specs'
+			'mech';
+		column-gap: 14px;
+		row-gap: 0;
+		align-items: center;
+	}
+	.sg-lp .sg-hero__head { margin-bottom: 10px; }
+	.sg-lp .sg-hero__specs { margin-top: 16px; }
+	.sg-lp .sg-hero__mech { margin-top: 18px; }
+
+	/* La tarjeta pisa la foto. z-index porque el rótulo de la foto va
+	   posicionado y si no se cuela por encima del borde de la tarjeta. */
+	.sg-lp .sg-hero__buy {
+		position: relative;
+		z-index: 2;
+		max-width: 404px;
+		margin: -30px auto 0;
+		padding: 18px 14px;
+		background: var(--sg-surface);
+		border: 1px solid var(--sg-border);
+		border-radius: var(--sg-radius-lg);
+		box-shadow: 0 14px 34px rgba(43, 20, 41, .12);
+	}
+
+	/* Pantallas por debajo de 380px: aquí la tarjeta de compra se come 30px
+	   por lado entre padding y borde, y la fila del precio se queda en 250px
+	   cuando necesita 275. Envolvía, y envolver le cuesta 38px de alto justo
+	   encima del CTA. Se recupera apretando el marco y bajando el precio a
+	   28px, no el chip: ese ya está en su mínimo legible.
+
+	   Piel no necesita nada de esto: su bloque de compra no es tarjeta, así
+	   que a 320px ya dispone de 288px. */
+	@media (max-width: 379px) {
+		.sg-lp .sg-shell { padding-inline: 16px; }
+		.sg-lp .sg-hero__buy { padding-left: 10px; padding-right: 10px; }
+		.sg-lp .sg-hero .sg-price__amount { font-size: 28px; }
+		.sg-lp .sg-hero .sg-price__note { padding-left: 9px; padding-right: 9px; }
+
+		/* El chip de pago anticipado pide 270px y a 320 tampoco entraba:
+		   partía "tarjeta o PSE" y se iba de 39px a 60px de alto. */
+		.sg-lp .sg-hero .sg-price__prepay {
+			padding-left: 11px;
+			padding-right: 11px;
+			font-size: 12.5px;
+		}
+
+		.sg-lp .sg-hero .sg-price__prepay strong { font-size: 16px; }
+	}
+
+	.sg-lp .sg-hero__head { grid-area: head; }
+	/* Entre tablet y escritorio la foto cuadrada a ancho completo se iba a
+	   660px de lado y disparaba el hero a 1193px. El tope la deja en un
+	   tamaño de retrato razonable; por debajo de 420px no hace nada. */
+	.sg-lp .sg-hero__media {
+		grid-area: media;
+		max-width: 420px;
+		margin-inline: auto;
+		width: 100%;
+	}
+	.sg-lp .sg-hero__specs { grid-area: specs; align-self: end; }
+	.sg-lp .sg-hero__mech { grid-area: mech; }
+	.sg-lp .sg-hero__buy { grid-area: buy; text-align: center; }
+
+	.sg-lp .sg-hero .sg-h1 { font-size: clamp(23px, 6.2vw, 53px); }
+
+
+	/* El claim se lee mejor dentro de la foto que debajo del titular: ahí
+	   remata la imagen en vez de competir con ella. La banda solo alcanza el
+	   borde inferior —cuello y jersey—, nunca la cara. Blanco sobre ella da
+	   8:1, así que el degradado puede quedarse suave.
+	   El relleno inferior es mayor que en piel porque aquí tiene que salvar
+	   dos cosas: la tarjeta de compra, que pisa los 30px de abajo, y los
+	   puntos, que van a 42px. El texto queda por encima de ambos. */
+	.sg-lp .sg-hero__claim {
+		position: absolute;
+		inset-inline: 0;
+		bottom: 0;
+		padding: 46px 12px 72px;
+		border-radius: 0 0 var(--sg-radius-lg) var(--sg-radius-lg);
+		background: linear-gradient(180deg,
+			rgba(43, 20, 41, 0) 0%,
+			rgba(43, 20, 41, 0.55) 46%,
+			rgba(43, 20, 41, 0.86) 100%);
+		color: #fff;
+		font-size: clamp(15px, 3.6vw, 18px);
+		font-weight: 700;
+		letter-spacing: -0.005em;
+		text-align: center;
+	}
+
+	/* La línea de acento: separa el rótulo de la foto sin necesidad de caja. */
+	.sg-lp .sg-hero__claim::before {
+		content: '';
+		display: block;
+		width: 34px;
+		height: 3px;
+		margin: 0 auto 9px;
+		border-radius: 999px;
+		background: var(--sg-magenta);
+	}
+
+	/* ---------- Slider del hero ----------
+	   Scroll nativo con snap: sin librería, sin JS para deslizar. El JS solo
+	   pinta el punto activo, así que sin él sigue funcionando el gesto.
+	   Sustituye al rótulo superpuesto del ángulo piel: con cinco imágenes ese
+	   rótulo solo valía para la primera y peleaba con los puntos por el sitio. */
+	.sg-lp .sg-slider {
+		position: relative;
+	}
+
+	.sg-lp .sg-slider__track {
+		display: flex;
+		gap: 0;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		scroll-behavior: smooth;
+		overscroll-behavior-inline: contain;
+		-webkit-overflow-scrolling: touch;
+		border-radius: var(--sg-radius-lg);
+		/* La barra sobra: para eso están los puntos */
+		scrollbar-width: none;
+	}
+
+	.sg-lp .sg-slider__track::-webkit-scrollbar { display: none; }
+
+	.sg-lp .sg-slider__track:focus-visible {
+		outline: 3px solid var(--sg-magenta-deep);
+		outline-offset: 3px;
+	}
+
+	.sg-lp .sg-slider__slide {
+		position: relative;
+		flex: 0 0 100%;
+		scroll-snap-align: center;
+		scroll-snap-stop: always;
+	}
+
+	.sg-lp .sg-slider__slide img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 1 / 1;
+		object-fit: cover;
+		border-radius: var(--sg-radius-lg);
+	}
+
+	/* ---------- Puntos ----------
+	   Van dentro de la foto pero por encima del borde que tapa la tarjeta de
+	   compra (que sube 30px): de ahí el bottom de 42px.
+	   La píldora oscura es obligatoria, no decorativa: hay slides con fondo
+	   blanco donde unos puntos claros desaparecerían. */
+	.sg-lp .sg-slider__dots {
+		position: absolute;
+		left: 50%;
+		bottom: 42px;
+		transform: translateX(-50%);
+		z-index: 2;
+		display: flex;
+		align-items: center;
+		gap: 7px;
+		padding: 7px 10px;
+		border-radius: 999px;
+		background: rgba(43, 20, 41, 0.55);
+		backdrop-filter: blur(6px);
+		-webkit-backdrop-filter: blur(6px);
+	}
+
+	.sg-lp .sg-slider__dot {
+		width: 7px;
+		height: 7px;
+		padding: 0;
+		border: 0;
+		border-radius: 50%;
+		background: rgba(255, 255, 255, 0.45);
+		cursor: pointer;
+		transition: background 180ms ease, width 180ms ease;
+		/* El punto se ve de 7px pero el área tocable llega a 24px: por debajo
+		   de eso fallan los dedos. */
+		position: relative;
+	}
+
+	.sg-lp .sg-slider__dot::after {
+		content: '';
+		position: absolute;
+		inset: -9px;
+	}
+
+	.sg-lp .sg-slider__dot.is-active {
+		width: 18px;
+		border-radius: 999px;
+		background: #fff;
+	}
+
+	.sg-lp .sg-slider__dot:focus-visible {
+		outline: 2px solid #fff;
+		outline-offset: 3px;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.sg-lp .sg-slider__track { scroll-behavior: auto; }
+		.sg-lp .sg-slider__dot { transition: none; }
+	}
+
+	/* Mecanismo: qué hace cada activo, en esquema en vez de en prosa.
+	   SVG en línea, sin peso de red y nítido a cualquier densidad. */
+	.sg-lp .sg-mechanism {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		gap: 7px;
+	}
+
+	/* Compacto a propósito: es un apoyo, no un titular, y cada píxel que
+	   ocupa aquí empuja el precio y el CTA fuera de la primera pantalla.
+	   El alto lo manda el círculo del icono, no el texto. */
+	.sg-lp .sg-mechanism__step {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		padding: 4px 11px 4px 4px;
+		border-radius: 999px;
+		background: var(--sg-lilac-soft);
+		border: 1px solid var(--sg-border);
+	}
+
+	.sg-lp .sg-mechanism__icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex: 0 0 auto;
+		width: 24px;
+		height: 24px;
+		border-radius: 50%;
+		background: #fff;
+		color: var(--sg-ink);
+	}
+
+	.sg-lp .sg-mechanism__icon svg { width: 14px; height: 14px; }
+
+	.sg-lp .sg-mechanism__text {
+		display: flex;
+		flex-direction: column;
+		gap: 1px;
+		line-height: 1.15;
+	}
+
+	.sg-lp .sg-mechanism__label {
+		font-size: 11px;
+		font-weight: 800;
+		letter-spacing: 0.07em;
+		text-transform: uppercase;
+		color: var(--sg-ink);
+	}
+
+	.sg-lp .sg-mechanism__source {
+		font-size: 12px;
+		color: var(--sg-muted);
+	}
+
+	.sg-lp .sg-mechanism__join {
+		font-size: 14px;
+		font-weight: 700;
+		line-height: 1;
+		color: var(--sg-purple);
+	}
+
+	/* En paralelo: son dos datos cortos, uno debajo del otro solo gastaba
+	   alto. El margen superior sobraba —el row-gap de la rejilla ya separa
+	   la foto de este bloque—. */
+	.sg-lp .sg-facts {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 7px 12px;
+	}
+
+	.sg-lp .sg-facts li {
+		position: relative;
+		padding-left: 20px;
+		font-size: 15px;
+		line-height: 1.35;
+		color: var(--sg-text);
+	}
+
+	.sg-lp .sg-facts li::before {
+		content: '';
+		position: absolute;
+		left: 2px;
+		top: 0.5em;
+		width: 8px; height: 8px;
+		border-radius: 50%;
+		background: var(--sg-pink);
+	}
+
+	.sg-lp .sg-price {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+
+	/* line-height propio: el 1.6 de .sg-lp está pensado para párrafos y aquí
+	   inflaba la caja a 51px cuando los glifos ocupan 38 (ascendente 31 +
+	   descendente 7, medido de la fuente). Eran 13px de interlínea muerta
+	   delante del CTA. Se ve como caja y no como texto porque .sg-price es
+	   flex: eso bloquea el span y su rectángulo pasa a ser la línea entera. */
+	.sg-lp .sg-price__amount {
+		font-size: clamp(32px, 5.4vw, 41.6px);
+		line-height: 1.15;
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		color: var(--sg-text);
+	}
+
+	/* Compacto para que quepa en la misma línea que el precio hasta 320px.
+	   Si envuelve, la fila pasa de 51px a 99px de golpe: el chip cae debajo
+	   y empuja el CTA media pantalla.
+
+	   El clamp no es decorativo: el precio ya ocupa 111px por sí solo y con
+	   13px fijos no cabía. Da 13px de 380 en adelante y encoge por debajo.
+	   El punto que manda es 360 (el Android más común) con la tarjeta
+	   estrecha de cabello: ahí quedan 290px útiles y hacen falta 286. */
+	.sg-lp .sg-price__note {
+		font-size: clamp(11.5px, calc(2.5vw + 3.5px), 13px);
+		font-weight: 700;
+		color: var(--sg-ink);
+		background: var(--sg-lilac-soft);
+		padding: 5px 11px;
+		border-radius: 999px;
+	}
+
+	/* Pago anticipado. No compite con el precio principal —ni por tamaño ni
+	   por peso— pero el magenta y el aro lo hacen imposible de pasar por alto.
+	   Fondo blanco a propósito: sobre él, el magenta de marca da 4.6:1 y pasa
+	   AA incluso a este cuerpo; sobre el lila de la sección se quedaría en 3.5. */
+	.sg-lp .sg-price__prepay {
+		display: inline-flex;
+		align-items: baseline;
+		gap: 7px;
+		margin-top: 5px;
+		padding: 5px 15px;
+		border-radius: 999px;
+		background: var(--sg-surface);
+		border: 1.5px solid rgba(224, 0, 143, 0.4);
+		box-shadow: 0 4px 14px rgba(224, 0, 143, 0.12);
+		font-size: 13.5px;
+		font-weight: 600;
+		color: var(--sg-ink);
+	}
+
+	.sg-lp .sg-price__prepay strong {
+		font-size: 17px;
+		font-weight: 800;
+		color: var(--sg-magenta-deep);
+	}
+
+	.sg-lp .sg-hero__buy .sg-cta { margin-top: 12px; }
+
+	/* La foto era el fondo a sangre de todo el hero, con el texto encima. Eso
+	   obliga a un velo permanente para que se lea, y el velo apaga la piel —que
+	   es justo lo único que este producto tiene que enseñar—. Cuanto más se
+	   aclaraba el velo, peor el contraste; cuanto más se subía, más lavada la
+	   cara. No había punto medio: el problema era la estructura.
+
+	   Ahora la foto tiene su propio sitio: se ve entera, sin un solo píxel de
+	   velo, y el texto se lee sobre el fondo liso sin pelear con nada. */
+	.sg-lp .sg-hero__media {
+		position: relative;
+		display: block;
+	}
+
+	/* Cuadrada en vertical: a 3/4 el hero crecía 275px y empujaba el CTA
+	   fuera de pantalla. El recuadro cuadrado recorta pelo y jersey, nunca
+	   la cara, que entera cabe de sobra. */
+	/* Foto y frasco vienen ya compuestos en una sola imagen. La proporción se
+	   fija aquí y no con los atributos width/height, porque cada breakpoint
+	   sirve un recorte distinto y el intrínseco cambia con él. */
+	/* En piel esta imagen es un montaje foto+frasco con una franja
+	   transparente arriba, y por eso llevaba un margen negativo. Aquí la
+	   toma original ya trae el frasco en la mano: es una foto normal, con
+	   su proporción real (4:5) y el redondeo en CSS en vez de horneado. */
+	.sg-lp .sg-hero__composite {
+		display: block;
+		width: 100%;
+		/* Cuadrada: a 4:5 el hero crecía 90px sin enseñar más pelo, y a 3:4
+		   en columna estrecha el recorte se lo comía. El cuadrado es el
+		   punto donde cabe la melena entera sin robar primera pantalla. */
+		aspect-ratio: 1 / 1;
+		object-fit: cover;
+		border-radius: var(--sg-radius-lg);
+	}
+
+
+	/* Las esquinas van horneadas en la imagen, no en CSS: el redondeo es de la
+	   foto, y el borde del elemento incluye la franja transparente del frasco. */
+
+	/* --- Reglas de la versión por capas. No se usan mientras el hero vaya
+	   compuesto, pero se quedan: volver a separar foto y frasco es descomentar
+	   el marcado, sin reescribir nada de esto. --- */
+	.sg-lp .sg-hero__portrait {
+		display: block;
+		width: 100%;
+		aspect-ratio: 7 / 6;
+		object-fit: cover;
+		object-position: 50% 26%;
+		border-radius: var(--sg-radius-lg);
+	}
+
+	/* El frasco se apoya en la esquina de la foto: sin ese solape, producto e
+	   imagen se leen como dos bloques pegados en vez de una composición. */
+	.sg-lp .sg-hero__bottle {
+		position: absolute;
+		left: 3%;
+		bottom: 15%;
+		width: 44%;
+		/* drop-shadow sigue el recorte del PNG; box-shadow dibujaría un rectángulo */
+		filter: drop-shadow(0 16px 28px rgba(109, 31, 44, 0.4));
+	}
+
+	/* ---------- Banda "tu piel cambia" ---------- */
+
+	/* Los dos halos sacan a la banda del morado plano sin tocar el
+	   contraste: el punto más claro que generan sigue dando 5.6:1 con
+	   texto blanco. Van en esquinas opuestas para que no se sumen. */
+	.sg-lp .sg-band {
+		background:
+			radial-gradient(115% 85% at 10% -12%, rgba(255, 0, 165, 0.24), transparent 58%),
+			radial-gradient(95% 80% at 92% 112%, rgba(225, 173, 221, 0.18), transparent 62%),
+			var(--sg-ink);
+		color: #fff;
+		padding-block: clamp(46px, 7vw, 74px);
+	}
+
+	.sg-lp .sg-band__inner { text-align: center; }
+
+	.sg-lp .sg-band__title {
+		font-size: clamp(23px, 4vw, 34px);
+		font-weight: 800;
+		letter-spacing: -0.015em;
+		line-height: 1.12;
+	}
+
+	.sg-lp .sg-band__sub {
+		margin-top: 8px;
+		color: rgba(255, 255, 255, 0.82);
+		font-size: clamp(15px, 2.2vw, 17px);
+	}
+
+	.sg-lp .sg-band__causes {
+		display: grid;
+		gap: 12px;
+		margin-top: clamp(26px, 4vw, 36px);
+		text-align: left;
+	}
+
+	.sg-lp .sg-band__cause {
+		display: flex;
+		align-items: center;
+		gap: 14px;
+		padding: 16px 18px;
+		border-radius: 20px;
+		background:
+			linear-gradient(165deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06));
+		border: 1px solid rgba(255, 255, 255, 0.2);
+	}
+
+	/* El icono no es decoración suelta: el disco lo ancla al tamaño del
+	   texto para que la tarjeta no se lea como dos piezas sueltas. */
+	.sg-lp .sg-band__icon {
+		display: grid;
+		place-items: center;
+		flex-shrink: 0;
+		width: 52px;
+		height: 52px;
+		border-radius: 50%;
+		background: linear-gradient(150deg, rgba(255, 0, 165, 0.42), rgba(225, 173, 221, 0.14));
+		border: 1px solid rgba(255, 255, 255, 0.26);
+		color: #fff;
+	}
+
+	.sg-lp .sg-band__icon svg {
+		width: 26px;
+		height: 26px;
+	}
+
+	.sg-lp .sg-band__cause-title {
+		font-weight: 800;
+		font-size: 16.5px;
+		letter-spacing: -0.01em;
+	}
+
+	.sg-lp .sg-band__cause-note {
+		margin-top: 3px;
+		color: rgba(255, 255, 255, 0.8);
+		font-size: 14.5px;
+		line-height: 1.35;
+	}
+
+	.sg-lp .sg-band__foot {
+		margin-top: clamp(26px, 4vw, 34px);
+		color: rgba(255, 255, 255, 0.9);
+		max-width: 56ch;
+		margin-inline: auto;
+		text-wrap: balance;
+	}
+
+	/* Dos párrafos y no un <br>: cada frase equilibra sus líneas por su
+	   cuenta y la segunda deja de partirse con una palabra suelta. */
+	.sg-lp .sg-band__claim {
+		margin-top: 6px;
+		max-width: 52ch;
+		margin-inline: auto;
+		font-weight: 800;
+		color: #fff;
+		text-wrap: balance;
+	}
+
+	/* ---------- Mecanismo ---------- */
+
+	.sg-lp .sg-reason {
+		display: grid;
+		gap: 10px;
+		text-align: center;
+		max-width: 52ch;
+		margin-inline: auto;
+		margin-bottom: clamp(32px, 5vw, 48px);
+		color: var(--sg-muted);
+	}
+
+	.sg-lp .sg-reason strong { color: var(--sg-text); }
+	.sg-lp .sg-reason__foot { margin-top: 8px; font-weight: 600; color: var(--sg-text); }
+
+	.sg-lp .sg-duo {
+		display: grid;
+		gap: 20px;
+	}
+
+	.sg-lp .sg-card {
+		padding: clamp(26px, 4vw, 38px);
+		border: 1px solid var(--sg-border);
+		border-radius: var(--sg-radius-lg);
+		background: var(--sg-surface);
+	}
+
+	.sg-lp .sg-card--structure { background: var(--sg-lilac-soft); border-color: transparent; }
+	.sg-lp .sg-card--protection { background: var(--sg-surface); }
+
+	/* Los dos pictogramas del hero acompañan a Estructura y Protección
+	   allí donde aparecen como etiqueta: el par se reconoce de un vistazo
+	   sin tener que releer. En prosa no se ponen, ahí serían ruido. */
+	.sg-lp .sg-ico {
+		flex-shrink: 0;
+		width: 1em;
+		height: 1em;
+	}
+
+	.sg-lp .sg-h2__mech {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.26em;
+		white-space: nowrap;
+	}
+
+	.sg-lp .sg-h2__mech .sg-ico {
+		width: 0.74em;
+		height: 0.74em;
+		color: var(--sg-magenta-deep);
+	}
+
+	.sg-lp .sg-card p.sg-card__tag {
+		display: inline-flex;
+		align-items: center;
+		gap: 7px;
+		padding: 5px 14px 5px 12px;
+		border-radius: 999px;
+		background: var(--sg-ink);
+		color: #fff;
+		font-size: 12px;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+
+	.sg-lp .sg-card__tag .sg-ico { width: 15px; height: 15px; }
+
+	.sg-lp .sg-card--structure p.sg-card__tag { background: var(--sg-lilac); color: #4d2749; }
+
+	.sg-lp .sg-card__title {
+		margin-top: 16px;
+		font-size: clamp(22px, 3.6vw, 32px);
+		font-weight: 800;
+		letter-spacing: -0.01em;
+	}
+
+	.sg-lp .sg-card__head {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: clamp(14px, 2.4vw, 26px);
+	}
+
+	/* Las dos fotos vienen sobre fondo blanco. El disco recoge ese blanco
+	   para que se lea como medallón y no como un recorte pegado encima, y
+	   funciona igual sobre la tarjeta lila que sobre la blanca.
+	   contain y no cover: el ingrediente se ve entero, sin recortes. */
+	.sg-lp .sg-card__media {
+		flex-shrink: 0;
+		width: clamp(80px, 16vw, 152px);
+		aspect-ratio: 1;
+		border-radius: 50%;
+		background: var(--sg-surface);
+		border: 1px solid var(--sg-border);
+		box-shadow: 0 10px 24px rgba(123, 62, 118, 0.1);
+		overflow: hidden;
+	}
+
+	.sg-lp .sg-card__media img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		padding: 7px;
+	}
+
+	.sg-lp .sg-card p + p { margin-top: 12px; }
+	.sg-lp .sg-card__head + p { margin-top: clamp(16px, 2.4vw, 22px); }
+	.sg-lp .sg-card p { color: var(--sg-muted); }
+
+	.sg-lp .sg-habit {
+		display: grid;
+		gap: clamp(18px, 3vw, 30px);
+		align-items: center;
+		margin-top: clamp(32px, 5vw, 48px);
+		padding: clamp(18px, 2.6vw, 26px);
+		border-radius: var(--sg-radius-lg);
+		background: var(--sg-lilac-soft);
+		border: 1px solid var(--sg-border);
+		text-align: left;
+		grid-template-areas:
+			'media'
+			'copy'
+			'bento';
+	}
+
+	.sg-lp .sg-habit__media { grid-area: media; }
+	.sg-lp .sg-habit__copy { grid-area: copy; }
+	.sg-lp .sg-habit__bento { grid-area: bento; }
+
+	.sg-lp .sg-habit__media img {
+		width: 100%;
+		border-radius: var(--sg-radius);
+	}
+
+	.sg-lp .sg-habit__title {
+		font-size: clamp(20px, 3.2vw, 27.2px);
+		font-weight: 800;
+		color: var(--sg-text);
+		letter-spacing: -0.015em;
+		line-height: 1.15;
+	}
+
+	/* Antes eran tres frases sueltas centradas: como lista se leen
+	   una a una, que es lo que son. */
+	.sg-lp .sg-habit__list {
+		display: grid;
+		gap: 9px;
+		margin-top: 16px;
+	}
+
+	.sg-lp .sg-habit__list li {
+		position: relative;
+		padding-left: 26px;
+		color: var(--sg-text);
+		font-size: 15.8px;
+	}
+
+	.sg-lp .sg-habit__list li::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0.3em;
+		width: 17px;
+		height: 17px;
+		border-radius: 50%;
+		background: var(--sg-magenta-deep) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E") center / 11px no-repeat;
+	}
+
+	/* ---------- Collage de clientas ----------
+	   Bento de caras reales. Todas las teselas comparten la proporción
+	   del recorte de origen (1:1.12), así que ninguna cara ni ningún
+	   frasco se parte al encajar en la rejilla.
+	   Las filas van a 1fr sobre una altura que fija aspect-ratio: sin esa
+	   altura definida la tesela grande no tendría contra qué estirarse. */
+	.sg-lp .sg-habit__bento {
+		display: grid;
+		gap: 6px;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		grid-template-areas:
+			'lead a'
+			'b c';
+		aspect-ratio: 2 / 2.24;
+	}
+
+	.sg-lp .sg-habit__tile {
+		position: relative;
+		overflow: hidden;
+		border-radius: 12px;
+		background: #fff;
+	}
+
+	.sg-lp .sg-habit__tile img {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.sg-lp .sg-habit__tile--lead { grid-area: lead; }
+	.sg-lp .sg-habit__tile--a { grid-area: a; }
+	.sg-lp .sg-habit__tile--b { grid-area: b; }
+	.sg-lp .sg-habit__tile--c { grid-area: c; }
+
+	/* La quinta foto entra cuando la rejilla se abre a partir de 700px.
+	   En móvil no se descarga: lazy + display:none nunca entra en viewport. */
+	.sg-lp .sg-habit__tile--extra {
+		display: none;
+		grid-area: d;
+	}
+
+	/* ---------- Dolores ---------- */
+
+	.sg-lp .sg-pains {
+		display: grid;
+		gap: 18px;
+	}
+
+	/* La sección se titula "Aprende a escuchar lo que ves": la foto no
+	   ilustra el problema, es el reflejo que la clienta quiere recuperar.
+	   Por eso va en forma de arco —como un espejo— flotando junto al
+	   cuerpo del texto, nunca pegada al titular, que nombra el problema. */
+	.sg-lp .sg-pain {
+		padding: clamp(20px, 3vw, 26px) clamp(20px, 3vw, 28px) clamp(22px, 3.2vw, 28px);
+		border-radius: var(--sg-radius-lg);
+		background: var(--sg-surface);
+		border: 1px solid var(--sg-border);
+	}
+
+	.sg-lp .sg-pain__media {
+		float: right;
+		width: clamp(104px, 30%, 132px);
+		aspect-ratio: 3 / 4;
+		margin: 2px 0 12px 16px;
+		display: flex;
+		align-items: flex-end;
+		overflow: hidden;
+		/* arco: redondeado arriba, asentado abajo */
+		border-radius: 999px 999px var(--sg-radius) var(--sg-radius);
+		background: linear-gradient(180deg, var(--sg-lilac) 0%, var(--sg-lilac-soft) 62%, #fff 100%);
+	}
+
+	/* La foto viene sobre blanco: multiply la funde con el degradado del
+	   arco, así la figura queda dentro del espejo y no en un recuadro. */
+	.sg-lp .sg-pain__media img {
+		width: 100%;
+		height: auto;
+		mix-blend-mode: multiply;
+	}
+
+	/* La respuesta de Sknglow arranca siempre a ancho completo */
+	.sg-lp .sg-pain p.sg-pain__answer { clear: both; }
+
+	.sg-lp .sg-pain__title {
+		font-size: 20px;
+		font-weight: 800;
+		letter-spacing: -0.01em;
+		color: var(--sg-ink);
+		margin-bottom: 14px;
+	}
+
+	.sg-lp .sg-pain p { color: var(--sg-muted); }
+	.sg-lp .sg-pain p + p { margin-top: 10px; }
+
+	.sg-lp .sg-pain p.sg-pain__answer {
+		margin-top: 16px;
+		padding-top: 16px;
+		border-top: 1px solid var(--sg-border);
+		color: var(--sg-text);
+		font-weight: 600;
+	}
+
+	/* ---------- Uso simple ---------- */
+
+	.sg-lp .sg-usage {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		grid-template-areas:
+			'head product'
+			'body body';
+		column-gap: 16px;
+		row-gap: clamp(20px, 3vw, 30px);
+		align-items: start;
+	}
+
+	.sg-lp .sg-usage__head { grid-area: head; }
+	.sg-lp .sg-usage__body { grid-area: body; }
+
+	.sg-lp .sg-usage__product {
+		grid-area: product;
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.sg-lp .sg-usage__product img {
+		width: auto;
+		max-width: 108px;
+		/* drop-shadow sigue el recorte del PNG; box-shadow dibujaría un rectángulo */
+		filter: drop-shadow(0 14px 20px rgba(109, 31, 44, 0.26));
+	}
+
+	.sg-lp .sg-moments {
+		display: grid;
+		gap: 10px;
+		margin-top: 26px;
+	}
+
+	.sg-lp .sg-moments li {
+		position: relative;
+		padding: 12px 18px 12px 44px;
+		border-radius: var(--sg-radius);
+		background: var(--sg-soft);
+		color: var(--sg-text);
+	}
+
+	.sg-lp .sg-moments li::before {
+		content: '';
+		position: absolute;
+		left: 18px;
+		top: 50%;
+		width: 10px; height: 10px;
+		margin-top: -5px;
+		border-radius: 50%;
+		background: var(--sg-magenta);
+	}
+
+	.sg-lp .sg-usage__foot {
+		margin-top: 18px;
+		font-weight: 600;
+		color: var(--sg-ink);
+	}
+
+	.sg-lp .sg-stats {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 14px;
+		margin-top: 28px;
+	}
+
+	.sg-lp .sg-stat {
+		padding: 18px;
+		border-radius: var(--sg-radius);
+		border: 1px solid var(--sg-border);
+		text-align: center;
+	}
+
+	.sg-lp .sg-stat dt {
+		font-size: clamp(24px, 4vw, 30.4px);
+		font-weight: 800;
+		color: var(--sg-magenta);
+		letter-spacing: -0.02em;
+	}
+
+	.sg-lp .sg-stat dd {
+		margin-top: 4px;
+		font-size: 14px;
+		color: var(--sg-muted);
+	}
+
+	/* Carrusel nativo: scroll con snap, sin JS ni librería. El ancho de
+	   tarjeta deja ver un trozo de la siguiente, que es lo que comunica
+	   que hay más fotos a la derecha. */
+	.sg-lp .sg-gallery {
+		position: relative;
+		margin-top: clamp(26px, 4vw, 40px);
+		--sg-gallery-pad: max(20px, calc((100% - var(--sg-shell)) / 2 + 20px));
+	}
+
+	.sg-lp .sg-gallery__track {
+		display: flex;
+		gap: 12px;
+		overflow-x: auto;
+		overscroll-behavior-x: contain;
+		scroll-snap-type: x mandatory;
+		scroll-padding-inline-start: var(--sg-gallery-pad);
+		padding-inline: var(--sg-gallery-pad);
+		padding-block: 2px 14px;
+		scrollbar-width: thin;
+		scrollbar-color: var(--sg-border) transparent;
+	}
+
+	.sg-lp .sg-gallery__track::-webkit-scrollbar { height: 6px; }
+	.sg-lp .sg-gallery__track::-webkit-scrollbar-track { background: transparent; }
+	.sg-lp .sg-gallery__track::-webkit-scrollbar-thumb { background: var(--sg-border); border-radius: 999px; }
+	.sg-lp .sg-gallery__track:focus-visible { outline: 3px solid var(--sg-ink); outline-offset: -3px; border-radius: var(--sg-radius); }
+
+	.sg-lp .sg-gallery__item {
+		flex: 0 0 auto;
+		width: min(180px, 42%);
+		scroll-snap-align: start;
+	}
+
+	/* Las fuentes son verticales 9:16. A 2:3 se recorta solo un 15%, así
+	   ninguna queda descabezada pese a que el encuadre varía entre creadoras. */
+	.sg-lp .sg-gallery__item img {
+		width: 100%;
+		aspect-ratio: 2 / 3;
+		object-fit: cover;
+		object-position: center 14%;
+		border-radius: var(--sg-radius);
+	}
+
+	/* Degradado en el borde: refuerza que el carrusel continúa */
+	.sg-lp .sg-gallery::after {
+		content: '';
+		position: absolute;
+		inset-block: 0 14px;
+		inset-inline-end: 0;
+		width: 46px;
+		background: linear-gradient(to left, var(--sg-surface), rgba(255, 255, 255, 0));
+		pointer-events: none;
+	}
+
+	.sg-lp .sg-gallery__note {
+		margin-top: 4px;
+		padding-inline: var(--sg-gallery-pad);
+		font-size: 13px;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		font-weight: 700;
+		color: var(--sg-ink);
+	}
+
+	/* ---------- Selector de pago ---------- */
+
+	.sg-lp .sg-pay__product {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 8px;
+	}
+
+	.sg-lp .sg-pay__product img {
+		width: auto;
+		max-width: 118px;
+		filter: drop-shadow(0 12px 18px rgba(109, 31, 44, 0.22));
+	}
+
+	.sg-lp .sg-pay {
+		display: grid;
+		gap: 16px;
+	}
+
+	.sg-lp .sg-pay__option { display: block; cursor: pointer; }
+
+	.sg-lp .sg-pay__option input {
+		position: absolute;
+		opacity: 0;
+		width: 0; height: 0;
+	}
+
+	.sg-lp .sg-pay__box {
+		position: relative;
+		display: block;
+		padding: clamp(22px, 3.4vw, 30px);
+		padding-left: 60px;
+		border: 2px solid var(--sg-border);
+		border-radius: var(--sg-radius-lg);
+		background: var(--sg-surface);
+		transition: border-color 0.15s ease, box-shadow 0.15s ease;
+	}
+
+	.sg-lp .sg-pay__box::before {
+		content: '';
+		position: absolute;
+		left: 22px;
+		top: clamp(26px, 3.6vw, 34px);
+		width: 22px; height: 22px;
+		border: 2px solid var(--sg-purple);
+		border-radius: 50%;
+		background: #fff;
+	}
+
+	.sg-lp .sg-pay__box::after {
+		content: '';
+		position: absolute;
+		left: 28px;
+		top: calc(clamp(26px, 3.6vw, 34px) + 6px);
+		width: 10px; height: 10px;
+		border-radius: 50%;
+		background: var(--sg-magenta);
+		opacity: 0;
+		transition: opacity 0.15s ease;
+	}
+
+	.sg-lp .sg-pay__option:hover .sg-pay__box { border-color: var(--sg-purple); }
+
+	.sg-lp .sg-pay__option input:checked + .sg-pay__box {
+		border-color: var(--sg-magenta);
+		background: var(--sg-lilac-soft);
+		box-shadow: 0 8px 26px rgba(255, 0, 165, 0.12);
+	}
+
+	.sg-lp .sg-pay__option input:checked + .sg-pay__box::after { opacity: 1; }
+	.sg-lp .sg-pay__option input:focus-visible + .sg-pay__box { outline: 3px solid var(--sg-ink); outline-offset: 2px; }
+
+	.sg-lp .sg-pay__badge {
+		display: inline-block;
+		margin-bottom: 10px;
+		padding: 4px 12px;
+		border-radius: 999px;
+		background: var(--sg-magenta-deep);
+		color: #fff;
+		font-size: 11px;
+		font-weight: 800;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+
+	.sg-lp .sg-pay__name {
+		display: block;
+		font-size: 17px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		color: var(--sg-text);
+	}
+
+	.sg-lp .sg-pay__amount {
+		display: block;
+		margin-top: 6px;
+		font-size: clamp(27.2px, 4.4vw, 33.6px);
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		color: var(--sg-text);
+	}
+
+	.sg-lp .sg-pay__save {
+		display: inline-block;
+		margin-top: 6px;
+		font-weight: 700;
+		color: var(--sg-ink);
+	}
+
+	.sg-lp .sg-pay__detail {
+		display: block;
+		margin-top: 10px;
+		color: var(--sg-muted);
+		font-size: 15px;
+	}
+
+	.sg-lp .sg-pay__same {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 8px 22px;
+		margin-top: 22px;
+		color: var(--sg-muted);
+		font-size: 15px;
+	}
+
+	/* ---------- Bono ---------- */
+
+	/* El bono destaca por luz y composición, no por un bloque de color:
+	   dos halos difusos sin bordes duros sobre base clara. */
+	.sg-lp .sg-section--bonus {
+		position: relative;
+		overflow: hidden;
+		/* Los halos van centrados hacia dentro: si tocan los bordes, la
+		   sección vuelve a leerse como un rectángulo de color pegado. */
+		background:
+			radial-gradient(64% 48% at 24% 30%, rgba(225, 173, 221, 0.6) 0%, rgba(225, 173, 221, 0) 72%),
+			radial-gradient(58% 44% at 82% 74%, rgba(252, 79, 199, 0.22) 0%, rgba(252, 79, 199, 0) 70%),
+			var(--sg-surface);
+	}
+
+	.sg-lp .sg-bonus {
+		position: relative;
+		display: grid;
+		gap: clamp(26px, 4vw, 48px);
+		align-items: center;
+	}
+
+	.sg-lp .sg-bonus__visual { justify-self: center; text-align: center; }
+
+	.sg-lp .sg-bonus__included {
+		margin-bottom: 16px;
+		font-size: 13px;
+		font-weight: 700;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--sg-ink);
+	}
+
+	.sg-lp .sg-bonus__cover {
+		position: relative;
+		width: min(300px, 82%);
+		margin-inline: auto;
+	}
+
+	/* Halo orgánico detrás del libro: lo levanta sin encerrarlo en una caja */
+	.sg-lp .sg-bonus__cover::before {
+		content: '';
+		position: absolute;
+		inset: 4% -10% -4%;
+		border-radius: 52% 48% 44% 56% / 46% 44% 56% 54%;
+		background: radial-gradient(circle, rgba(252, 79, 199, 0.34) 0%, rgba(252, 79, 199, 0) 68%);
+		pointer-events: none;
+	}
+
+	/* Sin mix-blend-mode, a diferencia de piel. Aquel mockup traía fondo
+	   blanco sólido y multiply era la forma de hacerlo desaparecer; este
+	   llega ya recortado, con la sombra dentro del canal alfa. Con multiply
+	   encima, el halo rosa del ::before teñiría el libro y la sombra se
+	   oscurecería dos veces. */
+	.sg-lp .sg-bonus__cover img {
+		position: relative;
+		width: 100%;
+	}
+
+	.sg-lp .sg-bonus .sg-checklist { margin-top: 24px; }
+
+	.sg-lp .sg-bonus__who {
+		margin-top: 22px;
+		color: var(--sg-muted);
+		font-size: 15px;
+		max-width: 52ch;
+	}
+
+	/* ---------- Checklist ---------- */
+
+	.sg-lp .sg-checklist { display: grid; gap: 12px; }
+
+	.sg-lp .sg-checklist li {
+		position: relative;
+		padding-left: 34px;
+		color: var(--sg-text);
+	}
+
+	.sg-lp .sg-checklist li::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0.28em;
+		width: 21px; height: 21px;
+		border-radius: 50%;
+		background: var(--sg-magenta-deep) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E") center / 13px no-repeat;
+	}
+
+	.sg-lp .sg-checklist--center {
+		max-width: 46ch;
+		margin-inline: auto;
+		margin-top: 28px;
+		text-align: left;
+	}
+
+	/* ---------- Historias ---------- */
+
+	.sg-lp .sg-stories { display: grid; gap: 22px; }
+
+	.sg-lp .sg-story {
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+		border-radius: var(--sg-radius-lg);
+		background: var(--sg-surface);
+		border: 1px solid var(--sg-border);
+	}
+
+	.sg-lp .sg-story img {
+		width: 100%;
+		aspect-ratio: 4 / 5;
+		object-fit: cover;
+		object-position: center 22%;
+	}
+
+	.sg-lp .sg-story__body { padding: clamp(22px, 3.2vw, 28px); }
+
+	.sg-lp .sg-story p.sg-story__who {
+		font-size: 17px;
+		font-weight: 800;
+		color: var(--sg-text);
+		margin-bottom: 14px;
+	}
+
+	.sg-lp .sg-story p.sg-story__who span { font-weight: 500; color: var(--sg-muted); }
+
+	.sg-lp .sg-story p { color: var(--sg-muted); font-size: 15.8px; }
+	.sg-lp .sg-story__body p + p { margin-top: 10px; }
+
+	.sg-lp .sg-story p.sg-story__tag {
+		margin-top: 18px;
+		padding-top: 14px;
+		border-top: 1px solid var(--sg-border);
+		font-size: 13px;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--sg-ink);
+		font-weight: 700;
+	}
+
+	/* ---------- Autoridad ---------- */
+
+	/* Mismo carrusel nativo que la galería de fotos: el ancho de tarjeta
+	   deja ver un trozo de la siguiente, que es lo que indica que hay más. */
+	.sg-lp .sg-sources {
+		position: relative;
+		--sg-gallery-pad: max(20px, calc((100% - var(--sg-shell)) / 2 + 20px));
+	}
+
+	.sg-lp .sg-sources__track {
+		display: flex;
+		align-items: stretch;
+		gap: 14px;
+		overflow-x: auto;
+		overscroll-behavior-x: contain;
+		scroll-snap-type: x mandatory;
+		scroll-padding-inline-start: var(--sg-gallery-pad);
+		padding-inline: var(--sg-gallery-pad);
+		padding-block: 2px 14px;
+		scrollbar-width: thin;
+		scrollbar-color: var(--sg-border) transparent;
+	}
+
+	.sg-lp .sg-sources__track::-webkit-scrollbar { height: 6px; }
+	.sg-lp .sg-sources__track::-webkit-scrollbar-track { background: transparent; }
+	.sg-lp .sg-sources__track::-webkit-scrollbar-thumb { background: var(--sg-border); border-radius: 999px; }
+	.sg-lp .sg-sources__track:focus-visible { outline: 3px solid var(--sg-ink); outline-offset: -3px; border-radius: var(--sg-radius); }
+
+	.sg-lp .sg-sources__item {
+		flex: 0 0 auto;
+		display: flex;
+		width: min(282px, 78%);
+		scroll-snap-align: start;
+	}
+
+	.sg-lp .sg-sources__item .sg-source { width: 100%; }
+
+	/* Degradado en el borde: refuerza que el carrusel continúa */
+	.sg-lp .sg-sources::after {
+		content: '';
+		position: absolute;
+		inset-block: 0 14px;
+		inset-inline-end: 0;
+		width: 46px;
+		background: linear-gradient(to left, var(--sg-surface), rgba(255, 255, 255, 0));
+		pointer-events: none;
+	}
+
+	.sg-lp .sg-source {
+		padding: clamp(22px, 3.2vw, 30px);
+		border-radius: var(--sg-radius);
+		background: var(--sg-soft);
+		border: 1px solid var(--sg-border);
+	}
+
+	.sg-lp .sg-source p.sg-source__name {
+		display: flex;
+		align-items: center;
+		min-height: 38px;
+		font-size: 12px;
+		font-weight: 800;
+		letter-spacing: 0.16em;
+		text-transform: uppercase;
+		color: var(--sg-ink);
+	}
+
+	.sg-lp .sg-source__name img {
+		max-height: 38px;
+		max-width: 145px;
+		width: auto;
+		object-fit: contain;
+	}
+
+	.sg-lp .sg-source__title {
+		margin-top: 10px;
+		font-size: 17px;
+		font-weight: 700;
+		line-height: 1.35;
+		color: var(--sg-text);
+	}
+
+	.sg-lp .sg-source p { color: var(--sg-muted); font-size: 15px; }
+	.sg-lp .sg-source__title + p { margin-top: 12px; }
+
+	.sg-lp .sg-source p.sg-source__note {
+		margin-top: 12px;
+		padding-top: 12px;
+		border-top: 1px solid var(--sg-border);
+		font-style: italic;
+	}
+
+	.sg-lp .sg-disclaimer {
+		margin-top: 28px;
+		text-align: center;
+		font-size: 14px;
+		color: var(--sg-muted);
+		max-width: 60ch;
+		margin-inline: auto;
+	}
+
+	/* ---------- Qué recibes ---------- */
+
+	.sg-lp .sg-receive {
+		display: grid;
+		gap: clamp(32px, 5vw, 56px);
+		align-items: center;
+	}
+
+	.sg-lp .sg-receive .sg-checklist { margin-top: 28px; }
+
+	.sg-lp .sg-receive__media {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 12px;
+	}
+
+	.sg-lp .sg-receive__media img {
+		width: 100%;
+		border-radius: var(--sg-radius);
+		box-shadow: 0 14px 32px rgba(109, 31, 44, 0.14);
+	}
+
+	/* ---------- Garantía ---------- */
+
+	.sg-lp .sg-guarantee {
+		padding: clamp(30px, 5vw, 52px);
+		border-radius: var(--sg-radius-lg);
+		border: 2px solid var(--sg-lilac);
+		background: var(--sg-surface);
+		text-align: center;
+	}
+
+	.sg-lp .sg-guarantee__brand {
+		width: 64px;
+		height: 64px;
+		margin: 0 auto 20px;
+		border-radius: 18px;
+		box-shadow: 0 10px 24px rgba(123, 62, 118, 0.26);
+	}
+
+	.sg-lp .sg-guarantee__foot {
+		display: inline-flex;
+		align-items: center;
+		gap: 9px;
+		margin-top: 26px;
+		font-weight: 800;
+		color: var(--sg-ink);
+	}
+
+	.sg-lp .sg-guarantee__shield {
+		display: inline-flex;
+		flex: 0 0 auto;
+		color: var(--sg-magenta-deep);
+	}
+
+	.sg-lp .sg-guarantee__shield svg { width: 20px; height: 20px; }
+
+	/* ---------- FAQ ---------- */
+
+	.sg-lp .sg-faq { display: grid; gap: 10px; }
+
+	.sg-lp .sg-faq__item {
+		border: 1px solid var(--sg-border);
+		border-radius: 20px;
+		background: var(--sg-surface);
+		overflow: hidden;
+	}
+
+	.sg-lp .sg-faq__item summary {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 14px;
+		padding: 13px 20px;
+		min-height: 46px;
+		font-size: 15.8px;
+		font-weight: 700;
+		color: var(--sg-text);
+		cursor: pointer;
+		list-style: none;
+	}
+
+	.sg-lp .sg-faq__item summary::-webkit-details-marker { display: none; }
+
+	.sg-lp .sg-faq__item summary::after {
+		content: '';
+		flex: 0 0 auto;
+		width: 13px; height: 13px;
+		border-right: 2.5px solid var(--sg-purple);
+		border-bottom: 2.5px solid var(--sg-purple);
+		transform: rotate(45deg) translate(-3px, -3px);
+		transition: transform 0.2s ease;
+	}
+
+	.sg-lp .sg-faq__item[open] summary::after { transform: rotate(225deg) translate(-3px, -3px); }
+	.sg-lp .sg-faq__item[open] summary { color: var(--sg-ink); }
+	.sg-lp .sg-faq__item summary:focus-visible { outline: 3px solid var(--sg-ink); outline-offset: -3px; }
+
+	.sg-lp .sg-faq__body { padding: 0 20px 16px; }
+	.sg-lp .sg-faq__body p { color: var(--sg-muted); font-size: 15px; }
+	.sg-lp .sg-faq__body p + p { margin-top: 8px; }
+
+	/* ---------- Cierre ---------- */
+
+	.sg-lp .sg-close {
+		position: relative;
+		overflow: hidden;
+		background: linear-gradient(180deg, #fff 0%, var(--sg-lilac-soft) 100%);
+	}
+
+	.sg-lp .sg-close__glow {
+		position: absolute;
+		inset-block-end: -34%;
+		inset-inline-start: 50%;
+		translate: -50% 0;
+		width: min(680px, 120vw);
+		aspect-ratio: 1;
+		border-radius: 50%;
+		background: radial-gradient(circle, rgba(252, 79, 199, 0.24) 0%, rgba(252, 79, 199, 0) 66%);
+		pointer-events: none;
+	}
+
+	.sg-lp .sg-close__inner { position: relative; text-align: center; }
+
+	/* Reserva para el CTA fijo: sin esto el final de la página queda debajo
+	   de él en los navegadores donde el sticky no se puede ocultar por JS. */
+	@media (max-width: 899px) {
+		.sg-lp .sg-footer { padding-bottom: calc(clamp(34px, 5vw, 56px) + 84px); }
+	}
+
+	.sg-lp .sg-close__media {
+		display: flex;
+		justify-content: center;
+		margin-top: 30px;
+	}
+
+	.sg-lp .sg-close__media img {
+		width: min(250px, 66%);
+		height: auto;
+		border-radius: var(--sg-radius-lg);
+		/* Es una foto con fondo, no un recorte: aquí sí toca box-shadow
+		   y esquinas, no el drop-shadow que sigue la silueta. */
+		box-shadow: 0 18px 40px rgba(109, 31, 44, 0.24);
+	}
+
+	.sg-lp .sg-close__product {
+		margin-top: 22px;
+		font-size: 17px;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--sg-ink);
+	}
+
+	.sg-lp .sg-close__product span { color: var(--sg-muted); font-weight: 600; letter-spacing: 0; }
+
+	.sg-lp .sg-close__options {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		align-items: center;
+		gap: 14px;
+		margin-top: 26px;
+	}
+
+	.sg-lp .sg-close__option {
+		position: relative;
+		padding: 20px 16px;
+		border-radius: var(--sg-radius);
+		background: rgba(255, 255, 255, 0.82);
+		border: 1px solid var(--sg-border);
+	}
+
+	/* El anticipado es la opción que empujamos: borde de acento, fondo
+	   propio y distintivo. La contraentrega se deja intacta y legible,
+	   nunca degradada: castigarla sería un patrón oscuro. */
+	.sg-lp .sg-close__option--best {
+		padding-top: 28px;
+		border: 2px solid var(--sg-magenta-deep);
+		background: #fff;
+		box-shadow: 0 10px 28px rgba(224, 0, 143, 0.18);
+	}
+
+	.sg-lp .sg-close__badge {
+		position: absolute;
+		inset-block-start: -11px;
+		inset-inline-start: 50%;
+		translate: -50% 0;
+		padding: 5px 14px;
+		border-radius: 999px;
+		background: var(--sg-magenta-deep);
+		color: #fff;
+		font-size: 11px;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		white-space: nowrap;
+	}
+
+	.sg-lp .sg-close__option--best .sg-close__label { color: var(--sg-ink); }
+	.sg-lp .sg-close__option--best .sg-close__amount { color: var(--sg-text); }
+
+	.sg-lp .sg-close__label {
+		font-size: 13px;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--sg-muted);
+	}
+
+	.sg-lp .sg-close__amount {
+		margin-top: 6px;
+		font-size: clamp(22.4px, 4vw, 28.8px);
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		color: var(--sg-text);
+	}
+
+	.sg-lp .sg-close__save { margin-top: 2px; font-size: 14px; font-weight: 700; color: var(--sg-ink); }
+
+	/* ---------- Instagram ---------- */
+
+	/* Arranca en el mismo lila en el que termina el cierre, así las dos
+	   secciones se leen como una sola zona de remate antes del footer. */
+	.sg-lp .sg-social {
+		position: relative;
+		overflow: hidden;
+		background: var(--sg-lilac-soft);
+		padding-block: clamp(28px, 4.5vw, 60px);
+	}
+
+	.sg-lp .sg-social__aura {
+		position: absolute;
+		inset-block-start: 4%;
+		inset-inline-start: 50%;
+		translate: -50% 0;
+		width: min(720px, 106%);
+		aspect-ratio: 1.7;
+		border-radius: 50%;
+		background: radial-gradient(ellipse at center, rgba(252, 79, 199, 0.34) 0%, rgba(252, 79, 199, 0) 66%);
+		pointer-events: none;
+	}
+
+	/* La captura es una imagen plana y oscura: lo que le da cuerpo es el
+	   tratamiento del borde — esquinas redondeadas, anillo claro, reflejo
+	   en el canto superior y sombra proyectada. */
+	.sg-lp .sg-social__card {
+		position: relative;
+		border-radius: clamp(16px, 3.4vw, 24px);
+		overflow: hidden;
+		box-shadow:
+			0 0 0 1px rgba(255, 255, 255, 0.55),
+			0 2px 4px rgba(45, 18, 43, 0.16),
+			0 20px 46px rgba(45, 18, 43, 0.3);
+	}
+
+	.sg-lp .sg-social__card::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
+		pointer-events: none;
+		background: linear-gradient(180deg, rgba(255, 255, 255, 0.17) 0%, rgba(255, 255, 255, 0) 26%);
+	}
+
+	.sg-lp .sg-social__card img {
+		display: block;
+		width: 100%;
+		height: auto;
+		aspect-ratio: 1000 / 398;
+	}
+
+	/* ---------- Footer ---------- */
+
+	.sg-lp .sg-footer {
+		background: var(--sg-ink);
+		color: #fff;
+		padding-block: clamp(34px, 5vw, 56px);
+	}
+
+	.sg-lp .sg-footer__inner {
+		display: grid;
+		justify-items: center;
+		gap: 22px;
+		text-align: center;
+	}
+
+	.sg-lp .sg-footer__logo { width: 108px; height: auto; }
+
+	.sg-lp .sg-footer__data {
+		display: grid;
+		gap: 18px;
+	}
+
+	.sg-lp .sg-footer__block dt {
+		font-size: 12px;
+		font-weight: 700;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: rgba(255, 255, 255, 0.66);
+	}
+
+	.sg-lp .sg-footer__block dd {
+		margin-top: 4px;
+		font-size: 17px;
+		font-weight: 700;
+		letter-spacing: 0.01em;
+	}
+
+	.sg-lp .sg-footer__block a {
+		color: #fff;
+		text-decoration: none;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.42);
+		padding-bottom: 1px;
+	}
+
+	.sg-lp .sg-footer__block a:hover { border-bottom-color: #fff; }
+	.sg-lp .sg-footer__block a:focus-visible { outline: 3px solid var(--sg-lilac); outline-offset: 3px; }
+
+	.sg-lp .sg-footer__maker,
+	.sg-lp .sg-footer__legal {
+		max-width: 56ch;
+		font-size: 14px;
+		line-height: 1.55;
+		color: rgba(255, 255, 255, 0.76);
+	}
+
+	.sg-lp .sg-footer__legal {
+		padding-top: 18px;
+		border-top: 1px solid rgba(255, 255, 255, 0.2);
+		width: 100%;
+		max-width: 60ch;
+		color: rgba(255, 255, 255, 0.62);
+		font-size: 13px;
+	}
+
+	/* ---------- Anfitrión del contexto de producto ----------
+	   Releasit necesita un producto en el DOM para poder abrir su modal.
+	   Ese contexto lo aporta un Product Element de GemPages colocado en la
+	   landing, que además es lo que permite que cada landing enlace SU
+	   producto sin tocar el tema.
+
+	   Ese elemento es andamiaje, no interfaz: la landing ya tiene sus
+	   propios CTA, así que todo lo que Releasit pinte dentro (su botón
+	   azul incluido) sobra. Se neutraliza el contenedor completo, no los
+	   elementos de la app uno a uno: así no depende de cómo Releasit
+	   llame a sus clases hoy ni de las que añada mañana.
+
+	   Nunca con display:none — la app necesita el nodo renderizado para
+	   leer el producto e inicializar el formulario. */
+	gp-product,
+	.sg-rls-host {
+		position: absolute !important;
+		width: 1px !important;
+		height: 1px !important;
+		overflow: hidden !important;
+		clip-path: inset(50%) !important;
+		pointer-events: none !important;
+	}
+
+	/* ---------- CTA sticky ---------- */
+
+	.sg-lp .sg-sticky {
+		position: fixed;
+		inset-inline: 0;
+		bottom: 0;
+		z-index: 40;
+		padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+		background: rgba(255, 255, 255, 0.96);
+		backdrop-filter: blur(10px);
+		border-top: 1px solid var(--sg-border);
+		box-shadow: 0 -6px 24px rgba(36, 31, 36, 0.1);
+		transform: translateY(110%);
+		transition: transform 0.24s ease;
+	}
+
+	.sg-lp .sg-sticky[hidden] { display: none; }
+	.sg-lp .sg-sticky.is-visible { transform: translateY(0); }
+
+	.sg-lp .sg-sticky__inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 14px;
+		max-width: var(--sg-shell);
+		margin-inline: auto;
+	}
+
+	.sg-lp .sg-sticky__price { line-height: 1.25; }
+	.sg-lp .sg-sticky__price strong { display: block; font-size: 20px; font-weight: 800; letter-spacing: -0.02em; }
+	.sg-lp .sg-sticky__price span { font-size: 13px; color: var(--sg-muted); }
+
+	/* ---------- Breakpoints ---------- */
+
+	@media (min-width: 600px) {
+		.sg-lp .sg-pains { grid-template-columns: repeat(2, 1fr); }
+		/* Con más ancho el espejo puede crecer sin comer texto */
+		.sg-lp .sg-pain__media { width: 140px; }
+		.sg-lp .sg-stats { grid-template-columns: repeat(4, 1fr); }
+	}
+
+	@media (min-width: 900px) {
+		.sg-lp .sg-hero__grid {
+			grid-template-columns: 1.05fr 0.95fr;
+			grid-template-areas:
+				'head   media'
+				'specs  media'
+				'mech   media'
+				'buy    media';
+			align-items: start;
+			column-gap: clamp(32px, 4vw, 56px);
+			row-gap: 26px;
+		}
+
+		/* El tope de 300px era para el frasco solo; ahora la pieza es la foto.
+		   Con la columna entera para ella recupera el 3/4, que le sienta mejor. */
+		.sg-lp .sg-hero__media { align-self: center; max-width: 430px; justify-self: end; }
+		/* La foto es cuadrada; forzarle 3/4 aquí le recortaría el pelo por
+		   los lados justo donde hay sitio de sobra para enseñarlo. */
+		.sg-lp .sg-hero__composite { aspect-ratio: 1 / 1; margin-top: 0; }
+
+		/* La tarjeta superpuesta es un recurso de móvil: en dos columnas la
+		   compra ya tiene su propia columna y no pisa nada. */
+		.sg-lp .sg-hero__buy {
+			margin: 0;
+			padding: 0;
+			background: none;
+			border: 0;
+			box-shadow: none;
+		}
+		.sg-lp .sg-hero__head,
+		.sg-lp .sg-hero__specs { margin-bottom: 0; }
+		.sg-lp .sg-hero__mech { margin-top: 0; }
+		.sg-lp .sg-hero__claim { padding-bottom: 15px; }
+		.sg-lp .sg-hero__portrait { aspect-ratio: 3 / 4; }
+		.sg-lp .sg-hero .sg-lead { font-size: 17px; margin-top: 18px; }
+
+		/* En horizontal el "+" lee mejor como unión entre los dos activos */
+		.sg-lp .sg-hero .sg-mechanism { justify-content: flex-start; gap: 10px; }
+		.sg-lp .sg-mechanism__label { font-size: 12px; }
+		.sg-lp .sg-hero .sg-facts li { font-size: 16px; padding-left: 26px; }
+		.sg-lp .sg-hero__buy .sg-cta { margin-top: 24px; }
+		.sg-lp .sg-hero__buy .sg-trust { justify-content: flex-start; }
+		.sg-lp .sg-hero .sg-price { justify-content: flex-start; }
+		.sg-lp .sg-hero__buy { text-align: left; }
+		.sg-lp .sg-duo { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+		.sg-lp .sg-usage {
+			grid-template-columns: 1.15fr 0.85fr;
+			grid-template-areas:
+				'head product'
+				'body product';
+			column-gap: clamp(32px, 4vw, 56px);
+		}
+
+		.sg-lp .sg-usage__product img { max-width: 240px; }
+		.sg-lp .sg-receive { grid-template-columns: 1fr 0.85fr; }
+		.sg-lp .sg-footer__data { grid-auto-flow: column; gap: 56px; }
+		.sg-lp .sg-bonus { grid-template-columns: 0.85fr 1.15fr; }
+		.sg-lp .sg-bonus__visual { justify-self: start; }
+		.sg-lp .sg-bonus__cover { width: 100%; max-width: 330px; }
+		.sg-lp .sg-stories { grid-template-columns: repeat(3, 1fr); }
+		.sg-lp .sg-sources__item { width: 306px; }
+		.sg-lp .sg-pay { grid-template-columns: repeat(2, 1fr); }
+		.sg-lp .sg-sticky { display: none; }
+	}
+
+	@media (min-width: 620px) {
+		.sg-lp .sg-band__causes { grid-template-columns: repeat(2, 1fr); }
+	}
+
+	@media (min-width: 1000px) {
+		/* En fila, la tarjeta se pone vertical: a 240px de ancho el icono
+		   al lado dejaría el texto en dos palabras por línea. */
+		.sg-lp .sg-band__causes {
+			grid-template-columns: repeat(4, 1fr);
+			gap: 14px;
+		}
+
+		/* Todas a la misma altura: con el texto de largo distinto, cualquier
+		   desnivel se lee como error de maquetación, no como ritmo. */
+		.sg-lp .sg-band__cause {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 16px;
+			padding: 24px 22px 26px;
+		}
+	}
+
+	@media (min-width: 700px) {
+		/* El hábito pasa a foto + texto en cuanto hay ancho para ello.
+		   El collage todavía no cabe al lado, así que cruza la tarjeta. */
+		.sg-lp .sg-habit {
+			grid-template-columns: 0.62fr 1.38fr;
+			grid-template-areas:
+				'media copy'
+				'bento bento';
+		}
+
+		/* Cruzando la tarjeta entera, el bento se comería medio bloque.
+		   En tira de cinco se lee como un friso y ocupa lo que debe. */
+		.sg-lp .sg-habit__bento {
+			grid-template-columns: repeat(5, 1fr);
+			grid-template-rows: 1fr;
+			grid-template-areas: 'lead a b c d';
+			aspect-ratio: 5 / 1.12;
+		}
+
+		.sg-lp .sg-habit__tile--extra { display: block; }
+	}
+
+	@media (min-width: 1040px) {
+		/* Con sitio de sobra el collage ocupa el hueco de la derecha en vez
+		   de estirar la tarjeta hacia abajo, y recupera la jerarquía del
+		   bento: una cara grande que ancla y cuatro que acompañan. */
+		.sg-lp .sg-habit {
+			grid-template-columns: 0.6fr 0.85fr 1.45fr;
+			grid-template-areas: 'media copy bento';
+		}
+
+		.sg-lp .sg-habit__bento {
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-rows: repeat(2, 1fr);
+			grid-template-areas:
+				'lead lead a b'
+				'lead lead c d';
+			aspect-ratio: 4 / 2.24;
+		}
+	}
+
+	@media (min-width: 900px) {
+		.sg-lp .sg-receive__media { justify-self: center; max-width: 460px; }
+
+		/* Composición escalonada: evita que la pareja parezca una tabla */
+		.sg-lp .sg-receive__media figure:last-child { margin-top: 34px; }
+
+		.sg-lp .sg-gallery__item { width: 210px; }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.sg-lp *,
+		.sg-lp *::before,
+		.sg-lp *::after {
+			transition-duration: 0.01ms !important; /* respeta la preferencia del sistema */
+			animation-duration: 0.01ms !important;
+		}
+		.sg-lp .sg-cta:active { transform: none; }
+		.sg-lp .sg-cta::after { animation: none; opacity: 0; }
+	}
+
+	/* =========================================================
+	   AÑADIDOS DEL ÁNGULO CABELLO
+	   Todo lo anterior es idéntico al ángulo piel. Lo que sigue
+	   solo existe aquí: la línea de tiempo, la dosis de cada
+	   activo y dos utilidades de espaciado.
+	   ========================================================= */
+
+	/* El carrusel de UGC va pegado al hero: sin el padding completo de
+	   sección, las caras entran en pantalla antes de scrollear. */
+	.sg-lp .sg-section--tight {
+		padding-top: 0;
+		padding-bottom: 18px;
+	}
+
+	/* .sg-gallery trae 26px de margen superior porque en el ángulo piel va
+	   detrás de contenido. Aquí es lo único de su sección y se apilaba con
+	   el padding del hero. */
+	.sg-lp .sg-section--tight .sg-gallery { margin-top: 0; }
+
+	/* Dosis por activo. Sin uso ahora mismo: la tabla nutricional declara
+	   9 µg de Biotina por porción de 3 dulces y no declara Resveratrol, así
+	   que no hay una cifra que sostenga un chip aquí. La regla se queda para
+	   cuando el cliente confirme cómo quiere expresarlo. */
+	.sg-lp .sg-card__dose {
+		margin: 4px 0 0;
+		font-size: 12px;
+		font-weight: 600;
+		letter-spacing: .02em;
+		color: var(--sg-muted);
+	}
+
+	/* ---------- Línea de tiempo ----------
+	   Tres tramos con una guía vertical que los cose. La guía se dibuja
+	   con un ::before sobre el <li>, no con un elemento vacío: el tema
+	   (Dawn) trae `div:empty{display:none}` y cualquier capa vacía
+	   desaparecería en producción sin avisar. */
+	.sg-lp .sg-timeline {
+		list-style: none;
+		margin: 28px 0 0;
+		padding: 0;
+		display: grid;
+		gap: 0;
+	}
+
+	.sg-lp .sg-timeline__step {
+		position: relative;
+		padding: 0 0 26px 34px;
+	}
+
+	/* La guía baja desde el centro del punto hasta el siguiente tramo */
+	.sg-lp .sg-timeline__step::before {
+		content: '';
+		position: absolute;
+		left: 8px;
+		top: 20px;
+		bottom: 0;
+		width: 2px;
+		background: var(--sg-border);
+	}
+
+	.sg-lp .sg-timeline__step--last::before { display: none; }
+
+	.sg-lp .sg-timeline__step::after {
+		content: '';
+		position: absolute;
+		left: 2px;
+		top: 7px;
+		width: 14px;
+		height: 14px;
+		border-radius: 50%;
+		background: var(--sg-magenta-deep);
+		box-shadow: 0 0 0 4px var(--sg-surface);
+	}
+
+	.sg-lp .sg-timeline__when {
+		margin: 0;
+		font-size: 12px;
+		font-weight: 700;
+		letter-spacing: .1em;
+		text-transform: uppercase;
+		color: var(--sg-magenta-deep);
+	}
+
+	.sg-lp .sg-timeline__title {
+		margin: 4px 0 10px;
+		font-size: 19px;
+		line-height: 1.25;
+		font-weight: 700;
+		color: var(--sg-ink);
+	}
+
+	.sg-lp .sg-timeline__list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: 8px;
+	}
+
+	.sg-lp .sg-timeline__list li {
+		position: relative;
+		padding-left: 18px;
+		font-size: 15px;
+		line-height: 1.5;
+		color: var(--sg-text);
+	}
+
+	.sg-lp .sg-timeline__list li::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: .62em;
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background: var(--sg-lilac);
+	}
+
+	.sg-lp .sg-timeline__foot {
+		margin-top: 6px;
+		padding: 22px 20px;
+		text-align: center;
+		background: var(--sg-surface);
+		border: 1px solid var(--sg-border);
+		border-radius: var(--sg-radius-lg);
+	}
+
+	.sg-lp .sg-timeline__claim {
+		margin: 0;
+		font-size: 18px;
+		line-height: 1.3;
+		font-weight: 700;
+		color: var(--sg-ink);
+	}
+
+	.sg-lp .sg-timeline__note {
+		margin: 6px 0 0;
+		font-size: 15px;
+		color: var(--sg-muted);
+	}
+
+	/* Dos datos en vez de cuatro: la rejilla de .sg-stats reparte por
+	   auto-fit y con dos quedaban descentrados. */
+	.sg-lp .sg-stats--pair {
+		margin-top: 18px;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		max-width: 320px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	@media (min-width: 760px) {
+		.sg-lp .sg-timeline {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: 22px;
+		}
+
+		/* En escritorio los tramos van en paralelo: la guía pasa a ser
+		   horizontal y arranca del punto hacia la derecha. */
+		.sg-lp .sg-timeline__step {
+			padding: 34px 0 0 0;
+		}
+
+		.sg-lp .sg-timeline__step::before {
+			left: 20px;
+			right: -22px;
+			top: 8px;
+			bottom: auto;
+			width: auto;
+			height: 2px;
+		}
+
+		.sg-lp .sg-timeline__step::after {
+			left: 0;
+			top: 1px;
+		}
+	}
+</style>
+
+<script>
+	;(function () {
+		'use strict'
+
+		var ROOT_SELECTOR = '.sg-lp'
+		var READY_FLAG = 'sgLandingReady'
+
+		// El flujo de pago anticipado todavía no está cableado: hoy AMBAS
+		// opciones abren el formulario contraentrega de Releasit a $89.900.
+		// Mientras esté en false, la página nunca anuncia un precio distinto
+		// al que va a cobrar el formulario. Poner en true al cablearlo.
+		var PREPAID_ENABLED = false
+
+		var PRICES = {
+			prepaid: '$79.900',
+			cod: '$89.900'
+		}
+
+		var CTA_LABELS = {
+			prepaid: 'QUIERO MI SKNGLOW POR $79.900',
+			cod: 'QUIERO MI SKNGLOW CONTRAENTREGA'
+		}
+
+		var CTA_LABEL_FALLBACK = 'ELEGIR MI FORMA DE PAGO'
+
+		function initPaymentSelector(root) {
+			var inputs = root.querySelectorAll('input[name="sg-payment"]')
+			if (!inputs.length) return
+
+			var stickyPrice = root.querySelector('[data-sg-sticky-price]')
+			var priceCta = root.querySelector('[data-sg-cta-price]')
+
+			function sync() {
+				var selected = root.querySelector('input[name="sg-payment"]:checked')
+				var choice = selected ? selected.value : 'prepaid'
+
+				// La elección viaja hasta el formulario de Releasit, que se
+				// inyecta fuera de .sg-lp: por eso el atributo va en <html>.
+				// La piel del formulario lo recoge en html[data-sg-pay] y
+				// atenúa la opción que la clienta ya descartó.
+				// Se escribe la elección REAL, no el modo de abajo, para que
+				// esto funcione aunque PREPAID_ENABLED siga en false.
+				document.documentElement.setAttribute('data-sg-pay', choice)
+
+				var mode = choice
+
+				if (!PREPAID_ENABLED) mode = 'cod'
+
+				if (stickyPrice) stickyPrice.textContent = PRICES[mode] || PRICES.cod
+
+				if (priceCta) {
+					priceCta.textContent = PREPAID_ENABLED
+						? (CTA_LABELS[mode] || CTA_LABELS.prepaid)
+						: CTA_LABEL_FALLBACK
+				}
+			}
+
+			Array.prototype.forEach.call(inputs, function (input) {
+				input.addEventListener('change', sync)
+			})
+
+			sync()
+		}
+
+		function initHeroSlider(root) {
+			var slider = root.querySelector('[data-sg-slider]')
+			if (!slider) return
+
+			var track = slider.querySelector('[data-sg-slider-track]')
+			var dots = slider.querySelectorAll('[data-sg-dot]')
+			if (!track || !dots.length) return
+
+			var slides = track.querySelectorAll('.sg-slider__slide')
+			if (slides.length !== dots.length) return
+
+			var current = -1
+
+			function paint(index) {
+				if (index === current) return
+				current = index
+
+				Array.prototype.forEach.call(dots, function (dot, i) {
+					var active = i === index
+					dot.classList.toggle('is-active', active)
+					// aria-current y no aria-selected: esto no es un tablist,
+					// son atajos a posiciones de un scroll.
+					if (active) dot.setAttribute('aria-current', 'true')
+					else dot.removeAttribute('aria-current')
+				})
+			}
+
+			// El índice sale de la posición de scroll y no de un contador
+			// propio: así el punto sigue al dedo aunque el usuario arrastre a
+			// mano, que es como se va a usar el 99% de las veces.
+			function readIndex() {
+				var width = track.clientWidth
+				if (!width) return
+				paint(Math.round(track.scrollLeft / width))
+			}
+
+			var ticking = false
+			track.addEventListener('scroll', function () {
+				if (ticking) return
+				ticking = true
+				window.requestAnimationFrame(function () {
+					ticking = false
+					readIndex()
+				})
+			}, { passive: true })
+
+			Array.prototype.forEach.call(dots, function (dot) {
+				dot.addEventListener('click', function () {
+					var i = parseInt(dot.getAttribute('data-sg-dot'), 10)
+					if (isNaN(i)) return
+					track.scrollTo({ left: track.clientWidth * i, behavior: 'smooth' })
+				})
+			})
+
+			// Al cambiar de orientación o de ancho el scrollLeft deja de
+			// cuadrar con el slide: se recoloca sobre el que estaba.
+			if (typeof window.ResizeObserver === 'function') {
+				var last = track.clientWidth
+				new window.ResizeObserver(function () {
+					if (track.clientWidth === last) return
+					var i = current < 0 ? 0 : current
+					last = track.clientWidth
+					track.scrollLeft = last * i
+				}).observe(track)
+			}
+
+			readIndex()
+			paint(current < 0 ? 0 : current)
+		}
+
+		function initStickyCta(root) {
+			var sticky = root.querySelector('[data-sg-sticky]')
+			var hero = root.querySelector('.sg-hero')
+			if (!sticky || !hero) return
+
+			sticky.hidden = false
+
+			// Sin IntersectionObserver el CTA sticky queda visible: es el
+			// comportamiento seguro, nunca esconder el camino a la compra.
+			if (typeof window.IntersectionObserver !== 'function') {
+				sticky.classList.add('is-visible')
+				return
+			}
+
+			var heroVisible = true
+			var tailVisible = false
+
+			function update() {
+				sticky.classList.toggle('is-visible', !heroVisible && !tailVisible)
+			}
+
+			var heroObserver = new window.IntersectionObserver(function (entries) {
+				entries.forEach(function (entry) {
+					heroVisible = entry.isIntersecting
+				})
+				update()
+			}, { rootMargin: '-120px 0px 0px 0px' })
+
+			heroObserver.observe(hero)
+
+			// Al final de la página el sticky sobra y además taparía tanto el
+			// CTA de cierre como el footer con los datos legales.
+			var tail = root.querySelectorAll('.sg-close .sg-cta-row, .sg-footer')
+			if (!tail.length) return
+
+			var tailObserver = new window.IntersectionObserver(function (entries) {
+				entries.forEach(function (entry) {
+					entry.target.dataset.sgTailVisible = entry.isIntersecting ? 'true' : 'false'
+				})
+
+				tailVisible = Array.prototype.some.call(tail, function (el) {
+					return el.dataset.sgTailVisible === 'true'
+				})
+
+				update()
+			})
+
+			Array.prototype.forEach.call(tail, function (el) {
+				tailObserver.observe(el)
+			})
+		}
+
+		function init() {
+			var root = document.querySelector(ROOT_SELECTOR)
+			if (!root || root.dataset[READY_FLAG] === 'true') return
+
+			root.dataset[READY_FLAG] = 'true'
+			initPaymentSelector(root)
+			initHeroSlider(root)
+			initStickyCta(root)
+		}
+
+		// GemPages puede montar el bloque después de DOMContentLoaded
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', init)
+		} else {
+			init()
+		}
+	})()
+</script>

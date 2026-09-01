@@ -34,6 +34,7 @@ de compra, sin engañarlo? Si la respuesta no es un sí claro, no se hace.
 /
 ├── AGENTS.md                       # este archivo (contexto global, todas las marcas)
 ├── preview.sh                      # vista previa local de un fragmento (ver §9)
+├── check-cdn.sh                    # qué imágenes de una landing faltan por subir al CDN
 ├── docs/                           # guías transversales de plataforma
 │   ├── releasit-form-styling.md
 │   ├── image-optimization.md
@@ -149,6 +150,10 @@ El tráfico es mayoritariamente **mobile y de paid**: cada 100 ms cuentan.
   `product-images/` y `humanized-images/` son crudas (2–3 MB): **hay que optimizarlas antes de
   usarlas**, nunca referenciarlas tal cual. Las optimizadas viven en `<producto>/assets/` y las
   comparten todos los ángulos. Procedimiento, comandos y tamaños: **`docs/image-optimization.md`**.
+- **Versionado obligatorio.** El CDN de Shopify cachea por nombre y no suelta la versión vieja ni
+  borrándola. Una imagen ya subida **nunca** se reemplaza con el mismo nombre: se sube como `-v2`,
+  `-v3`… y se actualiza la referencia. Comprobar con `./check-cdn.sh <landing>` antes de dar por
+  publicado cualquier cambio de imagen. Detalle en `docs/image-optimization.md` §5.
 - **Tipografías:** las landings **no declaran `font-family`**, heredan la del tema. La tipografía de
   marca se instala una sola vez en el tema: ver **`docs/brand-typography.md`**.
 - **Animaciones:** solo `transform` y `opacity`. Respetar `prefers-reduced-motion`.
@@ -234,8 +239,30 @@ Principios:
    sin errores de consola, imágenes con dimensiones, CTAs funcionando, textos coincidiendo con el copy.
    **Comprobar los colores computados, no solo el CSS escrito:** una regla genérica de elemento
    (`.card p`) gana a una de clase (`.card__tag`) y deja texto ilegible sin avisar.
-5. **Para verlo fuera de GemPages:** `./preview.sh <marca>/landings/<producto>/<ángulo>/<campaña>.html` genera un
-   `.preview.html` con la cabecera del tema. Los fragmentos **no llevan `<meta viewport>`** —lo pone
-   Shopify—, así que abiertos en crudo el móvil los renderiza a ~980 px, con el layout de escritorio
-   encogido. No es un fallo de la landing: es que le falta el documento que la envuelve.
-6. No tocar producción (publicar/despublicar páginas, cambiar el tema) sin petición explícita.
+5. **Regenerar la vista previa SIEMPRE al terminar de tocar una landing.** No es opcional ni es solo
+   para mirarla uno mismo: el `.preview.html` está versionado en el repo y es lo que abre el usuario
+   para revisar el trabajo. Una preview vieja enseña el estado anterior y hace perder el viaje.
+
+   ```sh
+   ./preview.sh <marca>/landings/<producto>/<ángulo>/<campaña>.html
+   ```
+
+   Genera un `.preview.html` con la cabecera del tema. Los fragmentos **no llevan `<meta viewport>`**
+   —lo pone Shopify—, así que abiertos en crudo el móvil los renderiza a ~980 px, con el layout de
+   escritorio encogido. No es un fallo de la landing: es que le falta el documento que la envuelve.
+
+   🔴 **Todas las medidas en `px`. Nunca `rem` en una landing.** La cabecera de `preview.sh` sirve para
+   parecerse al tema, pero **es una imitación y puede mentir**. Ya pasó: llevaba un
+   `html{font-size:62.5%}` heredado de otro tema, cuando la página viva va a **16px** (medido, no
+   supuesto). Resultado: un bloque escrito en `rem` se veía correcto en la vista previa y salía **un
+   60% más grande al publicar** — la sección pasaba de 612px a 1170px de alto y nadie lo veía hasta
+   tener el móvil delante. En `px` el problema no puede existir, porque no dependen de la raíz.
+
+   Si alguna vez hay que cambiar esa cabecera, **se mide sobre la página viva**:
+
+   ```js
+   getComputedStyle(document.documentElement).fontSize
+   ```
+6. **Si cambió alguna imagen, comprobar el CDN:** `./check-cdn.sh <landing>` dice cuáles faltan por
+   subir. Recordar el versionado `-v2` de §5.
+7. No tocar producción (publicar/despublicar páginas, cambiar el tema) sin petición explícita.

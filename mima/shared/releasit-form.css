@@ -152,6 +152,26 @@ body:has([data-rsi-banner]) #rsi_form_wrapper .rsi-image-item-wrapper {
 	display: flex !important;
 }
 
+/* Y el banner no es el mismo en todos los ángulos: el de piel habla de piel.
+   Como el bloque de imagen es uno solo y su URL se configura en la app, el
+   cambio se hace con content:url(), que sustituye lo que PINTA el <img> sin
+   tocar su src. Verificado sobre el formulario real en móvil: la caja pasa a
+   la proporción de la imagen nueva y conserva el radio y el contorno de aquí.
+
+   El valor por defecto (atributo sin valor, o data-rsi-banner="piel") deja
+   pasar el banner que ya está puesto en la app, así que las landings
+   existentes no cambian de comportamiento.
+
+   ⚠️ Coste: el navegador descarga LAS DOS imágenes, la del src y la del
+   content. Se midió: son dos peticiones. Con el banner de piel pesando
+   201 KB, en cabello se pagan ~290 KB al abrir el modal. Si llega a molestar,
+   la salida es poner un 1x1 transparente como URL del bloque en la app y
+   pintar los dos banners como background-image aquí: entonces solo se
+   descarga el que se ve. */
+body:has([data-rsi-banner="cabello"]) #rsi_form_wrapper .rsi-image-item-image {
+	content: url('https://www.mimacolombia.com/cdn/shop/files/banner-formulario-cabello-sknglow.webp?width=1100');
+}
+
 #rsi_form_wrapper .rsi-image-item-image {
 	display: block;
 	border-radius: var(--mima-radius) !important;
