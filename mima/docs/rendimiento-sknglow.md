@@ -1138,3 +1138,189 @@ PageSpeed, `fbevents.js` arranca en el segundo 5,3.
 **Nota para el % de carga de página:** el bloqueador del usuario impedía que el
 píxel cargara. A una parte de los clientes reales les pasa lo mismo: llegan a la
 landing y nunca se cuentan. Ese trozo del 32% no se arregla desde la web.
+
+---
+
+## 17. ¿El snippet del tema rompió el `Purchase` de contraentrega? (2026-09-01)
+
+**No.** Verificado por dos caminos independientes.
+
+### 17.1 En el código del bundle (`main-Bmp3jl8I.js`, release 443)
+
+Nuestro `fbq('init', …)` en la cabecera hace que Releasit marque el píxel como externo:
+
+```js
+isPixelInitializedExternally(Fe.id) ? externallyInitializedPixels.add(_t) : (… init propio …)
+…
+!externallyInitializedPixels.has(_t) && … && (fbq("trackSingle", Fe.id, "PageView"), … "ViewContent" …)
+```
+
+`externallyInitializedPixels` aparece **4 veces en todo el bundle y las cuatro dentro de
+`useInitializePixels`**. No se consulta en ninguna otra parte. Es decir: ese flag solo puede suprimir
+`PageView` y `ViewContent`, que es justo lo que se buscaba.
+
+Los eventos del formulario salen por otra función, que no sabe nada de ese flag:
+
+```js
+function y(pixels, evento, datos, eventID, initParams) {
+  if (typeof window.fbq != "function" || disableAllEvents) return false
+  if (pixels.length === 0) return !hayPixelFb && … && fbq("track", evento, …), false
+  for (const p of pixels) … fbq("trackSingle", p.id, evento, datos, eventID)
+}
+```
+
+Solo exige que `fbq` exista y que `disableAllEvents` sea falso. **`Purchase`, `InitiateCheckout`,
+`AddToCart` y `AddPaymentInfo` usan esta misma función.**
+
+### 17.2 En vivo, instrumentando `fbq` antes de que cargue nada
+
+| Momento | Llamadas observadas |
+|---|---|
+| Al cargar | `["init","1369089581549099"]`, `["track","PageView"]` — **solo las nuestras** |
+| Estado | `fbq.version 2.9.390`, píxeles inicializados: **uno**, sin duplicados |
+| Al abrir el formulario | `trackSingle 1369089581549099 InitiateCheckout` + `AddToCart` |
+
+`InitiateCheckout` **sale por la misma función que `Purchase`**. Si dispara, el camino no está roto.
+
+### 17.3 CORRECCIÓN (2026-09-01, con las capturas del cliente)
+
+Las dos hipótesis de la primera versión de este apartado **eran falsas**. Con la configuración real
+delante:
+
+| Lo que supuse | Lo que hay |
+|---|---|
+| «Puede que falte la Conversions API en Releasit» | **Está configurada.** Pestaña de Píxeles: `Facebook Pixel` + `Facebook Conversions API` |
+| «El anticipado lo reporta un píxel de Meta en el checkout de Shopify» | **No existe tal píxel.** En Configuración → Eventos de cliente hay **una sola** entrada: `Releasit COD Form` |
+
+Por qué me equivoqué: leí `webPixelsConfigList` en el HTML y vi entradas `APP` y `CUSTOM`, pero son
+**contenedores genéricos** del gestor de web pixels, no píxeles de Meta. Sus sandboxes son stubs de
+265 y 843 bytes, sin una sola mención a `fbq`, `facebook`, `Purchase` ni `checkout_completed`.
+
+### 17.4 La arquitectura real
+
+**Todo lo que Meta recibe de esta tienda sale de Releasit.** No hay otra fuente.
+
+Y Releasit aquí es **solo contraentrega**:
+
+```json
+"paymentMethod": { "name": "Cash on Delivery (COD)", "isEnabled": true }
+"saveOrdersAsDrafts": false
+```
+
+La única aparición de `prepaid` en toda la página es **el radio de nuestra propia landing**
+(`.sg-pay`), no un ajuste de Releasit. Es decir: **Releasit no crea pedidos de pago anticipado.**
+
+De ahí sale la contradicción que hay que resolver antes de tocar nada:
+
+- Un pedido **contraentrega** lo crea Releasit por API → dispara `Purchase` de navegador **y** CAPI.
+- Un pedido **anticipado** no pasa por Releasit: va por el checkout normal de Shopify → y ahí
+  **no hay ningún píxel de Meta instalado**.
+
+Con esta configuración, el anticipado tendría **menos** camino hacia Meta que la contraentrega, no más.
+Así que «solo se reportan los de pago anticipado» **no puede ser literal**: falta un dato.
+
+### 17.5 La hipótesis que sí encaja
+
+El web pixel `Releasit COD Form` de Eventos de cliente (`gid://shopify/WebPixel/1343946892`) corre en
+el sandbox de Shopify y **sí ve `checkout_completed`**. Si Releasit lo usa para reportar compras:
+
+| Flujo | ¿Hay `checkout_completed`? | Quién puede reportar |
+|---|---|---|
+| Anticipado (checkout de Shopify) | **Sí** | El web pixel de Releasit |
+| Contraentrega (pedido por API) | **No, nunca** | Solo el evento de navegador de la landing + CAPI |
+
+Eso reproduce el síntoma exactamente. No se pudo confirmar leyendo el sandbox porque el código real se
+registra en tiempo de ejecución dentro del worker.
+
+### 17.6 Cómo salir de dudas — Events Manager
+
+`business.facebook.com` → **Administrador de eventos** → píxel `1369089581549099` →
+pestaña **Orígenes de datos / Descripción general**. Ahí:
+
+1. En **Purchase**, mirar la columna de **conectividad**: dice si cada evento llegó por *navegador*,
+   *servidor* o *ambos*. Si no hay ninguno de servidor, la CAPI no está entregando aunque el token
+   esté puesto.
+2. **Probar eventos** (*Test Events*): abre la landing con el código de prueba y **haz un pedido
+   contraentrega real de prueba**. Es la única forma de ver si el `Purchase` de contraentrega sale.
+   Cancélalo después en Shopify.
+3. **Diagnóstico**: ahí aparecen tokens de CAPI caducados y eventos rechazados por falta de
+   `value`/`currency` — el bundle tiene un `console.warn` para ese caso concreto.
+
+⚠️ El token de CAPI (`EAAQPrh1ZBdhgBS…`) es lo primero a revisar en el punto 1: si caducó, la CAPI
+falla en silencio y la contraentrega se queda con el evento de navegador a secas, que en móvil LATAM
+se pierde con bloqueadores e ITP.
+
+### 17.7 Cuándo se guarda un pedido como borrador
+
+Importa porque **el borrador es el interruptor que apaga todos los eventos de golpe**: el bloque que
+dispara `Purchase`, `AddToCart`, gtag y TikTok vive dentro de `if (!isDraft)`.
+
+```js
+const Pn = Yt.isDraft || false
+await OrderService.createOrder(Yt, Pn)
+…
+if (!Pn) { …aquí vive TODO el tracking de compra… }
+```
+
+**Hay dos caminos que ponen `isDraft = true`, y el que manda aquí es el segundo.**
+
+#### Camino 1 — teléfono restringido (no aplica en MIMA)
+
+```js
+if (Mt === "submit_button" && kt === "restricted" && isPartialPaymentAvailable()) { … isDraft = true … }
+```
+
+Es la función de Releasit para clientes con mal historial: consulta el teléfono contra
+`/apps/rsi-cod-form-do-not-change/check-phone-restriction` y, si vuelve `restricted`, obliga a pagar por
+adelantado. Requiere el complemento de **pago parcial**, y en MIMA no está: comprobado en vivo,
+`window.__RSI_COD_FEE_PP` → `null`. **Descartado.**
+
+#### Camino 2 — el botón de pagar ahora (este SÍ, y es constante)
+
+```js
+} else if (Mt.includes("checkout_button")) {
+    …
+    lr.isDraft = true          // incondicional
+    …                          // luego redirige a invoice_url
+}
+```
+
+**Cualquier botón cuyo tipo contenga `checkout_button` crea SIEMPRE un borrador.** Sin condiciones, sin
+ajustes que lo cambien. Y el formulario de MIMA tiene exactamente dos botones:
+
+| Tipo | Texto | Pedido | Eventos desde el navegador |
+|---|---|---|---|
+| `submit_button` | «Paga contraentrega - {order_total}» | **Pedido real** | ✅ `Purchase`, `AddToCart`… |
+| `additionals_checkout_button.1763255025819` | **«Paga con tarjeta o PSE - {order_total}»** | **Borrador** → `invoice_url` | ❌ **ninguno** |
+
+Eso explica los borradores del panel:
+
+- **«Completado»** — el cliente pulsó *Paga con tarjeta o PSE*, se creó el borrador y **pagó** la
+  factura en el checkout de Shopify. Al pagarse, el borrador se convierte en pedido: por eso aparecen
+  también en Pedidos.
+- **«Abierto»** — pulsó el botón, se creó el borrador y **no llegó a pagar**. Abandonado.
+
+### 17.8 Y esto reencuadra el problema del `Purchase`
+
+| | Cómo se crea | Quién puede reportar el `Purchase` |
+|---|---|---|
+| **Tarjeta/PSE** | Borrador → checkout real de Shopify | El checkout: emite `checkout_completed`, que es lo que ve el web pixel de Releasit |
+| **Contraentrega** | Pedido por API, **sin checkout** | **Solo** el evento de navegador de la landing (+ CAPI) |
+
+O sea: **el `Purchase` de tarjeta no lo emite el navegador de Releasit** —lo tiene prohibido por el
+`isDraft`— sino el checkout de Shopify, que es un camino mucho más robusto. El de contraentrega
+depende de **un único evento de navegador** disparado en el móvil del cliente.
+
+Que se reporte uno y no el otro es **estructural**, y encaja con el síntoma sin necesidad de que nada
+esté roto en la configuración. Lo que hay que averiguar en la prueba es si ese evento único sale y si
+la CAPI lo respalda.
+
+### 17.9 Error propio a no repetir
+
+En la primera versión de §17.7 se escribió que **en esta tienda ningún pedido se crea como borrador**.
+Era falso: se buscó `isDraft` en el bundle, se encontró el camino del teléfono restringido, se comprobó
+que no aplicaba y se dio por cerrado **sin mirar el otro sitio que también lo pone**. El cliente lo
+desmintió con una captura del panel de Borradores.
+
+La lección: al rastrear un flag en código minificado, **agotar todas las ocurrencias antes de concluir**,
+y contrastar contra el panel de Shopify, que es el que tiene la verdad.

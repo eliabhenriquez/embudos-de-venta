@@ -168,8 +168,36 @@ Por qué así:
   un Product Element visible, hay que acotar esta regla por `data-uid`.
 
 **Ojo con el botón fijo:** además, Releasit puede pintar un CTA flotante propio sobre toda la tienda.
-Eso se apaga en **Releasit → Settings**, no con CSS: la opción es global y desde CSS habría que taparlo
-en cada plantilla.
+
+> **Corregido el 2026-09-03 con la landing de CLOROFULL en producción.** Sí se puede —y conviene—
+> apagarlo desde el CSS de la landing. El nodo es `div#_rsi-buy-now-button-floating`, hijo directo de
+> `<body>`, `position: fixed`, `z-index: 100099900`; aparece al bajar y **tapa el pie y nuestro sticky**.
+> Como el CSS de la landing solo carga en su página, el alcance es exacto, mientras que la opción de
+> *Releasit → Settings* es **global a la tienda** y apagarla ahí se lleva por delante el botón de las
+> demás fichas de producto. Se neutraliza con el mismo patrón que `gp-product` —fuera del flujo, nunca
+> `display: none`— porque la app usa el nodo:
+>
+> ```css
+> #_rsi-buy-now-button-floating {
+> 	position: absolute !important;
+> 	width: 1px !important;
+> 	height: 1px !important;
+> 	overflow: hidden !important;
+> 	clip-path: inset(50%) !important;
+> 	pointer-events: none !important;
+> }
+> ```
+
+**Los CTA no funcionan en la vista previa del app proxy.** La URL
+`/a/gempages?...&page_type=GP_PRODUCT` renderiza la página pero **sin contexto de producto**: no hay
+`gp-product`, ni `product-json`, ni `form[action*="/cart/add"]`, así que Releasit engancha los botones
+—les añade `_rsi-buy-now-button-product`— pero al pulsarlos no abre nada y **no da ningún error en
+consola**. En la URL publicada del producto sí funcionan. Antes de dar por roto un CTA, comprobarlo en
+`/products/<handle>`, nunca en la preview.
+
+**Todos los botones enganchados comparten `id="_rsi-buy-now-button-overwrite"`.** Es cosa de la app:
+diez CTA, diez veces el mismo id. HTML inválido, pero no rompe nada —el enganche es por clase—:
+verificado en producción que los diez abren el formulario. No intentar "arreglarlo" tocando los ids.
 
 ---
 
@@ -238,6 +266,19 @@ futuro, lo primero es repetir este procedimiento y comparar.
 ---
 
 ## 6. Inventario de selectores — VERIFICADO
+
+**Hay dos formularios en juego y cada tienda sirve el suyo.** La versión se elige en *Releasit →
+Settings → General → COD Form version* y es **global a la tienda**, así que lo primero de cualquier
+auditoría es saber cuál está servido: si al abrir el modal existe `#rsi_form_wrapper` es el **nuevo**
+(§6.7); si existe `#_rsi-cod-form-modal` es el **legacy** (§6.1–6.6). Los ganchos no se parecen en nada
+y un skin escrito contra el otro no hace absolutamente nada.
+
+| Tienda | Versión servida | Verificado | Skin |
+|---|---|---|---|
+| mimacolombia.com | **Nuevo** (`rsi-*`) | 2026-08-26 | `/mima/shared/releasit-form.css` |
+| etermacolombia.com | **Legacy** (`_rsi-*`) | 2026-09-03 | `/eterma/shared/releasit-form.css` |
+
+### 6.0 Auditoría de MIMA
 
 - **Tienda / marca:** mimacolombia.com — MIMA
 - **Página auditada:** `/products/skinglow-rostro-descansado`
@@ -322,7 +363,7 @@ body
 `-subtitle` · `-shaker` · `._rsi-button-icon` · `._rsi-button-icon-left` ·
 `._rsi-buy-now-custom-additionals-button`
 
-### 6.5 Elementos con estilo inline → obligan a `!important`
+### 6.5 Elementos con estilo inline → NO se pueden sobrescribir
 
 Confirmados en vivo (§5.4). Son los que pinta el Form Designer:
 
@@ -333,8 +374,24 @@ Confirmados en vivo (§5.4). Son los que pinta el Form Designer:
 - `._rsi-tick-ups-offer-desc`
 - `._rsi-modal-submit-button`
 
-**Traducción práctica:** color, fondo y radio de estos elementos **se cambian en el Form Designer**, no
-por CSS. Si se fuerza por CSS hace falta `!important` y queda un override frágil y duplicado.
+**Traducción práctica:** color, fondo y radio de estos elementos **se cambian en el Form Designer**.
+No es que por CSS quede frágil: es que **no aplica**.
+
+> **La regla dura, comprobada en vivo el 2026-09-03 sobre etermacolombia.com.** El Form Designer no
+> escribe `style="background: X"`, escribe `style="background: X !important"`. Y una declaración
+> `!important` en el atributo `style` **gana a cualquier `!important` de una hoja de estilos**: el paso
+> «Element-Attached Styles» del orden de cascada (CSS Cascade 4 §6.4) se resuelve *después* de origen e
+> importancia, así que ninguna especificidad lo alcanza. Se probó inyectando
+> `background: … !important` sobre los dos botones de pago del formulario de Eterma y se quedaron con su
+> color original.
+>
+> Antes de escribir un override contra cualquier elemento de esta lista, leer su atributo `style` real
+> (§5.4) y comprobar si lleva `!important`:
+>
+> - **con `!important`** → Form Designer, punto. Documentarlo en el
+>   `<marca>/shared/releasit-form-designer.md` de la marca y no escribir la regla.
+> - **sin `!important`** → un `!important` nuestro sí lo gana. Es el caso de las plaquitas de las ofertas
+>   de cantidad y del estado seleccionado, que se resuelven por CSS en las dos marcas.
 
 ### 6.6 Hallazgos abiertos en mimacolombia.com
 
@@ -450,6 +507,92 @@ Luego, por CDP: `Emulation.setDeviceMetricsOverride` a 390px, navegar, hacer
 el árbol de `#rsi_form_wrapper`. Para probar cambios sin publicar, inyectar la
 hoja con un `<style>` y capturar con `Page.captureScreenshot`.
 
+### 6.8 Eterma — formulario LEGACY, inventario verificado
+
+- **Verificado el:** 2026-09-03 · `etermacolombia.com/products/clorofull™`, modal abierto, 390px y 1280px
+- **Renderizado:** DOM normal, sin iframe ni shadow DOM. `#rsi_form_wrapper` **no existe**;
+  el árbol es `body > div#_rsi-cod-form-modal._rsi-cod-form-modal-open > div._rsi-modal-container >
+  form#_rsi-cod-form-modal-form._rsi-modal-form`.
+- **Aplica §6.1–6.6.** Aquí solo se anota lo que aquella auditoría no cubría.
+
+#### Ofertas de cantidad (no estaban en §6.1)
+
+Sustituyen al resumen del pedido, que llega con `._rsi-build-block-not-active`.
+
+```
+div#rsi-cod-form-quantity-offers-hook > div._rsi-quantity-offers
+  └─ div._rsi-quantity-offers-offer-container[._rsi-quantity-offers-selected]
+     ├─ div._rsi-quantity-offers-offer
+     │   ├─ div._rsi-modal-line-item-image-container > img._rsi-modal-line-item-image
+     │   ├─ div._rsi-quantity-offers-info
+     │   │   ├─ div._rsi-quantity-offers-title
+     │   │   └─ div._rsi-quantity-offers-plaque-container > ._rsi-quantity-offers-plaque
+     │   └─ div._rsi-quantity-offers-prices
+     │       ├─ div._rsi-quantity-offers-old-price
+     │       └─ div._rsi-quantity-offers-new-price
+     └─ input._rsi-quantity-offers-item-input
+```
+
+**El seleccionado SÍ trae clase propia** (`._rsi-quantity-offers-selected`): a diferencia del formulario
+nuevo (§6.7, trampa 6), aquí no hace falta `:has(input:checked)`.
+
+#### El plato del icono va dentro del `background-image` del input
+
+`._rsi-modal-fields-item-with-icon` no tiene ni pseudo-elemento ni nodo hermano: el icono es un SVG en
+`background` del propio `<input>`, con el rectángulo gris, la divisoria y el glifo **dibujados dentro**
+(`background-size: 44px auto`, `padding-left: 59px`). No se puede recolorear con `color` ni con
+`filter` sin afectar al texto: hay que **sustituir el SVG por el mismo dibujo con los hexes cambiados**,
+que es lo que hace el skin de Eterma. Cuatro sprites: persona (nombre y apellido), teléfono, chincheta
+(dirección y ciudad) y arroba (correo). El `<select>` no lleva plato, solo el chevrón.
+
+#### Estado de error — verificado enviando el formulario vacío
+
+```html
+<div class="_rsi-modal-fields-item _rsi-modal-fields-item-with-icon _rsi-modal-fields-item-error">
+  <label>Nombre<span class="_rsi-modal-required-label">*</span></label>
+  <input data-type="first_name" …>
+  <p class="_rsi-modal-fields-item-error-text">Este campo es obligatorio.</p>
+</div>
+```
+
+No hay `aria-invalid`: el único gancho es la clase del contenedor y el `<p>` hermano.
+
+#### Los dos botones de pago
+
+| | Contraentrega | Pago anticipado |
+|---|---|---|
+| Etiqueta | `<button>` | **`<a>`**, no `<button>` |
+| Clase | `._rsi-modal-submit-button` | `._rsi-buy-now-custom-additionals-button` |
+| Bloque padre | `._rsi-build-block-submit-button` | `._rsi-build-block-custom-button-checkout` |
+
+Los dos bloques son **hijos directos del `<form>`**, que es `display: block`. Pasándolo a columna flex
+se pueden reordenar con `order` — es lo único que queda cuando el color está bloqueado inline. El skin
+de Eterma lo usa para poner el pago anticipado primero.
+
+#### Inline en esta tienda (§6.5)
+
+- **Con `!important`, intocables por CSS:** los dos botones de pago (fondo, color, radio, borde, sombra,
+  tamaño de letra), `._rsi-modal-header-title`, `._rsi-custom-text-field` y el `<label>` del order bump
+  (fondo amarillo y borde rojo).
+- **Sin `!important`, ganables por CSS:** `._rsi-quantity-offers-plaque`,
+  `._rsi-quantity-offers-new-price` y el fondo y borde de `._rsi-quantity-offers-selected`.
+
+#### Hallazgos abiertos en etermacolombia.com
+
+No son de estilo, pero pesan más que cualquier override. Detalle y valores en
+`/eterma/shared/releasit-form-designer.md`.
+
+1. **El formulario abre preseleccionando la oferta de 2 unidades**: total $113.400 frente a los $79.900
+   que anuncia la landing. Es el mismo patrón que se vio en MIMA.
+2. **«Envío Prioritario» de $3.500 premarcado**, sin copy que lo respalde en la landing.
+3. **El botón de pago anticipado ofrece $5.000 de ahorro** y la landing promete $10.000.
+4. **Importes con decimales** (`$79.900,00`).
+5. **Inputs a 15,96px** → iOS hace zoom al enfocar. Corregido por CSS en el skin.
+6. **Sacudida activa en los dos botones** a la vez.
+
+---
+
+
 ---
 
 ## 7. Dónde va nuestro CSS y cómo se escribe
@@ -519,7 +662,8 @@ Orden de preferencia:
 2. **Selector normal** con el prefijo de gate: `.sg-lp-active ._rsi-modal-form input[data-type='phone']`.
 3. **Doble clase** para subir especificidad sin `!important`:
    `.sg-lp-active ._rsi-modal-submit-button._rsi-modal-submit-button`.
-4. **`!important`**, solo contra los elementos con estilo inline de §6.5, y siempre con comentario.
+4. **`!important`**, solo contra los elementos con estilo inline **sin `!important`** de §6.5, y siempre
+   con comentario. Contra los que sí lo llevan no hay CSS posible: van al Form Designer.
 
 ### 7.4 Clase exacta o atributo
 

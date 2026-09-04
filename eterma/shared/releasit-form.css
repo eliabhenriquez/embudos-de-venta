@@ -1,0 +1,607 @@
+/* =============================================================================
+   ETERMA · Skin del formulario COD de Releasit
+   -----------------------------------------------------------------------------
+   Objetivo: que el modal de pago se sienta ETERMA. Por defecto es el formulario
+   genérico de la app: platos de icono grises, plaquitas amarillo semáforo y
+   verde fosforito, un order bump amarillo con borde rojo discontinuo y dos
+   botones —negro y naranja— que no son de ninguna marca. Es justo la estética
+   que la landing pasa doce secciones intentando desmentir.
+
+   ⚠️ ESTA TIENDA SIRVE EL FORMULARIO **LEGACY** (prefijo `_rsi-`), NO el nuevo.
+   Verificado en vivo el 2026-09-03 sobre etermacolombia.com: al abrir el modal
+   NO existe `#rsi_form_wrapper`; existe `#_rsi-cod-form-modal > ._rsi-modal-
+   container`. Por eso este archivo NO es una copia de `/mima/shared/releasit-
+   form.css`: MIMA está en el formulario nuevo y sus ganchos (`.rsi-text-input-
+   field`, `.rsi-onetick-wrapper`…) aquí no existen y no harían absolutamente
+   nada. El mapa que aplica es `/docs/releasit-form-styling.md` §6.1–6.6.
+   Si algún día se cambia la versión en Releasit → Settings → General → COD Form
+   version, este archivo deja de aplicar entero: hay que reescribirlo contra §6.7.
+
+   ÁMBITO
+   Todo cuelga de `#_rsi-cod-form-modal`, que es el contenedor del modal y cuelga
+   directamente de <body>. Nada de este archivo puede afectar al resto de la
+   página. Se pega en la pestaña CSS del custom code de la landing, detrás del
+   CSS de la landing (misma decisión que en MIMA, `/docs/releasit-form-styling.md`
+   §7.1): en páginas sin landing el formulario sigue saliendo genérico.
+
+   EL LÍMITE, Y ES DURO
+   Lo que el Form Designer pinta con estilo INLINE `!important` NO se puede
+   tocar desde aquí. No es que quede frágil: es que **no aplica**. Una
+   declaración `!important` en el atributo `style` gana a cualquier `!important`
+   de una hoja de estilos (CSS Cascade 4 §6.4, paso «Element-Attached Styles»).
+   Comprobado en vivo inyectando `background: … !important` sobre los dos
+   botones: se quedaron negro y naranja.
+
+   Quedan fuera del alcance de este archivo, y solo se cambian en la app:
+     · los dos botones de pago — fondo, color, radio, borde, sombra, tamaño
+     · `._rsi-modal-header-title` — color, peso, tamaño
+     · `._rsi-custom-text-field` — color, peso, tamaño, alineación
+     · el fondo amarillo y el borde rojo del order bump
+   Todo eso, con valores concretos, en `eterma/shared/releasit-form-designer.md`.
+
+   Verificado en vivo el 2026-09-03 sobre etermacolombia.com (PDP de CLOROFULL™,
+   modal abierto), viewport 390px y 1280px.
+   ============================================================================= */
+
+#_rsi-cod-form-modal {
+	/* Paleta de etermacolombia.com, la misma de la landing (eterma/AGENTS.md §2).
+	   El manual en PDF solo manda en el logo. */
+	--et-green-deep: #0f2e20;
+	--et-green-mid: #315b45;
+	--et-green: #496c56;
+	--et-ink: #10251a;
+	--et-muted: #52715b;   /* 5.4:1 sobre blanco */
+	--et-lime: #c2d85a;    /* 9.3:1 sobre --et-green-deep */
+	--et-mint: #dcf2dc;
+	--et-bg: #fffcf5;      /* blanco hueso: el fondo de la landing */
+	--et-surface: #ffffff;
+	--et-border: #d7d5c9;
+
+	/* El error se mantiene rojo: es un código universal y en verde no se
+	   leería como error. 6.5:1 sobre blanco. */
+	--et-error: #b3261e;
+
+	--et-radius: 14px;
+	--et-radius-sm: 10px;
+	--et-field-h: 52px;
+
+	/* El tema de Eterma ya sirve Questrial como fuente de cuerpo, así que el
+	   modal la hereda sin que la landing haga nada (verificado: la familia
+	   computada dentro del modal es Questrial). Se declara igualmente para no
+	   depender de una preferencia del tema que puede cambiar.
+	   Questrial tiene UN SOLO PESO: aquí no se piden negritas. La jerarquía se
+	   hace con color, tamaño y la serif, igual que en la landing. */
+	--et-font: 'Questrial', var(--font-body-family, 'Helvetica Neue', Helvetica, Arial, sans-serif);
+	--et-serif: var(--font-heading-family, Georgia, 'Times New Roman', serif);
+}
+
+/* -----------------------------------------------------------------------------
+   1. Velo y tarjeta
+   -------------------------------------------------------------------------- */
+
+/* El velo negro puro rompe la atmósfera de la landing justo al pagar. Este es
+   el verde tinta de la marca a baja opacidad. */
+#_rsi-cod-form-modal {
+	background: rgba(16, 37, 26, 0.55);
+	backdrop-filter: blur(2px);
+	-webkit-backdrop-filter: blur(2px);
+	/* el último botón queda pegado al indicador de inicio en iPhone */
+	padding-bottom: env(safe-area-inset-bottom);
+}
+
+#_rsi-cod-form-modal ._rsi-modal-form {
+	background: var(--et-bg);
+	border-radius: var(--et-radius);
+	box-shadow: 0 18px 50px rgba(16, 37, 26, 0.22);
+	padding: 16px 16px 24px;
+	font-family: var(--et-font);
+	color: var(--et-ink);
+}
+
+/* La familia no se hereda sola: la app la fija en varios nodos. Se fuerza por
+   etiqueta, que es lo que gana a una regla de clase heredada. */
+#_rsi-cod-form-modal p, #_rsi-cod-form-modal span, #_rsi-cod-form-modal div,
+#_rsi-cod-form-modal label, #_rsi-cod-form-modal input, #_rsi-cod-form-modal select,
+#_rsi-cod-form-modal button, #_rsi-cod-form-modal a {
+	font-family: var(--et-font);
+}
+
+/* -----------------------------------------------------------------------------
+   2. Cabecera
+   -----------------------------------------------------------------------------
+   El color, el peso y el tamaño del título son inline `!important` (Form
+   Designer). Lo único que llega desde aquí es la familia y el aire: con la
+   serif del tema el modal empieza como empieza cualquier sección de la landing.
+   -------------------------------------------------------------------------- */
+
+#_rsi-cod-form-modal ._rsi-modal-header {
+	align-items: center;
+	margin-bottom: 14px;
+	padding-bottom: 12px;
+	border-bottom: 1px solid var(--et-border);
+}
+
+#_rsi-cod-form-modal ._rsi-modal-header-title {
+	font-family: var(--et-serif);
+	letter-spacing: 0;
+	line-height: 1.2;
+}
+
+#_rsi-cod-form-modal ._rsi-modal-close-button {
+	color: var(--et-muted);
+	border-radius: 50%;
+	transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+#_rsi-cod-form-modal ._rsi-modal-close-button:hover {
+	background: rgba(15, 46, 32, 0.08);
+	color: var(--et-green-deep);
+}
+
+/* -----------------------------------------------------------------------------
+   2b. Banner de cabecera — ESTA MARCA NO LLEVA
+   -----------------------------------------------------------------------------
+   En MIMA el formulario abre con un banner de imagen (bloque de imagen del Form
+   Designer) y su skin trae un interruptor para encenderlo por landing. Aquí no
+   hace falta: comprobado en vivo el 2026-09-03, el formulario de Eterma NO
+   tiene bloque de imagen —las únicas <img> del modal son las miniaturas de
+   producto de las ofertas de cantidad— y la decisión de esta landing es no
+   llevarlo.
+
+   No se deja una regla preventiva que lo oculte: el nombre de clase del bloque
+   de imagen en el formulario LEGACY no está verificado, y una regla escrita a
+   ojo daría falsa seguridad. Si algún día se añade el banner en la app, hay que
+   descubrir su clase con `/docs/releasit-form-styling.md` §5 y decidirlo aquí:
+   el bloque es global a la tienda, así que se pintaría en TODOS los productos.
+   -------------------------------------------------------------------------- */
+
+/* -----------------------------------------------------------------------------
+   3. Ofertas de cantidad
+   -----------------------------------------------------------------------------
+   Es lo primero que se ve y hoy es lo peor: tres plaquitas de color distinto
+   —amarillo semáforo, verde fosforito y verde bosque— compitiendo entre ellas.
+   Aquí las tres son la misma pieza y el color lo pone el estado, no el texto.
+
+   El seleccionado SÍ trae clase propia (`._rsi-quantity-offers-selected`), así
+   que no hace falta `:has()`. Sus colores vienen inline pero SIN `!important`,
+   así que un `!important` de aquí sí los gana. Comprobado en vivo.
+   -------------------------------------------------------------------------- */
+
+#_rsi-cod-form-modal ._rsi-quantity-offers {
+	display: grid;
+	gap: 10px;
+	margin-bottom: 16px;
+}
+
+#_rsi-cod-form-modal ._rsi-quantity-offers-offer-container {
+	background: var(--et-surface) !important;
+	border: 1px solid var(--et-border) !important;
+	border-radius: var(--et-radius) !important;
+	padding: 12px !important;
+	transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+#_rsi-cod-form-modal ._rsi-quantity-offers-offer-container._rsi-quantity-offers-selected {
+	background-color: var(--et-mint) !important;
+	border-color: var(--et-green-deep) !important;
+	box-shadow: 0 0 0 1px var(--et-green-deep);
+}
+
+#_rsi-cod-form-modal ._rsi-quantity-offers-title {
+	color: var(--et-green-deep) !important;
+	font-size: 15px;
+	line-height: 1.35;
+}
+
+#_rsi-cod-form-modal ._rsi-modal-line-item-image {
+	border-radius: var(--et-radius-sm);
+	background: var(--et-surface);
+}
+
+/* La plaquita: una sola forma para las tres. Neutra mientras no esté elegida;
+   al elegirla, verde profundo con lima, que es el par de la landing. */
+#_rsi-cod-form-modal ._rsi-quantity-offers-plaque {
+	background: var(--et-mint) !important;
+	color: var(--et-green-deep) !important;
+	border-radius: 999px !important;
+	padding: 4px 9px !important;
+	font-size: 11px !important;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+}
+
+#_rsi-cod-form-modal ._rsi-quantity-offers-selected ._rsi-quantity-offers-plaque {
+	background: var(--et-green-deep) !important;
+	color: var(--et-lime) !important;
+}
+
+/* El precio, como en la landing: serif, verde profundo y con aire. El tachado
+   se aparta; el vigente manda. */
+#_rsi-cod-form-modal ._rsi-quantity-offers-new-price {
+	color: var(--et-green-deep) !important;
+	font-family: var(--et-serif) !important;
+	font-size: 19px !important;
+	line-height: 1.2;
+	white-space: nowrap;
+}
+
+#_rsi-cod-form-modal ._rsi-quantity-offers-old-price {
+	color: var(--et-muted) !important;
+	font-size: 13px !important;
+	white-space: nowrap;
+}
+
+/* -----------------------------------------------------------------------------
+   4. Resumen de totales
+   -----------------------------------------------------------------------------
+   Hoy es un bloque gris de sistema (#ebebeb) que parece un panel de depuración
+   metido entre el producto y los datos personales.
+   -------------------------------------------------------------------------- */
+
+#_rsi-cod-form-modal ._rsi-modal-checkout-lines {
+	background: var(--et-surface) !important;
+	border: 1px solid var(--et-border);
+	border-radius: var(--et-radius);
+	padding: 12px 14px !important;
+}
+
+#_rsi-cod-form-modal ._rsi-modal-checkout-line-title {
+	color: var(--et-muted);
+	font-size: 14px;
+}
+
+#_rsi-cod-form-modal ._rsi-modal-checkout-line-value {
+	color: var(--et-ink);
+	font-size: 14px;
+}
+
+/* La línea del total: es la cifra que decide, y en la landing las cifras que
+   deciden van en serif. */
+#_rsi-cod-form-modal ._rsi-modal-checkout-line-value-bigger {
+	color: var(--et-green-deep) !important;
+	font-family: var(--et-serif) !important;
+	font-size: 19px !important;
+}
+
+/* -----------------------------------------------------------------------------
+   5. Método de envío — oculto mientras haya una sola tarifa
+   -----------------------------------------------------------------------------
+   Con una única tarifa («Envío gratis») no es una elección: es un paso más
+   justo antes de pagar, y la línea «Envío · Gratis» del resumen ya lo dice dos
+   dedos más arriba. La app no trae interruptor, así que va por CSS.
+
+   Se oculta VISUALMENTE, no con display:none: el nodo sigue renderizado y la
+   tarifa marcada sigue viajando con el pedido. Con display:none dependeríamos
+   de que la app no lea nada del DOM al enviar.
+
+   OJO: esto solo es correcto mientras haya UNA tarifa. Si se añade una segunda
+   (exprés, zonas con recargo), esta regla la escondería y el cliente pagaría
+   siempre la primera sin poder elegir. Quitar la regla ANTES de configurar
+   cualquier tarifa adicional en Releasit.
+   -------------------------------------------------------------------------- */
+
+#_rsi-cod-form-modal ._rsi-build-block-shipping-rates {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	overflow: hidden !important;
+	clip-path: inset(50%) !important;
+	pointer-events: none !important;
+}
+
+/* Las reglas de abajo no aplican mientras el bloque esté oculto, pero se
+   quedan: al reactivar el envío, el selector vuelve ya con la piel de marca. */
+
+#_rsi-cod-form-modal ._rsi-modal-shipping-rates-title {
+	color: var(--et-green-deep);
+	font-family: var(--et-serif);
+}
+
+#_rsi-cod-form-modal ._rsi-modal-shipping-rates-item {
+	border: 1px solid var(--et-border);
+	border-radius: var(--et-radius-sm);
+	margin-bottom: 8px;
+}
+
+/* -----------------------------------------------------------------------------
+   6. Textos sueltos del formulario
+   -----------------------------------------------------------------------------
+   `._rsi-custom-text-field` lleva color, peso, tamaño y alineación inline
+   `!important`: desde aquí solo llega la familia y el aire. El encabezado
+   «Ingrese su dirección de envío» pasa a la serif del tema.
+   -------------------------------------------------------------------------- */
+
+#_rsi-cod-form-modal ._rsi-custom-text-field {
+	font-family: var(--et-serif) !important;
+	line-height: 1.3;
+}
+
+#_rsi-cod-form-modal ._rsi-build-block-custom-text {
+	margin: 18px 0 12px;
+}
+
+/* -----------------------------------------------------------------------------
+   7. Campos
+   -----------------------------------------------------------------------------
+   El plato del icono viene dentro del propio `background-image` del input: un
+   SVG con un rectángulo gris #e1e1e1, una divisoria #c0c0c0 y el glifo en
+   #1a1a1a. No es un elemento aparte, así que no se puede recolorear con
+   `color`: se sustituye el SVG por el MISMO dibujo de la app con tres hexes
+   cambiados (plato → menta, divisoria → verde suave, glifo → verde profundo).
+   Los trazos son los originales; solo cambia el color.
+
+   Si la app cambia su juego de iconos, estas reglas quedan obsoletas pero
+   inofensivas: seguirían pintando el icono anterior. Reverificar con
+   `/docs/releasit-form-styling.md` §5.
+   -------------------------------------------------------------------------- */
+
+#_rsi-cod-form-modal ._rsi-modal-fields-item {
+	margin-bottom: 14px;
+}
+
+#_rsi-cod-form-modal ._rsi-modal-fields-item:not(._rsi-modal-fields-checkbox) > label {
+	display: block;
+	margin-bottom: 6px;
+	color: var(--et-green-deep);
+	font-size: 14px;
+	line-height: 1.3;
+}
+
+/* El asterisco en rojo lee como error antes de que haya error. Baja a un tono
+   de marca: sigue marcando obligatoriedad sin gritar. */
+#_rsi-cod-form-modal ._rsi-modal-required-label {
+	color: var(--et-green) !important;
+	margin-left: 3px;
+}
+
+/* `:not([type='checkbox'])` no es cosmético: la casilla del boletín también
+   lleva data-type, y sin excluirla heredaba los 52px de alto de un campo de
+   texto y descuadraba su fila. */
+#_rsi-cod-form-modal ._rsi-modal-fields-item input[data-type]:not([type='checkbox']),
+#_rsi-cod-form-modal ._rsi-modal-fields-item select[data-type] {
+	background-color: var(--et-surface);
+	border: 1px solid var(--et-border);
+	border-radius: var(--et-radius-sm);
+	min-height: var(--et-field-h);
+	height: var(--et-field-h);
+	color: var(--et-ink);
+	/* 16px es el mínimo que evita que iOS haga zoom al enfocar y descuadre el
+	   modal. La app los sirve a 15,96px: por dos centésimas, el formulario
+	   saltaba en cada campo. Lleva !important porque la hoja de la app fija el
+	   tamaño con !important; el nuestro gana por especificidad (lleva ID). */
+	font-size: 16px !important;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+#_rsi-cod-form-modal ._rsi-modal-fields-item input[data-type]:not([type='checkbox'])::placeholder {
+	color: var(--et-muted);
+	opacity: 1;
+}
+
+#_rsi-cod-form-modal ._rsi-modal-fields-item input[data-type]:not([type='checkbox']):focus,
+#_rsi-cod-form-modal ._rsi-modal-fields-item select[data-type]:focus {
+	outline: none;
+	border-color: var(--et-green);
+	box-shadow: 0 0 0 3px rgba(73, 108, 86, 0.18);
+}
+
+/* El plato ocupa 46,7 de los 48px de ancho del sprite y llega a 53px de alto,
+   así que cubre entero un campo de 52px. Si se cambia --et-field-h hay que
+   recalcular el tamaño: alto = ancho × 50.86 / 46.05. */
+#_rsi-cod-form-modal ._rsi-modal-fields-item-with-icon input[data-type] {
+	background-repeat: no-repeat;
+	background-position: 0 50%;
+	background-size: 48px auto;
+	padding-left: 62px;
+}
+
+/* El desplegable no lleva plato (la app no se lo pone): solo el chevrón, que
+   se deja como está. Se le da el mismo relleno que a un campo sin icono. */
+#_rsi-cod-form-modal ._rsi-modal-fields-item select[data-type] {
+	padding-left: 14px;
+}
+
+/* Casilla del boletín: es opcional y va en tono secundario, nunca compitiendo
+   con los campos obligatorios. */
+#_rsi-cod-form-modal ._rsi-modal-fields-checkbox > label {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	color: var(--et-muted);
+	font-size: 14px;
+	line-height: 1.35;
+}
+
+#_rsi-cod-form-modal ._rsi-modal-fields-checkbox > label input[type='checkbox'] {
+	flex: none;
+	width: 18px;
+	height: 18px;
+	margin: 1px 0 0;
+}
+
+#_rsi-cod-form-modal input[type='checkbox'],
+#_rsi-cod-form-modal input[type='radio'],
+#_rsi-cod-form-modal ._rsi-modal-shipping-rates-item-checkbox {
+	accent-color: #0f2e20; /* valor literal: la app lo fija por clase */
+}
+
+/* -----------------------------------------------------------------------------
+   8. Order bump (tick-ups)
+   -----------------------------------------------------------------------------
+   ⚠️ El fondo amarillo #f8ee03 y el borde rojo de 2px van INLINE `!important`
+   en el <label>: desde CSS no hay forma de cambiarlos (ver cabecera). Desde
+   aquí solo llega la geometría. El color se arregla en el Form Designer
+   —valores en `eterma/shared/releasit-form-designer.md`— o, mejor, se retira
+   la oferta: el copy de esta landing no lleva order bump
+   (`eterma/AGENTS.md` §1) y el «Envío Prioritario» de $3.500 contradice el
+   envío que promete la landing.
+   -------------------------------------------------------------------------- */
+
+#_rsi-cod-form-modal ._rsi-tick-ups-container {
+	margin: 4px 0 16px;
+}
+
+#_rsi-cod-form-modal ._rsi-tick-ups-offer > label {
+	border-radius: var(--et-radius-sm);
+	padding: 12px 14px;
+	line-height: 1.35;
+}
+
+/* -----------------------------------------------------------------------------
+   9. Los dos botones de pago
+   -----------------------------------------------------------------------------
+   Fondo, color, radio, borde, sombra y tamaño de letra son inline `!important`:
+   desde aquí NO se pueden cambiar. Hoy siguen siendo negro (contraentrega) y
+   naranja (anticipado), que no son colores de Eterma. Arreglarlo es lo primero
+   de `eterma/shared/releasit-form-designer.md`.
+
+   Lo que sí llega desde aquí: geometría, aire y ORDEN.
+   -------------------------------------------------------------------------- */
+
+#_rsi-cod-form-modal ._rsi-modal-submit-button,
+#_rsi-cod-form-modal ._rsi-buy-now-custom-additionals-button {
+	min-height: 56px;
+	padding: 14px 20px;
+	letter-spacing: 0;
+	line-height: 1.25;
+	transition: opacity 0.18s ease, transform 0.12s ease;
+}
+
+#_rsi-cod-form-modal ._rsi-modal-submit-button:active,
+#_rsi-cod-form-modal ._rsi-buy-now-custom-additionals-button:active {
+	transform: translateY(1px);
+}
+
+/* La sacudida es urgencia falsa y va contra `/AGENTS.md` §7. Además la app la
+   aplica a los dos botones a la vez, que es ruido puro en la pantalla de pago. */
+#_rsi-cod-form-modal ._rsi-buy-now-button-shaker,
+#_rsi-cod-form-modal ._rsi-buy-now-button-shaker-enabled {
+	animation: none !important;
+}
+
+/* -----------------------------------------------------------------------------
+   9b. El pago anticipado va primero — SIEMPRE
+   -----------------------------------------------------------------------------
+   Regla de marca (`/AGENTS.md`): donde aparezcan las dos formas de pago, el
+   anticipado manda visualmente. En el formulario nuevo de MIMA eso se resuelve
+   con color (relleno vs. contorno); aquí el color está bloqueado inline, así
+   que la única palanca real es el ORDEN.
+
+   El <form> es `display: block`, así que `order` no haría nada: se pasa a
+   columna flex. Comprobado en vivo que el resto de bloques no se mueve —son
+   todos hijos directos en bloque y a ancho completo— y que los <input hidden>
+   siguen fuera del flujo (display:none de la hoja de usuario).
+
+   Contrapartida anotada: `order` cambia el orden VISUAL, no el del DOM, así
+   que con teclado se tabula antes al de contraentrega. Con dos controles
+   contiguos y rotulados es asumible; si algún día se puede reordenar en el
+   Form Designer, se hace allí y esta sección se borra.
+   -------------------------------------------------------------------------- */
+
+#_rsi-cod-form-modal ._rsi-modal-form {
+	display: flex;
+	flex-direction: column;
+}
+
+#_rsi-cod-form-modal ._rsi-build-block-custom-button-checkout { order: 1; }
+#_rsi-cod-form-modal ._rsi-build-block-submit-button { order: 2; margin-top: 10px; }
+
+/* -----------------------------------------------------------------------------
+   10. La elección hecha en la landing manda dentro del formulario
+   -----------------------------------------------------------------------------
+   La landing pregunta cómo quiere pagar la clienta y el formulario abría igual
+   para las dos respuestas: los dos botones al mismo peso. Quien acababa de
+   elegir pago anticipado volvía a ver contraentrega como si no hubiera elegido
+   nada.
+
+   La landing escribe su respuesta en <html data-cf-pay="prepaid|cod">
+   (`initPaymentChoice` en september.html). Sin ese atributo no cambia nada, así
+   que las landings que no lo implementen siguen igual.
+
+   ATENUAR, NO ESCONDER. Contraentrega es la vía mayoritaria en Colombia: si la
+   clienta se lo repiensa dentro del formulario y no encuentra cómo pagar al
+   recibir, el pedido se pierde. La opción descartada sigue existiendo, sigue
+   siendo clicable y recupera el peso completo al pasar por encima.
+
+   Como el color está bloqueado, la atenuación es de opacidad y tamaño: es lo
+   único que la app no fija inline.
+   -------------------------------------------------------------------------- */
+
+/* La elegida va primero; la descartada, debajo. */
+html[data-cf-pay='cod'] #_rsi-cod-form-modal ._rsi-build-block-submit-button { order: 1; margin-top: 0; }
+html[data-cf-pay='cod'] #_rsi-cod-form-modal ._rsi-build-block-custom-button-checkout { order: 2; margin-top: 10px; }
+
+html[data-cf-pay='prepaid'] #_rsi-cod-form-modal ._rsi-modal-submit-button,
+html[data-cf-pay='cod'] #_rsi-cod-form-modal ._rsi-buy-now-custom-additionals-button {
+	opacity: 0.5;
+	min-height: 44px;
+	padding: 10px 16px;
+}
+
+html[data-cf-pay='prepaid'] #_rsi-cod-form-modal ._rsi-modal-submit-button:hover,
+html[data-cf-pay='cod'] #_rsi-cod-form-modal ._rsi-buy-now-custom-additionals-button:hover,
+html[data-cf-pay='prepaid'] #_rsi-cod-form-modal ._rsi-modal-submit-button:focus-visible,
+html[data-cf-pay='cod'] #_rsi-cod-form-modal ._rsi-buy-now-custom-additionals-button:focus-visible {
+	opacity: 1;
+}
+
+/* Sin subtítulo ni icono: la descartada es una alternativa, no una oferta. */
+html[data-cf-pay='prepaid'] #_rsi-cod-form-modal ._rsi-modal-submit-button ._rsi-buy-now-button-subtitle,
+html[data-cf-pay='prepaid'] #_rsi-cod-form-modal ._rsi-modal-submit-button ._rsi-button-icon,
+html[data-cf-pay='cod'] #_rsi-cod-form-modal ._rsi-buy-now-custom-additionals-button ._rsi-buy-now-button-subtitle,
+html[data-cf-pay='cod'] #_rsi-cod-form-modal ._rsi-buy-now-custom-additionals-button ._rsi-button-icon {
+	display: none !important;
+}
+
+/* -----------------------------------------------------------------------------
+   11. Errores
+   -----------------------------------------------------------------------------
+   El estado vive en el CONTENEDOR, no en el input, y el mensaje llega como un
+   <p> hermano. Verificado en vivo enviando el formulario vacío.
+   -------------------------------------------------------------------------- */
+
+#_rsi-cod-form-modal ._rsi-modal-fields-item-error input[data-type],
+#_rsi-cod-form-modal ._rsi-modal-fields-item-error select[data-type] {
+	border-color: var(--et-error);
+	box-shadow: 0 0 0 3px rgba(179, 38, 30, 0.14);
+}
+
+#_rsi-cod-form-modal ._rsi-modal-fields-item-error-text {
+	margin: 6px 0 0;
+	color: var(--et-error);
+	font-size: 13px;
+	line-height: 1.3;
+}
+
+/* -----------------------------------------------------------------------------
+   12. Resumen del pedido
+   -----------------------------------------------------------------------------
+   Hoy va desactivado (`_rsi-build-block-not-active`) porque las ofertas de
+   cantidad ocupan su sitio. Las reglas se quedan por si se reactiva: el título
+   del producto sale como enlace subrayado, que parece un link roto y además es
+   una salida del funnel.
+   -------------------------------------------------------------------------- */
+
+#_rsi-cod-form-modal ._rsi-modal-line-item-title {
+	color: var(--et-green-deep);
+	text-decoration: none;
+	pointer-events: none;
+}
+
+#_rsi-cod-form-modal ._rsi-modal-line-item-quantity {
+	background: var(--et-green-deep);
+	color: var(--et-surface);
+}
+
+/* -----------------------------------------------------------------------------
+   13. Accesibilidad
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+	#_rsi-cod-form-modal * {
+		animation: none !important;
+		transition: none !important;
+	}
+}

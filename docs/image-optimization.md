@@ -90,6 +90,21 @@ La URL resultante es predecible:
 https://www.mimacolombia.com/cdn/shop/files/<nombre-del-archivo>
 ```
 
+**El admin de Shopify enseña otra URL para el mismo fichero** y es fácil pensar que la nuestra está mal:
+
+```
+https://cdn.shopify.com/s/files/1/0994/1663/7809/files/<nombre>.webp?v=1788327383
+```
+
+Son equivalentes. `cdn.shopify.com/s/files/1/<id-de-tienda>/files/` es el CDN en crudo y
+`<tienda>/cdn/shop/files/` es el mismo CDN servido bajo el dominio de la tienda; `?v=` es solo el sello
+de versión que añade el admin y no hace falta. Usamos la del dominio de la tienda porque no lleva el id
+numérico de la tienda y `check-cdn.sh` la reconoce. Verificado el 2026-09-02 en etermacolombia.com: las
+dos responden 200 con el mismo contenido y `?width=` funciona en ambas.
+
+Si tras subir los ficheros siguen viéndose rotos, casi siempre es la caché del navegador con los 404
+de antes de subirlos: recarga forzada (Cmd+Shift+R) o ventana privada. `check-cdn.sh` no engaña.
+
 ### 🔴 Versionado: nunca reemplaces una imagen con el mismo nombre
 
 **El CDN de Shopify cachea por nombre de archivo y no suelta la versión vieja.** Subir un fichero nuevo

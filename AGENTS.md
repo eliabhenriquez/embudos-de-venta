@@ -34,6 +34,7 @@ de compra, sin engañarlo? Si la respuesta no es un sí claro, no se hace.
 /
 ├── AGENTS.md                       # este archivo (contexto global, todas las marcas)
 ├── preview.sh                      # vista previa local de un fragmento (ver §9)
+├── shot.mjs                        # captura y mide la preview con un móvil emulado (ver §9)
 ├── check-cdn.sh                    # qué imágenes de una landing faltan por subir al CDN
 ├── docs/                           # guías transversales de plataforma
 │   ├── releasit-form-styling.md
@@ -41,7 +42,7 @@ de compra, sin engañarlo? Si la respuesta no es un sí claro, no se hace.
 │   └── brand-typography.md
 ├── humanized-images/               # UGC crudo, por producto y persona  ┐ gitignored:
 ├── product-images/                 # foto de producto cruda            ┘ pesan más que el repo
-└── <marca>/                        # mima, nambu
+└── <marca>/                        # mima, eterma, nambu
     ├── AGENTS.md                   # contexto de la marca
     ├── docs/                       # info GENERAL de marca: branding, logos, informes
     ├── theme/                      # tema Liquid de Shopify (lo que envuelve la landing)
@@ -73,7 +74,8 @@ conflicto. Antes de tocar una landing hay que haber leído los tres.
 | Imágenes crudas | `humanized-images/`, `product-images/` | Fuera de git; ver `docs/image-optimization.md` |
 | Skin de Releasit, fuentes | `<marca>/shared/` | Un solo formulario para toda la marca |
 
-Marcas activas: `mima` (productos: **SKNGLOW**, **MIMACALM**, **MIMANAD**), `nambu` (aún vacía).
+Marcas activas: `mima` (productos: **SKNGLOW**, **MIMACALM**, **MIMANAD**), `eterma` (producto:
+**CLOROFULL**, primera landing en preparación), `nambu` (aún vacía).
 
 **Regla:** antes de escribir una sola línea de una landing, leer el `AGENTS.md` del producto, el
 `docs/` de la marca (branding) y el copy del ángulo. El copy y los claims salen de ahí, **no se
@@ -201,12 +203,30 @@ Principios:
 - **Un solo objetivo por página.** Sin menú, sin links de salida, sin distracciones.
 - **CTA repetido** después de cada bloque que aporta valor, con el mismo texto y estilo. En mobile,
   CTA sticky tras pasar el hero.
+- **CTA propio por landing.** El botón principal se diseña para cada landing: original, con una
+  animación propia ligada al producto y que pida ser pulsado. Un botón genérico es un bug. Reglas:
+  solo `transform` y `opacity`, pausado fuera de pantalla, quieto con `prefers-reduced-motion`, sin
+  capas vacías (pseudo-elementos, nunca `<div>` vacíos) y degradando a un botón estático si falla el
+  JS. El concepto se documenta en el `AGENTS.md` del producto (ejemplo: "la medida" de CLOROFULL).
+- **El pago anticipado se resalta siempre.** Donde se enfrenten las dos formas de pago (hero, oferta,
+  garantía, sticky, FAQ) el anticipado va con jerarquía visual clara: tarjeta de marca, icono o etiqueta
+  de ahorro, CTA principal. El contraentrega queda como opción secundaria, visible y sin trabas, pero
+  nunca a la par. Cómo se resalta cambia por marca; la regla no.
 - **Fricción baja:** menos campos, menos pasos, precio y envío sin sorpresas.
 - **Confianza explícita y visible:** política de envío/devolución, datos de contacto, WhatsApp,
   métodos de pago, garantía. La ausencia de esto es la principal causa de percepción de estafa.
 - **Nada de patrones oscuros:** sin contadores falsos, sin stock falso, sin descuentos inventados, sin
   reviews falsas. Rompen la confianza y son exactamente el problema que venimos a arreglar.
 - La **escasez/urgencia solo si es real** (upsell one-time real, campaña con fecha real).
+
+**Misma columna vertebral, distinta piel.** Todas las landings son embudos con casi las mismas secciones,
+pero **cada marca tiene un sello propio y cada landing adapta esa línea al producto** que vende. Lo que se
+comparte entre marcas es la estructura, los bloques de confianza y los patrones técnicos (selector de
+pago, CTA sticky, slider). Lo que **no** se comparte es el diseño: composición, fotografía, uso de la
+tipografía, motivos, ritmo. Un copy-paste entre marcas con los colores cambiados es un fallo, aunque
+convierta. La línea visual de cada marca se deja por escrito en su `AGENTS.md`; el motivo propio de cada
+landing, en el del producto. Prueba social siempre con fotos de personas reales del pool de UGC y con
+sus nombres reales.
 
 ---
 
@@ -262,6 +282,14 @@ Principios:
 
    ```js
    getComputedStyle(document.documentElement).fontSize
+   ```
+   **Para ver la landing como un móvil de verdad**, usar `shot.mjs` sobre la vista previa: Chrome
+   headless no baja de ~500px de ventana y una captura con `--window-size=390` sale recortada de un
+   layout más ancho. El script emula el dispositivo por DevTools, captura a página completa y puede
+   evaluar una sonda (overflow horizontal, alto del hero, posición del CTA, fuentes computadas):
+
+   ```sh
+   node shot.mjs --url=file://$PWD/<marca>/landings/<producto>/<ángulo>/<campaña>.preview.html --width=390 --out=/tmp/m390.png --full
    ```
 6. **Si cambió alguna imagen, comprobar el CDN:** `./check-cdn.sh <landing>` dice cuáles faltan por
    subir. Recordar el versionado `-v2` de §5.
