@@ -188,10 +188,10 @@ Estructura base de una landing de venta (se adapta, no se aplica a ciegas):
 1. **Hero** — promesa clara + producto visible + CTA. Qué es, para quién y qué gana, en < 3 segundos.
 2. **Mecanismo / ingredientes** — por qué funciona, explicado simple.
 3. **Problema–agitación** — los escenarios reales del usuario, con su lenguaje.
-4. **Cómo se usa** — hacer que se vea fácil de sostener.
+4. **Cómo se usa** — hacer que se vea fácil de usar en el día a día.
 5. **Oferta y formas de pago** — precio, ahorro, opciones (anticipado vs contraentrega) sin ambigüedad.
 6. **Bonos / valor añadido**.
-7. **Prueba social** — testimonios reales, con nombre y ciudad.
+7. **Prueba social** — testimonios reales, con nombre y ciudad y su foto en miniatura.
 8. **Autoridad** — respaldo de ingrediente/medios/estudios, siempre verificable.
 9. **Qué recibes** — desglose tangible del pedido.
 10. **Garantía** — condiciones explícitas y cumplibles.
@@ -213,6 +213,12 @@ Principios:
   de ahorro, CTA principal. El contraentrega queda como opción secundaria, visible y sin trabas, pero
   nunca a la par. Cómo se resalta cambia por marca; la regla no.
 - **Fricción baja:** menos campos, menos pasos, precio y envío sin sorpresas.
+- **Comparaciones siempre visuales.** Toda tabla o bloque comparativo debe incluir un icono SVG claro
+  por opción, criterio o alternativa; no se aceptan tarjetas compuestas únicamente por número y texto.
+  Cuando la comparación admita exploración, los iconos deben ser controles accesibles (`button`,
+  `aria-pressed` o estado equivalente) que destaquen la opción seleccionada sin ocultar información.
+  La interacción usa solo `transform` y `opacity`, respeta `prefers-reduced-motion` y no depende de
+  emojis, librerías externas ni elementos decorativos vacíos.
 - **Confianza explícita y visible:** política de envío/devolución, datos de contacto, WhatsApp,
   métodos de pago, garantía. La ausencia de esto es la principal causa de percepción de estafa.
 - **Nada de patrones oscuros:** sin contadores falsos, sin stock falso, sin descuentos inventados, sin
