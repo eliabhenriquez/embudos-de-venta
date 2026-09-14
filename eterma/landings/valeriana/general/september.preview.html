@@ -19,12 +19,13 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 	===================================================================
 	Bloque autocontenido para el Custom Code de GemPages.
 	Copy: general/copy landing - valeriana.txt (fuente comercial principal).
-	Producto público: valeriana1. La variante no está documentada: antes de
-	publicar, enlazar el Product Element de GemPages a ese producto y verificar
-	la configuración de Releasit. Los CTA no usan /cart/add.js ni IDs supuestos.
+	Contexto: /AGENTS.md → /eterma/AGENTS.md → ../AGENTS.md (motivo, la lámpara, la onda, imágenes).
+	Producto: /products/valeriana1 (variante 63240614904177, $49.900 en Shopify = contraentrega).
+	Los CTA abren Releasit por el contexto de la ficha; no usan /cart/add.js.
+	Imágenes: assets/ con el mismo nombre en Contenido → Archivos.
 -->
 
-<section class="vl-lp" id="vl-valeriana" data-vl-product="valeriana1">
+<section class="vl-lp" id="vl-valeriana">
 	<header class="vl-topbar">
 		<div class="vl-topbar__strip" aria-label="Valeriana en gotas · Una pausa para la noche · Hecho en Colombia">
 			<div class="vl-topbar__track">
@@ -33,249 +34,296 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 			</div>
 		</div>
 		<div class="vl-shell vl-topbar__inner">
-			<img class="vl-topbar__logo"
-				src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-eterma-logo.webp"
-				data-vl-file="landings-valeriana-eterma-logo.webp"
-				width="634" height="185" decoding="async" alt="Eterma">
+			<img class="vl-topbar__logo" src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-eterma-logo.webp" data-vl-file="landings-valeriana-eterma-logo.webp" width="634" height="185" decoding="async" alt="Eterma">
 		</div>
 	</header>
 
+	<!-- ============================ HERO: LA LÁMPARA ============================ -->
 	<section class="vl-hero">
 		<div class="vl-shell vl-hero__layout">
-			<div class="vl-hero__media">
-				<div class="vl-carousel vl-hero__track" data-vl-carousel tabindex="0" role="region" aria-label="Imágenes de Valeriana Eterma">
-					<figure class="vl-hero__slide">
-						<img src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-hero-nervous-system-v2.webp?width=900"
-							srcset="https://etermacolombia.com/cdn/shop/files/landings-valeriana-hero-nervous-system-v2.webp?width=500 500w, https://etermacolombia.com/cdn/shop/files/landings-valeriana-hero-nervous-system-v2.webp?width=900 900w, https://etermacolombia.com/cdn/shop/files/landings-valeriana-hero-nervous-system-v2.webp?width=1254 1254w"
-							sizes="(min-width: 900px) 540px, 100vw" data-vl-file="landings-valeriana-hero-nervous-system-v2.webp"
-							width="1254" height="1254" fetchpriority="high" decoding="async"
-							alt="Mujer sostiene el frasco de Valeriana Eterma junto a un símbolo discreto del sistema nervioso">
-					</figure>
-					<figure class="vl-hero__slide">
-						<img src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-benefits.webp?width=900"
-							srcset="https://etermacolombia.com/cdn/shop/files/landings-valeriana-benefits.webp?width=500 500w, https://etermacolombia.com/cdn/shop/files/landings-valeriana-benefits.webp?width=900 900w, https://etermacolombia.com/cdn/shop/files/landings-valeriana-benefits.webp?width=1254 1254w"
-							sizes="(min-width: 900px) 540px, 100vw" data-vl-file="landings-valeriana-benefits.webp"
-							width="1254" height="1254" loading="eager" decoding="async"
-							alt="Mujer real junto a Valeriana Eterma y tres formas de acompañar su pausa nocturna">
-					</figure>
-					<figure class="vl-hero__slide">
-						<img src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-ingredient-drops.webp?width=900"
-							srcset="https://etermacolombia.com/cdn/shop/files/landings-valeriana-ingredient-drops.webp?width=500 500w, https://etermacolombia.com/cdn/shop/files/landings-valeriana-ingredient-drops.webp?width=900 900w, https://etermacolombia.com/cdn/shop/files/landings-valeriana-ingredient-drops.webp?width=1254 1254w"
-							sizes="(min-width: 900px) 540px, 100vw" data-vl-file="landings-valeriana-ingredient-drops.webp"
-							width="1254" height="1254" loading="lazy" decoding="async"
-							alt="Frasco de Valeriana Eterma, raíz de valeriana y formato en gotas">
-					</figure>
-					<figure class="vl-hero__slide">
-						<img src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-how-to-use.webp?width=900"
-							srcset="https://etermacolombia.com/cdn/shop/files/landings-valeriana-how-to-use.webp?width=500 500w, https://etermacolombia.com/cdn/shop/files/landings-valeriana-how-to-use.webp?width=900 900w, https://etermacolombia.com/cdn/shop/files/landings-valeriana-how-to-use.webp?width=1254 1254w"
-							sizes="(min-width: 900px) 540px, 100vw" data-vl-file="landings-valeriana-how-to-use.webp"
-							width="1254" height="1254" loading="lazy" decoding="async"
-							alt="Aplicación de 20 a 40 gotas de Valeriana Eterma en un vaso de agua">
-					</figure>
-				</div>
-				<button type="button" class="vl-carousel__arrow vl-carousel__arrow--prev" data-vl-prev disabled aria-label="Imagen anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button>
-				<button type="button" class="vl-carousel__arrow vl-carousel__arrow--next" data-vl-next aria-label="Imagen siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
-				<div class="vl-dots" aria-label="Elegir imagen">
-					<button type="button" class="vl-dot" data-vl-dot aria-current="true" aria-label="Ver imagen 1"><span class="vl-visually-hidden">1</span></button>
-					<button type="button" class="vl-dot" data-vl-dot aria-label="Ver imagen 2"><span class="vl-visually-hidden">2</span></button>
-					<button type="button" class="vl-dot" data-vl-dot aria-label="Ver imagen 3"><span class="vl-visually-hidden">3</span></button>
-					<button type="button" class="vl-dot" data-vl-dot aria-label="Ver imagen 4"><span class="vl-visually-hidden">4</span></button>
-				</div>
-				<figure class="vl-hero__product-shot">
-					<img src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-product-cutout-v2.webp?width=260"
-						srcset="https://etermacolombia.com/cdn/shop/files/landings-valeriana-product-cutout-v2.webp?width=160 160w, https://etermacolombia.com/cdn/shop/files/landings-valeriana-product-cutout-v2.webp?width=260 260w"
-						sizes="110px" data-vl-file="landings-valeriana-product-cutout-v2.webp"
-						width="675" height="900" loading="eager" decoding="async" alt="Frasco individual de Valeriana Eterma">
-				</figure>
-			</div>
-
-			<div class="vl-hero__content">
+			<div class="vl-hero__head">
 				<p class="vl-overline">Valeriana Eterma</p>
 				<h1 class="vl-h1">Para las noches en que el día <em>todavía sigue en tu cabeza.</em></h1>
 				<p class="vl-hero__statement">Baja el ritmo. Haz espacio para la noche.</p>
-				<p class="vl-lead">Valeriana ETERMA en gotas acompaña tu pausa nocturna cuando quieres cerrar el día con más calma.</p>
-				<ul class="vl-inline-facts" aria-label="Características principales">
-					<li>Formato en gotas</li>
-					<li>Uso fácil</li>
-					<li>Un momento para ti</li>
+				<p class="vl-lead vl-hero__lead">Valeriana ETERMA en gotas acompaña tu pausa nocturna cuando quieres cerrar el día con más calma.</p>
+			</div>
+
+			<!-- La lámpara: un halo cálido que respira detrás de la foto. Carrusel con el producto en manos
+			     reales primero; el rótulo de cada foto va en banda propia debajo, nunca encima. Sin puntos. -->
+			<div class="vl-hero__media">
+				<div class="vl-lamp">
+					<div class="vl-lamp__track" data-vl-carousel tabindex="0" role="region" aria-label="Imágenes de Valeriana Eterma">
+						<figure class="vl-lamp__slide">
+							<img src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-hero-v3.webp?width=900"
+								srcset="https://etermacolombia.com/cdn/shop/files/landings-valeriana-hero-v3.webp?width=500 500w, https://etermacolombia.com/cdn/shop/files/landings-valeriana-hero-v3.webp?width=900 900w, https://etermacolombia.com/cdn/shop/files/landings-valeriana-hero-v3.webp?width=1254 1254w"
+								sizes="(min-width: 1000px) 520px, 100vw" data-vl-file="landings-valeriana-hero-v3.webp"
+								width="1254" height="1254" fetchpriority="high" decoding="async"
+								alt="Mujer sirve gotas de Valeriana Eterma en un vaso de agua, junto al frasco y la caja">
+							<figcaption class="vl-lamp__caption">Valeriana Eterma · Frasco con gotero</figcaption>
+						</figure>
+						<figure class="vl-lamp__slide">
+							<img src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-ugc-sofa.webp?width=720"
+								srcset="https://etermacolombia.com/cdn/shop/files/landings-valeriana-ugc-sofa.webp?width=480 480w, https://etermacolombia.com/cdn/shop/files/landings-valeriana-ugc-sofa.webp?width=720 720w"
+								sizes="(min-width: 1000px) 520px, 100vw" data-vl-file="landings-valeriana-ugc-sofa.webp"
+								width="720" height="900" loading="eager" decoding="async" alt="Mujer descansa en el sofá con un vaso de agua al lado">
+							<figcaption class="vl-lamp__caption">Haz espacio para la noche</figcaption>
+						</figure>
+						<figure class="vl-lamp__slide">
+							<img src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-ingredient-drops.webp?width=900"
+								srcset="https://etermacolombia.com/cdn/shop/files/landings-valeriana-ingredient-drops.webp?width=500 500w, https://etermacolombia.com/cdn/shop/files/landings-valeriana-ingredient-drops.webp?width=900 900w"
+								sizes="(min-width: 1000px) 520px, 100vw" data-vl-file="landings-valeriana-ingredient-drops.webp"
+								width="1254" height="1254" loading="lazy" decoding="async" alt="Frasco de Valeriana Eterma, raíz de valeriana y formato en gotas">
+							<figcaption class="vl-lamp__caption">Raíz de valeriana · Formato en gotas</figcaption>
+						</figure>
+						<figure class="vl-lamp__slide">
+							<img src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-how-to-use.webp?width=900"
+								srcset="https://etermacolombia.com/cdn/shop/files/landings-valeriana-how-to-use.webp?width=500 500w, https://etermacolombia.com/cdn/shop/files/landings-valeriana-how-to-use.webp?width=900 900w"
+								sizes="(min-width: 1000px) 520px, 100vw" data-vl-file="landings-valeriana-how-to-use.webp"
+								width="1254" height="1254" loading="lazy" decoding="async" alt="Aplicación de 20 a 40 gotas de Valeriana Eterma en un vaso de agua">
+							<figcaption class="vl-lamp__caption">20 a 40 gotas en agua</figcaption>
+						</figure>
+					</div>
+					<button type="button" class="vl-carousel__arrow vl-carousel__arrow--prev" data-vl-prev disabled aria-label="Imagen anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button>
+					<button type="button" class="vl-carousel__arrow vl-carousel__arrow--next" data-vl-next aria-label="Imagen siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
+				</div>
+			</div>
+
+			<div class="vl-hero__body">
+				<ul class="vl-chips" aria-label="Características principales">
+					<li><span class="vl-chips__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3h4v3h-4zM11 6h2v3l2 3v7a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2v-7l2-3V6Z"/><path d="M12 12c-1.2 1.8-1.8 2.8-1.8 3.6a1.8 1.8 0 0 0 3.6 0c0-.8-.6-1.8-1.8-3.6Z"/></svg></span><span>Formato en gotas</span></li>
+					<li><span class="vl-chips__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v14a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V4Z"/><path d="M8 10h8"/><path d="m10 14 1.5 1.5L14 13"/></svg></span><span>Uso fácil</span></li>
+					<li><span class="vl-chips__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14.5A7.5 7.5 0 0 1 9.5 5a7.5 7.5 0 1 0 9.5 9.5Z"/></svg></span><span>Un momento para ti</span></li>
 				</ul>
 
 				<dl class="vl-pricing">
 					<div class="vl-pricing__cell vl-pricing__cell--best">
 						<dt>Pago anticipado</dt>
-						<dd>$59.900 <span>COP</span><small>Ahorras $10.000 COP</small></dd>
+						<dd>$39.900 <span>COP</span><small>Ahorras $10.000 COP</small></dd>
 					</div>
 					<div class="vl-pricing__cell">
-						<dt>Pago contraentrega</dt>
-						<dd>$69.900 <span>COP</span></dd>
+						<dt>Contraentrega</dt>
+						<dd>$49.900 <span>COP</span><small>Pagas al recibir</small></dd>
 					</div>
 				</dl>
 
 				<button type="button" class="vl-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage"><span class="vl-cta__label">Quiero Valeriana con $10.000 de ahorro</span></button>
 				<p class="vl-hero__trust">Pago seguro <span>·</span> Envío a Colombia <span>·</span> Garantía de entrega</p>
+
+				<ul class="vl-facts" aria-label="Datos del producto">
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg><span>20 a 40 gotas en agua</span></li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14.5A7.5 7.5 0 0 1 9.5 5a7.5 7.5 0 1 0 9.5 9.5Z"/></svg><span>Uso nocturno o puntual</span></li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 19 5.8v5.4c0 4.2-2.8 7.3-7 8.8-4.2-1.5-7-4.6-7-8.8V5.8L12 3Z"/><path d="m9 12 2 2 4-4"/></svg><span>Garantía de entrega</span></li>
+				</ul>
 			</div>
 		</div>
 	</section>
 
-	<section class="vl-seals" aria-label="Información rápida">
-		<ul class="vl-shell vl-seals__list">
-			<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3v18M8 7c0-2 1.8-4 4-4s4 2 4 4-1.4 3.2-4 5c-2.6-1.8-4-3-4-5Z"/></svg><span>20 a 40 gotas en agua</span></li>
-			<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M19 14.5A7.5 7.5 0 0 1 9.5 5a7.5 7.5 0 1 0 9.5 9.5Z"/></svg><span>Uso nocturno o puntual</span></li>
-			<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg><span>Envío a Colombia</span></li>
-			<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3 19 6v5c0 4-2.8 7.2-7 9-4.2-1.8-7-5-7-9V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg><span>Garantía de entrega</span></li>
-		</ul>
-	</section>
-
+	<!-- ================== TIRA BAJO EL HERO (solo fotos reales, escalonada) ================== -->
 	<section class="vl-people" aria-labelledby="vl-people-title">
-		<div class="vl-shell">
-			<p class="vl-overline" id="vl-people-title">Momentos reales con Valeriana</p>
-		</div>
+		<div class="vl-shell"><p class="vl-overline" id="vl-people-title">Momentos reales con Valeriana</p></div>
 		<div class="vl-people__track" tabindex="0" role="region" aria-label="Personas reales usando Valeriana Eterma">
-			<figure class="vl-people__item"><img src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-ugc-water.webp?width=420" data-vl-file="landings-valeriana-ugc-water.webp" width="720" height="900" loading="lazy" decoding="async" alt="Mujer toma agua como parte de su pausa"><figcaption>Una pausa sencilla</figcaption></figure>
-			<figure class="vl-people__item"><img src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-ugc-man-use.webp?width=420" data-vl-file="landings-valeriana-ugc-man-use.webp" width="720" height="900" loading="lazy" decoding="async" alt="Hombre muestra el frasco de Valeriana Eterma"><figcaption>Formato práctico</figcaption></figure>
-			<figure class="vl-people__item"><img src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-ugc-woman-product.webp?width=420" data-vl-file="landings-valeriana-ugc-woman-product.webp" width="720" height="900" loading="lazy" decoding="async" alt="Mujer real muestra la caja de Valeriana Eterma"><figcaption>Producto real</figcaption></figure>
-			<figure class="vl-people__item"><img src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-ugc-man-product.webp?width=420" data-vl-file="landings-valeriana-ugc-man-product.webp" width="720" height="900" loading="lazy" decoding="async" alt="Hombre real sostiene Valeriana Eterma"><figcaption>Hecho en Colombia</figcaption></figure>
+			<figure class="vl-people__item"><img src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-ugc-water.webp?width=420" data-vl-file="landings-valeriana-ugc-water.webp" width="720" height="900" loading="lazy" decoding="async" alt="Mujer toma agua como parte de su pausa"></figure>
+			<figure class="vl-people__item"><img src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-ugc-drops-glass.webp?width=420" data-vl-file="landings-valeriana-ugc-drops-glass.webp" width="720" height="900" loading="lazy" decoding="async" alt="Manos abren el frasco de Valeriana Eterma junto a un vaso de agua"></figure>
+			<figure class="vl-people__item"><img src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-ugc-woman-product.webp?width=420" data-vl-file="landings-valeriana-ugc-woman-product.webp" width="720" height="900" loading="lazy" decoding="async" alt="Mujer real muestra la caja de Valeriana Eterma"></figure>
+			<figure class="vl-people__item"><img src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-ugc-man-use.webp?width=420" data-vl-file="landings-valeriana-ugc-man-use.webp" width="720" height="900" loading="lazy" decoding="async" alt="Hombre muestra el frasco de Valeriana Eterma"></figure>
+			<figure class="vl-people__item"><img src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-ugc-bag.webp?width=420" data-vl-file="landings-valeriana-ugc-bag.webp" width="720" height="900" loading="lazy" decoding="async" alt="Caja de Valeriana Eterma saliendo de un bolso"></figure>
 		</div>
 	</section>
 
-	<section class="vl-section">
-		<div class="vl-shell vl-split">
-			<div class="vl-split__content">
+	<!-- ============================ UNA PAUSA EN GOTAS: EL ATENUADOR ============================ -->
+	<section class="vl-section vl-mechanism">
+		<div class="vl-shell vl-mechanism__grid">
+			<div class="vl-mechanism__content">
 				<p class="vl-overline">Una pausa en gotas</p>
 				<h2 class="vl-h2">Cuando apagas la pantalla, empieza otro momento del día.</h2>
 				<p class="vl-lead">Valeriana ETERMA está pensada para acompañar esa transición: del pendiente a la pausa, de la prisa a una noche más tranquila.</p>
-				<div class="vl-features" data-vl-icon-group aria-label="Mecanismo de la pausa en gotas">
-					<article class="vl-feature is-active">
-						<button type="button" class="vl-icon-button" data-vl-icon-toggle aria-pressed="true" aria-label="Destacar formato en gotas">
-							<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M12 4h8M13 8h6v5l3 4v8a3 3 0 0 1-3 3h-6a3 3 0 0 1-3-3v-8l3-4V8Z"/><path d="M16 17c-2 3-3 4.2-3 5.4a3 3 0 0 0 6 0c0-1.2-1-2.4-3-5.4Z"/></svg>
-						</button>
-						<div><p class="vl-feature__step">Paso 01</p><h3>Formato que se adapta a ti</h3><p><strong>En gotas.</strong> Puedes usarla de forma práctica, sin preparar bebidas ni cambiar tu noche completa.</p></div>
-					</article>
-					<article class="vl-feature">
-						<button type="button" class="vl-icon-button" data-vl-icon-toggle aria-pressed="false" aria-label="Destacar la valeriana">
-							<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 25c7-1 12-5 17-13"/><path d="M12 21c-5 0-7-3-7-7 5-1 9 0 10 4M18 17c0-6 3-9 9-10 1 6-1 10-6 12"/></svg>
-						</button>
-						<div><p class="vl-feature__step">Paso 02</p><h3>Valeriana</h3><p>Una planta de uso tradicional en preparaciones para la noche y momentos de tensión ocasional.</p></div>
-					</article>
-					<article class="vl-feature">
-						<button type="button" class="vl-icon-button" data-vl-icon-toggle aria-pressed="false" aria-label="Destacar tu momento nocturno">
-							<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M24 21.5A10 10 0 0 1 10.5 8 10.5 10.5 0 1 0 24 21.5Z"/><path d="M22 7v4M20 9h4"/></svg>
-						</button>
-						<div><p class="vl-feature__step">Paso 03</p><h3>Tu momento</h3><p>Antes de dormir o cuando necesites hacer una pausa consciente.</p></div>
-					</article>
+
+				<!-- Tres pasos que se van apagando: de la luz de la pantalla a la noche -->
+				<ol class="vl-dimmer" data-vl-reveal data-vl-icon-group aria-label="Cómo Valeriana acompaña el paso del día a la noche">
+					<li class="vl-dim vl-dim--1 is-active">
+						<div class="vl-dim__head">
+							<span class="vl-dim__index" aria-hidden="true">1</span>
+							<span class="vl-dim__tag">En gotas</span>
+							<button type="button" class="vl-icon-button" data-vl-icon-toggle aria-pressed="true" aria-label="Destacar el formato en gotas"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3h4v3h-4zM11 6h2v3l2 3v7a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2v-7l2-3V6Z"/><path d="M12 12c-1.2 1.8-1.8 2.8-1.8 3.6a1.8 1.8 0 0 0 3.6 0c0-.8-.6-1.8-1.8-3.6Z"/></svg></button>
+						</div>
+						<h3>Formato que se adapta a ti</h3>
+						<p>Puedes usarla de forma práctica, sin preparar bebidas ni cambiar tu noche completa.</p>
+					</li>
+					<li class="vl-dim vl-dim--2">
+						<div class="vl-dim__head">
+							<span class="vl-dim__index" aria-hidden="true">2</span>
+							<span class="vl-dim__tag">La planta</span>
+							<button type="button" class="vl-icon-button" data-vl-icon-toggle aria-pressed="false" aria-label="Destacar la valeriana"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c7-1 12-5 14-14-9 2-13 7-14 14Z"/><path d="M5 19c3-4 6-7 10-10"/></svg></button>
+						</div>
+						<h3>Valeriana</h3>
+						<p>Una planta de uso tradicional en preparaciones para la noche y momentos de tensión ocasional.</p>
+					</li>
+					<li class="vl-dim vl-dim--3">
+						<div class="vl-dim__head">
+							<span class="vl-dim__index" aria-hidden="true">3</span>
+							<span class="vl-dim__tag">Tu pausa</span>
+							<button type="button" class="vl-icon-button" data-vl-icon-toggle aria-pressed="false" aria-label="Destacar tu momento"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 14.5A7.5 7.5 0 0 1 9.5 5a7.5 7.5 0 1 0 9.5 9.5Z"/><path d="M18.5 3.5v3M17 5h3"/></svg></button>
+						</div>
+						<h3>Tu momento</h3>
+						<p>Antes de dormir o cuando necesites hacer una pausa consciente.</p>
+					</li>
+				</ol>
+
+				<div class="vl-cta-row">
+					<button type="button" class="vl-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage"><span class="vl-cta__label">Quiero probar Valeriana</span></button>
 				</div>
-				<button type="button" class="vl-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage"><span class="vl-cta__label">Quiero probar Valeriana</span></button>
 			</div>
-			<figure class="vl-split__media">
+			<figure class="vl-mechanism__media">
 				<img src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-ingredient-drops.webp?width=900" data-vl-file="landings-valeriana-ingredient-drops.webp" width="1254" height="1254" loading="lazy" decoding="async" alt="Valeriana officinalis, su raíz y el producto Eterma en gotas">
 			</figure>
 		</div>
 	</section>
 
-	<section class="vl-section vl-section--night">
+	<!-- ============================ SI LA NOCHE SE SIENTE LARGA: PENSAMIENTOS ============================ -->
+	<section class="vl-section vl-section--night vl-night">
 		<div class="vl-shell vl-narrow">
 			<p class="vl-overline">Si la noche se siente larga</p>
 			<h2 class="vl-h2">Hay días que no terminan cuando termina el trabajo.</h2>
-			<div class="vl-night-grid" data-vl-reveal data-vl-icon-group aria-label="Momentos en los que Valeriana acompaña tu pausa">
-				<article class="vl-night-card is-active">
-					<div class="vl-night-card__head"><button type="button" class="vl-icon-button" data-vl-icon-toggle aria-pressed="true" aria-label="Destacar: la mente sigue abierta"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M10 23c-3-2-5-5-5-9a9 9 0 0 1 18 0c0 3-1 5-3 7v5h-9v-3Z"/><path d="M11 13c1-2 3-3 5-3s4 1 5 3M13 17h6M14 21h4"/></svg></button><span>01</span></div>
-					<h3>La mente sigue abierta</h3><p>Apagas la luz.<br>Y aparece la lista de mañana.</p>
-				</article>
-				<article class="vl-night-card">
-					<div class="vl-night-card__head"><button type="button" class="vl-icon-button" data-vl-icon-toggle aria-pressed="false" aria-label="Destacar: el cuerpo ya pidió descanso"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 23V12h4v11M9 17h18v6M12 13h7a5 5 0 0 1 5 4H9M5 26v-3h22v3"/></svg></button><span>02</span></div>
-					<h3>El cuerpo ya pidió descanso</h3><p>Pero todavía sientes el ritmo del día encima.</p>
-				</article>
-				<article class="vl-night-card">
-					<div class="vl-night-card__head"><button type="button" class="vl-icon-button" data-vl-icon-toggle aria-pressed="false" aria-label="Destacar: el celular vuelve a llamar"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="9" y="4" width="14" height="24" rx="3"/><path d="M14 24h4M6 7l20 20"/></svg></button><span>03</span></div>
-					<h3>El celular vuelve a llamar</h3><p>Una notificación. Un mensaje. Una revisión más de la hora.</p>
-				</article>
-				<article class="vl-night-card">
-					<div class="vl-night-card__head"><button type="button" class="vl-icon-button" data-vl-icon-toggle aria-pressed="false" aria-label="Destacar: quieres una pausa sencilla"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M23 22.5A9 9 0 0 1 10.5 10 9.5 9.5 0 1 0 23 22.5Z"/><path d="M24 7v4M22 9h4"/></svg></button><span>04</span></div>
-					<h3>Quieres una pausa sencilla</h3><p>Un recurso puntual, en gotas, para acompañar tu rutina nocturna.</p>
-				</article>
-			</div>
-			<p class="vl-night__close">Valeriana ETERMA cabe en ese momento.</p>
+			<!-- Cuatro pensamientos que flotan en zigzag sobre la noche -->
+			<ol class="vl-thoughts" data-vl-reveal data-vl-icon-group aria-label="Momentos en los que Valeriana acompaña tu pausa">
+				<li class="vl-thought is-active">
+					<div class="vl-thought__head">
+						<span class="vl-thought__index" aria-hidden="true">1</span>
+						<h3>La mente sigue abierta</h3>
+						<button type="button" class="vl-icon-button" data-vl-icon-toggle aria-pressed="true" aria-label="Destacar: la mente sigue abierta"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 17c-2.4-1.5-4-4-4-7a8 8 0 0 1 16 0c0 2.5-1 4.5-2.5 6V20H8v-3Z"/><path d="M9.5 9.5c.7-1.3 1.5-2 2.5-2s1.8.7 2.5 2M10 13h4"/></svg></button>
+					</div>
+					<p>Apagas la luz.<br>Y aparece la lista de mañana.</p>
+				</li>
+				<li class="vl-thought">
+					<div class="vl-thought__head">
+						<span class="vl-thought__index" aria-hidden="true">2</span>
+						<h3>El cuerpo ya pidió descanso</h3>
+						<button type="button" class="vl-icon-button" data-vl-icon-toggle aria-pressed="false" aria-label="Destacar: el cuerpo ya pidió descanso"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18v-8h3v8M7 13h13v5M9 10h5a4 4 0 0 1 4 3H7M4 20v-2h16v2"/></svg></button>
+					</div>
+					<p>Pero todavía sientes el ritmo del día encima.</p>
+				</li>
+				<li class="vl-thought">
+					<div class="vl-thought__head">
+						<span class="vl-thought__index" aria-hidden="true">3</span>
+						<h3>El celular vuelve a llamar</h3>
+						<button type="button" class="vl-icon-button" data-vl-icon-toggle aria-pressed="false" aria-label="Destacar: el celular vuelve a llamar"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M10.5 18h3M5 5l14 14"/></svg></button>
+					</div>
+					<p>Una notificación. Un mensaje. Una revisión más de la hora.</p>
+				</li>
+				<li class="vl-thought">
+					<div class="vl-thought__head">
+						<span class="vl-thought__index" aria-hidden="true">4</span>
+						<h3>Quieres una pausa sencilla</h3>
+						<button type="button" class="vl-icon-button" data-vl-icon-toggle aria-pressed="false" aria-label="Destacar: quieres una pausa sencilla"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 14.5A7.5 7.5 0 0 1 9.5 5a7.5 7.5 0 1 0 9.5 9.5Z"/><path d="M18.5 3.5v3M17 5h3"/></svg></button>
+					</div>
+					<p>Un recurso puntual, en gotas, para acompañar tu rutina nocturna.</p>
+				</li>
+			</ol>
+			<p class="vl-night__close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg>Valeriana ETERMA cabe en ese momento.</p>
 		</div>
 	</section>
 
-	<section class="vl-section vl-section--mist">
-		<div class="vl-shell vl-use">
+	<!-- ============================ ÚSALA CON CALMA: TRES GOTAS ============================ -->
+	<section class="vl-section vl-section--mist vl-use">
+		<div class="vl-shell vl-use__grid">
 			<div class="vl-use__content">
 				<p class="vl-overline">Úsala con calma</p>
 				<h2 class="vl-h2">Un paso breve antes de dormir.</h2>
-				<ol class="vl-steps" data-vl-reveal data-vl-icon-group>
-					<li class="is-active">
-						<button type="button" class="vl-icon-button" data-vl-icon-toggle aria-pressed="true" aria-label="Destacar paso 1: sirve las gotas">
-							<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 15h16l-2 12H10L8 15Z"/><path d="M11 20c3 1.5 7 1.5 10 0M16 4v7M13 8l3 3 3-3"/></svg>
-						</button>
-						<div><p class="vl-step__number">Paso 1</p><h3>Sirve</h3><p>Toma 20 a 40 gotas en agua.</p></div>
+				<!-- Tres tarjetas con el número dentro de una gota; la primera enseña la dosis de 20 a 40 gotas -->
+				<ol class="vl-drops" data-vl-reveal data-vl-icon-group tabindex="0" role="region" aria-label="Cómo usar Valeriana en tres pasos">
+					<li class="vl-drop is-active">
+						<div class="vl-drop__head">
+							<span class="vl-drop__badge" aria-hidden="true"><b>1</b></span>
+							<h3>Sirve</h3>
+							<button type="button" class="vl-icon-button" data-vl-icon-toggle aria-pressed="true" aria-label="Destacar paso 1: sirve las gotas"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9h10l-1.2 10.2a2 2 0 0 1-2 1.8H10.2a2 2 0 0 1-2-1.8L7 9Z"/><path d="M8.2 14h7.6M12 3v4M10 5.5 12 7l2-1.5"/></svg></button>
+						</div>
+						<p>Toma 20 a 40 gotas en agua.</p>
+						<div class="vl-dose" aria-label="Dosis sugerida: de 20 a 40 gotas en agua">
+							<span class="vl-dose__num">20</span>
+							<span class="vl-dose__seg vl-dose__seg--a" aria-hidden="true"></span>
+							<span class="vl-dose__seg vl-dose__seg--b" aria-hidden="true"></span>
+							<span class="vl-dose__num">40</span>
+							<span class="vl-dose__unit">gotas</span>
+						</div>
 					</li>
-					<li>
-						<button type="button" class="vl-icon-button" data-vl-icon-toggle aria-pressed="false" aria-label="Destacar paso 2: elige tu momento">
-							<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 9v7l5 3M7 7l3-3M25 7l-3-3"/></svg>
-						</button>
-						<div><p class="vl-step__number">Paso 2</p><h3>Elige tu momento</h3><p>Úsala en la noche o en un momento de tensión ocasional.</p></div>
+					<li class="vl-drop">
+						<div class="vl-drop__head">
+							<span class="vl-drop__badge" aria-hidden="true"><b>2</b></span>
+							<h3>Elige tu momento</h3>
+							<button type="button" class="vl-icon-button" data-vl-icon-toggle aria-pressed="false" aria-label="Destacar paso 2: elige tu momento"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3.5 2"/></svg></button>
+						</div>
+						<p>Úsala en la noche o en un momento de tensión ocasional.</p>
 					</li>
-					<li>
-						<button type="button" class="vl-icon-button" data-vl-icon-toggle aria-pressed="false" aria-label="Destacar paso 3: haz tu pausa">
-							<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M23 22.5A9 9 0 0 1 10.5 10 9.5 9.5 0 1 0 23 22.5Z"/><path d="M8 25h16M21 8l1-3M25 11l3-1"/></svg>
-						</button>
-						<div><p class="vl-step__number">Paso 3</p><h3>Haz tu pausa</h3><p>Baja las luces. Deja el celular a un lado. Dale cierre al día.</p></div>
+					<li class="vl-drop">
+						<div class="vl-drop__head">
+							<span class="vl-drop__badge" aria-hidden="true"><b>3</b></span>
+							<h3>Haz tu pausa</h3>
+							<button type="button" class="vl-icon-button" data-vl-icon-toggle aria-pressed="false" aria-label="Destacar paso 3: haz tu pausa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 14.5A7.5 7.5 0 0 1 9.5 5a7.5 7.5 0 1 0 9.5 9.5Z"/></svg></button>
+						</div>
+						<p>Baja las luces. Deja el celular a un lado. Dale cierre al día.</p>
 					</li>
 				</ol>
 				<p class="vl-disclaimer">La constancia y la respuesta pueden variar entre personas. No está diseñada para tratar insomnio, ansiedad, depresión ni otras condiciones de salud.</p>
 			</div>
 			<figure class="vl-use__media">
-				<img src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-how-to-use.webp?width=900" data-vl-file="landings-valeriana-how-to-use.webp" width="1254" height="1254" loading="lazy" decoding="async" alt="Modo de uso de Valeriana Eterma: de 20 a 40 gotas en agua por la noche">
+				<img src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-ugc-dropper-pour.webp?width=720" data-vl-file="landings-valeriana-ugc-dropper-pour.webp" width="720" height="900" loading="lazy" decoding="async" alt="Gotero de Valeriana Eterma sobre un vaso de agua">
 			</figure>
 		</div>
 	</section>
 
-	<section class="vl-section" id="vl-offer">
+	<!-- ============================ ELIGE CÓMO PAGAR ============================ -->
+	<section class="vl-section vl-offer" id="vl-offer">
 		<div class="vl-shell vl-narrow">
 			<p class="vl-overline">Elige cómo pagar</p>
 			<h2 class="vl-h2">La misma Valeriana. Dos formas claras de comprar.</h2>
 			<div class="vl-plans">
 				<article class="vl-plan vl-plan--best">
 					<p class="vl-plan__badge">Opción destacada</p>
-					<h3>Pago anticipado</h3>
-					<p class="vl-plan__price">$59.900 <span>COP</span></p>
-					<p class="vl-plan__saving">Ahorras $10.000 COP</p>
-					<p>Confirmamos tu pedido y realizamos el envío.</p>
-					<button type="button" class="vl-cta vl-cta--light _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage" data-vl-pay-choice="prepaid"><span class="vl-cta__label">Comprar con pago anticipado — $59.900</span></button>
+					<h3 class="vl-plan__title">Pago anticipado</h3>
+					<p class="vl-plan__price">$39.900 <span>COP</span></p>
+					<ul class="vl-plan__perks">
+						<li>Ahorras $10.000 COP.</li>
+						<li>Confirmamos tu pedido y realizamos el envío.</li>
+					</ul>
+					<button type="button" class="vl-cta vl-cta--light _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage" data-vl-pay-choice="prepaid"><span class="vl-cta__label">Comprar con pago anticipado — $39.900</span></button>
 				</article>
 				<article class="vl-plan">
 					<p class="vl-plan__eyebrow">Pago al recibir</p>
-					<h3>Pago contraentrega</h3>
-					<p class="vl-plan__price">$69.900 <span>COP</span></p>
-					<p>Pagas al recibir tu pedido.</p>
-					<button type="button" class="vl-cta vl-cta--secondary _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage" data-vl-pay-choice="cod"><span class="vl-cta__label">Comprar contraentrega — $69.900</span></button>
+					<h3 class="vl-plan__title">Pago contraentrega</h3>
+					<p class="vl-plan__price">$49.900 <span>COP</span></p>
+					<ul class="vl-plan__perks">
+						<li>Pagas al recibir tu pedido.</li>
+						<li>Confirmamos tu pedido y realizamos el envío.</li>
+					</ul>
+					<button type="button" class="vl-cta vl-cta--secondary _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage" data-vl-pay-choice="cod"><span class="vl-cta__label">Comprar contraentrega — $49.900</span></button>
 				</article>
 			</div>
-			<p class="vl-center-note">Después de comprar, confirmamos tu pedido y realizamos el envío.</p>
+			<p class="vl-after"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4V5Z"/><path d="M8 9h8M8 12h5"/></svg>Después de comprar, confirmamos tu pedido y realizamos el envío.</p>
 		</div>
 	</section>
 
-	<section class="vl-section vl-section--mist">
-		<div class="vl-shell vl-receive">
+	<!-- ============================ LO QUE RECIBES ============================ -->
+	<section class="vl-section vl-section--surface vl-receive">
+		<div class="vl-shell vl-receive__grid">
 			<figure class="vl-receive__media">
-				<img src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-product.webp?width=800" data-vl-file="landings-valeriana-product.webp" width="1000" height="1250" loading="lazy" decoding="async" alt="Frasco real de Valeriana Eterma en gotas">
+				<img src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-box-hand.webp?width=800" data-vl-file="landings-valeriana-box-hand.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Caja de Valeriana Eterma en la mano">
 			</figure>
 			<div class="vl-receive__content">
 				<p class="vl-overline">Lo que recibes</p>
 				<h2 class="vl-h2">Una botella de Valeriana ETERMA en gotas.</h2>
-				<ul class="vl-checks">
-					<li>Valeriana ETERMA</li>
-					<li>Formato práctico en gotas</li>
-					<li>Atención por WhatsApp: <a href="https://wa.me/573006964582" target="_blank" rel="noopener">300 696 4582</a></li>
-					<li>Envío con garantía de entrega</li>
+				<ul class="vl-tiles">
+					<li><span class="vl-tiles__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 3h5v3.2l1.6 2.3c.6.8.9 1.8.9 2.8V19a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-7.7c0-1 .3-2 .9-2.8L9.5 6.2V3Z"/><path d="M7 14h10"/></svg></span><span>Valeriana ETERMA</span></li>
+					<li><span class="vl-tiles__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3h4v3h-4zM11 6h2v3l2 3v7a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2v-7l2-3V6Z"/><path d="M12 12c-1.2 1.8-1.8 2.8-1.8 3.6a1.8 1.8 0 0 0 3.6 0c0-.8-.6-1.8-1.8-3.6Z"/></svg></span><span>Formato práctico en gotas</span></li>
+					<li><span class="vl-tiles__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4V5Z"/><path d="M8 9h8M8 12h5"/></svg></span><span>Atención por WhatsApp: <a href="https://wa.me/573006964582" target="_blank" rel="noopener">300 696 4582</a></span></li>
+					<li><span class="vl-tiles__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 19 5.8v5.4c0 4.2-2.8 7.3-7 8.8-4.2-1.5-7-4.6-7-8.8V5.8L12 3Z"/><path d="m9 12 2 2 4-4"/></svg></span><span>Envío con garantía de entrega</span></li>
 				</ul>
 				<p class="vl-legal-line">Fabricado en Colombia por Laboratorios NaturalSplast SAS.<br>Carrera 59 #5-B31, Bogotá D.C.</p>
 			</div>
 		</div>
 	</section>
 
-	<section class="vl-section">
+	<!-- ============================ UNA ELECCIÓN INFORMADA ============================ -->
+	<section class="vl-section vl-informed">
 		<div class="vl-shell vl-narrow">
 			<p class="vl-overline">Una elección informada</p>
 			<h2 class="vl-h2">Tradición herbal. Expectativas claras.</h2>
@@ -284,47 +332,78 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 				<p>Por eso presentamos Valeriana ETERMA como lo que es: una opción en gotas para acompañar una pausa nocturna, no un reemplazo de atención médica ni un tratamiento.</p>
 			</div>
 
-			<div class="vl-sources" id="vl-sources">
-				<details class="vl-source"><summary><span>Medical News Today</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><p>Recoge el uso tradicional de la raíz de valeriana y señala que la evidencia clínica disponible sigue siendo limitada.</p></details>
-				<details class="vl-source"><summary><span>American Family Physician</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><p>Revisa estudios sobre la experiencia subjetiva del sueño y resalta que los resultados de una sola toma son contradictorios.</p></details>
-				<details class="vl-source"><summary><span>EBSCO Research Starters</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><p>Describe hallazgos mixtos sobre sueño y advierte que no hay evidencia confiable suficiente para confirmarla como tratamiento para la ansiedad.</p></details>
-				<details class="vl-source"><summary><span>NIH — Office of Dietary Supplements</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><p>Concluye que la evidencia de ensayos clínicos sobre los efectos de la valeriana en trastornos del sueño es inconclusa.</p></details>
-			</div>
+			<p class="vl-sources__title">Para leer más</p>
+			<ul class="vl-sources" id="vl-sources" data-vl-reveal>
+				<li class="vl-source"><span class="vl-source__badge" aria-hidden="true">MNT</span><div><h3>Medical News Today</h3><p>Recoge el uso tradicional de la raíz de valeriana y señala que la evidencia clínica disponible sigue siendo limitada.</p></div></li>
+				<li class="vl-source"><span class="vl-source__badge" aria-hidden="true">AFP</span><div><h3>American Family Physician</h3><p>Revisa estudios sobre la experiencia subjetiva del sueño y resalta que los resultados de una sola toma son contradictorios.</p></div></li>
+				<li class="vl-source"><span class="vl-source__badge" aria-hidden="true">EBSCO</span><div><h3>EBSCO Research Starters</h3><p>Describe hallazgos mixtos sobre sueño y advierte que no hay evidencia confiable suficiente para confirmarla como tratamiento para la ansiedad.</p></div></li>
+				<li class="vl-source"><span class="vl-source__badge" aria-hidden="true">NIH</span><div><h3>NIH — Office of Dietary Supplements</h3><p>Concluye que la evidencia de ensayos clínicos sobre los efectos de la valeriana en trastornos del sueño es inconclusa.</p></div></li>
+			</ul>
 
 			<aside class="vl-category">
-				<strong>Información de categoría</strong>
-				<p>Valeriana ETERMA no se comercializa como suplemento ni como alimento. Por su categoría, no cuenta con registro INVIMA.</p>
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+				<div><strong>Información de categoría</strong><p>Valeriana ETERMA no se comercializa como suplemento ni como alimento. Por su categoría, no cuenta con registro INVIMA.</p></div>
 			</aside>
 		</div>
 	</section>
 
-	<section class="vl-section vl-section--mist">
+	<!-- ============================ DÓNDE ENCAJA: LA TABLA ============================ -->
+	<section class="vl-section vl-section--mist vl-fit-section">
 		<div class="vl-shell vl-narrow">
 			<p class="vl-overline">Dónde encaja</p>
 			<h2 class="vl-h2">Para una pausa puntual. No para sustituir lo importante.</h2>
-			<div class="vl-compare" data-vl-reveal data-vl-icon-group aria-label="Comparación de opciones para la pausa nocturna">
-				<article class="is-active"><button type="button" class="vl-icon-button vl-compare__icon" data-vl-icon-toggle aria-pressed="true" aria-label="Destacar té o bebida caliente"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 12h17v7a7 7 0 0 1-7 7h-3a7 7 0 0 1-7-7v-7ZM23 15h2a3 3 0 0 1 0 6h-3M10 8c0-2 2-2 2-4M16 8c0-2 2-2 2-4"/></svg></button><span class="vl-compare__number">01</span><h3>Té o bebida caliente</h3><p><strong>Puede servir para</strong> crear un ambiente de noche.</p><p><strong>Valeriana ETERMA suma</strong> formato de gotas, sin preparación.</p></article>
-				<article><button type="button" class="vl-icon-button vl-compare__icon" data-vl-icon-toggle aria-pressed="false" aria-label="Destacar respiración o desconexión de pantallas"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="9" y="4" width="14" height="24" rx="3"/><path d="M14 24h4M5 5l22 22"/></svg></button><span class="vl-compare__number">02</span><h3>Respiración o desconexión de pantallas</h3><p><strong>Puede servir para</strong> acompañar el cierre del día.</p><p><strong>Valeriana ETERMA suma</strong> un paso adicional dentro de esa pausa.</p></article>
-				<article><button type="button" class="vl-icon-button vl-compare__icon" data-vl-icon-toggle aria-pressed="false" aria-label="Destacar consulta profesional"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 5v22M5 16h22"/><circle cx="16" cy="16" r="12"/></svg></button><span class="vl-compare__number">03</span><h3>Consulta profesional</h3><p><strong>Puede servir para</strong> síntomas persistentes o que afectan tu vida diaria.</p><p><strong>Valeriana ETERMA</strong> no la reemplaza.</p></article>
+			<div class="vl-fit" data-vl-reveal data-vl-icon-group aria-label="Comparación de opciones para la pausa nocturna">
+				<div class="vl-fit__legend" aria-hidden="true"><span>Alternativa</span><span>Puede servir para</span><span>Valeriana ETERMA suma</span></div>
+				<article class="vl-fit__row is-active">
+					<div class="vl-fit__name">
+						<button type="button" class="vl-icon-button" data-vl-icon-toggle aria-pressed="true" aria-label="Destacar té o bebida caliente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9h10v5.5a4.5 4.5 0 0 1-4.5 4.5h-1A4.5 4.5 0 0 1 5 14.5V9Z"/><path d="M15 10h1.5a2.5 2.5 0 0 1 0 5H15"/><path d="M8 3.5c0 1.2-1 1.3-1 2.5M12 3.5c0 1.2-1 1.3-1 2.5"/></svg></button>
+						<h3>Té o bebida caliente</h3>
+					</div>
+					<div class="vl-fit__cell"><span>Puede servir para</span><p>Crear un ambiente de noche.</p></div>
+					<div class="vl-fit__cell vl-fit__cell--plus"><span>Valeriana ETERMA suma</span><p>Formato de gotas, sin preparación.</p></div>
+				</article>
+				<article class="vl-fit__row">
+					<div class="vl-fit__name">
+						<button type="button" class="vl-icon-button" data-vl-icon-toggle aria-pressed="false" aria-label="Destacar respiración o desconexión de pantallas"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M10.5 18h3M5 5l14 14"/></svg></button>
+						<h3>Respiración o desconexión de pantallas</h3>
+					</div>
+					<div class="vl-fit__cell"><span>Puede servir para</span><p>Acompañar el cierre del día.</p></div>
+					<div class="vl-fit__cell vl-fit__cell--plus"><span>Valeriana ETERMA suma</span><p>Un paso adicional dentro de esa pausa.</p></div>
+				</article>
+				<article class="vl-fit__row">
+					<div class="vl-fit__name">
+						<button type="button" class="vl-icon-button" data-vl-icon-toggle aria-pressed="false" aria-label="Destacar consulta profesional"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 8v8M8 12h8"/></svg></button>
+						<h3>Consulta profesional</h3>
+					</div>
+					<div class="vl-fit__cell"><span>Puede servir para</span><p>Síntomas persistentes o que afectan tu vida diaria.</p></div>
+					<div class="vl-fit__cell vl-fit__cell--plus"><span>Valeriana ETERMA</span><p>No la reemplaza.</p></div>
+				</article>
 			</div>
 		</div>
 	</section>
 
+	<!-- ============================ GARANTÍA DE ENTREGA ============================ -->
 	<section class="vl-section vl-guarantee">
-		<div class="vl-shell vl-guarantee__grid">
-			<div>
-				<p class="vl-overline">Garantía de entrega</p>
-				<h2 class="vl-h2">Tu pedido debe llegar. Si no, respondemos.</h2>
-				<p>Si tu pedido no llega en 3 a 5 días hábiles, puedes elegir:</p>
-			</div>
-			<div class="vl-guarantee__options">
-				<article><span>01</span><h3>Reenvío sin costo</h3><p>Enviamos nuevamente tu pedido.</p></article>
-				<article><span>02</span><h3>Devolución de tu dinero</h3><p>Disponible si pagaste de forma anticipada.</p></article>
-			</div>
+		<div class="vl-shell vl-narrow vl-guarantee__inner">
+			<span class="vl-guarantee__seal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 19 5.8v5.4c0 4.2-2.8 7.3-7 8.8-4.2-1.5-7-4.6-7-8.8V5.8L12 3Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+			<p class="vl-overline">Garantía de entrega</p>
+			<h2 class="vl-h2">Tu pedido debe llegar. Si no, respondemos.</h2>
+			<p class="vl-guarantee__lead">Si tu pedido no llega en 3 a 5 días hábiles, puedes elegir:</p>
+			<ol class="vl-guarantee__options" data-vl-reveal>
+				<li>
+					<div class="vl-guarantee__head"><span class="vl-guarantee__index" aria-hidden="true">1</span><h3>Reenvío sin costo</h3><span class="vl-guarantee__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span></div>
+					<p>Enviamos nuevamente tu pedido.</p>
+				</li>
+				<li>
+					<div class="vl-guarantee__head"><span class="vl-guarantee__index" aria-hidden="true">2</span><h3>Devolución de tu dinero</h3><span class="vl-guarantee__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M7 12h.01M17 12h.01"/></svg></span></div>
+					<p>Disponible si pagaste de forma anticipada.</p>
+				</li>
+			</ol>
 			<p class="vl-guarantee__contact">Escríbenos por WhatsApp al <a href="https://wa.me/573006964582" target="_blank" rel="noopener">300 696 4582</a> para acompañarte con tu pedido.</p>
 		</div>
 	</section>
 
+	<!-- ============================ FAQ ============================ -->
 	<section class="vl-section">
 		<div class="vl-shell vl-narrow">
 			<p class="vl-overline">Antes de pedir</p>
@@ -335,33 +414,38 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 				<details><summary>¿Puedo tomarla con alcohol, medicamentos o productos para dormir?</summary><p>Evita combinarla con alcohol, sedantes u otros productos con efecto sedante sin orientación de un profesional de salud. Si tomas medicamentos, consulta antes de usarla.</p></details>
 				<details><summary>¿La pueden usar mujeres embarazadas o en lactancia?</summary><p>Durante el embarazo o la lactancia, consulta previamente con tu profesional de salud.</p></details>
 				<details><summary>¿Sirve para tratar ansiedad o insomnio?</summary><p>No. Valeriana ETERMA no reemplaza evaluación, diagnóstico ni tratamiento profesional. Busca atención médica si los síntomas persisten, son intensos o afectan tu vida diaria.</p></details>
-				<details><summary>¿Puedo pagar contraentrega?</summary><p>Sí. Puedes pagar $69.900 COP al recibir tu pedido. Si prefieres pago anticipado, el precio es $59.900 COP y ahorras $10.000 COP.</p></details>
+				<details><summary>¿Puedo pagar contraentrega?</summary><p>Sí. Puedes pagar $49.900 COP al recibir tu pedido. Si prefieres pago anticipado, el precio es $39.900 COP y ahorras $10.000 COP.</p></details>
 				<details><summary>¿Cuándo llega mi pedido?</summary><p>La garantía de entrega cubre pedidos que no lleguen en 3 a 5 días hábiles: hacemos un reenvío sin costo o, si pagaste anticipado, puedes solicitar devolución del dinero.</p></details>
 			</div>
 		</div>
 	</section>
 
+	<!-- ============================ CIERRE: LA LUNA ============================ -->
 	<section class="vl-section vl-close">
 		<div class="vl-shell vl-close__grid">
 			<div class="vl-close__content">
 				<p class="vl-overline">Valeriana Eterma</p>
 				<h2 class="vl-h2">Haz de la noche un lugar más tranquilo.</h2>
 				<p class="vl-close__lead">Valeriana ETERMA en gotas.</p>
-				<ul class="vl-close__lines"><li>Para acompañar tu pausa.</li><li>Para cerrar el día con intención.</li><li>Para tener un paso simple antes de dormir.</li></ul>
+				<ul class="vl-close__lines">
+					<li>Para acompañar tu pausa.</li>
+					<li>Para cerrar el día con intención.</li>
+					<li>Para tener un paso simple antes de dormir.</li>
+				</ul>
 				<dl class="vl-close__prices">
-					<div><dt>Pago anticipado</dt><dd>$59.900 <span>COP</span><small>Ahorras $10.000 COP</small></dd></div>
-					<div><dt>Pago contraentrega</dt><dd>$69.900 <span>COP</span></dd></div>
+					<div><dt>Pago anticipado</dt><dd>$39.900 <span>COP</span><small>Ahorras $10.000 COP</small></dd></div>
+					<div><dt>Pago contraentrega</dt><dd>$49.900 <span>COP</span><small>Pagas al recibir</small></dd></div>
 				</dl>
 				<div class="vl-close__actions">
 					<button type="button" class="vl-cta vl-cta--light _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage"><span class="vl-cta__label">Quiero comprar Valeriana</span></button>
-					<a class="vl-close__whatsapp" href="https://wa.me/573006964582" target="_blank" rel="noopener">¿Tienes una duda? WhatsApp 300 696 4582</a>
+					<a class="vl-close__whatsapp" href="https://wa.me/573006964582" target="_blank" rel="noopener">¿Tienes una duda antes de pedir? WhatsApp 300 696 4582</a>
 				</div>
 			</div>
-			<div class="vl-collage" aria-label="Personas reales con Valeriana Eterma">
-				<img src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-ugc-woman-product.webp?width=420" data-vl-file="landings-valeriana-ugc-woman-product.webp" width="720" height="900" loading="lazy" decoding="async" alt="Mujer muestra Valeriana Eterma">
-				<img src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-ugc-man-use.webp?width=420" data-vl-file="landings-valeriana-ugc-man-use.webp" width="720" height="900" loading="lazy" decoding="async" alt="Hombre muestra el frasco de Valeriana Eterma">
-				<img src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-ugc-water.webp?width=420" data-vl-file="landings-valeriana-ugc-water.webp" width="720" height="900" loading="lazy" decoding="async" alt="Mujer toma agua durante su pausa">
-				<img src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-ugc-man-product.webp?width=420" data-vl-file="landings-valeriana-ugc-man-product.webp" width="720" height="900" loading="lazy" decoding="async" alt="Hombre sostiene Valeriana Eterma">
+			<!-- La luna: una foto grande redonda y dos pequeñas que la orbitan -->
+			<div class="vl-moon" aria-label="Personas reales con Valeriana Eterma">
+				<img class="vl-moon__main" src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-ugc-woman-product.webp?width=640" data-vl-file="landings-valeriana-ugc-woman-product.webp" width="720" height="900" loading="lazy" decoding="async" alt="Mujer muestra Valeriana Eterma">
+				<img class="vl-moon__small vl-moon__small--a" src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-ugc-man-use.webp?width=320" data-vl-file="landings-valeriana-ugc-man-use.webp" width="720" height="900" loading="lazy" decoding="async" alt="Hombre muestra el frasco de Valeriana Eterma">
+				<img class="vl-moon__small vl-moon__small--b" src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-ugc-sofa.webp?width=320" data-vl-file="landings-valeriana-ugc-sofa.webp" width="720" height="900" loading="lazy" decoding="async" alt="Mujer descansa en el sofá">
 			</div>
 		</div>
 	</section>
@@ -390,13 +474,27 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 
 	<div class="vl-sticky" data-vl-sticky hidden>
 		<div class="vl-sticky__inner">
-			<p class="vl-sticky__price"><strong data-vl-sticky-price>$69.900</strong><span><span data-vl-sticky-pre>o </span><b data-vl-sticky-alt>$59.900</b><span data-vl-sticky-post> anticipado</span></span></p>
+			<p class="vl-sticky__price"><strong data-vl-sticky-price>$49.900</strong><span data-vl-sticky-sub>o $39.900 anticipado</span></p>
 			<button type="button" class="vl-cta vl-cta--sm _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage" data-vl-sticky-cta><span class="vl-cta__label">Quiero probar Valeriana</span></button>
 		</div>
 	</div>
 </section>
 
 <style>
+	/* Tipografía de marca (OFL), un solo peso; alojada en Contenido → Archivos. docs/brand-typography.md §4 */
+	@font-face {
+		font-family: 'Questrial';
+		src: url('https://etermacolombia.com/cdn/shop/files/questrial-400.woff2') format('woff2');
+		font-weight: 400;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	/* =========================================================
+	   ETERMA · VALERIANA
+	   Todo bajo .vl-lp. Paleta propia del producto (ciruela, rosa y crema del frasco ámbar).
+	   Todas las medidas en px: la raíz del tema va a 10,5px.
+	   ========================================================= */
 	.vl-lp {
 		--vl-plum: #422b2f;
 		--vl-plum-soft: #68454a;
@@ -409,15 +507,26 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 		--vl-muted: #655759;
 		--vl-sage: #71816e;
 		--vl-lime: #dce4bd;
+		--vl-amber: #b5793d;
 		--vl-border: #ddcecb;
-		--vl-shell: 1160px;
+
+		--vl-serif: var(--font-heading-family, Georgia, 'Times New Roman', serif);
+		--vl-sans: 'Questrial', var(--font-body-family, 'Helvetica Neue', Helvetica, Arial, sans-serif);
+		--vl-shell: 1100px;
+		--vl-narrow: 780px;
 		--vl-radius: 14px;
+		--vl-radius-sm: 10px;
+		--vl-line: 1px solid var(--vl-border);
+		--vl-pad: 44px;
+
 		position: relative;
 		isolation: isolate;
+		display: block;
 		width: 100%;
 		overflow: clip;
 		background: var(--vl-cream);
 		color: var(--vl-ink);
+		font-family: var(--vl-sans);
 		font-size: 16px;
 		line-height: 1.55;
 		letter-spacing: 0;
@@ -425,285 +534,470 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 
 	.vl-lp *, .vl-lp *::before, .vl-lp *::after { box-sizing: border-box; }
 	.vl-lp div:empty { display: block; }
-	.vl-lp img { display: block; max-width: 100%; }
-	.vl-lp button, .vl-lp summary, .vl-lp a { font: inherit; }
-	.vl-lp button { border: 0; }
+	.vl-lp img { display: block; max-width: 100%; height: auto; }
+	.vl-lp button, .vl-lp summary, .vl-lp a { font: inherit; letter-spacing: 0; }
+	.vl-lp button { margin: 0; border: 0; background: none; color: inherit; }
 	.vl-lp a { color: inherit; }
+	.vl-lp h1, .vl-lp h2, .vl-lp h3, .vl-lp p, .vl-lp figure, .vl-lp ul, .vl-lp ol, .vl-lp dl, .vl-lp dd, .vl-lp blockquote { margin: 0; }
+	.vl-lp ul, .vl-lp ol { padding: 0; list-style: none; }
 	.vl-lp button:focus-visible, .vl-lp a:focus-visible, .vl-lp summary:focus-visible, .vl-lp [tabindex]:focus-visible { outline: 3px solid var(--vl-rose); outline-offset: 3px; }
-	.vl-lp h1, .vl-lp h2, .vl-lp h3, .vl-lp p, .vl-lp figure, .vl-lp ul, .vl-lp ol, .vl-lp dl, .vl-lp dd { margin: 0; }
-	.vl-lp ul, .vl-lp ol { padding: 0; }
 
 	.vl-lp .vl-shell { width: min(100% - 32px, var(--vl-shell)); margin-inline: auto; }
-	.vl-lp .vl-narrow { max-width: 860px; }
-	.vl-lp .vl-section { padding: 68px 0; }
+	.vl-lp .vl-narrow { max-width: var(--vl-narrow); }
+	.vl-lp .vl-section { padding: var(--vl-pad) 0; }
 	.vl-lp .vl-section--mist { background: var(--vl-mist); }
-	.vl-lp .vl-section--night { background: var(--vl-plum); color: var(--vl-cream); }
+	.vl-lp .vl-section--surface { background: var(--vl-surface); border-top: var(--vl-line); border-bottom: var(--vl-line); }
+	.vl-lp .vl-section--night { color: var(--vl-cream); background: var(--vl-plum); }
+
 	.vl-lp .vl-overline { margin-bottom: 12px; color: var(--vl-rose); font-size: 12px; line-height: 1.2; letter-spacing: 2px; text-transform: uppercase; }
-	.vl-lp .vl-h1, .vl-lp .vl-h2 { color: var(--vl-plum); font-weight: 400; letter-spacing: -0.6px; }
-	.vl-lp .vl-h1 { font-size: clamp(40px, 12vw, 62px); line-height: 0.98; }
-	.vl-lp .vl-h1 em { color: var(--vl-rose); font-weight: 400; }
-	.vl-lp .vl-h2 { font-size: clamp(34px, 9vw, 50px); line-height: 1.05; }
-	.vl-lp .vl-lead { color: var(--vl-muted); font-size: 18px; line-height: 1.55; }
-	.vl-lp .vl-text { display: grid; gap: 18px; margin-top: 24px; color: var(--vl-muted); font-size: 17px; }
+	.vl-lp .vl-h1, .vl-lp .vl-h2, .vl-lp .vl-h3, .vl-lp h3, .vl-lp .vl-plan__title { font-family: var(--vl-serif); font-weight: 400; color: var(--vl-plum); letter-spacing: -0.4px; }
+	.vl-lp .vl-h1 { font-size: 32px; line-height: 1.02; }
+	.vl-lp .vl-h1 em { font-style: italic; color: var(--vl-rose); }
+	.vl-lp .vl-h2 { font-size: 29px; line-height: 1.1; }
+	.vl-lp .vl-lead { color: var(--vl-muted); font-size: 17px; line-height: 1.5; }
+	.vl-lp .vl-h2 + .vl-lead { margin-top: 12px; }
+	.vl-lp .vl-text { display: grid; gap: 14px; margin-top: 16px; color: var(--vl-muted); font-size: 16px; }
 	.vl-lp .vl-visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
-	.vl-lp .vl-topbar { position: relative; z-index: 3; background: var(--vl-surface); border-bottom: 1px solid var(--vl-border); }
-	.vl-lp .vl-topbar__strip { overflow: hidden; padding: 6px 0; background: var(--vl-plum); color: var(--vl-cream); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; white-space: nowrap; }
-	.vl-lp .vl-topbar__track { display: flex; width: max-content; animation: vl-marquee 22s linear infinite; }
-	.vl-lp .vl-topbar__set { display: flex; flex: none; align-items: center; }
-	.vl-lp .vl-topbar__set span { display: inline-flex; align-items: center; }
-	.vl-lp .vl-topbar__set span::after { content: '•'; margin: 0 22px; color: var(--vl-lime); }
-	.vl-lp .vl-topbar__inner { display: flex; align-items: center; justify-content: center; min-height: 48px; }
-	.vl-lp .vl-topbar__logo { width: 116px; height: auto; }
+	/* ---------- Cabecera ---------- */
+	.vl-lp .vl-topbar { position: relative; z-index: 3; background: var(--vl-surface); border-bottom: var(--vl-line); }
+	.vl-lp .vl-topbar__strip { overflow: hidden; padding: 7px 0; background: var(--vl-plum); color: var(--vl-cream); font-size: 11px; line-height: 1.4; letter-spacing: 1px; text-transform: uppercase; white-space: nowrap; }
+	.vl-lp .vl-topbar__track { display: inline-flex; width: max-content; max-width: none; animation: vl-marquee 22s linear infinite; will-change: transform; }
+	.vl-lp .vl-topbar__strip:hover .vl-topbar__track { animation-play-state: paused; }
+	.vl-lp .vl-topbar__set { display: inline-flex; flex: none; max-width: none; }
+	.vl-lp .vl-topbar__set span::after { content: '\00B7'; margin-inline: 16px; color: var(--vl-lime); }
+	.vl-lp .vl-topbar__inner { display: flex; align-items: center; justify-content: center; min-height: 50px; }
+	.vl-lp .vl-topbar__logo { width: auto; height: 22px; }
 
-	.vl-lp .vl-hero { padding: 10px 0 24px; }
-	.vl-lp .vl-hero__layout { display: grid; gap: 14px; }
-	.vl-lp .vl-hero__media { position: relative; margin-inline: -16px; }
-	.vl-lp .vl-carousel { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
-	.vl-lp .vl-carousel::-webkit-scrollbar { display: none; }
-	.vl-lp .vl-hero__slide { flex: 0 0 100%; height: 210px; scroll-snap-align: start; background: var(--vl-mist); }
-	.vl-lp .vl-hero__slide img { width: 100%; height: 100%; object-fit: cover; object-position: center 45%; }
-	.vl-lp .vl-carousel__arrow { position: absolute; top: 50%; z-index: 2; display: grid; width: 40px; height: 40px; place-items: center; border: 1px solid rgba(66,43,47,.18); border-radius: 50%; background: rgba(255,255,255,.88); color: var(--vl-plum); cursor: pointer; transform: translateY(-50%); transition: transform .2s ease, opacity .2s ease; }
-	.vl-lp .vl-carousel__arrow svg { width: 20px; height: 20px; }
-	.vl-lp .vl-carousel__arrow--prev { left: 12px; }
-	.vl-lp .vl-carousel__arrow--next { right: 12px; }
-	.vl-lp .vl-carousel__arrow:disabled { opacity: .28; cursor: default; }
-	.vl-lp .vl-dots { position: absolute; left: 50%; bottom: 14px; z-index: 2; display: flex; gap: 7px; padding: 7px 10px; border-radius: 999px; background: rgba(255,255,255,.86); transform: translateX(-50%); }
-	.vl-lp .vl-dot { width: 8px; height: 8px; padding: 0; border-radius: 50%; background: var(--vl-border); cursor: pointer; transition: transform .2s ease, background .2s ease; }
-	.vl-lp .vl-dot[aria-current='true'] { background: var(--vl-plum); transform: scale(1.35); }
-	.vl-lp .vl-hero__product-shot { position: absolute; top: 10px; right: 10px; z-index: 2; width: 70px; height: 94px; overflow: hidden; border: 1px solid rgba(66,43,47,.18); border-radius: 10px; background: var(--vl-cream); box-shadow: 0 8px 20px rgba(66,43,47,.12); }
-	.vl-lp .vl-hero__product-shot img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
-	.vl-lp .vl-hero__content { display: grid; align-content: center; gap: 8px; }
-	.vl-lp .vl-hero .vl-overline { margin-bottom: 0; }
-	.vl-lp .vl-hero .vl-h1 { font-size: 32px; line-height: .98; }
-	.vl-lp .vl-hero__statement { color: var(--vl-plum); font-size: 19px; line-height: 1.12; }
-	.vl-lp .vl-hero .vl-lead { font-size: 14px; line-height: 1.38; }
-	.vl-lp .vl-inline-facts { display: flex; flex-wrap: wrap; gap: 7px; list-style: none; }
-	.vl-lp .vl-inline-facts li { padding: 5px 8px; border: 1px solid var(--vl-border); border-radius: 999px; background: var(--vl-surface); color: var(--vl-plum-soft); font-size: 11px; }
-	.vl-lp .vl-pricing { display: grid; grid-template-columns: 1.15fr .85fr; overflow: hidden; border: 1px solid var(--vl-border); border-radius: var(--vl-radius); background: var(--vl-surface); }
-	.vl-lp .vl-pricing__cell { padding: 9px 10px; }
-	.vl-lp .vl-pricing__cell + .vl-pricing__cell { border-left: 1px solid var(--vl-border); }
+	/* ---------- Hero: la lámpara ---------- */
+	.vl-lp .vl-hero { padding: 12px 0 26px; }
+	.vl-lp .vl-hero__layout { display: grid; gap: 12px; }
+	.vl-lp .vl-hero__head { display: grid; gap: 8px; }
+	.vl-lp .vl-hero .vl-overline { margin-bottom: 0; font-size: 11px; letter-spacing: 1.4px; }
+	.vl-lp .vl-hero__statement { color: var(--vl-plum); font-family: var(--vl-serif); font-size: 19px; line-height: 1.2; }
+	.vl-lp .vl-hero__lead { font-size: 14px; line-height: 1.45; }
+	.vl-lp .vl-hero__media { position: relative; }
+	/* La caja: niebla clara con un halo cálido que respira detrás de la foto */
+	.vl-lp .vl-lamp { position: relative; overflow: hidden; aspect-ratio: 4 / 3; border: var(--vl-line); border-radius: var(--vl-radius); background: var(--vl-mist); }
+	.vl-lp .vl-lamp::before { content: ''; position: absolute; z-index: 0; top: 44%; left: 50%; width: 115%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(234, 216, 212, 0.95) 0 26%, rgba(234, 216, 212, 0) 60%); opacity: 0.85; transform: translate(-50%, -50%) scale(0.96); animation: vl-breathe 6.5s ease-in-out infinite alternate; will-change: transform, opacity; }
+	.vl-lp .vl-lamp__track { position: absolute; z-index: 1; inset: 0; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+	.vl-lp .vl-lamp__track::-webkit-scrollbar { display: none; }
+	/* Cada foto entera arriba y su rótulo en banda propia debajo, nunca encima */
+	.vl-lp .vl-lamp__slide { position: relative; display: grid; grid-template-rows: minmax(0, 1fr) auto; flex: 0 0 100%; height: 100%; justify-items: center; padding-top: 3%; scroll-snap-align: start; }
+	.vl-lp .vl-lamp__slide img { width: auto; max-width: 100%; height: 100%; min-height: 0; object-fit: contain; border-radius: var(--vl-radius-sm); }
+	.vl-lp .vl-lamp__caption { position: relative; z-index: 2; margin: 6px 0 8px; padding: 4px 11px; border-radius: 999px; background: rgba(66, 43, 47, 0.9); color: var(--vl-cream); font-size: 10px; line-height: 1.4; letter-spacing: 1px; white-space: nowrap; text-transform: uppercase; }
+	.vl-lp .vl-carousel__arrow { position: absolute; top: 50%; z-index: 2; display: grid; width: 36px; height: 36px; place-items: center; padding: 0; border: 1px solid rgba(66, 43, 47, 0.18); border-radius: 50%; background: rgba(255, 251, 247, 0.92); color: var(--vl-plum); cursor: pointer; transform: translateY(-50%); transition: transform 0.2s ease, opacity 0.2s ease; }
+	.vl-lp .vl-carousel__arrow svg { width: 18px; height: 18px; }
+	.vl-lp .vl-carousel__arrow--prev { left: 8px; }
+	.vl-lp .vl-carousel__arrow--next { right: 8px; }
+	.vl-lp .vl-carousel__arrow:disabled { opacity: 0.3; cursor: default; }
+
+	.vl-lp .vl-hero__body { display: grid; gap: 10px; }
+	.vl-lp .vl-hero__body .vl-facts { order: 10; }
+	.vl-lp .vl-chips { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+	.vl-lp .vl-chips li { display: grid; justify-items: center; gap: 5px; padding: 8px 4px; border: var(--vl-line); border-radius: var(--vl-radius-sm); background: var(--vl-surface); color: var(--vl-plum); font-size: 11px; line-height: 1.2; text-align: center; }
+	.vl-lp .vl-chips__icon { display: grid; width: 30px; height: 30px; place-items: center; border-radius: 50%; background: var(--vl-blush); color: var(--vl-plum); }
+	.vl-lp .vl-chips__icon svg { width: 17px; height: 17px; }
+
+	.vl-lp .vl-facts { display: grid; grid-template-columns: repeat(3, 1fr); border-top: var(--vl-line); border-bottom: var(--vl-line); }
+	.vl-lp .vl-facts li { display: grid; justify-items: center; gap: 3px; padding: 8px 4px; color: var(--vl-plum); font-size: 11px; line-height: 1.25; text-align: center; }
+	.vl-lp .vl-facts li + li { border-left: var(--vl-line); }
+	.vl-lp .vl-facts svg { width: 18px; height: 18px; color: var(--vl-rose); }
+
+	.vl-lp .vl-pricing { display: grid; grid-template-columns: 1.15fr 0.85fr; overflow: hidden; border: var(--vl-line); border-radius: var(--vl-radius); background: var(--vl-surface); }
+	.vl-lp .vl-pricing__cell { padding: 8px 12px 9px; }
+	.vl-lp .vl-pricing__cell + .vl-pricing__cell { border-left: var(--vl-line); }
 	.vl-lp .vl-pricing__cell--best { background: var(--vl-blush); }
-	.vl-lp .vl-pricing dt { margin-bottom: 2px; color: var(--vl-muted); font-size: 10px; text-transform: uppercase; letter-spacing: .8px; }
-	.vl-lp .vl-pricing dd { color: var(--vl-plum); font-size: 21px; line-height: 1.02; }
-	.vl-lp .vl-pricing dd span { font-size: 11px; }
-	.vl-lp .vl-pricing dd small { display: block; margin-top: 3px; color: var(--vl-plum-soft); font-size: 10px; }
-	.vl-lp .vl-hero__trust { color: var(--vl-muted); font-size: 11px; text-align: center; }
-	.vl-lp .vl-hero .vl-cta { min-height: 46px; padding-block: 10px; }
-	.vl-lp .vl-hero__trust span { color: var(--vl-rose); }
+	.vl-lp .vl-pricing dt { margin-bottom: 2px; color: var(--vl-muted); font-size: 10px; letter-spacing: 0.8px; text-transform: uppercase; }
+	.vl-lp .vl-pricing dd { font-family: var(--vl-serif); color: var(--vl-plum); font-size: 23px; line-height: 1; }
+	.vl-lp .vl-pricing dd span { font-family: var(--vl-sans); font-size: 11px; }
+	.vl-lp .vl-pricing dd small { display: block; margin-top: 4px; font-family: var(--vl-sans); color: var(--vl-plum-soft); font-size: 11px; }
+	.vl-lp .vl-hero__trust { color: var(--vl-muted); font-size: 12px; text-align: center; }
+	.vl-lp .vl-hero__trust span, .vl-lp .vl-close__whatsapp span { color: var(--vl-rose); }
 
-	.vl-lp .vl-cta { position: relative; display: inline-flex; min-height: 56px; width: 100%; align-items: center; justify-content: center; overflow: hidden; padding: 13px 24px 13px 44px; border: 1px solid var(--vl-plum); border-radius: 999px; background: var(--vl-plum); color: #fff; cursor: pointer; text-align: center; transition: transform .2s ease, background .2s ease; }
-	.vl-lp .vl-cta:hover { background: var(--vl-plum-soft); transform: translateY(-2px); }
-	.vl-lp .vl-cta::before { content: ''; position: absolute; left: 20px; top: 8px; width: 9px; height: 12px; border-radius: 70% 45% 65% 45%; background: var(--vl-blush); opacity: 0; transform: translateY(-8px) rotate(45deg) scale(.7); }
-	.vl-lp .vl-cta.is-inview::before { animation: vl-drop 4.4s ease-in-out infinite; }
-	.vl-lp .vl-cta__label { position: relative; z-index: 1; line-height: 1.15; }
-	.vl-lp .vl-cta--light { border-color: var(--vl-cream); background: var(--vl-cream); color: var(--vl-plum); }
-	.vl-lp .vl-cta--light:hover { background: #fff; }
-	.vl-lp .vl-cta--light::before { background: var(--vl-rose); }
-	.vl-lp .vl-cta--secondary { border-color: var(--vl-plum); background: transparent; color: var(--vl-plum); }
-	.vl-lp .vl-cta--secondary:hover { background: var(--vl-mist); }
-	.vl-lp .vl-cta--secondary::before { background: var(--vl-rose); }
-	.vl-lp .vl-cta--sm { min-height: 48px; padding: 10px 18px 10px 38px; font-size: 14px; }
+	/* ---------- CTA: la onda en el agua ----------
+	   Una gota cae en el vaso y dos ondas concéntricas (::before y ::after del
+	   botón) se abren desde el centro de la píldora, a destiempo, hasta
+	   desvanecerse; al pasar el dedo o el ratón, el agua sube (::before de la
+	   etiqueta). Solo transform y opacity; arranca pausado y el JS lo sirve con
+	   .is-inview. */
+	.vl-lp .vl-cta {
+		--vl-ring: rgba(234, 216, 212, 0.8);
+		--vl-rise: var(--vl-plum-soft);
+		position: relative;
+		isolation: isolate;
+		overflow: hidden;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		min-height: 56px;
+		padding: 14px 24px;
+		border: 1px solid var(--vl-plum);
+		border-radius: 999px;
+		background: var(--vl-plum);
+		color: var(--vl-cream);
+		font-size: 17px;
+		line-height: 1.2;
+		text-align: center;
+		cursor: pointer;
+		-webkit-appearance: none;
+		appearance: none;
+		-webkit-tap-highlight-color: transparent;
+		transition: transform 0.18s ease;
+	}
+	.vl-lp .vl-cta:active { transform: scale(0.985); }
+	.vl-lp .vl-cta::before, .vl-lp .vl-cta::after { content: ''; position: absolute; z-index: -1; top: 50%; left: 50%; width: 200px; height: 200px; margin: -100px 0 0 -100px; border: 1.5px solid var(--vl-ring); border-radius: 50%; opacity: 0; transform: scale(0.1); animation: vl-ripple 4.4s ease-out infinite; animation-play-state: paused; pointer-events: none; will-change: transform, opacity; }
+	.vl-lp .vl-cta::after { animation-delay: -2.2s; }
+	.vl-lp .vl-cta.is-inview::before, .vl-lp .vl-cta.is-inview::after { animation-play-state: running; }
+	.vl-lp .vl-cta__label { position: static; display: inline-block; }
+	.vl-lp .vl-cta__label::before { content: ''; position: absolute; z-index: -2; inset: 0; background: var(--vl-rise); transform: translateY(101%); transition: transform 0.34s cubic-bezier(0.2, 0.8, 0.2, 1); }
+	.vl-lp .vl-cta:hover .vl-cta__label::before, .vl-lp .vl-cta:focus-visible .vl-cta__label::before { transform: translateY(0); }
+	.vl-lp .vl-cta:active .vl-cta__label::before { transform: translateY(0); transition-duration: 0.12s; }
+	.vl-lp .vl-cta--light { --vl-ring: rgba(169, 111, 105, 0.55); --vl-rise: var(--vl-blush); border-color: var(--vl-cream); background: var(--vl-cream); color: var(--vl-plum); }
+	.vl-lp .vl-cta--secondary { --vl-ring: rgba(169, 111, 105, 0.5); --vl-rise: var(--vl-blush); background: var(--vl-surface); color: var(--vl-plum); }
+	.vl-lp .vl-cta--sm { min-height: 48px; padding: 10px 18px; font-size: 15px; }
+	.vl-lp .vl-cta-row { display: grid; gap: 10px; max-width: 460px; margin: 22px auto 0; }
 
-	.vl-lp .vl-seals { border-top: 1px solid var(--vl-border); border-bottom: 1px solid var(--vl-border); background: var(--vl-surface); }
-	.vl-lp .vl-seals__list { display: grid; grid-template-columns: 1fr 1fr; list-style: none; }
-	.vl-lp .vl-seals__list li { display: grid; min-height: 92px; place-items: center; align-content: center; gap: 7px; padding: 14px 8px; color: var(--vl-plum); text-align: center; }
-	.vl-lp .vl-seals__list li:nth-child(odd) { border-right: 1px solid var(--vl-border); }
-	.vl-lp .vl-seals__list li:nth-child(-n+2) { border-bottom: 1px solid var(--vl-border); }
-	.vl-lp .vl-seals__list svg { width: 26px; height: 26px; }
-	.vl-lp .vl-seals__list span { max-width: 145px; font-size: 12px; line-height: 1.25; }
+	@keyframes vl-marquee { to { transform: translateX(-50%); } }
+	@keyframes vl-ripple {
+		0% { opacity: 0.9; transform: scale(0.1); }
+		62% { opacity: 0; transform: scale(1.15); }
+		100% { opacity: 0; transform: scale(1.15); }
+	}
+	@keyframes vl-breathe {
+		from { opacity: 0.7; transform: translate(-50%, -50%) scale(0.94); }
+		to { opacity: 1; transform: translate(-50%, -50%) scale(1.06); }
+	}
 
-	.vl-lp .vl-people { padding: 42px 0 22px; }
-	.vl-lp .vl-people__track { display: flex; gap: 12px; overflow-x: auto; padding: 0 max(16px, calc((100vw - var(--vl-shell)) / 2)) 18px; scroll-snap-type: x mandatory; scrollbar-width: none; }
+	/* ---------- Tira de personas, escalonada ---------- */
+	.vl-lp .vl-people { padding: 18px 0 10px; }
+	.vl-lp .vl-people .vl-overline { margin-bottom: 10px; }
+	.vl-lp .vl-people__track { display: flex; gap: 10px; overflow-x: auto; padding: 0 max(16px, calc((100vw - var(--vl-shell)) / 2)) 26px; scroll-snap-type: x mandatory; scrollbar-width: none; }
 	.vl-lp .vl-people__track::-webkit-scrollbar { display: none; }
-	.vl-lp .vl-people__item { position: relative; flex: 0 0 58vw; max-width: 250px; height: 260px; overflow: hidden; border: 1px solid var(--vl-border); border-radius: var(--vl-radius); background: var(--vl-surface); scroll-snap-align: start; }
-	.vl-lp .vl-people__item img { width: 100%; height: 100%; object-fit: cover; object-position: center 28%; }
-	.vl-lp .vl-people__item figcaption { position: absolute; right: 10px; bottom: 10px; left: 10px; padding: 7px 10px; border-radius: 999px; background: rgba(66,43,47,.88); color: #fff; font-size: 12px; text-align: center; }
+	.vl-lp .vl-people__item { flex: 0 0 56vw; max-width: 240px; aspect-ratio: 4 / 5; overflow: hidden; border: var(--vl-line); border-radius: var(--vl-radius); background: var(--vl-surface); scroll-snap-align: start; }
+	.vl-lp .vl-people__item:nth-child(even) { transform: translateY(14px); }
+	.vl-lp .vl-people__item img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; }
 
-	.vl-lp .vl-split, .vl-lp .vl-use, .vl-lp .vl-receive { display: grid; gap: 30px; align-items: center; }
-	.vl-lp .vl-split__content, .vl-lp .vl-use__content, .vl-lp .vl-receive__content { display: grid; gap: 20px; }
-	.vl-lp .vl-split__media, .vl-lp .vl-use__media, .vl-lp .vl-receive__media { height: 310px; overflow: hidden; border: 1px solid var(--vl-border); border-radius: var(--vl-radius); background: var(--vl-surface); }
-	.vl-lp .vl-split__media img, .vl-lp .vl-use__media img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
-	.vl-lp .vl-receive__media { height: auto; aspect-ratio: 4 / 5; }
-	.vl-lp .vl-receive__media img { width: 100%; height: 100%; border-radius: inherit; object-fit: cover; object-position: center; }
-	.vl-lp .vl-features { position: relative; display: grid; gap: 6px; }
-	.vl-lp .vl-features::before { content: ''; position: absolute; top: 36px; bottom: 36px; left: 25px; width: 1px; background: var(--vl-border); }
-	.vl-lp .vl-feature { position: relative; display: grid; grid-template-columns: 52px 1fr; gap: 13px; padding: 13px 12px 13px 0; border: 1px solid transparent; border-radius: 12px; }
-	.vl-lp .vl-feature.is-active { border-color: var(--vl-border); background: rgba(234,216,212,.42); }
-	.vl-lp .vl-icon-button { position: relative; z-index: 1; display: grid; width: 50px; height: 50px; place-items: center; padding: 0; border: 1px solid var(--vl-rose); border-radius: 50%; background: var(--vl-cream); color: var(--vl-plum); cursor: pointer; transition: transform .22s ease, opacity .22s ease; }
+	/* ---------- Una pausa en gotas: el atenuador ---------- */
+	.vl-lp .vl-mechanism__grid { display: grid; gap: 22px; }
+	.vl-lp .vl-mechanism__content { display: grid; gap: 14px; align-content: start; }
+	.vl-lp .vl-mechanism__content .vl-overline { margin-bottom: 0; }
+	.vl-lp .vl-mechanism__content .vl-h2 + .vl-lead { margin-top: 0; }
+	.vl-lp .vl-mechanism__media { overflow: hidden; border: var(--vl-line); border-radius: var(--vl-radius); background: var(--vl-surface); }
+	/* Un riel que se apaga de la crema a la ciruela; cada paso cuelga de él con su color */
+	.vl-lp .vl-dimmer { position: relative; display: grid; gap: 12px; margin-top: 8px; padding-left: 22px; }
+	.vl-lp .vl-dimmer::before { content: ''; position: absolute; top: 12px; bottom: 12px; left: 5px; width: 4px; border-radius: 999px; background: linear-gradient(180deg, var(--vl-blush) 0%, var(--vl-rose) 50%, var(--vl-plum) 100%); }
+	.vl-lp .vl-dim { position: relative; display: grid; gap: 6px; padding: 14px 14px 16px; border: var(--vl-line); border-radius: var(--vl-radius); background: var(--vl-surface); transition: transform 0.25s ease; }
+	.vl-lp .vl-dim::before { content: ''; position: absolute; top: 22px; left: -22px; width: 12px; height: 12px; border: 2px solid var(--vl-cream); border-radius: 50%; background: var(--vl-blush); box-shadow: 0 0 0 1px var(--vl-border); }
+	.vl-lp .vl-dim--2 { border-color: var(--vl-blush); background: var(--vl-blush); }
+	.vl-lp .vl-dim--2::before { background: var(--vl-rose); }
+	.vl-lp .vl-dim--3 { border-color: var(--vl-plum); background: var(--vl-plum); color: var(--vl-cream); }
+	.vl-lp .vl-dim--3::before { background: var(--vl-plum); }
+	.vl-lp .vl-dim__head { display: flex; align-items: center; gap: 10px; }
+	.vl-lp .vl-dim__head .vl-icon-button { margin-left: auto; }
+	.vl-lp .vl-dim__index { min-width: 22px; font-family: var(--vl-serif); color: var(--vl-rose); font-size: 30px; line-height: 1; }
+	.vl-lp .vl-dim__tag { color: var(--vl-muted); font-size: 11px; letter-spacing: 1px; white-space: nowrap; text-transform: uppercase; }
+	.vl-lp .vl-dim h3 { font-size: 22px; line-height: 1.15; }
+	.vl-lp .vl-dim p { color: var(--vl-muted); font-size: 15px; line-height: 1.45; }
+	.vl-lp .vl-dim--3 h3 { color: var(--vl-cream); }
+	.vl-lp .vl-dim--3 .vl-dim__index { color: var(--vl-lime); }
+	.vl-lp .vl-dim--3 .vl-dim__tag, .vl-lp .vl-dim--3 p { color: rgba(255, 251, 247, 0.78); }
+	.vl-lp .vl-dim--3 .vl-icon-button { border-color: rgba(255, 251, 247, 0.4); background: transparent; color: var(--vl-lime); }
+	.vl-lp .vl-dim--3 .vl-icon-button[aria-pressed='true'] { background: var(--vl-lime); border-color: var(--vl-lime); color: var(--vl-plum); }
+
+	.vl-lp .vl-icon-button { display: grid; flex: none; width: 40px; height: 40px; place-items: center; padding: 0; border: 1px solid var(--vl-rose); border-radius: 50%; background: var(--vl-surface); color: var(--vl-plum); cursor: pointer; transition: transform 0.22s ease; }
 	.vl-lp .vl-icon-button:hover, .vl-lp .vl-icon-button:focus-visible { transform: scale(1.06); }
-	.vl-lp .vl-icon-button[aria-pressed='true'] { background: var(--vl-plum); color: var(--vl-cream); transform: scale(1.08) rotate(-3deg); }
-	.vl-lp .vl-icon-button svg { width: 27px; height: 27px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-	.vl-lp .vl-feature__step, .vl-lp .vl-step__number { margin-bottom: 2px; color: var(--vl-rose); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; }
-	.vl-lp .vl-feature h3 { margin-bottom: 4px; color: var(--vl-plum); font-size: 22px; font-weight: 400; }
-	.vl-lp .vl-feature p { color: var(--vl-muted); }
-	.vl-lp .vl-feature strong { color: var(--vl-plum); font-weight: 400; }
+	.vl-lp .vl-icon-button[aria-pressed='true'] { background: var(--vl-plum); border-color: var(--vl-plum); color: var(--vl-blush); transform: scale(1.08) rotate(-4deg); }
+	.vl-lp .vl-icon-button svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 
-	.vl-lp .vl-section--night .vl-overline { color: var(--vl-lime); }
-	.vl-lp .vl-section--night .vl-h2 { color: var(--vl-cream); }
-	.vl-lp .vl-night-grid { display: grid; gap: 12px; margin-top: 30px; }
-	.vl-lp .vl-night-card { padding: 18px; border: 1px solid rgba(255,255,255,.2); border-radius: var(--vl-radius); background: rgba(255,255,255,.05); opacity: 1; transform: none; }
-	.vl-lp .vl-night-card.is-active { border-color: var(--vl-lime); background: rgba(255,255,255,.09); }
-	.vl-lp .vl-night-card__head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-	.vl-lp .vl-night-card__head > span { color: var(--vl-lime); font-size: 18px; }
-	.vl-lp .vl-night-card .vl-icon-button { border-color: rgba(255,255,255,.35); background: transparent; color: var(--vl-lime); }
-	.vl-lp .vl-night-card .vl-icon-button[aria-pressed='true'] { background: var(--vl-lime); color: var(--vl-plum); }
-	.vl-lp .vl-night-card h3 { margin-bottom: 8px; color: #fff; font-size: 24px; font-weight: 400; line-height: 1.1; }
-	.vl-lp .vl-night-card p { color: rgba(255,251,247,.78); }
-	.vl-lp .vl-night__close { margin-top: 28px; color: var(--vl-blush); font-size: 27px; }
+	/* ---------- Si la noche se siente larga: pensamientos en zigzag ---------- */
+	.vl-lp .vl-night { background:
+		radial-gradient(circle at 12% 18%, rgba(234, 216, 212, 0.55) 0 1px, transparent 1.8px),
+		radial-gradient(circle at 82% 10%, rgba(234, 216, 212, 0.6) 0 1.2px, transparent 2px),
+		radial-gradient(circle at 70% 82%, rgba(220, 228, 189, 0.5) 0 1px, transparent 1.8px),
+		radial-gradient(circle at 24% 88%, rgba(234, 216, 212, 0.4) 0 0.9px, transparent 1.6px),
+		radial-gradient(circle at 92% 46%, rgba(234, 216, 212, 0.45) 0 0.9px, transparent 1.6px),
+		var(--vl-plum); }
+	.vl-lp .vl-night .vl-overline { color: var(--vl-lime); }
+	.vl-lp .vl-night .vl-h2 { color: var(--vl-cream); }
+	.vl-lp .vl-thoughts { display: grid; gap: 12px; margin-top: 22px; }
+	.vl-lp .vl-thought { display: grid; gap: 8px; padding: 14px 16px 16px; border: 1px solid rgba(255, 251, 247, 0.18); border-radius: var(--vl-radius); background: rgba(255, 251, 247, 0.06); transition: transform 0.25s ease; }
+	.vl-lp .vl-thought:nth-child(odd) { margin-right: 26px; }
+	.vl-lp .vl-thought:nth-child(even) { margin-left: 26px; }
+	.vl-lp .vl-thought.is-active { border-color: var(--vl-lime); background: rgba(255, 251, 247, 0.1); }
+	.vl-lp .vl-thought__head { display: flex; align-items: center; gap: 10px; }
+	.vl-lp .vl-thought__head .vl-icon-button { margin-left: auto; border-color: rgba(255, 251, 247, 0.4); background: transparent; color: var(--vl-lime); }
+	.vl-lp .vl-thought__head .vl-icon-button[aria-pressed='true'] { background: var(--vl-lime); border-color: var(--vl-lime); color: var(--vl-plum); }
+	.vl-lp .vl-thought__index { min-width: 22px; font-family: var(--vl-serif); color: var(--vl-lime); font-size: 30px; line-height: 1; }
+	.vl-lp .vl-thought h3 { color: var(--vl-cream); font-size: 20px; line-height: 1.15; }
+	.vl-lp .vl-thought p { color: rgba(255, 251, 247, 0.78); font-size: 15px; line-height: 1.45; }
+	.vl-lp .vl-night__close { display: flex; align-items: center; gap: 12px; margin-top: 22px; padding: 14px 16px; border: 1px solid rgba(220, 228, 189, 0.5); border-radius: 999px; color: var(--vl-blush); font-family: var(--vl-serif); font-size: 20px; line-height: 1.25; }
+	.vl-lp .vl-night__close svg { flex: none; width: 24px; height: 24px; color: var(--vl-lime); }
 
-	.vl-lp .vl-steps { position: relative; display: grid; gap: 7px; list-style: none; }
-	.vl-lp .vl-steps::before { content: ''; position: absolute; top: 38px; bottom: 38px; left: 25px; width: 1px; background: var(--vl-border); }
-	.vl-lp .vl-steps li { position: relative; display: grid; grid-template-columns: 52px 1fr; gap: 14px; padding: 14px 12px 14px 0; border: 1px solid transparent; border-radius: 12px; }
-	.vl-lp .vl-steps li.is-active { border-color: var(--vl-border); background: var(--vl-surface); }
-	.vl-lp .vl-steps h3 { color: var(--vl-plum); font-size: 23px; font-weight: 400; }
-	.vl-lp .vl-steps p { color: var(--vl-muted); }
-	.vl-lp .vl-disclaimer { padding: 15px; border-left: 3px solid var(--vl-rose); background: var(--vl-surface); color: var(--vl-muted); font-size: 13px; }
+	/* ---------- Úsala con calma: tres gotas ---------- */
+	.vl-lp .vl-use__grid { display: grid; gap: 22px; }
+	.vl-lp .vl-use__content { display: grid; gap: 14px; align-content: start; }
+	.vl-lp .vl-use__content .vl-overline { margin-bottom: 0; }
+	.vl-lp .vl-use__media { overflow: hidden; aspect-ratio: 4 / 5; max-width: 440px; border: var(--vl-line); border-radius: var(--vl-radius); background: var(--vl-surface); }
+	.vl-lp .vl-use__media img { width: 100%; height: 100%; object-fit: cover; }
+	/* La tira arranca alineada con el título y las tarjetas comparten alto */
+	.vl-lp .vl-drops { display: flex; align-items: stretch; gap: 12px; margin-top: 6px; padding: 0 0 10px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: 0; scrollbar-width: none; }
+	.vl-lp .vl-drops::-webkit-scrollbar { display: none; }
+	.vl-lp .vl-drop { display: grid; flex: 0 0 76%; max-width: 300px; align-content: start; gap: 8px; padding: 14px 14px 16px; border: var(--vl-line); border-radius: var(--vl-radius); background: var(--vl-surface); scroll-snap-align: start; transition: transform 0.25s ease; }
+	.vl-lp .vl-drop.is-active { border-color: var(--vl-rose); }
+	.vl-lp .vl-drop__head { display: flex; align-items: center; gap: 10px; }
+	.vl-lp .vl-drop__head .vl-icon-button { margin-left: auto; }
+	/* El numeral dentro de una gota ámbar */
+	.vl-lp .vl-drop__badge { display: grid; flex: none; width: 34px; height: 34px; place-items: center; border-radius: 50% 50% 50% 0; background: var(--vl-amber); color: var(--vl-cream); transform: rotate(-45deg); }
+	.vl-lp .vl-drop__badge b { font-family: var(--vl-serif); font-size: 18px; font-weight: 400; transform: rotate(45deg); }
+	.vl-lp .vl-drop h3 { font-size: 21px; line-height: 1.15; }
+	.vl-lp .vl-drop p { color: var(--vl-muted); font-size: 15px; line-height: 1.45; }
+	/* La dosis: de 20 a 40 gotas, cada punto es una gota */
+	.vl-lp .vl-dose { display: flex; align-items: center; gap: 8px; margin-top: 4px; padding-top: 10px; border-top: var(--vl-line); }
+	.vl-lp .vl-dose__num { font-family: var(--vl-serif); color: var(--vl-plum); font-size: 20px; line-height: 1; }
+	.vl-lp .vl-dose__seg { display: block; flex: 1; height: 8px; background: radial-gradient(circle at 4px 4px, var(--vl-plum) 0 2px, transparent 2.6px) 0 0 / 8px 8px repeat-x; }
+	.vl-lp .vl-dose__seg--b { background-image: radial-gradient(circle at 4px 4px, var(--vl-rose) 0 2px, transparent 2.6px); }
+	.vl-lp .vl-dose__unit { color: var(--vl-muted); font-size: 11px; letter-spacing: 0.8px; text-transform: uppercase; }
+	.vl-lp .vl-disclaimer { padding: 12px 14px; border-left: 3px solid var(--vl-rose); border-radius: 0 var(--vl-radius-sm) var(--vl-radius-sm) 0; background: var(--vl-surface); color: var(--vl-muted); font-size: 13px; }
 
-	.vl-lp .vl-plans { display: grid; gap: 14px; margin-top: 30px; }
-	.vl-lp .vl-plan { display: grid; gap: 12px; padding: 24px; border: 1px solid var(--vl-border); border-radius: var(--vl-radius); background: var(--vl-surface); }
-	.vl-lp .vl-plan--best { border-color: var(--vl-plum); background: var(--vl-plum); color: var(--vl-cream); }
-	.vl-lp .vl-plan__badge, .vl-lp .vl-plan__eyebrow { width: fit-content; padding: 5px 9px; border-radius: 999px; background: var(--vl-lime); color: var(--vl-plum); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
-	.vl-lp .vl-plan__eyebrow { background: var(--vl-mist); }
-	.vl-lp .vl-plan h3 { font-size: 30px; font-weight: 400; }
-	.vl-lp .vl-plan__price { font-size: 42px; line-height: 1; }
-	.vl-lp .vl-plan__price span { font-size: 12px; }
-	.vl-lp .vl-plan__saving { color: var(--vl-lime); }
-	.vl-lp .vl-plan:not(.vl-plan--best) .vl-plan__saving { color: var(--vl-plum-soft); }
-	.vl-lp .vl-plan:not(.vl-plan--best) p { color: var(--vl-muted); }
-	.vl-lp .vl-center-note { margin-top: 16px; color: var(--vl-muted); font-size: 13px; text-align: center; }
+	/* ---------- Oferta ---------- */
+	.vl-lp .vl-plans { display: grid; gap: 14px; margin-top: 22px; }
+	.vl-lp .vl-plan { display: grid; gap: 12px; padding: 24px 22px; border: var(--vl-line); border-radius: var(--vl-radius); background: var(--vl-surface); }
+	.vl-lp .vl-plan.vl-plan--best { border-color: var(--vl-plum); background: var(--vl-plum); color: var(--vl-cream); }
+	.vl-lp .vl-plan__badge, .vl-lp .vl-plan__eyebrow { width: fit-content; padding: 5px 10px; border-radius: 999px; background: var(--vl-lime); color: var(--vl-plum); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
+	.vl-lp .vl-plan__eyebrow { background: var(--vl-mist); color: var(--vl-muted); }
+	.vl-lp .vl-plan__title { font-size: 26px; }
+	.vl-lp .vl-plan--best .vl-plan__title { color: var(--vl-cream); }
+	.vl-lp .vl-plan__price { font-family: var(--vl-serif); font-size: 42px; line-height: 1; color: var(--vl-plum); }
+	.vl-lp .vl-plan--best .vl-plan__price { color: #fff; }
+	.vl-lp .vl-plan__price span { font-family: var(--vl-sans); font-size: 12px; }
+	.vl-lp .vl-plan__perks { display: grid; gap: 6px; color: var(--vl-muted); font-size: 15px; }
+	.vl-lp .vl-plan__perks li { position: relative; padding-left: 18px; }
+	.vl-lp .vl-plan__perks li::before { content: ''; position: absolute; left: 0; top: 9px; width: 8px; height: 8px; border-radius: 50%; background: var(--vl-rose); }
+	.vl-lp .vl-plan--best .vl-plan__perks { color: rgba(255, 251, 247, 0.85); }
+	.vl-lp .vl-plan--best .vl-plan__perks li::before { background: var(--vl-lime); }
+	.vl-lp .vl-plan--best .vl-plan__perks li:first-child { color: var(--vl-lime); }
+	.vl-lp .vl-after { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 16px; color: var(--vl-muted); font-size: 13px; text-align: center; }
+	.vl-lp .vl-after svg { flex: none; width: 18px; height: 18px; color: var(--vl-rose); }
 
-	.vl-lp .vl-checks { display: grid; gap: 0; list-style: none; border-top: 1px solid var(--vl-border); }
-	.vl-lp .vl-checks li { position: relative; padding: 14px 0 14px 30px; border-bottom: 1px solid var(--vl-border); color: var(--vl-muted); }
-	.vl-lp .vl-checks li::before { content: '✓'; position: absolute; left: 0; top: 14px; color: var(--vl-sage); }
-	.vl-lp .vl-checks a { color: var(--vl-plum); text-underline-offset: 3px; }
+	/* ---------- Lo que recibes ---------- */
+	.vl-lp .vl-receive__grid { display: grid; gap: 20px; }
+	.vl-lp .vl-receive__media { overflow: hidden; aspect-ratio: 4 / 5; max-width: 420px; border: var(--vl-line); border-radius: 999px 999px var(--vl-radius) var(--vl-radius); background: var(--vl-mist); }
+	.vl-lp .vl-receive__media img { width: 100%; height: 100%; object-fit: cover; }
+	.vl-lp .vl-receive__content { display: grid; gap: 16px; align-content: start; }
+	.vl-lp .vl-receive__content .vl-overline { margin-bottom: 0; }
+	.vl-lp .vl-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+	.vl-lp .vl-tiles li { display: grid; gap: 8px; padding: 12px; border: var(--vl-line); border-radius: var(--vl-radius-sm); background: var(--vl-cream); color: var(--vl-plum); font-size: 14px; line-height: 1.35; }
+	.vl-lp .vl-tiles a { color: var(--vl-plum); text-underline-offset: 3px; }
+	.vl-lp .vl-tiles__icon { display: grid; width: 36px; height: 36px; place-items: center; border-radius: 50%; background: var(--vl-blush); color: var(--vl-plum); }
+	.vl-lp .vl-tiles__icon svg { width: 19px; height: 19px; }
 	.vl-lp .vl-legal-line { color: var(--vl-muted); font-size: 13px; }
 
-	.vl-lp .vl-sources { display: grid; gap: 10px; margin-top: 30px; }
-	.vl-lp .vl-source { overflow: hidden; border: 1px solid var(--vl-border); border-radius: 10px; background: var(--vl-surface); }
-	.vl-lp .vl-source summary { display: flex; min-height: 58px; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; color: var(--vl-plum); cursor: pointer; list-style: none; }
-	.vl-lp .vl-source summary::-webkit-details-marker { display: none; }
-	.vl-lp .vl-source summary svg { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; transition: transform .2s ease; }
-	.vl-lp .vl-source[open] summary svg { transform: rotate(180deg); }
-	.vl-lp .vl-source p { padding: 0 16px 16px; color: var(--vl-muted); }
-	.vl-lp .vl-category { margin-top: 26px; padding: 20px; border: 1px solid var(--vl-blush); border-radius: var(--vl-radius); background: var(--vl-mist); }
-	.vl-lp .vl-category strong { display: block; margin-bottom: 6px; color: var(--vl-plum); }
-	.vl-lp .vl-category p { color: var(--vl-muted); }
+	/* ---------- Una elección informada: fichas ---------- */
+	.vl-lp .vl-sources__title { margin-top: 20px; color: var(--vl-plum); font-family: var(--vl-serif); font-size: 20px; }
+	.vl-lp .vl-sources { display: grid; gap: 10px; margin-top: 10px; }
+	.vl-lp .vl-source { display: grid; grid-template-columns: 48px 1fr; gap: 12px; align-items: start; padding: 14px; border: var(--vl-line); border-radius: var(--vl-radius-sm); background: var(--vl-surface); }
+	.vl-lp .vl-source__badge { display: grid; width: 48px; height: 48px; place-items: center; border-radius: 50%; background: var(--vl-blush); color: var(--vl-plum); font-family: var(--vl-serif); font-size: 12px; letter-spacing: 0.5px; }
+	.vl-lp .vl-source h3 { margin-bottom: 3px; font-size: 17px; line-height: 1.2; }
+	.vl-lp .vl-source p { color: var(--vl-muted); font-size: 14px; line-height: 1.45; }
+	.vl-lp .vl-category { display: grid; grid-template-columns: 24px 1fr; gap: 12px; margin-top: 18px; padding: 16px; border: 1px solid var(--vl-blush); border-radius: var(--vl-radius); background: var(--vl-mist); }
+	.vl-lp .vl-category svg { width: 24px; height: 24px; color: var(--vl-rose); }
+	.vl-lp .vl-category strong { display: block; margin-bottom: 4px; color: var(--vl-plum); font-weight: 400; }
+	.vl-lp .vl-category p { color: var(--vl-muted); font-size: 14px; }
 
-	.vl-lp .vl-compare { display: grid; gap: 12px; margin-top: 30px; }
-	.vl-lp .vl-compare article { display: grid; align-content: start; padding: 20px; border: 1px solid var(--vl-border); border-radius: var(--vl-radius); background: var(--vl-surface); }
-	.vl-lp .vl-compare article.is-active { border-color: var(--vl-rose); background: rgba(234,216,212,.32); }
-	.vl-lp .vl-compare__icon { margin-bottom: 15px; }
-	.vl-lp .vl-compare__number { color: var(--vl-rose); font-size: 13px; letter-spacing: 1px; }
-	.vl-lp .vl-compare h3 { margin: 9px 0 12px; color: var(--vl-plum); font-size: 24px; font-weight: 400; line-height: 1.1; }
-	.vl-lp .vl-compare p { color: var(--vl-muted); }
-	.vl-lp .vl-compare p + p { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--vl-border); }
-	.vl-lp .vl-compare strong { display: block; color: var(--vl-plum-soft); font-size: 12px; font-weight: 400; letter-spacing: .8px; text-transform: uppercase; }
+	/* ---------- Dónde encaja: la tabla ---------- */
+	.vl-lp .vl-fit { display: grid; gap: 10px; margin-top: 22px; }
+	.vl-lp .vl-fit__legend { display: none; }
+	.vl-lp .vl-fit__row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 14px; border: var(--vl-line); border-radius: var(--vl-radius); background: var(--vl-surface); transition: transform 0.25s ease; }
+	.vl-lp .vl-fit__row.is-active { border-color: var(--vl-rose); background: rgba(234, 216, 212, 0.3); }
+	.vl-lp .vl-fit__name { grid-column: 1 / -1; display: flex; align-items: center; gap: 12px; }
+	.vl-lp .vl-fit__name h3 { font-size: 20px; line-height: 1.15; }
+	.vl-lp .vl-fit__cell { display: grid; align-content: start; gap: 3px; padding: 10px; border-radius: var(--vl-radius-sm); background: var(--vl-mist); }
+	.vl-lp .vl-fit__cell.vl-fit__cell--plus { background: var(--vl-blush); }
+	.vl-lp .vl-fit__cell span { color: var(--vl-plum-soft); font-size: 10px; letter-spacing: 0.8px; text-transform: uppercase; }
+	.vl-lp .vl-fit__cell p { color: var(--vl-ink); font-size: 14px; line-height: 1.4; }
 
+	/* ---------- Garantía ---------- */
 	.vl-lp .vl-guarantee { background: var(--vl-blush); }
-	.vl-lp .vl-guarantee__grid { display: grid; gap: 26px; }
-	.vl-lp .vl-guarantee__grid > div:first-child > p:last-child { margin-top: 18px; color: var(--vl-muted); }
-	.vl-lp .vl-guarantee__options { display: grid; gap: 12px; }
-	.vl-lp .vl-guarantee__options article { padding: 20px; border: 1px solid rgba(66,43,47,.2); border-radius: var(--vl-radius); background: rgba(255,255,255,.55); }
-	.vl-lp .vl-guarantee__options span { color: var(--vl-rose); font-size: 18px; }
-	.vl-lp .vl-guarantee__options h3 { margin: 12px 0 5px; color: var(--vl-plum); font-size: 24px; font-weight: 400; }
-	.vl-lp .vl-guarantee__options p { color: var(--vl-muted); }
-	.vl-lp .vl-guarantee__contact { padding-top: 18px; border-top: 1px solid rgba(66,43,47,.18); color: var(--vl-muted); }
+	.vl-lp .vl-guarantee__inner { display: grid; gap: 12px; }
+	.vl-lp .vl-guarantee__inner .vl-overline { margin-bottom: 0; color: var(--vl-plum-soft); }
+	.vl-lp .vl-guarantee__seal { display: grid; width: 52px; height: 52px; place-items: center; border-radius: 50%; background: var(--vl-plum); color: var(--vl-lime); outline: 1px solid var(--vl-rose); outline-offset: 3px; }
+	.vl-lp .vl-guarantee__seal svg { width: 26px; height: 26px; }
+	.vl-lp .vl-guarantee__lead { color: var(--vl-muted); }
+	.vl-lp .vl-guarantee__options { display: grid; gap: 10px; margin-top: 4px; }
+	.vl-lp .vl-guarantee__options li { display: grid; gap: 4px; padding: 14px; border: 1px solid rgba(66, 43, 47, 0.18); border-radius: var(--vl-radius); background: rgba(255, 251, 247, 0.75); }
+	.vl-lp .vl-guarantee__head { display: flex; align-items: center; gap: 10px; }
+	.vl-lp .vl-guarantee__index { min-width: 22px; font-family: var(--vl-serif); color: var(--vl-rose); font-size: 28px; line-height: 1; }
+	.vl-lp .vl-guarantee__head h3 { font-size: 20px; line-height: 1.15; }
+	.vl-lp .vl-guarantee__icon { display: grid; flex: none; width: 40px; height: 40px; place-items: center; margin-left: auto; border: 1px solid var(--vl-rose); border-radius: 50%; color: var(--vl-plum); }
+	.vl-lp .vl-guarantee__icon svg { width: 20px; height: 20px; }
+	.vl-lp .vl-guarantee__options p { color: var(--vl-muted); font-size: 15px; }
+	.vl-lp .vl-guarantee__contact { padding-top: 12px; border-top: 1px solid rgba(66, 43, 47, 0.18); color: var(--vl-muted); font-size: 14px; }
 	.vl-lp .vl-guarantee__contact a { color: var(--vl-plum); }
 
-	.vl-lp .vl-faq { display: grid; gap: 10px; margin-top: 28px; }
-	.vl-lp .vl-faq details { border-bottom: 1px solid var(--vl-border); }
-	.vl-lp .vl-faq summary { position: relative; padding: 18px 38px 18px 0; color: var(--vl-plum); cursor: pointer; list-style: none; }
+	/* ---------- FAQ ---------- */
+	.vl-lp .vl-faq { margin-top: 8px; }
+	.vl-lp .vl-faq details { border-bottom: var(--vl-line); }
+	.vl-lp .vl-faq summary { position: relative; padding: 16px 40px 16px 0; color: var(--vl-plum); font-size: 17px; cursor: pointer; list-style: none; }
 	.vl-lp .vl-faq summary::-webkit-details-marker { display: none; }
-	.vl-lp .vl-faq summary::after { content: '+'; position: absolute; right: 4px; top: 50%; color: var(--vl-rose); font-size: 28px; transform: translateY(-50%); transition: transform .2s ease; }
+	.vl-lp .vl-faq summary::after { content: '+'; position: absolute; right: 4px; top: 50%; color: var(--vl-rose); font-size: 28px; line-height: 1; transform: translateY(-50%); transition: transform 0.2s ease; }
 	.vl-lp .vl-faq details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
-	.vl-lp .vl-faq details p { padding: 0 38px 18px 0; color: var(--vl-muted); }
+	.vl-lp .vl-faq details p { padding: 0 40px 16px 0; color: var(--vl-muted); }
 
+	/* ---------- Cierre: la luna ---------- */
 	.vl-lp .vl-close { background: var(--vl-plum); color: var(--vl-cream); }
 	.vl-lp .vl-close__grid { display: grid; gap: 34px; align-items: center; }
 	.vl-lp .vl-close .vl-overline { color: var(--vl-lime); }
 	.vl-lp .vl-close .vl-h2 { color: var(--vl-cream); }
-	.vl-lp .vl-close__content { display: grid; gap: 20px; }
-	.vl-lp .vl-close__lead { color: var(--vl-blush); font-size: 25px; }
-	.vl-lp .vl-close__lines { display: grid; gap: 7px; list-style: none; color: rgba(255,251,247,.8); }
-	.vl-lp .vl-close__prices { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid rgba(255,255,255,.2); border-bottom: 1px solid rgba(255,255,255,.2); }
-	.vl-lp .vl-close__prices > div { padding: 16px 8px 16px 0; }
-	.vl-lp .vl-close__prices > div + div { padding-left: 12px; border-left: 1px solid rgba(255,255,255,.2); }
-	.vl-lp .vl-close__prices dt { color: var(--vl-blush); font-size: 11px; letter-spacing: .8px; text-transform: uppercase; }
-	.vl-lp .vl-close__prices dd { margin-top: 5px; color: #fff; font-size: 25px; }
-	.vl-lp .vl-close__prices dd span { font-size: 10px; }
-	.vl-lp .vl-close__prices dd small { display: block; color: var(--vl-lime); font-size: 11px; }
-	.vl-lp .vl-close__actions { display: grid; gap: 14px; }
-	.vl-lp .vl-close__whatsapp { color: var(--vl-cream); font-size: 13px; text-align: center; text-underline-offset: 4px; }
-	.vl-lp .vl-collage { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; transform: rotate(1.5deg); }
-	.vl-lp .vl-collage img { width: 100%; height: 190px; object-fit: cover; object-position: center 28%; border: 5px solid #fff; }
-	.vl-lp .vl-collage img:nth-child(odd) { transform: rotate(-2deg); }
-	.vl-lp .vl-collage img:nth-child(even) { transform: rotate(2deg); }
+	.vl-lp .vl-close__content { display: grid; gap: 16px; }
+	.vl-lp .vl-close__lead { color: var(--vl-blush); font-family: var(--vl-serif); font-size: 22px; }
+	.vl-lp .vl-close__lines { display: grid; gap: 6px; color: rgba(255, 251, 247, 0.82); }
+	.vl-lp .vl-close__lines li { position: relative; padding-left: 16px; }
+	.vl-lp .vl-close__lines li::before { content: ''; position: absolute; left: 0; top: 9px; width: 7px; height: 7px; border-radius: 50%; background: var(--vl-lime); }
+	.vl-lp .vl-close__prices { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid rgba(255, 251, 247, 0.22); border-bottom: 1px solid rgba(255, 251, 247, 0.22); }
+	.vl-lp .vl-close__prices > div { padding: 14px 8px 14px 0; }
+	.vl-lp .vl-close__prices > div + div { padding-left: 14px; border-left: 1px solid rgba(255, 251, 247, 0.22); }
+	.vl-lp .vl-close__prices dt { color: rgba(255, 251, 247, 0.7); font-size: 11px; letter-spacing: 0.8px; text-transform: uppercase; }
+	.vl-lp .vl-close__prices dd { margin-top: 5px; font-family: var(--vl-serif); color: #fff; font-size: 26px; line-height: 1; }
+	.vl-lp .vl-close__prices dd span { font-family: var(--vl-sans); font-size: 11px; }
+	.vl-lp .vl-close__prices dd small { display: block; margin-top: 4px; font-family: var(--vl-sans); color: var(--vl-lime); font-size: 12px; }
+	.vl-lp .vl-close__actions { display: grid; gap: 12px; }
+	.vl-lp .vl-close__whatsapp { color: rgba(255, 251, 247, 0.85); font-size: 13px; text-align: center; text-underline-offset: 4px; }
+	.vl-lp .vl-moon { position: relative; width: min(100%, 300px); margin: 0 auto; padding: 12px 18px; aspect-ratio: 1; }
+	.vl-lp .vl-moon__main { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; border: 4px solid rgba(255, 251, 247, 0.9); border-radius: 50%; }
+	.vl-lp .vl-moon__small { position: absolute; width: 36%; aspect-ratio: 1; object-fit: cover; object-position: center 20%; border: 3px solid var(--vl-cream); border-radius: 50%; }
+	.vl-lp .vl-moon__small--a { top: 2%; right: 0; }
+	.vl-lp .vl-moon__small--b { bottom: 4%; left: 0; }
 
-	.vl-lp .vl-social { background: var(--vl-cream); }
-	.vl-lp .vl-social__shot { overflow: hidden; aspect-ratio: 55 / 18; border: 1px solid var(--vl-border); border-radius: var(--vl-radius); background: #0c1114; }
-	.vl-lp .vl-social__shot img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
-	.vl-lp .vl-footer { padding: 50px 0 110px; background: #251a1d; color: rgba(255,255,255,.76); font-size: 13px; text-align: center; }
+	.vl-lp .vl-social { padding-top: 36px; }
+	.vl-lp .vl-social__shot { overflow: hidden; aspect-ratio: 1100 / 356; border: var(--vl-line); border-radius: var(--vl-radius); background: #0c1114; }
+	.vl-lp .vl-social__shot img { width: 100%; height: 100%; object-fit: cover; }
+
+	.vl-lp .vl-footer { padding: 44px 0 110px; background: #251a1d; color: rgba(255, 251, 247, 0.76); font-size: 13px; text-align: center; }
 	.vl-lp .vl-footer .vl-shell { display: grid; justify-items: center; gap: 12px; max-width: 720px; }
-	.vl-lp .vl-footer__logo { width: 150px; height: auto; margin-bottom: 10px; }
+	.vl-lp .vl-footer__logo { width: 150px; height: auto; margin-bottom: 8px; }
 	.vl-lp .vl-footer a { color: #fff; }
-	.vl-lp .vl-footer__legal { padding-top: 12px; border-top: 1px solid rgba(255,255,255,.14); }
+	.vl-lp .vl-footer__legal { padding-top: 12px; border-top: 1px solid rgba(255, 251, 247, 0.14); }
 
-	.vl-lp .vl-sticky { position: fixed; right: 0; bottom: 0; left: 0; z-index: 30; padding: 9px 10px calc(9px + env(safe-area-inset-bottom)); background: rgba(255,251,247,.96); border-top: 1px solid var(--vl-border); opacity: 0; pointer-events: none; transform: translateY(110%); transition: transform .25s ease, opacity .25s ease; }
+	/* ---------- Sticky (solo móvil) ---------- */
+	.vl-lp .vl-sticky { position: fixed; right: 0; bottom: 0; left: 0; z-index: 30; padding: 9px 12px calc(9px + env(safe-area-inset-bottom)); border-top: var(--vl-line); background: rgba(255, 251, 247, 0.96); opacity: 0; pointer-events: none; transform: translateY(110%); transition: transform 0.25s ease, opacity 0.25s ease; }
 	.vl-lp .vl-sticky.is-visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
-	.vl-lp .vl-sticky__inner { display: grid; grid-template-columns: 94px 1fr; gap: 9px; align-items: center; max-width: 520px; margin: auto; }
+	.vl-lp .vl-sticky__inner { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: center; max-width: 520px; margin: auto; }
 	.vl-lp .vl-sticky__price { line-height: 1.1; }
-	.vl-lp .vl-sticky__price > strong { display: block; color: var(--vl-plum); font-size: 20px; font-weight: 400; }
-	.vl-lp .vl-sticky__price > span { display: block; margin-top: 3px; color: var(--vl-muted); font-size: 10px; }
-	.vl-lp .vl-sticky__price b { color: var(--vl-plum); font-weight: 400; }
+	.vl-lp .vl-sticky__price strong { display: block; font-family: var(--vl-serif); color: var(--vl-plum); font-size: 20px; font-weight: 400; }
+	.vl-lp .vl-sticky__price span { display: block; margin-top: 3px; color: var(--vl-muted); font-size: 11px; }
 
-	.vl-lp [data-vl-reveal].is-armed > * { opacity: 0; transform: translateY(16px); transition: transform .45s ease, opacity .45s ease; }
+	/* ---------- Aparición al entrar en pantalla ---------- */
+	.vl-lp [data-vl-reveal].is-armed > * { opacity: 0; transform: translateY(16px); transition: transform 0.45s ease, opacity 0.45s ease; }
 	.vl-lp [data-vl-reveal].is-armed.is-inview > * { opacity: 1; transform: translateY(0); }
-	.vl-lp [data-vl-reveal].is-armed.is-inview > *:nth-child(2) { transition-delay: .08s; }
-	.vl-lp [data-vl-reveal].is-armed.is-inview > *:nth-child(3) { transition-delay: .16s; }
-	.vl-lp [data-vl-reveal].is-armed.is-inview > *:nth-child(4) { transition-delay: .24s; }
+	.vl-lp [data-vl-reveal].is-armed.is-inview > *:nth-child(2) { transition-delay: 0.08s; }
+	.vl-lp [data-vl-reveal].is-armed.is-inview > *:nth-child(3) { transition-delay: 0.16s; }
+	.vl-lp [data-vl-reveal].is-armed.is-inview > *:nth-child(4) { transition-delay: 0.24s; }
 
-	@keyframes vl-marquee { to { transform: translateX(-50%); } }
-	@keyframes vl-drop {
-		0%, 70%, 100% { opacity: 0; transform: translateY(-8px) rotate(45deg) scale(.7); }
-		78% { opacity: 1; }
-		90% { opacity: 0; transform: translateY(31px) rotate(45deg) scale(1); }
+	/* ---------- Andamiaje de Releasit y GemPages (fuera del scope, excepción documentada) ----------
+	   La app necesita estos nodos renderizados; se sacan del flujo, nunca display:none.
+	   docs/releasit-form-styling.md §4.4. El flotante naranja se apaga aquí y no en Releasit →
+	   Settings, que es global a la tienda. */
+	gp-product {
+		position: absolute !important;
+		width: 1px !important;
+		height: 1px !important;
+		overflow: hidden !important;
+		clip-path: inset(50%) !important;
+		pointer-events: none !important;
+	}
+	#_rsi-buy-now-button-floating {
+		position: absolute !important;
+		width: 1px !important;
+		height: 1px !important;
+		overflow: hidden !important;
+		clip-path: inset(50%) !important;
+		pointer-events: none !important;
+	}
+
+	/* Móviles estrechos (360×740): el CTA del hero debe seguir en la primera pantalla */
+	@media (max-width: 375px) {
+		.vl-lp .vl-topbar__strip { padding: 5px 0; }
+		.vl-lp .vl-topbar__inner { min-height: 44px; }
+		.vl-lp .vl-hero { padding-top: 8px; }
+		.vl-lp .vl-hero__layout { gap: 10px; }
+		.vl-lp .vl-hero__head { gap: 6px; }
+		.vl-lp .vl-hero__body { gap: 8px; }
+		.vl-lp .vl-h1 { font-size: 29px; }
+		.vl-lp .vl-hero__statement { font-size: 17px; }
+		.vl-lp .vl-hero__lead { font-size: 13px; }
+		.vl-lp .vl-lamp { aspect-ratio: 16 / 10; }
+		.vl-lp .vl-lamp__slide { padding-top: 2%; }
+		.vl-lp .vl-lamp__caption { margin: 4px 0 5px; font-size: 9px; }
+		.vl-lp .vl-chips li { padding: 6px 3px; font-size: 10.5px; }
+		.vl-lp .vl-chips__icon { width: 26px; height: 26px; }
+		.vl-lp .vl-chips__icon svg { width: 15px; height: 15px; }
+		.vl-lp .vl-hero .vl-cta { font-size: 15.5px; padding-inline: 16px; }
+		.vl-lp .vl-thought:nth-child(odd) { margin-right: 16px; }
+		.vl-lp .vl-thought:nth-child(even) { margin-left: 16px; }
 	}
 
 	@media (min-width: 760px) {
-		.vl-lp .vl-section { padding: 88px 0; }
-		.vl-lp .vl-seals__list { grid-template-columns: repeat(4, 1fr); }
-		.vl-lp .vl-seals__list li { border-bottom: 0; }
-		.vl-lp .vl-seals__list li:not(:last-child) { border-right: 1px solid var(--vl-border); }
-		.vl-lp .vl-night-grid { grid-template-columns: 1fr 1fr; }
-		.vl-lp .vl-plans { grid-template-columns: 1.12fr .88fr; align-items: stretch; }
-		.vl-lp .vl-compare { grid-template-columns: repeat(3, 1fr); }
+		.vl-lp { --vl-pad: 64px; }
+		.vl-lp .vl-h1 { font-size: 46px; }
+		.vl-lp .vl-h2 { font-size: 38px; }
+		.vl-lp .vl-hero .vl-overline { font-size: 12px; letter-spacing: 2px; }
+		.vl-lp .vl-chips li { padding: 12px 8px; font-size: 13px; }
+		.vl-lp .vl-chips__icon { width: 36px; height: 36px; }
+		.vl-lp .vl-facts li { font-size: 13px; }
+		.vl-lp .vl-people__item { flex-basis: 30vw; max-width: 260px; }
+		.vl-lp .vl-mechanism__grid, .vl-lp .vl-receive__grid { grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+		.vl-lp .vl-use__grid { grid-template-columns: 0.72fr 1.28fr; gap: 40px; align-items: center; }
+		.vl-lp .vl-dim .vl-icon-button, .vl-lp .vl-drop .vl-icon-button { width: 36px; height: 36px; }
+		.vl-lp .vl-dim .vl-icon-button svg, .vl-lp .vl-drop .vl-icon-button svg { width: 18px; height: 18px; }
+		.vl-lp .vl-dim__index { min-width: 18px; font-size: 26px; }
+		.vl-lp .vl-dim__tag { font-size: 10px; letter-spacing: 0.8px; }
+		.vl-lp .vl-drop h3 { font-size: 19px; }
+		.vl-lp .vl-mechanism__media { order: -1; }
+		/* El riel se tumba: tres pasos en columnas, de la luz a la noche */
+		.vl-lp .vl-dimmer { grid-template-columns: repeat(3, 1fr); gap: 14px; padding: 22px 0 0; }
+		.vl-lp .vl-dimmer::before { top: 4px; right: 0; bottom: auto; left: 0; width: auto; height: 4px; background: linear-gradient(90deg, var(--vl-blush) 0%, var(--vl-rose) 50%, var(--vl-plum) 100%); }
+		.vl-lp .vl-dim::before { top: -22px; left: 14px; }
+		.vl-lp .vl-thoughts { grid-template-columns: 1fr 1fr; gap: 16px; }
+		.vl-lp .vl-thought:nth-child(odd), .vl-lp .vl-thought:nth-child(even) { margin: 0; }
+		.vl-lp .vl-thought:nth-child(even) { transform: translateY(18px); }
+		.vl-lp .vl-night__close { width: fit-content; margin-top: 40px; }
+		.vl-lp .vl-use__media { order: -1; max-width: none; }
+		.vl-lp .vl-drops { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 0; overflow: visible; }
+		.vl-lp .vl-drop { flex: none; max-width: none; }
+		.vl-lp .vl-plans { grid-template-columns: 1.1fr 0.9fr; align-items: stretch; }
+		.vl-lp .vl-receive__media { max-width: 420px; }
+		.vl-lp .vl-sources { grid-template-columns: 1fr 1fr; }
+		.vl-lp .vl-fit__legend { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 10px; padding: 0 14px; color: var(--vl-plum-soft); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
+		.vl-lp .vl-fit__row { grid-template-columns: 1.1fr 1fr 1fr; align-items: center; }
+		.vl-lp .vl-fit__name { grid-column: auto; }
+		.vl-lp .vl-fit__cell span { display: none; }
 		.vl-lp .vl-guarantee__options { grid-template-columns: 1fr 1fr; }
-		.vl-lp .vl-people__item { height: 300px; }
-		.vl-lp .vl-collage img { height: 240px; }
+		.vl-lp .vl-close__grid { grid-template-columns: 1fr 0.8fr; gap: 60px; }
+		.vl-lp .vl-moon { width: min(100%, 360px); }
 	}
 
-	@media (min-width: 900px) {
+	@media (min-width: 1000px) {
 		.vl-lp .vl-topbar__strip { padding: 9px 0; font-size: 12px; }
-		.vl-lp .vl-topbar__inner { min-height: 64px; justify-content: flex-start; }
-		.vl-lp .vl-topbar__logo { width: 138px; }
-		.vl-lp .vl-hero { padding: 24px 0 42px; }
-		.vl-lp .vl-hero__layout { grid-template-columns: minmax(0, 1fr) minmax(0, .92fr); gap: 58px; align-items: center; }
-		.vl-lp .vl-hero__media { margin-inline: 0; overflow: hidden; border: 1px solid var(--vl-border); border-radius: var(--vl-radius); }
-		.vl-lp .vl-hero__slide { height: 500px; }
-		.vl-lp .vl-hero__product-shot { top: 16px; right: 16px; width: 92px; height: 122px; }
-		.vl-lp .vl-hero__content { gap: 14px; }
-		.vl-lp .vl-dots { bottom: 18px; }
-		.vl-lp .vl-h1, .vl-lp .vl-hero .vl-h1 { font-size: 54px; }
-		.vl-lp .vl-h2 { font-size: 50px; }
-		.vl-lp .vl-split, .vl-lp .vl-use, .vl-lp .vl-receive { grid-template-columns: 1fr 1fr; gap: 64px; }
-		.vl-lp .vl-split__media, .vl-lp .vl-use__media { height: 440px; }
-		.vl-lp .vl-split__media { order: -1; }
-		.vl-lp .vl-use__media { order: -1; }
-		.vl-lp .vl-receive__media { width: 100%; max-width: 430px; height: auto; aspect-ratio: 4 / 5; }
-		.vl-lp .vl-guarantee__grid { grid-template-columns: .9fr 1.1fr; }
-		.vl-lp .vl-guarantee__contact { grid-column: 1 / -1; }
-		.vl-lp .vl-close__grid { grid-template-columns: 1fr .82fr; gap: 72px; }
+		.vl-lp .vl-topbar__inner { justify-content: flex-start; min-height: 64px; }
+		.vl-lp .vl-topbar__logo { height: 26px; }
+		.vl-lp .vl-hero { padding: 40px 0 48px; }
+		.vl-lp .vl-hero__layout { grid-template-columns: minmax(0, 1fr) minmax(0, 520px); grid-template-areas: 'head media' 'body media'; column-gap: 56px; row-gap: 22px; align-items: start; }
+		.vl-lp .vl-hero__head { grid-area: head; }
+		.vl-lp .vl-hero .vl-h1 { font-size: 48px; }
+		.vl-lp .vl-hero__statement { font-size: 22px; }
+		.vl-lp .vl-hero__lead { font-size: 17px; line-height: 1.5; }
+		.vl-lp .vl-hero__media { grid-area: media; align-self: center; }
+		.vl-lp .vl-lamp { aspect-ratio: 1; }
+		.vl-lp .vl-lamp__slide { padding-top: 5%; }
+		.vl-lp .vl-lamp__slide img { max-width: 82%; }
+		.vl-lp .vl-lamp__caption { margin: 8px 0 12px; font-size: 11px; }
+		.vl-lp .vl-carousel__arrow--prev { left: 6px; }
+		.vl-lp .vl-carousel__arrow--next { right: 6px; }
+		.vl-lp .vl-hero__body { grid-area: body; gap: 14px; }
+		.vl-lp .vl-hero__body .vl-facts { order: 0; }
+		.vl-lp .vl-hero .vl-cta { max-width: 460px; }
 		.vl-lp .vl-sticky { display: none; }
 		.vl-lp .vl-footer { padding-bottom: 52px; }
 	}
@@ -711,8 +1005,9 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 	@media (prefers-reduced-motion: reduce) {
 		.vl-lp .vl-topbar__track { animation: none; }
 		.vl-lp .vl-topbar__set[aria-hidden] { display: none; }
-		.vl-lp .vl-cta, .vl-lp .vl-cta::before, .vl-lp .vl-carousel__arrow, .vl-lp .vl-dot, .vl-lp .vl-icon-button, .vl-lp .vl-source summary svg, .vl-lp .vl-faq summary::after, .vl-lp .vl-sticky, .vl-lp [data-vl-reveal].is-armed > * { animation: none; transition: none; }
-		.vl-lp .vl-cta::before { display: none; }
+		.vl-lp .vl-lamp::before { animation: none; opacity: 0.9; transform: translate(-50%, -50%); }
+		.vl-lp .vl-cta, .vl-lp .vl-cta__label::before, .vl-lp .vl-icon-button, .vl-lp .vl-dim, .vl-lp .vl-thought, .vl-lp .vl-drop, .vl-lp .vl-fit__row, .vl-lp .vl-carousel__arrow, .vl-lp .vl-faq summary::after, .vl-lp .vl-sticky, .vl-lp [data-vl-reveal].is-armed > * { animation: none; transition: none; }
+		.vl-lp .vl-cta::before, .vl-lp .vl-cta::after { animation: none; opacity: 0; }
 		.vl-lp [data-vl-reveal].is-armed > * { opacity: 1; transform: none; }
 	}
 </style>
@@ -724,42 +1019,53 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 		var ROOT_SELECTOR = '.vl-lp'
 		var READY_FLAG = 'vlLandingReady'
 		var ASSET_BASE = '../assets/'
+		// Solo trazabilidad: el producto lo da la página /products/valeriana1 (ver ../AGENTS.md §1)
+		var PRODUCT_HANDLE = 'valeriana1'
 		var PREPAID_ENABLED = false
-		var PRICES = { prepaid: '$59.900', cod: '$69.900' }
+		var PRICES = { prepaid: '$39.900', cod: '$49.900', saving: '$10.000' }
+		var CTA_LABELS = { neutral: 'Quiero probar Valeriana', prepaid: 'Pagar anticipado y ahorrar ' + PRICES.saving }
+		var SKIN_PAY_ATTRIBUTE = 'data-cf-pay' // atributo histórico que escucha eterma/shared/releasit-form.css
+
+		function isLocalPreview() {
+			var host = window.location.hostname
+			return window.location.protocol === 'file:' || host === '127.0.0.1' || host === 'localhost'
+		}
 
 		function initLocalAssets(root) {
-			var isLocalPreview = window.location.protocol === 'file:' || window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost'
-			if (!isLocalPreview) return
-
-			var images = root.querySelectorAll('img[data-vl-file]')
-			Array.prototype.forEach.call(images, function (image) {
+			if (!isLocalPreview()) return
+			Array.prototype.forEach.call(root.querySelectorAll('img[data-vl-file]'), function (image) {
 				image.removeAttribute('srcset')
 				image.removeAttribute('sizes')
 				image.src = ASSET_BASE + image.getAttribute('data-vl-file')
 			})
 		}
 
+		function slideIndexOf(track) {
+			var maxScroll = track.scrollWidth - track.clientWidth
+			return maxScroll > 0 ? Math.round((track.scrollLeft / maxScroll) * (track.children.length - 1)) : 0
+		}
+
+		function scrollToSlide(track, index, reduceMotion) {
+			var slide = track.children[index]
+			if (!slide) return
+			track.scrollTo({ left: slide.offsetLeft - track.children[0].offsetLeft, behavior: reduceMotion ? 'auto' : 'smooth' })
+		}
+
 		function paintSticky(root, mode) {
 			var price = root.querySelector('[data-vl-sticky-price]')
-			var pre = root.querySelector('[data-vl-sticky-pre]')
-			var alt = root.querySelector('[data-vl-sticky-alt]')
-			var post = root.querySelector('[data-vl-sticky-post]')
+			var sub = root.querySelector('[data-vl-sticky-sub]')
 			var label = root.querySelector('[data-vl-sticky-cta] .vl-cta__label')
+			if (!price || !sub || !label) return
 
 			if (mode === 'prepaid') {
-				if (price) price.textContent = PRICES.prepaid
-				if (pre) pre.textContent = 'anticipado · ahorras '
-				if (alt) alt.textContent = '$10.000'
-				if (post) post.textContent = ''
-				if (label) label.textContent = 'Pagar anticipado y ahorrar $10.000'
+				price.textContent = PRICES.prepaid
+				sub.textContent = 'anticipado · ahorras ' + PRICES.saving
+				label.textContent = CTA_LABELS.prepaid
 				return
 			}
-
-			if (price) price.textContent = PRICES.cod
-			if (pre) pre.textContent = 'o '
-			if (alt) alt.textContent = PRICES.prepaid
-			if (post) post.textContent = ' anticipado'
-			if (label) label.textContent = 'Quiero probar Valeriana'
+			price.textContent = PRICES.cod
+			sub.textContent = 'o ' + PRICES.prepaid + ' anticipado'
+			label.textContent = CTA_LABELS.neutral
 		}
 
 		function initPaymentChoice(root) {
@@ -770,9 +1076,7 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 				button.addEventListener('click', function () {
 					var choice = button.getAttribute('data-vl-pay-choice')
 					if (choice !== 'prepaid' && choice !== 'cod') return
-
-					// La skin compartida de Eterma escucha este atributo histórico.
-					document.documentElement.setAttribute('data-cf-pay', choice)
+					document.documentElement.setAttribute(SKIN_PAY_ATTRIBUTE, choice)
 					paintSticky(root, PREPAID_ENABLED ? choice : 'cod')
 				})
 			})
@@ -785,7 +1089,6 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 			Array.prototype.forEach.call(tracks, function (track) {
 				var host = track.parentNode
 				var slides = track.children
-				var dots = host.querySelectorAll('[data-vl-dot]')
 				var prev = host.querySelector('[data-vl-prev]')
 				var next = host.querySelector('[data-vl-next]')
 				var current = 0
@@ -793,18 +1096,8 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 
 				function paint(index) {
 					current = Math.max(0, Math.min(slides.length - 1, index))
-					Array.prototype.forEach.call(dots, function (dot, dotIndex) {
-						if (dotIndex === current) dot.setAttribute('aria-current', 'true')
-						else dot.removeAttribute('aria-current')
-					})
 					if (prev) prev.disabled = current === 0
 					if (next) next.disabled = current === slides.length - 1
-				}
-
-				function goTo(index) {
-					var slide = slides[index]
-					if (!slide) return
-					track.scrollTo({ left: slide.offsetLeft - slides[0].offsetLeft, behavior: reduceMotion ? 'auto' : 'smooth' })
 				}
 
 				track.addEventListener('scroll', function () {
@@ -812,33 +1105,27 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 					ticking = true
 					window.requestAnimationFrame(function () {
 						ticking = false
-						var maxScroll = track.scrollWidth - track.clientWidth
-						var index = maxScroll > 0 ? Math.round((track.scrollLeft / maxScroll) * (slides.length - 1)) : 0
-						paint(index)
+						paint(slideIndexOf(track))
 					})
 				}, { passive: true })
 
-				Array.prototype.forEach.call(dots, function (dot, index) {
-					dot.addEventListener('click', function () { goTo(index) })
-				})
-				if (prev) prev.addEventListener('click', function () { goTo(current - 1) })
-				if (next) next.addEventListener('click', function () { goTo(current + 1) })
+				if (prev) prev.addEventListener('click', function () { scrollToSlide(track, current - 1, reduceMotion) })
+				if (next) next.addEventListener('click', function () { scrollToSlide(track, current + 1, reduceMotion) })
 				paint(0)
 			})
 		}
 
 		function initInteractiveIcons(root) {
 			var groups = root.querySelectorAll('[data-vl-icon-group]')
-
 			Array.prototype.forEach.call(groups, function (group) {
 				var buttons = group.querySelectorAll('[data-vl-icon-toggle]')
-
 				Array.prototype.forEach.call(buttons, function (button) {
 					button.addEventListener('click', function () {
 						Array.prototype.forEach.call(buttons, function (item) {
-							item.setAttribute('aria-pressed', item === button ? 'true' : 'false')
-							var card = item.closest('article, li')
-							if (card) card.classList.toggle('is-active', item === button)
+							var pressed = item === button
+							item.setAttribute('aria-pressed', pressed ? 'true' : 'false')
+							var card = item.closest('li, article')
+							if (card) card.classList.toggle('is-active', pressed)
 						})
 					})
 				})
@@ -851,26 +1138,22 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 				Array.prototype.forEach.call(buttons, function (button) { button.classList.add('is-inview') })
 				return
 			}
-
 			var observer = new window.IntersectionObserver(function (entries) {
 				entries.forEach(function (entry) { entry.target.classList.toggle('is-inview', entry.isIntersecting) })
 			}, { rootMargin: '40px 0px' })
-
 			Array.prototype.forEach.call(buttons, function (button) { observer.observe(button) })
 		}
 
 		function initReveal(root) {
 			var blocks = root.querySelectorAll('[data-vl-reveal]')
 			if (!blocks.length || typeof window.IntersectionObserver !== 'function') return
-
 			var observer = new window.IntersectionObserver(function (entries) {
 				entries.forEach(function (entry) {
 					if (!entry.isIntersecting) return
 					entry.target.classList.add('is-inview')
 					observer.unobserve(entry.target)
 				})
-			}, { threshold: .15 })
-
+			}, { threshold: 0.15 })
 			Array.prototype.forEach.call(blocks, function (block) {
 				block.classList.add('is-armed')
 				observer.observe(block)
@@ -890,7 +1173,6 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 
 			var heroVisible = true
 			var tailVisible = false
-
 			function update() { sticky.classList.toggle('is-visible', !heroVisible && !tailVisible) }
 
 			new window.IntersectionObserver(function (entries) {
@@ -910,8 +1192,8 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 		function init() {
 			var root = document.querySelector(ROOT_SELECTOR)
 			if (!root || root.dataset[READY_FLAG] === 'true') return
-
 			root.dataset[READY_FLAG] = 'true'
+			if (PRODUCT_HANDLE) root.setAttribute('data-vl-product', PRODUCT_HANDLE)
 			initLocalAssets(root)
 			initPaymentChoice(root)
 			initCarousels(root)

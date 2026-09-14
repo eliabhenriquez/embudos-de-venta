@@ -7,10 +7,10 @@ producto tiene además su propio `landings/<producto>/AGENTS.md`, que es el que 
 
 ## 1. Qué es MIMA
 
-Marca colombiana de **suplementos de bienestar para mujer**. Vende directo por Shopify con tráfico de
+Marca colombiana de **suplementos de bienestar para hombres y mujeres**. Vende directo por Shopify con tráfico de
 paid, mayoritariamente Meta y mayoritariamente móvil. Tienda: **mimacolombia.com**.
 
-El público es femenino, LATAM, y llega frío desde un anuncio. El tono es **cercano, de tú, cálido y
+El público es LATAM y llega frío desde un anuncio: femenino en SKNGLOW, **mixto en MIMANAD y MIMACALM**. El tono es **cercano, de tú, cálido y
 sin promesas médicas**: acompaña, no receta. Nada de lenguaje clínico ni de vendedor agresivo.
 
 ### Catálogo y cómo se encadena
@@ -18,8 +18,8 @@ sin promesas médicas**: acompaña, no receta. Nada de lenguaje clínico ni de v
 | Producto | Qué es | Papel en el funnel |
 |---|---|---|
 | **SKNGLOW** | Dulces duros de Biotina + Resveratrol para piel, cabello y uñas | Producto principal |
-| **MIMACALM** | Ashwagandha, Glicinato de Magnesio y Té Verde | **Order bump** de SKNGLOW ($39.950) |
-| **MIMANAD** | Niacina, Resveratrol y Melena de León | **Upsell** one-time de SKNGLOW ($39.950) |
+| **MIMACALM** | Polvo sabor sandía de Ashwagandha, Glicinato de Magnesio y Té Verde | **Order bump** de SKNGLOW ($39.950) y landing propia ($79.900 / $89.900) |
+| **MIMANAD** | Niacina, Resveratrol y Melena de León | **Upsell** one-time de SKNGLOW ($39.950) y landing propia ($79.900 / $89.900) |
 
 Los tres van dentro del mismo pedido de Releasit. El copy del bump y del upsell vive en el ángulo que
 los dispara, no en `docs/`.
@@ -80,18 +80,25 @@ servido. **Hazlo siempre antes de dar por bueno un cambio de tema.**
 
 ### El flag `is_paid_landing`
 
-`theme.gempages.blank.liquid` abre con una lista de handles de landing de paid:
+`theme.gempages.blank.liquid` (y `theme.liquid`, sincronizado) abre con la configuración de las
+landings de paid, una línea por landing con `handle::alt de la imagen social`:
 
 ```liquid
-{%- assign paid_landings = 'sknglow-piel-firme' | split: ',' -%}
+{%- capture paid_landings_config -%}
+  sknglow-piel-firme::SKNGLOW de MIMA, con Biotina y Resveratrol
+  |mimanad-energia::MIMANAD de MIMA, con Niacina, Resveratrol y Melena de León
+{%- endcapture -%}
 ```
+
+La `og:image` se deriva del handle: `landings-og-<handle>.jpg`, 1200x630, en Contenido → Archivos. Si
+falta el fichero, la vista previa al compartir el enlace sale rota.
 
 Detecta por `page.handle` **y** por `request.path` (doble vía, porque no siempre hay `page`). Cuando
 es `true`, el layout **quita del camino crítico** todo lo que la landing no usa: `base.css`,
 `shrine.null.js`, `secondary.js`, el CSS de predictive-search, los preconnect a gstatic, el script de
 moneda y el `@font-face` de la cabecera. Y **añade** el código base de Meta.
 
-🔴 **Cuando publiques una landing nueva, añade su handle a esa lista.** Si no, hereda el tema completo
+🔴 **Cuando publiques una landing nueva, añade su línea a esa configuración y sube su `landings-og-<handle>.jpg`.** Si no, hereda el tema completo
 y pierde toda la optimización sin avisar de nada.
 
 ---

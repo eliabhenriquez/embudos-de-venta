@@ -1,0 +1,3111 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>september · vista previa</title>
+<style>
+body{margin:0}
+html{font-size:16px}
+body{font-size:16px;font-family:Helvetica,Arial,sans-serif}
+a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:empty,h6:empty,p:empty,section:empty,ul:empty{display:none}
+.h0,.h1,.h2,.h3,.h4,.h5,h1,h2,h3,h4,h5{font-family:Georgia,serif}
+</style>
+</head>
+<body>
+<!--
+	ETERMA · CLOROFULL — Landing de venta, ángulo hidratación (campaña septiembre)
+	=================================================================
+	Bloque autocontenido para pegar en el Custom Code de GemPages.
+	Sin <html>, <head> ni <body>. Todo el CSS va namespaced bajo .cf-lp.
+
+	Copy: hidratacion/copy - hidratación - clorofull.md (manda sobre la web
+	y sobre la etiqueta). Ángulo: El Niño 2026-2027, calor extremo y pérdida
+	de líquidos. Mismo producto que olor/: 1 litro, 30 ml al día, 33 dosis.
+
+	Producto: la página de olor está publicada sobre clorofull-1
+	(ver clorofull/AGENTS.md §1). Aquí se deja el mismo handle en
+	data-cf-product por trazabilidad; el Product Element de GemPages es
+	quien enlaza el producto de verdad (docs/releasit-form-styling.md §4.4).
+
+	CTA → abre el modal de Releasit mediante las clases de integración
+	_rsi-cod-form-gempages-button-overwrite y _rsi-cod-form-is-gempage.
+	Los botones de pago escriben data-cf-pay en <html> para la skin del
+	formulario (eterma/shared/releasit-form.css).
+
+	Imágenes: CDN de Shopify. Las nuevas de este ángulo llevan el infijo
+	"calor" (landings-clorofull-calor-*.webp) y las dos personas nuevas van
+	como landings-clorofull-ugc-celeste / -maria-fernanda. El resto se
+	reutiliza de olor/ y ya está en el CDN. Comprobar con ./check-cdn.sh.
+-->
+
+<section class="cf-lp" id="cf-clorofull-calor" data-cf-product="clorofull-1">
+
+	<!-- ========================= BARRA SUPERIOR ===================== -->
+	<header class="cf-topbar">
+		<!-- Marquesina: el mismo bloque dos veces y translateX(-50%) en bucle,
+		     así el salto al reiniciar es invisible. La copia va aria-hidden. -->
+		<div class="cf-topbar__strip" aria-label="El Niño eleva la temperatura · Tu cuerpo pierde más · 1 litro, 33 días, 30 ml al día · Fabricado en Colombia">
+			<div class="cf-topbar__track">
+				<span class="cf-topbar__set"><span>El Niño eleva la temperatura</span><span>Tu cuerpo pierde más</span><span>1 litro · 33 días · 30 ml al día</span><span>Fabricado en Colombia</span></span>
+				<span class="cf-topbar__set" aria-hidden="true"><span>El Niño eleva la temperatura</span><span>Tu cuerpo pierde más</span><span>1 litro · 33 días · 30 ml al día</span><span>Fabricado en Colombia</span></span>
+			</div>
+		</div>
+		<div class="cf-shell cf-topbar__inner">
+			<img class="cf-topbar__logo"
+				src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-eterma-logo-v1.webp"
+				width="634" height="185" decoding="async"
+				alt="Eterma">
+		</div>
+		<!-- Borde inferior en onda: se monta sobre lo que viene debajo -->
+		<svg class="cf-topbar__wave" viewBox="0 0 390 8" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 0h390v3.5c-70 5.5-135 5.5-195 1.5S70 1 0 5.5z" fill="currentColor"/></svg>
+	</header>
+
+	<!-- ============================ HERO: EL SOL ALTO ============================ -->
+	<!-- Orden en móvil: aviso de calor → foto (carrusel) → rótulo de la foto
+	     en banda propia → título, descripción y datos → precio y CTA. Nada se
+	     superpone a la foto: el rótulo de cada foto va debajo, en una banda que
+	     cambia con el carrusel (data-cf-active en el contenedor). -->
+	<section class="cf-hero">
+		<div class="cf-hero__layout">
+			<div class="cf-hero__media" data-cf-carousel-host>
+				<!-- El aviso: el preheadline del copy con un sol de trazo fino
+				     cuyos rayos giran muy despacio. Es la temperatura de la
+				     página, no un rótulo sobre el producto. -->
+				<p class="cf-hero__notice">
+					<svg class="cf-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><g class="cf-sun__rays"><path d="M12 2.5v2.5"/><path d="M12 19v2.5"/><path d="M2.5 12H5"/><path d="M19 12h2.5"/><path d="m5.3 5.3 1.8 1.8"/><path d="m16.9 16.9 1.8 1.8"/><path d="m5.3 18.7 1.8-1.8"/><path d="m16.9 7.1 1.8-1.8"/></g></svg>
+					<span>El Niño eleva la temperatura. Tu cuerpo pierde más.</span>
+				</p>
+
+				<div class="cf-hero__frame">
+					<div class="cf-hero__track" data-cf-carousel="x" tabindex="0" role="region" aria-label="Fotos de Clorofull">
+						<figure class="cf-hero__slide">
+							<img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-calor-hero.webp?width=800" srcset="https://etermacolombia.com/cdn/shop/files/landings-clorofull-calor-hero.webp?width=500 500w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-calor-hero.webp?width=800 800w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-calor-hero.webp?width=1200 1200w" sizes="(min-width: 900px) 460px, 100vw" width="1200" height="1200" fetchpriority="high" decoding="async" alt="Una mujer toma su medida de Clorofull del vasito bajo el sol, junto a la botella de 1 litro con gotas de agua fría">
+						</figure>
+						<figure class="cf-hero__slide">
+							<img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-calor-formula.webp?width=800" srcset="https://etermacolombia.com/cdn/shop/files/landings-clorofull-calor-formula.webp?width=500 500w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-calor-formula.webp?width=800 800w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-calor-formula.webp?width=1200 1200w" sizes="(min-width: 900px) 460px, 100vw" width="1200" height="1200" loading="eager" decoding="async" alt="Botella de Clorofull al sol con sus tres componentes señalados: clorofila, vitaminas y minerales">
+						</figure>
+						<figure class="cf-hero__slide">
+							<img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-hero-hand.webp?width=800" srcset="https://etermacolombia.com/cdn/shop/files/landings-clorofull-hero-hand.webp?width=500 500w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-hero-hand.webp?width=800 800w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-hero-hand.webp?width=1000 1000w" sizes="(min-width: 900px) 460px, 100vw" width="1000" height="1321" loading="lazy" decoding="async" alt="Una mano sostiene la botella real de Clorofull de 1 litro">
+						</figure>
+					</div>
+					<button type="button" class="cf-hero__arrow cf-hero__arrow--prev" data-cf-prev disabled aria-label="Foto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m15 6-6 6 6 6"/></svg></button>
+					<button type="button" class="cf-hero__arrow cf-hero__arrow--next" data-cf-next aria-label="Foto siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 6 6 6-6 6"/></svg></button>
+				</div>
+
+				<!-- Rótulo de la foto activa, en banda propia debajo del marco -->
+				<ul class="cf-hero__caps" aria-live="polite">
+					<li class="cf-hero__cap"><strong>30 ml al día.</strong> Directo del vaso medidor.</li>
+					<li class="cf-hero__cap"><strong>Clorofila. Vitaminas. Minerales.</strong> Todo en 30 ml.</li>
+					<li class="cf-hero__cap"><strong>1 litro.</strong> 33 días en cada botella.</li>
+				</ul>
+			</div>
+
+			<div class="cf-shell cf-hero__copy">
+				<h1 class="cf-h1">Que el calor no te lleve<br><em>al límite.</em></h1>
+				<p class="cf-lead">Clorofull combina clorofila, vitaminas y minerales en una bebida diaria para mantener tu hidratación durante los días de calor extremo.</p>
+				<ul class="cf-facts" aria-label="Presentación">
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 3h5v3.2l1.6 2.3c.6.8.9 1.8.9 2.8V19a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-7.7c0-1 .3-2 .9-2.8L9.5 6.2V3Z"/><path d="M7 14h10"/></svg><span>1 litro</span></li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17"/><path d="M8 3v4"/><path d="M16 3v4"/></svg><span>33 días</span></li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l-1 11.2a2 2 0 0 1-2 1.8H9a2 2 0 0 1-2-1.8L6 8Z"/><path d="M7 13h10"/></svg><span>30 ml al día</span></li>
+				</ul>
+			</div>
+
+			<div class="cf-shell cf-hero__buy">
+				<dl class="cf-pricing">
+					<div class="cf-pricing__cell">
+						<dt>Contraentrega</dt>
+						<dd>$79.900 <span>COP</span></dd>
+					</div>
+					<div class="cf-pricing__cell cf-pricing__cell--best">
+						<dt>Pago anticipado</dt>
+						<dd>$69.900 <span>COP</span><small>Ahorras $10.000 COP</small></dd>
+					</div>
+				</dl>
+
+				<button type="button" class="cf-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage"><span class="cf-cta__label">Quiero mi Clorofull</span></button>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================ EN LA PRENSA ============================ -->
+	<!-- El "por qué ahora" del ángulo: tres titulares reales sobre El Niño
+	     2026-2027, con su captura como prueba. Sin enlaces: no hay salidas
+	     del embudo; la captura demuestra que existe. -->
+	<section class="cf-press" aria-label="El Niño en la prensa">
+		<div class="cf-shell">
+			<p class="cf-overline">En la prensa</p>
+			<ul class="cf-press__track" data-cf-reveal tabindex="0" role="region" aria-label="Titulares sobre El Niño">
+				<li class="cf-press__item">
+					<img class="cf-press__shot" src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-calor-prensa-infobae-salud.webp?width=600" srcset="https://etermacolombia.com/cdn/shop/files/landings-clorofull-calor-prensa-infobae-salud.webp?width=600 600w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-calor-prensa-infobae-salud.webp?width=1000 1000w" sizes="(min-width: 900px) 340px, 82vw" width="1000" height="263" loading="lazy" decoding="async" alt="Captura de Infobae Colombia con el titular sobre El Niño y su impacto en la salud">
+					<p class="cf-press__meta">Infobae Colombia · 7 sep 2026</p>
+					<p class="cf-press__title">Fenómeno de El Niño podría extenderse en Colombia hasta inicios de 2027: expertos explican sus efectos y el impacto en la salud</p>
+				</li>
+				<li class="cf-press__item">
+					<img class="cf-press__shot" src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-calor-prensa-consultorsalud.webp?width=600" srcset="https://etermacolombia.com/cdn/shop/files/landings-clorofull-calor-prensa-consultorsalud.webp?width=600 600w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-calor-prensa-consultorsalud.webp?width=1000 1000w" sizes="(min-width: 900px) 340px, 82vw" width="1000" height="263" loading="lazy" decoding="async" alt="Captura de Consultorsalud con el titular sobre las directrices de Minsalud ante El Niño">
+					<p class="cf-press__meta">Consultorsalud · 15 jul 2026</p>
+					<p class="cf-press__title">Minsalud activa directrices sanitarias ante el Fenómeno El Niño 2026-2027</p>
+				</li>
+				<li class="cf-press__item">
+					<img class="cf-press__shot" src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-calor-prensa-infobae-agua.webp?width=600" srcset="https://etermacolombia.com/cdn/shop/files/landings-clorofull-calor-prensa-infobae-agua.webp?width=600 600w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-calor-prensa-infobae-agua.webp?width=1000 1000w" sizes="(min-width: 900px) 340px, 82vw" width="1000" height="263" loading="lazy" decoding="async" alt="Captura de Infobae Colombia con el titular sobre posibles racionamientos de agua y energía">
+					<p class="cf-press__meta">Infobae Colombia · 7 sep 2026</p>
+					<p class="cf-press__title">Fenómeno de El Niño: experto advierte que Colombia podría enfrentar racionamientos de agua y energía</p>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- ============================ EL CALOR SE ACUMULA: EL TERMÓMETRO ============================ -->
+	<!-- La escalada del copy como escalera: tres peldaños que suben y, al
+	     lado, un termómetro cuyo mercurio sube al entrar en pantalla. Es un
+	     motivo, no un dato: no marca grados. -->
+	<section class="cf-section">
+		<div class="cf-shell cf-narrow">
+			<h2 class="cf-h2">El calor se acumula.<br><em>La pérdida de líquidos también.</em></h2>
+
+			<div class="cf-heat" data-cf-reveal>
+				<svg class="cf-heat__thermo" viewBox="0 0 28 132" fill="none" aria-hidden="true" focusable="false">
+					<rect x="9" y="4" width="10" height="100" rx="5" stroke="currentColor" stroke-width="1.5"/>
+					<circle cx="14" cy="114" r="11" stroke="currentColor" stroke-width="1.5"/>
+					<rect class="cf-heat__mercury" x="11.5" y="14" width="5" height="88" rx="2.5" fill="currentColor"/>
+					<circle cx="14" cy="114" r="7" fill="currentColor"/>
+					<path d="M22 24h3M22 44h3M22 64h3M22 84h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+				</svg>
+				<ol class="cf-heat__steps">
+					<li class="cf-heat__step">Más temperatura.</li>
+					<li class="cf-heat__step">Más sudor.</li>
+					<li class="cf-heat__step">Más agua y sales que tu cuerpo necesita reponer.</li>
+				</ol>
+			</div>
+
+			<div class="cf-text cf-text--after">
+				<p>Cuando esa pérdida avanza, comienzan las señales.</p>
+			</div>
+
+			<!-- Las cuatro señales del copy no son una lista: son una escalada.
+			     Van en medallones enlazados por un filete que se oscurece de
+			     izquierda a derecha, y entran uno detrás de otro. Cada icono
+			     sigue la viñeta que le corresponde en la lámina de la sección
+			     siguiente: la pierna con la chispa, la espiral, el corazón con
+			     el pulso y el reloj de arena. -->
+			<ul class="cf-alerts" data-cf-reveal>
+				<li class="cf-alert">
+					<span class="cf-alert__mark">
+						<svg class="cf-alert__icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+							<path d="M18 3.5 9.5 18.5H15L14 28.5l9-15h-5.5L18 3.5Z"/>
+							<path d="M4.8 10c-1.8 3.6-1.8 8.4 0 12"/>
+							<path d="M27.2 10c1.8 3.6 1.8 8.4 0 12"/>
+						</svg>
+					</span>
+					<span class="cf-alert__name">Calambres</span>
+				</li>
+				<li class="cf-alert">
+					<span class="cf-alert__mark">
+						<svg class="cf-alert__icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+							<path d="M27 16A11 11 0 0 0 5 16A6.6 6.6 0 0 0 18.2 16A3 3 0 0 0 12.2 16"/>
+						</svg>
+					</span>
+					<span class="cf-alert__name">Mareo</span>
+				</li>
+				<li class="cf-alert">
+					<span class="cf-alert__mark">
+						<svg class="cf-alert__icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+							<path d="M27.79 6.15a7.33 7.33 0 0 0-10.37 0L16 7.56l-1.41-1.41a7.33 7.33 0 0 0-10.37 10.37l1.41 1.41L16 28.31l10.37-10.37 1.41-1.41a7.33 7.33 0 0 0 0-10.37Z"/>
+							<path d="M9.5 15.5h2.4l1.8-3.8 2.5 7 1.7-3.2h3.8"/>
+						</svg>
+					</span>
+					<span class="cf-alert__name">Debilidad</span>
+				</li>
+				<li class="cf-alert">
+					<span class="cf-alert__mark">
+						<svg class="cf-alert__icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+							<path d="M8.5 4.5h15M8.5 27.5h15"/>
+							<path d="M11 4.5c0 6 5 7.2 5 11.5s-5 5.5-5 11.5"/>
+							<path d="M21 4.5c0 6-5 7.2-5 11.5s5 5.5 5 11.5"/>
+							<path d="M16 17.6v2.8"/>
+							<path d="M12.4 27.5c.7-4.1 2.5-5.7 3.6-5.7s2.9 1.6 3.6 5.7Z" fill="currentColor" stroke="none"/>
+						</svg>
+					</span>
+					<span class="cf-alert__name">Agotamiento</span>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- ============================ TU CUERPO TE AVISA ============================ -->
+	<section class="cf-section cf-section--alt">
+		<div class="cf-shell cf-signals">
+			<div class="cf-signals__head">
+				<p class="cf-overline">Las señales</p>
+				<h2 class="cf-h2">Tu cuerpo te avisa.</h2>
+			</div>
+
+			<figure class="cf-signals__art">
+				<img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-calor-senales.webp?width=700" srcset="https://etermacolombia.com/cdn/shop/files/landings-clorofull-calor-senales.webp?width=500 500w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-calor-senales.webp?width=700 700w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-calor-senales.webp?width=1000 1000w" sizes="(min-width: 900px) 400px, 100vw" width="1200" height="1200" loading="lazy" decoding="async" alt="Botella de Clorofull entre un sol intenso y escenas de calor: dolor de cabeza, calambres, mareo y agotamiento">
+			</figure>
+
+			<ol class="cf-signals__list" data-cf-reveal>
+				<li class="cf-signal">
+					<div class="cf-signal__head">
+						<span class="cf-signal__num" aria-hidden="true">1</span>
+						<h3 class="cf-signal__name">Calambres por calor</h3>
+						<svg class="cf-signal__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2.5 6 13.5h5l-1 8 7-11h-5l1-8Z"/></svg>
+					</div>
+					<p class="cf-signal__text">Espasmos o dolor muscular asociados a la pérdida de agua y sales durante la sudoración.</p>
+				</li>
+				<li class="cf-signal">
+					<div class="cf-signal__head">
+						<span class="cf-signal__num" aria-hidden="true">2</span>
+						<h3 class="cf-signal__name">Agotamiento</h3>
+						<svg class="cf-signal__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3.5h11M6.5 20.5h11"/><path d="M8.5 3.5c0 4.4 3.5 5.4 3.5 8.5s-3.5 4.1-3.5 8.5"/><path d="M15.5 3.5c0 4.4-3.5 5.4-3.5 8.5s3.5 4.1 3.5 8.5"/></svg>
+					</div>
+					<p class="cf-signal__text">Debilidad, dolor de cabeza, náuseas, mareo y sudoración abundante.</p>
+				</li>
+				<li class="cf-signal">
+					<div class="cf-signal__head">
+						<span class="cf-signal__num" aria-hidden="true">3</span>
+						<h3 class="cf-signal__name">Desequilibrio de electrolitos</h3>
+						<svg class="cf-signal__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.5" cy="9" r="3.5"/><circle cx="16.5" cy="15" r="3.5"/><path d="M10 11.2 14 12.8"/><path d="M7.5 4v1.5M18 20v1.5"/></svg>
+					</div>
+					<p class="cf-signal__text">La pérdida de sodio y potasio puede afectar músculos, energía y función corporal.</p>
+				</li>
+				<li class="cf-signal">
+					<div class="cf-signal__head">
+						<span class="cf-signal__num" aria-hidden="true">4</span>
+						<h3 class="cf-signal__name">Menor producción de orina</h3>
+						<svg class="cf-signal__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5s-5.5 6.2-5.5 10a5.5 5.5 0 0 0 11 0c0-3.8-5.5-10-5.5-10Z"/><path d="M12 10v6"/><path d="m9.5 13.5 2.5 2.5 2.5-2.5"/></svg>
+					</div>
+					<p class="cf-signal__text">Una señal de que tu cuerpo está intentando conservar líquidos.</p>
+				</li>
+			</ol>
+		</div>
+	</section>
+
+	<!-- ==================== PERSONAS REALES (UGC) =================== -->
+	<section class="cf-people">
+		<div class="cf-people__track" tabindex="0" role="region" aria-label="Personas que toman Clorofull">
+			<figure class="cf-people__item">
+				<img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-celeste.webp?width=360" srcset="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-celeste.webp?width=360 360w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-celeste.webp?width=720 720w" sizes="190px" width="720" height="900" loading="lazy" decoding="async" alt="Celeste sonríe con su botella de Clorofull en la cocina">
+				<figcaption>Celeste</figcaption>
+			</figure>
+			<figure class="cf-people__item">
+				<img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-camilo.webp?width=360" srcset="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-camilo.webp?width=360 360w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-camilo.webp?width=720 720w" sizes="190px" width="720" height="900" loading="lazy" decoding="async" alt="Camilo con su botella de Clorofull">
+				<figcaption>Camilo</figcaption>
+			</figure>
+			<figure class="cf-people__item">
+				<img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-natalia.webp?width=360" srcset="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-natalia.webp?width=360 360w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-natalia.webp?width=720 720w" sizes="190px" width="720" height="900" loading="lazy" decoding="async" alt="Natalia sonríe con su botella de Clorofull">
+				<figcaption>Natalia</figcaption>
+			</figure>
+			<figure class="cf-people__item">
+				<img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-maria-fernanda.webp?width=360" srcset="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-maria-fernanda.webp?width=360 360w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-maria-fernanda.webp?width=720 720w" sizes="190px" width="720" height="900" loading="lazy" decoding="async" alt="María Fernanda con la botella de Clorofull y el vasito servido">
+				<figcaption>María Fernanda</figcaption>
+			</figure>
+			<figure class="cf-people__item">
+				<img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-ricardo.webp?width=360" srcset="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-ricardo.webp?width=360 360w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-ricardo.webp?width=720 720w" sizes="190px" width="720" height="900" loading="lazy" decoding="async" alt="Ricardo tomando Clorofull">
+				<figcaption>Ricardo</figcaption>
+			</figure>
+			<figure class="cf-people__item">
+				<img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-valentina-vasito.webp?width=360" srcset="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-valentina-vasito.webp?width=360 360w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-valentina-vasito.webp?width=720 720w" sizes="190px" width="720" height="900" loading="lazy" decoding="async" alt="Valentina sirve Clorofull en el vasito medidor">
+				<figcaption>Valentina</figcaption>
+			</figure>
+			<figure class="cf-people__item">
+				<img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-ana.webp?width=360" srcset="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-ana.webp?width=360 360w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-ana.webp?width=720 720w" sizes="190px" width="720" height="900" loading="lazy" decoding="async" alt="Ana toma su medida de Clorofull del vasito">
+				<figcaption>Ana</figcaption>
+			</figure>
+			<figure class="cf-people__item">
+				<img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-victor.webp?width=360" srcset="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-victor.webp?width=360 360w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-victor.webp?width=720 720w" sizes="190px" width="720" height="900" loading="lazy" decoding="async" alt="Víctor señala su botella de Clorofull">
+				<figcaption>Víctor</figcaption>
+			</figure>
+			<figure class="cf-people__item">
+				<img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-gabriela.webp?width=360" srcset="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-gabriela.webp?width=360 360w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-gabriela.webp?width=720 720w" sizes="190px" width="720" height="900" loading="lazy" decoding="async" alt="Gabriela con su botella de Clorofull">
+				<figcaption>Gabriela</figcaption>
+			</figure>
+			<figure class="cf-people__item">
+				<img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-joselin.webp?width=360" srcset="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-joselin.webp?width=360 360w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-joselin.webp?width=720 720w" sizes="190px" width="720" height="900" loading="lazy" decoding="async" alt="Joselin sonríe con su botella de Clorofull">
+				<figcaption>Joselin</figcaption>
+			</figure>
+			<figure class="cf-people__item">
+				<img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-maria-de-los-angeles.webp?width=360" srcset="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-maria-de-los-angeles.webp?width=360 360w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-maria-de-los-angeles.webp?width=720 720w" sizes="190px" width="720" height="900" loading="lazy" decoding="async" alt="María de los Ángeles sonríe con su botella de Clorofull">
+				<figcaption>María de los Ángeles</figcaption>
+			</figure>
+		</div>
+	</section>
+
+	<!-- ============================ EL CALOR EXIGE MÁS: LA DOSIS ============================ -->
+	<section class="cf-section cf-section--deep">
+		<div class="cf-shell cf-prep">
+			<div class="cf-prep__body">
+				<p class="cf-overline cf-overline--lime">Antes de sentir el desgaste</p>
+				<h2 class="cf-h2">El calor exige más de tu hidratación.</h2>
+				<p class="cf-serif-line cf-prep__sub">Prepárate antes de sentir el desgaste.</p>
+				<div class="cf-text cf-text--after">
+					<p>Clorofull convierte una porción diaria en una forma práctica de mantener presente tu consumo de líquidos durante El Niño.</p>
+				</div>
+				<p class="cf-stack cf-prep__words"><span>Clorofila.</span><span>Vitaminas.</span><span>Minerales.</span></p>
+			</div>
+
+			<!-- La dosis: el vasito servido sobre un plato claro con la cifra
+			     en serif. El único verde vivo del bloque va en la foto. -->
+			<div class="cf-dose">
+				<img class="cf-dose__cup" src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-vasito-medidor.webp?width=480" srcset="https://etermacolombia.com/cdn/shop/files/landings-clorofull-vasito-medidor.webp?width=240 240w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-vasito-medidor.webp?width=480 480w" sizes="150px" width="480" height="411" loading="lazy" decoding="async" alt="El vasito medidor servido con la dosis diaria">
+				<p class="cf-dose__num">30 ml</p>
+				<p class="cf-dose__txt">Todo en 30 ml al día.</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================ CLOROFILA + MINERALES ============================ -->
+	<section class="cf-section">
+		<div class="cf-shell cf-split">
+			<figure class="cf-split__media">
+				<img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-calor-formula.webp?width=700" srcset="https://etermacolombia.com/cdn/shop/files/landings-clorofull-calor-formula.webp?width=500 500w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-calor-formula.webp?width=700 700w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-calor-formula.webp?width=1000 1000w" sizes="(min-width: 900px) 480px, 100vw" width="1200" height="1200" loading="lazy" decoding="async" alt="Botella de Clorofull bajo el sol con sus tres componentes: clorofila, vitaminas y minerales">
+			</figure>
+			<div class="cf-split__body">
+				<p class="cf-overline">Clorofila + minerales</p>
+				<h2 class="cf-h2">Una fórmula pensada para los días que más te exigen.</h2>
+
+				<ul class="cf-formula" data-cf-reveal>
+					<li class="cf-formula__item">
+						<span class="cf-formula__mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c0-8 4-14 16-16-1 12-7 16-14 16"/><path d="M4 20c3-5 7-9 12-12"/></svg></span>
+						<div class="cf-formula__text">
+							<h3 class="cf-formula__name">Clorofila</h3>
+							<p>El ingrediente protagonista de su característica bebida verde.</p>
+						</div>
+					</li>
+					<li class="cf-formula__item">
+						<span class="cf-formula__mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 7.8 4.5v9L12 21l-7.8-4.5v-9L12 3Z"/><path d="M12 12v9"/><path d="m12 12 7.8-4.5"/><path d="M12 12 4.2 7.5"/></svg></span>
+						<div class="cf-formula__text">
+							<h3 class="cf-formula__name">Minerales</h3>
+							<p>Parte clave de la fórmula durante una temporada en la que el sudor aumenta la pérdida de agua y sales.</p>
+						</div>
+					</li>
+					<li class="cf-formula__item">
+						<span class="cf-formula__mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="8.5" width="17" height="7" rx="3.5" transform="rotate(-35 12 12)"/><path d="m9.2 7.6 5.6 8.8"/></svg></span>
+						<div class="cf-formula__text">
+							<h3 class="cf-formula__name">Vitaminas</h3>
+							<p>A, C, D3, E y complejo B.</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================ NO ESPERES A TENER SED: EL DÍA ENTERO ============================ -->
+	<section class="cf-section cf-section--alt">
+		<div class="cf-shell cf-narrow">
+			<h2 class="cf-h2">No esperes a tener sed.</h2>
+			<p class="cf-serif-line">Haz de la hidratación una decisión del día entero.</p>
+
+			<ul class="cf-tiles" data-cf-reveal>
+				<li class="cf-tile">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5.5A1.5 1.5 0 0 1 9.5 4h5A1.5 1.5 0 0 1 16 5.5V7"/><path d="M3 12h18"/></svg>
+					<span>En el trabajo.</span>
+				</li>
+				<li class="cf-tile">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13.5 5.6 8.6A2 2 0 0 1 7.5 7.2h9a2 2 0 0 1 1.9 1.4L20 13.5"/><path d="M3.5 13.5h17v4.5a1 1 0 0 1-1 1h-1.5a1 1 0 0 1-1-1v-1H7v1a1 1 0 0 1-1 1H4.5a1 1 0 0 1-1-1v-4.5Z"/><path d="M7 16h.01M17 16h.01"/></svg>
+					<span>En el carro.</span>
+				</li>
+				<li class="cf-tile">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13" cy="4.5" r="1.8"/><path d="m8 21 3-7-2.5-2.5L10 7l4 1 2.5 3 2.5 1"/><path d="m11 14 3 2.5L15 21"/></svg>
+					<span>Caminando.</span>
+				</li>
+				<li class="cf-tile">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 8.5v7M17.5 8.5v7"/><path d="M3.5 10v4M20.5 10v4"/><path d="M6.5 12h11"/></svg>
+					<span>Entrenando.</span>
+				</li>
+				<li class="cf-tile">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.5 11 8.5-7 8.5 7"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/></svg>
+					<span>En casa.</span>
+				</li>
+				<li class="cf-tile cf-tile--sun">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5m-16.2-6.7 1.8 1.8m9.8 9.8 1.8 1.8m-13.4 0 1.8-1.8m9.8-9.8 1.8-1.8"/></svg>
+					<span>Bajo el sol.</span>
+				</li>
+			</ul>
+
+			<!-- La suma del copy, como fórmula con sus dos piezas -->
+			<p class="cf-sum">
+				<span class="cf-sum__part"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12l-1.4 16.3a2 2 0 0 1-2 1.7H9.4a2 2 0 0 1-2-1.7L6 3Z"/><path d="M7 11h10"/></svg>Agua durante el día</span>
+				<span class="cf-sum__part"><span class="cf-sum__plus" aria-hidden="true">+</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l-1 11.2a2 2 0 0 1-2 1.8H9a2 2 0 0 1-2-1.8L6 8Z"/><path d="M7 13h10"/></svg>tu porción de Clorofull</span>
+			</p>
+		</div>
+	</section>
+
+	<!-- ============================ 30 ML. ASÍ DE SIMPLE. ============================ -->
+	<section class="cf-section">
+		<div class="cf-shell cf-howto">
+			<div class="cf-howto__body">
+				<p class="cf-overline">Cómo se toma</p>
+				<h2 class="cf-h2">30 ml. Así de simple.</h2>
+				<div class="cf-text cf-text--after">
+					<p>Toma <strong>30 ml una vez al día</strong>.</p>
+				</div>
+
+				<ol class="cf-ways" data-cf-reveal>
+					<li class="cf-way">
+						<span class="cf-way__num" aria-hidden="true">1</span>
+						<span class="cf-way__text">Directo del vaso medidor</span>
+						<svg class="cf-way__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l-1 11.2a2 2 0 0 1-2 1.8H9a2 2 0 0 1-2-1.8L6 8Z"/><path d="M7 13h10"/></svg>
+					</li>
+					<li class="cf-way">
+						<span class="cf-way__num" aria-hidden="true">2</span>
+						<span class="cf-way__text">Diluido en agua</span>
+						<svg class="cf-way__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12l-1.4 16.3a2 2 0 0 1-2 1.7H9.4a2 2 0 0 1-2-1.7L6 3Z"/><path d="M7 11h10"/></svg>
+					</li>
+					<li class="cf-way">
+						<span class="cf-way__num" aria-hidden="true">3</span>
+						<span class="cf-way__text">Acompañado de jugos naturales no cítricos</span>
+						<svg class="cf-way__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h10l-1.2 15.5a2 2 0 0 1-2 1.5H10.2a2 2 0 0 1-2-1.5L7 4Z"/><path d="M8 9h8"/><path d="M14 4 17.5 1.5"/></svg>
+					</li>
+				</ol>
+
+				<ul class="cf-specs">
+					<li><strong>1 litro</strong> para 33 días.</li>
+					<li><strong>33 dosis</strong> de 30 ml.</li>
+					<li><strong>Vaso medidor</strong> de regalo.</li>
+					<li><strong>Sabor menta</strong> natural.</li>
+				</ul>
+
+				<div class="cf-cta-row">
+					<button type="button" class="cf-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage"><span class="cf-cta__label">Quiero mi Clorofull</span></button>
+				</div>
+			</div>
+
+			<figure class="cf-howto__photo">
+				<img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-pour.webp" width="714" height="1260" loading="lazy" decoding="async" alt="Clorofull cayendo de la botella al vasito medidor">
+			</figure>
+		</div>
+	</section>
+
+	<!-- ============================ EL CALOR PUEDE CAMBIAR TU DÍA: POR DENTRO ============================ -->
+	<!-- Bloque oscuro con la radiografía del cliente fundida al verde como
+	     textura, y los seis síntomas del copy sobre un eje que sube. -->
+	<section class="cf-section cf-section--deep cf-inside">
+		<img class="cf-inside__art" src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-calor-interno.webp?width=700" srcset="https://etermacolombia.com/cdn/shop/files/landings-clorofull-calor-interno.webp?width=500 500w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-calor-interno.webp?width=700 700w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-calor-interno.webp?width=1000 1000w" sizes="(min-width: 900px) 560px, 100vw" width="1200" height="1200" loading="lazy" decoding="async" alt="">
+		<div class="cf-shell cf-narrow cf-inside__body">
+			<h2 class="cf-h2">El calor puede cambiar tu día.</h2>
+			<p class="cf-serif-line cf-inside__sub">Tu hidratación también puede cambiar cómo lo enfrentas.</p>
+			<div class="cf-text cf-text--after">
+				<p>El cuerpo necesita agua para regular su temperatura.</p>
+				<p>Cuando la pérdida supera lo que repones, pueden aparecer:</p>
+			</div>
+
+			<ol class="cf-axis" data-cf-reveal>
+				<li class="cf-axis__item"><span>Calambres</span></li>
+				<li class="cf-axis__item"><span>Debilidad</span></li>
+				<li class="cf-axis__item"><span>Dolor de cabeza</span></li>
+				<li class="cf-axis__item"><span>Mareo</span></li>
+				<li class="cf-axis__item"><span>Agotamiento</span></li>
+				<li class="cf-axis__item"><span>Pérdida de electrolitos</span></li>
+			</ol>
+
+			<p class="cf-statement cf-inside__close">Mantén tu consumo de líquidos presente <em>antes de llegar a ese punto.</em></p>
+		</div>
+	</section>
+
+	<!-- ============================ CLOROFULL PARA ESTA TEMPORADA ============================ -->
+	<section class="cf-section">
+		<div class="cf-shell cf-receive">
+			<div class="cf-receive__body">
+				<p class="cf-overline">Clorofull para esta temporada</p>
+				<h2 class="cf-h2">33 días en cada botella.</h2>
+
+				<ul class="cf-receive__list">
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 3h5v3.2l1.6 2.3c.6.8.9 1.8.9 2.8V19a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-7.7c0-1 .3-2 .9-2.8L9.5 6.2V3Z"/><path d="M7 14h10"/></svg><span>1 litro</span></li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20c0-8 4-14 16-16-1 12-7 16-14 16"/><path d="M4 20c3-5 7-9 12-12"/></svg><span>Clorofila</span></li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 7.8 4.5v9L12 21l-7.8-4.5v-9L12 3Z"/><path d="M12 12v9"/><path d="m12 12 7.8-4.5"/><path d="M12 12 4.2 7.5"/></svg><span>Vitaminas y minerales</span></li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17"/><path d="M8 3v4"/><path d="M16 3v4"/></svg><span>33 porciones</span></li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h14l-1.2 10.3a2 2 0 0 1-2 1.7H8.2a2 2 0 0 1-2-1.7L5 9Z"/><path d="M4 9h16"/><path d="M9 5h6"/><path d="M12 5v4"/></svg><span>Vaso medidor incluido</span></li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 19 5.8v5.4c0 4.2-2.8 7.3-7 8.8-4.2-1.5-7-4.6-7-8.8V5.8L12 3Z"/><path d="m9 12 2 2 4-4"/></svg><span>Registro sanitario RSA-0029174-2023</span></li>
+				</ul>
+				<p class="cf-receive__maker">Fabricado en Colombia por Laboratorios NaturalSplast SAS.</p>
+			</div>
+
+			<!-- Foto anotada: las dos cifras están en la propia etiqueta del envase -->
+			<figure class="cf-anatomy">
+				<img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-producto-vasito.webp?width=780" srcset="https://etermacolombia.com/cdn/shop/files/landings-clorofull-producto-vasito.webp?width=500 500w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-producto-vasito.webp?width=780 780w" sizes="(min-width: 900px) 420px, 100vw" width="780" height="961" loading="lazy" decoding="async" alt="La botella de 1 litro de Clorofull junto al vasito medidor servido">
+				<figcaption class="cf-anatomy__tags">
+					<span class="cf-anatomy__tag cf-anatomy__tag--bottle">1 litro</span>
+					<span class="cf-anatomy__tag cf-anatomy__tag--cup">30 ml</span>
+				</figcaption>
+			</figure>
+		</div>
+	</section>
+
+	<!-- ============================ ELIGE CÓMO PAGAR ============================ -->
+	<section class="cf-section cf-section--alt" id="cf-offer">
+		<div class="cf-shell cf-narrow">
+			<p class="cf-overline">Oferta</p>
+			<h2 class="cf-h2">Elige cómo pagar.</h2>
+
+			<div class="cf-offer">
+				<!-- Regla de marca: el anticipado manda. Va primero, en verde
+				     profundo y con su ahorro; el contraentrega en tarjeta blanca
+				     con filete, misma estructura, sin opacarlo. -->
+				<article class="cf-plan cf-plan--best">
+					<p class="cf-plan__label">Pago anticipado</p>
+					<p class="cf-plan__price">$69.900 <small>COP</small></p>
+					<p class="cf-plan__save">Ahorras $10.000 COP.</p>
+					<span class="cf-pay cf-pay--on-dark"><img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-pay-visa.webp" width="222" height="72" loading="lazy" decoding="async" alt="Visa"><img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-pay-mastercard.webp" width="92" height="72" loading="lazy" decoding="async" alt="Mastercard"><img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-pay-pse.webp" width="72" height="72" loading="lazy" decoding="async" alt="PSE"></span>
+					<button type="button" class="cf-cta cf-cta--light _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage" data-cf-pay-choice="prepaid"><span class="cf-cta__label">Quiero ahorrar $10.000</span></button>
+				</article>
+
+				<article class="cf-plan">
+					<p class="cf-plan__label">Pago contraentrega</p>
+					<p class="cf-plan__price">$79.900 <small>COP</small></p>
+					<p class="cf-plan__note">Pides hoy y pagas cuando recibes.</p>
+					<button type="button" class="cf-cta cf-cta--secondary _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage" data-cf-pay-choice="cod"><span class="cf-cta__label">Pedir contraentrega</span></button>
+				</article>
+			</div>
+
+			<ul class="cf-trust">
+				<li>
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h3.7l2.8 3v4h-6.5z"/><circle cx="7" cy="18" r="1.7"/><circle cx="17" cy="18" r="1.7"/></svg>
+					<span>Entrega estimada de 3 a 5 días hábiles</span>
+				</li>
+				<li>
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2.5"/><circle cx="12" cy="12" r="2.6"/><path d="M6 12h.01M18 12h.01"/></svg>
+					<span>Pago contraentrega disponible</span>
+				</li>
+				<li>
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.7-5.6L20 8.6"/><path d="M20 4v4.6h-4.6"/><path d="M20 12a8 8 0 0 1-13.7 5.6L4 15.4"/><path d="M4 20v-4.6h4.6"/></svg>
+					<span>Reenvío sin costo si no llega</span>
+				</li>
+				<li>
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 19 5.8v5.4c0 4.2-2.8 7.3-7 8.8-4.2-1.5-7-4.6-7-8.8V5.8L12 3Z"/><path d="m9 12 2 2 4-4"/></svg>
+					<span>Registro sanitario RSA-0029174-2023</span>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- ============================ TU PEDIDO, PROTEGIDO ============================ -->
+	<section class="cf-section">
+		<div class="cf-shell cf-narrow cf-guarantee__shell">
+			<div class="cf-guarantee__seal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 19 5.8v5.4c0 4.2-2.8 7.3-7 8.8-4.2-1.5-7-4.6-7-8.8V5.8L12 3Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+			<p class="cf-overline">Garantía</p>
+			<h2 class="cf-h2">Tu pedido, protegido.</h2>
+
+			<ol class="cf-guarantee">
+				<li class="cf-guarantee__row">
+					<span class="cf-guarantee__num" aria-hidden="true">1</span>
+					<p>Entrega estimada de <strong>3 a 5 días hábiles</strong>.</p>
+				</li>
+				<li class="cf-guarantee__row">
+					<span class="cf-guarantee__num" aria-hidden="true">2</span>
+					<p>Si el pedido no llega dentro de ese plazo, realizamos un nuevo envío sin costo.</p>
+				</li>
+				<li class="cf-guarantee__row">
+					<span class="cf-guarantee__num" aria-hidden="true">3</span>
+					<p>Si pagaste anticipadamente, puedes solicitar la devolución del dinero en lugar del reenvío.</p>
+				</li>
+			</ol>
+		</div>
+	</section>
+
+	<!-- ============================= FAQ ============================ -->
+	<section class="cf-section cf-section--alt">
+		<div class="cf-shell cf-narrow">
+			<h2 class="cf-h2">Preguntas rápidas</h2>
+
+			<div class="cf-faq">
+				<details class="cf-faq__item">
+					<summary>¿Cómo se toma?</summary>
+					<p>30 ml una vez al día.</p>
+				</details>
+				<details class="cf-faq__item">
+					<summary>¿Cuánto dura?</summary>
+					<p>1 litro para 33 días.</p>
+				</details>
+				<details class="cf-faq__item">
+					<summary>¿Puedo diluirlo?</summary>
+					<p>Sí. Puedes mezclarlo con agua o jugos naturales no cítricos.</p>
+				</details>
+				<details class="cf-faq__item">
+					<summary>¿Qué contiene?</summary>
+					<p>Clorofila, vitaminas A, C, D3, E, complejo B y minerales, entre otros ingredientes de su fórmula.</p>
+				</details>
+				<details class="cf-faq__item">
+					<summary>¿Tiene vaso medidor?</summary>
+					<p>Sí. Va incluido de regalo.</p>
+				</details>
+				<details class="cf-faq__item">
+					<summary>¿Puedo pagar al recibir?</summary>
+					<p>Sí. El precio contraentrega es de $79.900 COP.</p>
+				</details>
+				<details class="cf-faq__item">
+					<summary>¿Y si pago antes?</summary>
+					<p>Pagas $69.900 COP y ahorras exactamente $10.000 COP.</p>
+					<p class="cf-faq__pay"><span class="cf-pay"><img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-pay-visa.webp" width="222" height="72" loading="lazy" decoding="async" alt="Visa"><img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-pay-mastercard.webp" width="92" height="72" loading="lazy" decoding="async" alt="Mastercard"><img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-pay-pse.webp" width="72" height="72" loading="lazy" decoding="async" alt="PSE"></span></p>
+				</details>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================ CIERRE ========================== -->
+	<section class="cf-section cf-close">
+		<div class="cf-shell cf-close__grid">
+			<div class="cf-close__body">
+				<p class="cf-overline cf-close__overline">Más calor. Más pérdida de líquidos.</p>
+				<h2 class="cf-h2 cf-close__title">Haz que tu hidratación esté preparada.</h2>
+				<p class="cf-close__facts"><strong>Clorofull.</strong> Clorofila, vitaminas y minerales. 30 ml al día. 33 días por botella.</p>
+
+				<dl class="cf-close__prices">
+					<div class="cf-close__price cf-close__price--best">
+						<dt>Pago anticipado</dt>
+						<dd>$69.900 <span>COP</span><small>Ahorras $10.000 COP</small><span class="cf-pay cf-pay--on-dark"><img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-pay-visa.webp" width="222" height="72" loading="lazy" decoding="async" alt="Visa"><img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-pay-mastercard.webp" width="92" height="72" loading="lazy" decoding="async" alt="Mastercard"><img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-pay-pse.webp" width="72" height="72" loading="lazy" decoding="async" alt="PSE"></span></dd>
+					</div>
+					<div class="cf-close__price">
+						<dt>Contraentrega</dt>
+						<dd>$79.900 <span>COP</span></dd>
+					</div>
+				</dl>
+
+				<div class="cf-close__ctas">
+					<button type="button" class="cf-cta cf-cta--light _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage"><span class="cf-cta__label">Quiero Clorofull para esta temporada</span></button>
+					<a class="cf-close__whatsapp" href="https://wa.me/573006964582" target="_blank" rel="noopener">WhatsApp <strong>300 696 4582</strong></a>
+				</div>
+			</div>
+
+			<div class="cf-collage">
+				<figure class="cf-collage__item">
+					<img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-celeste.webp?width=360" srcset="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-celeste.webp?width=360 360w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-celeste.webp?width=500 500w" sizes="160px" width="720" height="900" loading="lazy" decoding="async" alt="Celeste sostiene su botella de Clorofull">
+				</figure>
+				<figure class="cf-collage__item">
+					<img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-ricardo.webp?width=360" srcset="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-ricardo.webp?width=360 360w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-ricardo.webp?width=500 500w" sizes="160px" width="720" height="900" loading="lazy" decoding="async" alt="Ricardo tomando Clorofull">
+				</figure>
+				<figure class="cf-collage__item">
+					<img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-maria-fernanda.webp?width=360" srcset="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-maria-fernanda.webp?width=360 360w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-maria-fernanda.webp?width=500 500w" sizes="160px" width="720" height="900" loading="lazy" decoding="async" alt="María Fernanda con la botella de Clorofull y el vasito">
+				</figure>
+				<figure class="cf-collage__item">
+					<img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-joselin.webp?width=360" srcset="https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-joselin.webp?width=360 360w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-ugc-joselin.webp?width=500 500w" sizes="160px" width="720" height="900" loading="lazy" decoding="async" alt="Joselin sostiene su botella de Clorofull">
+				</figure>
+			</div>
+		</div>
+	</section>
+
+	<!-- ========================== INSTAGRAM ========================= -->
+	<section class="cf-section cf-social">
+		<div class="cf-shell cf-narrow">
+			<p class="cf-overline">En Instagram</p>
+			<figure class="cf-social__shot">
+				<img
+					src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-instagram.webp?width=780"
+					srcset="https://etermacolombia.com/cdn/shop/files/landings-clorofull-instagram.webp?width=560 560w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-instagram.webp?width=780 780w, https://etermacolombia.com/cdn/shop/files/landings-clorofull-instagram.webp?width=1100 1100w"
+					sizes="(min-width: 900px) 560px, 100vw"
+					width="1100" height="371" loading="lazy" decoding="async"
+					alt="Perfil de Instagram @etermacompany, Eterma Oficial: 28 publicaciones y 16,4 mil seguidores. En la biografía: bebidas funcionales listas para tomar, hecho en Colombia con registro INVIMA.">
+			</figure>
+		</div>
+	</section>
+
+	<!-- ========================= FOOTER LEGAL ======================= -->
+	<footer class="cf-footer">
+		<div class="cf-shell">
+			<img class="cf-footer__logo"
+				src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-eterma-logo-white.webp"
+				width="767" height="212" loading="lazy" decoding="async"
+				alt="Eterma">
+			<p>Registro sanitario INVIMA: RSA-0029174-2023.</p>
+			<p>Fabricado en Colombia por Laboratorios NaturalSplast SAS. Carrera 59 #5B-31, Bogotá D.C.</p>
+			<p>Atención al cliente Eterma · WhatsApp <a href="https://wa.me/573006964582" target="_blank" rel="noopener">300 696 4582</a></p>
+			<p class="cf-footer__legal">Clorofull es un alimento y no un medicamento. No está destinado a diagnosticar, tratar, curar ni prevenir enfermedades. No reemplaza el consumo de agua durante el día, una alimentación variada ni la valoración de profesionales de salud.</p>
+		</div>
+	</footer>
+
+	<!-- ========================= CTA STICKY ========================= -->
+	<div class="cf-sticky" data-cf-sticky hidden>
+		<div class="cf-sticky__inner">
+			<p class="cf-sticky__price">
+				<strong class="cf-sticky__main" data-cf-sticky-price>$79.900</strong>
+				<span class="cf-sticky__note"><span data-cf-sticky-note-pre>o </span><strong class="cf-sticky__alt" data-cf-sticky-note-amount>$69.900</strong><span data-cf-sticky-note-post> anticipado</span></span>
+				<span class="cf-pay cf-pay--sm"><img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-pay-visa.webp" width="222" height="72" loading="lazy" decoding="async" alt="Visa"><img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-pay-mastercard.webp" width="92" height="72" loading="lazy" decoding="async" alt="Mastercard"><img src="https://etermacolombia.com/cdn/shop/files/landings-clorofull-pay-pse.webp" width="72" height="72" loading="lazy" decoding="async" alt="PSE"></span>
+			</p>
+			<button type="button" class="cf-cta cf-cta--sm _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage" data-cf-sticky-cta><span class="cf-cta__label">Quiero mi Clorofull</span></button>
+		</div>
+	</div>
+
+</section>
+
+<style>
+	/* =========================================================
+	   Tipografía de marca — Questrial (Google Fonts, licencia OFL)
+	   Un solo peso: cualquier negrita es sintética. Alojada en
+	   Contenido → Archivos de Shopify. docs/brand-typography.md
+	   ========================================================= */
+
+	@font-face {
+		font-family: 'Questrial';
+		src: url('https://etermacolombia.com/cdn/shop/files/questrial-400.woff2') format('woff2');
+		font-weight: 400;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	/* =========================================================
+	   ETERMA · CLOROFULL landing (ángulo hidratación · El Niño)
+	   Todo bajo .cf-lp para no colisionar con el tema (Refresh).
+	   Paleta: la de etermacolombia.com (verdes y grises). El calor lo
+	   ponen las fotos; la interfaz se queda en verde y hueso.
+	   Todas las medidas en px: la raíz del tema va a 10,5px.
+
+	   Regla de GemPages (/AGENTS.md §4.13): todo modificador o estado que
+	   pisa una base lleva la base en el selector (.cf-plan.cf-plan--best),
+	   nunca depende del orden. Comprobado con check-css-merge.mjs.
+	   ========================================================= */
+
+	.cf-lp {
+		--et-green-deep: #0f2e20;
+		--et-green-mid: #315b45;
+		--et-green: #496c56;
+		--et-ink: #10251a;
+		--et-muted: #52715b;
+		--et-lime: #c2d85a;
+		--et-mint: #dcf2dc;
+		--et-mint-pale: #edf7ea;
+		--et-bg: #fffcf5;
+		--et-bg-alt: #eff0f5;
+		--et-surface: #ffffff;
+		--et-border: #d7d5c9;
+
+		--cf-serif: var(--font-heading-family, Georgia, 'Times New Roman', serif);
+		--cf-sans: 'Questrial', var(--font-body-family, 'Helvetica Neue', Helvetica, Arial, sans-serif);
+
+		--cf-shell: 1080px;
+		--cf-narrow: 680px;
+		--cf-pad: 44px;      /* relleno vertical de sección (64 en escritorio) */
+		--cf-gap: 18px;      /* hueco titular → contenido, el mismo en todas */
+		--cf-radius: 14px;
+		--cf-radius-sm: 10px;
+		--cf-line: 1px solid var(--et-border);
+
+		display: block;
+		background: var(--et-bg);
+		color: var(--et-ink);
+		font-family: var(--cf-sans);
+		font-size: 17px;
+		line-height: 1.55;
+		letter-spacing: 0; /* el tema pone .06rem en body y se hereda */
+		-webkit-font-smoothing: antialiased;
+	}
+
+	.cf-lp *,
+	.cf-lp *::before,
+	.cf-lp *::after { box-sizing: border-box; }
+
+	.cf-lp p,
+	.cf-lp h1,
+	.cf-lp h2,
+	.cf-lp h3,
+	.cf-lp ul,
+	.cf-lp ol,
+	.cf-lp dl,
+	.cf-lp dd,
+	.cf-lp figure,
+	.cf-lp blockquote { margin: 0; padding: 0; }
+
+	/* Refresh (familia Dawn) trae div:empty{display:none}. Aquí no hay capas
+	   vacías, pero la defensa es obligatoria por si se añaden. */
+	.cf-lp div:empty { display: block; }
+
+	/* El tema estila por etiqueta y una regla de etiqueta gana a la herencia:
+	   se fija la familia por clase raíz. */
+	.cf-lp p, .cf-lp li, .cf-lp dt, .cf-lp dd, .cf-lp a, .cf-lp button,
+	.cf-lp summary, .cf-lp span, .cf-lp strong, .cf-lp small,
+	.cf-lp figcaption, .cf-lp footer {
+		font-family: var(--cf-sans);
+	}
+
+	.cf-lp h1, .cf-lp h2, .cf-lp h3 {
+		font-family: var(--cf-serif);
+		font-weight: 400;
+		color: var(--et-green-deep);
+	}
+
+	.cf-lp ul, .cf-lp ol { list-style: none; }
+	.cf-lp strong { font-weight: 400; color: var(--et-green-deep); }
+	.cf-lp img { display: block; max-width: 100%; height: auto; }
+	.cf-lp a { color: inherit; }
+
+	/* ---------- Layout ---------- */
+
+	.cf-lp .cf-shell {
+		width: 100%;
+		max-width: var(--cf-shell);
+		margin-inline: auto;
+		padding-inline: 15px;
+	}
+
+	.cf-lp .cf-narrow { max-width: var(--cf-narrow); }
+
+	.cf-lp .cf-section { padding-block: var(--cf-pad); }
+
+	.cf-lp .cf-section--alt { background: var(--et-bg-alt); }
+
+	/* Bordes en onda para toda sección con fondo propio: la curva de la
+	   cabecera como máscara de un pseudo-elemento que hereda el color de la
+	   sección, montado 8px fuera de ella arriba (volteado) y abajo. */
+	.cf-lp .cf-section--alt,
+	.cf-lp .cf-section--deep,
+	.cf-lp .cf-close,
+	.cf-lp .cf-footer { position: relative; }
+
+	.cf-lp .cf-section--alt::before,
+	.cf-lp .cf-section--alt::after,
+	.cf-lp .cf-section--deep::before,
+	.cf-lp .cf-section--deep::after,
+	.cf-lp .cf-close::before,
+	.cf-lp .cf-close::after,
+	.cf-lp .cf-footer::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		right: 0;
+		z-index: 1;
+		height: 8px;
+		background: inherit;
+		-webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 390 8' preserveAspectRatio='none'%3E%3Cpath d='M0 0h390v3.5c-70 5.5-135 5.5-195 1.5S70 1 0 5.5z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+		mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 390 8' preserveAspectRatio='none'%3E%3Cpath d='M0 0h390v3.5c-70 5.5-135 5.5-195 1.5S70 1 0 5.5z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+		pointer-events: none;
+	}
+
+	.cf-lp .cf-section--alt::before,
+	.cf-lp .cf-section--deep::before,
+	.cf-lp .cf-close::before,
+	.cf-lp .cf-footer::before {
+		bottom: 100%;
+		transform: scaleY(-1);
+	}
+
+	.cf-lp .cf-section--alt::after,
+	.cf-lp .cf-section--deep::after,
+	.cf-lp .cf-close::after { top: 100%; }
+
+	/* Bloque en verde profundo, como los de la home */
+	.cf-lp .cf-section--deep {
+		background: var(--et-green-deep);
+		color: var(--et-bg);
+	}
+
+	.cf-lp .cf-section--deep .cf-h2,
+	.cf-lp .cf-section--deep .cf-serif-line,
+	.cf-lp .cf-section--deep .cf-stack,
+	.cf-lp .cf-section--deep .cf-statement,
+	.cf-lp .cf-section--deep strong { color: var(--et-surface); }
+
+	.cf-lp .cf-section--deep .cf-statement { border-left-color: var(--et-lime); }
+	.cf-lp .cf-section--deep .cf-statement em { color: var(--et-lime); }
+
+	/* ---------- Tipografía ---------- */
+
+	.cf-lp .cf-h1 {
+		margin-top: 0;
+		font-size: 29px;
+		line-height: 1.08;
+		letter-spacing: -0.5px;
+	}
+
+	.cf-lp .cf-h1 em,
+	.cf-lp .cf-h2 em {
+		font-style: italic;
+		color: var(--et-green);
+	}
+
+	.cf-lp .cf-h2 {
+		font-size: 29px;
+		line-height: 1.15;
+		letter-spacing: -0.3px;
+		max-width: 560px;
+	}
+
+	.cf-lp .cf-overline {
+		font-size: 12px;
+		line-height: 1.3;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		color: var(--et-muted);
+		margin-bottom: 10px;
+	}
+
+	/* Sobre verde profundo el overline va en lima, como los eyebrows de la
+	   home. Con la base en el selector: GemPages fusiona cuerpos iguales. */
+	.cf-lp .cf-overline.cf-overline--lime,
+	.cf-lp .cf-overline.cf-close__overline { color: var(--et-lime); }
+
+	.cf-lp .cf-lead {
+		font-size: 15px;
+		line-height: 1.5;
+		max-width: 520px;
+	}
+
+	.cf-lp .cf-text p + p { margin-top: 12px; }
+	.cf-lp .cf-text--after { margin-top: var(--cf-gap); }
+
+	.cf-lp .cf-serif-line {
+		font-family: var(--cf-serif);
+		font-size: 22px;
+		line-height: 1.3;
+		color: var(--et-green-deep);
+	}
+
+	.cf-lp .cf-h2 + .cf-serif-line { margin-top: 8px; color: var(--et-green); }
+	/* Sobre verde profundo el subtítulo va en lima. Por contexto y con más
+	   especificidad que la regla de arriba: un modificador con el mismo cuerpo
+	   en dos sitios acababa fusionado por GemPages por encima de ella. */
+	.cf-lp .cf-section--deep .cf-h2 + .cf-serif-line { color: var(--et-lime); }
+
+	/* Frase de énfasis con filete lateral: el gesto de la marca */
+	.cf-lp .cf-statement {
+		font-family: var(--cf-serif);
+		font-size: 25px;
+		line-height: 1.25;
+		color: var(--et-green-deep);
+		padding-left: 18px;
+		border-left: 2px solid var(--et-green);
+	}
+
+	.cf-lp .cf-statement em { font-style: italic; color: var(--et-green); }
+
+	/* Lista de sustantivos en línea, separados por aire */
+	.cf-lp .cf-stack {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px 18px;
+		font-family: var(--cf-serif);
+		font-size: 22px;
+		color: var(--et-green-deep);
+	}
+
+	.cf-lp .cf-text .cf-stack { margin-top: 12px; }
+
+	/* Los <span> heredarían la serif, pero la regla por etiqueta de arriba
+	   (.cf-lp span → sans) gana a la herencia: se fija por clase en cada
+	   pieza que va en serif. */
+	.cf-lp .cf-stack span,
+	.cf-lp .cf-axis__item span,
+	.cf-lp .cf-tile span,
+	.cf-lp .cf-sum__part { font-family: var(--cf-serif); }
+
+	/* ---------- Botones: "la medida, en vaso frío" ----------
+	   El CTA de Clorofull es un vasito que se llena (la medida). En este
+	   ángulo el vaso está frío: además del líquido que sube hasta la marca
+	   y se mece, una gota de condensación se forma en el borde superior y
+	   resbala por el cristal cada 5,6 s (::after de la etiqueta). Al pasar
+	   el dedo o el ratón, el líquido llena el botón entero (::before de la
+	   etiqueta). Solo transform y opacity. Fuera de pantalla se pausa (JS,
+	   .is-inview); sin JS es una píldora verde estática; con
+	   prefers-reduced-motion el líquido queda quieto y no hay gota.
+	   ---------------------------------------------------------- */
+
+	.cf-lp .cf-cta {
+		--cf-liquid: var(--et-green);
+		--cf-liquid-light: rgba(220, 242, 220, 0.28);
+		--cf-bead: rgba(255, 255, 255, 0.62);
+		--cf-level: 10px; /* alto del líquido desde el borde inferior */
+
+		position: relative;
+		isolation: isolate;
+		overflow: hidden;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		min-height: 56px;
+		margin: 0;
+		padding: 14px 24px;
+		border: 1px solid var(--et-green-deep);
+		border-radius: 999px;
+		background: var(--et-green-deep);
+		color: var(--et-surface);
+		font-family: var(--cf-sans);
+		font-size: 18px;
+		font-weight: 400;
+		line-height: 1.2;
+		letter-spacing: 0;
+		text-align: center;
+		text-decoration: none;
+		text-transform: none;
+		cursor: pointer;
+		-webkit-appearance: none;
+		appearance: none;
+		-webkit-tap-highlight-color: transparent;
+		box-shadow: none;
+		transition: transform 0.18s ease;
+	}
+
+	.cf-lp .cf-cta:active { transform: scale(0.985); }
+
+	.cf-lp .cf-cta:focus-visible {
+		outline: 3px solid var(--et-green);
+		outline-offset: 3px;
+	}
+
+	/* Las dos capas de líquido: anchas para que al inclinarse no asome el
+	   borde, altas para cubrir el fondo, pivotando sobre el centro de la
+	   superficie. Arrancan pausadas: el JS las sirve al entrar en pantalla. */
+	.cf-lp .cf-cta::before,
+	.cf-lp .cf-cta::after {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		left: -50%;
+		right: -50%;
+		top: calc(100% - var(--cf-level));
+		height: 300%;
+		transform-origin: 50% 0;
+		background: var(--cf-liquid);
+		animation: cf-pour 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both, cf-slosh 5.2s ease-in-out 0.9s infinite;
+		animation-play-state: paused;
+		will-change: transform;
+	}
+
+	.cf-lp .cf-cta::after {
+		background: var(--cf-liquid-light);
+		animation-direction: normal, reverse;
+	}
+
+	.cf-lp .cf-cta__label {
+		position: static; /* sus pseudo-elementos se posicionan sobre el botón entero */
+		display: inline-block;
+	}
+
+	/* Relleno al pasar: sube desde abajo y cubre las olas */
+	.cf-lp .cf-cta__label::before {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		background: var(--cf-liquid);
+		transform: translateY(101%);
+		transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+	}
+
+	.cf-lp .cf-cta:hover .cf-cta__label::before,
+	.cf-lp .cf-cta:focus-visible .cf-cta__label::before { transform: translateY(0); }
+
+	.cf-lp .cf-cta:active .cf-cta__label::before {
+		transform: translateY(0);
+		transition-duration: 0.12s;
+	}
+
+	/* La gota de condensación: nace en el borde superior, a la izquierda
+	   del texto, y resbala por el cristal. */
+	.cf-lp .cf-cta__label::after {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		left: 22px;
+		top: 6px;
+		width: 7px;
+		height: 10px;
+		border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+		background: var(--cf-bead);
+		opacity: 0;
+		transform: translateY(-6px) scale(0.6);
+		animation: cf-bead 5.6s ease-in 2s infinite;
+		animation-play-state: paused;
+	}
+
+	.cf-lp .cf-cta.is-inview::before,
+	.cf-lp .cf-cta.is-inview::after,
+	.cf-lp .cf-cta.is-inview .cf-cta__label::after { animation-play-state: running; }
+
+	@keyframes cf-pour {
+		from { transform: translateY(22%) rotate(0deg); }
+		to { transform: translateY(0) rotate(0deg); }
+	}
+
+	@keyframes cf-slosh {
+		0%, 100% { transform: rotate(-1.2deg); }
+		50% { transform: rotate(1.2deg); }
+	}
+
+	@keyframes cf-bead {
+		0% { opacity: 0; transform: translateY(-6px) scale(0.6); }
+		10% { opacity: 0.9; transform: translateY(0) scale(1); }
+		48% { opacity: 0.9; transform: translateY(26px) scale(1.06); }
+		62% { opacity: 0; transform: translateY(36px) scale(0.8); }
+		100% { opacity: 0; transform: translateY(36px) scale(0.8); }
+	}
+
+	/* Variantes: cambian el color del líquido y de la gota, no la mecánica */
+	.cf-lp .cf-cta.cf-cta--secondary {
+		--cf-liquid: var(--et-mint);
+		--cf-liquid-light: rgba(255, 255, 255, 0.6);
+		--cf-bead: rgba(15, 46, 32, 0.22);
+		background: var(--et-surface);
+		color: var(--et-green-deep);
+	}
+
+	.cf-lp .cf-cta.cf-cta--light {
+		--cf-liquid: var(--et-mint);
+		--cf-liquid-light: rgba(255, 255, 255, 0.6);
+		--cf-bead: rgba(15, 46, 32, 0.22);
+		background: var(--et-bg);
+		border-color: var(--et-bg);
+		color: var(--et-green-deep);
+	}
+
+	.cf-lp .cf-cta.cf-cta--sm {
+		width: auto;
+		min-height: 48px;
+		padding: 10px 20px;
+		font-size: 16px;
+	}
+
+	.cf-lp .cf-cta-row {
+		margin-top: 22px;
+		max-width: 420px;
+	}
+
+	/* ---------- Revelado al entrar en pantalla ----------
+	   Los bloques con data-cf-reveal arrancan visibles; el JS los arma
+	   (is-armed) y los muestra una sola vez (is-inview). Los hijos entran
+	   escalonados: solo transform y opacity. */
+	.cf-lp [data-cf-reveal].is-armed > * {
+		opacity: 0;
+		transform: translateY(12px);
+		transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+	}
+
+	.cf-lp [data-cf-reveal].is-armed.is-inview > * {
+		opacity: 1;
+		transform: none;
+	}
+
+	.cf-lp [data-cf-reveal].is-armed > :nth-child(2) { transition-delay: 0.08s; }
+	.cf-lp [data-cf-reveal].is-armed > :nth-child(3) { transition-delay: 0.16s; }
+	.cf-lp [data-cf-reveal].is-armed > :nth-child(4) { transition-delay: 0.24s; }
+	.cf-lp [data-cf-reveal].is-armed > :nth-child(5) { transition-delay: 0.32s; }
+	.cf-lp [data-cf-reveal].is-armed > :nth-child(6) { transition-delay: 0.4s; }
+
+	/* ---------- Barra superior ---------- */
+
+	.cf-lp .cf-topbar {
+		position: relative;
+		z-index: 2;
+		background: var(--et-surface);
+	}
+
+	.cf-lp .cf-topbar__wave {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: -7px;
+		display: block;
+		width: 100%;
+		height: 8px;
+		color: var(--et-surface);
+	}
+
+	/* Franja superior en verde profundo, en marquesina lenta */
+	.cf-lp .cf-topbar__strip {
+		overflow: hidden;
+		padding: 9px 0;
+		background: var(--et-green-deep);
+		color: var(--et-surface);
+		font-size: 12px;
+		line-height: 1.4;
+		letter-spacing: 0.3px;
+		white-space: nowrap;
+	}
+
+	/* `max-width: none` y `flex: none` no son decorativos: GemPages impone
+	   max-width: 100% a todo lo que hay dentro del bloque y aplasta el
+	   carril al ancho del contenedor (medido en la landing de olor:
+	   390 en vez de 1047, con los dos juegos de texto pisándose). */
+	.cf-lp .cf-topbar__track {
+		display: inline-flex;
+		width: max-content;
+		max-width: none;
+		animation: cf-marquee 24s linear infinite;
+		will-change: transform;
+	}
+
+	.cf-lp .cf-topbar__strip:hover .cf-topbar__track { animation-play-state: paused; }
+
+	.cf-lp .cf-topbar__set {
+		display: inline-flex;
+		flex: none;
+		max-width: none;
+	}
+
+	.cf-lp .cf-topbar__set span::after {
+		content: '\00B7';
+		margin-inline: 14px;
+	}
+
+	@keyframes cf-marquee {
+		from { transform: translateX(0); }
+		to { transform: translateX(-50%); }
+	}
+
+	.cf-lp .cf-topbar__inner {
+		display: flex;
+		justify-content: center;
+		padding-block: 11px 9px;
+	}
+
+	.cf-lp .cf-topbar__logo {
+		width: auto;
+		height: 20px;
+	}
+
+	/* ---------- Hero: el sol alto ---------- */
+
+	.cf-lp .cf-hero { padding-block: 0 20px; }
+
+	.cf-lp .cf-hero__layout { display: grid; }
+
+	.cf-lp .cf-hero__media { display: grid; }
+
+	/* El aviso de calor: banda menta con el preheadline del copy y un sol de
+	   trazo fino cuyos rayos giran una vuelta cada 48 s. Va ENCIMA del marco
+	   de la foto, no sobre ella. */
+	.cf-lp .cf-hero__notice {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		padding: 12px 15px 8px;
+		background: var(--et-mint);
+		color: var(--et-green-deep);
+		font-size: 11px;
+		line-height: 1.35;
+		letter-spacing: 1.4px;
+		text-transform: uppercase;
+		text-align: center;
+	}
+
+	.cf-lp .cf-sun {
+		flex: none;
+		width: 22px;
+		height: 22px;
+		color: var(--et-green);
+	}
+
+	.cf-lp .cf-sun__rays {
+		transform-box: fill-box;
+		transform-origin: 50% 50%;
+		animation: cf-sun-turn 48s linear infinite;
+	}
+
+	@keyframes cf-sun-turn {
+		from { transform: rotate(0deg); }
+		to { transform: rotate(360deg); }
+	}
+
+	/* Marco de la foto: a sangre y casi cuadrado en móvil. Dentro, el carril
+	   con scroll-snap y las flechas; nada más encima de la foto. */
+	.cf-lp .cf-hero__frame {
+		position: relative;
+		width: 100%;
+		aspect-ratio: 6 / 5;
+		overflow: hidden;
+		background: var(--et-mint);
+	}
+
+	.cf-lp .cf-hero__track {
+		display: flex;
+		height: 100%;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: none;
+	}
+
+	.cf-lp .cf-hero__track::-webkit-scrollbar { display: none; }
+
+	.cf-lp .cf-hero__track:focus-visible {
+		outline: 2px solid var(--et-green);
+		outline-offset: -2px;
+	}
+
+	.cf-lp .cf-hero__slide {
+		position: relative;
+		flex: 0 0 100%;
+		height: 100%;
+		scroll-snap-align: start;
+	}
+
+	.cf-lp .cf-hero__slide img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: 50% 42%;
+	}
+
+	.cf-lp .cf-hero__arrow {
+		position: absolute;
+		top: 50%;
+		width: 30px;
+		height: 30px;
+		padding: 0;
+		border: 1px solid rgba(15, 46, 32, 0.16);
+		border-radius: 50%;
+		background: rgba(255, 252, 245, 0.88);
+		color: var(--et-green-deep);
+		transform: translateY(-50%);
+		cursor: pointer;
+		-webkit-appearance: none;
+		appearance: none;
+		transition: opacity 0.25s;
+	}
+
+	.cf-lp .cf-hero__arrow.cf-hero__arrow--prev { left: 10px; }
+	.cf-lp .cf-hero__arrow.cf-hero__arrow--next { right: 10px; }
+
+	.cf-lp .cf-hero__arrow svg {
+		width: 14px;
+		height: 14px;
+	}
+
+	.cf-lp .cf-hero__arrow:hover { background: var(--et-surface); }
+
+	.cf-lp .cf-hero__arrow:focus-visible {
+		outline: 2px solid var(--et-green);
+		outline-offset: 2px;
+	}
+
+	.cf-lp .cf-hero__arrow[disabled] {
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	/* Rótulo de la foto activa: los tres apilados en la misma celda y solo
+	   se ve el que marca data-cf-active en el contenedor. Banda propia bajo
+	   el marco, nunca sobre la foto. */
+	.cf-lp .cf-hero__caps {
+		display: grid;
+		padding: 8px 15px 0;
+	}
+
+	.cf-lp .cf-hero__cap {
+		grid-area: 1 / 1;
+		font-size: 14px;
+		line-height: 1.4;
+		color: var(--et-muted);
+		opacity: 0;
+		transform: translateY(6px);
+		transition: opacity 0.35s ease, transform 0.35s ease;
+	}
+
+	.cf-lp .cf-hero__cap strong { color: var(--et-green-deep); }
+
+	.cf-lp .cf-hero__media:not([data-cf-active]) .cf-hero__cap:nth-child(1),
+	.cf-lp .cf-hero__media[data-cf-active='0'] .cf-hero__cap:nth-child(1),
+	.cf-lp .cf-hero__media[data-cf-active='1'] .cf-hero__cap:nth-child(2),
+	.cf-lp .cf-hero__media[data-cf-active='2'] .cf-hero__cap:nth-child(3) {
+		opacity: 1;
+		transform: none;
+	}
+
+	.cf-lp .cf-hero__copy {
+		display: grid;
+		gap: 8px;
+		margin-top: 10px;
+	}
+
+	/* Los tres datos del copy como fichas con icono, en una fila */
+	.cf-lp .cf-facts {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+		margin-top: 0;
+	}
+
+	.cf-lp .cf-facts li {
+		display: inline-flex;
+		align-items: center;
+		gap: 7px;
+		padding: 6px 11px 6px 9px;
+		border: var(--cf-line);
+		border-radius: 999px;
+		background: var(--et-surface);
+		font-size: 13px;
+		line-height: 1.2;
+		color: var(--et-green-deep);
+	}
+
+	.cf-lp .cf-facts svg {
+		flex: none;
+		width: 18px;
+		height: 18px;
+		color: var(--et-green);
+	}
+
+	.cf-lp .cf-hero__buy {
+		display: grid;
+		gap: 14px;
+		margin-top: 12px;
+	}
+
+	.cf-lp .cf-hero__buy .cf-cta {
+		z-index: 1;
+		width: calc(100% - 24px);
+		margin: -42px 12px 0;
+	}
+
+	.cf-lp .cf-hero__layout .cf-hero__buy { max-width: 500px; }
+
+	.cf-lp .cf-pricing {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		border: var(--cf-line);
+		border-radius: var(--cf-radius-sm);
+		overflow: hidden;
+		background: var(--et-surface);
+	}
+
+	/* El CTA se monta 28px sobre el borde inferior del grid de precios; el
+	   relleno inferior de las celdas reserva ese espacio. */
+	.cf-lp .cf-pricing__cell {
+		display: grid;
+		gap: 3px;
+		align-content: start;
+		padding: 10px 12px 42px;
+	}
+
+	.cf-lp .cf-pricing__cell + .cf-pricing__cell { border-left: var(--cf-line); }
+	.cf-lp .cf-pricing__cell.cf-pricing__cell--best { background: var(--et-mint); }
+
+	.cf-lp .cf-pricing dt {
+		font-size: 11px;
+		letter-spacing: 1.5px;
+		text-transform: uppercase;
+		color: var(--et-muted);
+	}
+
+	.cf-lp .cf-pricing dd {
+		font-family: var(--cf-serif);
+		font-size: 23px;
+		line-height: 1.1;
+		color: var(--et-green-deep);
+	}
+
+	.cf-lp .cf-pricing dd span,
+	.cf-lp .cf-plan__price small,
+	.cf-lp .cf-close__price dd span {
+		font-family: var(--cf-sans);
+		font-size: 12px;
+		letter-spacing: 0.5px;
+		color: var(--et-muted);
+	}
+
+	.cf-lp .cf-pricing dd small {
+		display: block;
+		margin-top: 4px;
+		font-size: 13px;
+		line-height: 1.3;
+		color: var(--et-green-mid);
+	}
+
+	/* ---------- En la prensa ---------- */
+
+	.cf-lp .cf-press {
+		padding-block: 28px 8px;
+		border-top: var(--cf-line);
+	}
+
+	/* Tira con scroll horizontal dentro del shell, alineada con el rótulo */
+	.cf-lp .cf-press__track {
+		display: flex;
+		gap: 12px;
+		margin-top: 4px;
+		padding-bottom: 14px;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: none;
+	}
+
+	.cf-lp .cf-press__track::-webkit-scrollbar { display: none; }
+
+	.cf-lp .cf-press__track:focus-visible {
+		outline: 2px solid var(--et-green);
+		outline-offset: 4px;
+	}
+
+	.cf-lp .cf-press__item {
+		flex: 0 0 82%;
+		display: grid;
+		gap: 8px;
+		align-content: start;
+		padding: 10px 10px 14px;
+		background: var(--et-surface);
+		border: var(--cf-line);
+		border-radius: var(--cf-radius-sm);
+		scroll-snap-align: start;
+	}
+
+	.cf-lp .cf-press__shot {
+		width: 100%;
+		aspect-ratio: 1000 / 263;
+		object-fit: cover;
+		border-radius: 6px;
+		border: var(--cf-line);
+		background: var(--et-bg-alt);
+	}
+
+	.cf-lp .cf-press__meta {
+		font-size: 11px;
+		letter-spacing: 1.2px;
+		text-transform: uppercase;
+		color: var(--et-muted);
+	}
+
+	.cf-lp .cf-press__title {
+		font-family: var(--cf-serif);
+		font-size: 16px;
+		line-height: 1.3;
+		color: var(--et-green-deep);
+	}
+
+	/* ---------- El termómetro ---------- */
+
+	.cf-lp .cf-heat {
+		display: grid;
+		grid-template-columns: 44px minmax(0, 1fr);
+		column-gap: 16px;
+		align-items: stretch;
+		margin-top: var(--cf-gap);
+	}
+
+	.cf-lp .cf-heat__thermo {
+		width: 44px;
+		height: auto;
+		color: var(--et-green);
+	}
+
+	/* El mercurio sube al entrar en pantalla: transform sobre el rect del
+	   SVG, con transform-box para que el origen sea su propio pie. */
+	.cf-lp .cf-heat__mercury {
+		transform-box: fill-box;
+		transform-origin: 50% 100%;
+		transition: transform 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s;
+	}
+
+	.cf-lp .cf-heat.is-armed .cf-heat__mercury { transform: scaleY(0.12); }
+	.cf-lp .cf-heat.is-armed.is-inview .cf-heat__mercury { transform: scaleY(1); }
+
+	/* Tres peldaños que suben: cada uno más adentro y con el filete a la
+	   izquierda; el último, la frase larga, es el más alto. */
+	.cf-lp .cf-heat__steps {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		gap: 10px;
+	}
+
+	.cf-lp .cf-heat__step {
+		position: relative;
+		padding: 10px 14px 10px 16px;
+		border-left: 2px solid var(--et-green);
+		background: var(--et-surface);
+		border-radius: 0 var(--cf-radius-sm) var(--cf-radius-sm) 0;
+		font-family: var(--cf-serif);
+		font-size: 19px;
+		line-height: 1.25;
+		color: var(--et-green-deep);
+	}
+
+	.cf-lp .cf-heat__step:nth-child(2) { margin-left: 14px; }
+	.cf-lp .cf-heat__step:nth-child(3) { margin-left: 28px; }
+
+	/* ---------- La cadena de señales ----------
+	   Cuatro medallones enlazados por un filete a la altura de su centro
+	   (de 12,5% a 12,5% son justo los centros del primero y el último). El
+	   fondo se oscurece medallón a medallón: la señal que avanza. */
+	.cf-lp .cf-alerts {
+		position: relative;
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 10px 6px;
+		margin-top: 22px;
+	}
+
+	.cf-lp .cf-alerts::before {
+		content: '';
+		position: absolute;
+		left: 12.5%;
+		right: 12.5%;
+		top: 30px;
+		height: 2px;
+		border-radius: 2px;
+		background: linear-gradient(90deg, var(--et-mint), var(--et-green-mid));
+	}
+
+	.cf-lp .cf-alert {
+		display: grid;
+		justify-items: center;
+		gap: 8px;
+	}
+
+	/* Sobre el filete, y con fondo opaco: el filete pasa por detrás. */
+	.cf-lp .cf-alert__mark {
+		position: relative;
+		display: grid;
+		place-items: center;
+		width: 62px;
+		height: 62px;
+		border-radius: 50%;
+		background: var(--et-mint);
+		color: var(--et-green-deep);
+	}
+
+	.cf-lp .cf-alert__icon {
+		width: 30px;
+		height: 30px;
+	}
+
+	.cf-lp .cf-alert__name {
+		font-family: var(--cf-serif);
+		font-size: 14px;
+		line-height: 1.2;
+		text-align: center;
+		color: var(--et-green-deep);
+	}
+
+	/* La escalada, medallón a medallón */
+	.cf-lp .cf-alert:nth-child(1) .cf-alert__mark { background: var(--et-mint-pale); color: var(--et-green-mid); }
+	.cf-lp .cf-alert:nth-child(3) .cf-alert__mark { background: var(--et-green-mid); color: var(--et-mint); }
+	.cf-lp .cf-alert:nth-child(4) .cf-alert__mark { background: var(--et-green-deep); color: var(--et-lime); }
+
+	/* ---------- Tu cuerpo te avisa ---------- */
+
+	.cf-lp .cf-signals { display: grid; gap: var(--cf-gap); }
+
+	.cf-lp .cf-signals__art img {
+		width: 100%;
+		aspect-ratio: 5 / 4;
+		object-fit: cover;
+		object-position: 50% 30%;
+		border-radius: var(--cf-radius);
+		border: var(--cf-line);
+		background: var(--et-surface);
+	}
+
+	.cf-lp .cf-signals__list {
+		display: grid;
+		gap: 10px;
+	}
+
+	.cf-lp .cf-signal {
+		display: grid;
+		gap: 8px;
+		padding: 14px 14px 16px;
+		background: var(--et-surface);
+		border: var(--cf-line);
+		border-radius: var(--cf-radius-sm);
+	}
+
+	/* La fila del rótulo: numeral en serif, nombre pegado al numeral y el
+	   icono cerrando la fila por la derecha. */
+	.cf-lp .cf-signal__head {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	.cf-lp .cf-signal__num,
+	.cf-lp .cf-way__num,
+	.cf-lp .cf-guarantee__num {
+		flex: none;
+		font-family: var(--cf-serif);
+		font-size: 24px;
+		line-height: 1;
+		color: var(--et-green);
+	}
+
+	.cf-lp .cf-signal__name {
+		font-size: 19px;
+		line-height: 1.2;
+	}
+
+	.cf-lp .cf-signal__icon {
+		flex: none;
+		width: 24px;
+		height: 24px;
+		margin-left: auto;
+		color: var(--et-green-mid);
+	}
+
+	.cf-lp .cf-signal__text {
+		font-size: 15px;
+		line-height: 1.45;
+	}
+
+	/* ---------- Personas reales ---------- */
+
+	.cf-lp .cf-people { padding-block: 22px 6px; }
+
+	.cf-lp .cf-people__track {
+		display: flex;
+		gap: 10px;
+		max-width: var(--cf-shell);
+		margin-inline: auto;
+		padding: 0 15px 12px;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		scroll-padding-inline: 15px;
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: none;
+	}
+
+	.cf-lp .cf-people__track::-webkit-scrollbar { display: none; }
+
+	.cf-lp .cf-people__track:focus-visible {
+		outline: 2px solid var(--et-green);
+		outline-offset: 4px;
+	}
+
+	.cf-lp .cf-people__item {
+		flex: 0 0 148px;
+		scroll-snap-align: start;
+	}
+
+	.cf-lp .cf-people__item img {
+		width: 100%;
+		aspect-ratio: 4 / 5;
+		object-fit: cover;
+		border-radius: var(--cf-radius-sm);
+		background: var(--et-bg-alt);
+	}
+
+	.cf-lp .cf-people__item figcaption {
+		margin-top: 7px;
+		font-size: 13px;
+		color: var(--et-muted);
+	}
+
+	/* ---------- El calor exige más: la dosis ---------- */
+
+	.cf-lp .cf-prep {
+		display: grid;
+		gap: 24px;
+	}
+
+	.cf-lp .cf-stack.cf-prep__words { margin-top: 18px; font-size: 24px; }
+
+	/* El vasito sobre un plato hueso, con la cifra en serif al lado */
+	.cf-lp .cf-dose {
+		display: grid;
+		grid-template-columns: auto minmax(0, 1fr);
+		column-gap: 16px;
+		align-items: center;
+		justify-self: start;
+		padding: 14px 22px 14px 16px;
+		border-radius: var(--cf-radius);
+		background: var(--et-bg);
+		color: var(--et-green-deep);
+	}
+
+	.cf-lp .cf-dose__cup {
+		grid-row: span 2;
+		width: 120px;
+		mix-blend-mode: multiply;
+	}
+
+	.cf-lp .cf-dose__num {
+		font-family: var(--cf-serif);
+		font-size: 44px;
+		line-height: 1;
+		color: var(--et-green-deep);
+	}
+
+	.cf-lp .cf-dose__txt {
+		margin-top: 4px;
+		font-size: 14px;
+		color: var(--et-muted);
+	}
+
+	/* ---------- Dos columnas foto + texto ---------- */
+
+	.cf-lp .cf-split {
+		display: grid;
+		gap: var(--cf-gap);
+	}
+
+	.cf-lp .cf-split__media img {
+		width: 100%;
+		border-radius: var(--cf-radius);
+		border: var(--cf-line);
+	}
+
+	/* ---------- La fórmula ---------- */
+
+	.cf-lp .cf-formula {
+		display: grid;
+		gap: 10px;
+		margin-top: var(--cf-gap);
+	}
+
+	.cf-lp .cf-formula__item {
+		display: grid;
+		grid-template-columns: auto minmax(0, 1fr);
+		column-gap: 14px;
+		align-items: start;
+		padding: 14px;
+		background: var(--et-surface);
+		border: var(--cf-line);
+		border-radius: var(--cf-radius-sm);
+	}
+
+	.cf-lp .cf-formula__mark {
+		display: grid;
+		place-items: center;
+		width: 44px;
+		height: 44px;
+		border-radius: 50%;
+		background: var(--et-mint);
+		color: var(--et-green-deep);
+	}
+
+	.cf-lp .cf-formula__mark svg {
+		width: 24px;
+		height: 24px;
+	}
+
+	.cf-lp .cf-formula__name {
+		font-size: 20px;
+		line-height: 1.2;
+	}
+
+	.cf-lp .cf-formula__text p {
+		margin-top: 4px;
+		font-size: 15px;
+		line-height: 1.45;
+	}
+
+	/* ---------- El día entero: las seis fichas ---------- */
+
+	.cf-lp .cf-tiles {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 8px;
+		margin-top: var(--cf-gap);
+	}
+
+	.cf-lp .cf-tile {
+		display: grid;
+		gap: 8px;
+		justify-items: start;
+		padding: 12px 12px 12px 14px;
+		background: var(--et-surface);
+		border: var(--cf-line);
+		border-radius: var(--cf-radius-sm);
+		font-family: var(--cf-serif);
+		font-size: 17px;
+		line-height: 1.2;
+		color: var(--et-green-deep);
+	}
+
+	.cf-lp .cf-tile svg {
+		width: 24px;
+		height: 24px;
+		color: var(--et-green);
+	}
+
+	/* La ficha del sol es el momento del ángulo: la única en verde profundo */
+	.cf-lp .cf-tile.cf-tile--sun {
+		background: var(--et-green-deep);
+		border-color: var(--et-green-deep);
+		color: var(--et-bg);
+	}
+
+	.cf-lp .cf-tile.cf-tile--sun svg { color: var(--et-lime); }
+
+	/* La suma: dos piezas con icono y el signo en serif */
+	.cf-lp .cf-sum {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 8px 12px;
+		margin-top: 16px;
+		font-family: var(--cf-serif);
+		font-size: 19px;
+		line-height: 1.25;
+		color: var(--et-green-deep);
+	}
+
+	.cf-lp .cf-sum__part {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+	}
+
+	.cf-lp .cf-sum__part svg {
+		flex: none;
+		width: 22px;
+		height: 22px;
+		color: var(--et-green);
+	}
+
+	.cf-lp .cf-sum__plus {
+		margin-right: 2px;
+		font-size: 26px;
+		line-height: 1;
+		color: var(--et-green);
+	}
+
+	/* ---------- Cómo se toma ---------- */
+
+	.cf-lp .cf-howto {
+		display: grid;
+		gap: var(--cf-gap);
+	}
+
+	.cf-lp .cf-ways {
+		display: grid;
+		gap: 8px;
+		margin-top: 14px;
+	}
+
+	.cf-lp .cf-way {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		padding: 10px 12px 10px 14px;
+		background: var(--et-surface);
+		border: var(--cf-line);
+		border-radius: var(--cf-radius-sm);
+		font-size: 16px;
+		line-height: 1.3;
+		color: var(--et-green-deep);
+	}
+
+	.cf-lp .cf-way__icon {
+		flex: none;
+		width: 22px;
+		height: 22px;
+		margin-left: auto;
+		color: var(--et-green-mid);
+	}
+
+	.cf-lp .cf-specs {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 8px 14px;
+		margin-top: 16px;
+		font-size: 15px;
+		line-height: 1.35;
+	}
+
+	.cf-lp .cf-specs li {
+		padding-left: 12px;
+		border-left: 2px solid var(--et-mint);
+	}
+
+	.cf-lp .cf-howto__photo img {
+		width: 100%;
+		max-width: 300px;
+		margin-inline: auto;
+		aspect-ratio: 4 / 5;
+		object-fit: cover;
+		object-position: 50% 45%;
+		border-radius: var(--cf-radius);
+		border: var(--cf-line);
+	}
+
+	/* ---------- Por dentro: la radiografía y el eje ---------- */
+
+	.cf-lp .cf-inside { overflow: hidden; }
+
+	/* La radiografía del cliente, desaturada y fundida al verde con una
+	   máscara radial: textura del bloque, no protagonista. */
+	.cf-lp .cf-inside__art {
+		position: absolute;
+		right: -30%;
+		top: 0;
+		width: 92%;
+		max-width: 560px;
+		height: 100%;
+		object-fit: cover;
+		opacity: 0.22;
+		filter: grayscale(1);
+		mix-blend-mode: screen;
+		-webkit-mask-image: radial-gradient(ellipse at 60% 50%, #000 30%, transparent 72%);
+		mask-image: radial-gradient(ellipse at 60% 50%, #000 30%, transparent 72%);
+		pointer-events: none;
+	}
+
+	.cf-lp .cf-inside__body { position: relative; }
+
+	/* El eje: un riel vertical con seis marcas; los síntomas alternan lado */
+	.cf-lp .cf-axis {
+		position: relative;
+		display: grid;
+		gap: 12px;
+		margin-top: var(--cf-gap);
+		padding-left: 26px;
+	}
+
+	.cf-lp .cf-axis::before {
+		content: '';
+		position: absolute;
+		left: 8px;
+		top: 6px;
+		bottom: 6px;
+		width: 1px;
+		background: rgba(255, 252, 245, 0.35);
+	}
+
+	.cf-lp .cf-axis__item {
+		position: relative;
+		font-family: var(--cf-serif);
+		font-size: 20px;
+		line-height: 1.2;
+		color: var(--et-surface);
+	}
+
+	.cf-lp .cf-axis__item::before {
+		content: '';
+		position: absolute;
+		left: -22px;
+		top: 9px;
+		width: 9px;
+		height: 9px;
+		border-radius: 50%;
+		background: var(--et-lime);
+	}
+
+	.cf-lp .cf-axis__item span {
+		display: inline-block;
+		padding: 4px 12px;
+		border-radius: 999px;
+		border: 1px solid rgba(255, 252, 245, 0.32);
+	}
+
+	.cf-lp .cf-statement.cf-inside__close { margin-top: var(--cf-gap); }
+
+	/* ---------- Para esta temporada: lo que llega ---------- */
+
+	.cf-lp .cf-receive {
+		display: grid;
+		gap: var(--cf-gap);
+	}
+
+	.cf-lp .cf-receive__list {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 10px;
+		margin-top: var(--cf-gap);
+	}
+
+	.cf-lp .cf-receive__list li {
+		display: flex;
+		align-items: center;
+		gap: 9px;
+		padding: 10px 12px;
+		background: var(--et-surface);
+		border: var(--cf-line);
+		border-radius: var(--cf-radius-sm);
+		font-size: 14px;
+		line-height: 1.3;
+	}
+
+	.cf-lp .cf-receive__list svg,
+	.cf-lp .cf-trust svg {
+		flex: none;
+		width: 20px;
+		height: 20px;
+		color: var(--et-green-mid);
+	}
+
+	.cf-lp .cf-receive__maker {
+		margin-top: 12px;
+		font-size: 14px;
+		color: var(--et-muted);
+	}
+
+	/* La foto anotada: etiquetas en porcentajes sobre la caja de la imagen,
+	   que tiene aspect-ratio fijo; el recorte conserva el aire de la derecha
+	   para que quepan sin tapar botella ni vasito. */
+	.cf-lp .cf-anatomy {
+		position: relative;
+		margin-inline: auto;
+		max-width: 420px;
+		border: var(--cf-line);
+		border-radius: var(--cf-radius);
+		overflow: hidden;
+	}
+
+	.cf-lp .cf-anatomy img {
+		width: 100%;
+		aspect-ratio: 780 / 961;
+		object-fit: cover;
+	}
+
+	.cf-lp .cf-anatomy__tags {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+	}
+
+	.cf-lp .cf-anatomy__tag {
+		position: absolute;
+		padding: 4px 10px;
+		border-radius: 999px;
+		background: var(--et-surface);
+		color: var(--et-green-deep);
+		font-size: 12px;
+		line-height: 1.3;
+		white-space: nowrap;
+		transform: translateY(-50%);
+	}
+
+	.cf-lp .cf-anatomy__tag::before {
+		content: '';
+		position: absolute;
+		right: 100%;
+		top: 50%;
+		width: 16px;
+		height: 1px;
+		background: var(--et-green);
+	}
+
+	.cf-lp .cf-anatomy__tag.cf-anatomy__tag--bottle { left: 48%; top: 24%; }
+	.cf-lp .cf-anatomy__tag.cf-anatomy__tag--cup { left: 74%; top: 87%; }
+
+	/* ---------- Oferta ---------- */
+
+	.cf-lp .cf-offer {
+		display: grid;
+		gap: 12px;
+		margin-top: var(--cf-gap);
+	}
+
+	.cf-lp .cf-plan {
+		display: grid;
+		gap: 8px;
+		justify-items: start;
+		padding: 20px 18px 18px;
+		background: var(--et-surface);
+		border: var(--cf-line);
+		border-radius: var(--cf-radius);
+	}
+
+	.cf-lp .cf-plan.cf-plan--best {
+		background: var(--et-green-deep);
+		border-color: var(--et-green-deep);
+		color: var(--et-bg);
+	}
+
+	.cf-lp .cf-plan__label {
+		font-size: 11px;
+		letter-spacing: 1.8px;
+		text-transform: uppercase;
+		color: var(--et-muted);
+	}
+
+	.cf-lp .cf-plan.cf-plan--best .cf-plan__label { color: var(--et-lime); }
+
+	.cf-lp .cf-plan__price {
+		font-family: var(--cf-serif);
+		font-size: 34px;
+		line-height: 1;
+		color: var(--et-green-deep);
+	}
+
+	.cf-lp .cf-plan.cf-plan--best .cf-plan__price { color: var(--et-surface); }
+	.cf-lp .cf-plan.cf-plan--best .cf-plan__price small { color: rgba(255, 252, 245, 0.8); }
+
+	.cf-lp .cf-plan__save,
+	.cf-lp .cf-plan__note {
+		font-size: 15px;
+		line-height: 1.4;
+	}
+
+	.cf-lp .cf-plan.cf-plan--best .cf-plan__save { color: var(--et-lime); }
+	.cf-lp .cf-plan__note { color: var(--et-muted); }
+
+	.cf-lp .cf-plan .cf-cta {
+		width: 100%;
+		margin-top: 8px;
+	}
+
+	/* Métodos del pago anticipado, pequeños; sobre verde van en píldora
+	   blanca porque el negro de Mastercard y el azul de PSE no se leen. */
+	.cf-lp .cf-pay {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		justify-self: start;
+		vertical-align: middle;
+	}
+
+	.cf-lp .cf-pay img {
+		height: 16px;
+		width: auto;
+	}
+
+	.cf-lp .cf-pay.cf-pay--on-dark {
+		padding: 4px 9px;
+		border-radius: 999px;
+		background: var(--et-surface);
+	}
+
+	.cf-lp .cf-pay.cf-pay--sm { gap: 6px; }
+	.cf-lp .cf-pay.cf-pay--sm img { height: 12px; }
+
+	.cf-lp .cf-close__price dd .cf-pay { margin-top: 10px; }
+	.cf-lp .cf-faq__pay { margin-top: 10px; }
+	.cf-lp .cf-sticky__price .cf-pay { margin-top: 3px; }
+
+	.cf-lp .cf-trust {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 12px 14px;
+		margin-top: var(--cf-gap);
+	}
+
+	.cf-lp .cf-trust li {
+		display: flex;
+		align-items: flex-start;
+		gap: 8px;
+		font-size: 14px;
+		line-height: 1.35;
+	}
+
+	/* ---------- Garantía ---------- */
+
+	.cf-lp .cf-guarantee__shell { position: relative; }
+
+	/* Sello: escudo en círculo menta con anillo, a caballo del borde de la
+	   sección y alineado con la columna. Absoluto para no sumar alto. */
+	.cf-lp .cf-guarantee__seal {
+		position: absolute;
+		top: calc(-26px - var(--cf-pad));
+		left: 15px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 52px;
+		height: 52px;
+		border-radius: 50%;
+		background: var(--et-mint);
+		color: var(--et-green-deep);
+		outline: 1px solid var(--et-green);
+		outline-offset: 3px;
+	}
+
+	.cf-lp .cf-guarantee__seal svg {
+		width: 26px;
+		height: 26px;
+	}
+
+	.cf-lp .cf-guarantee {
+		display: grid;
+		gap: 10px;
+		margin-top: var(--cf-gap);
+	}
+
+	.cf-lp .cf-guarantee__row {
+		display: flex;
+		align-items: flex-start;
+		gap: 14px;
+		padding: 14px 16px;
+		background: var(--et-surface);
+		border: var(--cf-line);
+		border-radius: var(--cf-radius-sm);
+		font-size: 16px;
+		line-height: 1.45;
+	}
+
+	.cf-lp .cf-guarantee__num { margin-top: 1px; }
+
+	/* ---------- FAQ ---------- */
+
+	.cf-lp .cf-faq {
+		margin-top: var(--cf-gap);
+		border-top: var(--cf-line);
+	}
+
+	.cf-lp .cf-faq__item { border-bottom: var(--cf-line); }
+
+	.cf-lp .cf-faq__item summary {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 16px;
+		padding: 15px 0;
+		list-style: none;
+		cursor: pointer;
+		font-family: var(--cf-serif);
+		font-size: 19px;
+		line-height: 1.3;
+		color: var(--et-green-deep);
+	}
+
+	.cf-lp .cf-faq__item summary::-webkit-details-marker { display: none; }
+
+	.cf-lp .cf-faq__item summary::after {
+		content: '';
+		flex: none;
+		width: 11px;
+		height: 11px;
+		margin-right: 4px;
+		border-right: 1px solid var(--et-green-mid);
+		border-bottom: 1px solid var(--et-green-mid);
+		transform: rotate(45deg) translate(-3px, -3px);
+		transition: transform 0.2s ease;
+	}
+
+	.cf-lp .cf-faq__item[open] summary::after { transform: rotate(225deg) translate(-3px, -3px); }
+
+	.cf-lp .cf-faq__item summary:focus-visible {
+		outline: 2px solid var(--et-green);
+		outline-offset: 2px;
+	}
+
+	.cf-lp .cf-faq__item p {
+		padding: 0 0 16px;
+		font-size: 16px;
+		max-width: 600px;
+	}
+
+	/* ---------- Cierre ---------- */
+
+	.cf-lp .cf-close {
+		background: var(--et-green-deep);
+		color: var(--et-bg);
+	}
+
+	.cf-lp .cf-close__grid {
+		display: grid;
+		gap: 24px;
+	}
+
+	.cf-lp .cf-h2.cf-close__title {
+		font-size: 34px;
+		color: var(--et-bg);
+	}
+
+	.cf-lp .cf-close__facts {
+		margin-top: 12px;
+		font-family: var(--cf-serif);
+		font-size: 20px;
+		line-height: 1.3;
+		color: var(--et-bg);
+	}
+
+	.cf-lp .cf-close__facts strong { color: var(--et-lime); }
+
+	.cf-lp .cf-close__prices {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 14px;
+		margin-top: 20px;
+		padding-top: 16px;
+		border-top: 1px solid rgba(255, 255, 255, 0.25);
+	}
+
+	.cf-lp .cf-close__price {
+		display: grid;
+		gap: 5px;
+		align-content: start;
+	}
+
+	.cf-lp .cf-close__price dt {
+		font-size: 11px;
+		letter-spacing: 1.5px;
+		text-transform: uppercase;
+		color: var(--et-bg);
+	}
+
+	.cf-lp .cf-close__price dd {
+		font-family: var(--cf-serif);
+		font-size: 28px;
+		line-height: 1.1;
+		color: var(--et-surface);
+	}
+
+	.cf-lp .cf-close__price dd span { color: var(--et-bg); }
+
+	.cf-lp .cf-close__price dd small {
+		display: block;
+		margin-top: 4px;
+		font-family: var(--cf-sans);
+		font-size: 13px;
+		line-height: 1.3;
+		color: var(--et-lime);
+	}
+
+	.cf-lp .cf-close__ctas {
+		display: grid;
+		gap: 12px;
+		margin-top: 20px;
+		max-width: 460px;
+	}
+
+	.cf-lp .cf-close__whatsapp {
+		justify-self: center;
+		font-size: 14px;
+		color: rgba(255, 252, 245, 0.85);
+		text-underline-offset: 4px;
+	}
+
+	.cf-lp .cf-close__whatsapp strong { color: var(--et-surface); }
+
+	/* Collage de UGC: dos columnas con la segunda descolgada y una
+	   inclinación mínima por foto, con un filo claro sobre el verde. */
+	.cf-lp .cf-collage {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 10px;
+		max-width: 300px;
+		margin-inline: auto;
+		padding-bottom: 16px;
+	}
+
+	.cf-lp .cf-collage__item img {
+		width: 100%;
+		aspect-ratio: 4 / 5;
+		object-fit: cover;
+		border-radius: var(--cf-radius-sm);
+		background: var(--et-green-mid);
+		box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.16);
+	}
+
+	.cf-lp .cf-collage__item:nth-child(1) { transform: rotate(-2.5deg); }
+	.cf-lp .cf-collage__item:nth-child(2) { transform: translateY(16px) rotate(2deg); }
+	.cf-lp .cf-collage__item:nth-child(3) { transform: rotate(2deg); }
+	.cf-lp .cf-collage__item:nth-child(4) { transform: translateY(16px) rotate(-2deg); }
+
+	/* ---------- Instagram ---------- */
+
+	.cf-lp .cf-social { padding-block: 32px; }
+
+	.cf-lp .cf-social__shot {
+		margin-top: 12px;
+		max-width: 560px;
+		border-radius: var(--cf-radius);
+		overflow: hidden;
+	}
+
+	.cf-lp .cf-social__shot img {
+		width: 100%;
+		aspect-ratio: 1100 / 371;
+	}
+
+	/* ---------- Footer ---------- */
+
+	.cf-lp .cf-footer {
+		padding-block: 32px 36px;
+		background: var(--et-ink);
+		color: var(--et-surface);
+	}
+
+	.cf-lp .cf-footer__logo {
+		width: auto;
+		height: 22px;
+		margin-bottom: 16px;
+	}
+
+	.cf-lp .cf-footer p {
+		font-size: 13px;
+		line-height: 1.55;
+		max-width: 640px;
+		color: var(--et-surface);
+	}
+
+	.cf-lp .cf-footer p + p { margin-top: 8px; }
+
+	.cf-lp .cf-footer a { text-underline-offset: 3px; }
+
+	.cf-lp .cf-footer__legal {
+		margin-top: 14px;
+		padding-top: 14px;
+		border-top: 1px solid rgba(255, 255, 255, 0.25);
+	}
+
+	/* ---------- CTA sticky ---------- */
+
+	.cf-lp .cf-sticky {
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 60;
+		padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+		background: rgba(255, 252, 245, 0.96);
+		border-top: var(--cf-line);
+		transform: translateY(105%);
+		transition: transform 0.25s ease;
+		-webkit-backdrop-filter: blur(6px);
+		backdrop-filter: blur(6px);
+	}
+
+	.cf-lp .cf-sticky[hidden] { display: none; }
+	.cf-lp .cf-sticky.is-visible { transform: translateY(0); }
+
+	.cf-lp .cf-sticky__inner {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		max-width: var(--cf-shell);
+		margin-inline: auto;
+	}
+
+	.cf-lp .cf-sticky__price {
+		flex: 1;
+		min-width: 0;
+		display: grid;
+		line-height: 1.2;
+	}
+
+	.cf-lp .cf-sticky__main {
+		font-family: var(--cf-serif);
+		font-size: 22px;
+		color: var(--et-green-deep);
+	}
+
+	.cf-lp .cf-sticky__note {
+		font-size: 13px;
+		color: var(--et-muted);
+	}
+
+	.cf-lp .cf-sticky__alt {
+		font-size: 16px;
+		font-weight: 700;
+		color: var(--et-green-deep);
+	}
+
+	.cf-lp .cf-sticky .cf-cta { flex: none; }
+
+	@media (max-width: 380px) {
+		/* En 360 el aviso ocupa dos líneas: el marco cede 30px para que el
+		   CTA del hero se acerque al pliegue (medido: de 800 a 770 en 360×740) */
+		.cf-lp .cf-hero__frame { aspect-ratio: 4 / 3; }
+		.cf-lp .cf-alert__name { font-size: 12.5px; }
+		.cf-lp .cf-sticky [data-cf-sticky-note-pre] { display: none; }
+		.cf-lp .cf-sticky__note { font-size: 12px; }
+		.cf-lp .cf-sticky__alt { font-size: 15px; }
+		.cf-lp .cf-sticky .cf-cta { padding-inline: 14px; }
+	}
+
+	/* ---------- Product Element de GemPages ----------
+	   Releasit necesita el nodo renderizado para leer el producto; se saca
+	   del flujo, nunca display:none. docs/releasit-form-styling.md §4.4 */
+	gp-product {
+		position: absolute !important;
+		width: 1px !important;
+		height: 1px !important;
+		overflow: hidden !important;
+		clip-path: inset(50%) !important;
+		pointer-events: none !important;
+	}
+
+	/* ---------- Botón flotante de Releasit ----------
+	   La app pinta su propio CTA fijo abajo (naranja, z-index 100.099.900)
+	   colgado de <body>: tapa el pie y compite con nuestro sticky. Se apaga
+	   desde aquí y no en Releasit → Settings, que es global a la tienda.
+	   Fuera del flujo, nunca display:none: la app usa el nodo. */
+	#_rsi-buy-now-button-floating {
+		position: absolute !important;
+		width: 1px !important;
+		height: 1px !important;
+		overflow: hidden !important;
+		clip-path: inset(50%) !important;
+		pointer-events: none !important;
+	}
+
+	/* ---------- Tablet y escritorio ---------- */
+
+	@media (min-width: 640px) {
+		.cf-lp .cf-topbar__inner { justify-content: flex-start; }
+		.cf-lp .cf-topbar__logo { height: 22px; }
+
+		.cf-lp .cf-hero__notice { justify-content: flex-start; padding-inline: 20px; }
+
+		.cf-lp .cf-press__item { flex-basis: 46%; }
+
+		.cf-lp .cf-alerts { gap: 12px 10px; }
+		.cf-lp .cf-alerts::before { top: 35px; }
+		.cf-lp .cf-alert__mark { width: 72px; height: 72px; }
+		.cf-lp .cf-alert__icon { width: 34px; height: 34px; }
+		.cf-lp .cf-alert__name { font-size: 16px; }
+
+		.cf-lp .cf-people__item { flex-basis: 190px; }
+
+		.cf-lp .cf-signals__list { grid-template-columns: 1fr 1fr; }
+
+		.cf-lp .cf-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+		.cf-lp .cf-tile { padding: 14px 14px 16px; font-size: 18px; }
+
+		.cf-lp .cf-specs { grid-template-columns: repeat(4, 1fr); }
+
+		.cf-lp .cf-receive__list { grid-template-columns: repeat(3, 1fr); }
+
+		.cf-lp .cf-offer { grid-template-columns: 1fr 1fr; align-items: start; }
+
+		.cf-lp .cf-guarantee { grid-template-columns: repeat(3, 1fr); }
+		.cf-lp .cf-guarantee__row { flex-direction: column; gap: 8px; }
+
+		.cf-lp .cf-trust { grid-template-columns: repeat(4, 1fr); }
+		.cf-lp .cf-collage { max-width: 260px; }
+	}
+
+	@media (min-width: 900px) {
+		.cf-lp { --cf-pad: 64px; }
+
+		.cf-lp .cf-h1 { font-size: 46px; }
+		.cf-lp .cf-h2 { font-size: 40px; }
+		.cf-lp .cf-serif-line { font-size: 26px; }
+		.cf-lp .cf-statement { font-size: 30px; }
+
+		.cf-lp .cf-hero { padding-block: 36px 64px; }
+
+		.cf-lp .cf-hero__layout {
+			grid-template-columns: 460px minmax(0, 1fr);
+			grid-template-areas:
+				'media copy'
+				'media buy';
+			grid-template-rows: auto 1fr;
+			column-gap: 64px;
+			row-gap: 28px;
+			align-items: start;
+			max-width: var(--cf-shell);
+			margin-inline: auto;
+			padding-inline: 20px;
+		}
+
+		.cf-lp .cf-hero__layout .cf-shell { padding-inline: 0; max-width: none; }
+		.cf-lp .cf-hero__media { grid-area: media; border-radius: var(--cf-radius); overflow: hidden; border: var(--cf-line); }
+		.cf-lp .cf-hero__notice { padding: 12px 16px; font-size: 11px; }
+		.cf-lp .cf-hero__frame { aspect-ratio: 1 / 1; }
+		.cf-lp .cf-hero__slide img { object-position: 50% 50%; }
+		.cf-lp .cf-hero__caps { padding: 12px 16px 14px; background: var(--et-surface); }
+		.cf-lp .cf-hero__copy { grid-area: copy; margin-top: 0; }
+		.cf-lp .cf-hero__buy { grid-area: buy; margin-top: 0; }
+
+		.cf-lp .cf-press { padding-block: 36px 12px; }
+		.cf-lp .cf-press__track { gap: 16px; overflow: visible; }
+		.cf-lp .cf-press__item { flex: 1 1 0; }
+
+		/* El termómetro se tumba: los tres peldaños en columnas que suben */
+		.cf-lp .cf-heat { grid-template-columns: 52px minmax(0, 1fr); column-gap: 28px; }
+		.cf-lp .cf-heat__thermo { width: 52px; }
+		.cf-lp .cf-heat__steps { flex-direction: row; align-items: flex-end; gap: 14px; }
+		.cf-lp .cf-heat__step { flex: 1 1 0; margin-left: 0; padding: 14px 16px; font-size: 21px; }
+		.cf-lp .cf-heat__step:nth-child(2) { margin-left: 0; margin-bottom: 22px; }
+		.cf-lp .cf-heat__step:nth-child(3) { margin-left: 0; margin-bottom: 44px; }
+
+		.cf-lp .cf-signals {
+			grid-template-columns: 400px minmax(0, 1fr);
+			grid-template-areas:
+				'art head'
+				'art list';
+			column-gap: 56px;
+			align-items: start;
+		}
+
+		.cf-lp .cf-signals__head { grid-area: head; }
+		.cf-lp .cf-signals__art { grid-area: art; }
+		.cf-lp .cf-signals__art img { aspect-ratio: 1 / 1; }
+		.cf-lp .cf-signals__list { grid-area: list; }
+
+		.cf-lp .cf-people { padding-block: 28px 8px; }
+
+		.cf-lp .cf-prep {
+			grid-template-columns: minmax(0, 1fr) auto;
+			column-gap: 64px;
+			align-items: center;
+		}
+
+		.cf-lp .cf-dose { padding: 20px 30px 20px 22px; }
+		.cf-lp .cf-dose__cup { width: 150px; }
+		.cf-lp .cf-dose__num { font-size: 56px; }
+
+		.cf-lp .cf-split {
+			grid-template-columns: 1fr 1fr;
+			align-items: center;
+			column-gap: 64px;
+		}
+
+		.cf-lp .cf-split__media { max-width: 480px; }
+
+		.cf-lp .cf-howto {
+			grid-template-columns: minmax(0, 1fr) 360px;
+			column-gap: 64px;
+			align-items: start;
+		}
+
+		.cf-lp .cf-howto__photo img { max-width: none; }
+
+		/* El eje se tumba: seis marcas en fila, los síntomas alternando
+		   arriba y abajo del riel */
+		.cf-lp .cf-axis {
+			grid-template-columns: repeat(6, minmax(0, 1fr));
+			gap: 0;
+			padding: 84px 0;
+		}
+
+		.cf-lp .cf-axis::before { left: 0; right: 0; top: 50%; bottom: auto; width: auto; height: 1px; }
+
+		.cf-lp .cf-axis__item { display: flex; justify-content: center; text-align: center; font-size: 16px; line-height: 1.2; }
+		.cf-lp .cf-axis__item::before { left: 50%; top: 50%; margin: -4px 0 0 -4px; }
+		.cf-lp .cf-axis__item span { position: relative; max-width: 132px; }
+		.cf-lp .cf-axis__item:nth-child(odd) span { top: -58px; }
+		.cf-lp .cf-axis__item:nth-child(even) span { top: 58px; }
+
+		.cf-lp .cf-receive {
+			grid-template-columns: minmax(0, 1fr) 420px;
+			column-gap: 64px;
+			align-items: center;
+		}
+
+		.cf-lp .cf-close__grid {
+			grid-template-columns: minmax(0, 1fr) 320px;
+			column-gap: 80px;
+			align-items: center;
+		}
+
+		.cf-lp .cf-h2.cf-close__title { font-size: 44px; }
+		.cf-lp .cf-collage { max-width: 300px; }
+
+		/* En escritorio los CTA están siempre a la vista: el sticky sobra */
+		.cf-lp .cf-sticky { display: none; }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.cf-lp .cf-cta,
+		.cf-lp .cf-cta__label::before,
+		.cf-lp .cf-sticky,
+		.cf-lp .cf-hero__arrow,
+		.cf-lp .cf-hero__cap,
+		.cf-lp .cf-heat__mercury,
+		.cf-lp .cf-faq__item summary::after { transition: none; }
+
+		.cf-lp [data-cf-reveal].is-armed > * { opacity: 1; transform: none; transition: none; }
+		.cf-lp .cf-heat.is-armed .cf-heat__mercury { transform: none; }
+
+		.cf-lp .cf-sun__rays { animation: none; }
+
+		/* La franja se queda quieta, envuelta y sin la copia */
+		.cf-lp .cf-topbar__strip { white-space: normal; text-align: center; padding-inline: 16px; }
+		.cf-lp .cf-topbar__track { animation: none; display: block; width: auto; }
+		.cf-lp .cf-topbar__set { display: inline; }
+		.cf-lp .cf-topbar__set[aria-hidden] { display: none; }
+		.cf-lp .cf-topbar__set span:last-child::after { content: none; }
+
+		/* El líquido se queda quieto a la medida; no hay gota */
+		.cf-lp .cf-cta::before,
+		.cf-lp .cf-cta::after,
+		.cf-lp .cf-cta__label::after { animation: none; }
+
+		.cf-lp .cf-cta::before,
+		.cf-lp .cf-cta::after { transform: none; }
+	}
+</style>
+
+<script>
+	;(function () {
+		'use strict'
+
+		var ROOT_SELECTOR = '.cf-lp'
+		var READY_FLAG = 'cfLandingReady'
+
+		// Trazabilidad: el producto lo enlaza el Product Element de GemPages.
+		// La página de olor está publicada sobre clorofull-1; se deja el
+		// mismo hasta que el cliente confirme otro (clorofull/AGENTS.md §1).
+		var PRODUCT_HANDLE = 'clorofull-1'
+
+		// Cuando se verifique en el formulario de Eterma que el botón de
+		// tarjeta descuenta los $10.000, poner en true: el sticky pasa a
+		// reflejar la elección. Mientras tanto anuncia contraentrega, que es
+		// lo que cobra el formulario por defecto. data-cf-pay se escribe igual.
+		var PREPAID_ENABLED = false
+
+		var PRICES = {
+			prepaid: '$69.900',
+			cod: '$79.900'
+		}
+
+		var STICKY_NOTES = {
+			prepaid: { pre: 'anticipado · ahorras ', amount: '$10.000', post: '' },
+			cod: { pre: 'o ', amount: PRICES.prepaid, post: ' anticipado' }
+		}
+
+		var STICKY_LABELS = {
+			prepaid: 'Quiero ahorrar $10.000',
+			cod: 'Quiero mi Clorofull'
+		}
+
+		var PAY_ATTRIBUTE = 'data-cf-pay'
+
+		// Releasit solo pinta las ofertas de cantidad si tiene el JSON del
+		// producto, que su app embed imprime con {{ product | json }}. En una
+		// landing de /pages/ no hay producto en Liquid y sale «null».
+		var RELEASIT_PRODUCT_CACHE_ID = 'rsi-cod-form-product-cache'
+
+		function paintSticky(root, mode) {
+			var price = root.querySelector('[data-cf-sticky-price]')
+			var notePre = root.querySelector('[data-cf-sticky-note-pre]')
+			var noteAmount = root.querySelector('[data-cf-sticky-note-amount]')
+			var notePost = root.querySelector('[data-cf-sticky-note-post]')
+			var cta = root.querySelector('[data-cf-sticky-cta] .cf-cta__label')
+			var note = STICKY_NOTES[mode] || STICKY_NOTES.cod
+
+			if (price) price.textContent = PRICES[mode] || PRICES.cod
+			if (notePre) notePre.textContent = note.pre
+			if (noteAmount) noteAmount.textContent = note.amount
+			if (notePost) notePost.textContent = note.post
+			if (cta) cta.textContent = STICKY_LABELS[mode] || STICKY_LABELS.cod
+		}
+
+		function initPaymentChoice(root) {
+			var buttons = root.querySelectorAll('[data-cf-pay-choice]')
+
+			root.setAttribute('data-cf-product-handle', PRODUCT_HANDLE)
+			paintSticky(root, 'cod')
+			if (!buttons.length) return
+
+			Array.prototype.forEach.call(buttons, function (button) {
+				button.addEventListener('click', function () {
+					var choice = button.getAttribute('data-cf-pay-choice')
+					if (choice !== 'prepaid' && choice !== 'cod') return
+
+					// La elección viaja hasta el formulario de Releasit, que se
+					// inyecta fuera de .cf-lp: por eso el atributo va en <html>.
+					// La skin lo recoge en html[data-cf-pay] y atenúa la opción
+					// descartada sin bloquearla. Se escribe la elección REAL.
+					document.documentElement.setAttribute(PAY_ATTRIBUTE, choice)
+
+					paintSticky(root, PREPAID_ENABLED ? choice : 'cod')
+				})
+			})
+		}
+
+		function readProductCache(cache) {
+			try {
+				return JSON.parse(cache.textContent)
+			} catch (error) {
+				return null
+			}
+		}
+
+		// Rellena el JSON del producto con /products/<handle>.js, que tiene la
+		// misma forma. Releasit lo relee en cada apertura mientras no lo tenga:
+		// un clic antes de que llegue solo pierde las ofertas esa vez.
+		function initReleasitProductCache() {
+			var cache = document.getElementById(RELEASIT_PRODUCT_CACHE_ID)
+			if (cache && readProductCache(cache)) return
+			if (typeof window.fetch !== 'function') return
+
+			if (!cache) {
+				cache = document.createElement('script')
+				cache.type = 'application/json'
+				cache.id = RELEASIT_PRODUCT_CACHE_ID
+				document.body.appendChild(cache)
+			}
+
+			var routes = window.Shopify && window.Shopify.routes
+			var rootPath = (routes && routes.root) || '/'
+
+			window.fetch(rootPath + 'products/' + PRODUCT_HANDLE + '.js', { credentials: 'same-origin' })
+				.then(function (response) {
+					if (!response.ok) throw new Error('product ' + response.status)
+					return response.json()
+				})
+				.then(function (product) {
+					cache.textContent = JSON.stringify(product)
+				})
+				.catch(function () {})
+		}
+
+		// El líquido de cada CTA se sirve cuando el botón entra en pantalla
+		// y se pausa fuera de ella.
+		function initCtaLiquid(root) {
+			var buttons = root.querySelectorAll('.cf-cta')
+			if (!buttons.length) return
+
+			if (typeof window.IntersectionObserver !== 'function') {
+				Array.prototype.forEach.call(buttons, function (button) {
+					button.classList.add('is-inview')
+				})
+				return
+			}
+
+			var observer = new window.IntersectionObserver(function (entries) {
+				entries.forEach(function (entry) {
+					entry.target.classList.toggle('is-inview', entry.isIntersecting)
+				})
+			}, { rootMargin: '40px 0px' })
+
+			Array.prototype.forEach.call(buttons, function (button) {
+				observer.observe(button)
+			})
+		}
+
+		// El sticky acompaña desde la carga: se esconde solo mientras el CTA
+		// del hero está a la vista y al llegar al cierre o al pie.
+		function initStickyCta(root) {
+			var sticky = root.querySelector('[data-cf-sticky]')
+			var heroCta = root.querySelector('.cf-hero .cf-cta')
+			if (!sticky || !heroCta) return
+
+			sticky.hidden = false
+
+			// Sin IntersectionObserver el sticky queda visible: nunca esconder
+			// el camino a la compra.
+			if (typeof window.IntersectionObserver !== 'function') {
+				sticky.classList.add('is-visible')
+				return
+			}
+
+			var heroCtaVisible = false
+			var tailVisible = false
+
+			function update() {
+				sticky.classList.toggle('is-visible', !heroCtaVisible && !tailVisible)
+			}
+
+			new window.IntersectionObserver(function (entries) {
+				entries.forEach(function (entry) {
+					heroCtaVisible = entry.isIntersecting
+				})
+				update()
+			}).observe(heroCta)
+
+			var tail = root.querySelectorAll('.cf-close__ctas, .cf-footer')
+			if (!tail.length) return
+
+			var tailObserver = new window.IntersectionObserver(function (entries) {
+				entries.forEach(function (entry) {
+					entry.target.setAttribute('data-cf-tail-visible', entry.isIntersecting ? 'true' : 'false')
+				})
+
+				tailVisible = Array.prototype.some.call(tail, function (el) {
+					return el.getAttribute('data-cf-tail-visible') === 'true'
+				})
+
+				update()
+			})
+
+			Array.prototype.forEach.call(tail, function (el) {
+				tailObserver.observe(el)
+			})
+		}
+
+		// Carrusel de scroll nativo con scroll-snap, sin librería. El JS solo
+		// pinta el estado leyendo el scroll y lleva a la tarjeta al pulsar
+		// las flechas: sin él se sigue deslizando con el dedo. El índice
+		// activo se escribe en data-cf-active del contenedor
+		// (data-cf-carousel-host, o el padre del carril): el hero cambia con
+		// él el rótulo de la foto.
+		var CAROUSEL_AXES = {
+			x: { scroll: 'scrollLeft', size: 'scrollWidth', client: 'clientWidth', offset: 'offsetLeft', key: 'left' },
+			y: { scroll: 'scrollTop', size: 'scrollHeight', client: 'clientHeight', offset: 'offsetTop', key: 'top' }
+		}
+
+		function initCarousel(track, reduceMotion) {
+			var axis = CAROUSEL_AXES[track.getAttribute('data-cf-carousel')] || CAROUSEL_AXES.x
+			var host = track.closest('[data-cf-carousel-host]') || track.parentNode
+			var prev = host.querySelector('[data-cf-prev]')
+			var next = host.querySelector('[data-cf-next]')
+			var slides = track.children
+			var lastIndex = slides.length - 1
+			if (lastIndex < 1) return
+
+			var current = -1
+			var ticking = false
+
+			function paint(index) {
+				if (index === current) return
+				current = index
+				host.setAttribute('data-cf-active', String(index))
+				if (prev) prev.disabled = index === 0
+				if (next) next.disabled = index === lastIndex
+			}
+
+			// La última tarjeta se da por activa al llegar al tope del scroll
+			function activeIndex() {
+				var maxScroll = track[axis.size] - track[axis.client]
+				if (track[axis.scroll] >= maxScroll - 1) return lastIndex
+
+				var step = slides[1][axis.offset] - slides[0][axis.offset]
+				return Math.max(0, Math.min(lastIndex, Math.round(track[axis.scroll] / step)))
+			}
+
+			function goTo(index) {
+				var slide = slides[index]
+				if (!slide) return
+
+				var options = { behavior: reduceMotion ? 'auto' : 'smooth' }
+				options[axis.key] = slide[axis.offset] - slides[0][axis.offset]
+				track.scrollTo(options)
+			}
+
+			track.addEventListener('scroll', function () {
+				if (ticking) return
+				ticking = true
+				window.requestAnimationFrame(function () {
+					ticking = false
+					paint(activeIndex())
+				})
+			}, { passive: true })
+
+			if (prev) prev.addEventListener('click', function () { goTo(current - 1) })
+			if (next) next.addEventListener('click', function () { goTo(current + 1) })
+
+			paint(0)
+		}
+
+		function initCarousels(root) {
+			var tracks = root.querySelectorAll('[data-cf-carousel]')
+			var reduceMotion = typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+			Array.prototype.forEach.call(tracks, function (track) {
+				initCarousel(track, reduceMotion)
+			})
+		}
+
+		// Revelado al entrar en pantalla, una sola vez y solo si hay JS: el
+		// bloque arranca visible y es el propio script el que lo arma.
+		function initReveal(root) {
+			var blocks = root.querySelectorAll('[data-cf-reveal]')
+			if (!blocks.length || typeof window.IntersectionObserver !== 'function') return
+
+			var observer = new window.IntersectionObserver(function (entries) {
+				entries.forEach(function (entry) {
+					if (!entry.isIntersecting) return
+					entry.target.classList.add('is-inview')
+					observer.unobserve(entry.target)
+				})
+			}, { threshold: 0.2 })
+
+			Array.prototype.forEach.call(blocks, function (block) {
+				block.classList.add('is-armed')
+				observer.observe(block)
+			})
+		}
+
+		function init() {
+			var root = document.querySelector(ROOT_SELECTOR)
+			if (!root || root.dataset[READY_FLAG] === 'true') return
+
+			root.dataset[READY_FLAG] = 'true'
+			initReleasitProductCache()
+			initPaymentChoice(root)
+			initCtaLiquid(root)
+			initStickyCta(root)
+			initCarousels(root)
+			initReveal(root)
+		}
+
+		// GemPages puede montar el bloque después de DOMContentLoaded
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', init)
+		} else {
+			init()
+		}
+	})()
+</script>
+</body>
+</html>

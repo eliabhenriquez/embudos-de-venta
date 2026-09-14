@@ -12,21 +12,33 @@
       (comprobado el 2026-08-28: sknglow-piel-firme y cabello-unas). No es
       `theme.liquid`. Mantener las dos listas sincronizadas al añadir landings.
     {%- endcomment -%}
-    {%- assign paid_landings = 'sknglow-piel-firme' | split: ',' -%}
-    {%- assign is_paid_landing = false -%}
-
     {%- comment -%}
-      Dos vías a propósito. Aquí la cabecera se renderiza en un contexto donde
-      `page` puede llegar vacío y `page.handle` no resuelve. `request.path` está
-      siempre disponible y hace de red de seguridad. Basta con que una acierte.
+      Una línea por landing: handle::texto alternativo de su imagen social. La
+      imagen se deriva del handle, así que cada landing necesita subida a Archivos
+      `landings-og-<handle>.jpg` (1200x630). Dos vías para detectarla a propósito:
+      en GP_STATIC `page` puede llegar vacío y `page.handle` no resuelve;
+      `request.path` siempre está disponible. Basta con que una acierte.
     {%- endcomment -%}
-    {%- if paid_landings contains page.handle -%}
-      {%- assign is_paid_landing = true -%}
-    {%- endif -%}
-    {%- for handle in paid_landings -%}
-      {%- assign landing_path = '/pages/' | append: handle -%}
-      {%- if request.path == landing_path -%}
+    {%- capture paid_landings_config -%}
+      sknglow-piel-firme::SKNGLOW de MIMA, con Biotina y Resveratrol
+      |sknglow-cabello::SKNGLOW de MIMA para cabello y uñas, con Biotina y Resveratrol
+      |mimanad-energia::MIMANAD de MIMA, con Niacina, Resveratrol y Melena de León
+      |mimanad-memoria::MIMANAD de MIMA, con Niacina, Resveratrol y Melena de León
+      |mimacalm-sueno::MIMACALM de MIMA, con Ashwagandha, Glicinato de Magnesio y Té Verde
+      |mimacalm-cuerpo::MIMACALM de MIMA, con Ashwagandha, Glicinato de Magnesio y Té Verde
+    {%- endcapture -%}
+    {%- assign paid_landings = paid_landings_config | strip_newlines | split: '|' -%}
+    {%- assign is_paid_landing = false -%}
+    {%- assign landing_handle = '' -%}
+    {%- assign landing_og_alt = '' -%}
+    {%- for landing_entry in paid_landings -%}
+      {%- assign landing_fields = landing_entry | split: '::' -%}
+      {%- assign entry_handle = landing_fields[0] | strip -%}
+      {%- assign entry_path = '/pages/' | append: entry_handle -%}
+      {%- if page.handle == entry_handle or request.path == entry_path -%}
         {%- assign is_paid_landing = true -%}
+        {%- assign landing_handle = entry_handle -%}
+        {%- assign landing_og_alt = landing_fields[1] | strip -%}
       {%- endif -%}
     {%- endfor -%}
 
@@ -59,7 +71,7 @@
 
       Si algún día cambia el ID del píxel, hay que cambiarlo aquí y en la app.
     {%- endcomment -%}
-    {%- if is_paid_landing -%}
+    {% comment %} {%- if is_paid_landing -%}
       <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
       <script>
         !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -70,7 +82,7 @@
         fbq('init', '1369089581549099');
         fbq('track', 'PageView');
       </script>
-    {%- endif -%}
+    {%- endif -%} {% endcomment %}
 
     {%- comment -%}
       Conversor de moneda (BUCKS). Trae tasas de ~90 monedas desde un host que no
@@ -105,10 +117,11 @@
     {%- if is_paid_landing -%}
       <meta name="robots" content="noindex, follow">
       <meta property="og:locale" content="es_CO">
-      <meta property="og:image" content="https:{{ 'landings-sknglow-og.jpg' | file_url }}">
+      {%- assign landing_og_file = 'landings-og-' | append: landing_handle | append: '.jpg' -%}
+      <meta property="og:image" content="https:{{ landing_og_file | file_url }}">
       <meta property="og:image:width" content="1200">
       <meta property="og:image:height" content="630">
-      <meta property="og:image:alt" content="Sknglow de MIMA, con Biotina y Resveratrol">
+      <meta property="og:image:alt" content="{{ landing_og_alt | escape }}">
     {%- endif -%}
 
     {% if page_description %}

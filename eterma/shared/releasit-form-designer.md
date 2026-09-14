@@ -100,7 +100,15 @@ van inline con `!important` (§6).
 
 ## 4. Los dos botones de pago
 
-Hoy son **negro** (contraentrega) y **naranja `#d68206`** (anticipado), con
+**Aplicado por el cliente el 2026-09-07** (medido en vivo con el modal abierto): el
+anticipado va en verde `rgb(22, 77, 54)` con texto blanco, el contraentrega en
+blanco con texto y borde de 1px verde, los dos con radio 33px. Sigue quedando la
+sombra de la app (`0 2px 7px rgba(0,0,0,.1)`) en ambos; se quita en el mismo
+sitio si molesta. Desde entonces el anticipado **late** por CSS
+(`releasit-form.css` §9c): un anillo que nace en su borde y se desvanece; es lo
+único animable porque el resto va inline.
+
+Antes eran **negro** (contraentrega) y **naranja `#d68206`** (anticipado), con
 radio de 2px y una sacudida activada. Ninguno de los dos es un color de Eterma,
 y el naranja es precisamente el que `eterma/AGENTS.md` §2 descarta por ser el
 botón por defecto de Releasit.

@@ -1,8 +1,25 @@
 # AGENTS.md — ETERMA
 
 Contexto de marca. Hereda de `/AGENTS.md` (global) y lo sobrescribe en caso de conflicto. Cada producto
-tiene su propio `landings/<producto>/AGENTS.md`, que es el que manda al final. Hoy existe uno:
-[`landings/clorofull/AGENTS.md`](landings/clorofull/AGENTS.md).
+tiene su propio `landings/<producto>/AGENTS.md`, que es el que manda al final. Hoy existen siete:
+[`landings/clorofull/AGENTS.md`](landings/clorofull/AGENTS.md),
+[`landings/valeriana/AGENTS.md`](landings/valeriana/AGENTS.md), la única con paleta propia (ciruela y
+rosa del frasco ámbar) y rehecha el 2026-09-07 con la lámpara y el CTA de la onda,
+[`landings/kit-dia-liviano/AGENTS.md`](landings/kit-dia-liviano/AGENTS.md), que es el patrón de los
+cinco kits (Día Liviano, Del Tinto a la Almohada, Duerme y Florece, Cuerpo en Su Punto, Piel Viva),
+[`landings/kit-piel-viva/AGENTS.md`](landings/kit-piel-viva/AGENTS.md),
+[`landings/kit-tinto-almohada/AGENTS.md`](landings/kit-tinto-almohada/AGENTS.md),
+[`landings/kit-duerme-florece/AGENTS.md`](landings/kit-duerme-florece/AGENTS.md) y
+[`landings/kit-cuerpo-punto/AGENTS.md`](landings/kit-cuerpo-punto/AGENTS.md). **Cada kit comparte la
+columna vertebral y cambia hero, motivo y CTA** (regla del cliente, 2026-09-06): Día Liviano lleva
+carrusel y carril del día; Piel Viva, vitrina con chips y zigzag de pausas; Del Tinto a la Almohada,
+agenda con regla del día, eje de horas y carta; Duerme y Florece, ventana que oscurece con estrellas,
+notas de mesa de noche y etiqueta; Cuerpo en su Punto, carpeta con pestañas, escalera del día y esfera
+de reloj. Las fotos que se repiten entre kits se sirven del CDN con el nombre que publicó el primer kit
+que las usó (Día Liviano para ADVANCE, CLOROFULL y MULTIBRINA, Piel Viva para VALERIANA y TODO EN UNO,
+Del Tinto a la Almohada para VITA-ADVANCE), sin volver a subirlas. Handles de los kits en la tienda:
+`kit-dia-liviano`, `kit-del-tinto-a-la-almohada`, `kit-duerme-y-florece`, `kit-cuerpo-en-su-punto` y
+`kit-piel-viva-eterma` (leídos de `/products.json`).
 
 Análisis hecho el 2026-09-01 a partir de `docs/branding.pdf` (una sola página: logo y variantes de
 color, nada más), de etermacolombia.com y de las fotos de `product-images/`. Lo que dice "verificado"
@@ -36,6 +53,9 @@ hombres—, así que ahí el tono se mantiene cercano pero sin feminizar.
 | **MULTIBRINA X6** | Noche | Calma + descanso | $69.900 | $179.800 |
 | **VALERIANA** | Puntual | Apoyo para noches difíciles | $69.900 | $139.900 |
 | Kits x2/x3 (Día Liviano, Del Tinto a la Almohada, Duerme y Florece, Cuerpo en Su Punto, Piel Viva) | — | Combinaciones | $129.900–$139.900 | $229.000 |
+
+Los kits se venden con el esquema de su copy, no con el de la web: **anticipado $119.900 / contraentrega
+$129.900** (ahorro de $10.000), sin tachar nada. Decisión del cliente, 2026-09-06.
 
 ⚠️ **Los "antes" son 1,4×–2,6× el precio real y no hay evidencia de que se hayan cobrado nunca.** Regla
 global §7: descuento inventado, no. La landing usa el esquema del copy —**contraentrega $79.900 /
@@ -291,6 +311,10 @@ allí** y por qué no hay que "corregir" el copy con datos de la tienda.
 tarjetas (Visa, Mastercard, Amex, Diners); contraentrega existe vía Releasit. Cómo se cobra el anticipado
 en el formulario de Eterma está por comprobar (§8).
 
+**Actualización 2026-09-06: los copies de VALERIANA y de los cinco kits traen WhatsApp de atención
+300 696 4582**; se enlaza (`wa.me/573006964582`) en garantía, cierre y pie. Lo que sigue describe la
+web en 2026-09-01 y explica por qué la landing de CLOROFULL no lo lleva.
+
 **Contacto: no hay WhatsApp, teléfono ni NIT en ninguna página.** Las políticas son **plantillas de otra
 tienda**: hablan de `soporte@EtermaShop.com`, "EtermaShop SHOP", garantía por "reparación" y "centros de
 servicio". Enlazarlas desde la landing empeora la confianza: **no se enlazan**. El copy no incluye WhatsApp ni
@@ -412,7 +436,14 @@ y medida del `font-size` raíz (§3), serif de titulares (§2), logo en SVG.
 
 ---
 
-## 9. La primera landing: CLOROFULL · olor
+## 9. Las landings de CLOROFULL: olor (2026-09-02) e hidratación (2026-09-08)
+
+La segunda, ángulo hidratación / El Niño, está en `landings/clorofull/hidratacion/` y sus decisiones en
+[`landings/clorofull/AGENTS.md`](landings/clorofull/AGENTS.md) §10: mismo producto y prefijo, hero propio
+(«el sol alto»), sección de prensa con tres titulares reales y CTA «la medida, en vaso frío». Lo que
+sigue es de la primera.
+
+### La primera landing: CLOROFULL · olor
 
 **Estado (2026-09-02): construida y verificada en local, sin publicar.** Detalle, medidas y pendientes
 en [`landings/clorofull/AGENTS.md`](landings/clorofull/AGENTS.md).

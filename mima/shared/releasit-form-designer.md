@@ -410,9 +410,15 @@ con cualquier versión nueva de la app.
 
 | Estado | Anticipado | Contraentrega |
 |---|---|---|
-| Sin atributo | relleno magenta | contorno |
-| `prepaid` | relleno magenta | **enlace subrayado** |
-| `cod` | **enlace subrayado** | relleno magenta |
+| Sin atributo | relleno magenta | contorno magenta, con icono y subtítulo |
+| `prepaid` | relleno magenta | **contorno magenta**, una línea, sin icono |
+| `cod` | **contorno magenta**, una línea, sin icono | relleno magenta |
+
+Hasta el 2026-09-14 la descartada era un enlace gris subrayado; el cliente la vio "muy escondida" y
+además descentrada. El descentrado tenía causa: el botón son tres columnas flex —icono (1), texto (5)
+y un `<div>&nbsp;</div>` sin clase (1) que equilibra al icono—, y al ocultar el icono sin ocultar ese
+hueco el texto se iba 27px a la izquierda. Ahora caen los dos (`.rsi-custom-button-content ~ div`).
+Verificado inyectando la skin sobre el formulario publicado: texto a 0px del centro en los tres estados.
 
 Verificado inyectando la sección 6b sobre el formulario publicado y capturando
 los tres estados.

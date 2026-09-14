@@ -199,6 +199,24 @@ consola**. En la URL publicada del producto sí funcionan. Antes de dar por roto
 diez CTA, diez veces el mismo id. HTML inválido, pero no rompe nada —el enganche es por clase—:
 verificado en producción que los diez abren el formulario. No intentar "arreglarlo" tocando los ids.
 
+**En una landing de `/pages/` no salen las ofertas de cantidad** (verificado el 2026-09-11 en
+`etermacolombia.com/pages/clorofull-hidratacion` frente a `/products/clorofull-1`, mismo producto, misma
+configuración). El formulario abre y conoce el producto —lo saca del carrito del Product Element—, pero
+el bloque de ofertas no se pinta: `#rsi-cod-form-quantity-offers-hook` queda vacío y la app ni registra la
+impresión `quantityOffer-impression-…`. La causa está en `get-form-script.min.js`: las ofertas exigen
+`_rsi.form.quantityOffers.productCache`, que se lee de `<script id="rsi-cod-form-product-cache"
+type="application/json">`. Ese script lo imprime el app embed con `{{ product | json }}`, y en una
+plantilla de página no hay `product`: sale **`null`**. Los fallbacks (`script.product-json`,
+`productCaches`, `appBlockCurrentProduct`, PageFly) tampoco existen en GemPages, así que la app se
+salta las ofertas en silencio.
+
+Arreglo, en el JS de la landing: si ese script no trae un objeto, rellenarlo con
+`/products/<handle>.js`, que tiene la misma forma (mismos campos y precios en céntimos). Releasit lo relee
+en cada apertura mientras no tenga producto, así que no hay carrera que romper: un clic antes de que llegue
+la respuesta solo pierde las ofertas en esa apertura. Implementado como `initReleasitProductCache()` en
+`eterma/landings/clorofull/hidratacion/september.html`; no toca las fichas de producto, donde el script ya
+viene lleno. **Toda landing de `/pages/` con ofertas de cantidad necesita este paso.**
+
 ---
 
 ## 5. Procedimiento para descubrir los selectores reales
@@ -568,6 +586,11 @@ No hay `aria-invalid`: el único gancho es la clase del contenedor y el `<p>` he
 Los dos bloques son **hijos directos del `<form>`**, que es `display: block`. Pasándolo a columna flex
 se pueden reordenar con `order` — es lo único que queda cuando el color está bloqueado inline. El skin
 de Eterma lo usa para poner el pago anticipado primero.
+
+Lo que **sí** se puede animar es un pseudoelemento propio: el skin de Eterma pone un `::after` en el
+enlace de pago anticipado con su propio borde, `border-radius: inherit` y solo `transform`/`opacity`
+(anillo que se abre y se desvanece, `releasit-form.css` §9c). Verificado en vivo el 2026-09-07: el
+enlace es `display: flex`, admite `position: relative` y ningún ancestro lo recorta.
 
 #### Inline en esta tienda (§6.5)
 

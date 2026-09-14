@@ -172,6 +172,26 @@ body:has([data-rsi-banner="cabello"]) #rsi_form_wrapper .rsi-image-item-image {
 	content: url('https://www.mimacolombia.com/cdn/shop/files/banner-formulario-cabello-sknglow.webp?width=1100');
 }
 
+/* MIMANAD: un banner por ángulo, cada uno anuncia su propia guía de regalo.
+   Sin ?width=: el fichero ya va a 1280 codificado por nosotros y Shopify
+   reencoda las fotos peor (medido en SKNGLOW, cab-hero-2). */
+body:has([data-rsi-banner="mimanad-energia"]) #rsi_form_wrapper .rsi-image-item-image {
+	content: url('https://www.mimacolombia.com/cdn/shop/files/banner-formulario-energia-mimanad.webp');
+}
+
+body:has([data-rsi-banner="mimanad-memoria"]) #rsi_form_wrapper .rsi-image-item-image {
+	content: url('https://www.mimacolombia.com/cdn/shop/files/banner-formulario-memoria-mimanad.webp');
+}
+
+/* MIMACALM: lo mismo, un banner por ángulo (guía de 21 noches / 21 días). */
+body:has([data-rsi-banner="mimacalm-sueno"]) #rsi_form_wrapper .rsi-image-item-image {
+	content: url('https://www.mimacolombia.com/cdn/shop/files/banner-formulario-sueno-mimacalm.webp');
+}
+
+body:has([data-rsi-banner="mimacalm-cuerpo"]) #rsi_form_wrapper .rsi-image-item-image {
+	content: url('https://www.mimacolombia.com/cdn/shop/files/banner-formulario-cuerpo-mimacalm.webp');
+}
+
 #rsi_form_wrapper .rsi-image-item-image {
 	display: block;
 	border-radius: var(--mima-radius) !important;
@@ -321,18 +341,24 @@ body:has([data-rsi-banner="cabello"]) #rsi_form_wrapper .rsi-image-item-image {
 
 /* Secundario — contraentrega.
    Contorno, no relleno: es la alternativa, no la recomendada. Pero NO se
-   castiga: mismo tamaño, mismo peso tipográfico y texto en --mima-ink, que da
-   7.5:1 sobre blanco. Contraentrega sigue siendo la vía de compra mayoritaria
-   en Colombia y esconderla costaría pedidos. */
+   castiga: mismo tamaño, mismo peso y el contorno en el magenta de marca, el
+   mismo del principal, para que se lea como botón y no como texto suelto.
+   #e0008f da 4.6:1 sobre blanco. Contraentrega sigue siendo la vía de compra
+   mayoritaria en Colombia y esconderla costaría pedidos. */
 #rsi_form_wrapper .rsi-submit_button {
-	background: transparent !important;
-	color: var(--mima-ink) !important;
-	border: 2px solid var(--mima-ink) !important;
+	background: var(--mima-surface) !important;
+	color: var(--mima-magenta-deep) !important;
+	border: 2px solid var(--mima-magenta-deep) !important;
 	box-shadow: none !important;
 }
 
+/* El título y el subtítulo traen su propio color: sin esto no heredan */
+#rsi_form_wrapper .rsi-submit_button * {
+	color: var(--mima-magenta-deep) !important;
+}
+
 #rsi_form_wrapper .rsi-submit_button:hover {
-	background: rgba(122, 62, 118, 0.06) !important;
+	background: rgba(224, 0, 143, 0.06) !important;
 }
 
 /* La sacudida es un recurso de urgencia falsa y aquí además se aplica al botón
@@ -358,6 +384,11 @@ body:has([data-rsi-banner="cabello"]) #rsi_form_wrapper .rsi-image-item-image {
    cómo pagar al recibir, el pedido se pierde. Aquí la opción descartada sigue
    existiendo y sigue siendo clicable: solo deja de competir. Al final de la
    sección está la regla para ocultarla del todo, comentada.
+
+   2026-09-14: la descartada iba como enlace gris subrayado y se perdía — el
+   cliente lo reportó como "muy escondido". Ahora es un botón secundario con
+   contorno magenta: sigue por debajo del principal (sin relleno, sin icono,
+   más bajo) pero se reconoce como botón.
    -------------------------------------------------------------------------- */
 
 /* No se reordenan. Comprobado en el DOM del formulario: cada botón vive en su
@@ -367,23 +398,27 @@ body:has([data-rsi-banner="cabello"]) #rsi_form_wrapper .rsi-image-item-image {
    estructural se rompería con cualquier versión nueva de la app. La atenuación
    de abajo ya deja clara la jerarquía sin necesidad de mover nada.
 
-   La opción descartada baja a enlace discreto. */
+   La opción descartada baja a botón secundario: contorno magenta, sin relleno. */
 html[data-sg-pay="prepaid"] #rsi_form_wrapper .rsi-submit_button,
 html[data-sg-pay="cod"] #rsi_form_wrapper .rsi-additionals_checkout_button {
-	background: transparent !important;
-	color: var(--mima-text-muted) !important;
-	border: 0 !important;
+	background: var(--mima-surface) !important;
+	color: var(--mima-magenta-deep) !important;
+	border: 2px solid var(--mima-magenta-deep) !important;
 	box-shadow: none !important;
-	min-height: 0 !important;
+	min-height: 48px !important;
 	height: auto !important;
-	padding: 12px 8px !important;
-	font-weight: 600 !important;
+	padding: 10px 20px !important;
+	font-weight: 700 !important;
+}
+
+html[data-sg-pay="prepaid"] #rsi_form_wrapper .rsi-submit_button *,
+html[data-sg-pay="cod"] #rsi_form_wrapper .rsi-additionals_checkout_button * {
+	color: var(--mima-magenta-deep) !important;
 }
 
 html[data-sg-pay="prepaid"] #rsi_form_wrapper .rsi-submit_button:hover,
 html[data-sg-pay="cod"] #rsi_form_wrapper .rsi-additionals_checkout_button:hover {
-	background: transparent !important;
-	color: var(--mima-ink) !important;
+	background: rgba(224, 0, 143, 0.06) !important;
 }
 
 /* Y la elegida pasa a principal. En la sección 6 contraentrega va en contorno
@@ -405,19 +440,24 @@ html[data-sg-pay="cod"] #rsi_form_wrapper .rsi-submit_button:hover {
 	background: var(--mima-magenta) !important;
 }
 
-/* Sin icono y sin subtítulo: es un enlace, no un botón. */
+/* Sin icono ni subtítulo: es la alternativa y se queda en una línea.
+   El botón son tres columnas flex — icono (1), texto (5) y un <div>&nbsp;</div>
+   sin clase (1) que equilibra al icono. Si se oculta el icono y no el hueco,
+   el texto queda desplazado a la izquierda: medido en vivo, 54px de 339. Por
+   eso el hermano del contenido cae con el icono. */
 html[data-sg-pay="prepaid"] #rsi_form_wrapper .rsi-submit_button .rsi-icon,
 html[data-sg-pay="prepaid"] #rsi_form_wrapper .rsi-submit_button .rsi-custom-button-content > p,
+html[data-sg-pay="prepaid"] #rsi_form_wrapper .rsi-submit_button .rsi-custom-button-content ~ div,
 html[data-sg-pay="cod"] #rsi_form_wrapper .rsi-additionals_checkout_button .rsi-icon,
-html[data-sg-pay="cod"] #rsi_form_wrapper .rsi-additionals_checkout_button .rsi-custom-button-content > p {
+html[data-sg-pay="cod"] #rsi_form_wrapper .rsi-additionals_checkout_button .rsi-custom-button-content > p,
+html[data-sg-pay="cod"] #rsi_form_wrapper .rsi-additionals_checkout_button .rsi-custom-button-content ~ div {
 	display: none !important;
 }
 
 html[data-sg-pay="prepaid"] #rsi_form_wrapper .rsi-submit_button .rsi-custom-button-content > span,
 html[data-sg-pay="cod"] #rsi_form_wrapper .rsi-additionals_checkout_button .rsi-custom-button-content > span {
-	font-size: 14px !important;
-	text-decoration: underline;
-	text-underline-offset: 3px;
+	font-size: 15px !important;
+	text-decoration: none;
 }
 
 /* ALTERNATIVA — ocultar del todo la opción descartada.

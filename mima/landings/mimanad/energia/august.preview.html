@@ -1,0 +1,3594 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>august · vista previa</title>
+<style>
+body{margin:0}
+html{font-size:16px}
+body{font-size:16px;font-family:Helvetica,Arial,sans-serif}
+a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:empty,h6:empty,p:empty,section:empty,ul:empty{display:none}
+.h0,.h1,.h2,.h3,.h4,.h5,h1,h2,h3,h4,h5{font-family:Georgia,serif}
+</style>
+</head>
+<body>
+<!--
+	MIMA · MIMANAD — Landing de venta, ángulo ENERGÍA (campaña agosto)
+	=================================================================
+	Bloque autocontenido para pegar en GemPages (elemento HTML/Liquid).
+	Sin <html>, <head> ni <body>. Todo el CSS va namespaced bajo .mn-lp.
+
+	Piel propia, no la de SKNGLOW: el producto es para hombres y mujeres,
+	así que no hay magenta ni rosa. La paleta sale del frasco (etiqueta
+	berenjena, tapa violeta, vidrio ámbar) — ver mimanad/AGENTS.md §3.
+
+	Motivo de la landing: la tarde. La página se lee como el resto del
+	día que todavía queda — el cielo de la tarde (ámbar → berenjena) en
+	las bandas oscuras y la "carga" (tres celdas, una por ingrediente)
+	en el hero, el mecanismo, la constancia y el botón.
+
+	CTA → abre el modal de Releasit mediante las clases de integración
+	_rsi-cod-form-gempages-button-overwrite y _rsi-cod-form-is-gempage.
+
+	PENDIENTES ANTES DE PUBLICAR — ver mimanad/AGENTS.md §8:
+	  1. Handle de la página → paid_landings en theme.gempages.blank.liquid.
+	  2. data-rsi-banner="mimanad-energia" enciende en el formulario de
+	     Releasit el banner de la guía de este ángulo (regla en
+	     shared/releasit-form.css). Hay que pegar esa skin también.
+	  3. Logo de Infobae (la tarjeta va con el nombre en texto).
+
+	Imágenes: Shopify CDN. Subir a Contenido → Archivos los ficheros
+	landings-mimanad-*.webp de landings/mimanad/assets/ con el nombre
+	exacto. Logos de MIMA, medios de pago e Instagram se reutilizan de
+	SKNGLOW: ya están en el CDN.
+-->
+
+<section class="mn-lp" id="mn-mimanad" data-rsi-banner="mimanad-energia">
+
+	<!-- =========================== CABECERA ========================= -->
+	<header class="mn-topbar">
+		<div class="mn-shell mn-topbar__inner">
+			<img
+				src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-mima-white.webp?width=200"
+				width="300" height="180" decoding="async"
+				alt="MIMA">
+		</div>
+	</header>
+
+	<!-- ============================ HERO ============================ -->
+	<section class="mn-hero">
+		<div class="mn-shell mn-hero__grid">
+			<div class="mn-hero__head">
+				<p class="mn-hero__brand">MIMANAD</p>
+				<h1 class="mn-h1">Que todavía te quede <span class="mn-accent">energía</span> cuando todavía queda día.</h1>
+				<p class="mn-lead">Niacina, Resveratrol y Melena de León para darte energía celular, claridad mental y vitalidad.</p>
+			</div>
+
+			<figure class="mn-hero__media">
+				<!-- Slider nativo con scroll-snap. Las flechas van A LOS LADOS de
+				     la foto, nunca encima: los hero 2 y 3 traen rótulos quemados en
+				     los laterales. Sin puntos, por la misma razón.
+				     Sin ?width=: fichero propio a 1050 px, lo que pinta un móvil
+				     DPR3. Shopify reencoda las fotos peor que nosotros. -->
+				<div class="mn-slider" data-mn-slider>
+					<button type="button" class="mn-slider__arrow" data-mn-slider-prev aria-label="Imagen anterior">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"/></svg>
+					</button>
+					<ul class="mn-slider__track" data-mn-slider-track tabindex="0"
+						role="region" aria-label="Imágenes de MIMANAD">
+						<li class="mn-slider__slide">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-hero-1.webp"
+								width="1050" height="1050"
+								alt="Pareja sonriente con sus frascos de MIMANAD y varios dulces duros sobre la mesa"
+								fetchpriority="high" decoding="async">
+						</li>
+						<li class="mn-slider__slide">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-hero-2.webp"
+								width="1050" height="1050"
+								alt="Mujer mostrando dulces duros de MIMANAD en la palma: energía, concentración, claridad mental y rejuvenecimiento celular"
+								loading="lazy" decoding="async">
+						</li>
+						<li class="mn-slider__slide">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-hero-3.webp"
+								width="1050" height="1050"
+								alt="Frasco de MIMANAD en la mano con sus tres ingredientes: Niacina, Resveratrol y Melena de León"
+								loading="lazy" decoding="async">
+						</li>
+					</ul>
+					<button type="button" class="mn-slider__arrow" data-mn-slider-next aria-label="Imagen siguiente">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 6 6 6-6 6"/></svg>
+					</button>
+					<p class="mn-visually-hidden" data-mn-slider-count aria-live="polite">Imagen 1 de 3</p>
+				</div>
+			</figure>
+
+			<div class="mn-hero__buy">
+				<p class="mn-price"><span class="mn-price__amount">$89.900</span> <span class="mn-price__note">Envío gratis a Colombia</span></p>
+				<p class="mn-price__prepay"><strong>$79.900</strong> con pago anticipado</p>
+				<button type="button" class="mn-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
+
+				<ul class="mn-trust">
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h3.7l2.8 3v4h-6.5z"/><circle cx="7" cy="18" r="1.7"/><circle cx="17" cy="18" r="1.7"/></svg> Entrega de 3 a 5 días hábiles</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19.5c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><path d="M15.5 5.2a3.2 3.2 0 0 1 0 5.6M17.6 14.8c1.6.7 2.6 2.3 2.9 4.7"/></svg> +1.400 clientes</li>
+				</ul>
+			</div>
+
+			<div class="mn-hero__specs">
+				<!-- La fórmula como las tres celdas de una carga: es el motivo que
+				     vuelve en el mecanismo, la constancia y el botón. -->
+				<ul class="mn-formula" aria-label="Fórmula de MIMANAD">
+					<li class="mn-formula__cell mn-formula__cell--1"><span class="mn-formula__name">Niacina</span> <span class="mn-formula__dose">500 mg</span></li>
+					<li class="mn-formula__cell mn-formula__cell--2"><span class="mn-formula__name">Resveratrol</span> <span class="mn-formula__dose">100 mg</span></li>
+					<li class="mn-formula__cell mn-formula__cell--3"><span class="mn-formula__name">Melena de León</span> <span class="mn-formula__dose">200 mg</span></li>
+				</ul>
+
+				<ul class="mn-facts">
+					<li><strong>120</strong> dulces duros sabor kiwi</li>
+					<li><strong>4</strong> al día · <strong>30</strong> días</li>
+				</ul>
+
+				<ul class="mn-perks">
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="12" rx="6.5" ry="8.5"/><ellipse cx="12" cy="12" rx="3" ry="4.4"/><path d="M12 3.5v2M12 18.5v2"/></svg> Fresco sabor kiwi</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8.5h14l-1.2 11a1.5 1.5 0 0 1-1.5 1.3H7.7a1.5 1.5 0 0 1-1.5-1.3Z"/><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5"/></svg> Fácil de llevar</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="6" rx="3"/><path d="M12 9v6"/><path d="M4 4l16 16"/></svg> Sin cápsulas</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- ==================== CARRUSEL UGC (PARTE 2) ================== -->
+	<section class="mn-section mn-section--tight">
+		<!-- Carrete con foco: la tarjeta del centro manda y las laterales se
+		     inclinan hacia ella; debajo, una batería que se carga persona a
+		     persona. El JS solo escribe --mn-focus y --mn-lean por tarjeta;
+		     sin JS es un carril que se desliza con el dedo. -->
+		<div class="mn-reel" data-mn-reel>
+			<ul class="mn-reel__track" data-mn-reel-track tabindex="0" role="region" aria-label="Personas que ya usan MIMANAD">
+				<li class="mn-reel__item" data-mn-reel-item>
+					<figure class="mn-reel__card">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-camila-l.webp?width=420" width="800" height="1067" loading="lazy" decoding="async" alt="Camila sonriendo con su frasco de MIMANAD junto a la cara">
+						<figcaption class="mn-reel__name">Camila</figcaption>
+					</figure>
+				</li>
+				<li class="mn-reel__item" data-mn-reel-item>
+					<figure class="mn-reel__card">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-camilo.webp?width=420" width="800" height="1422" loading="lazy" decoding="async" alt="Camilo mostrando a cámara su frasco de MIMANAD">
+						<figcaption class="mn-reel__name">Camilo</figcaption>
+					</figure>
+				</li>
+				<li class="mn-reel__item" data-mn-reel-item>
+					<figure class="mn-reel__card">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-catalina.webp?width=420" width="507" height="905" loading="lazy" decoding="async" alt="Catalina abriendo su frasco de MIMANAD en casa">
+						<figcaption class="mn-reel__name">Catalina</figcaption>
+					</figure>
+				</li>
+				<li class="mn-reel__item" data-mn-reel-item>
+					<figure class="mn-reel__card">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-carlos.webp?width=420" width="510" height="902" loading="lazy" decoding="async" alt="Carlos Mauricio con el pulgar arriba y su frasco de MIMANAD">
+						<figcaption class="mn-reel__name">Carlos Mauricio</figcaption>
+					</figure>
+				</li>
+				<li class="mn-reel__item" data-mn-reel-item>
+					<figure class="mn-reel__card">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-camila.webp?width=420" width="508" height="905" loading="lazy" decoding="async" alt="Camila al aire libre en Bogotá sosteniendo su frasco de MIMANAD">
+						<figcaption class="mn-reel__name">Camila</figcaption>
+					</figure>
+				</li>
+				<li class="mn-reel__item" data-mn-reel-item>
+					<figure class="mn-reel__card">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-jose.webp?width=420" width="507" height="908" loading="lazy" decoding="async" alt="José Fernando sirviéndose un dulce duro de MIMANAD">
+						<figcaption class="mn-reel__name">José Fernando</figcaption>
+					</figure>
+				</li>
+				<li class="mn-reel__item" data-mn-reel-item>
+					<figure class="mn-reel__card">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-luis.webp?width=420" width="508" height="908" loading="lazy" decoding="async" alt="Luis Alejandro en su escritorio con el frasco de MIMANAD">
+						<figcaption class="mn-reel__name">Luis Alejandro</figcaption>
+					</figure>
+				</li>
+			</ul>
+
+			<div class="mn-reel__foot">
+				<div class="mn-reel__charge" data-mn-reel-charge role="group" aria-label="Elegir persona" hidden>
+					<button type="button" class="mn-reel__cell" data-mn-reel-go="0" aria-label="Ver a Camila"></button>
+					<button type="button" class="mn-reel__cell" data-mn-reel-go="1" aria-label="Ver a Camilo"></button>
+					<button type="button" class="mn-reel__cell" data-mn-reel-go="2" aria-label="Ver a Catalina"></button>
+					<button type="button" class="mn-reel__cell" data-mn-reel-go="3" aria-label="Ver a Carlos Mauricio"></button>
+					<button type="button" class="mn-reel__cell" data-mn-reel-go="4" aria-label="Ver a Camila"></button>
+					<button type="button" class="mn-reel__cell" data-mn-reel-go="5" aria-label="Ver a José Fernando"></button>
+					<button type="button" class="mn-reel__cell" data-mn-reel-go="6" aria-label="Ver a Luis Alejandro"></button>
+				</div>
+				<p class="mn-reel__note">Contenido en colaboración con MIMA</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ===================== PROMESA (PARTE 3) ======================
+	     La banda es el cielo de la tarde: ámbar arriba, berenjena abajo.
+	     El sol recorre el día de la clienta de "Trabajo" a "Planes" cuando
+	     la sección entra en pantalla. -->
+	<section class="mn-sky">
+		<div class="mn-shell mn-narrow mn-sky__inner">
+			<h2 class="mn-h2 mn-h2--light">Tu día no debería terminar a las 3 de la tarde.</h2>
+
+			<ol class="mn-dayline" data-mn-reveal>
+				<li class="mn-dayline__stop">
+					<span class="mn-dayline__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="7.5" width="17" height="12" rx="2"/><path d="M9 7.5V6a1.5 1.5 0 0 1 1.5-1.5h3A1.5 1.5 0 0 1 15 6v1.5"/><path d="M3.5 12.5h17"/></svg></span>
+					<span class="mn-dayline__label">Trabajo</span>
+				</li>
+				<li class="mn-dayline__stop">
+					<span class="mn-dayline__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6.5h10M9.5 12h10M9.5 17.5h10"/><path d="m3.5 6.5 1.2 1.2 2.3-2.4M3.5 12l1.2 1.2 2.3-2.4"/><circle cx="5" cy="17.5" r="1.2"/></svg></span>
+					<span class="mn-dayline__label">Pendientes</span>
+				</li>
+				<li class="mn-dayline__stop">
+					<span class="mn-dayline__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 8v8M17.5 8v8M3.5 10v4M20.5 10v4M6.5 12h11"/></svg></span>
+					<span class="mn-dayline__label">Entreno</span>
+				</li>
+				<li class="mn-dayline__stop">
+					<span class="mn-dayline__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3.5h10l-1 6.5a4 4 0 0 1-8 0Z"/><path d="M12 14v6.5M8.5 20.5h7"/></svg></span>
+					<span class="mn-dayline__label">Planes</span>
+				</li>
+			</ol>
+
+			<p class="mn-sky__claim">Todavía quedan horas por vivir.</p>
+			<p class="mn-sky__text">MIMANAD acompaña tu energía y claridad para llegar a ellas más presente.</p>
+			<p class="mn-sky__dose">4 dulces duros sabor kiwi al día.</p>
+
+			<div class="mn-cta-row">
+				<button type="button" class="mn-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MÁS ENERGÍA PARA MI DÍA</button>
+			</div>
+		</div>
+	</section>
+
+	<!-- ==================== AUTORIDAD (PARTE 4) ===================== -->
+	<section class="mn-section">
+		<div class="mn-shell">
+			<div class="mn-headline">
+				<h2 class="mn-h2">La energía también empieza en tus células.</h2>
+			</div>
+
+			<div class="mn-cells">
+				<figure class="mn-cells__media">
+					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-neuronas.webp?width=900"
+						width="1000" height="668" loading="lazy" decoding="async"
+						alt="Ilustración de células nerviosas conectadas entre sí">
+				</figure>
+				<div class="mn-cells__copy">
+					<p>Tus células necesitan transformar nutrientes en energía constantemente.</p>
+					<p>La <strong>Niacina</strong> participa en la formación de <strong>NAD y NADP</strong>, coenzimas esenciales en el metabolismo energético.</p>
+					<p class="mn-cells__foot">MIMANAD combina Niacina, Resveratrol y Melena de León para acompañar energía celular, actividad metabólica y función cognitiva.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="mn-sources">
+			<ul class="mn-sources__track" tabindex="0" role="region" aria-label="Publicaciones sobre los ingredientes de MIMANAD">
+				<li class="mn-sources__item">
+					<article class="mn-source">
+						<p class="mn-source__name"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-logo-nih.webp?width=300" width="600" height="202" loading="lazy" decoding="async" alt="National Institutes of Health"></p>
+						<h3 class="mn-source__title">Niacina + NAD</h3>
+						<p>El NIH reconoce el papel de la niacina en la formación de NAD y NADP, involucrados en cientos de reacciones celulares.</p>
+					</article>
+				</li>
+				<li class="mn-sources__item">
+					<article class="mn-source">
+						<p class="mn-source__name"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-logo-infobae.webp?width=300" width="377" height="122" loading="lazy" decoding="async" alt="Infobae"></p>
+						<h3 class="mn-source__title">NAD+ + actividad celular</h3>
+						<p>El NAD+ participa en procesos relacionados con producción de energía, función mitocondrial y reparación celular.</p>
+					</article>
+				</li>
+				<li class="mn-sources__item">
+					<article class="mn-source">
+						<p class="mn-source__name"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-logo-elpais.webp?width=300" width="600" height="262" loading="lazy" decoding="async" alt="El País"></p>
+						<h3 class="mn-source__title">Resveratrol + sirtuinas</h3>
+						<p>El resveratrol ha sido estudiado por su relación con sirtuinas, metabolismo y respuesta celular al estado energético.</p>
+					</article>
+				</li>
+			</ul>
+		</div>
+
+		<div class="mn-shell">
+			<p class="mn-disclaimer">La evidencia citada corresponde a investigaciones sobre ingredientes y procesos biológicos. Los resultados individuales pueden variar.</p>
+		</div>
+	</section>
+
+	<!-- =============== CÓMO ACTÚA LA FÓRMULA (PARTE 5) ============== -->
+	<section class="mn-section mn-section--cream">
+		<div class="mn-shell">
+			<div class="mn-headline">
+				<h2 class="mn-h2">Tres ingredientes. Tres frentes.</h2>
+			</div>
+
+			<!-- La misma carga del hero, ahora como navegador: cada celda es un
+			     frente y lleva a su tarjeta. En escritorio las tres tarjetas se
+			     ven a la vez y la celda solo resalta la suya. -->
+			<div class="mn-mech" data-mn-mech>
+				<div class="mn-mech__nav" role="group" aria-label="Elige un frente">
+					<button type="button" class="mn-mech__seg mn-mech__seg--1" data-mn-mech-go="0" aria-pressed="true">Energía celular</button>
+					<button type="button" class="mn-mech__seg mn-mech__seg--2" data-mn-mech-go="1" aria-pressed="false">Protección celular</button>
+					<button type="button" class="mn-mech__seg mn-mech__seg--3" data-mn-mech-go="2" aria-pressed="false">Claridad mental</button>
+				</div>
+
+				<ul class="mn-mech__track" data-mn-mech-track tabindex="0" role="region" aria-label="Los tres ingredientes de MIMANAD">
+					<li class="mn-ingredient mn-ingredient--1" data-mn-mech-item>
+						<figure class="mn-ingredient__media">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-niacina.webp?width=640"
+								width="1000" height="642" loading="lazy" decoding="async"
+								alt="Alimentos ricos en niacina alrededor de la fórmula de la vitamina B3">
+						</figure>
+						<div class="mn-ingredient__body">
+							<p class="mn-ingredient__tag">Energía celular</p>
+							<h3 class="mn-ingredient__title">Niacina <span>500 mg</span></h3>
+							<p>Participa en las vías que forman NAD, clave en el metabolismo energético.</p>
+						</div>
+					</li>
+					<li class="mn-ingredient mn-ingredient--2" data-mn-mech-item>
+						<figure class="mn-ingredient__media">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-resveratrol.webp?width=640"
+								width="1000" height="942" loading="lazy" decoding="async"
+								alt="Resveratrol en polvo junto a un racimo de uvas negras">
+						</figure>
+						<div class="mn-ingredient__body">
+							<p class="mn-ingredient__tag">Protección celular</p>
+							<h3 class="mn-ingredient__title">Resveratrol <span>100 mg</span></h3>
+							<p>Estudiado por su actividad antioxidante y su relación con vías metabólicas.</p>
+						</div>
+					</li>
+					<li class="mn-ingredient mn-ingredient--3" data-mn-mech-item>
+						<figure class="mn-ingredient__media">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-melena.webp?width=640"
+								width="1000" height="667" loading="lazy" decoding="async"
+								alt="Hongos Melena de León sobre un plato de madera">
+						</figure>
+						<div class="mn-ingredient__body">
+							<p class="mn-ingredient__tag">Claridad mental</p>
+							<h3 class="mn-ingredient__title">Melena de León <span>200 mg</span></h3>
+							<p>Investigada por su relación con atención, concentración y función cognitiva.</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<p class="mn-statement">Una fórmula pensada para seguir cuando tu día todavía tiene mucho por delante.</p>
+
+			<div class="mn-cta-row">
+				<button type="button" class="mn-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
+			</div>
+		</div>
+	</section>
+
+	<!-- ==================== BENEFICIOS (PARTE 6) ====================
+	     Zigzag cosido por una guía vertical que va del ámbar al berenjena:
+	     es el resto del día, de la tarde a la noche. -->
+	<section class="mn-section">
+		<div class="mn-shell">
+			<div class="mn-headline">
+				<h2 class="mn-h2">Más día para ti.</h2>
+			</div>
+
+			<ol class="mn-more">
+				<li class="mn-more__item">
+					<figure class="mn-more__media">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-benefit-energia.webp?width=420"
+							width="510" height="908" loading="lazy" decoding="async"
+							alt="Carlos Mauricio sonriendo y señalando su frasco de MIMANAD">
+					</figure>
+					<div class="mn-more__body">
+						<h3 class="mn-more__title"><span class="mn-more__num">1</span> Llegar a la tarde con energía</h3>
+						<p>Terminar pendientes sin sentir que ya gastaste todo lo que tenías.</p>
+					</div>
+				</li>
+				<li class="mn-more__item">
+					<figure class="mn-more__media">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-benefit-planes.webp?width=420"
+							width="510" height="905" loading="lazy" decoding="async"
+							alt="Camila guardando su frasco de MIMANAD en el bolso antes de salir">
+					</figure>
+					<div class="mn-more__body">
+						<h3 class="mn-more__title"><span class="mn-more__num">2</span> Volver a hacer planes</h3>
+						<ul class="mn-chips">
+							<li>Entrenar</li>
+							<li>Salir</li>
+							<li>Caminar</li>
+							<li>Aceptar esa invitación</li>
+						</ul>
+					</div>
+				</li>
+				<li class="mn-more__item">
+					<figure class="mn-more__media">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-benefit-claridad.webp?width=420"
+							width="510" height="905" loading="lazy" decoding="async"
+							alt="Catalina frente a su portátil con el frasco de MIMANAD en la mano">
+					</figure>
+					<div class="mn-more__body">
+						<h3 class="mn-more__title"><span class="mn-more__num">3</span> Pensar con más claridad</h3>
+						<ul class="mn-chips">
+							<li>Leer</li>
+							<li>Decidir</li>
+							<li>Responder</li>
+							<li>Terminar lo que empezaste</li>
+						</ul>
+					</div>
+				</li>
+				<li class="mn-more__item">
+					<figure class="mn-more__media">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-benefit-presente.webp?width=420"
+							width="800" height="1421" loading="lazy" decoding="async"
+							alt="José Fernando de pie, sonriendo, con su frasco de MIMANAD">
+					</figure>
+					<div class="mn-more__body">
+						<h3 class="mn-more__title"><span class="mn-more__num">4</span> Sentirte más presente</h3>
+						<ul class="mn-lines">
+							<li>En el trabajo.</li>
+							<li>En una conversación.</li>
+							<li>En las horas que también deberían ser tuyas.</li>
+						</ul>
+					</div>
+				</li>
+			</ol>
+		</div>
+	</section>
+
+	<!-- ==================== MODO DE USO (PARTE 7) =================== -->
+	<section class="mn-section mn-section--cream">
+		<div class="mn-shell mn-use">
+			<div class="mn-use__head">
+				<h2 class="mn-h2">4 al día. Sabor kiwi.</h2>
+
+				<!-- Los cuatro dulces del día, dibujados: blancos y moteados como
+				     los de verdad. Decorativo; la cifra ya la dice el titular. -->
+				<ul class="mn-candies" aria-hidden="true">
+					<li></li><li></li><li></li><li></li>
+				</ul>
+
+				<dl class="mn-stats">
+					<div class="mn-stat"><dt>120</dt><dd>dulces duros</dd></div>
+					<div class="mn-stat"><dt>30</dt><dd>días de uso</dd></div>
+				</dl>
+
+				<p class="mn-use__note">Puedes consumirlos juntos o distribuirlos durante el día.</p>
+			</div>
+
+			<ol class="mn-moments">
+				<li class="mn-moment">
+					<img class="mn-moment__media"
+						src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-use-desayuno.webp?width=300"
+						width="510" height="900" loading="lazy" decoding="async"
+						alt="Catalina con dulces duros de MIMANAD en la mano junto a su desayuno">
+					<p class="mn-moment__label"><span class="mn-moment__num">1</span> Después del desayuno.</p>
+					<span class="mn-moment__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5h12v4a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5Z"/><path d="M16 11.5h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 4.5c-.8 1 .8 2 0 3M12 4.5c-.8 1 .8 2 0 3"/></svg></span>
+				</li>
+				<li class="mn-moment">
+					<img class="mn-moment__media"
+						src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-use-pausa.webp?width=300"
+						width="510" height="903" loading="lazy" decoding="async"
+						alt="Luis Alejandro en su escritorio con dulces duros de MIMANAD en la palma">
+					<p class="mn-moment__label"><span class="mn-moment__num">2</span> Durante una pausa.</p>
+					<span class="mn-moment__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M10 9v6M14 9v6"/></svg></span>
+				</li>
+				<li class="mn-moment">
+					<img class="mn-moment__media"
+						src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-use-entreno.webp?width=300"
+						width="503" height="900" loading="lazy" decoding="async"
+						alt="Camilo ofreciendo a cámara dulces duros de MIMANAD">
+					<p class="mn-moment__label"><span class="mn-moment__num">3</span> Antes de entrenar.</p>
+					<span class="mn-moment__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 8v8M17.5 8v8M3.5 10v4M20.5 10v4M6.5 12h11"/></svg></span>
+				</li>
+			</ol>
+
+			<div class="mn-cta-row mn-use__cta">
+				<button type="button" class="mn-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO EMPEZAR</button>
+			</div>
+		</div>
+	</section>
+
+	<!-- ==================== CONSTANCIA (PARTE 8) ==================== -->
+	<section class="mn-section">
+		<div class="mn-shell">
+			<div class="mn-headline">
+				<h2 class="mn-h2">Dale tiempo a tu vitalidad.</h2>
+			</div>
+
+			<ol class="mn-steps">
+				<li class="mn-step mn-step--1">
+					<span class="mn-step__battery" aria-hidden="true"></span>
+					<p class="mn-step__when">Días 1–30</p>
+					<p class="mn-step__lead">4 dulces duros al día.</p>
+					<p>Empiezas a hacer espacio para cuidar tu energía.</p>
+				</li>
+				<li class="mn-step mn-step--2">
+					<span class="mn-step__battery" aria-hidden="true"></span>
+					<p class="mn-step__when">Días 31–60</p>
+					<p>La constancia se integra a tus jornadas de trabajo, movimiento y descanso.</p>
+				</li>
+				<li class="mn-step mn-step--3">
+					<span class="mn-step__battery" aria-hidden="true"></span>
+					<p class="mn-step__when">Días 61–90</p>
+					<p>El objetivo: tener más capacidad para vivir tus días con presencia.</p>
+				</li>
+			</ol>
+
+			<p class="mn-disclaimer">Los resultados pueden variar según descanso, alimentación, actividad física y condiciones individuales.</p>
+		</div>
+	</section>
+
+	<!-- ======================= PAGO (PARTE 9) ======================= -->
+	<section class="mn-section mn-section--cream" id="mn-payment">
+		<div class="mn-shell mn-narrow">
+			<figure class="mn-pay__product">
+				<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-bottle-wall.webp?width=320"
+					width="1000" height="1333" loading="lazy" decoding="async"
+					alt="Frasco de MIMANAD sostenido en la palma de la mano">
+			</figure>
+
+			<div class="mn-headline">
+				<h2 class="mn-h2">Tú eliges cómo pagar.</h2>
+			</div>
+
+			<fieldset class="mn-pay">
+				<legend class="mn-visually-hidden">Forma de pago</legend>
+
+				<label class="mn-pay__option" for="mn-pay-prepaid">
+					<input type="radio" name="mn-payment" id="mn-pay-prepaid" value="prepaid" checked>
+					<span class="mn-pay__box mn-pay__box--best">
+						<span class="mn-pay__badge">Recomendado</span>
+						<span class="mn-pay__name">Pago anticipado</span>
+						<span class="mn-pay__amount">$79.900</span>
+						<span class="mn-pay__save">Ahorras $10.000</span>
+						<span class="mn-pay__detail">Confirmación y seguimiento por WhatsApp</span>
+						<span class="mn-pay__methods">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-pay-visa.webp?width=222" width="222" height="72" loading="lazy" decoding="async" alt="Visa">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-pay-mastercard.webp?width=92" width="92" height="72" loading="lazy" decoding="async" alt="Mastercard">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-pay-pse.webp?width=72" width="72" height="72" loading="lazy" decoding="async" alt="PSE">
+						</span>
+					</span>
+				</label>
+
+				<label class="mn-pay__option" for="mn-pay-cod">
+					<input type="radio" name="mn-payment" id="mn-pay-cod" value="cod">
+					<span class="mn-pay__box">
+						<span class="mn-pay__name">Pago contraentrega</span>
+						<span class="mn-pay__amount">$89.900</span>
+						<span class="mn-pay__detail">Pagas cuando recibes</span>
+					</span>
+				</label>
+			</fieldset>
+
+			<ul class="mn-pay__same">
+				<li>Mismo producto.</li>
+				<li>120 dulces duros.</li>
+				<li>30 días.</li>
+			</ul>
+
+			<div class="mn-cta-row">
+				<button type="button" class="mn-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage" data-mn-cta-price>ELEGIR MI FORMA DE PAGO</button>
+			</div>
+
+			<ul class="mn-trust">
+				<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h3.7l2.8 3v4h-6.5z"/><circle cx="7" cy="18" r="1.7"/><circle cx="17" cy="18" r="1.7"/></svg> Envío gratis · 3 a 5 días</li>
+				<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.3 7.5L3.6 20.4l1.4-4.4A8.4 8.4 0 1 1 20.5 11.6Z"/></svg> Confirmamos por WhatsApp</li>
+				<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg> Notificación sanitaria NSA-0009109-2020</li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- ========================= BONO (PARTE 10) ====================
+	     La lámina ya trae todo el copy del bono —titular, qué incluye e
+	     iconos—: se usa tal cual, sin reconstruir su texto en HTML. El copy
+	     completo va oculto, para lector de pantalla y buscadores. -->
+	<section class="mn-section mn-bonus">
+		<div class="mn-shell mn-narrow">
+			<h2 class="mn-visually-hidden">Gratis con tu compra: 30 días para volver a sentirte presente</h2>
+			<figure class="mn-bonus__poster">
+				<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-bono-energia.webp"
+					width="1050" height="1050" loading="lazy" decoding="async"
+					alt="Guía digital gratis con tu compra de MIMANAD: 30 días para volver a sentirte presente">
+			</figure>
+			<div class="mn-visually-hidden">
+				<p>Una guía para organizar mejor energía, movimiento y descanso.</p>
+				<p>Incluye:</p>
+				<ul>
+					<li>Seguimiento de energía y sueño</li>
+					<li>Ideas para atravesar el bajón de la tarde</li>
+					<li>Pausas para recuperar atención</li>
+					<li>Claves para volver a hacer planes después del trabajo</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- =================== TESTIMONIOS (PARTE 11) ===================
+	     Nombres reales del pool de UGC; el texto y la ciudad, del copy. -->
+	<section class="mn-section">
+		<div class="mn-shell">
+			<div class="mn-headline">
+				<h2 class="mn-h2">Así se siente volver a tener tarde.</h2>
+				<p class="mn-sub">Contenido en colaboración con MIMA</p>
+			</div>
+		</div>
+
+		<div class="mn-stories">
+			<ul class="mn-stories__track" tabindex="0" role="region" aria-label="Historias de personas que usan MIMANAD">
+				<li class="mn-stories__item">
+					<article class="mn-story">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-story-camilo.webp?width=560"
+							width="800" height="1422" loading="lazy" decoding="async"
+							alt="Camilo sonriendo y señalando su frasco de MIMANAD">
+						<div class="mn-story__body">
+							<p class="mn-story__who">Camilo <span>· Bogotá</span></p>
+							<p class="mn-story__lead">Llegaba al final de la tarde sin ganas de gimnasio ni planes.</p>
+							<p>Me gustó que MIMANAD fueran dulces duros sabor kiwi. Lo llevo en el morral y lo tomo entre el trabajo y el resto de mi día.</p>
+							<p class="mn-story__tag">Colaboración con MIMA</p>
+						</div>
+					</article>
+				</li>
+				<li class="mn-stories__item">
+					<article class="mn-story">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-story-camila.webp?width=560"
+							width="507" height="907" loading="lazy" decoding="async"
+							alt="Camila al aire libre mostrando su frasco de MIMANAD">
+						<div class="mn-story__body">
+							<p class="mn-story__who">Camila <span>· Medellín</span></p>
+							<p class="mn-story__lead">Quería volver a sentirme activa y con ganas de salir.</p>
+							<p>El formato me pareció práctico y el sabor kiwi muy fácil de incorporar durante la tarde.</p>
+							<p class="mn-story__tag">Colaboración con MIMA</p>
+						</div>
+					</article>
+				</li>
+				<li class="mn-stories__item">
+					<article class="mn-story">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-story-luis.webp?width=560"
+							width="510" height="905" loading="lazy" decoding="async"
+							alt="Luis Alejandro abriendo su frasco de MIMANAD en el escritorio">
+						<div class="mn-story__body">
+							<p class="mn-story__who">Luis Alejandro <span>· Cali</span></p>
+							<p class="mn-story__lead">Después de jornadas largas sentía la cabeza lenta.</p>
+							<p>Elegí MIMANAD porque quería algo práctico. Los dulces duros me ayudan a hacer una pausa antes de retomar mis pendientes.</p>
+							<p class="mn-story__tag">Colaboración con MIMA</p>
+						</div>
+					</article>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- ==================== COMPARATIVA (PARTE 12) ==================
+	     Tres piezas pequeñas y una banda ancha para MIMANAD: la forma dice el
+	     titular sin leerlo. Cada icono es un botón que resalta su opción sin
+	     ocultar ninguna (regla de comparativas, /AGENTS.md §7). -->
+	<section class="mn-section mn-section--cream">
+		<div class="mn-shell mn-narrow">
+			<div class="mn-headline">
+				<h2 class="mn-h2">Hay energía para una hora. Y energía para todo el día.</h2>
+			</div>
+
+			<ul class="mn-compare" data-mn-compare>
+				<li class="mn-compare__item" data-mn-compare-item>
+					<button type="button" class="mn-compare__icon" data-mn-compare-toggle aria-pressed="false" aria-label="Destacar café y energizantes">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 9.5h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5Z"/><path d="M15.5 10.5H17a2.5 2.5 0 0 1 0 5h-1.5"/><path d="m10.8 3.5-1.6 3h2.6l-1.6 3"/></svg>
+					</button>
+					<h3 class="mn-compare__name">Café y energizantes</h3>
+					<p class="mn-compare__what">Impulso puntual.</p>
+				</li>
+				<li class="mn-compare__item" data-mn-compare-item>
+					<button type="button" class="mn-compare__icon" data-mn-compare-toggle aria-pressed="false" aria-label="Destacar productos preentreno">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 8v8M17.5 8v8M3.5 10v4M20.5 10v4M6.5 12h11"/></svg>
+					</button>
+					<h3 class="mn-compare__name">Productos preentreno</h3>
+					<p class="mn-compare__what">Pensados principalmente alrededor del ejercicio.</p>
+				</li>
+				<li class="mn-compare__item" data-mn-compare-item>
+					<button type="button" class="mn-compare__icon" data-mn-compare-toggle aria-pressed="false" aria-label="Destacar multivitamínicos">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8.5" width="18" height="7" rx="3.5" transform="rotate(-35 12 12)"/><path d="m9.8 8.9 4.4 6.2"/></svg>
+					</button>
+					<h3 class="mn-compare__name">Multivitamínicos</h3>
+					<p class="mn-compare__what">Cobertura amplia de vitaminas y minerales.</p>
+				</li>
+				<li class="mn-compare__item mn-compare__item--ours is-active" data-mn-compare-item>
+					<button type="button" class="mn-compare__icon" data-mn-compare-toggle aria-pressed="true" aria-label="Destacar MIMANAD">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="7" width="17" height="10" rx="2.5"/><path d="M21.5 10.5v3"/><path d="M6 10v4M9.5 10v4M13 10v4M16.5 10v4"/></svg>
+					</button>
+					<div class="mn-compare__ours">
+						<h3 class="mn-compare__name">MIMANAD</h3>
+						<ul class="mn-compare__formula">
+							<li>Niacina 500 mg</li>
+							<li>Resveratrol 100 mg</li>
+							<li>Melena de León 200 mg</li>
+						</ul>
+						<p class="mn-compare__what">Energía celular + vitalidad + claridad mental</p>
+						<p class="mn-compare__meta">120 dulces duros sabor kiwi · 4 al día · 30 días</p>
+					</div>
+				</li>
+			</ul>
+
+			<div class="mn-cta-row">
+				<button type="button" class="mn-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
+			</div>
+		</div>
+	</section>
+
+	<!-- =================== QUÉ RECIBES (PARTE 13) =================== -->
+	<section class="mn-section">
+		<div class="mn-shell mn-receive">
+			<div class="mn-receive__copy">
+				<h2 class="mn-h2">Todo en un frasco.</h2>
+
+				<ul class="mn-checklist">
+					<li>1 MIMANAD</li>
+					<li>120 dulces duros sabor kiwi</li>
+					<li>30 días de uso</li>
+					<li>Guía digital de 30 días</li>
+					<li>Envío gratis a Colombia</li>
+					<li>Confirmación por WhatsApp</li>
+				</ul>
+
+				<div class="mn-cta-row mn-cta-row--start">
+					<button type="button" class="mn-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
+				</div>
+			</div>
+
+			<div class="mn-receive__media">
+				<figure>
+					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-bottle-hand.webp?width=560"
+						width="1000" height="1333" loading="lazy" decoding="async"
+						alt="Frasco de MIMANAD sostenido en la mano frente a unas plantas">
+				</figure>
+				<figure>
+					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-pills-hand.webp?width=560"
+						width="1000" height="1333" loading="lazy" decoding="async"
+						alt="Cuatro dulces duros de MIMANAD en la palma de la mano">
+				</figure>
+			</div>
+		</div>
+	</section>
+
+	<!-- ==================== GARANTÍA (PARTE 14) ===================== -->
+	<section class="mn-section mn-section--cream">
+		<div class="mn-shell mn-narrow">
+			<div class="mn-guarantee">
+				<img class="mn-guarantee__brand"
+					src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-mima-badge.webp?width=140"
+					width="176" height="176" loading="lazy" decoding="async"
+					alt="MIMA">
+				<h2 class="mn-h2">Tu pedido llega. O respondemos.</h2>
+
+				<ol class="mn-promise">
+					<li class="mn-promise__item">
+						<span class="mn-promise__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h3.7l2.8 3v4h-6.5z"/><circle cx="7" cy="18" r="1.7"/><circle cx="17" cy="18" r="1.7"/></svg></span>
+						<p>Entrega estimada de 3 a 5 días hábiles.</p>
+					</li>
+					<li class="mn-promise__item">
+						<span class="mn-promise__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12a7.5 7.5 0 0 1 12.8-5.3L19.5 9"/><path d="M19.5 4.5V9H15"/><path d="M19.5 12a7.5 7.5 0 0 1-12.8 5.3L4.5 15"/><path d="M4.5 19.5V15H9"/></svg></span>
+						<p>Si no llega dentro de ese plazo, lo reenviamos sin costo adicional.</p>
+					</li>
+					<li class="mn-promise__item mn-promise__item--best">
+						<span class="mn-promise__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="12" rx="2.5"/><circle cx="12" cy="12" r="2.6"/><path d="M6 12h.01M18 12h.01"/></svg></span>
+						<p>Si pagaste anticipado y prefieres no esperar el reenvío, devolvemos tu dinero.</p>
+					</li>
+				</ol>
+			</div>
+		</div>
+	</section>
+
+	<!-- ====================== FAQ (PARTE 15) ======================== -->
+	<section class="mn-section">
+		<div class="mn-shell mn-narrow">
+			<div class="mn-headline">
+				<h2 class="mn-h2">Preguntas frecuentes</h2>
+			</div>
+
+			<div class="mn-faq">
+				<details class="mn-faq__item">
+					<summary>¿Cómo tomo MIMANAD?</summary>
+					<div class="mn-faq__body"><p>4 dulces duros al día. Juntos o distribuidos durante el día.</p></div>
+				</details>
+				<details class="mn-faq__item">
+					<summary>¿Cuánto dura?</summary>
+					<div class="mn-faq__body"><p>30 días. Cada frasco contiene 120 dulces duros.</p></div>
+				</details>
+				<details class="mn-faq__item">
+					<summary>¿A qué sabe?</summary>
+					<div class="mn-faq__body"><p>Kiwi. Fresco y frutal.</p></div>
+				</details>
+				<details class="mn-faq__item">
+					<summary>¿Qué contiene?</summary>
+					<div class="mn-faq__body"><p>Niacina 500 mg, Resveratrol 100 mg y Melena de León 200 mg por porción indicada.</p></div>
+				</details>
+				<details class="mn-faq__item">
+					<summary>¿Cuándo puedo tomarlo?</summary>
+					<div class="mn-faq__body"><p>Después del desayuno, durante una pausa o antes de entrenar.</p></div>
+				</details>
+				<details class="mn-faq__item">
+					<summary>¿Puedo pagar al recibir?</summary>
+					<div class="mn-faq__body">
+						<p>Sí.</p>
+						<p class="mn-faq__prices"><span class="mn-faq__best">Pago anticipado: <strong>$79.900</strong></span> <span>Contraentrega: $89.900</span></p>
+						<p>Ahorras $10.000 pagando anticipado.</p>
+					</div>
+				</details>
+				<details class="mn-faq__item">
+					<summary>¿Quién debe consultar antes de consumirlo?</summary>
+					<div class="mn-faq__body"><p>Personas embarazadas, en lactancia, con condiciones de salud, que tomen medicamentos o presenten sensibilidad a la niacina deben consultar a un profesional de salud.</p></div>
+				</details>
+				<details class="mn-faq__item">
+					<summary>¿Y si el cansancio es intenso o persistente?</summary>
+					<div class="mn-faq__body"><p>El cansancio prolongado puede tener diferentes causas y requiere valoración profesional.</p></div>
+				</details>
+			</div>
+		</div>
+	</section>
+
+	<!-- ===================== CTA FINAL (PARTE 16) ===================
+	     Vuelve el cielo de la tarde de la promesa: la página cierra donde
+	     abrió el argumento. -->
+	<section class="mn-sky mn-sky--close">
+		<div class="mn-shell mn-narrow mn-close">
+			<h2 class="mn-h2 mn-h2--light">Que todavía te queden ganas.</h2>
+
+			<ul class="mn-close__wants">
+				<li>De entrenar.</li>
+				<li>De salir.</li>
+				<li>De pensar con claridad.</li>
+				<li>De aprovechar la tarde.</li>
+				<li>De vivir lo que queda del día.</li>
+			</ul>
+
+			<!-- Collage inclinado. La foto del centro es el hero 1: ya está en
+			     caché, no cuesta una descarga más. -->
+			<ul class="mn-collage" aria-label="Personas de la comunidad MIMA con MIMANAD">
+				<li class="mn-collage__tile mn-collage__tile--left">
+					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-close-camila.webp?width=360"
+						width="800" height="1067" loading="lazy" decoding="async"
+						alt="Camila sonriendo con su frasco de MIMANAD">
+				</li>
+				<li class="mn-collage__tile mn-collage__tile--center">
+					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-hero-1.webp"
+						width="1050" height="1050" loading="lazy" decoding="async"
+						alt="Pareja sonriente con sus frascos de MIMANAD">
+				</li>
+				<li class="mn-collage__tile mn-collage__tile--right">
+					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-benefit-energia.webp?width=420"
+						width="510" height="908" loading="lazy" decoding="async"
+						alt="Carlos Mauricio señalando su frasco de MIMANAD">
+				</li>
+			</ul>
+
+			<div class="mn-close__card">
+				<p class="mn-close__product">MIMANAD</p>
+				<p class="mn-close__formula">Niacina 500 mg + Resveratrol 100 mg + Melena de León 200 mg</p>
+				<p class="mn-close__meta">120 dulces duros sabor kiwi · 4 al día · 30 días</p>
+
+				<div class="mn-close__options">
+					<div class="mn-close__option mn-close__option--best">
+						<span class="mn-close__badge">Recomendado</span>
+						<p class="mn-close__label">Pago anticipado</p>
+						<p class="mn-close__amount">$79.900</p>
+						<p class="mn-close__save">Ahorras $10.000</p>
+					</div>
+					<div class="mn-close__option">
+						<p class="mn-close__label">Pago contraentrega</p>
+						<p class="mn-close__amount">$89.900</p>
+					</div>
+				</div>
+
+				<div class="mn-cta-row">
+					<button type="button" class="mn-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
+				</div>
+
+				<ul class="mn-trust">
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2.5"/><circle cx="12" cy="12" r="2.6"/><path d="M6 12h.01M18 12h.01"/></svg> Pagas al recibir</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h3.7l2.8 3v4h-6.5z"/><circle cx="7" cy="18" r="1.7"/><circle cx="17" cy="18" r="1.7"/></svg> Envío gratis · 3 a 5 días</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.3 7.5L3.6 20.4l1.4-4.4A8.4 8.4 0 1 1 20.5 11.6Z"/></svg> Confirmamos por WhatsApp</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- =========================== INSTAGRAM ======================== -->
+	<section class="mn-section mn-social">
+		<div class="mn-shell mn-narrow">
+			<figure class="mn-social__card">
+				<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-instagram-u.webp?width=1000"
+					width="1000" height="398" loading="lazy" decoding="async"
+					alt="Perfil de Instagram de MIMA, @mima_tiendaoficial, con 106 mil seguidores">
+			</figure>
+		</div>
+	</section>
+
+	<!-- ============================ FOOTER ========================== -->
+	<footer class="mn-footer">
+		<div class="mn-shell mn-footer__inner">
+			<img class="mn-footer__logo"
+				src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-mima-white.webp?width=200"
+				width="300" height="180" loading="lazy" decoding="async"
+				alt="MIMA">
+
+			<dl class="mn-footer__data">
+				<div class="mn-footer__block">
+					<dt>Notificación sanitaria</dt>
+					<dd>NSA-0009109-2020</dd>
+				</div>
+				<div class="mn-footer__block">
+					<dt>Atención al cliente MIMA</dt>
+					<dd><a href="tel:+573006964582">300 696 4582</a></dd>
+				</div>
+			</dl>
+
+			<p class="mn-footer__legal">MIMANAD es un suplemento dietario. No sustituye una alimentación equilibrada, el descanso, la actividad física ni la valoración de un profesional de salud. No está destinado a diagnosticar, prevenir, tratar ni curar enfermedades. Suspende su uso y consulta a un profesional de salud si presentas una reacción adversa. Mantener fuera del alcance de los niños.</p>
+			<p class="mn-footer__legal">Contiene edulcorantes.</p>
+		</div>
+	</footer>
+
+	<!-- ========================= CTA STICKY ========================= -->
+	<div class="mn-sticky" data-mn-sticky hidden>
+		<div class="mn-sticky__inner">
+			<p class="mn-sticky__price"><strong data-mn-sticky-price>$89.900</strong> <span>Envío gratis</span></p>
+			<button type="button" class="mn-cta mn-cta--sm _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
+		</div>
+	</div>
+
+</section>
+
+<style>
+	/* =========================================================
+	   Tipografía de marca — AOK Buenos Aires
+	   Alojada en Contenido → Archivos de Shopify (CORS abierto): la
+	   misma URL vale en GemPages y en la vista previa local.
+	   ========================================================= */
+
+	@font-face {
+		font-family: 'AOK Buenos Aires';
+		src: url('https://www.mimacolombia.com/cdn/shop/files/aok-buenos-aires-400.woff2') format('woff2');
+		font-weight: 400;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'AOK Buenos Aires';
+		src: url('https://www.mimacolombia.com/cdn/shop/files/aok-buenos-aires-600.woff2') format('woff2');
+		font-weight: 600;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'AOK Buenos Aires';
+		src: url('https://www.mimacolombia.com/cdn/shop/files/aok-buenos-aires-700.woff2') format('woff2');
+		/* Bold es el peso más alto: cubre 700-800 para no simular negrita */
+		font-weight: 700 800;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	/* =========================================================
+	   MIMA · MIMANAD landing — todo bajo .mn-lp
+	   Paleta medida sobre el frasco (hero-img-3): ver AGENTS.md §3.
+	   Todas las medidas en px: la raíz del tema no es fiable (§9.5).
+	   ========================================================= */
+
+	.mn-lp {
+		/* Frasco */
+		--mn-plum-deep: #3d0f33;   /* 15.7:1 sobre blanco */
+		--mn-plum: #611b52;        /* 11.6:1 */
+		--mn-violet: #893889;      /* 7.0:1 */
+		--mn-violet-soft: #a151a5; /* 4.9:1 — bordes e iconos */
+		--mn-lilac: #be72c5;       /* solo decorativo */
+		--mn-amber: #b85510;       /* 4.8:1 con blanco */
+		--mn-amber-glow: #e08a1e;  /* solo decorativo: soles y halos */
+
+		/* El CTA vive en dos ámbares, los dos AA con texto blanco: el de
+		   reposo (6.1:1) y el de "carga" que lo recorre (4.5:1). */
+		--mn-cta-base: #9e4a0d;
+		--mn-cta-charge: #bc5b12;
+
+		--mn-text: #241f24;
+		--mn-muted: #6b5f6a;
+		--mn-border: #e6dde2;
+		--mn-surface: #ffffff;
+		--mn-cream: #f7f3ef;       /* el fondo del set de estudio, aclarado */
+		--mn-violet-tint: #f4ebf4;
+		--mn-amber-tint: #fbefe4;
+
+		/* Cielo de la tarde: todos sus tonos sostienen texto blanco (≥4.8:1) */
+		--mn-sky: linear-gradient(180deg, #a8500f 0%, #893889 48%, #3d0f33 100%);
+
+		--mn-font: 'AOK Buenos Aires', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+		--mn-radius: 14px;
+		--mn-radius-lg: 22px;
+		--mn-shell: 1080px;
+		--mn-narrow: 720px;
+		--mn-pad: clamp(46px, 6.5vw, 88px);
+		--mn-gutter: 20px;
+
+		box-sizing: border-box;
+		display: block;
+		color: var(--mn-text);
+		background: var(--mn-surface);
+		font-family: var(--mn-font);
+		font-size: 16px;
+		line-height: 1.6;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	.mn-lp *,
+	.mn-lp *::before,
+	.mn-lp *::after { box-sizing: inherit; }
+
+	.mn-lp p,
+	.mn-lp h1,
+	.mn-lp h2,
+	.mn-lp h3,
+	.mn-lp ul,
+	.mn-lp ol,
+	.mn-lp dl,
+	.mn-lp dd,
+	.mn-lp figure,
+	.mn-lp fieldset { margin: 0; padding: 0; }
+
+	/* Dawn trae `div:empty{display:none}`: sin esto cualquier capa vacía
+	   desaparece en producción aunque funcione en la vista previa. */
+	.mn-lp div:empty { display: block; }
+
+	/* El tema pone font-family por etiqueta y eso gana a la herencia */
+	.mn-lp h1, .mn-lp h2, .mn-lp h3, .mn-lp h4,
+	.mn-lp p, .mn-lp li, .mn-lp dt, .mn-lp dd,
+	.mn-lp a, .mn-lp button, .mn-lp summary, .mn-lp span, .mn-lp strong {
+		font-family: var(--mn-font);
+	}
+
+	.mn-lp ul,
+	.mn-lp ol { list-style: none; }
+	.mn-lp fieldset { border: 0; }
+	.mn-lp img { display: block; max-width: 100%; height: auto; }
+
+	.mn-lp .mn-visually-hidden {
+		position: absolute;
+		width: 1px; height: 1px;
+		margin: -1px; padding: 0;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		white-space: nowrap;
+		border: 0;
+	}
+
+	/* ---------- Layout ---------- */
+
+	.mn-lp .mn-shell {
+		width: 100%;
+		max-width: var(--mn-shell);
+		margin-inline: auto;
+		padding-inline: var(--mn-gutter);
+	}
+
+	.mn-lp .mn-shell.mn-narrow { max-width: var(--mn-narrow); }
+
+	.mn-lp .mn-section { padding-block: var(--mn-pad); }
+	.mn-lp .mn-section.mn-section--cream { background: var(--mn-cream); }
+
+	/* El carrusel de UGC va pegado al hero: las caras entran en pantalla
+	   antes de scrollear. */
+	.mn-lp .mn-section.mn-section--tight { padding-block: 0 22px; }
+
+	/* ---------- Tipografía ---------- */
+
+	.mn-lp .mn-h1 {
+		font-size: clamp(27px, 7vw, 52px);
+		line-height: 1.08;
+		letter-spacing: -0.02em;
+		font-weight: 800;
+		color: var(--mn-plum-deep);
+		text-wrap: balance;
+	}
+
+	/* Texto grande y en negrita: el ámbar solo necesita 3:1 aquí y da 4.4 */
+	.mn-lp .mn-accent { color: var(--mn-amber); }
+
+	.mn-lp .mn-h2 {
+		font-size: clamp(26px, 5.2vw, 40px);
+		line-height: 1.14;
+		letter-spacing: -0.015em;
+		font-weight: 800;
+		color: var(--mn-plum-deep);
+		text-wrap: balance;
+	}
+
+	.mn-lp .mn-h2.mn-h2--light { color: #fff; }
+
+	.mn-lp .mn-sub {
+		margin-top: 10px;
+		font-size: 13px;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--mn-violet);
+	}
+
+	.mn-lp .mn-lead {
+		margin-top: 10px;
+		max-width: 44ch;
+		font-size: 15px;
+		line-height: 1.5;
+		color: var(--mn-muted);
+	}
+
+	/* En px y no en ch: el ch se mide con los 16px del contenedor, no con
+	   los 40px del titular, y en escritorio lo partía en cuatro líneas. */
+	.mn-lp .mn-headline {
+		max-width: 620px;
+		margin: 0 auto clamp(24px, 3.6vw, 44px);
+		text-align: center;
+	}
+
+	.mn-lp .mn-disclaimer {
+		max-width: 60ch;
+		margin: 26px auto 0;
+		text-align: center;
+		font-size: 13px;
+		line-height: 1.5;
+		color: var(--mn-muted);
+	}
+
+	.mn-lp .mn-statement {
+		max-width: 34ch;
+		margin: clamp(28px, 4vw, 40px) auto 0;
+		text-align: center;
+		font-size: clamp(18px, 3vw, 22px);
+		line-height: 1.35;
+		font-weight: 700;
+		color: var(--mn-plum);
+		text-wrap: balance;
+	}
+
+	/* ---------- CTA: "la carga" ----------
+	   Cuatro celdas —los cuatro dulces del día— que se encienden una a una
+	   de izquierda a derecha, se sostienen llenas y se apagan. Ocupa el
+	   botón entero: se lee como concepto, no como un adorno suelto.
+	   Las celdas las dicen los cuatro saltos de la carga, no unas líneas
+	   fijas: dibujadas, cruzaban el texto y se leían como defecto.
+	   ::before es la carga y solo anima transform y opacity. Arranca en
+	   pausa y el JS la enciende cuando el botón está en pantalla: sin JS es
+	   un botón quieto en su ámbar de reposo. */
+
+	.mn-lp .mn-cta {
+		position: relative;
+		overflow: hidden;
+		isolation: isolate;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		max-width: 420px;
+		min-height: 54px;
+		padding: 13px 24px;
+		border: 0;
+		border-radius: 999px;
+		background: var(--mn-cta-base);
+		color: #fff;
+		font: inherit;
+		/* 15px en móvil: por encima, los CTA largos parten en dos líneas */
+		font-size: clamp(15px, 3.2vw, 17px);
+		font-weight: 800;
+		line-height: 1.25;
+		letter-spacing: 0.03em;
+		text-transform: uppercase;
+		cursor: pointer;
+		box-shadow: 0 10px 24px rgba(158, 74, 13, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+		transition: transform 0.12s ease, box-shadow 0.18s ease;
+	}
+
+	.mn-lp .mn-cta::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		background: var(--mn-cta-charge);
+		transform-origin: left center;
+		transform: scaleX(0);
+		animation: mn-charge 5.2s cubic-bezier(0.3, 0, 0.2, 1) 1.2s infinite;
+		animation-play-state: paused;
+	}
+
+	@keyframes mn-charge {
+		0% { transform: scaleX(0); opacity: 1; }
+		9% { transform: scaleX(0.25); }
+		18% { transform: scaleX(0.5); }
+		27% { transform: scaleX(0.75); }
+		36% { transform: scaleX(1); opacity: 1; }
+		62% { transform: scaleX(1); opacity: 1; }
+		74% { transform: scaleX(1); opacity: 0; }
+		75% { transform: scaleX(0); opacity: 0; }
+		100% { transform: scaleX(0); opacity: 0; }
+	}
+
+	.mn-lp .mn-cta.is-live::before { animation-play-state: running; }
+
+	/* Con el ratón encima, el botón se queda cargado: ya tiene la atención */
+	.mn-lp .mn-cta.mn-cta:hover::before { animation: none; transform: scaleX(1); opacity: 1; }
+
+	.mn-lp .mn-cta:hover { box-shadow: 0 12px 30px rgba(158, 74, 13, 0.38), inset 0 0 0 1px rgba(255, 255, 255, 0.2); }
+	.mn-lp .mn-cta:active { transform: translateY(1px); }
+	.mn-lp .mn-cta:focus-visible { outline: 3px solid var(--mn-plum); outline-offset: 3px; }
+
+	.mn-lp .mn-cta.mn-cta--sm {
+		width: auto;
+		min-height: 46px;
+		padding: 11px 18px;
+		font-size: 14px;
+		box-shadow: none;
+	}
+
+	.mn-lp .mn-cta-row { margin-top: clamp(28px, 4vw, 40px); text-align: center; }
+	.mn-lp .mn-cta-row.mn-cta-row--start { text-align: left; }
+
+	/* ---------- Confianza bajo los CTA ---------- */
+
+	.mn-lp .mn-trust {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 8px 18px;
+		margin-top: 14px;
+	}
+
+	.mn-lp .mn-trust li {
+		display: flex;
+		align-items: center;
+		gap: 7px;
+		font-size: 13px;
+		line-height: 1.3;
+		color: var(--mn-muted);
+	}
+
+	.mn-lp .mn-trust svg {
+		flex: 0 0 auto;
+		width: 17px;
+		height: 17px;
+		color: var(--mn-violet);
+	}
+
+	/* ---------- Cabecera ----------
+	   Barra berenjena con el logo en blanco: la primera señal de que esta
+	   no es la landing lila de SKNGLOW. */
+
+	.mn-lp .mn-topbar {
+		background: var(--mn-plum-deep);
+		padding-block: 6px;
+	}
+
+	.mn-lp .mn-topbar__inner { display: flex; justify-content: center; }
+	.mn-lp .mn-topbar img { width: clamp(50px, 8vw, 72px); }
+
+	/* ---------- Hero ---------- */
+
+	.mn-lp .mn-hero {
+		background: linear-gradient(180deg, var(--mn-cream) 0%, var(--mn-surface) 78%);
+		padding-block: 16px 22px;
+	}
+
+	.mn-lp .mn-hero__grid {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		grid-template-areas:
+			'head'
+			'media'
+			'buy'
+			'specs';
+		row-gap: 14px;
+	}
+
+	.mn-lp .mn-hero__head { grid-area: head; }
+	.mn-lp .mn-hero__media { grid-area: media; width: 100%; max-width: 480px; margin-inline: auto; }
+	.mn-lp .mn-hero__buy { grid-area: buy; text-align: center; }
+	.mn-lp .mn-hero__specs { grid-area: specs; }
+
+	/* Marca como preheadline: el nombre del producto antes que la promesa,
+	   con las tres celdas de la carga como firma. */
+	.mn-lp .mn-hero__brand {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		margin-bottom: 8px;
+		font-size: 13px;
+		font-weight: 800;
+		letter-spacing: 0.22em;
+		color: var(--mn-violet);
+	}
+
+	.mn-lp .mn-hero__brand::before {
+		content: '';
+		width: 26px;
+		height: 8px;
+		border-radius: 2px;
+		background: linear-gradient(90deg,
+			var(--mn-plum) 0 30%, transparent 30% 35%,
+			var(--mn-violet-soft) 35% 65%, transparent 65% 70%,
+			var(--mn-amber) 70% 100%);
+	}
+
+	/* ---------- Slider del hero ---------- */
+
+	.mn-lp .mn-slider__track {
+		display: flex;
+		margin: 0;
+		padding: 0;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		scroll-behavior: smooth;
+		overscroll-behavior-inline: contain;
+		border-radius: var(--mn-radius-lg);
+		scrollbar-width: none;
+		box-shadow: 0 16px 36px rgba(61, 15, 51, 0.14);
+	}
+
+	.mn-lp .mn-slider__track::-webkit-scrollbar { display: none; }
+	.mn-lp .mn-slider__track:focus-visible { outline: 3px solid var(--mn-violet); outline-offset: 3px; }
+
+	.mn-lp .mn-slider__slide {
+		flex: 0 0 100%;
+		scroll-snap-align: center;
+		scroll-snap-stop: always;
+	}
+
+	.mn-lp .mn-slider__slide img {
+		width: 100%;
+		aspect-ratio: 1 / 1;
+		object-fit: cover;
+	}
+
+	/* Flechas a los lados de la foto, nunca encima. Fuera de la foto
+	   tampoco cuestan alto: la banda de controles que iba debajo empujaba
+	   el CTA 44px, y la foto a ancho completo otros 64. Medido: el CTA
+	   del hero bajaba a 778px a 390 de ancho. */
+	.mn-lp .mn-slider {
+		display: grid;
+		grid-template-columns: 32px minmax(0, 1fr) 32px;
+		align-items: center;
+		gap: 5px;
+	}
+
+	.mn-lp .mn-slider__arrow {
+		display: grid;
+		place-items: center;
+		width: 32px;
+		height: 32px;
+		padding: 0;
+		border: 1px solid var(--mn-border);
+		border-radius: 50%;
+		background: var(--mn-surface);
+		color: var(--mn-plum);
+		cursor: pointer;
+		transition: transform 0.15s ease, opacity 0.15s ease;
+	}
+
+	.mn-lp .mn-slider__arrow svg { width: 18px; height: 18px; }
+	.mn-lp .mn-slider__arrow:hover { transform: scale(1.06); }
+	.mn-lp .mn-slider__arrow:focus-visible { outline: 3px solid var(--mn-violet); outline-offset: 2px; }
+	.mn-lp .mn-slider__arrow[disabled] { opacity: 0.35; cursor: default; transform: none; }
+
+	/* ---------- Compra del hero ---------- */
+
+	.mn-lp .mn-price {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+
+	/* line-height propio: con el 1.6 de párrafo, un número de 32px inflaba
+	   la caja 13px por encima del CTA (medido en SKNGLOW). */
+	.mn-lp .mn-price__amount {
+		font-size: clamp(30px, 5.4vw, 40px);
+		line-height: 1.15;
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		color: var(--mn-plum-deep);
+	}
+
+	.mn-lp .mn-price__note {
+		padding: 5px 11px;
+		border-radius: 999px;
+		background: var(--mn-violet-tint);
+		font-size: clamp(11.5px, calc(2.5vw + 3.5px), 13px);
+		font-weight: 700;
+		color: var(--mn-plum);
+	}
+
+	/* El anticipado se resalta siempre: aro ámbar y la cifra en ámbar
+	   profundo, que da 5.6:1 sobre blanco. */
+	.mn-lp .mn-price__prepay {
+		display: inline-flex;
+		align-items: baseline;
+		gap: 7px;
+		margin-top: 6px;
+		padding: 5px 15px;
+		border-radius: 999px;
+		background: var(--mn-surface);
+		border: 1.5px solid rgba(184, 85, 16, 0.45);
+		box-shadow: 0 4px 14px rgba(184, 85, 16, 0.12);
+		font-size: 13.5px;
+		font-weight: 600;
+		color: var(--mn-plum);
+	}
+
+	.mn-lp .mn-price__prepay strong {
+		font-size: 17px;
+		font-weight: 800;
+		color: var(--mn-cta-base);
+	}
+
+	.mn-lp .mn-hero__buy .mn-cta { margin-top: 12px; }
+
+	/* ---------- La carga: fórmula en tres celdas ---------- */
+
+	.mn-lp .mn-formula {
+		position: relative;
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 3px;
+		margin-right: 7px;
+		padding: 3px;
+		border: 1.5px solid var(--mn-plum);
+		border-radius: 12px;
+		background: var(--mn-surface);
+	}
+
+	/* El borne de la batería */
+	.mn-lp .mn-formula::after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		right: -7px;
+		width: 5px;
+		height: 16px;
+		margin-top: -8px;
+		border-radius: 0 3px 3px 0;
+		background: var(--mn-plum);
+	}
+
+	.mn-lp .mn-formula__cell {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 6px 4px;
+		border-radius: 8px;
+		color: #fff;
+		text-align: center;
+		line-height: 1.15;
+	}
+
+	.mn-lp .mn-formula__cell.mn-formula__cell--1 { background: var(--mn-plum); }
+	.mn-lp .mn-formula__cell.mn-formula__cell--2 { background: var(--mn-violet); }
+	.mn-lp .mn-formula__cell.mn-formula__cell--3 { background: var(--mn-amber); }
+
+	.mn-lp .mn-formula__name {
+		font-size: 11px;
+		font-weight: 800;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+	}
+
+	.mn-lp .mn-formula__dose {
+		margin-top: 1px;
+		font-size: 13px;
+		font-weight: 600;
+		opacity: 0.92;
+	}
+
+	.mn-lp .mn-facts {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 4px 18px;
+		margin-top: 12px;
+		font-size: 14px;
+		color: var(--mn-text);
+	}
+
+	.mn-lp .mn-facts strong { font-weight: 800; color: var(--mn-plum); }
+
+	.mn-lp .mn-perks {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 6px;
+		margin-top: 10px;
+	}
+
+	.mn-lp .mn-perks li {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		padding: 4px 11px 4px 8px;
+		border-radius: 999px;
+		background: var(--mn-cream);
+		border: 1px solid var(--mn-border);
+		font-size: 12.5px;
+		font-weight: 600;
+		color: var(--mn-plum);
+	}
+
+	.mn-lp .mn-perks svg { width: 15px; height: 15px; color: var(--mn-amber); }
+
+	/* ---------- Carrete de la comunidad (Parte 2) ----------
+	   No es la galería de SKNGLOW con otra piel. La tarjeta del centro
+	   manda —tamaño, nitidez, sombra— y las laterales se encogen y se
+	   inclinan hacia ella, como una mano de cartas abierta. Debajo, una
+	   batería con una celda por persona se carga hasta la que está al
+	   centro: el motivo de la landing.
+	   El JS escribe dos variables por tarjeta en cada fotograma de scroll:
+	   --mn-focus (0 lejos, 1 centrada) y --mn-lean (1 a la izquierda, -1 a
+	   la derecha). Todo lo demás lo calcula el CSS, y solo con transform y
+	   opacity. Sin JS valen 1: tarjetas enteras y un carril que desliza. */
+
+	.mn-lp .mn-reel {
+		--mn-reel-w: min(200px, 52vw);
+		position: relative;
+	}
+
+	/* El relleno lateral es medio carril menos media tarjeta: así la
+	   primera y la última también pueden quedar centradas. */
+	.mn-lp .mn-reel__track {
+		display: flex;
+		gap: 12px;
+		padding: 12px calc(50% - var(--mn-reel-w) / 2) 24px;
+		overflow-x: auto;
+		overscroll-behavior-x: contain;
+		scroll-snap-type: x mandatory;
+		scrollbar-width: none;
+	}
+
+	.mn-lp .mn-reel__track::-webkit-scrollbar { display: none; }
+	.mn-lp .mn-reel__track:focus-visible { outline: 3px solid var(--mn-violet); outline-offset: -3px; }
+
+	.mn-lp .mn-reel__item {
+		--mn-focus: 1;
+		--mn-lean: 0;
+		position: relative;
+		flex: 0 0 var(--mn-reel-w);
+		scroll-snap-align: center;
+	}
+
+	/* La sombra va aparte y solo cambia de opacidad: animar box-shadow en
+	   cada fotograma de scroll obligaría a repintar la tarjeta. */
+	.mn-lp .mn-reel__item::before {
+		content: '';
+		position: absolute;
+		left: 12%;
+		right: 12%;
+		bottom: -10px;
+		height: 30px;
+		border-radius: 50%;
+		background: radial-gradient(ellipse at center, rgba(61, 15, 51, 0.36) 0%, rgba(61, 15, 51, 0) 70%);
+		opacity: var(--mn-focus);
+		pointer-events: none;
+	}
+
+	.mn-lp .mn-reel__card {
+		position: relative;
+		overflow: hidden;
+		border-radius: var(--mn-radius-lg);
+		background: var(--mn-surface);
+		border: 1px solid var(--mn-border);
+		transform-origin: center bottom;
+		transform:
+			translateY(calc((1 - var(--mn-focus)) * 14px))
+			rotate(calc(var(--mn-lean) * (1 - var(--mn-focus)) * 5deg))
+			scale(calc(0.82 + 0.18 * var(--mn-focus)));
+		opacity: calc(0.5 + 0.5 * var(--mn-focus));
+		will-change: transform, opacity;
+	}
+
+	.mn-lp .mn-reel__card img {
+		width: 100%;
+		aspect-ratio: 2 / 3;
+		object-fit: cover;
+		object-position: center 30%;
+	}
+
+	/* El nombre en su banda bajo la foto, nunca encima: el frasco está ahí */
+	.mn-lp .mn-reel__name {
+		display: flex;
+		align-items: center;
+		gap: 7px;
+		padding: 9px 12px 10px;
+		font-size: 14px;
+		font-weight: 800;
+		line-height: 1.2;
+		color: var(--mn-plum-deep);
+	}
+
+	.mn-lp .mn-reel__name::before {
+		content: '';
+		flex: 0 0 auto;
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		background: var(--mn-amber);
+	}
+
+	.mn-lp .mn-reel__foot {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 6px;
+		padding-inline: var(--mn-gutter);
+	}
+
+	/* La batería: una celda por persona. Oculta hasta que el JS la cablea,
+	   porque sin él sus botones no harían nada. */
+	.mn-lp .mn-reel__charge {
+		position: relative;
+		display: flex;
+		align-items: center;
+		margin-right: 6px;
+		padding: 0 2px;
+		border: 1.5px solid var(--mn-plum);
+		border-radius: 8px;
+	}
+
+	.mn-lp .mn-reel__charge[hidden] { display: none; }
+
+	.mn-lp .mn-reel__charge::after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		right: -6px;
+		width: 4px;
+		height: 10px;
+		margin-top: -5px;
+		border-radius: 0 2px 2px 0;
+		background: var(--mn-plum);
+	}
+
+	/* El botón mide 22×24 para el dedo; la celda visible es su ::before */
+	.mn-lp .mn-reel__cell {
+		position: relative;
+		width: 22px;
+		height: 24px;
+		padding: 0;
+		border: 0;
+		background: none;
+		cursor: pointer;
+	}
+
+	.mn-lp .mn-reel__cell::before {
+		content: '';
+		position: absolute;
+		inset: 7px 2px;
+		border-radius: 3px;
+		background: var(--mn-violet-tint);
+	}
+
+	.mn-lp .mn-reel__cell::after {
+		content: '';
+		position: absolute;
+		inset: 7px 2px;
+		border-radius: 3px;
+		background: var(--mn-amber);
+		transform: scaleX(0);
+		transform-origin: left center;
+		transition: transform 0.3s cubic-bezier(0.3, 0, 0.2, 1);
+	}
+
+	/* De la tarde a la noche: la carga pasa del ámbar al berenjena.
+	   El tramo berenjena lleva la clase doblada: su cuerpo coincide con el
+	   de otras reglas y GemPages lo sube al fusionar (check-css-merge lo
+	   detectó); tiene que ganar al violeta por especificidad, no por orden. */
+	.mn-lp .mn-reel__cell:nth-child(n + 3)::after { background: var(--mn-violet); }
+	.mn-lp .mn-reel__cell.mn-reel__cell:nth-child(n + 6)::after { background: var(--mn-plum); }
+
+	.mn-lp .mn-reel__cell.is-charged::after { transform: scaleX(1); }
+	.mn-lp .mn-reel__cell:focus-visible { outline: 3px solid var(--mn-violet); outline-offset: 1px; border-radius: 4px; }
+
+	.mn-lp .mn-reel__note {
+		font-size: 12px;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--mn-violet);
+	}
+
+	/* ---------- Carriles con asomo (autoridad y testimonios) ---------- */
+
+	.mn-lp .mn-sources__track,
+	.mn-lp .mn-stories__track {
+		display: flex;
+		overflow-x: auto;
+		overscroll-behavior-x: contain;
+		scroll-snap-type: x mandatory;
+		scroll-padding-inline-start: var(--mn-rail-pad);
+		padding-inline: var(--mn-rail-pad);
+		padding-block: 2px 14px;
+		scrollbar-width: thin;
+		scrollbar-color: var(--mn-border) transparent;
+	}
+
+	.mn-lp .mn-sources__track:focus-visible,
+	.mn-lp .mn-stories__track:focus-visible { outline: 3px solid var(--mn-violet); outline-offset: -3px; }
+
+	/* ---------- Cielo de la tarde (promesa y cierre) ---------- */
+
+	.mn-lp .mn-sky {
+		position: relative;
+		overflow: hidden;
+		background: var(--mn-sky);
+		color: #fff;
+		padding-block: var(--mn-pad);
+	}
+
+	/* El sol que se pone: halo cálido arriba, sin bordes duros */
+	.mn-lp .mn-sky::before {
+		content: '';
+		position: absolute;
+		top: -180px;
+		left: 50%;
+		width: 460px;
+		height: 460px;
+		margin-left: -230px;
+		border-radius: 50%;
+		background: radial-gradient(circle, rgba(255, 196, 120, 0.42) 0%, rgba(255, 196, 120, 0) 64%);
+		pointer-events: none;
+	}
+
+	.mn-lp .mn-sky__inner { position: relative; text-align: center; }
+
+	/* ---------- El día que sigue: cuatro paradas y un sol ----------
+	   La guía es ::before del <ol>; el sol, ::after del mismo <ol> a su
+	   ancho completo, así que translateX(75%) lo lleva exactamente del
+	   centro de la primera parada al de la cuarta. */
+	.mn-lp .mn-dayline {
+		position: relative;
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		margin-top: 30px;
+	}
+
+	.mn-lp .mn-dayline::before {
+		content: '';
+		position: absolute;
+		top: 23px;
+		left: 12.5%;
+		right: 12.5%;
+		height: 2px;
+		background: rgba(255, 255, 255, 0.3);
+	}
+
+	.mn-lp .mn-dayline::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 48px;
+		background: radial-gradient(circle 24px at 12.5% 24px, rgba(255, 214, 150, 0.95) 0 9px, rgba(255, 190, 110, 0.5) 10px 14px, rgba(255, 190, 110, 0) 24px);
+		pointer-events: none;
+		transform: translateX(0);
+		transition: transform 2.4s cubic-bezier(0.45, 0, 0.2, 1) 0.3s;
+	}
+
+	.mn-lp .mn-dayline.is-in::after { transform: translateX(75%); }
+
+	.mn-lp .mn-dayline__stop {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 8px;
+	}
+
+	.mn-lp .mn-dayline__icon {
+		display: grid;
+		place-items: center;
+		width: 46px;
+		height: 46px;
+		border-radius: 50%;
+		background: rgba(61, 15, 51, 0.55);
+		border: 1px solid rgba(255, 255, 255, 0.35);
+		color: #fff;
+	}
+
+	.mn-lp .mn-dayline__icon svg { width: 22px; height: 22px; }
+
+	.mn-lp .mn-dayline__label {
+		font-size: 12.5px;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
+	.mn-lp .mn-sky__claim {
+		margin-top: 34px;
+		font-size: clamp(22px, 4.4vw, 32px);
+		line-height: 1.2;
+		font-weight: 800;
+		letter-spacing: -0.01em;
+		text-wrap: balance;
+	}
+
+	.mn-lp .mn-sky__text {
+		max-width: 40ch;
+		margin: 12px auto 0;
+		font-size: 16px;
+		color: rgba(255, 255, 255, 0.9);
+		text-wrap: balance;
+	}
+
+	.mn-lp .mn-sky__dose {
+		display: inline-block;
+		margin-top: 18px;
+		padding: 6px 16px;
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.12);
+		border: 1px solid rgba(255, 255, 255, 0.3);
+		font-size: 14px;
+		font-weight: 700;
+	}
+
+	/* Sobre el cielo el botón necesita un canto claro para despegarse del
+	   ámbar del fondo. */
+	.mn-lp .mn-sky .mn-cta {
+		box-shadow: 0 12px 28px rgba(26, 6, 22, 0.4), inset 0 0 0 1.5px rgba(255, 255, 255, 0.4);
+	}
+
+	/* ---------- Autoridad ---------- */
+
+	.mn-lp .mn-cells {
+		display: grid;
+		gap: 20px;
+		align-items: center;
+		margin-bottom: clamp(26px, 4vw, 40px);
+	}
+
+	.mn-lp .mn-cells__media img {
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+		border-radius: var(--mn-radius-lg);
+	}
+
+	.mn-lp .mn-cells__copy { display: grid; gap: 10px; color: var(--mn-muted); }
+	.mn-lp .mn-cells__copy strong { color: var(--mn-plum); }
+
+	.mn-lp .mn-cells__copy .mn-cells__foot {
+		margin-top: 4px;
+		padding-left: 14px;
+		border-left: 3px solid var(--mn-amber);
+		font-weight: 600;
+		color: var(--mn-text);
+	}
+
+	.mn-lp .mn-sources {
+		--mn-rail-pad: max(var(--mn-gutter), calc((100% - var(--mn-shell)) / 2 + var(--mn-gutter)));
+	}
+
+	.mn-lp .mn-sources__track { gap: 12px; }
+
+	.mn-lp .mn-sources__item {
+		flex: 0 0 auto;
+		display: flex;
+		width: min(280px, 80%);
+		scroll-snap-align: start;
+	}
+
+	.mn-lp .mn-source {
+		width: 100%;
+		padding: 22px 20px;
+		border-radius: var(--mn-radius);
+		background: var(--mn-surface);
+		border: 1px solid var(--mn-border);
+		border-top: 3px solid var(--mn-violet-soft);
+	}
+
+	.mn-lp .mn-source p.mn-source__name {
+		display: flex;
+		align-items: center;
+		min-height: 36px;
+		font-size: 17px;
+		font-weight: 800;
+		letter-spacing: 0.02em;
+		color: var(--mn-text);
+	}
+
+	.mn-lp .mn-source__name img { max-height: 34px; max-width: 132px; width: auto; }
+
+	.mn-lp .mn-source__title {
+		margin-top: 12px;
+		font-size: 14px;
+		font-weight: 800;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--mn-plum);
+	}
+
+	.mn-lp .mn-source p { margin-top: 8px; font-size: 15px; color: var(--mn-muted); }
+
+	/* ---------- Mecanismo ---------- */
+
+	/* El navegador es la batería del hero en grande: tres celdas que se
+	   llenan con el color de su ingrediente al estar activas. */
+	.mn-lp .mn-mech__nav {
+		position: relative;
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 4px;
+		max-width: 520px;
+		margin: 0 auto 18px;
+		margin-right: auto;
+		padding: 4px;
+		border: 1.5px solid var(--mn-plum);
+		border-radius: 14px;
+		background: var(--mn-surface);
+	}
+
+	.mn-lp .mn-mech__seg {
+		position: relative;
+		overflow: hidden;
+		isolation: isolate;
+		min-height: 44px;
+		padding: 6px 4px;
+		border: 0;
+		border-radius: 10px;
+		background: var(--mn-violet-tint);
+		color: var(--mn-plum);
+		font: inherit;
+		font-size: 12px;
+		font-weight: 800;
+		line-height: 1.2;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		cursor: pointer;
+		transition: color 0.2s ease;
+	}
+
+	.mn-lp .mn-mech__seg::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		transform: scaleX(0);
+		transform-origin: left center;
+		transition: transform 0.35s cubic-bezier(0.3, 0, 0.2, 1);
+	}
+
+	.mn-lp .mn-mech__seg.mn-mech__seg--1::before { background: var(--mn-plum); }
+	.mn-lp .mn-mech__seg.mn-mech__seg--2::before { background: var(--mn-violet); }
+	.mn-lp .mn-mech__seg.mn-mech__seg--3::before { background: var(--mn-amber); }
+
+	.mn-lp .mn-mech__seg[aria-pressed='true'] { color: #fff; }
+	.mn-lp .mn-mech__seg[aria-pressed='true']::before { transform: scaleX(1); }
+	.mn-lp .mn-mech__seg:focus-visible { outline: 3px solid var(--mn-violet); outline-offset: 2px; }
+
+	.mn-lp .mn-mech__track {
+		display: flex;
+		gap: 12px;
+		margin-inline: calc(var(--mn-gutter) * -1);
+		padding: 2px var(--mn-gutter) 14px;
+		overflow-x: auto;
+		overscroll-behavior-x: contain;
+		scroll-snap-type: x mandatory;
+		scroll-padding-inline: var(--mn-gutter);
+		scrollbar-width: none;
+	}
+
+	.mn-lp .mn-mech__track::-webkit-scrollbar { display: none; }
+	.mn-lp .mn-mech__track:focus-visible { outline: 3px solid var(--mn-violet); outline-offset: -3px; }
+
+	.mn-lp .mn-ingredient {
+		flex: 0 0 auto;
+		display: flex;
+		flex-direction: column;
+		width: min(300px, 84%);
+		overflow: hidden;
+		scroll-snap-align: start;
+		border-radius: var(--mn-radius-lg);
+		background: var(--mn-surface);
+		border: 1px solid var(--mn-border);
+		transition: border-color 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.mn-lp .mn-ingredient.is-active {
+		border-color: var(--mn-violet-soft);
+		box-shadow: 0 14px 30px rgba(61, 15, 51, 0.12);
+	}
+
+	.mn-lp .mn-ingredient__media img {
+		width: 100%;
+		aspect-ratio: 16 / 10;
+		object-fit: cover;
+	}
+
+	.mn-lp .mn-ingredient.mn-ingredient--2 .mn-ingredient__media img { object-position: center 30%; }
+
+	.mn-lp .mn-ingredient__body { padding: 18px 20px 22px; }
+
+	/* La etiqueta lleva el color de su celda: el ingrediente se reconoce
+	   por el color antes de leer el nombre. */
+	.mn-lp .mn-ingredient__tag {
+		display: inline-block;
+		padding: 4px 11px;
+		border-radius: 999px;
+		color: #fff;
+		font-size: 11.5px;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+	}
+
+	.mn-lp .mn-ingredient.mn-ingredient--1 .mn-ingredient__tag { background: var(--mn-plum); }
+	.mn-lp .mn-ingredient.mn-ingredient--2 .mn-ingredient__tag { background: var(--mn-violet); }
+	.mn-lp .mn-ingredient.mn-ingredient--3 .mn-ingredient__tag { background: var(--mn-amber); }
+
+	.mn-lp .mn-ingredient__title {
+		margin-top: 12px;
+		font-size: 22px;
+		line-height: 1.2;
+		font-weight: 800;
+		letter-spacing: -0.01em;
+		color: var(--mn-plum-deep);
+	}
+
+	.mn-lp .mn-ingredient__title span { font-weight: 600; color: var(--mn-violet); }
+	.mn-lp .mn-ingredient__body p:last-child { margin-top: 8px; color: var(--mn-muted); font-size: 15px; }
+
+	/* ---------- Beneficios: zigzag sobre la guía del día ---------- */
+
+	.mn-lp .mn-more {
+		position: relative;
+		display: grid;
+		gap: 26px;
+		max-width: 820px;
+		margin-inline: auto;
+	}
+
+	/* De la tarde a la noche: la guía cambia de ámbar a berenjena */
+	.mn-lp .mn-more::before {
+		content: '';
+		position: absolute;
+		top: 12px;
+		bottom: 12px;
+		left: 50%;
+		width: 2px;
+		margin-left: -1px;
+		background: linear-gradient(180deg, var(--mn-amber-glow), var(--mn-violet-soft) 55%, var(--mn-plum-deep));
+		opacity: 0.55;
+	}
+
+	.mn-lp .mn-more__item {
+		position: relative;
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		column-gap: 28px;
+		align-items: center;
+	}
+
+	/* El nudo sobre la guía */
+	.mn-lp .mn-more__item::before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 14px;
+		height: 14px;
+		margin: -7px 0 0 -7px;
+		border-radius: 50%;
+		background: var(--mn-amber);
+		box-shadow: 0 0 0 4px var(--mn-surface);
+	}
+
+	.mn-lp .mn-more__item:nth-child(even) .mn-more__media { order: 2; }
+
+	.mn-lp .mn-more__media img {
+		width: 100%;
+		aspect-ratio: 4 / 5;
+		object-fit: cover;
+		object-position: center 28%;
+		border-radius: var(--mn-radius-lg);
+		box-shadow: 0 14px 30px rgba(61, 15, 51, 0.14);
+	}
+
+	/* Numeral y rótulo en la misma fila, sin cero delante */
+	.mn-lp .mn-more__title {
+		display: flex;
+		align-items: baseline;
+		gap: 8px;
+		font-size: clamp(16px, 3.4vw, 22px);
+		line-height: 1.2;
+		font-weight: 800;
+		letter-spacing: -0.005em;
+		color: var(--mn-plum-deep);
+	}
+
+	.mn-lp .mn-more__num {
+		flex: 0 0 auto;
+		font-size: 1.35em;
+		line-height: 1;
+		color: var(--mn-amber);
+	}
+
+	.mn-lp .mn-more__body > p { margin-top: 8px; font-size: 15px; color: var(--mn-muted); }
+
+	.mn-lp .mn-chips {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px;
+		margin-top: 10px;
+	}
+
+	.mn-lp .mn-chips li {
+		padding: 4px 11px;
+		border-radius: 999px;
+		background: var(--mn-violet-tint);
+		font-size: 13px;
+		font-weight: 600;
+		color: var(--mn-plum);
+	}
+
+	.mn-lp .mn-lines { display: grid; gap: 4px; margin-top: 8px; }
+	.mn-lp .mn-lines li { font-size: 15px; color: var(--mn-muted); }
+	.mn-lp .mn-lines li:last-child { font-weight: 700; color: var(--mn-plum); }
+
+	/* ---------- Modo de uso ---------- */
+
+	.mn-lp .mn-use {
+		display: grid;
+		gap: 26px;
+	}
+
+	.mn-lp .mn-use__head { text-align: center; }
+
+	/* Dulces duros dibujados: disco blanco moteado, como el de verdad */
+	.mn-lp .mn-candies {
+		display: flex;
+		justify-content: center;
+		gap: 10px;
+		margin-top: 20px;
+	}
+
+	.mn-lp .mn-candies li {
+		width: 44px;
+		height: 44px;
+		border-radius: 50%;
+		background:
+			radial-gradient(circle at 30% 34%, rgba(97, 27, 82, 0.35) 0 1.2px, transparent 1.6px),
+			radial-gradient(circle at 62% 26%, rgba(97, 27, 82, 0.3) 0 1px, transparent 1.4px),
+			radial-gradient(circle at 70% 60%, rgba(97, 27, 82, 0.35) 0 1.2px, transparent 1.6px),
+			radial-gradient(circle at 42% 70%, rgba(97, 27, 82, 0.28) 0 1px, transparent 1.4px),
+			radial-gradient(circle at 36% 30%, #ffffff 0%, #f1ece8 70%, #e2d9d3 100%);
+		box-shadow: 0 6px 12px rgba(61, 15, 51, 0.14), inset 0 -2px 0 rgba(61, 15, 51, 0.06);
+	}
+
+	.mn-lp .mn-stats {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 10px;
+		max-width: 340px;
+		margin: 20px auto 0;
+	}
+
+	.mn-lp .mn-stat {
+		padding: 12px 10px;
+		border-radius: var(--mn-radius);
+		background: var(--mn-surface);
+		border: 1px solid var(--mn-border);
+	}
+
+	.mn-lp .mn-stat dt {
+		font-size: 28px;
+		line-height: 1.1;
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		color: var(--mn-amber);
+	}
+
+	.mn-lp .mn-stat dd { margin-top: 2px; font-size: 13.5px; color: var(--mn-muted); }
+
+	.mn-lp .mn-use__note {
+		max-width: 34ch;
+		margin: 16px auto 0;
+		font-weight: 600;
+		color: var(--mn-plum);
+		text-wrap: balance;
+	}
+
+	/* Cada momento: foto, numeral pegado al rótulo, icono cerrando a la derecha */
+	.mn-lp .mn-moments { display: grid; gap: 10px; }
+
+	.mn-lp .mn-moment {
+		display: flex;
+		align-items: center;
+		gap: 14px;
+		padding: 8px 16px 8px 8px;
+		border-radius: var(--mn-radius-lg);
+		background: var(--mn-surface);
+		border: 1px solid var(--mn-border);
+	}
+
+	.mn-lp .mn-moment__media {
+		flex: 0 0 auto;
+		width: 74px;
+		height: 88px;
+		object-fit: cover;
+		object-position: center 35%;
+		border-radius: 14px;
+	}
+
+	.mn-lp .mn-moment__label {
+		display: flex;
+		align-items: baseline;
+		gap: 8px;
+		font-size: 17px;
+		font-weight: 700;
+		line-height: 1.25;
+		color: var(--mn-plum-deep);
+	}
+
+	.mn-lp .mn-moment__num { font-size: 24px; font-weight: 800; line-height: 1; color: var(--mn-amber); }
+
+	.mn-lp .mn-moment__icon {
+		display: grid;
+		place-items: center;
+		flex: 0 0 auto;
+		width: 40px;
+		height: 40px;
+		margin-left: auto;
+		border-radius: 50%;
+		background: var(--mn-amber-tint);
+		color: var(--mn-amber);
+	}
+
+	.mn-lp .mn-moment__icon svg { width: 20px; height: 20px; }
+
+	.mn-lp .mn-use__cta { margin-top: 0; }
+
+	/* ---------- Constancia: la batería que se llena ---------- */
+
+	.mn-lp .mn-steps {
+		display: grid;
+		gap: 12px;
+		max-width: 900px;
+		margin-inline: auto;
+	}
+
+	.mn-lp .mn-step {
+		position: relative;
+		padding: 20px 20px 22px 86px;
+		border-radius: var(--mn-radius-lg);
+		background: var(--mn-cream);
+		border: 1px solid var(--mn-border);
+		min-height: 104px;
+	}
+
+	/* La batería: el contorno es el span; ::after el borne; ::before la
+	   carga, que crece de un tercio a entera con cada tramo. */
+	.mn-lp .mn-step__battery {
+		position: absolute;
+		top: 24px;
+		left: 20px;
+		width: 44px;
+		height: 24px;
+		padding: 3px;
+		border: 2px solid var(--mn-plum);
+		border-radius: 6px;
+	}
+
+	.mn-lp .mn-step__battery::after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		right: -6px;
+		width: 3px;
+		height: 9px;
+		margin-top: -4.5px;
+		border-radius: 0 2px 2px 0;
+		background: var(--mn-plum);
+	}
+
+	.mn-lp .mn-step__battery::before {
+		content: '';
+		display: block;
+		height: 100%;
+		border-radius: 2px;
+		background: var(--mn-amber);
+		transform-origin: left center;
+		transform: scaleX(0.33);
+	}
+
+	.mn-lp .mn-step.mn-step--2 .mn-step__battery::before { transform: scaleX(0.66); background: var(--mn-violet); }
+	.mn-lp .mn-step.mn-step--3 .mn-step__battery::before { transform: scaleX(1); background: var(--mn-plum); }
+
+	.mn-lp .mn-step__when {
+		font-size: 12.5px;
+		font-weight: 800;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--mn-amber);
+	}
+
+	.mn-lp .mn-step p { color: var(--mn-muted); font-size: 15px; }
+	.mn-lp .mn-step p + p { margin-top: 4px; }
+	.mn-lp .mn-step .mn-step__when + p { margin-top: 6px; }
+
+	.mn-lp .mn-step p.mn-step__lead {
+		font-size: 17px;
+		font-weight: 700;
+		color: var(--mn-plum-deep);
+	}
+
+	/* ---------- Selector de pago ---------- */
+
+	.mn-lp .mn-pay__product { display: flex; justify-content: center; margin-bottom: 16px; }
+
+	.mn-lp .mn-pay__product img {
+		width: 120px;
+		aspect-ratio: 1 / 1;
+		object-fit: cover;
+		object-position: center 45%;
+		border-radius: 50%;
+		box-shadow: 0 12px 26px rgba(61, 15, 51, 0.18);
+	}
+
+	.mn-lp .mn-pay { display: grid; gap: 14px; }
+
+	.mn-lp .mn-pay__option { display: block; cursor: pointer; }
+
+	.mn-lp .mn-pay__option input {
+		position: absolute;
+		opacity: 0;
+		width: 0;
+		height: 0;
+	}
+
+	.mn-lp .mn-pay__box {
+		position: relative;
+		display: block;
+		padding: 22px 22px 22px 60px;
+		border: 2px solid var(--mn-border);
+		border-radius: var(--mn-radius-lg);
+		background: var(--mn-surface);
+		transition: border-color 0.15s ease, box-shadow 0.15s ease;
+	}
+
+	/* El anticipado va siempre por delante, elegido o no: borde ámbar y
+	   fondo propio. El contraentrega queda limpio y disponible. */
+	.mn-lp .mn-pay__box.mn-pay__box--best {
+		border-color: rgba(184, 85, 16, 0.45);
+		background: linear-gradient(160deg, var(--mn-amber-tint), var(--mn-surface) 70%);
+	}
+
+	.mn-lp .mn-pay__box::before {
+		content: '';
+		position: absolute;
+		left: 22px;
+		top: 26px;
+		width: 22px;
+		height: 22px;
+		border: 2px solid var(--mn-violet-soft);
+		border-radius: 50%;
+		background: #fff;
+	}
+
+	.mn-lp .mn-pay__box::after {
+		content: '';
+		position: absolute;
+		left: 28px;
+		top: 32px;
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		background: var(--mn-amber);
+		opacity: 0;
+		transition: opacity 0.15s ease;
+	}
+
+	.mn-lp .mn-pay__option:hover .mn-pay__box { border-color: var(--mn-violet-soft); }
+
+	.mn-lp .mn-pay__option input:checked + .mn-pay__box {
+		border-color: var(--mn-amber);
+		box-shadow: 0 10px 26px rgba(184, 85, 16, 0.16);
+	}
+
+	.mn-lp .mn-pay__option input:checked + .mn-pay__box::after { opacity: 1; }
+	.mn-lp .mn-pay__option input:focus-visible + .mn-pay__box { outline: 3px solid var(--mn-plum); outline-offset: 2px; }
+
+	.mn-lp .mn-pay__badge {
+		display: inline-block;
+		margin-bottom: 8px;
+		padding: 4px 12px;
+		border-radius: 999px;
+		background: var(--mn-cta-base);
+		color: #fff;
+		font-size: 11px;
+		font-weight: 800;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+
+	.mn-lp .mn-pay__name {
+		display: block;
+		font-size: 16px;
+		font-weight: 800;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		color: var(--mn-plum-deep);
+	}
+
+	.mn-lp .mn-pay__amount {
+		display: block;
+		margin-top: 4px;
+		font-size: clamp(28px, 4.4vw, 34px);
+		line-height: 1.15;
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		color: var(--mn-plum-deep);
+	}
+
+	.mn-lp .mn-pay__save { display: inline-block; margin-top: 4px; font-weight: 800; color: var(--mn-cta-base); }
+	.mn-lp .mn-pay__detail { display: block; margin-top: 8px; font-size: 15px; color: var(--mn-muted); }
+
+	.mn-lp .mn-pay__methods { display: flex; align-items: center; gap: 10px; margin-top: 12px; }
+	.mn-lp .mn-pay__methods img { width: auto; height: 22px; }
+
+	.mn-lp .mn-pay__same {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 6px 18px;
+		margin-top: 20px;
+		font-size: 15px;
+		font-weight: 600;
+		color: var(--mn-plum);
+	}
+
+	/* ---------- Bono (Parte 10) ----------
+	   La lámina es la protagonista: un halo ámbar detrás —el sol de la
+	   tarde de esta landing— y nada encima. */
+	.mn-lp .mn-section.mn-bonus {
+		position: relative;
+		overflow: hidden;
+		background:
+			radial-gradient(58% 42% at 50% 52%, rgba(224, 138, 30, 0.24) 0%, rgba(224, 138, 30, 0) 70%),
+			var(--mn-surface);
+	}
+
+	.mn-lp .mn-bonus__poster { max-width: 560px; margin-inline: auto; }
+
+	.mn-lp .mn-bonus__poster img {
+		width: 100%;
+		border-radius: var(--mn-radius-lg);
+		box-shadow: 0 22px 48px rgba(61, 15, 51, 0.2);
+	}
+
+	/* ---------- Testimonios ---------- */
+
+	.mn-lp .mn-stories {
+		--mn-rail-pad: max(var(--mn-gutter), calc((100% - var(--mn-shell)) / 2 + var(--mn-gutter)));
+	}
+
+	.mn-lp .mn-stories__track { gap: 14px; }
+
+	.mn-lp .mn-stories__item {
+		flex: 0 0 auto;
+		display: flex;
+		width: min(300px, 82%);
+		scroll-snap-align: start;
+	}
+
+	.mn-lp .mn-story {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		overflow: hidden;
+		border-radius: var(--mn-radius-lg);
+		background: var(--mn-surface);
+		border: 1px solid var(--mn-border);
+	}
+
+	.mn-lp .mn-story img {
+		width: 100%;
+		aspect-ratio: 4 / 5;
+		object-fit: cover;
+		object-position: center 30%;
+	}
+
+	.mn-lp .mn-story__body {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+		padding: 20px 20px 22px;
+	}
+
+	.mn-lp .mn-story p { font-size: 15px; color: var(--mn-muted); }
+	.mn-lp .mn-story__body p + p { margin-top: 8px; }
+
+	.mn-lp .mn-story p.mn-story__who { font-size: 17px; font-weight: 800; color: var(--mn-plum-deep); }
+	.mn-lp .mn-story p.mn-story__who span { font-weight: 500; color: var(--mn-muted); }
+
+	.mn-lp .mn-story p.mn-story__lead {
+		margin-top: 10px;
+		font-size: 17px;
+		line-height: 1.35;
+		font-weight: 700;
+		color: var(--mn-plum);
+	}
+
+	.mn-lp .mn-story p.mn-story__tag {
+		margin-top: auto;
+		padding-top: 14px;
+		font-size: 11.5px;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--mn-violet);
+	}
+
+	/* ---------- Comparativa ---------- */
+
+	/* En móvil, filas: icono a la izquierda y el texto al lado. En tres
+	   columnas de ~95px útiles, "Multivitamínicos" se partía a mitad de
+	   palabra. Desde 600px vuelven las tres fichas en columna. */
+	.mn-lp .mn-compare {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 8px;
+	}
+
+	.mn-lp .mn-compare__item {
+		display: grid;
+		grid-template-columns: 48px minmax(0, 1fr);
+		column-gap: 14px;
+		row-gap: 2px;
+		align-items: center;
+		padding: 12px 16px 12px 12px;
+		border-radius: var(--mn-radius);
+		background: var(--mn-surface);
+		border: 1px solid var(--mn-border);
+		text-align: left;
+		transition: border-color 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.mn-lp .mn-compare__item > .mn-compare__icon { grid-row: span 2; }
+
+	.mn-lp .mn-compare__item.is-active {
+		border-color: var(--mn-violet-soft);
+		box-shadow: 0 10px 22px rgba(61, 15, 51, 0.1);
+	}
+
+	.mn-lp .mn-compare__icon {
+		display: grid;
+		place-items: center;
+		width: 48px;
+		height: 48px;
+		padding: 0;
+		border: 1px solid var(--mn-border);
+		border-radius: 50%;
+		background: var(--mn-cream);
+		color: var(--mn-plum);
+		cursor: pointer;
+		transition: transform 0.2s ease;
+	}
+
+	.mn-lp .mn-compare__icon svg { width: 24px; height: 24px; }
+	.mn-lp .mn-compare__icon:focus-visible { outline: 3px solid var(--mn-violet); outline-offset: 2px; }
+
+	.mn-lp .mn-compare__icon[aria-pressed='true'] {
+		background: var(--mn-plum);
+		border-color: var(--mn-plum);
+		color: #fff;
+		transform: scale(1.08);
+	}
+
+	.mn-lp .mn-compare__name {
+		font-size: 15px;
+		line-height: 1.2;
+		font-weight: 800;
+		color: var(--mn-plum-deep);
+	}
+
+	.mn-lp .mn-compare__what { font-size: 13px; line-height: 1.35; color: var(--mn-muted); }
+
+	/* MIMANAD ocupa el ancho entero: la única que cubre el día completo */
+	.mn-lp .mn-compare__item.mn-compare__item--ours {
+		grid-column: 1 / -1;
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		gap: 16px;
+		padding: 22px 20px;
+		background: var(--mn-plum-deep);
+		border-color: var(--mn-plum-deep);
+		color: #fff;
+		text-align: left;
+	}
+
+	.mn-lp .mn-compare__item.mn-compare__item--ours .mn-compare__icon {
+		flex: 0 0 auto;
+		width: 56px;
+		height: 56px;
+		background: var(--mn-amber);
+		border-color: var(--mn-amber);
+		color: #fff;
+	}
+
+	.mn-lp .mn-compare__item.mn-compare__item--ours .mn-compare__icon[aria-pressed='true'] {
+		background: var(--mn-amber);
+		box-shadow: 0 0 0 4px rgba(224, 138, 30, 0.3);
+	}
+
+	.mn-lp .mn-compare__item.mn-compare__item--ours.is-active { box-shadow: 0 16px 34px rgba(61, 15, 51, 0.3); }
+
+	.mn-lp .mn-compare__item--ours .mn-compare__name { font-size: 20px; letter-spacing: 0.08em; color: #fff; }
+
+	.mn-lp .mn-compare__formula {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px;
+		margin-top: 10px;
+	}
+
+	.mn-lp .mn-compare__formula li {
+		padding: 3px 10px;
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.12);
+		border: 1px solid rgba(255, 255, 255, 0.24);
+		font-size: 12.5px;
+		font-weight: 700;
+	}
+
+	.mn-lp .mn-compare__item--ours .mn-compare__what {
+		margin-top: 12px;
+		font-size: 16px;
+		font-weight: 700;
+		color: #ffd9a8;
+	}
+
+	.mn-lp .mn-compare__meta { margin-top: 4px; font-size: 13.5px; color: rgba(255, 255, 255, 0.8); }
+
+	/* ---------- Qué recibes ---------- */
+
+	.mn-lp .mn-receive { display: grid; gap: 34px; align-items: center; }
+
+	.mn-lp .mn-checklist { display: grid; gap: 12px; margin-top: 24px; }
+
+	.mn-lp .mn-checklist li {
+		position: relative;
+		padding-left: 34px;
+		color: var(--mn-text);
+	}
+
+	.mn-lp .mn-checklist li::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 2px;
+		width: 22px;
+		height: 22px;
+		border-radius: 50%;
+		background: var(--mn-plum) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E") center / 13px no-repeat;
+	}
+
+	.mn-lp .mn-receive__media {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 12px;
+	}
+
+	.mn-lp .mn-receive__media img {
+		width: 100%;
+		border-radius: var(--mn-radius);
+		box-shadow: 0 14px 30px rgba(61, 15, 51, 0.14);
+	}
+
+	/* Escalonadas: la pareja no se lee como tabla */
+	.mn-lp .mn-receive__media figure:last-child { margin-top: 30px; }
+
+	/* ---------- Garantía ---------- */
+
+	.mn-lp .mn-guarantee {
+		padding: clamp(28px, 5vw, 48px) clamp(20px, 5vw, 48px);
+		border-radius: var(--mn-radius-lg);
+		background: var(--mn-surface);
+		border: 1px solid var(--mn-border);
+		text-align: center;
+	}
+
+	.mn-lp .mn-guarantee__brand {
+		width: 60px;
+		height: 60px;
+		margin: 0 auto 18px;
+		border-radius: 16px;
+		box-shadow: 0 10px 24px rgba(61, 15, 51, 0.22);
+	}
+
+	.mn-lp .mn-promise {
+		display: grid;
+		gap: 10px;
+		max-width: 46ch;
+		margin: 24px auto 0;
+		text-align: left;
+	}
+
+	.mn-lp .mn-promise__item {
+		display: flex;
+		align-items: center;
+		gap: 14px;
+		padding: 12px 14px;
+		border-radius: var(--mn-radius);
+		background: var(--mn-cream);
+	}
+
+	.mn-lp .mn-promise__item p { font-size: 15px; line-height: 1.45; color: var(--mn-text); }
+
+	.mn-lp .mn-promise__icon {
+		display: grid;
+		place-items: center;
+		flex: 0 0 auto;
+		width: 38px;
+		height: 38px;
+		border-radius: 50%;
+		background: var(--mn-surface);
+		color: var(--mn-plum);
+	}
+
+	.mn-lp .mn-promise__icon svg { width: 20px; height: 20px; }
+
+	/* La devolución solo existe en el anticipado: se marca con su ámbar */
+	.mn-lp .mn-promise__item.mn-promise__item--best {
+		background: var(--mn-amber-tint);
+		box-shadow: inset 0 0 0 1.5px rgba(184, 85, 16, 0.35);
+	}
+
+	.mn-lp .mn-promise__item--best .mn-promise__icon { background: var(--mn-cta-base); color: #fff; }
+
+	/* ---------- FAQ ---------- */
+
+	.mn-lp .mn-faq { display: grid; gap: 10px; }
+
+	.mn-lp .mn-faq__item {
+		overflow: hidden;
+		border-radius: 18px;
+		background: var(--mn-surface);
+		border: 1px solid var(--mn-border);
+	}
+
+	.mn-lp .mn-faq__item summary {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 14px;
+		min-height: 48px;
+		padding: 13px 20px;
+		font-size: 15.5px;
+		font-weight: 700;
+		color: var(--mn-plum-deep);
+		cursor: pointer;
+		list-style: none;
+	}
+
+	.mn-lp .mn-faq__item summary::-webkit-details-marker { display: none; }
+
+	.mn-lp .mn-faq__item summary::after {
+		content: '';
+		flex: 0 0 auto;
+		width: 12px;
+		height: 12px;
+		border-right: 2.5px solid var(--mn-amber);
+		border-bottom: 2.5px solid var(--mn-amber);
+		transform: rotate(45deg) translate(-3px, -3px);
+		transition: transform 0.2s ease;
+	}
+
+	.mn-lp .mn-faq__item[open] summary::after { transform: rotate(225deg) translate(-3px, -3px); }
+	.mn-lp .mn-faq__item summary:focus-visible { outline: 3px solid var(--mn-violet); outline-offset: -3px; }
+
+	.mn-lp .mn-faq__body { padding: 0 20px 16px; }
+	.mn-lp .mn-faq__body p { font-size: 15px; color: var(--mn-muted); }
+	.mn-lp .mn-faq__body p + p { margin-top: 8px; }
+
+	/* También en la FAQ el anticipado va delante y resaltado */
+	.mn-lp .mn-faq__body .mn-faq__prices { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+
+	.mn-lp .mn-faq__best {
+		padding: 2px 10px;
+		border-radius: 999px;
+		background: var(--mn-amber-tint);
+		color: var(--mn-plum-deep);
+	}
+
+	.mn-lp .mn-faq__best strong { color: var(--mn-cta-base); }
+
+	/* ---------- Cierre ---------- */
+
+	.mn-lp .mn-close { position: relative; text-align: center; }
+
+	.mn-lp .mn-close__wants {
+		display: grid;
+		gap: 2px;
+		margin-top: 18px;
+		font-size: clamp(18px, 3.6vw, 24px);
+		font-weight: 700;
+		line-height: 1.35;
+		color: rgba(255, 255, 255, 0.92);
+	}
+
+	.mn-lp .mn-close__wants li:last-child { color: #ffd9a8; }
+
+	/* Tres fotos inclinadas, la central por delante */
+	.mn-lp .mn-collage {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 32px;
+	}
+
+	.mn-lp .mn-collage__tile {
+		overflow: hidden;
+		width: 31%;
+		max-width: 180px;
+		border: 4px solid #fff;
+		border-radius: 16px;
+		background: #fff;
+		box-shadow: 0 18px 36px rgba(26, 6, 22, 0.42);
+	}
+
+	.mn-lp .mn-collage__tile img {
+		width: 100%;
+		aspect-ratio: 3 / 4;
+		object-fit: cover;
+		object-position: center 30%;
+	}
+
+	.mn-lp .mn-collage__tile.mn-collage__tile--left { transform: rotate(-6deg) translateX(14px); }
+	.mn-lp .mn-collage__tile.mn-collage__tile--right { transform: rotate(6deg) translateX(-14px); }
+
+	.mn-lp .mn-collage__tile.mn-collage__tile--center {
+		position: relative;
+		z-index: 1;
+		width: 38%;
+		max-width: 220px;
+	}
+
+	.mn-lp .mn-collage__tile--center img { aspect-ratio: 1 / 1; }
+
+	.mn-lp .mn-close__card {
+		margin-top: 30px;
+		padding: 26px 18px 22px;
+		border-radius: var(--mn-radius-lg);
+		background: var(--mn-surface);
+		color: var(--mn-text);
+		box-shadow: 0 20px 44px rgba(26, 6, 22, 0.4);
+	}
+
+	.mn-lp .mn-close__product {
+		font-size: 20px;
+		font-weight: 800;
+		letter-spacing: 0.18em;
+		color: var(--mn-plum-deep);
+	}
+
+	.mn-lp .mn-close__formula { margin-top: 6px; font-size: 14px; font-weight: 700; color: var(--mn-violet); }
+	.mn-lp .mn-close__meta { margin-top: 2px; font-size: 13.5px; color: var(--mn-muted); }
+
+	.mn-lp .mn-close__options {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		align-items: center;
+		gap: 12px;
+		margin-top: 24px;
+	}
+
+	.mn-lp .mn-close__option {
+		position: relative;
+		padding: 16px 10px;
+		border-radius: var(--mn-radius);
+		background: var(--mn-cream);
+	}
+
+	.mn-lp .mn-close__option.mn-close__option--best {
+		padding-top: 24px;
+		background: var(--mn-amber-tint);
+		box-shadow: inset 0 0 0 2px var(--mn-amber), 0 10px 24px rgba(184, 85, 16, 0.2);
+	}
+
+	.mn-lp .mn-close__badge {
+		position: absolute;
+		top: -11px;
+		left: 50%;
+		translate: -50% 0;
+		padding: 4px 12px;
+		border-radius: 999px;
+		background: var(--mn-cta-base);
+		color: #fff;
+		font-size: 10.5px;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		white-space: nowrap;
+	}
+
+	.mn-lp .mn-close__label {
+		font-size: 12px;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--mn-muted);
+	}
+
+	.mn-lp .mn-close__option--best .mn-close__label { color: var(--mn-plum); }
+
+	.mn-lp .mn-close__amount {
+		margin-top: 4px;
+		font-size: clamp(22px, 4vw, 28px);
+		line-height: 1.15;
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		color: var(--mn-plum-deep);
+	}
+
+	.mn-lp .mn-close__save { margin-top: 2px; font-size: 13.5px; font-weight: 800; color: var(--mn-cta-base); }
+
+	.mn-lp .mn-close__card .mn-cta-row { margin-top: 22px; }
+
+	/* ---------- Instagram ---------- */
+
+	.mn-lp .mn-section.mn-social { padding-block: clamp(30px, 4.5vw, 60px); background: var(--mn-cream); }
+
+	.mn-lp .mn-social__card {
+		overflow: hidden;
+		border-radius: clamp(16px, 3.4vw, 22px);
+		box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6), 0 20px 44px rgba(61, 15, 51, 0.24);
+	}
+
+	.mn-lp .mn-social__card img { width: 100%; aspect-ratio: 1000 / 398; }
+
+	/* ---------- Footer ---------- */
+
+	.mn-lp .mn-footer {
+		background: var(--mn-plum-deep);
+		color: #fff;
+		padding-block: clamp(34px, 5vw, 56px);
+	}
+
+	.mn-lp .mn-footer__inner {
+		display: grid;
+		justify-items: center;
+		gap: 20px;
+		text-align: center;
+	}
+
+	.mn-lp .mn-footer__logo { width: 100px; }
+
+	.mn-lp .mn-footer__data { display: grid; gap: 16px; }
+
+	.mn-lp .mn-footer__block dt {
+		font-size: 12px;
+		font-weight: 700;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: rgba(255, 255, 255, 0.68);
+	}
+
+	.mn-lp .mn-footer__block dd { margin-top: 4px; font-size: 17px; font-weight: 700; }
+
+	.mn-lp .mn-footer__block a {
+		color: #fff;
+		text-decoration: none;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.42);
+	}
+
+	.mn-lp .mn-footer__block a:hover { border-bottom-color: #fff; }
+	.mn-lp .mn-footer__block a:focus-visible { outline: 3px solid var(--mn-lilac); outline-offset: 3px; }
+
+	.mn-lp .mn-footer__legal {
+		max-width: 62ch;
+		font-size: 13px;
+		line-height: 1.55;
+		color: rgba(255, 255, 255, 0.72);
+	}
+
+	/* ---------- Anfitrión del producto para Releasit ----------
+	   Releasit necesita un Product Element de GemPages en el DOM para abrir
+	   su modal. Es andamiaje, no interfaz: se neutraliza el contenedor
+	   entero. Nunca display:none — la app necesita el nodo renderizado. */
+	gp-product,
+	.mn-rls-host {
+		position: absolute !important;
+		width: 1px !important;
+		height: 1px !important;
+		overflow: hidden !important;
+		clip-path: inset(50%) !important;
+		pointer-events: none !important;
+	}
+
+	/* ---------- CTA sticky ---------- */
+
+	.mn-lp .mn-sticky {
+		position: fixed;
+		inset-inline: 0;
+		bottom: 0;
+		z-index: 40;
+		padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+		background: rgba(255, 255, 255, 0.96);
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
+		border-top: 1px solid var(--mn-border);
+		box-shadow: 0 -6px 24px rgba(36, 31, 36, 0.1);
+		transform: translateY(110%);
+		transition: transform 0.24s ease;
+	}
+
+	.mn-lp .mn-sticky[hidden] { display: none; }
+	.mn-lp .mn-sticky.is-visible { transform: translateY(0); }
+
+	.mn-lp .mn-sticky__inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 14px;
+		max-width: var(--mn-shell);
+		margin-inline: auto;
+	}
+
+	.mn-lp .mn-sticky__price { line-height: 1.25; }
+	.mn-lp .mn-sticky__price strong { display: block; font-size: 20px; font-weight: 800; letter-spacing: -0.02em; color: var(--mn-plum-deep); }
+	.mn-lp .mn-sticky__price span { font-size: 13px; color: var(--mn-muted); }
+
+	/* Reserva para el sticky: sin esto el final del footer queda debajo */
+	@media (max-width: 899px) {
+		.mn-lp .mn-footer { padding-bottom: calc(clamp(34px, 5vw, 56px) + 84px); }
+	}
+
+	/* ---------- Pantallas estrechas ----------
+	   Por debajo de 380px la fila del precio y la fórmula no caben con el
+	   marco normal: se aprieta el marco, no el contenido. */
+	@media (max-width: 379px) {
+		.mn-lp { --mn-gutter: 16px; }
+		.mn-lp .mn-hero .mn-price__amount { font-size: 28px; }
+		.mn-lp .mn-hero .mn-price__note { padding-inline: 9px; }
+		.mn-lp .mn-formula__name { font-size: 10px; letter-spacing: 0.02em; }
+		.mn-lp .mn-formula__dose { font-size: 12px; }
+		.mn-lp .mn-dayline__label { font-size: 11px; letter-spacing: 0.02em; }
+		.mn-lp .mn-mech__seg { font-size: 11px; letter-spacing: 0.02em; }
+	}
+
+	/* ---------- Breakpoints ---------- */
+
+	@media (min-width: 600px) {
+		.mn-lp .mn-compare { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+
+		.mn-lp .mn-compare__item {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 8px;
+			padding: 20px 14px 22px;
+			text-align: center;
+		}
+		.mn-lp .mn-compare__name { font-size: 16px; }
+		.mn-lp .mn-compare__what { font-size: 14px; }
+		.mn-lp .mn-moments { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+		/* Con ancho, el momento se pone en vertical: foto arriba */
+		.mn-lp .mn-moment {
+			flex-direction: column;
+			align-items: flex-start;
+			padding: 10px 10px 16px;
+		}
+
+		.mn-lp .mn-moment__media { width: 100%; height: auto; aspect-ratio: 4 / 5; }
+		.mn-lp .mn-moment__label { padding-inline: 6px; }
+		.mn-lp .mn-moment__icon { display: none; }
+	}
+
+	@media (min-width: 760px) {
+		.mn-lp .mn-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+		.mn-lp .mn-step { padding: 72px 22px 24px; }
+		.mn-lp .mn-step__battery { top: 26px; left: 22px; }
+	}
+
+	@media (min-width: 900px) {
+		.mn-lp { --mn-gutter: 24px; }
+
+		.mn-lp .mn-hero { padding-block: 40px 56px; }
+
+		.mn-lp .mn-hero__grid {
+			grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+			grid-template-areas:
+				'head  media'
+				'buy   media'
+				'specs media';
+			align-items: start;
+			column-gap: clamp(36px, 4vw, 64px);
+			row-gap: 26px;
+		}
+
+		.mn-lp .mn-hero__media { max-width: 540px; justify-self: end; grid-row: 1 / span 3; align-self: center; }
+		.mn-lp .mn-hero__buy { text-align: left; }
+		.mn-lp .mn-hero .mn-price { justify-content: flex-start; }
+		.mn-lp .mn-hero__buy .mn-trust { justify-content: flex-start; }
+		.mn-lp .mn-hero__buy .mn-cta { margin-top: 20px; }
+		.mn-lp .mn-hero .mn-lead { font-size: 17px; margin-top: 16px; }
+		.mn-lp .mn-facts,
+		.mn-lp .mn-perks { justify-content: flex-start; }
+		.mn-lp .mn-formula { max-width: 480px; }
+		.mn-lp .mn-formula__name { font-size: 12px; }
+		.mn-lp .mn-formula__dose { font-size: 14px; }
+
+		.mn-lp .mn-cells { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 44px; }
+
+		.mn-lp .mn-sources__item { width: 320px; }
+		.mn-lp .mn-sources__track { justify-content: center; }
+
+		/* En escritorio las tres tarjetas caben: el carril deja de deslizar */
+		.mn-lp .mn-mech__track {
+			display: grid;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: 20px;
+			margin-inline: 0;
+			padding-inline: 0;
+			overflow: visible;
+		}
+
+		.mn-lp .mn-ingredient { width: auto; }
+		.mn-lp .mn-mech__nav { margin-bottom: 26px; }
+
+		.mn-lp .mn-more { gap: 40px; }
+		.mn-lp .mn-more__item { column-gap: 64px; }
+		.mn-lp .mn-more__media { max-width: 300px; justify-self: end; }
+		.mn-lp .mn-more__item:nth-child(even) .mn-more__media { justify-self: start; }
+		.mn-lp .mn-more__item:nth-child(even) .mn-more__body { text-align: right; }
+		.mn-lp .mn-more__item:nth-child(even) .mn-more__title { justify-content: flex-end; }
+		.mn-lp .mn-more__item:nth-child(even) .mn-chips { justify-content: flex-end; }
+
+		.mn-lp .mn-use {
+			grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+			column-gap: 56px;
+			align-items: center;
+		}
+
+		.mn-lp .mn-use__cta { grid-column: 1 / -1; }
+
+		.mn-lp .mn-pay { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+		.mn-lp .mn-stories__track { justify-content: center; }
+		.mn-lp .mn-stories__item { width: 320px; }
+
+		.mn-lp .mn-receive { grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr); }
+		.mn-lp .mn-receive__media { max-width: 460px; justify-self: center; }
+
+		.mn-lp .mn-close__card { padding: 34px 40px 28px; }
+
+		.mn-lp .mn-footer__data { grid-auto-flow: column; gap: 56px; }
+
+		.mn-lp .mn-reel { --mn-reel-w: 230px; }
+
+		.mn-lp .mn-sticky { display: none; }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.mn-lp *,
+		.mn-lp *::before,
+		.mn-lp *::after {
+			transition-duration: 0.01ms !important; /* respeta la preferencia del sistema */
+			animation-duration: 0.01ms !important;
+		}
+
+		.mn-lp .mn-cta.mn-cta::before { animation: none; transform: scaleX(0); }
+
+		/* El carrete sigue al dedo —es manipulación directa, no animación—
+		   pero sin inclinar ni desplazar: solo el cambio de tamaño. */
+		.mn-lp .mn-reel__card.mn-reel__card { transform: scale(calc(0.9 + 0.1 * var(--mn-focus))); }
+		.mn-lp .mn-slider__track { scroll-behavior: auto; }
+		.mn-lp .mn-cta:active { transform: none; }
+	}
+</style>
+
+<script>
+	;(function () {
+		'use strict'
+
+		var ROOT_SELECTOR = '.mn-lp'
+		var READY_FLAG = 'mnLandingReady'
+
+		// Mismo criterio que SKNGLOW: mientras el flujo de pago anticipado no
+		// esté cableado, la página nunca anuncia un precio distinto al que va
+		// a cobrar el formulario. Poner en true al cablearlo.
+		var PREPAID_ENABLED = false
+
+		var PRICES = {
+			prepaid: '$79.900',
+			cod: '$89.900'
+		}
+
+		var CTA_LABELS = {
+			prepaid: 'QUIERO MI MIMANAD POR $79.900',
+			cod: 'QUIERO MI MIMANAD CONTRAENTREGA'
+		}
+
+		var CTA_LABEL_FALLBACK = 'ELEGIR MI FORMA DE PAGO'
+
+		// El atributo lo lee la skin del formulario (shared/releasit-form.css
+		// §6b). El nombre es de la skin, compartido por toda la marca.
+		var PAY_ATTRIBUTE = 'data-sg-pay'
+
+		var LIVE_CLASS = 'is-live'
+		var ACTIVE_CLASS = 'is-active'
+		var REVEALED_CLASS = 'is-in'
+		var CHARGED_CLASS = 'is-charged'
+
+		// El carrete arranca con la segunda persona al centro: así hay
+		// tarjetas a los dos lados desde el primer vistazo.
+		var REEL_START_INDEX = 1
+
+		function forEach(list, fn) {
+			Array.prototype.forEach.call(list, fn)
+		}
+
+		function initPaymentSelector(root) {
+			var inputs = root.querySelectorAll('input[name="mn-payment"]')
+			if (!inputs.length) return
+
+			var stickyPrice = root.querySelector('[data-mn-sticky-price]')
+			var priceCta = root.querySelector('[data-mn-cta-price]')
+
+			function sync() {
+				var selected = root.querySelector('input[name="mn-payment"]:checked')
+				var choice = selected ? selected.value : 'prepaid'
+
+				// La elección REAL viaja al formulario, que vive fuera de .mn-lp
+				document.documentElement.setAttribute(PAY_ATTRIBUTE, choice)
+
+				var mode = PREPAID_ENABLED ? choice : 'cod'
+
+				if (stickyPrice) stickyPrice.textContent = PRICES[mode] || PRICES.cod
+
+				if (priceCta) {
+					priceCta.textContent = PREPAID_ENABLED
+						? (CTA_LABELS[mode] || CTA_LABELS.prepaid)
+						: CTA_LABEL_FALLBACK
+				}
+			}
+
+			forEach(inputs, function (input) {
+				input.addEventListener('change', sync)
+			})
+
+			sync()
+		}
+
+		function initHeroSlider(root) {
+			var slider = root.querySelector('[data-mn-slider]')
+			if (!slider) return
+
+			var track = slider.querySelector('[data-mn-slider-track]')
+			var media = slider.parentNode
+			var prev = media.querySelector('[data-mn-slider-prev]')
+			var next = media.querySelector('[data-mn-slider-next]')
+			var count = media.querySelector('[data-mn-slider-count]')
+			if (!track) return
+
+			var total = track.children.length
+			var current = 0
+
+			function paint() {
+				if (count) count.textContent = 'Imagen ' + (current + 1) + ' de ' + total
+				if (prev) prev.disabled = current === 0
+				if (next) next.disabled = current === total - 1
+			}
+
+			// El índice sale del scroll, así sigue al dedo
+			function readIndex() {
+				var width = track.clientWidth
+				if (!width) return
+				var index = Math.round(track.scrollLeft / width)
+				if (index === current) return
+				current = index
+				paint()
+			}
+
+			function go(index) {
+				var target = Math.max(0, Math.min(total - 1, index))
+				track.scrollTo({ left: track.clientWidth * target, behavior: 'smooth' })
+			}
+
+			var ticking = false
+			track.addEventListener('scroll', function () {
+				if (ticking) return
+				ticking = true
+				window.requestAnimationFrame(function () {
+					ticking = false
+					readIndex()
+				})
+			}, { passive: true })
+
+			if (prev) prev.addEventListener('click', function () { go(current - 1) })
+			if (next) next.addEventListener('click', function () { go(current + 1) })
+
+			paint()
+		}
+
+		function prefersReducedMotion() {
+			return typeof window.matchMedia === 'function'
+				&& window.matchMedia('(prefers-reduced-motion: reduce)').matches
+		}
+
+		function initReel(root) {
+			var reel = root.querySelector('[data-mn-reel]')
+			if (!reel) return
+
+			var track = reel.querySelector('[data-mn-reel-track]')
+			var items = reel.querySelectorAll('[data-mn-reel-item]')
+			var charge = reel.querySelector('[data-mn-reel-charge]')
+			var cells = reel.querySelectorAll('[data-mn-reel-go]')
+			if (!track || !items.length) return
+
+			var active = -1
+
+			// Distancia entre centros de dos tarjetas contiguas: la unidad con
+			// la que se mide cuánto le falta a cada una para estar al centro.
+			function step() {
+				if (items.length < 2) return items[0].offsetWidth || 1
+				return (items[1].offsetLeft - items[0].offsetLeft) || 1
+			}
+
+			function offsetFromCenter(item) {
+				var box = track.getBoundingClientRect()
+				var rect = item.getBoundingClientRect()
+				return rect.left + rect.width / 2 - (box.left + box.width / 2)
+			}
+
+			function paintCharge(index) {
+				if (index === active) return
+				active = index
+
+				forEach(cells, function (cell, i) {
+					cell.classList.toggle(CHARGED_CLASS, i <= index)
+					if (i === index) cell.setAttribute('aria-current', 'true')
+					else cell.removeAttribute('aria-current')
+				})
+			}
+
+			// Las variables se escriben en el <li> y las lee la tarjeta: el
+			// rectángulo del <li> no se transforma, así que la medida no se
+			// contamina con la propia escala que produce.
+			function measure() {
+				var unit = step()
+				var best = 0
+				var bestFocus = -1
+
+				forEach(items, function (item, i) {
+					var distance = offsetFromCenter(item) / unit
+					var focus = Math.max(0, 1 - Math.abs(distance))
+					item.style.setProperty('--mn-focus', focus.toFixed(3))
+					item.style.setProperty('--mn-lean', distance < 0 ? '1' : '-1')
+					if (focus > bestFocus) {
+						bestFocus = focus
+						best = i
+					}
+				})
+
+				paintCharge(best)
+			}
+
+			function go(index, smooth) {
+				var item = items[index]
+				if (!item) return
+				track.scrollBy({
+					left: offsetFromCenter(item),
+					behavior: smooth && !prefersReducedMotion() ? 'smooth' : 'auto'
+				})
+			}
+
+			var ticking = false
+			function schedule() {
+				if (ticking) return
+				ticking = true
+				window.requestAnimationFrame(function () {
+					ticking = false
+					measure()
+				})
+			}
+
+			track.addEventListener('scroll', schedule, { passive: true })
+			window.addEventListener('resize', schedule)
+
+			forEach(cells, function (cell) {
+				cell.addEventListener('click', function () {
+					var index = parseInt(cell.getAttribute('data-mn-reel-go'), 10)
+					if (!isNaN(index)) go(index, true)
+				})
+			})
+
+			if (charge && cells.length === items.length) charge.hidden = false
+
+			if (track.scrollWidth > track.clientWidth + 1) go(REEL_START_INDEX, false)
+			measure()
+		}
+
+		function initMechanism(root) {
+			var mech = root.querySelector('[data-mn-mech]')
+			if (!mech) return
+
+			var track = mech.querySelector('[data-mn-mech-track]')
+			var items = mech.querySelectorAll('[data-mn-mech-item]')
+			var buttons = mech.querySelectorAll('[data-mn-mech-go]')
+			if (!track || !items.length || items.length !== buttons.length) return
+
+			function paint(index) {
+				forEach(buttons, function (button, i) {
+					button.setAttribute('aria-pressed', i === index ? 'true' : 'false')
+				})
+				forEach(items, function (item, i) {
+					item.classList.toggle(ACTIVE_CLASS, i === index)
+				})
+			}
+
+			function isScrollable() {
+				return track.scrollWidth > track.clientWidth + 1
+			}
+
+			// La tarjeta activa es la más cercana al borde izquierdo del carril
+			function readIndex() {
+				var origin = track.getBoundingClientRect().left
+				var best = 0
+				var bestDistance = Infinity
+				forEach(items, function (item, i) {
+					var distance = Math.abs(item.getBoundingClientRect().left - origin)
+					if (distance < bestDistance) {
+						bestDistance = distance
+						best = i
+					}
+				})
+				paint(best)
+			}
+
+			forEach(buttons, function (button) {
+				button.addEventListener('click', function () {
+					var index = parseInt(button.getAttribute('data-mn-mech-go'), 10)
+					if (isNaN(index) || !items[index]) return
+					paint(index)
+					if (!isScrollable()) return
+					var offset = items[index].getBoundingClientRect().left - track.getBoundingClientRect().left
+					track.scrollBy({ left: offset - parseFloat(getComputedStyle(track).scrollPaddingLeft || 0), behavior: 'smooth' })
+				})
+			})
+
+			var ticking = false
+			track.addEventListener('scroll', function () {
+				if (ticking || !isScrollable()) return
+				ticking = true
+				window.requestAnimationFrame(function () {
+					ticking = false
+					readIndex()
+				})
+			}, { passive: true })
+
+			paint(0)
+		}
+
+		function initCompare(root) {
+			var compare = root.querySelector('[data-mn-compare]')
+			if (!compare) return
+
+			var items = compare.querySelectorAll('[data-mn-compare-item]')
+
+			forEach(items, function (item) {
+				var toggle = item.querySelector('[data-mn-compare-toggle]')
+				if (!toggle) return
+
+				toggle.addEventListener('click', function () {
+					forEach(items, function (other) {
+						var active = other === item
+						other.classList.toggle(ACTIVE_CLASS, active)
+						var otherToggle = other.querySelector('[data-mn-compare-toggle]')
+						if (otherToggle) otherToggle.setAttribute('aria-pressed', active ? 'true' : 'false')
+					})
+				})
+			})
+		}
+
+		// La carga del CTA y el sol del día solo corren en pantalla. Sin
+		// IntersectionObserver: botones quietos y el sol ya en su sitio.
+		function initViewportEffects(root) {
+			var ctas = root.querySelectorAll('.mn-cta')
+			var reveals = root.querySelectorAll('[data-mn-reveal]')
+
+			if (typeof window.IntersectionObserver !== 'function') {
+				forEach(reveals, function (el) { el.classList.add(REVEALED_CLASS) })
+				return
+			}
+
+			var liveObserver = new window.IntersectionObserver(function (entries) {
+				entries.forEach(function (entry) {
+					entry.target.classList.toggle(LIVE_CLASS, entry.isIntersecting)
+				})
+			})
+
+			forEach(ctas, function (cta) { liveObserver.observe(cta) })
+
+			var revealObserver = new window.IntersectionObserver(function (entries, observer) {
+				entries.forEach(function (entry) {
+					if (!entry.isIntersecting) return
+					entry.target.classList.add(REVEALED_CLASS)
+					observer.unobserve(entry.target)
+				})
+			}, { threshold: 0.6 })
+
+			forEach(reveals, function (el) { revealObserver.observe(el) })
+		}
+
+		function initStickyCta(root) {
+			var sticky = root.querySelector('[data-mn-sticky]')
+			var hero = root.querySelector('.mn-hero')
+			if (!sticky || !hero) return
+
+			sticky.hidden = false
+
+			// Sin IntersectionObserver el sticky queda visible: nunca esconder
+			// el camino a la compra.
+			if (typeof window.IntersectionObserver !== 'function') {
+				sticky.classList.add('is-visible')
+				return
+			}
+
+			var heroVisible = true
+			var tailVisible = false
+
+			function update() {
+				sticky.classList.toggle('is-visible', !heroVisible && !tailVisible)
+			}
+
+			new window.IntersectionObserver(function (entries) {
+				entries.forEach(function (entry) { heroVisible = entry.isIntersecting })
+				update()
+			}, { rootMargin: '-120px 0px 0px 0px' }).observe(hero)
+
+			// Al final sobra: taparía el CTA del cierre y los datos legales
+			var tail = root.querySelectorAll('.mn-close .mn-cta-row, .mn-footer')
+			if (!tail.length) return
+
+			var visibleTail = []
+
+			var tailObserver = new window.IntersectionObserver(function (entries) {
+				entries.forEach(function (entry) {
+					var at = visibleTail.indexOf(entry.target)
+					if (entry.isIntersecting && at < 0) visibleTail.push(entry.target)
+					if (!entry.isIntersecting && at > -1) visibleTail.splice(at, 1)
+				})
+				tailVisible = visibleTail.length > 0
+				update()
+			})
+
+			forEach(tail, function (el) { tailObserver.observe(el) })
+		}
+
+		function init() {
+			var root = document.querySelector(ROOT_SELECTOR)
+			if (!root || root.dataset[READY_FLAG] === 'true') return
+
+			root.dataset[READY_FLAG] = 'true'
+			initPaymentSelector(root)
+			initHeroSlider(root)
+			initReel(root)
+			initMechanism(root)
+			initCompare(root)
+			initViewportEffects(root)
+			initStickyCta(root)
+		}
+
+		// GemPages puede montar el bloque después de DOMContentLoaded
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', init)
+		} else {
+			init()
+		}
+	})()
+</script>
+</body>
+</html>

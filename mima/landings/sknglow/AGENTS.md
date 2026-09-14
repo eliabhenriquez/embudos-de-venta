@@ -86,8 +86,9 @@ en `false`. Sin el atributo, el formulario se ve como siempre: otras landings no
 
 - La landing se pega en el bloque HTML de **GemPages**; la skin del formulario, en la pestaña de CSS de
   **Releasit**. Son dos sitios distintos: publicar solo uno deja el cambio a medias.
-- Si es una landing nueva, **su handle va en `paid_landings`** del layout
-  `mima/theme/theme.gempages.blank.liquid`. Sin eso hereda el tema completo.
+- Si es una landing nueva, **su línea va en `paid_landings_config`** del layout
+  `mima/theme/theme.gempages.blank.liquid` (y en `theme.liquid`), y su imagen social
+  `landings-og-<handle>.jpg` se sube a Archivos. Sin eso hereda el tema completo.
 - Vista previa local: `./preview.sh mima/landings/sknglow/piel/august.html`.
 - Verificar **renderizado en vivo**, no leyendo el CSS. Comprobar colores computados: una regla de
   etiqueta del tema le gana a una de clase y deja texto ilegible sin avisar.

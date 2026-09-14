@@ -1,0 +1,3117 @@
+<!--
+	MIMA · MIMANAD — Landing de venta, ángulo MEMORIA (campaña agosto)
+	=================================================================
+	Bloque autocontenido para pegar en GemPages (elemento HTML/Liquid).
+	Sin <html>, <head> ni <body>. Todo el CSS va namespaced bajo .mn-lp.
+
+	Mismo producto, precio y paleta que el ángulo energía (el frasco:
+	berenjena, violeta, ámbar). Lo que NO comparte es el diseño: allí el
+	motivo es la tarde y la carga; aquí es LA CONEXIÓN — nodos que se
+	unen, como una idea que vuelve. Hero en pila de fotos, muro de
+	recuerdos, red que se enciende, tríada de ingredientes, libreta de
+	beneficios y un CTA violeta cuyas dos mitades se encuentran.
+
+	CTA → abre el modal de Releasit mediante las clases de integración
+	_rsi-cod-form-gempages-button-overwrite y _rsi-cod-form-is-gempage.
+
+	PENDIENTES ANTES DE PUBLICAR — ver mimanad/AGENTS.md §8.
+	data-rsi-banner="mimanad-memoria" enciende en el formulario de Releasit
+	el banner de la guía de este ángulo (regla en shared/releasit-form.css).
+-->
+
+<section class="mn-lp" id="mn-mimanad" data-rsi-banner="mimanad-memoria">
+
+	<!-- =========================== CABECERA ========================= -->
+	<header class="mn-topbar">
+		<div class="mn-shell mn-topbar__inner">
+			<img
+				src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-mima-white.webp?width=200"
+				width="300" height="180" decoding="async"
+				alt="MIMA">
+		</div>
+	</header>
+
+	<!-- ============================ HERO ============================ -->
+	<section class="mn-hero">
+		<div class="mn-shell mn-hero__grid">
+			<div class="mn-hero__head">
+				<p class="mn-hero__brand">MIMANAD</p>
+				<h1 class="mn-h1">Que tu mente siga el <span class="mn-accent">ritmo</span> de tu día.</h1>
+				<p class="mn-lead">Niacina, Resveratrol y Melena de León para acompañar memoria, concentración y claridad mental.</p>
+			</div>
+
+			<figure class="mn-hero__media">
+				<!-- La pila de fotos: dos tarjetas asoman DETRÁS de la foto, como
+				     recuerdos apilados. Van con pseudo-elementos del marco, nunca
+				     encima de la imagen. Flechas a los lados, sin puntos.
+				     Sin ?width=: fichero propio a 1050 px. -->
+				<div class="mn-slider" data-mn-slider>
+					<button type="button" class="mn-slider__arrow" data-mn-slider-prev aria-label="Imagen anterior">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"/></svg>
+					</button>
+					<div class="mn-deck">
+						<ul class="mn-slider__track" data-mn-slider-track tabindex="0"
+							role="region" aria-label="Imágenes de MIMANAD">
+							<li class="mn-slider__slide">
+								<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-mem-hero-1.webp"
+									width="1050" height="1050"
+									alt="Mujer y hombre sonrientes mostrando sus frascos de MIMANAD"
+									fetchpriority="high" decoding="async">
+							</li>
+							<li class="mn-slider__slide">
+								<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-hero-2.webp"
+									width="1050" height="1050"
+									alt="Mujer mostrando dulces duros de MIMANAD en la palma: energía, concentración, claridad mental y rejuvenecimiento celular"
+									loading="lazy" decoding="async">
+							</li>
+							<li class="mn-slider__slide">
+								<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-hero-3.webp"
+									width="1050" height="1050"
+									alt="Frasco de MIMANAD en la mano con sus tres ingredientes: Niacina, Resveratrol y Melena de León"
+									loading="lazy" decoding="async">
+							</li>
+						</ul>
+					</div>
+					<button type="button" class="mn-slider__arrow" data-mn-slider-next aria-label="Imagen siguiente">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 6 6 6-6 6"/></svg>
+					</button>
+					<p class="mn-visually-hidden" data-mn-slider-count aria-live="polite">Imagen 1 de 3</p>
+				</div>
+			</figure>
+
+			<div class="mn-hero__buy">
+				<p class="mn-price"><span class="mn-price__amount">$89.900</span> <span class="mn-price__note">Envío gratis a Colombia</span></p>
+				<p class="mn-price__prepay"><strong>$79.900</strong> con pago anticipado</p>
+				<button type="button" class="mn-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
+
+				<ul class="mn-trust">
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h3.7l2.8 3v4h-6.5z"/><circle cx="7" cy="18" r="1.7"/><circle cx="17" cy="18" r="1.7"/></svg> Entrega de 3 a 5 días hábiles</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19.5c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><path d="M15.5 5.2a3.2 3.2 0 0 1 0 5.6M17.6 14.8c1.6.7 2.6 2.3 2.9 4.7"/></svg> +1.400 clientes</li>
+				</ul>
+			</div>
+
+			<div class="mn-hero__specs">
+				<!-- La fórmula como tres nodos unidos: el motivo de la conexión que
+				     vuelve en la promesa, el mecanismo, la constancia y el botón. -->
+				<ul class="mn-nodes" aria-label="Fórmula de MIMANAD">
+					<li class="mn-nodes__item"><span class="mn-nodes__name">Niacina</span> <span class="mn-nodes__dose">500 mg</span></li>
+					<li class="mn-nodes__item"><span class="mn-nodes__name">Resveratrol</span> <span class="mn-nodes__dose">100 mg</span></li>
+					<li class="mn-nodes__item"><span class="mn-nodes__name">Melena de León</span> <span class="mn-nodes__dose">200 mg</span></li>
+				</ul>
+
+				<ul class="mn-facts">
+					<li><strong>120</strong> dulces duros sabor kiwi</li>
+					<li><strong>4</strong> al día · <strong>30</strong> días</li>
+				</ul>
+
+				<ul class="mn-perks">
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="12" rx="6.5" ry="8.5"/><ellipse cx="12" cy="12" rx="3" ry="4.4"/><path d="M12 3.5v2M12 18.5v2"/></svg> Fresco sabor kiwi</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8.5h14l-1.2 11a1.5 1.5 0 0 1-1.5 1.3H7.7a1.5 1.5 0 0 1-1.5-1.3Z"/><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5"/></svg> Fácil de llevar</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="6" rx="3"/><path d="M12 9v6"/><path d="M4 4l16 16"/></svg> Sin cápsulas</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- ==================== MURO DE RECUERDOS (PARTE 2) =============
+	     Polaroids en dos filas que derivan despacio en sentidos opuestos.
+	     Cada fila repite su serie dos veces más para que el bucle no tenga
+	     costura en ningún ancho: las copias van aria-hidden. Se para al tocarla, fuera de
+	     pantalla y con movimiento reducido (entonces se desliza a mano). -->
+	<section class="mn-section mn-section--tight">
+		<div class="mn-wall" data-mn-wall>
+			<p class="mn-visually-hidden">Personas que ya usan MIMANAD: Camila, Camilo, Catalina, Carlos Mauricio, José Fernando y Luis Alejandro.</p>
+			<div class="mn-wall__row">
+				<ul class="mn-wall__track">
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-camila-l.webp?width=340" width="800" height="1067" loading="lazy" decoding="async" alt="Camila sonriendo con su frasco de MIMANAD"><span class="mn-polaroid__name">Camila</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-catalina.webp?width=340" width="507" height="905" loading="lazy" decoding="async" alt="Catalina abriendo su frasco de MIMANAD"><span class="mn-polaroid__name">Catalina</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-jose.webp?width=340" width="507" height="908" loading="lazy" decoding="async" alt="José Fernando con su frasco de MIMANAD"><span class="mn-polaroid__name">José Fernando</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-camilo.webp?width=340" width="800" height="1422" loading="lazy" decoding="async" alt="Camilo mostrando su frasco de MIMANAD"><span class="mn-polaroid__name">Camilo</span></li>
+				</ul>
+				<ul class="mn-wall__track" aria-hidden="true">
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-camila-l.webp?width=340" width="800" height="1067" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">Camila</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-catalina.webp?width=340" width="507" height="905" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">Catalina</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-jose.webp?width=340" width="507" height="908" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">José Fernando</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-camilo.webp?width=340" width="800" height="1422" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">Camilo</span></li>
+				</ul>
+				<ul class="mn-wall__track" aria-hidden="true">
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-camila-l.webp?width=340" width="800" height="1067" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">Camila</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-catalina.webp?width=340" width="507" height="905" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">Catalina</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-jose.webp?width=340" width="507" height="908" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">José Fernando</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-camilo.webp?width=340" width="800" height="1422" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">Camilo</span></li>
+				</ul>
+			</div>
+			<div class="mn-wall__row mn-wall__row--reverse">
+				<ul class="mn-wall__track">
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-luis.webp?width=340" width="508" height="908" loading="lazy" decoding="async" alt="Luis Alejandro en su escritorio con el frasco de MIMANAD"><span class="mn-polaroid__name">Luis Alejandro</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-carlos.webp?width=340" width="510" height="902" loading="lazy" decoding="async" alt="Carlos Mauricio con el pulgar arriba y su frasco de MIMANAD"><span class="mn-polaroid__name">Carlos Mauricio</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-camila.webp?width=340" width="508" height="905" loading="lazy" decoding="async" alt="Camila al aire libre en Bogotá con su frasco de MIMANAD"><span class="mn-polaroid__name">Camila</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-story-catalina.webp?width=340" width="508" height="903" loading="lazy" decoding="async" alt="Catalina trabajando en su portátil con el frasco de MIMANAD en el escritorio"><span class="mn-polaroid__name">Catalina</span></li>
+				</ul>
+				<ul class="mn-wall__track" aria-hidden="true">
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-luis.webp?width=340" width="508" height="908" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">Luis Alejandro</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-carlos.webp?width=340" width="510" height="902" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">Carlos Mauricio</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-camila.webp?width=340" width="508" height="905" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">Camila</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-story-catalina.webp?width=340" width="508" height="903" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">Catalina</span></li>
+				</ul>
+				<ul class="mn-wall__track" aria-hidden="true">
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-luis.webp?width=340" width="508" height="908" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">Luis Alejandro</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-carlos.webp?width=340" width="510" height="902" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">Carlos Mauricio</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-camila.webp?width=340" width="508" height="905" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">Camila</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-story-catalina.webp?width=340" width="508" height="903" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">Catalina</span></li>
+				</ul>
+			</div>
+			<p class="mn-wall__note">Contenido en colaboración con MIMA</p>
+		</div>
+	</section>
+
+	<!-- ===================== PROMESA (PARTE 3) ======================
+	     La red: las cuatro escenas son nodos de una misma línea que se
+	     encienden uno detrás de otro al entrar en pantalla. -->
+	<section class="mn-net">
+		<div class="mn-shell mn-narrow mn-net__inner">
+			<h2 class="mn-h2 mn-h2--light">Que las ideas no se te queden a mitad de camino.</h2>
+
+			<ol class="mn-thoughts" data-mn-reveal>
+				<li class="mn-thought">Recordar un nombre.</li>
+				<li class="mn-thought">Encontrar la palabra.</li>
+				<li class="mn-thought">Terminar una lectura sin volver al mismo párrafo.</li>
+				<li class="mn-thought">Llegar a una reunión sabiendo qué querías decir.</li>
+			</ol>
+
+			<p class="mn-net__text">MIMANAD acompaña tu memoria, concentración y claridad para los días que exigen tener la cabeza presente.</p>
+			<p class="mn-net__dose">4 dulces duros sabor kiwi al día.</p>
+
+			<div class="mn-cta-row">
+				<button type="button" class="mn-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO CUIDAR MI CLARIDAD MENTAL</button>
+			</div>
+		</div>
+	</section>
+
+	<!-- ==================== AUTORIDAD (PARTE 4) ===================== -->
+	<section class="mn-section">
+		<div class="mn-shell">
+			<div class="mn-headline">
+				<h2 class="mn-h2">Recordar también depende de cómo se conectan tus neuronas.</h2>
+			</div>
+
+			<div class="mn-cells">
+				<figure class="mn-cells__media">
+					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-neuronas.webp?width=900"
+						width="1000" height="668" loading="lazy" decoding="async"
+						alt="Ilustración de neuronas conectadas entre sí">
+				</figure>
+				<div class="mn-cells__copy">
+					<p>La memoria y la atención dependen de redes nerviosas que reciben, procesan y conectan información.</p>
+					<p>La <strong>Melena de León</strong> contiene compuestos como <strong>hericenonas y erinacinas</strong>, estudiados por su relación con procesos vinculados a la función neuronal.</p>
+					<p class="mn-cells__foot">MIMANAD combina Melena de León, Resveratrol y Niacina para acompañar memoria, concentración y vitalidad mental.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="mn-sources">
+			<ul class="mn-sources__track" tabindex="0" role="region" aria-label="Publicaciones sobre los ingredientes de MIMANAD">
+				<li class="mn-sources__item">
+					<article class="mn-source">
+						<p class="mn-source__name"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-logo-lavanguardia.webp?width=300" width="580" height="324" loading="lazy" decoding="async" alt="La Vanguardia"></p>
+						<h3 class="mn-source__title">Melena de León + conexiones nerviosas</h3>
+						<p>Investigaciones preclínicas han estudiado compuestos de Melena de León por su relación con crecimiento neuronal y memoria.</p>
+					</article>
+				</li>
+				<li class="mn-sources__item">
+					<article class="mn-source">
+						<p class="mn-source__name"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-logo-infobae.webp?width=300" width="377" height="122" loading="lazy" decoding="async" alt="Infobae"></p>
+						<h3 class="mn-source__title">Hericenonas + erinacinas</h3>
+						<p>Compuestos bioactivos de la Melena de León investigados por su posible relación con conexiones neuronales y función cognitiva.</p>
+					</article>
+				</li>
+				<li class="mn-sources__item">
+					<article class="mn-source">
+						<p class="mn-source__name"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-logo-lavanguardia.webp?width=300" width="580" height="324" loading="lazy" decoding="async" alt="La Vanguardia"></p>
+						<h3 class="mn-source__title">Resveratrol + función cerebral</h3>
+						<p>El resveratrol ha sido estudiado por su actividad antioxidante y su posible relación con memoria y función cerebral.</p>
+					</article>
+				</li>
+			</ul>
+		</div>
+
+		<div class="mn-shell">
+			<p class="mn-disclaimer">La evidencia corresponde a investigaciones sobre ingredientes y procesos biológicos. Los resultados individuales pueden variar.</p>
+		</div>
+	</section>
+
+	<!-- =============== CÓMO ACTÚA LA FÓRMULA (PARTE 5) ==============
+	     La tríada: tres nodos con la foto de cada ingrediente, unidos por
+	     líneas. Cada nodo es un botón que resalta su ficha; las tres
+	     fichas se ven siempre, nada queda oculto. -->
+	<section class="mn-section mn-section--cream">
+		<div class="mn-shell mn-narrow">
+			<div class="mn-headline">
+				<h2 class="mn-h2">Memoria. Foco. Energía mental.</h2>
+			</div>
+
+			<div class="mn-triad" data-mn-triad>
+				<div class="mn-triad__map" role="group" aria-label="Elige un ingrediente">
+					<button type="button" class="mn-triad__node mn-triad__node--1" data-mn-triad-go="0" aria-pressed="true">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-melena.webp?width=240" width="1000" height="667" loading="lazy" decoding="async" alt="">
+						<span class="mn-triad__label">Melena de León</span>
+					</button>
+					<button type="button" class="mn-triad__node mn-triad__node--2" data-mn-triad-go="1" aria-pressed="false">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-resveratrol.webp?width=240" width="1000" height="942" loading="lazy" decoding="async" alt="">
+						<span class="mn-triad__label">Resveratrol</span>
+					</button>
+					<button type="button" class="mn-triad__node mn-triad__node--3" data-mn-triad-go="2" aria-pressed="false">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-niacina.webp?width=240" width="1000" height="642" loading="lazy" decoding="async" alt="">
+						<span class="mn-triad__label">Niacina</span>
+					</button>
+				</div>
+
+				<ol class="mn-triad__cards">
+					<li class="mn-fact is-active" data-mn-triad-item>
+						<p class="mn-fact__tag">Función cognitiva</p>
+						<h3 class="mn-fact__title">Melena de León <span>200 mg</span></h3>
+						<p>Estudiada por sus compuestos bioactivos y su relación con procesos vinculados a la función neuronal.</p>
+					</li>
+					<li class="mn-fact" data-mn-triad-item>
+						<p class="mn-fact__tag">Protección antioxidante</p>
+						<h3 class="mn-fact__title">Resveratrol <span>100 mg</span></h3>
+						<p>Investigado por su actividad antioxidante y su relación con distintas funciones cerebrales.</p>
+					</li>
+					<li class="mn-fact" data-mn-triad-item>
+						<p class="mn-fact__tag">Energía celular</p>
+						<h3 class="mn-fact__title">Niacina <span>500 mg</span></h3>
+						<p>Participa en la formación de NAD y NADP, coenzimas involucradas en el metabolismo energético.</p>
+					</li>
+				</ol>
+			</div>
+
+			<p class="mn-statement">Tres ingredientes para los días en que necesitas leer, recordar, decidir y seguir.</p>
+
+			<div class="mn-cta-row">
+				<button type="button" class="mn-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
+			</div>
+		</div>
+	</section>
+
+	<!-- ==================== BENEFICIOS (PARTE 6) ====================
+	     La libreta: cuatro notas de papel rayado, cada una con la foto de
+	     alguien prendida en la esquina. Los renglones se marcan uno a uno
+	     al entrar en pantalla. -->
+	<section class="mn-section">
+		<div class="mn-shell">
+			<div class="mn-headline">
+				<h2 class="mn-h2">Más presente en lo que haces.</h2>
+			</div>
+
+			<ul class="mn-notes">
+				<li class="mn-note" data-mn-reveal>
+					<img class="mn-note__pin" src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-close-camila.webp?width=200" width="800" height="1067" loading="lazy" decoding="async" alt="Camila sonriendo con su frasco de MIMANAD">
+					<h3 class="mn-note__title"><span class="mn-note__num">1</span> Encontrar las palabras</h3>
+					<ul class="mn-note__lines">
+						<li>Seguir una conversación sin sentir que la idea se te perdió.</li>
+						<li>Decir lo que querías decir cuando lo necesitas.</li>
+					</ul>
+				</li>
+				<li class="mn-note" data-mn-reveal>
+					<img class="mn-note__pin" src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-benefit-planes.webp?width=200" width="510" height="905" loading="lazy" decoding="async" alt="Camila guardando su frasco de MIMANAD en el bolso">
+					<h3 class="mn-note__title"><span class="mn-note__num">2</span> Recordar lo cotidiano</h3>
+					<ul class="mn-note__lines">
+						<li>Esa llamada.</li>
+						<li>Ese correo.</li>
+						<li>Ese nombre.</li>
+						<li>Eso que necesitabas comprar.</li>
+					</ul>
+				</li>
+				<li class="mn-note" data-mn-reveal>
+					<img class="mn-note__pin" src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-benefit-claridad.webp?width=200" width="510" height="905" loading="lazy" decoding="async" alt="Catalina frente a su portátil con el frasco de MIMANAD">
+					<h3 class="mn-note__title"><span class="mn-note__num">3</span> Leer y seguir</h3>
+					<ul class="mn-note__lines">
+						<li>Sostener la atención.</li>
+						<li>Avanzar.</li>
+						<li>Dejar de regresar al mismo párrafo.</li>
+					</ul>
+				</li>
+				<li class="mn-note" data-mn-reveal>
+					<img class="mn-note__pin" src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-use-pausa.webp?width=200" width="510" height="903" loading="lazy" decoding="async" alt="Luis Alejandro en su escritorio con dulces duros de MIMANAD">
+					<h3 class="mn-note__title"><span class="mn-note__num">4</span> Decidir con claridad</h3>
+					<ul class="mn-note__lines">
+						<li>Priorizar.</li>
+						<li>Responder.</li>
+						<li>Terminar pendientes.</li>
+						<li>Mantener la cabeza en lo que tienes al frente.</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- ==================== MODO DE USO (PARTE 7) =================== -->
+	<section class="mn-section mn-section--cream">
+		<div class="mn-shell mn-use">
+			<figure class="mn-use__media">
+				<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-bottle-table.webp?width=560"
+					width="1000" height="1333" loading="lazy" decoding="async"
+					alt="Frasco de MIMANAD sobre una mesa">
+			</figure>
+
+			<div class="mn-use__body">
+				<h2 class="mn-h2">4 al día. Sabor kiwi.</h2>
+
+				<!-- Los cuatro dulces del día, unidos como nodos. Decorativo. -->
+				<ul class="mn-candies" aria-hidden="true">
+					<li></li><li></li><li></li><li></li>
+				</ul>
+
+				<dl class="mn-stats">
+					<div class="mn-stat"><dt>120</dt><dd>dulces duros</dd></div>
+					<div class="mn-stat"><dt>30</dt><dd>días de uso</dd></div>
+				</dl>
+
+				<p class="mn-use__note">Puedes consumirlos juntos o distribuirlos durante el día.</p>
+
+				<ol class="mn-moments">
+					<li class="mn-moment">
+						<span class="mn-moment__num">1</span>
+						<span class="mn-moment__label">Después del desayuno.</span>
+						<span class="mn-moment__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5h12v4a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5Z"/><path d="M16 11.5h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 4.5c-.8 1 .8 2 0 3M12 4.5c-.8 1 .8 2 0 3"/></svg></span>
+					</li>
+					<li class="mn-moment">
+						<span class="mn-moment__num">2</span>
+						<span class="mn-moment__label">Antes de estudiar.</span>
+						<span class="mn-moment__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5c-2-1.5-5-2-8-1.5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5Z"/><path d="M12 6.5v13"/></svg></span>
+					</li>
+					<li class="mn-moment">
+						<span class="mn-moment__num">3</span>
+						<span class="mn-moment__label">Durante una pausa.</span>
+						<span class="mn-moment__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M10 9v6M14 9v6"/></svg></span>
+					</li>
+				</ol>
+
+				<div class="mn-cta-row mn-cta-row--start">
+					<button type="button" class="mn-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO EMPEZAR</button>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ==================== CONSTANCIA (PARTE 8) ====================
+	     Cada tramo dibuja una red más tupida: 3, 5 y 8 conexiones. -->
+	<section class="mn-section">
+		<div class="mn-shell">
+			<div class="mn-headline">
+				<h2 class="mn-h2">La claridad también se entrena con constancia.</h2>
+			</div>
+
+			<ol class="mn-steps">
+				<li class="mn-step">
+					<svg class="mn-step__net" viewBox="0 0 64 40" aria-hidden="true"><path d="M8 30 26 12 44 28"/><circle cx="8" cy="30" r="3.5"/><circle cx="26" cy="12" r="3.5"/><circle cx="44" cy="28" r="3.5"/><circle class="mn-step__off" cx="56" cy="10" r="3.5"/></svg>
+					<p class="mn-step__when">Días 1–30</p>
+					<p class="mn-step__lead">4 dulces duros al día.</p>
+					<p>Empiezas a incorporar MIMANAD a tus jornadas de trabajo, estudio o lectura.</p>
+				</li>
+				<li class="mn-step">
+					<svg class="mn-step__net" viewBox="0 0 64 40" aria-hidden="true"><path d="M8 30 26 12 44 28 56 10M26 12 56 10M8 30 44 28"/><circle cx="8" cy="30" r="3.5"/><circle cx="26" cy="12" r="3.5"/><circle cx="44" cy="28" r="3.5"/><circle cx="56" cy="10" r="3.5"/></svg>
+					<p class="mn-step__when">Días 31–60</p>
+					<p>La constancia encuentra espacio entre pendientes, reuniones y horas de concentración.</p>
+				</li>
+				<li class="mn-step">
+					<svg class="mn-step__net" viewBox="0 0 64 40" aria-hidden="true"><path d="M8 30 26 12 44 28 56 10M26 12 56 10M8 30 44 28M8 30 30 36 44 28M30 36 26 12M56 10 60 30 44 28"/><circle cx="8" cy="30" r="3.5"/><circle cx="26" cy="12" r="3.5"/><circle cx="44" cy="28" r="3.5"/><circle cx="56" cy="10" r="3.5"/><circle cx="30" cy="36" r="3"/><circle cx="60" cy="30" r="3"/></svg>
+					<p class="mn-step__when">Días 61–90</p>
+					<p>El objetivo: construir días con más presencia y atención en lo que quieres recordar.</p>
+				</li>
+			</ol>
+
+			<p class="mn-disclaimer">Los resultados pueden variar según descanso, alimentación, actividad física, condiciones individuales y otras variables.</p>
+		</div>
+	</section>
+
+	<!-- ======================= PAGO (PARTE 9) ======================= -->
+	<section class="mn-section mn-section--cream" id="mn-payment">
+		<div class="mn-shell mn-narrow">
+			<div class="mn-headline">
+				<h2 class="mn-h2">Tú eliges cómo pagar.</h2>
+			</div>
+
+			<fieldset class="mn-pay">
+				<legend class="mn-visually-hidden">Forma de pago</legend>
+
+				<label class="mn-pay__option" for="mn-pay-prepaid">
+					<input type="radio" name="mn-payment" id="mn-pay-prepaid" value="prepaid" checked>
+					<span class="mn-pay__box mn-pay__box--best">
+						<span class="mn-pay__badge">Recomendado</span>
+						<span class="mn-pay__name">Pago anticipado</span>
+						<span class="mn-pay__amount">$79.900</span>
+						<span class="mn-pay__save">Ahorras $10.000</span>
+						<span class="mn-pay__detail">Confirmación y seguimiento por WhatsApp</span>
+						<span class="mn-pay__methods">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-pay-visa.webp?width=222" width="222" height="72" loading="lazy" decoding="async" alt="Visa">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-pay-mastercard.webp?width=92" width="92" height="72" loading="lazy" decoding="async" alt="Mastercard">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-pay-pse.webp?width=72" width="72" height="72" loading="lazy" decoding="async" alt="PSE">
+						</span>
+					</span>
+				</label>
+
+				<label class="mn-pay__option" for="mn-pay-cod">
+					<input type="radio" name="mn-payment" id="mn-pay-cod" value="cod">
+					<span class="mn-pay__box">
+						<span class="mn-pay__name">Pago contraentrega</span>
+						<span class="mn-pay__amount">$89.900</span>
+						<span class="mn-pay__detail">Pagas cuando recibes</span>
+					</span>
+				</label>
+			</fieldset>
+
+			<ul class="mn-pay__same">
+				<li>Mismo producto.</li>
+				<li>120 dulces duros.</li>
+				<li>30 días.</li>
+			</ul>
+
+			<div class="mn-cta-row">
+				<button type="button" class="mn-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage" data-mn-cta-price>ELEGIR MI FORMA DE PAGO</button>
+			</div>
+
+			<ul class="mn-trust">
+				<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h3.7l2.8 3v4h-6.5z"/><circle cx="7" cy="18" r="1.7"/><circle cx="17" cy="18" r="1.7"/></svg> Envío gratis · 3 a 5 días</li>
+				<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.3 7.5L3.6 20.4l1.4-4.4A8.4 8.4 0 1 1 20.5 11.6Z"/></svg> Confirmamos por WhatsApp</li>
+				<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg> Notificación sanitaria NSA-0009109-2020</li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- ========================= BONO (PARTE 10) ====================
+	     La lámina ya trae todo el copy del bono —titular, qué incluye e
+	     iconos—: se usa tal cual, sin reconstruir su texto en HTML. El copy
+	     completo va oculto, para lector de pantalla y buscadores. -->
+	<section class="mn-section mn-bonus">
+		<div class="mn-shell mn-narrow">
+			<h2 class="mn-visually-hidden">Gratis con tu compra: 30 días para ordenar tu mente y tus pendientes</h2>
+			<figure class="mn-bonus__poster mn-deck">
+				<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-bono-memoria.webp"
+					width="1050" height="1050" loading="lazy" decoding="async"
+					alt="Guía digital gratis con tu compra de MIMANAD: 30 días para ordenar tu mente y tus pendientes">
+			</figure>
+			<div class="mn-visually-hidden">
+				<p>Una guía para descargar de tu cabeza todo lo que intentas recordar al mismo tiempo.</p>
+				<p>Incluye:</p>
+				<ul>
+					<li>Hoja para vaciar pendientes</li>
+					<li>Organización semanal</li>
+					<li>Pausas para recuperar atención</li>
+					<li>Claves para preparar una jornada de lectura o estudio</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- =================== TESTIMONIOS (PARTE 11) ===================
+	     Nombres reales del pool de UGC; texto y ciudad, del copy. Las fotos
+	     de Catalina y Camila son selfies volteadas: la etiqueta salía en
+	     espejo. -->
+	<section class="mn-section">
+		<div class="mn-shell">
+			<div class="mn-headline">
+				<h2 class="mn-h2">Cuando tu cabeza vuelve a sentirse presente.</h2>
+				<p class="mn-sub">Contenido en colaboración con MIMA</p>
+			</div>
+		</div>
+
+		<div class="mn-stories">
+			<ul class="mn-stories__track" tabindex="0" role="region" aria-label="Historias de personas que usan MIMANAD">
+				<li class="mn-stories__item">
+					<article class="mn-story">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-story-catalina.webp?width=560"
+							width="508" height="903" loading="lazy" decoding="async"
+							alt="Catalina trabajando en su portátil con el frasco de MIMANAD en el escritorio">
+						<div class="mn-story__body">
+							<p class="mn-story__who">Catalina <span>· Bogotá</span></p>
+							<p class="mn-story__lead">Me molestaba quedarme buscando palabras simples mientras hablaba.</p>
+							<p>También dependía demasiado de notas para recordar cosas pequeñas.</p>
+							<p>Elegí MIMANAD porque es fácil de tener en el escritorio y el sabor kiwi me gustó desde el principio.</p>
+							<p class="mn-story__tag">Colaboración con MIMA</p>
+						</div>
+					</article>
+				</li>
+				<li class="mn-stories__item">
+					<article class="mn-story">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-story-luis.webp?width=560"
+							width="510" height="905" loading="lazy" decoding="async"
+							alt="Luis Alejandro abriendo su frasco de MIMANAD en el escritorio">
+						<div class="mn-story__body">
+							<p class="mn-story__who">Luis Alejandro <span>· Medellín</span></p>
+							<p class="mn-story__lead">Trabajo frente a pantalla todo el día y había momentos en los que leía el mismo correo varias veces.</p>
+							<p>Buscaba algo práctico para acompañar mi concentración.</p>
+							<p>Los dulces duros de MIMANAD son fáciles de llevar y los tomo durante una pausa antes de seguir trabajando.</p>
+							<p class="mn-story__tag">Colaboración con MIMA</p>
+						</div>
+					</article>
+				</li>
+				<li class="mn-stories__item">
+					<article class="mn-story">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-story-camila-m.webp?width=560"
+							width="510" height="905" loading="lazy" decoding="async"
+							alt="Camila abriendo su frasco de MIMANAD">
+						<div class="mn-story__body">
+							<p class="mn-story__who">Camila <span>· Cali</span></p>
+							<p class="mn-story__lead">Usaba alarmas para casi todo.</p>
+							<p>La lista del mercado, una llamada, un pendiente.</p>
+							<p>Me interesó MIMANAD por la Melena de León y me gustó que fueran dulces duros sabor kiwi.</p>
+							<p>4 al día y sigo con mi jornada.</p>
+							<p class="mn-story__tag">Colaboración con MIMA</p>
+						</div>
+					</article>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- ==================== COMPARATIVA (PARTE 12) ==================
+	     Cada icono es un botón que resalta su opción sin ocultar ninguna
+	     (regla de comparativas, /AGENTS.md §7). -->
+	<section class="mn-section mn-section--cream">
+		<div class="mn-shell mn-narrow">
+			<div class="mn-headline">
+				<h2 class="mn-h2">Tu mente necesita más que recordar pendientes.</h2>
+			</div>
+
+			<ul class="mn-compare" data-mn-compare>
+				<li class="mn-compare__item" data-mn-compare-item>
+					<button type="button" class="mn-compare__icon" data-mn-compare-toggle aria-pressed="false" aria-label="Destacar café y energizantes">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 9.5h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5Z"/><path d="M15.5 10.5H17a2.5 2.5 0 0 1 0 5h-1.5"/><path d="m10.8 3.5-1.6 3h2.6l-1.6 3"/></svg>
+					</button>
+					<h3 class="mn-compare__name">Café y energizantes</h3>
+					<p class="mn-compare__what">Pueden dar un impulso puntual cuando aparece el cansancio.</p>
+				</li>
+				<li class="mn-compare__item" data-mn-compare-item>
+					<button type="button" class="mn-compare__icon" data-mn-compare-toggle aria-pressed="false" aria-label="Destacar notas y alarmas">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 2h-15Z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg>
+					</button>
+					<h3 class="mn-compare__name">Notas y alarmas</h3>
+					<p class="mn-compare__what">Ayudan a organizar fechas y pendientes.</p>
+				</li>
+				<li class="mn-compare__item" data-mn-compare-item>
+					<button type="button" class="mn-compare__icon" data-mn-compare-toggle aria-pressed="false" aria-label="Destacar multivitamínicos">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8.5" width="18" height="7" rx="3.5" transform="rotate(-35 12 12)"/><path d="m9.8 8.9 4.4 6.2"/></svg>
+					</button>
+					<h3 class="mn-compare__name">Multivitamínicos</h3>
+					<p class="mn-compare__what">Aportan vitaminas y minerales de manera amplia.</p>
+				</li>
+				<li class="mn-compare__item mn-compare__item--ours is-active" data-mn-compare-item>
+					<button type="button" class="mn-compare__icon" data-mn-compare-toggle aria-pressed="true" aria-label="Destacar MIMANAD">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5.5" cy="16" r="2"/><circle cx="12" cy="6" r="2"/><circle cx="18.5" cy="15" r="2"/><path d="M7 14.4 10.8 7.7M13.3 7.6l3.9 5.8M7.5 16h9"/></svg>
+					</button>
+					<div class="mn-compare__ours">
+						<h3 class="mn-compare__name">MIMANAD</h3>
+						<ul class="mn-compare__formula">
+							<li>Niacina 500 mg</li>
+							<li>Resveratrol 100 mg</li>
+							<li>Melena de León 200 mg</li>
+						</ul>
+						<p class="mn-compare__what">Memoria + concentración + energía mental</p>
+						<p class="mn-compare__meta">120 dulces duros sabor kiwi · 4 al día · 30 días</p>
+					</div>
+				</li>
+			</ul>
+
+			<div class="mn-cta-row">
+				<button type="button" class="mn-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
+			</div>
+		</div>
+	</section>
+
+	<!-- =================== QUÉ RECIBES (PARTE 13) =================== -->
+	<section class="mn-section">
+		<div class="mn-shell mn-receive">
+			<div class="mn-receive__copy">
+				<h2 class="mn-h2">Todo en un frasco.</h2>
+
+				<ul class="mn-checklist">
+					<li>1 MIMANAD</li>
+					<li>120 dulces duros sabor kiwi</li>
+					<li>30 días de uso</li>
+					<li>Guía digital para organizar mente y pendientes</li>
+					<li>Envío gratis a Colombia</li>
+					<li>Confirmación por WhatsApp</li>
+				</ul>
+
+				<div class="mn-cta-row mn-cta-row--start">
+					<button type="button" class="mn-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
+				</div>
+			</div>
+
+			<div class="mn-receive__media">
+				<figure>
+					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-bottle-hand.webp?width=560"
+						width="1000" height="1333" loading="lazy" decoding="async"
+						alt="Frasco de MIMANAD sostenido en la mano frente a unas plantas">
+				</figure>
+				<figure>
+					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-pills-hand.webp?width=560"
+						width="1000" height="1333" loading="lazy" decoding="async"
+						alt="Cuatro dulces duros de MIMANAD en la palma de la mano">
+				</figure>
+			</div>
+		</div>
+	</section>
+
+	<!-- ==================== GARANTÍA (PARTE 14) ===================== -->
+	<section class="mn-section mn-section--cream">
+		<div class="mn-shell mn-narrow">
+			<div class="mn-guarantee">
+				<img class="mn-guarantee__brand"
+					src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-mima-badge.webp?width=140"
+					width="176" height="176" loading="lazy" decoding="async"
+					alt="MIMA">
+				<h2 class="mn-h2">Tu pedido llega. O respondemos.</h2>
+
+				<ol class="mn-promise">
+					<li class="mn-promise__item">
+						<span class="mn-promise__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h3.7l2.8 3v4h-6.5z"/><circle cx="7" cy="18" r="1.7"/><circle cx="17" cy="18" r="1.7"/></svg></span>
+						<p>Entrega estimada de 3 a 5 días hábiles.</p>
+					</li>
+					<li class="mn-promise__item">
+						<span class="mn-promise__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12a7.5 7.5 0 0 1 12.8-5.3L19.5 9"/><path d="M19.5 4.5V9H15"/><path d="M19.5 12a7.5 7.5 0 0 1-12.8 5.3L4.5 15"/><path d="M4.5 19.5V15H9"/></svg></span>
+						<p>Si no llega dentro de ese plazo, lo reenviamos sin costo adicional.</p>
+					</li>
+					<li class="mn-promise__item mn-promise__item--best">
+						<span class="mn-promise__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="12" rx="2.5"/><circle cx="12" cy="12" r="2.6"/><path d="M6 12h.01M18 12h.01"/></svg></span>
+						<p>Si pagaste anticipado y prefieres no esperar el reenvío, devolvemos tu dinero.</p>
+					</li>
+				</ol>
+			</div>
+		</div>
+	</section>
+
+	<!-- ====================== FAQ (PARTE 15) ======================== -->
+	<section class="mn-section">
+		<div class="mn-shell mn-narrow">
+			<div class="mn-headline">
+				<h2 class="mn-h2">Preguntas frecuentes</h2>
+			</div>
+
+			<div class="mn-faq">
+				<details class="mn-faq__item">
+					<summary>¿Cómo tomo MIMANAD?</summary>
+					<div class="mn-faq__body"><p>4 dulces duros al día. Juntos o distribuidos durante el día.</p></div>
+				</details>
+				<details class="mn-faq__item">
+					<summary>¿Cuánto dura?</summary>
+					<div class="mn-faq__body"><p>30 días. Cada frasco contiene 120 dulces duros.</p></div>
+				</details>
+				<details class="mn-faq__item">
+					<summary>¿A qué sabe?</summary>
+					<div class="mn-faq__body"><p>Kiwi. Fresco y frutal.</p></div>
+				</details>
+				<details class="mn-faq__item">
+					<summary>¿Qué contiene?</summary>
+					<div class="mn-faq__body"><p>Niacina 500 mg, Resveratrol 100 mg y Melena de León 200 mg por porción indicada.</p></div>
+				</details>
+				<details class="mn-faq__item">
+					<summary>¿Cuándo puedo tomarlo?</summary>
+					<div class="mn-faq__body"><p>Después del desayuno, antes de estudiar o durante una pausa.</p></div>
+				</details>
+				<details class="mn-faq__item">
+					<summary>¿Puedo pagar al recibir?</summary>
+					<div class="mn-faq__body">
+						<p>Sí.</p>
+						<p class="mn-faq__prices"><span class="mn-faq__best">Pago anticipado: <strong>$79.900</strong></span> <span>Contraentrega: $89.900</span></p>
+						<p>Ahorras $10.000 pagando anticipado.</p>
+					</div>
+				</details>
+				<details class="mn-faq__item">
+					<summary>¿Quién debe consultar antes de consumirlo?</summary>
+					<div class="mn-faq__body"><p>Personas embarazadas, en lactancia, con condiciones de salud, que tomen medicamentos o tengan alergia a los hongos deben consultar a un profesional de salud.</p></div>
+				</details>
+				<details class="mn-faq__item">
+					<summary>¿Y si los olvidos son frecuentes o empeoran?</summary>
+					<div class="mn-faq__body"><p>Los olvidos nuevos, progresivos o que interfieren con tu vida diaria requieren valoración profesional.</p></div>
+				</details>
+			</div>
+		</div>
+	</section>
+
+	<!-- ===================== CTA FINAL (PARTE 16) ===================
+	     Vuelve la red de la promesa: las cinco razones se encienden como
+	     nodos y la tarjeta de compra cierra el recorrido. -->
+	<section class="mn-net mn-net--close">
+		<div class="mn-shell mn-narrow mn-close">
+			<h2 class="mn-h2 mn-h2--light">Que tu cabeza esté contigo cuando la necesitas.</h2>
+
+			<ul class="mn-close__reasons" data-mn-reveal>
+				<li>Para recordar.</li>
+				<li>Para concentrarte.</li>
+				<li>Para encontrar las palabras.</li>
+				<li>Para terminar lo que empezaste.</li>
+				<li>Para estar presente.</li>
+			</ul>
+
+			<div class="mn-close__card">
+				<img class="mn-close__photo"
+					src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-mem-hero-1.webp"
+					width="1050" height="1050" loading="lazy" decoding="async"
+					alt="Mujer y hombre sonrientes con sus frascos de MIMANAD">
+				<p class="mn-close__product">MIMANAD</p>
+				<p class="mn-close__formula">Niacina 500 mg + Resveratrol 100 mg + Melena de León 200 mg</p>
+				<p class="mn-close__meta">120 dulces duros sabor kiwi · 4 al día · 30 días</p>
+
+				<div class="mn-close__options">
+					<div class="mn-close__option mn-close__option--best">
+						<span class="mn-close__badge">Recomendado</span>
+						<p class="mn-close__label">Pago anticipado</p>
+						<p class="mn-close__amount">$79.900</p>
+						<p class="mn-close__save">Ahorras $10.000</p>
+					</div>
+					<div class="mn-close__option">
+						<p class="mn-close__label">Pago contraentrega</p>
+						<p class="mn-close__amount">$89.900</p>
+					</div>
+				</div>
+
+				<div class="mn-cta-row">
+					<button type="button" class="mn-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
+				</div>
+
+				<ul class="mn-trust">
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2.5"/><circle cx="12" cy="12" r="2.6"/><path d="M6 12h.01M18 12h.01"/></svg> Pagas al recibir</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h3.7l2.8 3v4h-6.5z"/><circle cx="7" cy="18" r="1.7"/><circle cx="17" cy="18" r="1.7"/></svg> Envío gratis · 3 a 5 días</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.3 7.5L3.6 20.4l1.4-4.4A8.4 8.4 0 1 1 20.5 11.6Z"/></svg> Confirmamos por WhatsApp</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- =========================== INSTAGRAM ======================== -->
+	<section class="mn-section mn-social">
+		<div class="mn-shell mn-narrow">
+			<figure class="mn-social__card">
+				<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-instagram-u.webp?width=1000"
+					width="1000" height="398" loading="lazy" decoding="async"
+					alt="Perfil de Instagram de MIMA, @mima_tiendaoficial, con 106 mil seguidores">
+			</figure>
+		</div>
+	</section>
+
+	<!-- ============================ FOOTER ========================== -->
+	<footer class="mn-footer">
+		<div class="mn-shell mn-footer__inner">
+			<img class="mn-footer__logo"
+				src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-mima-white.webp?width=200"
+				width="300" height="180" loading="lazy" decoding="async"
+				alt="MIMA">
+
+			<dl class="mn-footer__data">
+				<div class="mn-footer__block">
+					<dt>Notificación sanitaria</dt>
+					<dd>NSA-0009109-2020</dd>
+				</div>
+				<div class="mn-footer__block">
+					<dt>Atención al cliente MIMA</dt>
+					<dd><a href="tel:+573006964582">300 696 4582</a></dd>
+				</div>
+			</dl>
+
+			<p class="mn-footer__legal">MIMANAD es un suplemento dietario. No sustituye una alimentación equilibrada, el descanso, la actividad física ni la valoración de un profesional de salud. No está destinado a diagnosticar, prevenir, tratar ni curar enfermedades. Suspende su uso y consulta a un profesional de salud si presentas una reacción adversa. Mantener fuera del alcance de los niños.</p>
+			<p class="mn-footer__legal">Contiene edulcorantes.</p>
+		</div>
+	</footer>
+
+	<!-- ========================= CTA STICKY ========================= -->
+	<div class="mn-sticky" data-mn-sticky hidden>
+		<div class="mn-sticky__inner">
+			<p class="mn-sticky__price"><strong data-mn-sticky-price>$89.900</strong> <span>Envío gratis</span></p>
+			<button type="button" class="mn-cta mn-cta--sm _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
+		</div>
+	</div>
+
+</section>
+
+<style>
+	/* =========================================================
+	   Tipografía de marca — AOK Buenos Aires (CDN de la tienda,
+	   CORS abierto: vale igual en GemPages y en la vista previa)
+	   ========================================================= */
+
+	@font-face {
+		font-family: 'AOK Buenos Aires';
+		src: url('https://www.mimacolombia.com/cdn/shop/files/aok-buenos-aires-400.woff2') format('woff2');
+		font-weight: 400;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'AOK Buenos Aires';
+		src: url('https://www.mimacolombia.com/cdn/shop/files/aok-buenos-aires-600.woff2') format('woff2');
+		font-weight: 600;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'AOK Buenos Aires';
+		src: url('https://www.mimacolombia.com/cdn/shop/files/aok-buenos-aires-700.woff2') format('woff2');
+		/* Bold es el peso más alto: cubre 700-800 para no simular negrita */
+		font-weight: 700 800;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	/* =========================================================
+	   MIMA · MIMANAD — ángulo MEMORIA. Todo bajo .mn-lp.
+	   Misma paleta del frasco que energía; aquí manda el VIOLETA
+	   (la cabeza, el foco) y el ámbar queda de acento puntual.
+	   Todas las medidas en px (§9.5 del AGENTS global).
+	   ========================================================= */
+
+	.mn-lp {
+		--mn-plum-deep: #3d0f33;   /* 15.7:1 sobre blanco */
+		--mn-plum: #611b52;        /* 11.6:1 */
+		--mn-violet: #893889;      /* 7.0:1 */
+		--mn-violet-soft: #a151a5; /* 4.9:1 */
+		--mn-lilac: #be72c5;       /* solo decorativo */
+		--mn-lilac-glow: #e3b6e6;  /* solo decorativo: nodos encendidos */
+		--mn-amber: #b85510;       /* 4.8:1 — acento puntual */
+
+		/* CTA "la conexión": violeta de reposo (7.0:1 con blanco) y el
+		   violeta claro de las dos mitades que se encuentran (4.9:1). */
+		--mn-cta-base: #893889;
+		--mn-cta-glow: #a151a5;
+
+		--mn-text: #241f24;
+		--mn-muted: #6b5f6a;
+		--mn-border: #e6dde2;
+		--mn-surface: #ffffff;
+		--mn-cream: #f7f3ef;
+		--mn-violet-tint: #f4ebf4;
+
+		/* La red: berenjena con dos resplandores violeta y una trama de
+		   nodos a baja opacidad. Todo el fondo sostiene texto blanco. */
+		--mn-net-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='120' viewBox='0 0 160 120'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.09' stroke-width='1'%3E%3Cpath d='M12 20 58 44 104 16 148 52M58 44 40 96 96 84 148 52M104 16 96 84'/%3E%3C/g%3E%3Cg fill='%23ffffff' fill-opacity='.16'%3E%3Ccircle cx='12' cy='20' r='2.5'/%3E%3Ccircle cx='58' cy='44' r='3'/%3E%3Ccircle cx='104' cy='16' r='2.5'/%3E%3Ccircle cx='148' cy='52' r='3'/%3E%3Ccircle cx='40' cy='96' r='2.5'/%3E%3Ccircle cx='96' cy='84' r='3'/%3E%3C/g%3E%3C/svg%3E");
+
+		--mn-font: 'AOK Buenos Aires', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+		--mn-radius: 14px;
+		--mn-radius-lg: 22px;
+		--mn-shell: 1080px;
+		--mn-narrow: 720px;
+		--mn-pad: clamp(46px, 6.5vw, 88px);
+		--mn-gutter: 20px;
+
+		box-sizing: border-box;
+		display: block;
+		color: var(--mn-text);
+		background: var(--mn-surface);
+		font-family: var(--mn-font);
+		font-size: 16px;
+		line-height: 1.6;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	.mn-lp *,
+	.mn-lp *::before,
+	.mn-lp *::after { box-sizing: inherit; }
+
+	.mn-lp p,
+	.mn-lp h1,
+	.mn-lp h2,
+	.mn-lp h3,
+	.mn-lp ul,
+	.mn-lp ol,
+	.mn-lp dl,
+	.mn-lp dd,
+	.mn-lp figure,
+	.mn-lp fieldset { margin: 0; padding: 0; }
+
+	/* Dawn trae `div:empty{display:none}`: sin esto cualquier capa vacía
+	   desaparece en producción aunque funcione en la vista previa. */
+	.mn-lp div:empty { display: block; }
+
+	/* El tema pone font-family por etiqueta y eso gana a la herencia */
+	.mn-lp h1, .mn-lp h2, .mn-lp h3, .mn-lp h4,
+	.mn-lp p, .mn-lp li, .mn-lp dt, .mn-lp dd,
+	.mn-lp a, .mn-lp button, .mn-lp summary, .mn-lp span, .mn-lp strong {
+		font-family: var(--mn-font);
+	}
+
+	.mn-lp ul,
+	.mn-lp ol { list-style: none; }
+	.mn-lp fieldset { border: 0; }
+	.mn-lp img { display: block; max-width: 100%; height: auto; }
+
+	.mn-lp .mn-visually-hidden {
+		position: absolute;
+		width: 1px; height: 1px;
+		margin: -1px; padding: 0;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		white-space: nowrap;
+		border: 0;
+	}
+
+	/* ---------- Layout ---------- */
+
+	.mn-lp .mn-shell {
+		width: 100%;
+		max-width: var(--mn-shell);
+		margin-inline: auto;
+		padding-inline: var(--mn-gutter);
+	}
+
+	.mn-lp .mn-shell.mn-narrow { max-width: var(--mn-narrow); }
+
+	.mn-lp .mn-section { padding-block: var(--mn-pad); }
+	.mn-lp .mn-section.mn-section--cream { background: var(--mn-cream); }
+	.mn-lp .mn-section.mn-section--tight { padding-block: 6px 26px; }
+
+	/* ---------- Tipografía ---------- */
+
+	.mn-lp .mn-h1 {
+		font-size: clamp(28px, 7.4vw, 54px);
+		line-height: 1.08;
+		letter-spacing: -0.02em;
+		font-weight: 800;
+		color: var(--mn-plum-deep);
+		text-wrap: balance;
+	}
+
+	.mn-lp .mn-accent { color: var(--mn-violet); }
+
+	.mn-lp .mn-h2 {
+		font-size: clamp(26px, 5.2vw, 40px);
+		line-height: 1.14;
+		letter-spacing: -0.015em;
+		font-weight: 800;
+		color: var(--mn-plum-deep);
+		text-wrap: balance;
+	}
+
+	.mn-lp .mn-h2.mn-h2--light { color: #fff; }
+
+	.mn-lp .mn-sub {
+		margin-top: 10px;
+		font-size: 13px;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--mn-violet);
+	}
+
+	.mn-lp .mn-lead {
+		margin-top: 10px;
+		max-width: 44ch;
+		font-size: 15px;
+		line-height: 1.5;
+		color: var(--mn-muted);
+	}
+
+	/* En px y no en ch: el ch se mide con los 16px del contenedor, no con
+	   los 40px del titular (medido en energía: partía en cuatro líneas). */
+	.mn-lp .mn-headline {
+		max-width: 620px;
+		margin: 0 auto clamp(24px, 3.6vw, 44px);
+		text-align: center;
+	}
+
+	.mn-lp .mn-disclaimer {
+		max-width: 60ch;
+		margin: 26px auto 0;
+		text-align: center;
+		font-size: 13px;
+		line-height: 1.5;
+		color: var(--mn-muted);
+	}
+
+	.mn-lp .mn-statement {
+		max-width: 34ch;
+		margin: clamp(28px, 4vw, 40px) auto 0;
+		text-align: center;
+		font-size: clamp(18px, 3vw, 22px);
+		line-height: 1.35;
+		font-weight: 700;
+		color: var(--mn-plum);
+		text-wrap: balance;
+	}
+
+	/* ---------- CTA: "la conexión" ----------
+	   Dos mitades de luz nacen en los extremos del botón y avanzan hasta
+	   encontrarse en el centro, como dos neuronas que se conectan; se
+	   sostienen un instante y se apagan. Ocupa el botón entero y no hay
+	   nada dibujado encima del texto.
+	   ::before es la mitad izquierda y ::after la derecha; solo animan
+	   transform y opacity. En pausa hasta que el botón entra en pantalla:
+	   sin JS es un botón violeta quieto. */
+
+	.mn-lp .mn-cta {
+		position: relative;
+		overflow: hidden;
+		isolation: isolate;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		max-width: 420px;
+		min-height: 54px;
+		padding: 13px 24px;
+		border: 0;
+		border-radius: 999px;
+		background: var(--mn-cta-base);
+		color: #fff;
+		font: inherit;
+		/* 15px en móvil: por encima, los CTA largos parten en dos líneas */
+		font-size: clamp(15px, 3.2vw, 17px);
+		font-weight: 800;
+		line-height: 1.25;
+		letter-spacing: 0.03em;
+		text-transform: uppercase;
+		cursor: pointer;
+		box-shadow: 0 10px 24px rgba(137, 56, 137, 0.32), inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+		transition: transform 0.12s ease, box-shadow 0.18s ease;
+	}
+
+	.mn-lp .mn-cta::before,
+	.mn-lp .mn-cta::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		z-index: -1;
+		width: 50%;
+		background: var(--mn-cta-glow);
+		transform: scaleX(0);
+		animation: mn-connect 4.8s cubic-bezier(0.4, 0, 0.2, 1) 1s infinite;
+		animation-play-state: paused;
+	}
+
+	.mn-lp .mn-cta::before { left: 0; transform-origin: left center; }
+	.mn-lp .mn-cta::after { right: 0; transform-origin: right center; }
+
+	@keyframes mn-connect {
+		0% { transform: scaleX(0); opacity: 1; }
+		30% { transform: scaleX(1); opacity: 1; }
+		58% { transform: scaleX(1); opacity: 1; }
+		72% { transform: scaleX(1); opacity: 0; }
+		73% { transform: scaleX(0); opacity: 0; }
+		100% { transform: scaleX(0); opacity: 0; }
+	}
+
+	.mn-lp .mn-cta.is-live::before,
+	.mn-lp .mn-cta.is-live::after { animation-play-state: running; }
+
+	/* Con el ratón encima, las mitades se quedan unidas */
+	.mn-lp .mn-cta.mn-cta:hover::before,
+	.mn-lp .mn-cta.mn-cta:hover::after { animation: none; transform: scaleX(1); opacity: 1; }
+
+	.mn-lp .mn-cta:hover { box-shadow: 0 12px 30px rgba(137, 56, 137, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.22); }
+	.mn-lp .mn-cta:active { transform: translateY(1px); }
+	.mn-lp .mn-cta:focus-visible { outline: 3px solid var(--mn-plum); outline-offset: 3px; }
+
+	.mn-lp .mn-cta.mn-cta--sm {
+		width: auto;
+		min-height: 46px;
+		padding: 11px 18px;
+		font-size: 14px;
+		box-shadow: none;
+	}
+
+	.mn-lp .mn-cta-row { margin-top: clamp(28px, 4vw, 40px); text-align: center; }
+	.mn-lp .mn-cta-row.mn-cta-row--start { text-align: left; }
+
+	/* ---------- Confianza bajo los CTA ---------- */
+
+	.mn-lp .mn-trust {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 8px 18px;
+		margin-top: 14px;
+	}
+
+	.mn-lp .mn-trust li {
+		display: flex;
+		align-items: center;
+		gap: 7px;
+		font-size: 13px;
+		line-height: 1.3;
+		color: var(--mn-muted);
+	}
+
+	.mn-lp .mn-trust svg {
+		flex: 0 0 auto;
+		width: 17px;
+		height: 17px;
+		color: var(--mn-violet);
+	}
+
+	/* ---------- Cabecera ---------- */
+
+	.mn-lp .mn-topbar {
+		background: var(--mn-plum-deep);
+		padding-block: 6px;
+	}
+
+	.mn-lp .mn-topbar__inner { display: flex; justify-content: center; }
+	.mn-lp .mn-topbar img { width: clamp(50px, 8vw, 72px); }
+
+	/* ---------- Hero ---------- */
+
+	.mn-lp .mn-hero {
+		background: linear-gradient(180deg, var(--mn-violet-tint) 0%, var(--mn-surface) 80%);
+		padding-block: 16px 22px;
+	}
+
+	.mn-lp .mn-hero__grid {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		grid-template-areas:
+			'head'
+			'media'
+			'buy'
+			'specs';
+		row-gap: 16px;
+	}
+
+	.mn-lp .mn-hero__head { grid-area: head; }
+	.mn-lp .mn-hero__media { grid-area: media; width: 100%; max-width: 480px; margin-inline: auto; }
+	.mn-lp .mn-hero__buy { grid-area: buy; text-align: center; }
+	.mn-lp .mn-hero__specs { grid-area: specs; }
+
+	/* Preheadline con la firma de la conexión: tres nodos unidos */
+	.mn-lp .mn-hero__brand {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		margin-bottom: 8px;
+		font-size: 13px;
+		line-height: 1.2;
+		font-weight: 800;
+		letter-spacing: 0.22em;
+		color: var(--mn-violet);
+	}
+
+	.mn-lp .mn-hero__brand::before {
+		content: '';
+		width: 30px;
+		height: 8px;
+		background:
+			radial-gradient(circle at 4px 4px, var(--mn-plum) 0 3.5px, transparent 4px),
+			radial-gradient(circle at 15px 4px, var(--mn-violet) 0 3.5px, transparent 4px),
+			radial-gradient(circle at 26px 4px, var(--mn-lilac) 0 3.5px, transparent 4px),
+			linear-gradient(var(--mn-lilac), var(--mn-lilac)) 4px 3.25px / 22px 1.5px no-repeat;
+	}
+
+	/* ---------- Slider en pila ----------
+	   Flechas a los lados, nunca encima: no tapan la foto y fuera de ella
+	   no cuestan alto (en energía, una banda de controles debajo empujaba
+	   el CTA 44px). */
+
+	.mn-lp .mn-slider {
+		display: grid;
+		grid-template-columns: 32px minmax(0, 1fr) 32px;
+		align-items: center;
+		gap: 8px;
+	}
+
+	/* Dos tarjetas asoman detrás, giradas, como fotos apiladas. Van
+	   detrás de la foto (z-index -1 dentro de un contexto propio), así
+	   que nunca la tapan. */
+	.mn-lp .mn-deck {
+		position: relative;
+		isolation: isolate;
+	}
+
+	.mn-lp .mn-deck::before,
+	.mn-lp .mn-deck::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		border-radius: var(--mn-radius-lg);
+		border: 1px solid var(--mn-border);
+	}
+
+	.mn-lp .mn-deck::before {
+		background: var(--mn-surface);
+		transform: rotate(-5deg) translate(-4px, 6px);
+		box-shadow: 0 10px 22px rgba(61, 15, 51, 0.1);
+	}
+
+	.mn-lp .mn-deck::after {
+		background: var(--mn-violet-tint);
+		transform: rotate(3.5deg) translate(5px, 4px);
+	}
+
+	.mn-lp .mn-slider__track {
+		display: flex;
+		margin: 0;
+		padding: 0;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		scroll-behavior: smooth;
+		overscroll-behavior-inline: contain;
+		border-radius: var(--mn-radius-lg);
+		scrollbar-width: none;
+		box-shadow: 0 16px 34px rgba(61, 15, 51, 0.16);
+	}
+
+	.mn-lp .mn-slider__track::-webkit-scrollbar { display: none; }
+	.mn-lp .mn-slider__track:focus-visible { outline: 3px solid var(--mn-violet); outline-offset: 3px; }
+
+	.mn-lp .mn-slider__slide {
+		flex: 0 0 100%;
+		scroll-snap-align: center;
+		scroll-snap-stop: always;
+	}
+
+	.mn-lp .mn-slider__slide img {
+		width: 100%;
+		aspect-ratio: 1 / 1;
+		object-fit: cover;
+	}
+
+	.mn-lp .mn-slider__arrow {
+		display: grid;
+		place-items: center;
+		width: 32px;
+		height: 32px;
+		padding: 0;
+		border: 1px solid var(--mn-border);
+		border-radius: 50%;
+		background: var(--mn-surface);
+		color: var(--mn-plum);
+		cursor: pointer;
+		transition: transform 0.15s ease, opacity 0.15s ease;
+	}
+
+	.mn-lp .mn-slider__arrow svg { width: 18px; height: 18px; }
+	.mn-lp .mn-slider__arrow:hover { transform: scale(1.06); }
+	.mn-lp .mn-slider__arrow:focus-visible { outline: 3px solid var(--mn-violet); outline-offset: 2px; }
+	.mn-lp .mn-slider__arrow[disabled] { opacity: 0.35; cursor: default; transform: none; }
+
+	/* ---------- Compra del hero ---------- */
+
+	.mn-lp .mn-price {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+
+	/* line-height propio: con el 1.6 de párrafo el número inflaba la caja
+	   13px por encima del CTA (medido en SKNGLOW). */
+	.mn-lp .mn-price__amount {
+		font-size: clamp(30px, 5.4vw, 40px);
+		line-height: 1.15;
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		color: var(--mn-plum-deep);
+	}
+
+	.mn-lp .mn-price__note {
+		padding: 5px 11px;
+		border-radius: 999px;
+		background: var(--mn-violet-tint);
+		font-size: clamp(11.5px, calc(2.5vw + 3.5px), 13px);
+		font-weight: 700;
+		color: var(--mn-plum);
+	}
+
+	/* El anticipado se resalta siempre: aro y cifra en violeta */
+	.mn-lp .mn-price__prepay {
+		display: inline-flex;
+		align-items: baseline;
+		gap: 7px;
+		margin-top: 6px;
+		padding: 5px 15px;
+		border-radius: 999px;
+		background: var(--mn-surface);
+		border: 1.5px solid rgba(137, 56, 137, 0.45);
+		box-shadow: 0 4px 14px rgba(137, 56, 137, 0.14);
+		font-size: 13.5px;
+		font-weight: 600;
+		color: var(--mn-plum);
+	}
+
+	.mn-lp .mn-price__prepay strong {
+		font-size: 17px;
+		font-weight: 800;
+		color: var(--mn-violet);
+	}
+
+	.mn-lp .mn-hero__buy .mn-cta { margin-top: 12px; }
+
+	/* ---------- La fórmula como tres nodos unidos ---------- */
+
+	.mn-lp .mn-nodes {
+		position: relative;
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 6px;
+		text-align: center;
+	}
+
+	/* El eje que une los tres nodos, de centro a centro */
+	.mn-lp .mn-nodes::before {
+		content: '';
+		position: absolute;
+		top: 8px;
+		left: 16.66%;
+		right: 16.66%;
+		height: 2px;
+		background: linear-gradient(90deg, var(--mn-plum), var(--mn-violet), var(--mn-lilac));
+	}
+
+	.mn-lp .mn-nodes__item {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		line-height: 1.15;
+	}
+
+	.mn-lp .mn-nodes__item::before {
+		content: '';
+		width: 18px;
+		height: 18px;
+		margin-bottom: 6px;
+		border-radius: 50%;
+		background: var(--mn-plum);
+		box-shadow: 0 0 0 4px var(--mn-surface), 0 0 0 5px rgba(137, 56, 137, 0.25);
+	}
+
+	.mn-lp .mn-nodes__item:nth-child(2)::before { background: var(--mn-violet); }
+	.mn-lp .mn-nodes__item.mn-nodes__item:nth-child(3)::before { background: var(--mn-lilac); }
+
+	.mn-lp .mn-nodes__name {
+		font-size: 11.5px;
+		font-weight: 800;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: var(--mn-plum-deep);
+	}
+
+	.mn-lp .mn-nodes__dose { margin-top: 1px; font-size: 13px; font-weight: 600; color: var(--mn-violet); }
+
+	.mn-lp .mn-facts {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 4px 18px;
+		margin-top: 14px;
+		font-size: 14px;
+		color: var(--mn-text);
+	}
+
+	.mn-lp .mn-facts strong { font-weight: 800; color: var(--mn-violet); }
+
+	.mn-lp .mn-perks {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 6px;
+		margin-top: 10px;
+	}
+
+	.mn-lp .mn-perks li {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		padding: 4px 11px 4px 8px;
+		border-radius: 999px;
+		background: var(--mn-surface);
+		border: 1px solid var(--mn-border);
+		font-size: 12.5px;
+		font-weight: 600;
+		color: var(--mn-plum);
+	}
+
+	.mn-lp .mn-perks svg { width: 15px; height: 15px; color: var(--mn-violet); }
+
+	/* ---------- Muro de recuerdos (Parte 2) ----------
+	   No es el carrete de energía ni la galería de SKNGLOW: polaroids en
+	   dos filas que derivan despacio en sentidos opuestos. Cada fila lleva
+	   su serie TRES veces y se desplaza un tercio: una copia ocupa el sitio
+	   del original y el bucle no tiene costura. Con dos copias, en
+	   escritorio la serie de 4 fotos (792px) no llenaba 1280 y la fila
+	   inversa arrancaba con un hueco a la derecha. Solo transform.
+	   En pausa por defecto: el JS la pone en marcha solo en pantalla, y se
+	   para con el dedo o el ratón encima. Sin JS o con movimiento reducido
+	   es una tira quieta que se desliza a mano. */
+
+	.mn-lp .mn-wall {
+		--mn-polaroid-w: 132px;
+		--mn-wall-gap: 14px;
+		overflow: hidden;
+		padding-block: 10px 4px;
+	}
+
+	.mn-lp .mn-wall__row {
+		display: flex;
+		width: max-content;
+		animation: mn-drift 56s linear infinite;
+		animation-play-state: paused;
+	}
+
+	/* La segunda fila va desfasada media foto y en sentido contrario */
+	.mn-lp .mn-wall__row.mn-wall__row--reverse {
+		margin-top: 16px;
+		margin-left: calc(var(--mn-polaroid-w) / -2);
+		animation-direction: reverse;
+		animation-duration: 64s;
+	}
+
+	.mn-lp .mn-wall.is-live .mn-wall__row { animation-play-state: running; }
+	.mn-lp .mn-wall.mn-wall.is-held .mn-wall__row { animation-play-state: paused; }
+
+	@keyframes mn-drift {
+		from { transform: translateX(0); }
+		to { transform: translateX(-33.3333%); }
+	}
+
+	/* El hueco final de cada serie iguala al interior: sin él el salto del
+	   bucle se notaría */
+	.mn-lp .mn-wall__track {
+		display: flex;
+		gap: var(--mn-wall-gap);
+		padding-right: var(--mn-wall-gap);
+	}
+
+	.mn-lp .mn-polaroid {
+		flex: 0 0 var(--mn-polaroid-w);
+		padding: 6px 6px 0;
+		border-radius: 6px;
+		background: var(--mn-surface);
+		box-shadow: 0 10px 22px rgba(61, 15, 51, 0.14), 0 0 0 1px rgba(61, 15, 51, 0.05);
+		transform: rotate(-2deg);
+	}
+
+	.mn-lp .mn-polaroid:nth-child(even) { transform: rotate(2.2deg) translateY(6px); }
+	.mn-lp .mn-polaroid.mn-polaroid:nth-child(3n) { transform: rotate(-0.8deg) translateY(-4px); }
+
+	.mn-lp .mn-polaroid img {
+		width: 100%;
+		aspect-ratio: 4 / 5;
+		object-fit: cover;
+		object-position: center 30%;
+		border-radius: 2px;
+	}
+
+	/* El nombre en el margen blanco de la polaroid, nunca sobre la foto */
+	.mn-lp .mn-polaroid__name {
+		display: block;
+		padding: 7px 2px 9px;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		text-align: center;
+		font-size: 13px;
+		font-weight: 800;
+		color: var(--mn-plum-deep);
+	}
+
+	.mn-lp .mn-wall__note {
+		margin-top: 12px;
+		text-align: center;
+		font-size: 12px;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--mn-violet);
+	}
+
+	/* ---------- La red (promesa y cierre) ---------- */
+
+	.mn-lp .mn-net {
+		position: relative;
+		overflow: hidden;
+		color: #fff;
+		background:
+			radial-gradient(60% 50% at 12% 0%, rgba(161, 81, 165, 0.55) 0%, rgba(161, 81, 165, 0) 70%),
+			radial-gradient(55% 45% at 92% 100%, rgba(137, 56, 137, 0.5) 0%, rgba(137, 56, 137, 0) 70%),
+			var(--mn-net-pattern),
+			var(--mn-plum-deep);
+		padding-block: var(--mn-pad);
+	}
+
+	.mn-lp .mn-net__inner { position: relative; text-align: center; }
+
+	/* Las escenas son nodos de una misma línea. Visibles por defecto: el
+	   JS las "arma" (apagadas) solo si puede encenderlas después. */
+	.mn-lp .mn-thoughts {
+		position: relative;
+		display: grid;
+		gap: 10px;
+		max-width: 520px;
+		margin: 28px auto 0;
+		text-align: left;
+	}
+
+	.mn-lp .mn-thoughts::before {
+		content: '';
+		position: absolute;
+		top: 24px;
+		bottom: 24px;
+		left: 21px;
+		width: 2px;
+		background: linear-gradient(180deg, rgba(227, 182, 230, 0.6), rgba(227, 182, 230, 0.15));
+	}
+
+	.mn-lp .mn-thought {
+		position: relative;
+		padding: 13px 16px 13px 48px;
+		border-radius: var(--mn-radius);
+		background: rgba(255, 255, 255, 0.08);
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		font-size: 16.5px;
+		line-height: 1.35;
+		font-weight: 700;
+		transition: opacity 0.5s ease, transform 0.5s ease;
+	}
+
+	.mn-lp .mn-thought::before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 15px;
+		width: 14px;
+		height: 14px;
+		margin-top: -7px;
+		border-radius: 50%;
+		background: var(--mn-lilac-glow);
+		box-shadow: 0 0 0 4px rgba(227, 182, 230, 0.2), 0 0 16px rgba(227, 182, 230, 0.8);
+		transition: opacity 0.5s ease, transform 0.5s ease;
+	}
+
+	.mn-lp .mn-thought:nth-child(2),
+	.mn-lp .mn-thought:nth-child(2)::before { transition-delay: 0.25s; }
+	.mn-lp .mn-thought:nth-child(3),
+	.mn-lp .mn-thought:nth-child(3)::before { transition-delay: 0.5s; }
+	.mn-lp .mn-thought:nth-child(4),
+	.mn-lp .mn-thought:nth-child(4)::before { transition-delay: 0.75s; }
+
+	.mn-lp .mn-thoughts.is-armed .mn-thought { opacity: 0.45; transform: translateX(10px); }
+	.mn-lp .mn-thoughts.is-armed .mn-thought::before { opacity: 0.3; transform: scale(0.6); }
+	.mn-lp .mn-thoughts.is-armed.is-in .mn-thought { opacity: 1; transform: none; }
+	.mn-lp .mn-thoughts.is-armed.is-in .mn-thought::before { opacity: 1; transform: none; }
+
+	.mn-lp .mn-net__text {
+		max-width: 42ch;
+		margin: 26px auto 0;
+		font-size: 16px;
+		color: rgba(255, 255, 255, 0.9);
+		text-wrap: balance;
+	}
+
+	.mn-lp .mn-net__dose {
+		display: inline-block;
+		margin-top: 16px;
+		padding: 6px 16px;
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.12);
+		border: 1px solid rgba(255, 255, 255, 0.3);
+		font-size: 14px;
+		font-weight: 700;
+	}
+
+	/* Sobre la red el botón necesita un canto claro para despegarse */
+	.mn-lp .mn-net .mn-cta {
+		box-shadow: 0 12px 28px rgba(20, 4, 17, 0.45), inset 0 0 0 1.5px rgba(255, 255, 255, 0.45);
+	}
+
+	/* ---------- Autoridad ---------- */
+
+	.mn-lp .mn-cells {
+		display: grid;
+		gap: 20px;
+		align-items: center;
+		margin-bottom: clamp(26px, 4vw, 40px);
+	}
+
+	.mn-lp .mn-cells__media img {
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+		border-radius: var(--mn-radius-lg);
+	}
+
+	.mn-lp .mn-cells__copy { display: grid; gap: 10px; color: var(--mn-muted); }
+	.mn-lp .mn-cells__copy strong { color: var(--mn-plum); }
+
+	.mn-lp .mn-cells__copy .mn-cells__foot {
+		margin-top: 4px;
+		padding-left: 14px;
+		border-left: 3px solid var(--mn-violet);
+		font-weight: 600;
+		color: var(--mn-text);
+	}
+
+	.mn-lp .mn-sources,
+	.mn-lp .mn-stories {
+		--mn-rail-pad: max(var(--mn-gutter), calc((100% - var(--mn-shell)) / 2 + var(--mn-gutter)));
+	}
+
+	.mn-lp .mn-sources__track,
+	.mn-lp .mn-stories__track {
+		display: flex;
+		overflow-x: auto;
+		overscroll-behavior-x: contain;
+		scroll-snap-type: x mandatory;
+		scroll-padding-inline-start: var(--mn-rail-pad);
+		padding-inline: var(--mn-rail-pad);
+		padding-block: 2px 14px;
+		scrollbar-width: thin;
+		scrollbar-color: var(--mn-border) transparent;
+	}
+
+	.mn-lp .mn-sources__track:focus-visible,
+	.mn-lp .mn-stories__track:focus-visible { outline: 3px solid var(--mn-violet); outline-offset: -3px; }
+
+	.mn-lp .mn-sources__track { gap: 12px; }
+
+	.mn-lp .mn-sources__item {
+		flex: 0 0 auto;
+		display: flex;
+		width: min(280px, 80%);
+		scroll-snap-align: start;
+	}
+
+	/* Ficha de archivo: el logo del medio arriba, sobre su propio color */
+	.mn-lp .mn-source {
+		width: 100%;
+		padding: 18px 20px 22px;
+		border-radius: var(--mn-radius);
+		background: var(--mn-surface);
+		border: 1px solid var(--mn-border);
+		box-shadow: 0 8px 20px rgba(61, 15, 51, 0.06);
+	}
+
+	.mn-lp .mn-source p.mn-source__name { display: flex; align-items: center; min-height: 44px; }
+	.mn-lp .mn-source__name img { height: 40px; width: auto; border-radius: 6px; }
+
+	.mn-lp .mn-source__title {
+		margin-top: 14px;
+		font-size: 14px;
+		font-weight: 800;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--mn-plum);
+	}
+
+	.mn-lp .mn-source p { margin-top: 8px; font-size: 15px; color: var(--mn-muted); }
+
+	/* ---------- Tríada de ingredientes (Parte 5) ----------
+	   Tres nodos en triángulo unidos por líneas discontinuas. Cada nodo
+	   se coloca con la propiedad `translate` y crece con `scale`: son
+	   independientes de `transform` y no se pisan entre sí. */
+
+	.mn-lp .mn-triad__map {
+		position: relative;
+		height: 262px;
+		max-width: 400px;
+		margin: 0 auto 8px;
+		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M50 26 20 74 80 74Z' fill='none' stroke='%23a151a5' stroke-width='1.6' stroke-dasharray='5 5' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+	}
+
+	.mn-lp .mn-triad__map::after {
+		content: 'MIMANAD';
+		position: absolute;
+		top: 58%;
+		left: 50%;
+		translate: -50% -50%;
+		font-size: 11px;
+		font-weight: 800;
+		letter-spacing: 0.2em;
+		color: var(--mn-violet);
+	}
+
+	.mn-lp .mn-triad__node {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 6px;
+		width: 118px;
+		padding: 0;
+		border: 0;
+		background: none;
+		cursor: pointer;
+		translate: -50% -42px;
+		transition: scale 0.25s ease;
+	}
+
+	.mn-lp .mn-triad__node.mn-triad__node--1 { left: 50%; top: 26%; }
+	.mn-lp .mn-triad__node.mn-triad__node--2 { left: 20%; top: 74%; }
+	.mn-lp .mn-triad__node.mn-triad__node--3 { left: 80%; top: 74%; }
+
+	.mn-lp .mn-triad__node img {
+		width: 84px;
+		height: 84px;
+		object-fit: cover;
+		border-radius: 50%;
+		border: 3px solid var(--mn-surface);
+		box-shadow: 0 0 0 1px var(--mn-border), 0 8px 18px rgba(61, 15, 51, 0.14);
+		transition: box-shadow 0.25s ease;
+	}
+
+	.mn-lp .mn-triad__label {
+		padding: 3px 10px;
+		border-radius: 999px;
+		background: var(--mn-surface);
+		border: 1px solid var(--mn-border);
+		font-size: 12px;
+		font-weight: 800;
+		line-height: 1.2;
+		color: var(--mn-plum);
+		white-space: nowrap;
+	}
+
+	.mn-lp .mn-triad__node[aria-pressed='true'] { scale: 1.08; }
+	.mn-lp .mn-triad__node[aria-pressed='true'] img { box-shadow: 0 0 0 3px var(--mn-violet), 0 10px 24px rgba(137, 56, 137, 0.35); }
+	.mn-lp .mn-triad__node[aria-pressed='true'] .mn-triad__label { background: var(--mn-violet); border-color: var(--mn-violet); color: #fff; }
+	.mn-lp .mn-triad__node:focus-visible { outline: 3px solid var(--mn-violet); outline-offset: 4px; border-radius: 12px; }
+
+	.mn-lp .mn-triad__cards { display: grid; gap: 10px; }
+
+	.mn-lp .mn-fact {
+		padding: 16px 18px 18px;
+		border-radius: var(--mn-radius);
+		background: var(--mn-surface);
+		border: 1px solid var(--mn-border);
+		transition: border-color 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.mn-lp .mn-fact.is-active {
+		border-color: var(--mn-violet-soft);
+		box-shadow: inset 4px 0 0 var(--mn-violet), 0 12px 26px rgba(61, 15, 51, 0.1);
+	}
+
+	.mn-lp .mn-fact__tag {
+		display: inline-block;
+		padding: 3px 10px;
+		border-radius: 999px;
+		background: var(--mn-plum);
+		color: #fff;
+		font-size: 11px;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+	}
+
+	.mn-lp .mn-fact:nth-child(2) .mn-fact__tag { background: var(--mn-violet); }
+	.mn-lp .mn-fact.mn-fact:nth-child(3) .mn-fact__tag { background: var(--mn-violet-soft); }
+
+	.mn-lp .mn-fact__title {
+		margin-top: 10px;
+		font-size: 20px;
+		line-height: 1.2;
+		font-weight: 800;
+		color: var(--mn-plum-deep);
+	}
+
+	.mn-lp .mn-fact__title span { font-weight: 600; color: var(--mn-violet); }
+	.mn-lp .mn-fact p:last-child { margin-top: 6px; font-size: 15px; color: var(--mn-muted); }
+
+	/* ---------- Libreta de beneficios (Parte 6) ----------
+	   Notas de papel rayado con margen violeta. Los renglones caen sobre
+	   las rayas porque el line-height y el periodo del rayado son el mismo
+	   (28px). La foto va prendida en la esquina, fuera del texto. */
+
+	.mn-lp .mn-notes { display: grid; gap: 22px; }
+
+	.mn-lp .mn-note {
+		--mn-rule: 28px;
+		position: relative;
+		display: flow-root;
+		padding: 20px 18px 20px 50px;
+		border-radius: var(--mn-radius);
+		background:
+			linear-gradient(90deg, transparent 36px, rgba(137, 56, 137, 0.35) 36px 37px, transparent 37px),
+			var(--mn-surface);
+		border: 1px solid var(--mn-border);
+		box-shadow: 0 12px 26px rgba(61, 15, 51, 0.08);
+	}
+
+	/* Flota: el texto la rodea solo en las primeras líneas. Con un hueco
+	   fijo a la derecha, todo el texto de la nota caía en una columna de
+	   tres palabras. */
+	.mn-lp .mn-note__pin {
+		float: right;
+		margin: -32px -4px 8px 12px;
+		width: 76px;
+		aspect-ratio: 4 / 5;
+		object-fit: cover;
+		object-position: center 30%;
+		border: 4px solid var(--mn-surface);
+		border-radius: 4px;
+		box-shadow: 0 8px 18px rgba(61, 15, 51, 0.2);
+		transform: rotate(5deg);
+	}
+
+	.mn-lp .mn-note:nth-child(even) .mn-note__pin { transform: rotate(-4deg); }
+
+	.mn-lp .mn-note__title {
+		display: flex;
+		align-items: baseline;
+		gap: 8px;
+		margin-left: -32px;
+		font-size: 18px;
+		line-height: 1.25;
+		font-weight: 800;
+		color: var(--mn-plum-deep);
+	}
+
+	.mn-lp .mn-note__num {
+		flex: 0 0 auto;
+		width: 24px;
+		text-align: center;
+		font-size: 24px;
+		line-height: 1;
+		color: var(--mn-violet);
+	}
+
+	.mn-lp .mn-note__lines {
+		margin-top: 10px;
+		background: repeating-linear-gradient(180deg, transparent 0 calc(var(--mn-rule) - 1px), rgba(137, 56, 137, 0.14) calc(var(--mn-rule) - 1px) var(--mn-rule));
+	}
+
+	.mn-lp .mn-note__lines li {
+		position: relative;
+		padding-left: 26px;
+		font-size: 15px;
+		line-height: var(--mn-rule);
+		color: var(--mn-text);
+	}
+
+	/* La casilla y su marca: la marca solo anima transform y opacity */
+	.mn-lp .mn-note__lines li::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 7px;
+		width: 15px;
+		height: 15px;
+		border: 1.5px solid var(--mn-violet-soft);
+		border-radius: 4px;
+	}
+
+	.mn-lp .mn-note__lines li::after {
+		content: '';
+		position: absolute;
+		left: 5px;
+		top: 8px;
+		width: 5px;
+		height: 10px;
+		border-right: 2.5px solid var(--mn-violet);
+		border-bottom: 2.5px solid var(--mn-violet);
+		transform: rotate(45deg);
+		transition: opacity 0.3s ease, transform 0.3s ease;
+	}
+
+	.mn-lp .mn-note__lines li:nth-child(2)::after { transition-delay: 0.2s; }
+	.mn-lp .mn-note__lines li:nth-child(3)::after { transition-delay: 0.4s; }
+	.mn-lp .mn-note__lines li:nth-child(4)::after { transition-delay: 0.6s; }
+
+	.mn-lp .mn-note.is-armed .mn-note__lines li::after { opacity: 0; transform: rotate(45deg) scale(0.4); }
+	.mn-lp .mn-note.is-armed.is-in .mn-note__lines li::after { opacity: 1; transform: rotate(45deg); }
+
+	/* ---------- Modo de uso (Parte 7) ---------- */
+
+	.mn-lp .mn-use { display: grid; gap: 26px; align-items: center; }
+
+	.mn-lp .mn-use__media img {
+		width: min(260px, 70%);
+		margin-inline: auto;
+		aspect-ratio: 4 / 5;
+		object-fit: cover;
+		border-radius: var(--mn-radius-lg);
+		box-shadow: 0 16px 34px rgba(61, 15, 51, 0.16);
+	}
+
+	/* Los cuatro dulces del día unidos por una línea: la dosis como nodos */
+	.mn-lp .mn-candies {
+		position: relative;
+		display: flex;
+		gap: 18px;
+		margin-top: 18px;
+	}
+
+	.mn-lp .mn-candies::before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 20px;
+		right: calc(100% - 4 * 40px - 3 * 18px + 20px);
+		height: 2px;
+		background: var(--mn-lilac);
+	}
+
+	.mn-lp .mn-candies li {
+		position: relative;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background:
+			radial-gradient(circle at 30% 34%, rgba(97, 27, 82, 0.35) 0 1.2px, transparent 1.6px),
+			radial-gradient(circle at 62% 26%, rgba(97, 27, 82, 0.3) 0 1px, transparent 1.4px),
+			radial-gradient(circle at 70% 60%, rgba(97, 27, 82, 0.35) 0 1.2px, transparent 1.6px),
+			radial-gradient(circle at 42% 70%, rgba(97, 27, 82, 0.28) 0 1px, transparent 1.4px),
+			radial-gradient(circle at 36% 30%, #ffffff 0%, #f1ece8 70%, #e2d9d3 100%);
+		box-shadow: 0 6px 12px rgba(61, 15, 51, 0.14), 0 0 0 3px var(--mn-cream);
+	}
+
+	.mn-lp .mn-stats {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 10px;
+		max-width: 340px;
+		margin-top: 20px;
+	}
+
+	.mn-lp .mn-stat {
+		padding: 12px 14px;
+		border-radius: var(--mn-radius);
+		background: var(--mn-surface);
+		border: 1px solid var(--mn-border);
+	}
+
+	.mn-lp .mn-stat dt {
+		font-size: 28px;
+		line-height: 1.1;
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		color: var(--mn-violet);
+	}
+
+	.mn-lp .mn-stat dd { margin-top: 2px; font-size: 13.5px; color: var(--mn-muted); }
+
+	.mn-lp .mn-use__note { margin-top: 16px; font-weight: 600; color: var(--mn-plum); }
+
+	/* Numeral, rótulo pegado y el icono cerrando la fila a la derecha */
+	.mn-lp .mn-moments { display: grid; gap: 8px; margin-top: 18px; }
+
+	.mn-lp .mn-moment {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		padding: 10px 12px 10px 16px;
+		border-radius: var(--mn-radius);
+		background: var(--mn-surface);
+		border: 1px solid var(--mn-border);
+	}
+
+	.mn-lp .mn-moment__num { font-size: 22px; font-weight: 800; line-height: 1; color: var(--mn-violet); }
+	.mn-lp .mn-moment__label { font-size: 16px; font-weight: 700; color: var(--mn-plum-deep); }
+
+	.mn-lp .mn-moment__icon {
+		display: grid;
+		place-items: center;
+		flex: 0 0 auto;
+		width: 38px;
+		height: 38px;
+		margin-left: auto;
+		border-radius: 50%;
+		background: var(--mn-violet-tint);
+		color: var(--mn-violet);
+	}
+
+	.mn-lp .mn-moment__icon svg { width: 20px; height: 20px; }
+
+	/* ---------- Constancia: la red que se tupe ---------- */
+
+	.mn-lp .mn-steps {
+		display: grid;
+		gap: 12px;
+		max-width: 900px;
+		margin-inline: auto;
+	}
+
+	.mn-lp .mn-step {
+		padding: 18px 20px 22px;
+		border-radius: var(--mn-radius-lg);
+		background: var(--mn-cream);
+		border: 1px solid var(--mn-border);
+	}
+
+	.mn-lp .mn-step__net {
+		display: block;
+		width: 76px;
+		height: 48px;
+		margin-bottom: 10px;
+		fill: var(--mn-plum);
+		stroke: var(--mn-violet-soft);
+		stroke-width: 1.6;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+	}
+
+	.mn-lp .mn-step__net path { fill: none; }
+	.mn-lp .mn-step__net circle { stroke: none; }
+	.mn-lp .mn-step__net .mn-step__off { opacity: 0.25; }
+
+	.mn-lp .mn-step__when {
+		font-size: 12.5px;
+		font-weight: 800;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--mn-violet);
+	}
+
+	.mn-lp .mn-step p { color: var(--mn-muted); font-size: 15px; }
+	.mn-lp .mn-step p + p { margin-top: 4px; }
+	.mn-lp .mn-step .mn-step__when + p { margin-top: 6px; }
+	.mn-lp .mn-step p.mn-step__lead { font-size: 17px; font-weight: 700; color: var(--mn-plum-deep); }
+
+	/* ---------- Selector de pago ---------- */
+
+	.mn-lp .mn-pay { display: grid; gap: 14px; }
+	.mn-lp .mn-pay__option { display: block; cursor: pointer; }
+
+	.mn-lp .mn-pay__option input {
+		position: absolute;
+		opacity: 0;
+		width: 0;
+		height: 0;
+	}
+
+	.mn-lp .mn-pay__box {
+		position: relative;
+		display: block;
+		padding: 22px 22px 22px 60px;
+		border: 2px solid var(--mn-border);
+		border-radius: var(--mn-radius-lg);
+		background: var(--mn-surface);
+		transition: border-color 0.15s ease, box-shadow 0.15s ease;
+	}
+
+	/* El anticipado va siempre por delante, elegido o no */
+	.mn-lp .mn-pay__box.mn-pay__box--best {
+		border-color: rgba(137, 56, 137, 0.45);
+		background: linear-gradient(160deg, var(--mn-violet-tint), var(--mn-surface) 70%);
+	}
+
+	.mn-lp .mn-pay__box::before {
+		content: '';
+		position: absolute;
+		left: 22px;
+		top: 26px;
+		width: 22px;
+		height: 22px;
+		border: 2px solid var(--mn-violet-soft);
+		border-radius: 50%;
+		background: #fff;
+	}
+
+	.mn-lp .mn-pay__box::after {
+		content: '';
+		position: absolute;
+		left: 28px;
+		top: 32px;
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		background: var(--mn-violet);
+		opacity: 0;
+		transition: opacity 0.15s ease;
+	}
+
+	.mn-lp .mn-pay__option:hover .mn-pay__box { border-color: var(--mn-violet-soft); }
+
+	.mn-lp .mn-pay__option input:checked + .mn-pay__box {
+		border-color: var(--mn-violet);
+		box-shadow: 0 10px 26px rgba(137, 56, 137, 0.18);
+	}
+
+	.mn-lp .mn-pay__option input:checked + .mn-pay__box::after { opacity: 1; }
+	.mn-lp .mn-pay__option input:focus-visible + .mn-pay__box { outline: 3px solid var(--mn-plum); outline-offset: 2px; }
+
+	.mn-lp .mn-pay__badge {
+		display: inline-block;
+		margin-bottom: 8px;
+		padding: 4px 12px;
+		border-radius: 999px;
+		background: var(--mn-violet);
+		color: #fff;
+		font-size: 11px;
+		font-weight: 800;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+
+	.mn-lp .mn-pay__name {
+		display: block;
+		font-size: 16px;
+		font-weight: 800;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		color: var(--mn-plum-deep);
+	}
+
+	.mn-lp .mn-pay__amount {
+		display: block;
+		margin-top: 4px;
+		font-size: clamp(28px, 4.4vw, 34px);
+		line-height: 1.15;
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		color: var(--mn-plum-deep);
+	}
+
+	.mn-lp .mn-pay__save { display: inline-block; margin-top: 4px; font-weight: 800; color: var(--mn-violet); }
+	.mn-lp .mn-pay__detail { display: block; margin-top: 8px; font-size: 15px; color: var(--mn-muted); }
+	.mn-lp .mn-pay__methods { display: flex; align-items: center; gap: 10px; margin-top: 12px; }
+	.mn-lp .mn-pay__methods img { width: auto; height: 22px; }
+
+	.mn-lp .mn-pay__same {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 6px 18px;
+		margin-top: 20px;
+		font-size: 15px;
+		font-weight: 600;
+		color: var(--mn-plum);
+	}
+
+	/* ---------- Bono (Parte 10) ----------
+	   La lámina va sobre la misma pila de tarjetas del hero (.mn-deck):
+	   dos tarjetas giradas asoman detrás, nunca encima. */
+	.mn-lp .mn-section.mn-bonus {
+		background: linear-gradient(180deg, var(--mn-surface) 0%, var(--mn-violet-tint) 100%);
+	}
+
+	.mn-lp .mn-bonus__poster { max-width: 540px; margin-inline: auto; }
+
+	.mn-lp .mn-bonus__poster img {
+		width: 100%;
+		border-radius: var(--mn-radius-lg);
+		box-shadow: 0 20px 44px rgba(61, 15, 51, 0.2);
+	}
+
+	/* ---------- Testimonios ---------- */
+
+	.mn-lp .mn-stories__track { gap: 14px; }
+
+	.mn-lp .mn-stories__item {
+		flex: 0 0 auto;
+		display: flex;
+		width: min(300px, 82%);
+		scroll-snap-align: start;
+	}
+
+	.mn-lp .mn-story {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		overflow: hidden;
+		border-radius: var(--mn-radius-lg);
+		background: var(--mn-surface);
+		border: 1px solid var(--mn-border);
+	}
+
+	.mn-lp .mn-story img {
+		width: 100%;
+		aspect-ratio: 4 / 5;
+		object-fit: cover;
+		object-position: center 32%;
+	}
+
+	.mn-lp .mn-story__body {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+		padding: 20px 20px 22px;
+	}
+
+	.mn-lp .mn-story p { font-size: 15px; color: var(--mn-muted); }
+	.mn-lp .mn-story__body p + p { margin-top: 8px; }
+	.mn-lp .mn-story p.mn-story__who { font-size: 17px; font-weight: 800; color: var(--mn-plum-deep); }
+	.mn-lp .mn-story p.mn-story__who span { font-weight: 500; color: var(--mn-muted); }
+
+	.mn-lp .mn-story p.mn-story__lead {
+		margin-top: 10px;
+		font-size: 17px;
+		line-height: 1.35;
+		font-weight: 700;
+		color: var(--mn-plum);
+	}
+
+	.mn-lp .mn-story p.mn-story__tag {
+		margin-top: auto;
+		padding-top: 14px;
+		font-size: 11.5px;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--mn-violet);
+	}
+
+	/* ---------- Comparativa ---------- */
+
+	/* En móvil, filas: icono a la izquierda y el texto al lado. En tres
+	   columnas de ~95px útiles, "Multivitamínicos" se partía a mitad de
+	   palabra. Desde 600px vuelven las tres fichas en columna. */
+	.mn-lp .mn-compare {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 8px;
+	}
+
+	.mn-lp .mn-compare__item {
+		display: grid;
+		grid-template-columns: 48px minmax(0, 1fr);
+		column-gap: 14px;
+		row-gap: 2px;
+		align-items: center;
+		padding: 12px 16px 12px 12px;
+		border-radius: var(--mn-radius);
+		background: var(--mn-surface);
+		border: 1px solid var(--mn-border);
+		text-align: left;
+		transition: border-color 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.mn-lp .mn-compare__item > .mn-compare__icon { grid-row: span 2; }
+
+	.mn-lp .mn-compare__item.is-active {
+		border-color: var(--mn-violet-soft);
+		box-shadow: 0 10px 22px rgba(61, 15, 51, 0.1);
+	}
+
+	.mn-lp .mn-compare__icon {
+		display: grid;
+		place-items: center;
+		width: 48px;
+		height: 48px;
+		padding: 0;
+		border: 1px solid var(--mn-border);
+		border-radius: 50%;
+		background: var(--mn-cream);
+		color: var(--mn-plum);
+		cursor: pointer;
+		transition: transform 0.2s ease;
+	}
+
+	.mn-lp .mn-compare__icon svg { width: 24px; height: 24px; }
+	.mn-lp .mn-compare__icon:focus-visible { outline: 3px solid var(--mn-violet); outline-offset: 2px; }
+
+	.mn-lp .mn-compare__icon[aria-pressed='true'] {
+		background: var(--mn-plum);
+		border-color: var(--mn-plum);
+		color: #fff;
+		transform: scale(1.08);
+	}
+
+	.mn-lp .mn-compare__name {
+		font-size: 15px;
+		line-height: 1.2;
+		font-weight: 800;
+		color: var(--mn-plum-deep);
+	}
+
+	.mn-lp .mn-compare__what { font-size: 13px; line-height: 1.35; color: var(--mn-muted); }
+
+	/* MIMANAD ocupa el ancho entero */
+	.mn-lp .mn-compare__item.mn-compare__item--ours {
+		grid-column: 1 / -1;
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		gap: 16px;
+		padding: 22px 20px;
+		background: var(--mn-plum-deep);
+		border-color: var(--mn-plum-deep);
+		color: #fff;
+		text-align: left;
+	}
+
+	.mn-lp .mn-compare__item.mn-compare__item--ours .mn-compare__icon {
+		flex: 0 0 auto;
+		width: 56px;
+		height: 56px;
+		background: var(--mn-violet);
+		border-color: var(--mn-violet);
+		color: #fff;
+	}
+
+	.mn-lp .mn-compare__item.mn-compare__item--ours .mn-compare__icon[aria-pressed='true'] {
+		background: var(--mn-violet);
+		box-shadow: 0 0 0 4px rgba(227, 182, 230, 0.3);
+	}
+
+	.mn-lp .mn-compare__item.mn-compare__item--ours.is-active { box-shadow: 0 16px 34px rgba(61, 15, 51, 0.3); }
+	.mn-lp .mn-compare__item--ours .mn-compare__name { font-size: 20px; letter-spacing: 0.08em; color: #fff; }
+
+	.mn-lp .mn-compare__formula { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+
+	.mn-lp .mn-compare__formula li {
+		padding: 3px 10px;
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.12);
+		border: 1px solid rgba(255, 255, 255, 0.24);
+		font-size: 12.5px;
+		font-weight: 700;
+	}
+
+	.mn-lp .mn-compare__item--ours .mn-compare__what { margin-top: 12px; font-size: 16px; font-weight: 700; color: var(--mn-lilac-glow); }
+	.mn-lp .mn-compare__meta { margin-top: 4px; font-size: 13.5px; color: rgba(255, 255, 255, 0.8); }
+
+	/* ---------- Qué recibes ---------- */
+
+	.mn-lp .mn-receive { display: grid; gap: 34px; align-items: center; }
+	.mn-lp .mn-checklist { display: grid; gap: 12px; margin-top: 24px; }
+	.mn-lp .mn-checklist li { position: relative; padding-left: 34px; color: var(--mn-text); }
+
+	.mn-lp .mn-checklist li::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 2px;
+		width: 22px;
+		height: 22px;
+		border-radius: 50%;
+		background: var(--mn-violet) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E") center / 13px no-repeat;
+	}
+
+	.mn-lp .mn-receive__media { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+
+	.mn-lp .mn-receive__media img {
+		width: 100%;
+		border-radius: var(--mn-radius);
+		box-shadow: 0 14px 30px rgba(61, 15, 51, 0.14);
+	}
+
+	.mn-lp .mn-receive__media figure:last-child { margin-top: 30px; }
+
+	/* ---------- Garantía ---------- */
+
+	.mn-lp .mn-guarantee {
+		padding: clamp(28px, 5vw, 48px) clamp(20px, 5vw, 48px);
+		border-radius: var(--mn-radius-lg);
+		background: var(--mn-surface);
+		border: 1px solid var(--mn-border);
+		text-align: center;
+	}
+
+	.mn-lp .mn-guarantee__brand {
+		width: 60px;
+		height: 60px;
+		margin: 0 auto 18px;
+		border-radius: 16px;
+		box-shadow: 0 10px 24px rgba(61, 15, 51, 0.22);
+	}
+
+	.mn-lp .mn-promise { display: grid; gap: 10px; max-width: 46ch; margin: 24px auto 0; text-align: left; }
+
+	.mn-lp .mn-promise__item {
+		display: flex;
+		align-items: center;
+		gap: 14px;
+		padding: 12px 14px;
+		border-radius: var(--mn-radius);
+		background: var(--mn-cream);
+	}
+
+	.mn-lp .mn-promise__item p { font-size: 15px; line-height: 1.45; color: var(--mn-text); }
+
+	.mn-lp .mn-promise__icon {
+		display: grid;
+		place-items: center;
+		flex: 0 0 auto;
+		width: 38px;
+		height: 38px;
+		border-radius: 50%;
+		background: var(--mn-surface);
+		color: var(--mn-plum);
+	}
+
+	.mn-lp .mn-promise__icon svg { width: 20px; height: 20px; }
+
+	/* La devolución solo existe en el anticipado: se marca con su violeta */
+	.mn-lp .mn-promise__item.mn-promise__item--best {
+		background: var(--mn-violet-tint);
+		box-shadow: inset 0 0 0 1.5px rgba(137, 56, 137, 0.35);
+	}
+
+	.mn-lp .mn-promise__item--best .mn-promise__icon { background: var(--mn-violet); color: #fff; }
+
+	/* ---------- FAQ ---------- */
+
+	.mn-lp .mn-faq { display: grid; gap: 10px; }
+
+	.mn-lp .mn-faq__item {
+		overflow: hidden;
+		border-radius: 18px;
+		background: var(--mn-surface);
+		border: 1px solid var(--mn-border);
+	}
+
+	.mn-lp .mn-faq__item summary {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 14px;
+		min-height: 48px;
+		padding: 13px 20px;
+		font-size: 15.5px;
+		font-weight: 700;
+		color: var(--mn-plum-deep);
+		cursor: pointer;
+		list-style: none;
+	}
+
+	.mn-lp .mn-faq__item summary::-webkit-details-marker { display: none; }
+
+	.mn-lp .mn-faq__item summary::after {
+		content: '';
+		flex: 0 0 auto;
+		width: 12px;
+		height: 12px;
+		border-right: 2.5px solid var(--mn-violet);
+		border-bottom: 2.5px solid var(--mn-violet);
+		transform: rotate(45deg) translate(-3px, -3px);
+		transition: transform 0.2s ease;
+	}
+
+	.mn-lp .mn-faq__item[open] summary::after { transform: rotate(225deg) translate(-3px, -3px); }
+	.mn-lp .mn-faq__item summary:focus-visible { outline: 3px solid var(--mn-violet); outline-offset: -3px; }
+	.mn-lp .mn-faq__body { padding: 0 20px 16px; }
+	.mn-lp .mn-faq__body p { font-size: 15px; color: var(--mn-muted); }
+	.mn-lp .mn-faq__body p + p { margin-top: 8px; }
+	.mn-lp .mn-faq__body .mn-faq__prices { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+
+	.mn-lp .mn-faq__best {
+		padding: 2px 10px;
+		border-radius: 999px;
+		background: var(--mn-violet-tint);
+		color: var(--mn-plum-deep);
+	}
+
+	.mn-lp .mn-faq__best strong { color: var(--mn-violet); }
+
+	/* ---------- Cierre ---------- */
+
+	.mn-lp .mn-close { position: relative; text-align: center; }
+
+	.mn-lp .mn-close__reasons {
+		display: grid;
+		justify-items: center;
+		gap: 6px;
+		margin-top: 20px;
+	}
+
+	.mn-lp .mn-close__reasons li {
+		display: inline-flex;
+		align-items: center;
+		gap: 10px;
+		font-size: clamp(17px, 3.4vw, 22px);
+		font-weight: 700;
+		line-height: 1.35;
+		color: rgba(255, 255, 255, 0.94);
+		transition: opacity 0.45s ease;
+	}
+
+	.mn-lp .mn-close__reasons li::before {
+		content: '';
+		flex: 0 0 auto;
+		width: 9px;
+		height: 9px;
+		border-radius: 50%;
+		background: var(--mn-lilac-glow);
+		box-shadow: 0 0 10px rgba(227, 182, 230, 0.9);
+	}
+
+	.mn-lp .mn-close__reasons li:nth-child(2) { transition-delay: 0.15s; }
+	.mn-lp .mn-close__reasons li:nth-child(3) { transition-delay: 0.3s; }
+	.mn-lp .mn-close__reasons li:nth-child(4) { transition-delay: 0.45s; }
+	.mn-lp .mn-close__reasons li:nth-child(5) { transition-delay: 0.6s; }
+
+	.mn-lp .mn-close__reasons.is-armed li { opacity: 0.35; }
+	.mn-lp .mn-close__reasons.is-armed.is-in li { opacity: 1; }
+
+	.mn-lp .mn-close__card {
+		margin-top: 30px;
+		padding: 0 18px 22px;
+		overflow: hidden;
+		border-radius: var(--mn-radius-lg);
+		background: var(--mn-surface);
+		color: var(--mn-text);
+		box-shadow: 0 20px 44px rgba(20, 4, 17, 0.45);
+	}
+
+	.mn-lp .mn-close__photo {
+		width: calc(100% + 36px);
+		max-width: none;
+		margin: 0 -18px 18px;
+		aspect-ratio: 16 / 10;
+		object-fit: cover;
+		object-position: center 30%;
+	}
+
+	.mn-lp .mn-close__product { font-size: 20px; font-weight: 800; letter-spacing: 0.18em; color: var(--mn-plum-deep); }
+	.mn-lp .mn-close__formula { margin-top: 6px; font-size: 14px; font-weight: 700; color: var(--mn-violet); }
+	.mn-lp .mn-close__meta { margin-top: 2px; font-size: 13.5px; color: var(--mn-muted); }
+
+	.mn-lp .mn-close__options {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		align-items: center;
+		gap: 12px;
+		margin-top: 24px;
+	}
+
+	.mn-lp .mn-close__option {
+		position: relative;
+		padding: 16px 10px;
+		border-radius: var(--mn-radius);
+		background: var(--mn-cream);
+	}
+
+	.mn-lp .mn-close__option.mn-close__option--best {
+		padding-top: 24px;
+		background: var(--mn-violet-tint);
+		box-shadow: inset 0 0 0 2px var(--mn-violet), 0 10px 24px rgba(137, 56, 137, 0.2);
+	}
+
+	.mn-lp .mn-close__badge {
+		position: absolute;
+		top: -11px;
+		left: 50%;
+		translate: -50% 0;
+		padding: 4px 12px;
+		border-radius: 999px;
+		background: var(--mn-violet);
+		color: #fff;
+		font-size: 10.5px;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		white-space: nowrap;
+	}
+
+	.mn-lp .mn-close__label {
+		font-size: 12px;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--mn-muted);
+	}
+
+	.mn-lp .mn-close__option--best .mn-close__label { color: var(--mn-plum); }
+
+	.mn-lp .mn-close__amount {
+		margin-top: 4px;
+		font-size: clamp(22px, 4vw, 28px);
+		line-height: 1.15;
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		color: var(--mn-plum-deep);
+	}
+
+	.mn-lp .mn-close__save { margin-top: 2px; font-size: 13.5px; font-weight: 800; color: var(--mn-violet); }
+	.mn-lp .mn-close__card .mn-cta-row { margin-top: 22px; }
+
+	/* ---------- Instagram ---------- */
+
+	.mn-lp .mn-section.mn-social { padding-block: clamp(30px, 4.5vw, 60px); background: var(--mn-violet-tint); }
+
+	.mn-lp .mn-social__card {
+		overflow: hidden;
+		border-radius: clamp(16px, 3.4vw, 22px);
+		box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6), 0 20px 44px rgba(61, 15, 51, 0.24);
+	}
+
+	.mn-lp .mn-social__card img { width: 100%; aspect-ratio: 1000 / 398; }
+
+	/* ---------- Footer ---------- */
+
+	.mn-lp .mn-footer {
+		background: var(--mn-plum-deep);
+		color: #fff;
+		padding-block: clamp(34px, 5vw, 56px);
+	}
+
+	.mn-lp .mn-footer__inner { display: grid; justify-items: center; gap: 20px; text-align: center; }
+	.mn-lp .mn-footer__logo { width: 100px; }
+	.mn-lp .mn-footer__data { display: grid; gap: 16px; }
+
+	.mn-lp .mn-footer__block dt {
+		font-size: 12px;
+		font-weight: 700;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: rgba(255, 255, 255, 0.68);
+	}
+
+	.mn-lp .mn-footer__block dd { margin-top: 4px; font-size: 17px; font-weight: 700; }
+	.mn-lp .mn-footer__block a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255, 255, 255, 0.42); }
+	.mn-lp .mn-footer__block a:hover { border-bottom-color: #fff; }
+	.mn-lp .mn-footer__block a:focus-visible { outline: 3px solid var(--mn-lilac); outline-offset: 3px; }
+	.mn-lp .mn-footer__legal { max-width: 62ch; font-size: 13px; line-height: 1.55; color: rgba(255, 255, 255, 0.72); }
+
+	/* ---------- Anfitrión del producto para Releasit ----------
+	   Andamiaje, no interfaz: se neutraliza entero. Nunca display:none —
+	   la app necesita el nodo renderizado para abrir su modal. */
+	gp-product,
+	.mn-rls-host {
+		position: absolute !important;
+		width: 1px !important;
+		height: 1px !important;
+		overflow: hidden !important;
+		clip-path: inset(50%) !important;
+		pointer-events: none !important;
+	}
+
+	/* ---------- CTA sticky ---------- */
+
+	.mn-lp .mn-sticky {
+		position: fixed;
+		inset-inline: 0;
+		bottom: 0;
+		z-index: 40;
+		padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+		background: rgba(255, 255, 255, 0.96);
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
+		border-top: 1px solid var(--mn-border);
+		box-shadow: 0 -6px 24px rgba(36, 31, 36, 0.1);
+		transform: translateY(110%);
+		transition: transform 0.24s ease;
+	}
+
+	.mn-lp .mn-sticky[hidden] { display: none; }
+	.mn-lp .mn-sticky.is-visible { transform: translateY(0); }
+
+	.mn-lp .mn-sticky__inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 14px;
+		max-width: var(--mn-shell);
+		margin-inline: auto;
+	}
+
+	.mn-lp .mn-sticky__price { line-height: 1.25; }
+	.mn-lp .mn-sticky__price strong { display: block; font-size: 20px; font-weight: 800; letter-spacing: -0.02em; color: var(--mn-plum-deep); }
+	.mn-lp .mn-sticky__price span { font-size: 13px; color: var(--mn-muted); }
+
+	@media (max-width: 899px) {
+		.mn-lp .mn-footer { padding-bottom: calc(clamp(34px, 5vw, 56px) + 84px); }
+	}
+
+	/* ---------- Pantallas estrechas: se aprieta el marco, no el contenido ---------- */
+	@media (max-width: 379px) {
+		.mn-lp { --mn-gutter: 16px; }
+		.mn-lp .mn-hero .mn-price__amount { font-size: 28px; }
+		.mn-lp .mn-hero .mn-price__note { padding-inline: 9px; }
+		.mn-lp .mn-nodes__name { font-size: 10px; letter-spacing: 0.02em; }
+		.mn-lp .mn-nodes__dose { font-size: 12px; }
+		.mn-lp .mn-note__pin { width: 66px; }
+		.mn-lp .mn-triad__node img { width: 74px; height: 74px; }
+		.mn-lp .mn-triad__node { translate: -50% -37px; }
+	}
+
+	/* ---------- Breakpoints ---------- */
+
+	@media (min-width: 600px) {
+		.mn-lp .mn-compare { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+
+		.mn-lp .mn-compare__item {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 8px;
+			padding: 20px 14px 22px;
+			text-align: center;
+		}
+		.mn-lp .mn-compare__name { font-size: 16px; }
+		.mn-lp .mn-compare__what { font-size: 14px; }
+		.mn-lp .mn-wall { --mn-polaroid-w: 160px; }
+	}
+
+	@media (min-width: 700px) {
+		.mn-lp .mn-notes { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 26px; row-gap: 30px; }
+	}
+
+	@media (min-width: 760px) {
+		.mn-lp .mn-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+	}
+
+	@media (min-width: 900px) {
+		.mn-lp { --mn-gutter: 24px; }
+
+		.mn-lp .mn-hero { padding-block: 40px 56px; }
+
+		.mn-lp .mn-hero__grid {
+			grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+			grid-template-areas:
+				'head  media'
+				'buy   media'
+				'specs media';
+			align-items: start;
+			column-gap: clamp(36px, 4vw, 64px);
+			row-gap: 26px;
+		}
+
+		.mn-lp .mn-hero__media { max-width: 540px; justify-self: end; grid-row: 1 / span 3; align-self: center; }
+		.mn-lp .mn-hero__buy { text-align: left; }
+		.mn-lp .mn-hero .mn-price { justify-content: flex-start; }
+		.mn-lp .mn-hero__buy .mn-trust { justify-content: flex-start; }
+		.mn-lp .mn-hero__buy .mn-cta { margin-top: 20px; }
+		.mn-lp .mn-hero .mn-lead { font-size: 17px; margin-top: 16px; }
+		.mn-lp .mn-facts,
+		.mn-lp .mn-perks { justify-content: flex-start; }
+		.mn-lp .mn-nodes { max-width: 460px; }
+		.mn-lp .mn-nodes__name { font-size: 12.5px; }
+		.mn-lp .mn-nodes__dose { font-size: 14px; }
+
+		.mn-lp .mn-wall { --mn-polaroid-w: 184px; }
+
+		.mn-lp .mn-cells { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 44px; }
+		.mn-lp .mn-sources__item { width: 320px; }
+		.mn-lp .mn-sources__track { justify-content: center; }
+
+		/* La tríada al lado de sus fichas */
+		.mn-lp .mn-shell.mn-narrow:has(.mn-triad) { max-width: 980px; }
+		.mn-lp .mn-triad { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+		.mn-lp .mn-triad__map { width: 100%; height: 320px; }
+
+		.mn-lp .mn-use { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); column-gap: 56px; }
+		.mn-lp .mn-use__media img { width: 100%; max-width: 360px; }
+
+		.mn-lp .mn-pay { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+		.mn-lp .mn-stories__track { justify-content: center; }
+		.mn-lp .mn-stories__item { width: 320px; }
+		.mn-lp .mn-receive { grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr); }
+		.mn-lp .mn-receive__media { max-width: 460px; justify-self: center; }
+		.mn-lp .mn-close__card { padding: 0 40px 28px; }
+		.mn-lp .mn-close__photo { width: calc(100% + 80px); margin: 0 -40px 22px; }
+		.mn-lp .mn-footer__data { grid-auto-flow: column; gap: 56px; }
+		.mn-lp .mn-sticky { display: none; }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.mn-lp *,
+		.mn-lp *::before,
+		.mn-lp *::after {
+			transition-duration: 0.01ms !important; /* respeta la preferencia del sistema */
+			animation-duration: 0.01ms !important;
+		}
+
+		.mn-lp .mn-cta.mn-cta::before,
+		.mn-lp .mn-cta.mn-cta::after { animation: none; transform: scaleX(0); }
+		.mn-lp .mn-slider__track { scroll-behavior: auto; }
+		.mn-lp .mn-cta:active { transform: none; }
+
+		/* El muro se queda quieto y se desliza a mano; la copia sobra */
+		.mn-lp .mn-wall.mn-wall { overflow-x: auto; }
+		.mn-lp .mn-wall__row.mn-wall__row { animation: none; }
+		.mn-lp .mn-wall__track[aria-hidden='true'] { display: none; }
+	}
+</style>
+
+<script>
+	;(function () {
+		'use strict'
+
+		var ROOT_SELECTOR = '.mn-lp'
+		var READY_FLAG = 'mnLandingReady'
+
+		// Mismo criterio que energía y SKNGLOW: mientras el flujo de pago
+		// anticipado no esté cableado, la página nunca anuncia un precio
+		// distinto al que cobrará el formulario. Poner en true al cablearlo.
+		var PREPAID_ENABLED = false
+
+		var PRICES = {
+			prepaid: '$79.900',
+			cod: '$89.900'
+		}
+
+		var CTA_LABELS = {
+			prepaid: 'QUIERO MI MIMANAD POR $79.900',
+			cod: 'QUIERO MI MIMANAD CONTRAENTREGA'
+		}
+
+		var CTA_LABEL_FALLBACK = 'ELEGIR MI FORMA DE PAGO'
+
+		// Lo lee la skin del formulario (shared/releasit-form.css §6b)
+		var PAY_ATTRIBUTE = 'data-sg-pay'
+
+		var LIVE_CLASS = 'is-live'
+		var HELD_CLASS = 'is-held'
+		var ACTIVE_CLASS = 'is-active'
+		var ARMED_CLASS = 'is-armed'
+		var REVEALED_CLASS = 'is-in'
+
+		// Tras soltar el muro, espera antes de reanudar la deriva: si vuelve
+		// a moverse al instante, la foto que se estaba mirando se escapa.
+		var WALL_RESUME_DELAY = 1200
+
+		function forEach(list, fn) {
+			Array.prototype.forEach.call(list, fn)
+		}
+
+		function hasObserver() {
+			return typeof window.IntersectionObserver === 'function'
+		}
+
+		function initPaymentSelector(root) {
+			var inputs = root.querySelectorAll('input[name="mn-payment"]')
+			if (!inputs.length) return
+
+			var stickyPrice = root.querySelector('[data-mn-sticky-price]')
+			var priceCta = root.querySelector('[data-mn-cta-price]')
+
+			function sync() {
+				var selected = root.querySelector('input[name="mn-payment"]:checked')
+				var choice = selected ? selected.value : 'prepaid'
+
+				// La elección REAL viaja al formulario, que vive fuera de .mn-lp
+				document.documentElement.setAttribute(PAY_ATTRIBUTE, choice)
+
+				var mode = PREPAID_ENABLED ? choice : 'cod'
+
+				if (stickyPrice) stickyPrice.textContent = PRICES[mode] || PRICES.cod
+
+				if (priceCta) {
+					priceCta.textContent = PREPAID_ENABLED
+						? (CTA_LABELS[mode] || CTA_LABELS.prepaid)
+						: CTA_LABEL_FALLBACK
+				}
+			}
+
+			forEach(inputs, function (input) {
+				input.addEventListener('change', sync)
+			})
+
+			sync()
+		}
+
+		function initHeroSlider(root) {
+			var slider = root.querySelector('[data-mn-slider]')
+			if (!slider) return
+
+			var track = slider.querySelector('[data-mn-slider-track]')
+			var prev = slider.querySelector('[data-mn-slider-prev]')
+			var next = slider.querySelector('[data-mn-slider-next]')
+			var count = slider.querySelector('[data-mn-slider-count]')
+			if (!track) return
+
+			var total = track.children.length
+			var current = 0
+
+			function paint() {
+				if (count) count.textContent = 'Imagen ' + (current + 1) + ' de ' + total
+				if (prev) prev.disabled = current === 0
+				if (next) next.disabled = current === total - 1
+			}
+
+			// El índice sale del scroll, así sigue al dedo
+			function readIndex() {
+				var width = track.clientWidth
+				if (!width) return
+				var index = Math.round(track.scrollLeft / width)
+				if (index === current) return
+				current = index
+				paint()
+			}
+
+			function go(index) {
+				var target = Math.max(0, Math.min(total - 1, index))
+				track.scrollTo({ left: track.clientWidth * target, behavior: 'smooth' })
+			}
+
+			var ticking = false
+			track.addEventListener('scroll', function () {
+				if (ticking) return
+				ticking = true
+				window.requestAnimationFrame(function () {
+					ticking = false
+					readIndex()
+				})
+			}, { passive: true })
+
+			if (prev) prev.addEventListener('click', function () { go(current - 1) })
+			if (next) next.addEventListener('click', function () { go(current + 1) })
+
+			paint()
+		}
+
+		// Muro de recuerdos: deriva solo en pantalla y se detiene mientras
+		// alguien lo toca o pasa el ratón por encima.
+		function initWall(root) {
+			var wall = root.querySelector('[data-mn-wall]')
+			if (!wall || !hasObserver()) return
+
+			var resumeTimer = null
+
+			function hold() {
+				window.clearTimeout(resumeTimer)
+				wall.classList.add(HELD_CLASS)
+			}
+
+			function release() {
+				window.clearTimeout(resumeTimer)
+				resumeTimer = window.setTimeout(function () {
+					wall.classList.remove(HELD_CLASS)
+				}, WALL_RESUME_DELAY)
+			}
+
+			wall.addEventListener('pointerdown', hold)
+			wall.addEventListener('pointerenter', hold)
+			wall.addEventListener('pointerup', release)
+			wall.addEventListener('pointerleave', release)
+			wall.addEventListener('pointercancel', release)
+
+			new window.IntersectionObserver(function (entries) {
+				entries.forEach(function (entry) {
+					wall.classList.toggle(LIVE_CLASS, entry.isIntersecting)
+				})
+			}).observe(wall)
+		}
+
+		// Tríada: cada nodo resalta su ficha. Las tres fichas se ven siempre.
+		function initTriad(root) {
+			var triad = root.querySelector('[data-mn-triad]')
+			if (!triad) return
+
+			var nodes = triad.querySelectorAll('[data-mn-triad-go]')
+			var items = triad.querySelectorAll('[data-mn-triad-item]')
+			if (!nodes.length || nodes.length !== items.length) return
+
+			function paint(index) {
+				forEach(nodes, function (node, i) {
+					node.setAttribute('aria-pressed', i === index ? 'true' : 'false')
+				})
+				forEach(items, function (item, i) {
+					item.classList.toggle(ACTIVE_CLASS, i === index)
+				})
+			}
+
+			forEach(nodes, function (node) {
+				node.addEventListener('click', function () {
+					var index = parseInt(node.getAttribute('data-mn-triad-go'), 10)
+					if (!isNaN(index) && items[index]) paint(index)
+				})
+			})
+		}
+
+		function initCompare(root) {
+			var compare = root.querySelector('[data-mn-compare]')
+			if (!compare) return
+
+			var items = compare.querySelectorAll('[data-mn-compare-item]')
+
+			forEach(items, function (item) {
+				var toggle = item.querySelector('[data-mn-compare-toggle]')
+				if (!toggle) return
+
+				toggle.addEventListener('click', function () {
+					forEach(items, function (other) {
+						var active = other === item
+						other.classList.toggle(ACTIVE_CLASS, active)
+						var otherToggle = other.querySelector('[data-mn-compare-toggle]')
+						if (otherToggle) otherToggle.setAttribute('aria-pressed', active ? 'true' : 'false')
+					})
+				})
+			})
+		}
+
+		// La conexión del CTA solo corre en pantalla. Los bloques que se
+		// encienden al entrar se "arman" (apagados) únicamente si hay
+		// IntersectionObserver para encenderlos: sin él se ven completos.
+		function initViewportEffects(root) {
+			if (!hasObserver()) return
+
+			var ctas = root.querySelectorAll('.mn-cta')
+			var reveals = root.querySelectorAll('[data-mn-reveal]')
+
+			var liveObserver = new window.IntersectionObserver(function (entries) {
+				entries.forEach(function (entry) {
+					entry.target.classList.toggle(LIVE_CLASS, entry.isIntersecting)
+				})
+			})
+
+			forEach(ctas, function (cta) { liveObserver.observe(cta) })
+
+			var revealObserver = new window.IntersectionObserver(function (entries, observer) {
+				entries.forEach(function (entry) {
+					if (!entry.isIntersecting) return
+					entry.target.classList.add(REVEALED_CLASS)
+					observer.unobserve(entry.target)
+				})
+			}, { threshold: 0.45 })
+
+			forEach(reveals, function (el) {
+				el.classList.add(ARMED_CLASS)
+				revealObserver.observe(el)
+			})
+		}
+
+		function initStickyCta(root) {
+			var sticky = root.querySelector('[data-mn-sticky]')
+			var hero = root.querySelector('.mn-hero')
+			if (!sticky || !hero) return
+
+			sticky.hidden = false
+
+			// Sin IntersectionObserver el sticky queda visible: nunca esconder
+			// el camino a la compra.
+			if (!hasObserver()) {
+				sticky.classList.add('is-visible')
+				return
+			}
+
+			var heroVisible = true
+			var tailVisible = false
+
+			function update() {
+				sticky.classList.toggle('is-visible', !heroVisible && !tailVisible)
+			}
+
+			new window.IntersectionObserver(function (entries) {
+				entries.forEach(function (entry) { heroVisible = entry.isIntersecting })
+				update()
+			}, { rootMargin: '-120px 0px 0px 0px' }).observe(hero)
+
+			// Al final sobra: taparía el CTA del cierre y los datos legales
+			var tail = root.querySelectorAll('.mn-close .mn-cta-row, .mn-footer')
+			if (!tail.length) return
+
+			var visibleTail = []
+
+			var tailObserver = new window.IntersectionObserver(function (entries) {
+				entries.forEach(function (entry) {
+					var at = visibleTail.indexOf(entry.target)
+					if (entry.isIntersecting && at < 0) visibleTail.push(entry.target)
+					if (!entry.isIntersecting && at > -1) visibleTail.splice(at, 1)
+				})
+				tailVisible = visibleTail.length > 0
+				update()
+			})
+
+			forEach(tail, function (el) { tailObserver.observe(el) })
+		}
+
+		function init() {
+			var root = document.querySelector(ROOT_SELECTOR)
+			if (!root || root.dataset[READY_FLAG] === 'true') return
+
+			root.dataset[READY_FLAG] = 'true'
+			initPaymentSelector(root)
+			initHeroSlider(root)
+			initWall(root)
+			initTriad(root)
+			initCompare(root)
+			initViewportEffects(root)
+			initStickyCta(root)
+		}
+
+		// GemPages puede montar el bloque después de DOMContentLoaded
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', init)
+		} else {
+			init()
+		}
+	})()
+</script>

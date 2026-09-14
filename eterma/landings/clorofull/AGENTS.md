@@ -42,6 +42,7 @@ D.C. Ficha completa (ingredientes, tabla oficial por 100 ml y 120 ml): `/eterma/
 | Carpeta | Promesa | Estado |
 |---|---|---|
 | [`olor/`](olor/) | "Que el olor no decida qué tan cerca te pones": aliento, sudor, gases, olor corporal que reaparece | **Construida y verificada en local, sin publicar** — [`olor/september.html`](olor/september.html) |
+| [`hidratacion/`](hidratacion/) | "Que el calor no te lleve al límite": El Niño 2026-2027, calor extremo, pérdida de agua y sales; clorofila + vitaminas + minerales en 30 ml | **Construida y verificada en local (2026-09-08), sin publicar** — [`hidratacion/september.html`](hidratacion/september.html). Decisiones en §10 |
 
 Ángulo **unisex**: público mixto, testimonios de hombres y mujeres. El copy de este ángulo es
 [`olor/copy-olor.md`](olor/copy-olor.md) y **manda** sobre la web de la marca y sobre la etiqueta.
@@ -206,8 +207,8 @@ Optimizadas en [`assets/`](assets/) con `/docs/image-optimization.md`; se suben 
 | `landings-clorofull-eterma-logo-white.webp` | ídem, panel sage a alfa | Pie |
 | `questrial-400.woff2` (en `/eterma/shared/fonts/webfonts/`) | `Questrial-Regular.ttf` con `pyftsubset` | Tipografía del cuerpo; `check-cdn.sh` la busca ahí |
 
-**Pendiente de subir** (`check-cdn.sh` la da en FALTA): solo
-`landings-clorofull-instagram.webp`. El resto está en el CDN desde el 2026-09-03, incluidas
+**Nada pendiente de subir** (`check-cdn.sh` da todo en ok el 2026-09-07, incluida
+`landings-clorofull-instagram.webp`). El resto está en el CDN desde el 2026-09-03, incluidas
 las láminas `-v2`, las cuatro del hero, los tres iconos de pago y el vasito medidor. De las láminas, las
 que están en el CDN **sin** sufijo son la versión opaca descartada y no se usan. Los originales de los logos y de las láminas quedaron en
 `product-images/clorofull/logos/` y `.../momentos/` (fuera de git), no en `assets/`, que solo guarda lo
@@ -472,6 +473,17 @@ node shot.mjs --url=file:///tmp/local.preview.html --width=390 --out=/tmp/m390.p
 
 ---
 
+- **GemPages reordenó el CSS al publicar y la página viva tiene dos defectos (visto el 2026-09-07).**
+  Su minificador fusiona las reglas de cuerpo idéntico en la posición de la primera (`/AGENTS.md`
+  §4.13): `.cf-close__overline { color: lime }` subió junto a `.cf-section--deep .cf-statement em` por
+  encima de `.cf-overline`, y el rótulo del cierre sale **gris** en vez de lima; en escritorio
+  `.cf-close__title { font-size: 44px }` subió por encima de `.cf-h2 { 40px }` y el titular del cierre
+  sale a **40 px**. Medido sobre `/products/clorofull-1`. Corregido en el fragmento con la base en el
+  selector (`.cf-overline.cf-close__overline`, `.cf-h2.cf-close__title`, `.cf-cta.cf-cta--light`, que
+  compartía cuerpo con `.cf-section--deep .cf-cta` y solo se salvaba porque GemPages no la movió);
+  `node check-css-merge.mjs` da cero cambios. **Hay que volver a pegar el bloque en GemPages** para
+  que la página viva lo recoja.
+
 ## 9. Antes de dar por bueno un cambio
 
 1. `./preview.sh eterma/landings/clorofull/olor/september.html` y mirarla renderizada a 360, 390 y 1280
@@ -479,6 +491,8 @@ node shot.mjs --url=file:///tmp/local.preview.html --width=390 --out=/tmp/m390.p
    ~500 px. Para el desbordamiento horizontal, sondear que `innerWidth` coincide con el ancho emulado
    (`scrollWidth > innerWidth` no lo detecta: Chrome ensancha los dos a la vez).
 2. En cuanto haya página en GemPages, **medir el `font-size` raíz** y el color computado de los titulares.
+   Antes de pegar, `node check-css-merge.mjs eterma/landings/clorofull/olor/september.html` debe dar
+   cero cambios a 390 y 1280 (§8, fusión de reglas de GemPages).
 3. `./check-cdn.sh` tras tocar cualquier imagen; versionado `-v2` si se reemplaza.
 4. Si se toca el CTA, verificar sus tres estados con el runner: reposo (`--wait=2500`), hover
    (`--hover='.cf-hero .cf-cta'`) y servido a medias (`--wait=350`), a `--dpr=2` y recortando el
@@ -503,3 +517,154 @@ node shot.mjs --url=file:///tmp/local.preview.html --width=390 --out=/tmp/m390.p
    las ofertas de cantidad y el order bump se configuran **por producto**, y en la PDP pública abría
    preseleccionando 2 unidades ($113.400) con un «Envío Prioritario» de $3.500 premarcado.
 9. Publicar **solo a petición explícita**.
+
+---
+
+## 10. Ángulo hidratación · El Niño (2026-09-08)
+
+Copy: [`hidratacion/copy - hidratación - clorofull.md`](hidratacion/copy%20-%20hidrataci%C3%B3n%20-%20clorofull.md),
+manda sobre todo. Mismo producto, mismos precios ($79.900 / $69.900, ahorras $10.000), **sin pack ×2**,
+**sin testimonios** (el copy no trae ninguno: solo la tira de personas reales y el collage del cierre) y con
+WhatsApp 300 696 4582 en el cierre y el pie, como en Valeriana. Fragmento:
+[`hidratacion/september.html`](hidratacion/september.html), prefijo `cf-` (es el mismo producto), raíz
+`#cf-clorofull-calor`, `data-cf-product="clorofull-1"` (el handle sobre el que está publicada la de olor;
+confirmar con el cliente, §1).
+
+### Motivo propio: el sol alto y la medida en vaso frío
+
+La línea de marca (`/eterma/AGENTS.md` §2) se mantiene: hueso, verde profundo, hairlines, serif en
+titulares, Questrial en cuerpo. **El calor lo ponen las fotos; la interfaz no se calienta** (sin ocres ni
+naranjas, que la marca descarta). Lo que cambia respecto a olor, por escrito como piden los kits:
+
+- **Hero «el sol alto».** Encima del marco de la foto va el preheadline del copy en una banda menta con
+  un sol de trazo fino cuyos rayos giran una vuelta cada 48 s (`.cf-sun__rays`, `transform-box:
+  fill-box`). Debajo, un **carrusel de tres fotos** con flechas y sin puntos (mujer bebiendo al sol —el
+  LCP—, fórmula al sol, mano con la botella real) y, **en banda propia bajo el marco, el rótulo de la foto
+  activa**: el JS escribe `data-cf-active` en `[data-cf-carousel-host]` y el CSS enseña el rótulo que
+  toca. Nada se superpone a la foto (regla del cliente). Marco 6/5 en móvil (4/3 por debajo de 380 px),
+  1/1 en escritorio. CTA del hero termina en **825 px a 390×844** y **770 a 360×740**; el sticky cubre
+  el resto.
+- **«En la prensa».** El «por qué ahora» del ángulo: tres titulares reales (Infobae Colombia 7 sep 2026
+  ×2, Consultorsalud 15 jul 2026) con su captura recortada al bloque del titular como prueba y el
+  titular repetido como texto, porque a 300 px de ancho la captura no se lee. **Sin enlaces**: no hay
+  salidas del embudo. Son las tres capturas que entregó el cliente en `assets/` (medios 1, 2 y 3).
+- **«El calor se acumula» = el termómetro.** Un SVG de termómetro cuyo mercurio (`rect` con
+  `transform-box: fill-box`) sube de 0,12 a 1 al entrar en pantalla, junto a los tres «Más…» del copy
+  como peldaños que se meten hacia dentro en móvil y suben de izquierda a derecha en escritorio. Es un
+  motivo, no una medida: no marca grados. Primera versión salía en `column-reverse` (de abajo arriba,
+  como sube el mercurio) y se leía al revés del copy: va en orden de lectura.
+- **Las cuatro señales = la cadena de medallones** (2026-09-08, a petición del cliente: «estos son
+  dolores, quiero que los muestres mejor, más visual, y que uses iconos para cada uno»). «Calambres.
+  Mareo. Debilidad. Agotamiento.» cerraba la sección como un párrafo en serif y quedaba plano. Ahora son
+  cuatro medallones de 62 px (72 desde 640) **enlazados por un filete a la altura de su centro** —de
+  12,5 % a 12,5 % del `<ul>`, que en una rejilla de cuatro columnas son los centros del primero y el
+  último— con la **escalada en el fondo**: menta pálida → menta → verde medio → verde profundo, y el
+  icono invertido en los dos oscuros (menta y lima). Entran uno detrás de otro con `data-cf-reveal`. El
+  filete pasa por detrás: los medallones llevan fondo opaco y `position: relative`.
+- **Los iconos salen de la lámina del cliente** (`landings-clorofull-calor-senales.webp`), que trae una
+  viñeta por dolor: chispa para los calambres, espiral para el mareo, corazón con pulso para la
+  debilidad. Para el agotamiento se dibujó un **reloj de arena** (la lámina usa allí una figura tumbada,
+  que no se resuelve a 30 px) y **se cambió también el reloj de la ficha «Agotamiento»** de la sección
+  siguiente por el mismo reloj de arena: una palabra, un símbolo. Dos versiones anteriores se
+  descartaron por medida, no por gusto: la pierna doblada de los calambres se leía como un garabato a
+  30 px (ahora chispa entre dos arcos de contracción) y la espiral cerrada del mareo salía como un
+  borrón (ahora vuelta y media con medias circunferencias, que se separan al trazo de 1,8).
+- **«Tu cuerpo te avisa».** La composición de sol y síntomas del cliente a la izquierda y las cuatro
+  señales como fichas con **numeral en serif sin cero, rótulo pegado al numeral e icono cerrando la fila**
+  (regla de los kits).
+- **«El calor exige más» = la dosis.** Bloque verde profundo con el vasito servido sobre un plato hueso
+  (`mix-blend-mode: multiply`, como en el hero de olor) y «30 ml» en serif a 44/56 px: el único verde vivo
+  del bloque va en la foto.
+- **«No esperes a tener sed».** Las seis situaciones como fichas con icono (dos columnas en móvil, tres
+  desde 640 px, todas a la misma altura); **la del sol es la única en verde profundo**, porque es el
+  momento del ángulo. La suma del copy como fórmula con sus dos piezas y el signo en serif; en móvil el
+  «+» viaja con la segunda pieza para no quedar huérfano al final de línea.
+- **«30 ml. Así de simple».** Las tres formas de tomarlo (directo · diluido en agua · con jugos no
+  cítricos) numeradas 1-2-3 con el icono a la derecha, los cuatro datos con filete menta y la foto real
+  del vertido (`landings-clorofull-pour.webp`, reutilizada).
+- **«El calor puede cambiar tu día» = por dentro.** Bloque verde profundo con la radiografía del cliente
+  (`mecanismointerno.png`) **desaturada, al 22 % y fundida al verde con máscara radial** como textura, no
+  como protagonista, y los seis síntomas sobre un **eje**: riel vertical con marcas lima en móvil,
+  horizontal con las píldoras alternando arriba y abajo en escritorio (píldoras a dos líneas, ±58 px del
+  riel, relleno 84 px para que no se pisen).
+- **«33 días en cada botella».** Las seis piezas del copy como fichas con icono y la **foto anotada** del
+  producto con el vasito (componente de olor: etiquetas «1 litro» y «30 ml» en porcentajes sobre la caja,
+  las dos cifras están en la etiqueta del envase).
+- **Oferta**: dos tarjetas, **anticipado primero en verde profundo** con lima, iconos de pago en píldora
+  blanca y CTA «Quiero ahorrar $10.000»; contraentrega en blanco con «Pedir contraentrega». Los dos CTA
+  del copy, en frase. **Garantía** con sello y tres filas numeradas. FAQ con las siete preguntas
+  literales. Cierre con precios, CTA «Quiero Clorofull para esta temporada», enlace a WhatsApp y collage
+  (Celeste, Ricardo, María Fernanda, Joselin).
+- **El CTA es «la medida, en vaso frío».** Misma mecánica que olor (líquido que sube hasta la marca y se
+  mece; relleno al pasar), pero en vez de la gota que cae al líquido, **una gota de condensación** nace en
+  el borde superior izquierdo y resbala por el cristal cada 5,6 s (`::after` de la etiqueta, `cf-bead`).
+  Solo `transform` y `opacity`; `is-inview` sirve y pausa; sin JS es una píldora estática; con
+  `prefers-reduced-motion` no hay gota. Las variantes cambian el color de la gota con `--cf-bead`.
+- **Revelado genérico**: los bloques con `data-cf-reveal` entran escalonados (`:nth-child` 1-6); el
+  termómetro añade su propia transición sobre el mercurio.
+- Relleno de sección **44 px móvil / 64 escritorio**, como Valeriana.
+
+### Copy: qué no es literal
+
+- Los CTA van en frase, no en versales (regla de marca): «Quiero mi Clorofull», «Quiero ahorrar
+  $10.000», «Pedir contraentrega», «Quiero Clorofull para esta temporada».
+- Los rótulos de las fotos del hero se componen con frases del copy («30 ml al día. Directo del vaso
+  medidor.», «Clorofila. Vitaminas. Minerales. Todo en 30 ml.», «1 litro. 33 días en cada botella.»).
+- La marquesina superior junta fragmentos del copy; los overlines («En la prensa», «Las señales», «Cómo
+  se toma», «Oferta», «Garantía») son andamiaje, no copy.
+- **El registro sanitario va como `RSA-0029174-2023`**: el copy dice `RS-0029174-2023`, pero el número
+  real de la etiqueta y del pie de olor lleva la A. Es una errata del copy, no una decisión.
+- El aviso legal del pie es el de olor adaptado («No reemplaza el consumo de agua durante el día…»).
+- Las cuatro señales pierden el punto final al pasar de párrafo a rótulo de medallón («Calambres», no
+  «Calambres.»): las palabras son las del copy, la puntuación es del formato.
+
+### Imágenes de este ángulo
+
+Las crudas que entregó el cliente en `hidratacion/assets/` se movieron a
+`product-images/clorofull/calor/` (fuera de git); `assets/` del producto solo guarda lo optimizado.
+**Las personas son las mismas fotos del pool** (`md5` idéntico a `humanized-images/clorofull/`), así que
+se reutilizan los `ugc-*` de olor y solo se generan dos nuevas.
+
+| Archivo | Origen | Uso |
+|---|---|---|
+| `landings-clorofull-calor-hero.webp` | `img-hero-1.png` del cliente (1254², composición al atardecer con hielo; **no es** la `hero-1` de olor, que es la misma modelo en interior), a 1200 q82 | Hero, primera foto (LCP) |
+| `landings-clorofull-calor-formula.webp` | `ChatGPT Image … 02_27_45` (botella al sol con Clorofila / Vitaminas / Minerales rotulados: los tres rótulos coinciden con el copy) | Hero, segunda foto, y sección de la fórmula |
+| `landings-clorofull-calor-senales.webp` | `ChatGPT Image … 02_25_04` (sol, viñetas de síntomas y botella) | «Tu cuerpo te avisa» |
+| `landings-clorofull-calor-interno.webp` | `mecanismointerno.png` (radiografía), a 1200 q78 | Textura del bloque «El calor puede cambiar tu día» |
+| `landings-clorofull-calor-prensa-{infobae-salud,consultorsalud,infobae-agua}.webp` | `medios 2/1/3.png`, recortadas al bloque del titular a proporción 3,8:1 (1000×263) | «En la prensa» |
+| `landings-clorofull-ugc-celeste.webp`, `-maria-fernanda.webp` | `celeste 1.png`, `maria fernanda.png` a 4:5, 720×900 | Tira de personas y collage |
+| Reutilizadas de olor | `hero-hand`, `pour`, `vasito-medidor`, `producto-vasito`, `instagram`, logos, `pay-*`, `ugc-*` | Ya en el CDN |
+
+**No se usan:** `ChatGPT Image … 02_25_17` (infografía con «HIDRATA · Repone líquidos de forma
+efectiva», «RESTAURA · Apoya tu energía y vitalidad»… **claims incrustados en la imagen que el copy no
+hace**), `tabla-clorofull.jpeg` (foto de la etiqueta con «porción ½ vaso 120 ml · 8 porciones», que
+contradice los 30 ml/33 dosis del copy) y `luciana.png` (rótulo «50% de descuento» incrustado).
+`modo de uso - cloro.png`, `clorofull 2.png` y `vasito medidor clorofull.jpg` son los originales de
+`pour`, `hero-hand` y `vasito`, ya optimizados.
+
+**Pendientes de subir a Contenido → Archivos (9):** las cuatro `calor-*` de campaña, las tres de prensa y
+las dos personas nuevas. `./check-cdn.sh eterma/landings/clorofull/hidratacion/september.html`.
+
+### Medidas (vista previa local, 2026-09-08)
+
+- Sin desbordes a 360, 390 ni 1280. Alto de página: 9 874 / 9 817 / 8 277 px (olor: ≈12 700 a 390).
+- La cadena de señales cabe en cuatro columnas en todos los anchos: «Agotamiento» mide 80 px en una
+  columna de 86 a 390 px, y por debajo de 380 el rótulo baja a 12,5 px (71 en 78). El filete se sitúa
+  a la mitad exacta del medallón (30 px de 62; 35 de 72 desde 640).
+- `node check-css-merge.mjs …/hidratacion/september.html`: **cero cambios** a 390 y 1280. Antes de eso, el
+  lima de los dos subtítulos sobre verde se perdía en la fusión (dos modificadores con el mismo cuerpo
+  subían por encima de `.cf-h2 + .cf-serif-line`); se resolvió por contexto
+  (`.cf-section--deep .cf-h2 + .cf-serif-line`), no por modificador.
+- Los `<span>` dentro de `.cf-stack`, `.cf-axis__item`, `.cf-tile` y `.cf-sum__part` llevan la serif por
+  clase: la regla por etiqueta `.cf-lp span → sans` gana a la herencia y salían en Questrial.
+
+### Publicada como landing de `/pages/` (2026-09-11)
+
+`etermacolombia.com/pages/clorofull-hidratacion` es una **landing de GemPages**, no una ficha de
+producto: olor vive en `/products/clorofull-1`. Las dos enlazan el mismo producto, pero en `/pages/` el
+formulario de Releasit salía **sin las ofertas de cantidad** (1, 2 o 3 unidades). La causa: el JSON de
+producto del app embed (`#rsi-cod-form-product-cache`) sale `null` sin `product` en Liquid. Lo arregla
+`initReleasitProductCache()` en el JS de la landing, que lo rellena con `/products/clorofull-1.js`.
+Verificado en vivo inyectando esa misma función: las tres ofertas salen idénticas a las de la ficha.
+Detalle en `docs/releasit-form-styling.md` §4.4. **Si cambia el producto de la landing, cambiar
+`PRODUCT_HANDLE`**: ahora también decide qué ofertas enseña Releasit.

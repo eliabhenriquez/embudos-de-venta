@@ -36,6 +36,7 @@ de compra, sin engañarlo? Si la respuesta no es un sí claro, no se hace.
 ├── preview.sh                      # vista previa local de un fragmento (ver §9)
 ├── shot.mjs                        # captura y mide la preview con un móvil emulado (ver §9)
 ├── check-cdn.sh                    # qué imágenes de una landing faltan por subir al CDN
+├── check-css-merge.mjs             # simula la fusión de reglas CSS de GemPages y avisa si cambia algún estilo (ver §4.13 y §9)
 ├── docs/                           # guías transversales de plataforma
 │   ├── releasit-form-styling.md
 │   ├── image-optimization.md
@@ -74,8 +75,9 @@ conflicto. Antes de tocar una landing hay que haber leído los tres.
 | Imágenes crudas | `humanized-images/`, `product-images/` | Fuera de git; ver `docs/image-optimization.md` |
 | Skin de Releasit, fuentes | `<marca>/shared/` | Un solo formulario para toda la marca |
 
-Marcas activas: `mima` (productos: **SKNGLOW**, **MIMACALM**, **MIMANAD**), `eterma` (producto:
-**CLOROFULL**, primera landing en preparación), `nambu` (aún vacía).
+Marcas activas: `mima` (productos: **SKNGLOW**, **MIMACALM**, **MIMANAD**), `eterma` (productos:
+**CLOROFULL**, **VALERIANA** y cinco **kits** —`kit-dia-liviano`, `kit-piel-viva`, `kit-tinto-almohada`,
+`kit-duerme-florece` y `kit-cuerpo-punto`, los cinco construidos—), `nambu` (aún vacía).
 
 **Regla:** antes de escribir una sola línea de una landing, leer el `AGENTS.md` del producto, el
 `docs/` de la marca (branding) y el copy del ángulo. El copy y los claims salen de ahí, **no se
@@ -136,6 +138,18 @@ su header sticky. Todo lo que se escriba debe ser **a prueba de colisiones**.
 12. **Carrito:** usar los mecanismos nativos — elemento producto de GemPages, `/cart/add.js`, o
     permalink `/cart/<variantId>:<qty>`. Nunca hardcodear IDs de variante en el código sin extraerlos
     a una constante/config al inicio del script.
+13. 🔴 **GemPages reordena el CSS al publicar: toda regla que sobreescriba a otra gana por
+    especificidad, nunca por orden.** El minificador de GemPages **fusiona las reglas con el mismo
+    cuerpo aunque no sean adyacentes** y deja la fusión en la posición de la **primera**. Si
+    `.sg-plan--best { background: X }` comparte cuerpo con un `.sg-chip--activo { background: X }`
+    anterior, la regla de la tarjeta sube por encima de su base `.sg-plan { background: Y }` y la base
+    gana: la tarjeta pierde el fondo en producción aunque la vista previa sea perfecta. Pasó el
+    2026-09-07 con la tarjeta de pago anticipado de Valeriana y, en la Clorofull publicada, con el
+    rótulo del cierre (`.cf-close__overline` subió por encima de `.cf-overline` y salió gris). Defensa:
+    los modificadores y estados que pisan una base se escriben con la base en el selector
+    (`.sg-lp .sg-plan.sg-plan--best`, `.sg-lp .sg-quote.sg-quote--noche::before`), y **antes de
+    entregar se pasa `node check-css-merge.mjs <landing>`**, que simula la fusión en el peor caso y
+    compara los estilos computados de todos los elementos (§9.7).
 
 ---
 
@@ -183,20 +197,95 @@ El tráfico es mayoritariamente **mobile y de paid**: cada 100 ms cuentan.
 
 ## 7. CRO: estructura y principios
 
-Estructura base de una landing de venta (se adapta, no se aplica a ciegas):
+Estructura base de una landing de venta, define la información necesaria antes de escribir: producto, ingredientes, modo de uso, duración, precio, medios de pago, envío, garantía, bono, cliente ideal, dolor principal, dolores secundarios, deseo final y diferencia del producto.
+Objetivo: evitar una landing genérica, contradictoria o llena de beneficios desconectados. (se adapta, no se aplica a ciegas):
 
-1. **Hero** — promesa clara + producto visible + CTA. Qué es, para quién y qué gana, en < 3 segundos.
-2. **Mecanismo / ingredientes** — por qué funciona, explicado simple.
-3. **Problema–agitación** — los escenarios reales del usuario, con su lenguaje.
-4. **Cómo se usa** — hacer que se vea fácil de usar en el día a día.
-5. **Oferta y formas de pago** — precio, ahorro, opciones (anticipado vs contraentrega) sin ambigüedad.
-6. **Bonos / valor añadido**.
-7. **Prueba social** — testimonios reales, con nombre y ciudad y su foto en miniatura.
+1. **Hero** — promesa clara + producto visible + CTA. Qué es, para quién y qué gana, en < 3 segundos. Es el primer bloque visible. Debe explicar rápidamente para quién es el producto, qué beneficio busca, qué lo compone y cuál es la acción siguiente.
+Debe incluir:
+* Preheadline opcional para filtrar a quién va dirigido
+* Titular con la promesa o idea central
+* Subtitular que explique producto + ingredientes/componentes + beneficio
+* Foto claro del producto con elemento humano
+* Datos prácticos: presentación, duración, precio o envío
+* CTA principal
+2. **Mecanismo o lógica del producto / ingredientes** — Explica, de forma simple, por qué el producto tiene una propuesta distinta frente a soluciones que la persona ya conoce o ha probado.
+No es una sección para dar una clase técnica. Debe conectar pocos ingredientes o componentes con funciones concretas y beneficios comprensibles.
+Debe incluir:
+* Nombre simple del mecanismo
+* Titular que resuma la lógica
+* Explicación breve
+* Dos o tres ingredientes/componentes máximo (Los principales)
+* Función de cada ingrediente conectada con un beneficio visible o cotidiano
+Objetivo: responder la duda: “¿Por qué este producto podría valer la pena para mí?”.
+3. **Problema–agitación / Diagnóstico y microángulos** — Muestra escenas cotidianas que reflejen el problema principal y sus manifestaciones. Aquí el lector debe sentirse identificado con situaciones específicas, no con descripciones abstractas.
+Usa entre tres y cuatro microángulos relacionados con el dolor principal.
+Cada microángulo debe tener:
+* Nombre del dolor o situación
+* Señal visible
+* Escena cotidiana
+* Consecuencia emocional o práctica
+* Puente breve hacia el producto
+Objetivo: aumentar relevancia personal y demostrar que entiendes cómo se vive el problema.
+4. **Cómo se usa / Proceso y constancia** — Presenta el uso del producto como un hábito sencillo y muestra expectativas realistas sobre el proceso. Puede ser una línea de tiempo de 30, 60 y 90 días, o una versión más corta según la categoría.
+Debe incluir:
+* Título centrado en la transformación
+* Etapas de uso
+* Qué puede esperar la persona en cada etapa
+* Mensaje de constancia y continuidad
+Objetivo: hacer que el resultado se sienta alcanzable, reducir expectativas exageradas y preparar la recompra sin forzarla.
+
+Explica cómo se consume o utiliza el producto sin complicar la sección.
+Debe incluir:
+* Cantidad diaria
+* Momento sugerido de uso
+* Sabor o formato
+* Duración del empaque
+* Una frase que muestre que cabe fácilmente en la rutina
+Objetivo: eliminar fricción práctica. La persona debe sentir que podrá usarlo sin cambiar toda su rutina.
+
+5. **Oferta y formas de pago** — Presenta el precio base y permite escoger con claridad entre pago anticipado y pago contraentrega, si ambos están disponibles.
+Debe incluir:
+* Precio del producto
+* Opción de pago anticipado, con ahorro real si aplica
+* Opción de pago contraentrega
+* Qué ocurre después de comprar: confirmación, envío y seguimiento
+* CTA adaptado a la opción elegida
+Objetivo: convertir la intención en una decisión clara, sin esconder precios ni generar desconfianza alrededor del método de pago.
+6. **Bonos / valor añadido**. El bono debe complementar el uso del producto o ayudar a la persona a avanzar hacia el resultado que busca. Después, deja totalmente claro qué llega con la compra.
+Debe incluir:
+* Nombre y beneficio concreto del bono
+* Qué incluye o para qué sirve
+* Producto principal
+* Cantidad y duración
+* Bono
+* Envío
+* Seguimiento, si aplica
+Objetivo: aumentar valor percibido y hacer tangible la compra.
+7. **Prueba social** — Une dos fuentes de confianza: experiencias reales de clientes o creadoras y respaldo verificable sobre ingredientes, registro, certificaciones o fuentes confiables.
+Prueba social:
+* Tres testimonios principales máximo
+* Cada uno debe responder a un beneficio o microángulo distinto
+* Nombre, ciudad, foto/video real y contexto
+* Identificación clara si es una colaboración pagada
 8. **Autoridad** — respaldo de ingrediente/medios/estudios, siempre verificable.
+* Registro sanitario, certificaciones o fuentes verificables
+* Estudios o instituciones asociados correctamente al ingrediente, no atribuidos indebidamente al producto final
+* Enlaces o referencias cuando sea necesario
+Objetivo: reducir la incertidumbre de comprar un producto de bienestar por internet.
 9. **Qué recibes** — desglose tangible del pedido.
-10. **Garantía** — condiciones explícitas y cumplibles.
+10. **Garantía** — Este es el bloque final para resolver las últimas objeciones y recuperar a quien leyó toda la página, pero todavía no compra.
+Garantía:
+* Explica únicamente lo que la operación puede cumplir
+* Tiempos de entrega
+* Reenvío, devolución o solución en caso de incumplimiento
 11. **FAQ** — objeciones reales, incluida la de seguridad de uso.
-12. **Cierre** — repetición de oferta + CTA final.
+12. **Cierre** —
+* Repite la idea central del hero
+* Resume máximo tres beneficios
+* Muestra precio y métodos de pago
+* CTA final
+Objetivo: cerrar dudas prácticas, reforzar confianza y llevar a la decisión final.
+Nota: debajo de esta última sección debe ir pantallazo del Feed o Bio de Instagram de la marca
 
 Principios:
 
@@ -299,4 +388,15 @@ sus nombres reales.
    ```
 6. **Si cambió alguna imagen, comprobar el CDN:** `./check-cdn.sh <landing>` dice cuáles faltan por
    subir. Recordar el versionado `-v2` de §5.
-7. No tocar producción (publicar/despublicar páginas, cambiar el tema) sin petición explícita.
+7. **Simular la fusión de CSS de GemPages antes de entregar** (§4.13). El comprobador regenera la
+   preview, junta todas las reglas de cuerpo idéntico en la posición de la primera (el peor caso de lo
+   que hace GemPages al publicar) y compara los estilos computados de cada elemento y sus
+   `::before`/`::after` a 390 y 1280 px. Cualquier cambio es una regla que depende del orden; se
+   corrige subiendo la especificidad del modificador, no reordenando.
+
+   ```sh
+   node check-css-merge.mjs <marca>/landings/<producto>/<ángulo>/<campaña>.html
+   node check-css-merge.mjs <landing> --groups     # lista qué reglas se fusionan con cuáles
+   node check-css-merge.mjs <landing> --no-merge   # control: debe dar 0 cambios
+   ```
+8. No tocar producción (publicar/despublicar páginas, cambiar el tema) sin petición explícita.
