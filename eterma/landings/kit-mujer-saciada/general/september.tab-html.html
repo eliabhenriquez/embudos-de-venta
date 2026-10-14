@@ -1,0 +1,633 @@
+<!--
+	KIT MUJER SACIADA — landing para GemPages (Custom Code)
+	Segunda landing de la línea «Eterma viva» de los kits (2026-09-16).
+	Contexto, decisiones y medidas: eterma/landings/kit-mujer-saciada/AGENTS.md
+	Todo cuelga de .ms-lp; los CTA llevan las clases de Releasit
+	_rsi-cod-form-gempages-button-overwrite y _rsi-cod-form-is-gempage.
+-->
+<section class="ms-lp" id="ms-kit-mujer-saciada">
+
+	<!-- Símbolos compartidos: el logo en vector (del manual) y los iconos.
+	     Se pintan con <use>: el logo toma el color del texto y la hoja el fill. -->
+	<svg class="ms-sprite" aria-hidden="true" focusable="false">
+		<symbol id="ms-wordmark" viewBox="137 340 322 95"><g fill="currentColor"><path d="M352 427.5L341.9 427.5C341.9 426.9 341.9 426.3 341.9 425.6C341.9 412.7 341.9 399.8 341.9 386.8C341.8 385.1 341.5 383.3 340.9 381.6C339.1 376.8 333.9 374.8 328.4 376.6C322 378.6 316.4 386.2 316.4 393C316.4 403.1 316.4 413.2 316.5 423.3C316.5 424.7 316.9 426.1 317.1 427.6L306.5 427.6C306.6 425.5 306.8 423.6 306.8 421.6C306.8 407.1 306.7 392.5 306.8 377.9C306.8 375.5 306.5 373.3 304.4 371.4L316.4 371.4L316.4 384C318 381.8 319.5 379.2 321.5 377.2C326.4 372.2 332.5 370.1 339.5 371.1C344.8 371.9 349.3 376.3 350.6 382.4C351.1 384.7 351.4 387.1 351.4 389.5C351.5 399.8 351.4 410 351.4 420.3C351.5 422.7 351.8 425.1 352 427.5"/><path d="M349.4 384C351 381.8 352.5 379.2 354.5 377.2C359.4 372.2 365.5 370.1 372.5 371.1C377.8 371.9 382.3 376.3 383.6 382.4C384.1 384.7 384.3 387.1 384.3 389.5C384.4 399.8 384.3 410 384.4 420.3C384.4 422.7 384.8 425.1 384.9 427.5L374.9 427.5C374.9 426.9 374.9 426.3 374.9 425.6C374.9 412.7 374.9 399.8 374.8 386.8C374.8 385.1 374.4 383.3 373.8 381.6C372.1 376.8 366.9 374.8 361.4 376.6C355 378.6 349.4 386.2 349.4 393C349.4 403.1 349.4 413.2 349.4 423.3C349.4 424.7 349.8 426.1 350.1 427.6"/><path d="M184 416.8C183.5 420.4 183 423.9 182.5 427.5L138.1 427.5C138.4 427.3 138.6 427.1 138.8 426.9C140.6 425.7 141.1 423.9 141.1 421.9C141.2 400.4 141.2 378.8 141.2 357.3C141.2 354.8 140 352.9 137.7 351.1L177.5 351.1L177.5 360.4C177.4 360.5 177.2 360.5 177.2 360.5C174.4 356.6 170.4 355 165.8 354.7C161 354.4 156.2 354.3 151.2 354.1L151.2 383.2C159.5 382.6 168 384.6 175.6 379.5L175.6 389.5C167.9 385.5 159.6 386.9 151.3 386.5L151.3 424.1C151.3 424.1 151.4 424.2 151.5 424.2C157.6 424.2 163.6 424.3 169.7 424C175.4 423.7 180.4 421.6 184 416.8"/><path d="M421.7 392.3C421.6 392.3 421.4 392.3 421.4 392.3C414.9 396.1 408.8 400.2 403.8 405.8C401.4 408.5 399.3 411.4 399 415.2C398.7 419.6 402.4 422.7 406.7 421.8C409.1 421.3 411.1 420 412.7 418.3C419.8 411 422.8 402.4 421.7 392.3M393.6 391.8C393.6 388.6 393.6 385.5 393.6 382.3C393.6 382 393.8 381.6 394 381.3C399.1 376.8 404.4 372.5 411.3 371.2C414.1 370.7 417.2 370.7 420.1 371.2C427 372.3 430.8 377.1 430.8 384.2C430.8 394.5 430.8 404.8 430.8 415.1C430.8 416.3 430.8 417.5 430.9 418.7C431 420.9 431.7 421.4 434.1 421C433.8 421.6 433.6 422.4 433.1 422.8C430.9 424.4 428.6 425.9 426.3 427.4C425.9 427.6 425.4 427.9 424.9 428.1C423 428.8 421.8 428.1 421.7 426.1C421.6 421 421.7 415.9 421.7 410.8C421.7 410.5 421.7 410.3 421.7 409.8C420.6 412 419.6 414.1 418.6 416.1C415.9 421.4 412 425.4 406.4 427.5C402.4 429.1 398.4 429.2 394.7 426.6C391.2 424.1 390.7 420.4 391.5 416.5C392.5 411.8 395.4 408.2 398.8 405C405.2 399.1 412.6 394.7 420.3 390.7C421.4 390.1 421.9 389.5 421.8 388.2C421.6 385.5 421.8 382.7 421.5 380.1C420.9 375.9 418.1 373.8 413.9 374.1C409.2 374.4 405.4 376.7 402 379.7C398.4 382.8 395.9 386.8 394.1 391.2C394 391.4 393.9 391.6 393.9 391.8C393.8 391.8 393.7 391.8 393.6 391.8"/><path d="M227.5 386.5L254.6 386.5C255.6 381.3 252.6 376.5 247.5 374.9C238.8 372 229.8 377.2 227.5 386.5M262.3 389.7L226.4 389.7C226.4 392.6 226.2 395.4 226.3 398.2C226.5 403.2 227.5 408 230 412.5C236 422.9 249.6 425.4 258.6 417.5C260.2 416.1 261.4 414.2 262.7 412.4C263 412.1 263.2 411.8 263.6 411.5C263.5 411.9 263.5 412.3 263.4 412.6C258.4 427.5 240.2 433.6 227.9 424.5C223.1 420.9 220.5 415.9 219.2 410.2C217.1 400.6 217.8 391.2 223.1 382.6C228.9 373.3 240.6 368.7 250.4 372C258 374.5 262.7 381.4 262.3 389.7"/><path d="M203 358.7L203 371.3L215.9 371.3L215.9 374.7L202.7 374.7C202.7 375.4 202.7 375.9 202.7 376.4C202.6 388.3 202.6 400.3 202.7 412.2C202.7 414.3 203 416.6 203.8 418.5C205.9 423.8 211.5 424.9 215.8 421.1C216.1 420.8 216.5 420.6 216.9 420.4C215.3 424.5 212.2 427 207.9 428C202.6 429.4 197.1 427.2 194.8 422.3C193.8 420.3 193.4 417.7 193.3 415.4C193.2 403.3 193.3 391.2 193.3 379.1C193.3 377.7 193.3 376.4 193.3 374.9L187.1 374.9C192.3 369.5 197.6 364.2 203 358.7"/><path d="M267.8 371.3L280.1 371.3L280.1 384.2C282.1 380.3 284.3 376.7 287.7 374C291.2 371.2 295.2 370.2 299.8 371.1L299.8 379.8C298.4 379.4 297.1 379 295.7 378.8C290.1 377.6 285.3 379.7 282.4 384.8C281 387.3 280.1 390 280.2 393C280.2 402.8 280.2 412.7 280.2 422.5C280.2 424.1 280.6 425.8 280.8 427.5L270.3 427.5C270.4 424.8 270.5 422.2 270.5 419.5C270.5 405.9 270.5 392.2 270.6 378.6C270.6 375.9 270.2 373.4 267.8 371.3"/></g><g><path d="M441.8 366.7C440.6 364.8 439.4 362.6 437.9 360.7C433.1 354.6 433 352.7 437.9 346.6C438.7 345.6 439.4 344.6 440.1 343.5C440.7 342.5 441.2 341.3 441.5 340.6C443.4 343.3 445.4 346.2 447.4 349.1C449.7 352.4 449.8 354.6 447.5 358C446.4 359.5 445.2 360.9 444.2 362.4C443.2 363.9 442.5 365.5 441.8 366.7"/><path d="M440.4 379.7C437.8 374.7 433.4 371.3 429.6 367.3C426 363.6 425.6 358.6 428.4 354.6C436 361.2 441.1 369 440.4 379.7"/><path d="M443 380.2C442.2 369 447.4 361.2 455.1 354.6C458.1 359 457.2 364.3 452.8 368.5C449.1 371.8 445.5 375.2 443 380.2"/></g></symbol>
+		<symbol id="ms-leaf" viewBox="425 340 34 41"><path d="M441.8 366.7C440.6 364.8 439.4 362.6 437.9 360.7C433.1 354.6 433 352.7 437.9 346.6C438.7 345.6 439.4 344.6 440.1 343.5C440.7 342.5 441.2 341.3 441.5 340.6C443.4 343.3 445.4 346.2 447.4 349.1C449.7 352.4 449.8 354.6 447.5 358C446.4 359.5 445.2 360.9 444.2 362.4C443.2 363.9 442.5 365.5 441.8 366.7"/><path d="M440.4 379.7C437.8 374.7 433.4 371.3 429.6 367.3C426 363.6 425.6 358.6 428.4 354.6C436 361.2 441.1 369 440.4 379.7"/><path d="M443 380.2C442.2 369 447.4 361.2 455.1 354.6C458.1 359 457.2 364.3 452.8 368.5C449.1 371.8 445.5 375.2 443 380.2"/></symbol>
+		<symbol id="ms-i-sunrise" viewBox="0 0 24 24"><path d="M3 18.5h18"/><path d="M6.5 18.5a5.5 5.5 0 0 1 11 0"/><path d="M12 6v3M5.3 9.8l1.8 1.8M18.7 9.8l-1.8 1.8M2.5 14.5h2M19.5 14.5h2"/></symbol>
+		<symbol id="ms-i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></symbol>
+		<symbol id="ms-i-plate" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/></symbol>
+		<symbol id="ms-i-scoop" viewBox="0 0 24 24"><path d="M8.5 3.5a4 4 0 0 1 7 2.6c0 1.5-1 2.7-2.4 3.2"/><path d="M13.1 9.3 9.4 20.4a1.6 1.6 0 0 1-3-.1L3.6 9.6a1.6 1.6 0 0 1 1.5-2h6.5a1.6 1.6 0 0 1 1.5 1.7Z"/></symbol>
+		<symbol id="ms-i-wheat" viewBox="0 0 24 24"><path d="M12 21.5V7.5"/><path d="M12 8c0-2.8 1.8-4.6 4-5 0 2.8-1.8 4.6-4 5ZM12 8c0-2.8-1.8-4.6-4-5 0 2.8 1.8 4.6 4 5Z"/><path d="M12 14c0-2.6 1.8-4.2 4-4.6 0 2.6-1.8 4.2-4 4.6ZM12 14c0-2.6-1.8-4.2-4-4.6 0 2.6 1.8 4.2 4 4.6Z"/></symbol>
+		<symbol id="ms-i-tea" viewBox="0 0 24 24"><path d="M4.5 8.5h12v6.5a4 4 0 0 1-4 4H8.5a4 4 0 0 1-4-4V8.5Z"/><path d="M16.5 10h1.8a2.6 2.6 0 0 1 0 5.2h-1.8"/><path d="M8 5.5c0-1 .8-1.5.8-2.5M12 5.5c0-1 .8-1.5.8-2.5"/></symbol>
+		<symbol id="ms-i-coffee" viewBox="0 0 24 24"><path d="M5 10.5h11V17a3.5 3.5 0 0 1-3.5 3.5h-4A3.5 3.5 0 0 1 5 17v-6.5Z"/><path d="M16 12h2a2.4 2.4 0 0 1 0 4.8h-2"/><path d="M8.5 7.5c0-1.2 1-1.7 1-3M12.5 7.5c0-1.2 1-1.7 1-3"/></symbol>
+		<symbol id="ms-i-bread" viewBox="0 0 24 24"><path d="M3.5 10.5c0-3 3.8-5 8.5-5s8.5 2 8.5 5c0 1.4-1.2 2-2.4 2v6a1.5 1.5 0 0 1-1.5 1.5H7.4A1.5 1.5 0 0 1 5.9 18.5v-6c-1.2 0-2.4-.6-2.4-2Z"/></symbol>
+		<symbol id="ms-i-moon" viewBox="0 0 24 24"><path d="M19.5 14.6A8 8 0 0 1 9.4 4.5a8 8 0 1 0 10.1 10.1Z"/></symbol>
+		<symbol id="ms-i-flower" viewBox="0 0 24 24"><circle cx="12" cy="9.5" r="2.6"/><path d="M12 6.9c0-2.4-1-3.9-1-3.9s3-.4 3 1.6c0 1.2-1 2.3-2 2.3ZM9.4 9.5C7 9.5 5.6 8.5 5.6 8.5s-.4 3 1.6 3c1.2 0 2.2-1 2.2-2ZM14.6 9.5c2.4 0 3.8-1 3.8-1s.4 3-1.6 3c-1.2 0-2.2-1-2.2-2Z"/><path d="M12 12.1v9.4M12 16.5c-1.6-.6-3-1.8-3.4-3.2"/></symbol>
+		<symbol id="ms-i-cycle" viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 1 1-2.8-6.3"/><path d="M19.8 2.8 18 5.9l3.3.9"/></symbol>
+		<symbol id="ms-i-liver" viewBox="0 0 24 24"><path d="M3.5 8.2c4-1.6 9.6-1.9 17-.9 0 6.2-3.4 10.2-7.7 10.2-1.6 0-2.7-.9-3.3-2.3-2.8-.4-5-2.4-6-7Z"/><path d="M12.5 15.2c.4-2.3 2.2-3.8 4.6-4.3"/></symbol>
+		<symbol id="ms-i-walk" viewBox="0 0 24 24"><circle cx="13.5" cy="4.2" r="1.9"/><path d="m8 21 2.6-5.5.7-4.2-2.8 2.3L7 17"/><path d="m10.6 15.5 3.4 1.7L16 21M13.3 11.3l3 1.6 2.2-1.9M13.3 11.3 11 9.4c-.8-.7-.6-2 .4-2.4l2.6-1 2 2.6 2.4.6"/></symbol>
+		<symbol id="ms-i-balance" viewBox="0 0 24 24"><path d="M12 4.5v15"/><path d="M5 8.5h14"/><path d="M5 8.5 2.5 14a2.8 2.8 0 0 0 5 0L5 8.5ZM19 8.5 16.5 14a2.8 2.8 0 0 0 5 0L19 8.5Z"/><path d="M8.5 19.5h7"/></symbol>
+		<symbol id="ms-i-bottle" viewBox="0 0 24 24"><path d="M9.5 2.5h5v3l1.5 2.2V20a1.5 1.5 0 0 1-1.5 1.5h-5A1.5 1.5 0 0 1 8 20V7.7l1.5-2.2v-3Z"/><path d="M8 12h8"/></symbol>
+		<symbol id="ms-i-cup" viewBox="0 0 24 24"><path d="M5.5 5h13l-1.6 14.3a2 2 0 0 1-2 1.7H9.1a2 2 0 0 1-2-1.7L5.5 5Z"/><path d="M6.4 11h11.2"/></symbol>
+		<symbol id="ms-i-doses" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="16" rx="2.5"/><path d="M3.5 9.5h17M8 2.5v4M16 2.5v4"/><path d="M8 14h2M12 14h4M8 17.2h4"/></symbol>
+		<symbol id="ms-i-truck" viewBox="0 0 24 24"><path d="M2.5 6.5h11v9h-11z"/><path d="M13.5 9.5h4l3 3.2v2.8h-7"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></symbol>
+		<symbol id="ms-i-shield" viewBox="0 0 24 24"><path d="M12 2.8 4.5 5.6v6c0 4.7 3.2 8.3 7.5 9.6 4.3-1.3 7.5-4.9 7.5-9.6v-6L12 2.8Z"/><path d="m8.6 12 2.4 2.4 4.5-4.6"/></symbol>
+		<symbol id="ms-i-coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M14.6 9.2c-.5-.9-1.5-1.4-2.6-1.4-1.5 0-2.6.8-2.6 2s1.1 1.7 2.6 2 2.6.9 2.6 2.1-1.1 2-2.6 2c-1.2 0-2.2-.5-2.7-1.4M12 6.2v1.6M12 16.2v1.6"/></symbol>
+		<symbol id="ms-i-repeat" viewBox="0 0 24 24"><path d="m17 2.5 3 3-3 3"/><path d="M4 11.5v-2a4 4 0 0 1 4-4h12"/><path d="m7 21.5-3-3 3-3"/><path d="M20 12.5v2a4 4 0 0 1-4 4H4"/></symbol>
+		<symbol id="ms-i-chat" viewBox="0 0 24 24"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.3 7.5L3.5 20.5l1.4-4.5a8.4 8.4 0 1 1 15.6-4.4Z"/><path d="M9 9.8c.3 2.4 2.2 4.4 4.7 4.8l1.3-1.1 1.8.9"/></symbol>
+		<symbol id="ms-i-plus" viewBox="0 0 24 24"><path d="M12 5.5v13M5.5 12h13"/></symbol>
+	</svg>
+
+	<!-- ============================ CINTA ============================
+	     Sin cabecera con el logo centrado: una cinta amarilla con las
+	     condiciones del pedido. El logo va dentro del hero. -->
+	<div class="ms-ribbon">
+		<div class="ms-ribbon__track" data-ms-marquee>
+			<ul class="ms-ribbon__set">
+				<li class="ms-ribbon__item">Entrega en 3 a 5 días hábiles</li>
+				<li class="ms-ribbon__item">Paga al recibir</li>
+				<li class="ms-ribbon__item">Ahorra $10.000 COP pagando anticipado</li>
+				<li class="ms-ribbon__item">Garantía de entrega ETERMA</li>
+			</ul>
+			<ul class="ms-ribbon__set" aria-hidden="true">
+				<li class="ms-ribbon__item">Entrega en 3 a 5 días hábiles</li>
+				<li class="ms-ribbon__item">Paga al recibir</li>
+				<li class="ms-ribbon__item">Ahorra $10.000 COP pagando anticipado</li>
+				<li class="ms-ribbon__item">Garantía de entrega ETERMA</li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- ============================ HERO ============================
+	     «La bandeja»: una foto grande y tres fichas con miniatura debajo
+	     que la cambian. El rótulo va en banda propia, nunca sobre la foto.
+	     Sin JS, las cuatro fotos son una fila deslizable. -->
+	<section class="ms-hero">
+		<div class="ms-shell ms-hero__layout">
+			<div class="ms-hero__head">
+				<div class="ms-brand">
+					<svg class="ms-brand__logo" viewBox="0 0 322 95" role="img" aria-label="Eterma"><use href="#ms-wordmark"/></svg>
+					<span class="ms-brand__kit">Kit Mujer Saciada</span>
+				</div>
+				<p class="ms-sticker">Para esos días en que comer parece no ser suficiente</p>
+				<h1 class="ms-h1">
+					<span class="ms-h1__line">Más <span class="ms-mark">saciedad<span class="ms-mark__fill" aria-hidden="true"></span></span>.</span>
+					<span class="ms-h1__line ms-h1__line--soft">Menos picoteo.</span>
+				</h1>
+			</div>
+
+			<div class="ms-hero__media">
+				<div class="ms-tray" data-ms-tray>
+					<div class="ms-tray__stage" data-ms-tray-stage>
+						<figure class="ms-shot ms-tone-blush" data-ms-shot id="ms-shot-kit">
+							<div class="ms-shot__photo">
+								<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-mujer-saciada-hero.webp?width=800"
+									srcset="https://etermacolombia.com/cdn/shop/files/landings-kit-mujer-saciada-hero.webp?width=500 500w, https://etermacolombia.com/cdn/shop/files/landings-kit-mujer-saciada-hero.webp?width=800 800w, https://etermacolombia.com/cdn/shop/files/landings-kit-mujer-saciada-hero.webp?width=1200 1200w"
+									sizes="(min-width: 900px) 470px, 88vw" width="1200" height="1200" fetchpriority="high" decoding="async"
+									alt="Mujer toma su dosis en el vaso medidor junto a Clorofull, Vita-Advance y Advance">
+							</div>
+							<figcaption class="ms-shot__caption">
+								<span class="ms-shot__kicker">El kit</span>
+								<span class="ms-shot__title">Kit Mujer Saciada</span>
+							</figcaption>
+						</figure>
+						<figure class="ms-shot ms-tone-sun" data-ms-shot id="ms-shot-vita">
+							<div class="ms-shot__photo">
+								<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-tinto-almohada-jar-vita-advance.webp?width=600"
+									sizes="(min-width: 900px) 470px, 88vw" width="800" height="1000" loading="lazy" decoding="async"
+									alt="Tarro de Vita-Advance de 500 g en la mano">
+							</div>
+							<figcaption class="ms-shot__caption">
+								<span class="ms-shot__kicker">Mañana</span>
+								<span class="ms-shot__title">Vita-Advance · proteína, avena y glucomanano</span>
+							</figcaption>
+						</figure>
+						<figure class="ms-shot ms-tone-mint" data-ms-shot id="ms-shot-clorofull">
+							<div class="ms-shot__photo">
+								<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-bottle-clorofull.webp?width=600"
+									sizes="(min-width: 900px) 470px, 88vw" width="800" height="1000" loading="lazy" decoding="async"
+									alt="Botella de Clorofull de 1 litro en la mano">
+							</div>
+							<figcaption class="ms-shot__caption">
+								<span class="ms-shot__kicker">Durante el día</span>
+								<span class="ms-shot__title">Clorofull · clorofila, pectina y polidextrosa</span>
+							</figcaption>
+						</figure>
+						<figure class="ms-shot ms-tone-tea" data-ms-shot id="ms-shot-advance">
+							<div class="ms-shot__photo">
+								<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-bottle-advance.webp?width=600"
+									sizes="(min-width: 900px) 470px, 88vw" width="800" height="1000" loading="lazy" decoding="async"
+									alt="Botella de Advance de 1 litro en la mano">
+							</div>
+							<figcaption class="ms-shot__caption">
+								<span class="ms-shot__kicker">Después del almuerzo</span>
+								<span class="ms-shot__title">Advance · té verde y alcachofa</span>
+							</figcaption>
+						</figure>
+					</div>
+					<div class="ms-tray__picks" data-ms-tray-picks hidden>
+						<button type="button" class="ms-pick ms-tone-blush" id="ms-pick-kit" data-ms-pick="ms-shot-kit">
+							<span class="ms-pick__thumb"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-mujer-saciada-hero.webp?width=160" width="160" height="160" loading="lazy" decoding="async" alt=""></span>
+							<span class="ms-pick__label">El kit</span>
+						</button>
+						<button type="button" class="ms-pick ms-tone-sun" id="ms-pick-vita" data-ms-pick="ms-shot-vita">
+							<span class="ms-pick__thumb"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-tinto-almohada-jar-vita-advance.webp?width=160" width="160" height="200" loading="lazy" decoding="async" alt=""></span>
+							<span class="ms-pick__label">Vita-Advance</span>
+						</button>
+						<button type="button" class="ms-pick ms-tone-mint" id="ms-pick-clorofull" data-ms-pick="ms-shot-clorofull">
+							<span class="ms-pick__thumb"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-bottle-clorofull.webp?width=160" width="160" height="200" loading="lazy" decoding="async" alt=""></span>
+							<span class="ms-pick__label">Clorofull</span>
+						</button>
+						<button type="button" class="ms-pick ms-tone-tea" id="ms-pick-advance" data-ms-pick="ms-shot-advance">
+							<span class="ms-pick__thumb"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-bottle-advance.webp?width=160" width="160" height="200" loading="lazy" decoding="async" alt=""></span>
+							<span class="ms-pick__label">Advance</span>
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="ms-hero__buy">
+				<p class="ms-trio"><span class="ms-trio__item ms-tone-sun">Vita-Advance</span><span class="ms-trio__plus">+</span><span class="ms-trio__item ms-tone-mint">Clorofull</span><span class="ms-trio__plus">+</span><span class="ms-trio__item ms-tone-tea">Advance</span></p>
+				<p class="ms-lead">Tres productos para organizar mejor tus comidas, sumar proteína y fibra y acompañar esos momentos en que los antojos aparecen una y otra vez.</p>
+				<p class="ms-deal">
+					<span class="ms-deal__now"><strong class="ms-deal__amount">$119.900</strong> anticipado</span>
+					<span class="ms-deal__alt">o <strong>$129.900</strong> contraentrega</span>
+				</p>
+				<button type="button" class="ms-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage"><span class="ms-cta__label">Quiero mi kit Mujer Saciada</span><span class="ms-cta__level" aria-hidden="true"><i></i><i></i><i></i></span></button>
+				<p class="ms-hero__note"><svg class="ms-icon"><use href="#ms-i-truck"/></svg><span>Entrega en <strong>3 a 5 días hábiles</strong>.</span></p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================ PERSONAS ============================
+	     Polaroids con cinta del color de su producto que corren solas y se
+	     paran al tocarlas. Nombres reales del pool; sin cita, porque el copy
+	     no trae testimonios. -->
+	<section class="ms-people" aria-label="Personas reales con los productos del kit">
+		<div class="ms-people__track" data-ms-marquee>
+			<ul class="ms-people__set">
+				<li class="ms-polaroid ms-tone-sun"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-tinto-almohada-ugc-natalia.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt="Natalia con su tarro de Vita-Advance"><p class="ms-polaroid__caption"><span class="ms-polaroid__name">Natalia</span><span class="ms-polaroid__product">Vita-Advance</span></p></li>
+				<li class="ms-polaroid ms-tone-mint"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-ugc-celeste.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt="Celeste con su botella de Clorofull"><p class="ms-polaroid__caption"><span class="ms-polaroid__name">Celeste</span><span class="ms-polaroid__product">Clorofull</span></p></li>
+				<li class="ms-polaroid ms-tone-tea"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-ugc-joselin.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt="Joselin con su botella de Advance"><p class="ms-polaroid__caption"><span class="ms-polaroid__name">Joselin</span><span class="ms-polaroid__product">Advance</span></p></li>
+				<li class="ms-polaroid ms-tone-mint"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-ugc-valentina.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt="Valentina con su botella de Clorofull"><p class="ms-polaroid__caption"><span class="ms-polaroid__name">Valentina</span><span class="ms-polaroid__product">Clorofull</span></p></li>
+				<li class="ms-polaroid ms-tone-sun"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-tinto-almohada-ugc-vita-advance-1.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt="Clienta con su tarro de Vita-Advance"><p class="ms-polaroid__caption"><span class="ms-polaroid__product">Vita-Advance</span></p></li>
+				<li class="ms-polaroid ms-tone-tea"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-ugc-advance-pour.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt="Advance servido en el vaso medidor"><p class="ms-polaroid__caption"><span class="ms-polaroid__product">Advance</span></p></li>
+				<li class="ms-polaroid ms-tone-mint"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-ugc-maria-fernanda.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt="María Fernanda con su botella de Clorofull"><p class="ms-polaroid__caption"><span class="ms-polaroid__name">María Fernanda</span><span class="ms-polaroid__product">Clorofull</span></p></li>
+				<li class="ms-polaroid ms-tone-sun"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-tinto-almohada-ugc-vita-advance-3.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt="Vita-Advance preparado en casa"><p class="ms-polaroid__caption"><span class="ms-polaroid__product">Vita-Advance</span></p></li>
+				<li class="ms-polaroid ms-tone-tea"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-ugc-advance-3.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt="Clienta con su botella de Advance"><p class="ms-polaroid__caption"><span class="ms-polaroid__product">Advance</span></p></li>
+			</ul>
+			<ul class="ms-people__set" aria-hidden="true">
+				<li class="ms-polaroid ms-tone-sun"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-tinto-almohada-ugc-natalia.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt=""><p class="ms-polaroid__caption"><span class="ms-polaroid__name">Natalia</span><span class="ms-polaroid__product">Vita-Advance</span></p></li>
+				<li class="ms-polaroid ms-tone-mint"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-ugc-celeste.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt=""><p class="ms-polaroid__caption"><span class="ms-polaroid__name">Celeste</span><span class="ms-polaroid__product">Clorofull</span></p></li>
+				<li class="ms-polaroid ms-tone-tea"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-ugc-joselin.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt=""><p class="ms-polaroid__caption"><span class="ms-polaroid__name">Joselin</span><span class="ms-polaroid__product">Advance</span></p></li>
+				<li class="ms-polaroid ms-tone-mint"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-ugc-valentina.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt=""><p class="ms-polaroid__caption"><span class="ms-polaroid__name">Valentina</span><span class="ms-polaroid__product">Clorofull</span></p></li>
+				<li class="ms-polaroid ms-tone-sun"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-tinto-almohada-ugc-vita-advance-1.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt=""><p class="ms-polaroid__caption"><span class="ms-polaroid__product">Vita-Advance</span></p></li>
+				<li class="ms-polaroid ms-tone-tea"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-ugc-advance-pour.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt=""><p class="ms-polaroid__caption"><span class="ms-polaroid__product">Advance</span></p></li>
+				<li class="ms-polaroid ms-tone-mint"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-ugc-maria-fernanda.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt=""><p class="ms-polaroid__caption"><span class="ms-polaroid__name">María Fernanda</span><span class="ms-polaroid__product">Clorofull</span></p></li>
+				<li class="ms-polaroid ms-tone-sun"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-tinto-almohada-ugc-vita-advance-3.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt=""><p class="ms-polaroid__caption"><span class="ms-polaroid__product">Vita-Advance</span></p></li>
+				<li class="ms-polaroid ms-tone-tea"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-ugc-advance-3.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt=""><p class="ms-polaroid__caption"><span class="ms-polaroid__product">Advance</span></p></li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- ============================ LA SECUENCIA ============================
+	     Tres fichas grandes, una por producto, numeradas 1-2-3 y en el orden
+	     del copy: mañana, después del almuerzo y durante el día. -->
+	<section class="ms-section ms-order">
+		<div class="ms-shell">
+			<h2 class="ms-h2">Tres productos.<span class="ms-h2__soft">Un día con más estructura.</span></h2>
+			<ol class="ms-steps">
+				<li class="ms-step ms-tone-sun">
+					<p class="ms-step__when"><span class="ms-step__num">1</span>Empieza desde la mañana.</p>
+					<article class="ms-item">
+						<div class="ms-item__photo">
+							<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-tinto-almohada-jar-vita-advance.webp?width=500" width="800" height="1000" loading="lazy" decoding="async" alt="Tarro de Vita-Advance en la mano">
+						</div>
+						<div class="ms-item__body">
+							<h3 class="ms-h3">Vita-Advance</h3>
+							<p class="ms-item__claim">Un desayuno que sí cuenta.</p>
+							<p class="ms-item__formula">Proteína aislada de soya + avena + glucomanano.</p>
+							<p class="ms-item__figure"><strong>23 g de proteína y 5,2 g de fibra por porción.</strong></p>
+							<p class="ms-item__text">Para esas mañanas en las que un café y dos galletas intentan hacer el trabajo de un desayuno completo.</p>
+							<p class="ms-dose">4 cucharadas en 200 ml de agua.</p>
+						</div>
+					</article>
+				</li>
+				<li class="ms-step ms-tone-tea">
+					<p class="ms-step__when"><span class="ms-step__num">2</span>Sigue después del almuerzo.</p>
+					<article class="ms-item">
+						<div class="ms-item__photo">
+							<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-bottle-advance.webp?width=500" width="800" height="1000" loading="lazy" decoding="async" alt="Botella de Advance en la mano">
+						</div>
+						<div class="ms-item__body">
+							<h3 class="ms-h3">Advance</h3>
+							<p class="ms-item__claim">Para cuando el almuerzo se siente demasiado.</p>
+							<p class="ms-item__formula">Té verde + alcachofa.</p>
+							<p class="ms-item__text">Una bebida concentrada pensada para acompañar la sensación de ligereza después de comidas abundantes.</p>
+							<p class="ms-dose">1 litro para 33 días. 33 dosis de 30 ml. Vaso medidor de regalo.</p>
+						</div>
+					</article>
+				</li>
+				<li class="ms-step ms-tone-mint">
+					<p class="ms-step__when"><span class="ms-step__num">3</span>Y suma Clorofull a tu día.</p>
+					<article class="ms-item">
+						<div class="ms-item__photo">
+							<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-bottle-clorofull.webp?width=500" width="800" height="1000" loading="lazy" decoding="async" alt="Botella de Clorofull en la mano">
+						</div>
+						<div class="ms-item__body">
+							<h3 class="ms-h3">Clorofull</h3>
+							<p class="ms-item__formula">Clorofila, pectina y polidextrosa en una bebida concentrada con vitaminas y minerales.</p>
+							<p class="ms-dose">1 litro para 33 días. 33 dosis de 30 ml. Vaso medidor de regalo.</p>
+						</div>
+					</article>
+				</li>
+			</ol>
+		</div>
+	</section>
+
+	<!-- ============================ ¿TE SUENA? ============================
+	     Seis situaciones que se abren con un toque para leer la respuesta.
+	     Sin JS están todas abiertas y se leen seguidas. -->
+	<section class="ms-section ms-section--cream ms-cases">
+		<div class="ms-shell">
+			<div class="ms-cases__head">
+				<h2 class="ms-h2">¿Te suena?</h2>
+				<p class="ms-cases__hint" data-ms-cases-hint hidden>Toca cada situación para leer la respuesta.</p>
+			</div>
+			<ul class="ms-cases__list" data-ms-cases>
+				<li class="ms-case ms-tone-sun">
+					<div class="ms-case__head" data-ms-case-head id="ms-case-head-1">
+						<span class="ms-case__mark" aria-hidden="true"><svg class="ms-icon"><use href="#ms-i-coffee"/></svg></span>
+						<span class="ms-case__titles">
+							<span class="ms-case__title">Desayunas poco.</span>
+							<span class="ms-case__sub">A media mañana ya quieres comer otra vez.</span>
+						</span>
+						<span class="ms-case__sign" aria-hidden="true"><svg class="ms-icon"><use href="#ms-i-plus"/></svg></span>
+					</div>
+					<div class="ms-case__body" id="ms-case-body-1">
+						<p>Cuando empiezas el día con muy poca comida, llegar al siguiente antojo puede ser cuestión de horas.</p>
+						<p>Vita-Advance suma <strong>proteína + fibra</strong> desde la mañana.</p>
+					</div>
+				</li>
+				<li class="ms-case ms-tone-mint">
+					<div class="ms-case__head" data-ms-case-head id="ms-case-head-2">
+						<span class="ms-case__mark" aria-hidden="true"><svg class="ms-icon"><use href="#ms-i-bread"/></svg></span>
+						<span class="ms-case__titles">
+							<span class="ms-case__title">“No puedo dejar los carbohidratos.”</span>
+						</span>
+						<span class="ms-case__sign" aria-hidden="true"><svg class="ms-icon"><use href="#ms-i-plus"/></svg></span>
+					</div>
+					<div class="ms-case__body" id="ms-case-body-2">
+						<p>No necesitas declararle la guerra al arroz, el pan o la arepa.</p>
+						<p>La diferencia también está en <strong>con qué los acompañas, cuánto comes y qué tan completa fue tu comida anterior.</strong></p>
+						<p>Más proteína y fibra pueden hacer que una comida resulte más satisfactoria.</p>
+					</div>
+				</li>
+				<li class="ms-case ms-tone-blush">
+					<div class="ms-case__head" data-ms-case-head id="ms-case-head-3">
+						<span class="ms-case__mark" aria-hidden="true"><svg class="ms-icon"><use href="#ms-i-moon"/></svg></span>
+						<span class="ms-case__titles">
+							<span class="ms-case__title">Semana difícil.</span>
+							<span class="ms-case__sub">Cocina abierta cada veinte minutos.</span>
+						</span>
+						<span class="ms-case__sign" aria-hidden="true"><svg class="ms-icon"><use href="#ms-i-plus"/></svg></span>
+					</div>
+					<div class="ms-case__body" id="ms-case-body-3">
+						<p>Dormiste poco. Tuviste un día pesado. Y terminas buscando dulce, pan o algo rápido aunque acabas de comer.</p>
+						<p>El estrés puede cambiar la forma en que comemos.</p>
+						<p>Tener comidas más estructuradas ayuda a reducir decisiones improvisadas.</p>
+					</div>
+				</li>
+				<li class="ms-case ms-tone-tea">
+					<div class="ms-case__head" data-ms-case-head id="ms-case-head-4">
+						<span class="ms-case__mark" aria-hidden="true"><svg class="ms-icon"><use href="#ms-i-flower"/></svg></span>
+						<span class="ms-case__titles">
+							<span class="ms-case__title">Llegó la premenopausia.</span>
+							<span class="ms-case__sub">Y tu cuerpo empezó a sentirse diferente.</span>
+						</span>
+						<span class="ms-case__sign" aria-hidden="true"><svg class="ms-icon"><use href="#ms-i-plus"/></svg></span>
+					</div>
+					<div class="ms-case__body" id="ms-case-body-4">
+						<p>El apetito, el sueño, la distribución de grasa y la composición corporal pueden cambiar durante esta etapa.</p>
+						<p>La respuesta no tiene que ser dejar de comer.</p>
+						<p>Empieza por construir comidas que realmente alimenten.</p>
+					</div>
+				</li>
+				<li class="ms-case ms-tone-lime">
+					<div class="ms-case__head" data-ms-case-head id="ms-case-head-5">
+						<span class="ms-case__mark" aria-hidden="true"><svg class="ms-icon"><use href="#ms-i-cycle"/></svg></span>
+						<span class="ms-case__titles">
+							<span class="ms-case__title">SOP y aumento de peso.</span>
+						</span>
+						<span class="ms-case__sign" aria-hidden="true"><svg class="ms-icon"><use href="#ms-i-plus"/></svg></span>
+					</div>
+					<div class="ms-case__body" id="ms-case-body-5">
+						<p>El síndrome de ovario poliquístico puede venir acompañado de cambios metabólicos y dificultad para manejar el peso.</p>
+						<p>El Kit Mujer Saciada <strong>no trata el SOP</strong>.</p>
+						<p>Sí puede ayudarte a organizar una mañana con proteína y fibra dentro de un plan de alimentación indicado para ti.</p>
+					</div>
+				</li>
+				<li class="ms-case ms-tone-blush">
+					<div class="ms-case__head" data-ms-case-head id="ms-case-head-6">
+						<span class="ms-case__mark" aria-hidden="true"><svg class="ms-icon"><use href="#ms-i-liver"/></svg></span>
+						<span class="ms-case__titles">
+							<span class="ms-case__title">Te preocupa el hígado graso.</span>
+						</span>
+						<span class="ms-case__sign" aria-hidden="true"><svg class="ms-icon"><use href="#ms-i-plus"/></svg></span>
+					</div>
+					<div class="ms-case__body" id="ms-case-body-6">
+						<p>Aquí importa ser claros: ninguna bebida “limpia” un hígado graso.</p>
+						<p>La alimentación, actividad física, peso corporal y seguimiento médico forman parte del manejo.</p>
+						<p>Este kit puede ocupar un lugar dentro de esos hábitos. <strong>No reemplazarlos.</strong></p>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- ============================ ¿DERRITE GRASA? ============================
+	     El único bloque en verde profundo: la pausa seria de la página. -->
+	<section class="ms-section ms-section--deep ms-myth">
+		<div class="ms-shell ms-narrow">
+			<p class="ms-myth__ask">¿Derrite grasa?</p>
+			<h2 class="ms-h2">No funciona así.</h2>
+			<div class="ms-myth__text">
+				<p>El té verde lleva años estudiándose en relación con metabolismo y control de peso.</p>
+				<p>Pero incluso la evidencia disponible describe, como máximo, <strong>efectos modestos</strong>.</p>
+			</div>
+			<p class="ms-myth__close">Advance combina té verde y alcachofa como parte de un hábito después del almuerzo. No como una promesa de “quemar” lo que acabas de comer.</p>
+		</div>
+	</section>
+
+	<!-- ============================ TRES MOMENTOS ============================
+	     La rutina en tres filas, con la dosis en grande: 4, 30 y 30. -->
+	<section class="ms-section ms-routine">
+		<div class="ms-shell">
+			<h2 class="ms-h2">Tres momentos.<span class="ms-h2__soft">Fácil de repetir.</span></h2>
+			<ol class="ms-rows" data-ms-reveal>
+				<li class="ms-row ms-tone-sun">
+					<span class="ms-row__when">Mañana</span>
+					<span class="ms-row__dose"><span class="ms-row__num">4</span><span class="ms-row__unit">cucharadas</span></span>
+					<span class="ms-row__name">Vita-Advance</span>
+					<span class="ms-row__how">4 cucharadas (60 g) en 200 ml de agua.</span>
+				</li>
+				<li class="ms-row ms-tone-mint">
+					<span class="ms-row__when">Durante el día</span>
+					<span class="ms-row__dose"><span class="ms-row__num">30</span><span class="ms-row__unit">ml</span></span>
+					<span class="ms-row__name">Clorofull</span>
+					<span class="ms-row__how">30 ml una vez al día.</span>
+				</li>
+				<li class="ms-row ms-tone-tea">
+					<span class="ms-row__when">Después del almuerzo</span>
+					<span class="ms-row__dose"><span class="ms-row__num">30</span><span class="ms-row__unit">ml</span></span>
+					<span class="ms-row__name">Advance</span>
+					<span class="ms-row__how">30 ml una vez al día.</span>
+				</li>
+			</ol>
+			<p class="ms-routine__note">Los líquidos pueden consumirse directamente del vaso medidor, diluidos en agua o en jugos naturales no cítricos.</p>
+			<ul class="ms-facts">
+				<li class="ms-fact"><svg class="ms-icon"><use href="#ms-i-bottle"/></svg><span>Dos botellas de 1 litro.</span></li>
+				<li class="ms-fact"><svg class="ms-icon"><use href="#ms-i-doses"/></svg><span>33 dosis de 30 ml cada una.</span></li>
+				<li class="ms-fact"><svg class="ms-icon"><use href="#ms-i-cup"/></svg><span>Dos vasos medidores de regalo.</span></li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- ============================ LA SACIEDAD SE CONSTRUYE ============================
+	     Tres barras que se llenan al entrar en pantalla: proteína, fibra y
+	     té verde, cada una con lo que dice la evidencia y hasta dónde. -->
+	<section class="ms-section ms-section--tea ms-build">
+		<div class="ms-shell ms-build__layout">
+			<h2 class="ms-h2 ms-build__title">La saciedad también se construye desde lo que comes.</h2>
+			<figure class="ms-build__art">
+				<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-mujer-saciada-mecanismo.webp?width=800" srcset="https://etermacolombia.com/cdn/shop/files/landings-kit-mujer-saciada-mecanismo.webp?width=500 500w, https://etermacolombia.com/cdn/shop/files/landings-kit-mujer-saciada-mecanismo.webp?width=800 800w" sizes="(min-width: 900px) 420px, 90vw" width="1000" height="1000" loading="lazy" decoding="async" alt="Lámina del Kit Mujer Saciada: el sistema digestivo rodeado de alcachofa, avena, soya, té verde, espinaca, goji, espirulina y konjac">
+			</figure>
+			<ol class="ms-bars" data-ms-bars>
+				<li class="ms-bar ms-tone-sun">
+					<p class="ms-bar__head"><svg class="ms-icon"><use href="#ms-i-scoop"/></svg><span class="ms-bar__name">Proteína</span></p>
+					<span class="ms-bar__track" aria-hidden="true"><span class="ms-bar__fill"></span></span>
+					<p class="ms-bar__text">La proteína ayuda a construir una comida más completa y satisfactoria.</p>
+					<p class="ms-bar__text">Vita-Advance aporta <strong>proteína aislada de soya</strong> y está pensado para esas mañanas en las que el desayuno suele quedarse corto.</p>
+					<p class="ms-bar__text">Una forma práctica de empezar el día con más estructura.</p>
+				</li>
+				<li class="ms-bar ms-tone-mint">
+					<p class="ms-bar__head"><svg class="ms-icon"><use href="#ms-i-wheat"/></svg><span class="ms-bar__name">Fibra</span></p>
+					<span class="ms-bar__track" aria-hidden="true"><span class="ms-bar__fill"></span></span>
+					<p class="ms-bar__text">Harvard explica que la fibra participa en la regulación del hambre y destaca a la avena entre las fuentes de fibra soluble.</p>
+					<p class="ms-bar__text">Vita-Advance combina <strong>avena + glucomanano</strong> dentro de una fórmula que aporta proteína y fibra desde la mañana.</p>
+					<p class="ms-bar__text">Dos nutrientes especialmente relevantes cuando quieres llegar a la siguiente comida con una base más completa.</p>
+				</li>
+				<li class="ms-bar ms-tone-tea">
+					<p class="ms-bar__head"><svg class="ms-icon"><use href="#ms-i-tea"/></svg><span class="ms-bar__name">Té verde</span></p>
+					<span class="ms-bar__track" aria-hidden="true"><span class="ms-bar__fill"></span></span>
+					<p class="ms-bar__text">El té verde lleva años siendo investigado en relación con metabolismo y control de peso.</p>
+					<p class="ms-bar__text">Los NIH han revisado múltiples estudios y describen efectos <strong>modestos</strong> sobre el peso corporal.</p>
+					<p class="ms-bar__text">Advance incorpora <strong>té verde + alcachofa</strong> y ocupa un momento muy concreto dentro del kit: después del almuerzo, como parte de una rutina que busca mayor ligereza y constancia.</p>
+				</li>
+			</ol>
+		</div>
+	</section>
+
+	<!-- ============================ TU META ============================ -->
+	<section class="ms-section ms-goal">
+		<div class="ms-shell ms-narrow">
+			<h2 class="ms-h2">Tu meta no tiene que ser “tener cuerpo de 20 a los 75”.</h2>
+			<p class="ms-goal__lead">Puede ser llegar a cada etapa sintiendo que todavía tienes hábitos que puedes sostener.</p>
+			<ul class="ms-goal__list" data-ms-reveal>
+				<li class="ms-goal__item ms-tone-sun"><svg class="ms-icon"><use href="#ms-i-scoop"/></svg><span>Comer suficiente proteína.</span></li>
+				<li class="ms-goal__item ms-tone-mint"><svg class="ms-icon"><use href="#ms-i-wheat"/></svg><span>Consumir fibra.</span></li>
+				<li class="ms-goal__item ms-tone-lime"><svg class="ms-icon"><use href="#ms-i-walk"/></svg><span>Moverte.</span></li>
+				<li class="ms-goal__item ms-tone-blush"><svg class="ms-icon"><use href="#ms-i-moon"/></svg><span>Dormir.</span></li>
+				<li class="ms-goal__item ms-tone-tea"><svg class="ms-icon"><use href="#ms-i-balance"/></svg><span>Dejar de vivir entre restricción y antojo.</span></li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- ============================ TODO EL KIT ============================
+	     Lo que llega, como una lista de empaque sobre la foto del kit. -->
+	<section class="ms-section ms-section--mint ms-box">
+		<div class="ms-shell ms-box__layout">
+			<h2 class="ms-h2 ms-box__title">Todo el Kit Mujer Saciada.</h2>
+			<figure class="ms-box__photo">
+				<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-mujer-saciada-kit.webp?width=800" srcset="https://etermacolombia.com/cdn/shop/files/landings-kit-mujer-saciada-kit.webp?width=500 500w, https://etermacolombia.com/cdn/shop/files/landings-kit-mujer-saciada-kit.webp?width=800 800w" sizes="(min-width: 900px) 440px, 90vw" width="1000" height="1199" loading="lazy" decoding="async" alt="Clorofull, Vita-Advance y Advance juntos">
+			</figure>
+			<ul class="ms-pack">
+				<li class="ms-pack__row ms-tone-sun"><span class="ms-pack__qty">1 ×</span><span class="ms-pack__name">Vita-Advance</span><span class="ms-pack__detail">500 g · sabor vainilla.</span></li>
+				<li class="ms-pack__row ms-tone-mint"><span class="ms-pack__qty">1 ×</span><span class="ms-pack__name">Clorofull</span><span class="ms-pack__detail">1 litro · 33 dosis.</span></li>
+				<li class="ms-pack__row ms-tone-tea"><span class="ms-pack__qty">1 ×</span><span class="ms-pack__name">Advance</span><span class="ms-pack__detail">1 litro · 33 dosis.</span></li>
+				<li class="ms-pack__row ms-tone-lime"><span class="ms-pack__qty">+ 2</span><span class="ms-pack__name">vasos medidores</span><span class="ms-pack__detail">De regalo.</span></li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- ============================ OFERTA ============================
+	     El anticipado primero y en verde; el contraentrega al lado, en blanco. -->
+	<section class="ms-section ms-section--sun ms-offer" id="ms-offer">
+		<div class="ms-shell ms-narrow">
+			<h2 class="ms-h2">Tú eliges cómo pagar.</h2>
+			<div class="ms-prices">
+				<article class="ms-price ms-price--prepaid">
+					<p class="ms-price__label">Pago anticipado</p>
+					<p class="ms-price__amount">$119.900 <span class="ms-price__cur">COP</span></p>
+					<p class="ms-price__save">Ahorras $10.000 COP.</p>
+					<span class="ms-pay ms-pay--on-dark">
+						<img src="https://etermacolombia.com/cdn/shop/files/landings-shared-pay-visa.webp" width="222" height="72" loading="lazy" decoding="async" alt="Visa">
+						<img src="https://etermacolombia.com/cdn/shop/files/landings-shared-pay-mastercard.webp" width="92" height="72" loading="lazy" decoding="async" alt="Mastercard">
+						<img src="https://etermacolombia.com/cdn/shop/files/landings-shared-pay-pse.webp" width="72" height="72" loading="lazy" decoding="async" alt="PSE">
+					</span>
+				</article>
+				<article class="ms-price ms-price--cod">
+					<p class="ms-price__label">Pago contraentrega</p>
+					<p class="ms-price__amount">$129.900 <span class="ms-price__cur">COP</span></p>
+					<p class="ms-price__note">Pagas cuando recibes.</p>
+				</article>
+			</div>
+			<button type="button" class="ms-cta ms-cta--wide _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage"><span class="ms-cta__label">Quiero pedir mi kit</span><span class="ms-cta__level" aria-hidden="true"><i></i><i></i><i></i></span></button>
+		</div>
+	</section>
+
+	<!-- ============================ GARANTÍA ============================ -->
+	<section class="ms-section ms-guarantee">
+		<div class="ms-shell ms-narrow">
+			<div class="ms-guarantee__card">
+				<span class="ms-seal" aria-hidden="true"><svg class="ms-icon"><use href="#ms-i-shield"/></svg></span>
+				<h2 class="ms-h2">Tu pedido está protegido.</h2>
+				<ol class="ms-promise">
+					<li class="ms-promise__row"><span class="ms-promise__num">1</span><p class="ms-promise__text">Tu Kit Mujer Saciada debe llegar en <strong>3 a 5 días hábiles</strong>.</p><svg class="ms-icon ms-promise__icon"><use href="#ms-i-truck"/></svg></li>
+					<li class="ms-promise__row"><span class="ms-promise__num">2</span><p class="ms-promise__text">Si no llega dentro de ese periodo, <strong>lo reenviamos sin costo</strong>.</p><svg class="ms-icon ms-promise__icon"><use href="#ms-i-repeat"/></svg></li>
+					<li class="ms-promise__row"><span class="ms-promise__num">3</span><p class="ms-promise__text">Si pagaste anticipado, puedes elegir entre el reenvío o <strong>la devolución de tu dinero</strong>.</p><svg class="ms-icon ms-promise__icon"><use href="#ms-i-coin"/></svg></li>
+				</ol>
+				<a class="ms-whatsapp" href="https://wa.me/573006964582" target="_blank" rel="noopener">
+					<svg class="ms-icon"><use href="#ms-i-chat"/></svg>
+					<span class="ms-whatsapp__label">Atención ETERMA</span>
+					<span class="ms-whatsapp__number">300 696 4582</span>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================ PREGUNTAS ============================ -->
+	<section class="ms-section ms-section--blush ms-faq">
+		<div class="ms-shell ms-narrow">
+			<h2 class="ms-h2">Preguntas rápidas.</h2>
+			<div class="ms-faq__list">
+				<details class="ms-faq__item">
+					<summary class="ms-faq__q"><span>¿El Kit Mujer Saciada sirve para bajar de peso?</span><span class="ms-faq__icon" aria-hidden="true"></span></summary>
+					<p class="ms-faq__a">Está pensado para complementar hábitos de alimentación mediante proteína, fibra y una estructura sencilla durante el día. Los cambios de peso dependen de múltiples factores.</p>
+				</details>
+				<details class="ms-faq__item">
+					<summary class="ms-faq__q"><span>¿Me quita completamente los antojos?</span><span class="ms-faq__icon" aria-hidden="true"></span></summary>
+					<p class="ms-faq__a">No sería responsable prometerlo. Una comida con proteína y fibra puede resultar más satisfactoria, pero estrés, sueño, ciclo menstrual, hábitos y otros factores también influyen.</p>
+				</details>
+				<details class="ms-faq__item">
+					<summary class="ms-faq__q"><span>¿Sirve para el hígado graso?</span><span class="ms-faq__icon" aria-hidden="true"></span></summary>
+					<p class="ms-faq__a">No sustituye el manejo médico ni nutricional del hígado graso.</p>
+				</details>
+				<details class="ms-faq__item">
+					<summary class="ms-faq__q"><span>¿Puedo usarlo si tengo SOP?</span><span class="ms-faq__icon" aria-hidden="true"></span></summary>
+					<p class="ms-faq__a">El kit no trata el síndrome de ovario poliquístico. Si tienes SOP o utilizas medicamentos, consulta con tu profesional de salud antes de incorporar suplementos.</p>
+				</details>
+				<details class="ms-faq__item">
+					<summary class="ms-faq__q"><span>¿Advance quema la grasa que como?</span><span class="ms-faq__icon" aria-hidden="true"></span></summary>
+					<p class="ms-faq__a">No. Contiene té verde y alcachofa y está pensado como acompañamiento después del almuerzo.</p>
+				</details>
+				<details class="ms-faq__item">
+					<summary class="ms-faq__q"><span>¿Debo dejar los carbohidratos?</span><span class="ms-faq__icon" aria-hidden="true"></span></summary>
+					<p class="ms-faq__a">No. El objetivo es construir comidas más completas, no eliminar automáticamente un grupo de alimentos.</p>
+				</details>
+				<details class="ms-faq__item">
+					<summary class="ms-faq__q"><span>¿Cuánto duran Clorofull y Advance?</span><span class="ms-faq__icon" aria-hidden="true"></span></summary>
+					<p class="ms-faq__a">Cada botella contiene <strong>1 litro para 33 días</strong>, equivalente a <strong>33 dosis de 30 ml</strong>.</p>
+				</details>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================ CIERRE ============================ -->
+	<section class="ms-section ms-close">
+		<div class="ms-shell ms-narrow">
+			<h2 class="ms-h2">Que el hambre deje de marcar cada decisión del día.</h2>
+			<ol class="ms-close__day" data-ms-reveal>
+				<li class="ms-close__step ms-tone-sun"><svg class="ms-icon"><use href="#ms-i-sunrise"/></svg><span>Proteína y fibra por la mañana.</span></li>
+				<li class="ms-close__step ms-tone-mint"><svg class="ms-icon"><use href="#ms-i-sun"/></svg><span>Clorofull durante el día.</span></li>
+				<li class="ms-close__step ms-tone-tea"><svg class="ms-icon"><use href="#ms-i-plate"/></svg><span>Advance después del almuerzo.</span></li>
+			</ol>
+			<div class="ms-close__buy">
+				<p class="ms-close__kit">Kit Mujer Saciada</p>
+				<dl class="ms-close__prices">
+					<div class="ms-close__price ms-close__price--prepaid"><dt>Pago anticipado</dt><dd>$119.900 COP</dd></div>
+					<div class="ms-close__price"><dt>Contraentrega</dt><dd>$129.900 COP</dd></div>
+				</dl>
+				<p class="ms-close__save">Ahorra $10.000 COP pagando anticipado.</p>
+				<p class="ms-close__pay">
+					<span class="ms-pay">
+						<img src="https://etermacolombia.com/cdn/shop/files/landings-shared-pay-visa.webp" width="222" height="72" loading="lazy" decoding="async" alt="Visa">
+						<img src="https://etermacolombia.com/cdn/shop/files/landings-shared-pay-mastercard.webp" width="92" height="72" loading="lazy" decoding="async" alt="Mastercard">
+						<img src="https://etermacolombia.com/cdn/shop/files/landings-shared-pay-pse.webp" width="72" height="72" loading="lazy" decoding="async" alt="PSE">
+					</span>
+				</p>
+				<button type="button" class="ms-cta ms-cta--wide _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage"><span class="ms-cta__label">Quiero mi kit Mujer Saciada</span><span class="ms-cta__level" aria-hidden="true"><i></i><i></i><i></i></span></button>
+				<p class="ms-close__note">Entrega en 3 a 5 días hábiles. Garantía de entrega ETERMA.</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================ INSTAGRAM ============================
+	     El aval de que la marca existe de verdad, justo antes del pie. Va como
+	     captura y SIN enlace a propósito: mandar a la clienta a Instagram a dos
+	     dedos del CTA es una salida del embudo. El fichero es compartido
+	     (`landings-shared-instagram.webp`), así que no se sube por landing; lo
+	     que cambia en cada una es el color del marco y el titular. -->
+	<section class="ms-section ms-social">
+		<div class="ms-shell ms-narrow">
+			<h2 class="ms-h2">No somos una tienda de paso.<span class="ms-h2__soft">Estamos en Instagram.</span></h2>
+			<figure class="ms-social__card ms-tone-sun">
+				<img class="ms-social__shot"
+					src="https://etermacolombia.com/cdn/shop/files/landings-shared-instagram.webp?width=780"
+					srcset="https://etermacolombia.com/cdn/shop/files/landings-shared-instagram.webp?width=560 560w, https://etermacolombia.com/cdn/shop/files/landings-shared-instagram.webp?width=780 780w, https://etermacolombia.com/cdn/shop/files/landings-shared-instagram.webp?width=1100 1100w"
+					sizes="(min-width: 900px) 560px, 92vw"
+					width="1100" height="371" loading="lazy" decoding="async"
+					alt="Perfil de Instagram @etermacompany, Eterma Oficial: 28 publicaciones y 16,4 mil seguidores. En la biografía: bebidas funcionales listas para tomar, hecho en Colombia con registro INVIMA.">
+			</figure>
+		</div>
+	</section>
+
+	<!-- ============================ PIE ============================
+	     La marca se despide en grande: el wordmark ocupa todo el ancho y la
+	     hoja va en lima. -->
+	<footer class="ms-footer">
+		<div class="ms-shell">
+			<div class="ms-footer__grid">
+				<div class="ms-footer__block">
+					<p class="ms-footer__label">Registros sanitarios</p>
+					<ul class="ms-footer__list">
+						<li><strong>Vita-Advance:</strong> INVIMA NSA-0013091-2022</li>
+						<li><strong>Clorofull:</strong> INVIMA RSA-0029174-2023</li>
+						<li><strong>Advance:</strong> INVIMA RSA-0029174-2023</li>
+					</ul>
+				</div>
+				<div class="ms-footer__block">
+					<p>Fabricado en Colombia por <strong>Laboratorios NaturalSplast SAS</strong>. Carrera 59 # 5B-31, Bogotá D.C.</p>
+					<p>Atención ETERMA · WhatsApp <a href="https://wa.me/573006964582" target="_blank" rel="noopener">300 696 4582</a></p>
+					<p class="ms-footer__legal">Vita-Advance, Clorofull y Advance son alimentos, no medicamentos.</p>
+				</div>
+			</div>
+			<p class="ms-footer__pay"><span class="ms-footer__label">Pago anticipado</span>
+				<span class="ms-pay ms-pay--on-dark ms-pay--sm">
+					<img src="https://etermacolombia.com/cdn/shop/files/landings-shared-pay-visa.webp" width="222" height="72" loading="lazy" decoding="async" alt="Visa">
+					<img src="https://etermacolombia.com/cdn/shop/files/landings-shared-pay-mastercard.webp" width="92" height="72" loading="lazy" decoding="async" alt="Mastercard">
+					<img src="https://etermacolombia.com/cdn/shop/files/landings-shared-pay-pse.webp" width="72" height="72" loading="lazy" decoding="async" alt="PSE">
+				</span>
+			</p>
+		</div>
+		<svg class="ms-footer__mark" viewBox="0 0 322 95" role="img" aria-label="Eterma"><use href="#ms-wordmark"/></svg>
+	</footer>
+
+	<!-- ============================ STICKY (móvil) ============================ -->
+	<div class="ms-sticky" data-ms-sticky hidden>
+		<div class="ms-sticky__inner">
+			<p class="ms-sticky__price"><strong class="ms-sticky__main">$119.900</strong><span class="ms-sticky__alt">o $129.900 al recibir</span></p>
+			<button type="button" class="ms-cta ms-cta--sm _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage"><span class="ms-cta__label">Quiero pedir mi kit</span><span class="ms-cta__level" aria-hidden="true"><i></i><i></i><i></i></span></button>
+		</div>
+	</div>
+</section>
+

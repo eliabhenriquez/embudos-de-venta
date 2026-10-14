@@ -1,0 +1,88 @@
+	/* ---------------------------------------------------------
+	   Hero A · La galería que se despeja (general, sinusitis)
+	   -----------------------------------------------------------
+	   Titular arriba, la foto en un escenario con halo y bruma, y la
+	   leyenda con flechas en su propia fila. Al cambiar de imagen, un
+	   velo blanco se retira como vaho de un cristal.
+	   --------------------------------------------------------- */
+	.ns-lp .ns-hero.ns-hero--gallery { padding: 6px 0 20px; background: radial-gradient(120% 60% at 50% 40%, var(--ns-apple-50) 0%, var(--ns-white) 70%); }
+	.ns-lp .ns-hero__grid { display: grid; gap: 16px; }
+
+	.ns-lp .ns-hero__gallery { position: relative; isolation: isolate; }
+	/* Halo verde detrás del escenario */
+	.ns-lp .ns-hero__gallery::before {
+		content: '';
+		position: absolute;
+		top: 4%;
+		left: 50%;
+		width: 110%;
+		height: 90%;
+		background: radial-gradient(closest-side, rgba(111, 195, 80, 0.28), rgba(111, 195, 80, 0));
+		transform: translateX(-50%);
+		pointer-events: none;
+		z-index: -1;
+	}
+
+	.ns-lp .ns-stage { position: relative; z-index: 1; overflow: hidden; border-radius: 28px; background: var(--ns-apple-50); box-shadow: var(--ns-shadow-lift); }
+	.ns-lp .ns-stage__track {
+		display: flex;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		scrollbar-width: none;
+		-webkit-overflow-scrolling: touch;
+	}
+	.ns-lp .ns-stage__track::-webkit-scrollbar { display: none; }
+	.ns-lp .ns-slide { position: relative; flex: 0 0 100%; scroll-snap-align: center; scroll-snap-stop: always; }
+	.ns-lp .ns-slide img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+	/* El vaho que se retira al llegar a una imagen: como pasar la mano por un cristal */
+	.ns-lp .ns-slide::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: radial-gradient(120% 90% at 50% 50%, rgba(255, 255, 255, 0.92), rgba(245, 251, 241, 0.75));
+		opacity: 0;
+		pointer-events: none;
+	}
+	.ns-lp .ns-slide.is-entering::after { animation: ns-defog 760ms var(--ns-ease) both; }
+	.ns-lp .ns-slide.is-entering img { animation: ns-settle 760ms var(--ns-ease) both; }
+	@keyframes ns-defog {
+		from { opacity: 1; transform: scale(1.04); }
+		to { opacity: 0; transform: scale(1); }
+	}
+	@keyframes ns-settle {
+		from { transform: scale(1.035); }
+		to { transform: scale(1); }
+	}
+
+	.ns-lp .ns-stage__bar { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 10px; }
+	.ns-lp .ns-stage__caption { flex: 1; color: var(--ns-ink); font-size: 14px; text-align: center; }
+	.ns-lp .ns-stage__count { margin-left: 6px; color: var(--ns-apple-deep); font-size: 12px; letter-spacing: 1px; }
+
+	.ns-lp .ns-thumbs { display: none; }
+	.ns-lp .ns-thumb { overflow: hidden; border-radius: 16px; background: var(--ns-apple-50); box-shadow: inset 0 0 0 1px var(--ns-line); opacity: 0.6; transition: opacity 200ms ease, transform 200ms ease, box-shadow 200ms ease; }
+	.ns-lp .ns-thumb img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+	.ns-lp .ns-thumb:hover { opacity: 1; transform: translateY(-2px); }
+	.ns-lp .ns-thumb[aria-current='true'] { opacity: 1; box-shadow: 0 0 0 2px var(--ns-apple); }
+
+	.ns-lp .ns-hero__buy { position: relative; z-index: 1; }
+
+	.ns-lp .ns-specs { margin-top: 18px; border-top: 1px solid var(--ns-line); }
+	.ns-lp .ns-specs__item { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--ns-line); }
+	.ns-lp .ns-specs__item dt { font-size: 13px; }
+	.ns-lp .ns-specs__item dd { color: var(--ns-ink); font-size: 17px; }
+
+	@media (min-width: 980px) {
+		.ns-lp .ns-hero.ns-hero--gallery { padding: 20px 0 36px; }
+		.ns-lp .ns-hero__grid {
+			grid-template-columns: 560px 1fr;
+			grid-template-areas: 'gallery intro' 'gallery buy';
+			grid-template-rows: auto 1fr;
+			gap: 0 64px;
+			align-items: start;
+		}
+		.ns-lp .ns-hero__intro { grid-area: intro; padding-top: 28px; }
+		.ns-lp .ns-hero__gallery { grid-area: gallery; }
+		.ns-lp .ns-hero__buy { grid-area: buy; padding-top: 26px; }
+		.ns-lp .ns-thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 14px; }
+		.ns-lp .ns-hero__buy .ns-paymethods { justify-content: flex-start; }
+	}

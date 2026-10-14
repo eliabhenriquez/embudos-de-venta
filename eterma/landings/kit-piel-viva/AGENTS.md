@@ -95,6 +95,10 @@ VALERIANA no están en ese pool**: se compararon cara a cara con Ana, Camilo, Na
 **Pedir al cliente los nombres de las dos citas** y escribirlos en el `figcaption` marcado con
 `data-kp-name-pending`. No se inventan ni se reasignan nombres del pool a otras caras.
 
+**Carrusel en todos los anchos (2026-09-22).** Igual que Kit Día Liviano: cita destacada desde 760 px
+con la siguiente asomando, y `slideIndexOf` por punto de encaje más cercano (lo usan también los chips
+de la vitrina).
+
 ---
 
 ## 5. Imágenes

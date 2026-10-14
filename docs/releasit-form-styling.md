@@ -195,6 +195,18 @@ Por qué así:
 consola**. En la URL publicada del producto sí funcionan. Antes de dar por roto un CTA, comprobarlo en
 `/products/<handle>`, nunca en la preview.
 
+**🔴 El Product Element hace falta también en una ficha de producto (`/products/`)** (verificado el
+2026-09-28 en `nambuoficial.com/products/lung-cleansig-dificulad-para-respirar-por-flema`, formulario
+nuevo v451). Aunque la página ya sepa su producto, el formulario nuevo solo engancha
+`._rsi-cod-form-gempages-button-overwrite` si en el DOM hay un `gp-product`
+(`GemPagesWrapper` en `main-DKQLqBEL.js`: sin él retorna antes de añadir el `click`). Sin Product
+Element, los CTA no hacen nada y la consola no dice nada. Con un `gp-product` en la página, el mismo
+CTA abre el formulario con el producto de la ficha. Además, en `/products/` Releasit pinta el
+**esqueleto de carga** de su botón (`div.rsi-btn-skel`, una barra gris de 56 px) y, si no encuentra
+el formulario del tema, lo deja **arriba del todo** del `<body>`. Las landings lo ocultan con
+`display: none`: es solo un marcador y la app no lo usa (`nambu/landings/spray/src/styles/landing.css`
+§22).
+
 **Todos los botones enganchados comparten `id="_rsi-buy-now-button-overwrite"`.** Es cosa de la app:
 diez CTA, diez veces el mismo id. HTML inválido, pero no rompe nada —el enganche es por clase—:
 verificado en producción que los diez abren el formulario. No intentar "arreglarlo" tocando los ids.
@@ -215,7 +227,15 @@ Arreglo, en el JS de la landing: si ese script no trae un objeto, rellenarlo con
 en cada apertura mientras no tenga producto, así que no hay carrera que romper: un clic antes de que llegue
 la respuesta solo pierde las ofertas en esa apertura. Implementado como `initReleasitProductCache()` en
 `eterma/landings/clorofull/hidratacion/september.html`; no toca las fichas de producto, donde el script ya
-viene lleno. **Toda landing de `/pages/` con ofertas de cantidad necesita este paso.**
+viene lleno. **Toda landing de `/pages/` con ofertas de cantidad y formulario LEGACY necesita este paso.**
+
+> **Solo formulario LEGACY.** El formulario nuevo (`main-*.js`, verificado en la v451 el 2026-09-28 en
+> Nambu) no lee `#rsi-cod-form-product-cache`: busca `script.rsi-cod-form-app-block-product-cache`
+> (por clase) y, si no está, saca el producto de los atributos `data-product-id`/`data-variant-id` y
+> del formulario del Product Element. En `/pages/` abre con el producto correcto sin ayuda, así que en
+> Nambu el paso se quitó. No se inyecta el script nuevo a ciegas: la app lo usa también para decidir
+> cómo añade al carrito. Si en una landing con formulario nuevo no salen las ofertas, investigar ese
+> script antes de tocar nada.
 
 ---
 
@@ -295,6 +315,7 @@ y un skin escrito contra el otro no hace absolutamente nada.
 |---|---|---|---|
 | mimacolombia.com | **Nuevo** (`rsi-*`) | 2026-08-26 | `/mima/shared/releasit-form.css` |
 | etermacolombia.com | **Legacy** (`_rsi-*`) | 2026-09-03 | `/eterma/shared/releasit-form.css` |
+| nambuoficial.com | **Nuevo** (`rsi-*`); legacy hasta el 2026-09-28 | 2026-09-28 | `/nambu/shared/releasit-form.css` |
 
 ### 6.0 Auditoría de MIMA
 
@@ -392,8 +413,9 @@ Confirmados en vivo (§5.4). Son los que pinta el Form Designer:
 - `._rsi-tick-ups-offer-desc`
 - `._rsi-modal-submit-button`
 
-**Traducción práctica:** color, fondo y radio de estos elementos **se cambian en el Form Designer**.
-No es que por CSS quede frágil: es que **no aplica**.
+**Traducción práctica:** color, fondo y radio de estos elementos **no se pisan desde CSS**. No es que
+quede frágil: es que **no aplica**. Lo que sí se puede es **taparlos** con una capa propia (§6.10), que
+es como el skin de Nambu pinta hoy los dos botones y los dos order bumps sin entrar en la app.
 
 > **La regla dura, comprobada en vivo el 2026-09-03 sobre etermacolombia.com.** El Form Designer no
 > escribe `style="background: X"`, escribe `style="background: X !important"`. Y una declaración
@@ -525,6 +547,47 @@ Luego, por CDP: `Emulation.setDeviceMetricsOverride` a 390px, navegar, hacer
 el árbol de `#rsi_form_wrapper`. Para probar cambios sin publicar, inyectar la
 hoja con un `<style>` y capturar con `Page.captureScreenshot`.
 
+#### Lo que añade Nambu (v451, 2026-09-28)
+
+Verificado en `nambuoficial.com/pages/spray-nasal-sinusitis` y `/products/lung-cleansing`, bundle
+`releasit-cod-form-451/assets/main-DKQLqBEL.js`, 390 y 1280 px. Skin: `/nambu/shared/releasit-form.css`.
+
+- **Ganchos nuevos** frente a la lista de arriba: `rsi-discounts-wrapper` · `-row` · `-input` ·
+  `-button` · `-list` (código de descuento, dentro de `.rsi-total-summary-wrapper`, tras
+  `hr.rsi-total-summary-divider`), `rsi-total-summary-line-item` · `-total-line`,
+  `rsi-product-item-remove` (la app lo deja oculto), `rsi-onetick-checkbox` · `rsi-onetick-image`,
+  `rsi-text-input-error` · `rsi-select-error` (los mensajes, solo existen con error),
+  `rsi-select-placeholder`, `rsi_animation_pulse` (además de `_shake`). Con un descuento de pack
+  (visto en la ficha de flema): el precio pasa a `.rsi-product-item-original-price.strike-through` +
+  `.rsi-product-item-final-price`, y el descuento sale como chip en
+  `.rsi-discounts-list > .rsi-discounts-item > .rsi-discounts-item-text` (`<b>` + `<span>`).
+- **La hoja de la app declara casi todo con `!important`** desde una clase suelta de
+  styled-components (0,1,0): fondo, borde, radio, padding, color, tamaño y peso de letra, sombra,
+  `aspect-ratio` del icono. Sin `!important` propio no entra nada; con él, un selector que cuelgue de
+  `#rsi_form_wrapper` gana por especificidad. **Lo inline es poco y sin `!important`**: el marco de
+  `.rsi-product-item-wrapper`, el color de `.rsi-onetick-text` y `.rsi-onetick-desc`, el peso de
+  `.rsi-total-summary-total-label`. Los botones y los bumps **no** van en línea: se visten enteros por
+  CSS, sin las capas de §6.10.
+- **`.rsi-layout-wrapper` es una columna flex** (no una rejilla, aunque cada bloque lleve
+  `grid-column` en línea), igual a 390 y a 1280 px (el formulario mide 450 px en escritorio). Cada
+  bloque es un `<div>` sin clase, hijo directo. Por eso **`order` sí mueve los botones**:
+  `.rsi-layout-wrapper > :has(.rsi-additionals_checkout_button)`, enganchado a dos clases estables.
+- **El icono del campo es un SVG en `currentColor`** con el plato entero (viewBox 46×51, el glifo en el
+  centro), 32 px en línea y `transform="scale(1.25)"`. Se recolorea con `color`; para que el glifo
+  quede en ~15 px el SVG tiene que ocupar el plato (44×48 px) y sin escalar.
+- **Errores:** el `<input>` recibe `aria-invalid="true"`; el `<select>` **no**. El gancho común es el
+  mensaje: `.rsi-text-input-wrapper:has(.rsi-text-input-error) .rsi-text-input-row`.
+- **Huecos fantasma:** el bloque de texto libre que hace de gancho de bumps propios
+  (`#rsi-cod-form-tick-ups-custom-hook`) mide 0 px pero suma un gap, y `.rsi-checkbox-error-row` ocupa
+  22 px vacía. Se recogen con `:empty`, que deja de cumplirse si la app pinta algo dentro.
+- **El bump animado** («hormigas») es `background-image` con cuatro degradados más la animación
+  `rsiTickUpsBorder`, como en el legacy; el borde del otro es `border` de 2 px.
+- **El flotante** es `#floatingBuyNowButton` (el `#_rsi-buy-now-button-floating` del legacy ya no
+  existe).
+- **Ofertas de cantidad:** si el bloque no está en la maqueta del formulario nuevo, la oferta
+  preseleccionada **se aplica igual** y sin selector (en Nambu, 2 unidades de golpe). Se lee en
+  `window._RSI_COD_FORM_QUANTIY_OFFERS` (`pres: true`).
+
 ### 6.8 Eterma — formulario LEGACY, inventario verificado
 
 - **Verificado el:** 2026-09-03 · `etermacolombia.com/products/clorofull™`, modal abierto, 390px y 1280px
@@ -612,6 +675,108 @@ No son de estilo, pero pesan más que cualquier override. Detalle y valores en
 4. **Importes con decimales** (`$79.900,00`).
 5. **Inputs a 15,96px** → iOS hace zoom al enfocar. Corregido por CSS en el skin.
 6. **Sacudida activa en los dos botones** a la vez.
+
+### 6.9 Nambu — formulario LEGACY, lo que no traía Eterma (histórico: Nambu pasó al nuevo el 2026-09-28)
+
+- **Verificado el:** 2026-09-21 · `nambuoficial.com/products/lung-cleansing` y `/products/lung-cleansing-oferta`,
+  modal abierto, 390 y 1280 px. Mismo árbol que §6.8; aquí solo lo nuevo o lo que corrige algo de antes.
+- **El `<form>` en columna flex ya no colapsa márgenes.** La app separa los bloques con `margin-top` (18px en
+  los campos) y cualquier `margin-bottom` se suma: con el `margin-bottom: 14px` de §6.8 salían 32px entre
+  campos. En columna flex, los bloques solo llevan margen por arriba. **Afecta también al skin de Eterma.**
+- **El error tiene que ganar por especificidad.** `._rsi-modal-fields-item-error input[data-type]` (1,2,1)
+  pierde contra el campo en reposo `._rsi-modal-fields-item input[data-type]:not([type='checkbox'])` (1,3,1)
+  sin importar el orden: el borde se queda en el color de reposo y solo sale el halo rojo. Se repite el selector base con la clase de error
+  (`._rsi-modal-fields-item._rsi-modal-fields-item-error input…`). **El skin de Eterma tiene este fallo.**
+- **Código de descuento** (`._rsi-build-block-discount-codes > ._rsi-modal-discounts-form`): campo
+  `#_rsi-modal-discounts-form-code` y botón `#_rsi-modal-discounts-form-apply`. La app los reparte 65/35 y da
+  al botón `width: 100%`; el botón llega negro inline **sin** `!important`.
+- **Dos order bumps**, cada uno en su `._rsi-tick-ups-container`, con el `<label>` inline. El segundo trae
+  imagen (`._rsi-tick-ups-img-container`), descripción (`._rsi-tick-ups-offer-desc`) y un borde de hormigas
+  hecho con cuatro `linear-gradient` + `animation: rsiTickUpsBorder 0.3s infinite`, **sin** `!important`: se
+  apagan desde CSS. Su fondo sí lleva `!important`. El `.tick-ups-offer` lleva además
+  `._rsi-modal-fields-checkbox`: las reglas de la casilla del boletín también le llegan.
+- **Totales:** el fondo gris es `._rsi-build-block ._rsi-modal-checkout-lines { background-color: #ebebeb
+  !important }` de la hoja de la app (se gana con el ID). Cada línea trae `data-checkout-line`
+  (`discount`, …) y `._rsi-modal-checkout-line-value-bigger` va **en el rótulo y en la cifra** del total.
+- **El chevrón del desplegable** lo pinta una hoja de la app servida desde otro dominio (no se puede leer
+  con `cssRules`) y con `!important`: el skin lo sustituye con `!important`.
+- **Los iconos** son los mismos seis sprites que en Eterma (persona, WhatsApp, chincheta con +, chincheta,
+  arroba y chevrón). El skin de Nambu los recolorea sustituyendo el `background-image` por el mismo SVG con
+  tres hexes cambiados, por `data-type`. **El de Eterma lo describe en su cabecera, pero no lleva esas
+  reglas.**
+- **La familia computada ya es Questrial** (la sirve el tema). El 600 que pide la app en botones sale como
+  negrita simulada: se baja a 400 donde no es inline.
+
+**Comprobación del skin.** `check-css-merge.mjs` mide la vista previa, donde no hay modal: no ve el skin.
+Para el formulario se inyecta el CSS de la pestaña en la ficha publicada con `shot.mjs` (solo en el navegador
+de prueba), se abre el modal y se comparan sus estilos calculados con los del CSS fusionado
+(`--dump-css`). El 2026-09-21: 200 elementos, 0 diferencias.
+
+Hallazgos de la app (pack de 2 preseleccionado, ahorro de $5.000, envío prioritario premarcado, boletín
+premarcado, nombre interno y claims en las ofertas, decimales) en `/nambu/shared/releasit-form-designer.md`.
+
+---
+
+### 6.10 Tapar lo que no se puede pisar
+
+Verificado en vivo el 2026-09-22 sobre `nambuoficial.com/pages/spray-nasal-sinusitis`, con el skin
+publicado quitado del documento y el nuevo inyectado. **Es una técnica del formulario LEGACY**: Nambu
+la usó hasta pasar al nuevo (2026-09-28), donde ya no hace falta porque botones y bumps no llegan en
+línea. Sigue valiendo para Eterma y para cualquier `!important` inline que aparezca.
+
+Un `!important` en el atributo `style` no lo gana ninguna hoja (§6.5), pero **sí se puede pintar por
+encima**. Una capa en un `::before` con `z-index: -1` entra, en el orden de pintado de un contexto de
+apilamiento, **después del fondo y el borde del elemento y antes de su contenido**: cubre el color que
+puso la app y deja arriba el texto, la casilla o la miniatura.
+
+```css
+/* el elemento crea su contexto de apilamiento */
+#_rsi-cod-form-modal ._rsi-tick-ups-offer > label { position: relative; z-index: 0; }
+
+#_rsi-cod-form-modal ._rsi-tick-ups-offer > label::before {
+	content: '';
+	position: absolute;
+	inset: -2px;                                  /* sale por fuera para tapar también el borde */
+	z-index: -1;
+	border-radius: calc(var(--ns-radius-md) + 2px);   /* concéntrico con el de debajo */
+	background: var(--ns-apple-50);
+}
+```
+
+**El radio se cambia con `clip-path`, no con la capa.** `border-radius` viene inline y no se pisa, pero
+`clip-path` no viene en ninguna parte: una regla normal lo gana y **recorta la pieza de verdad**, con su
+fondo y su sombra dentro. Es lo que deja los dos botones de pago en la píldora de los CTA de la marca:
+
+```css
+#_rsi-cod-form-modal ._rsi-modal-submit-button { clip-path: inset(0 round 999px); }
+```
+
+Sin él hay que tapar las esquinas sacando la capa hacia fuera, y eso **come el hueco entre elementos**:
+con 6 px por lado, dos botones separados 12 px se tocaban en pantalla.
+
+Cuatro cosas que hay que respetar:
+
+1. **La capa sale 1 px por fuera**, aunque el recorte la corte igual. A ras, el antialias del borde deja
+   asomar un filo del color viejo. En los order bumps, que llevan borde propio de la app (2 px), la capa
+   sale 3 px y su radio es el de la pieza más esos 3 px: concéntrica, o asoman las esquinas.
+2. **El color del texto no se hereda**: el botón lo trae inline. Se escribe en los `<span>` (que no
+   llevan nada) y en el `fill` del `<svg>` del icono, que es un atributo de presentación y cualquier
+   regla CSS lo gana.
+3. **Lo que crece hacia fuera no puede ir dentro de la pieza recortada.** El anillo que late alrededor
+   del botón de pago anticipado se cuelga del bloque que lo envuelve, no del botón: dentro, el
+   `clip-path` se lo comería.
+4. **El sangrado de la capa tiene que caber** en el aire lateral del modal.
+
+**Y ojo con la hoja de la app, no solo con lo inline.** `style.min.css` sirve algunas cosas con
+`!important` desde selectores de clase, donde el ID solo no basta y hace falta `!important` propio:
+
+| Elemento | Lo que fuerza la app | Cómo se gana |
+|---|---|---|
+| `input[data-type]` | filete gris `#c0c0c0` | `border: 1px solid <token> !important` |
+| `<span>` dentro de los botones de pago | color del texto | `color: <token> !important` |
+
+En Eterma el skin da por perdidos el fondo y el color de los dos botones. Con esta técnica también se
+pueden vestir; está sin hacer a propósito, para no tocar una landing publicada sin pedirlo.
 
 ---
 

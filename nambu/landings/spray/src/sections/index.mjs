@@ -1,0 +1,22 @@
+// Registro de secciones: el orden lo decide cada ángulo en su lista `sections`.
+import { top } from './top.mjs'
+import { hero } from './hero/index.mjs'
+import { people } from './people.mjs'
+import { problem } from './problem.mjs'
+import { botany } from './botany.mjs'
+import { sources } from './sources.mjs'
+import { volume } from './volume.mjs'
+import { offer } from './offer.mjs'
+import { ritual } from './ritual.mjs'
+import { box } from './box.mjs'
+import { voices } from './voices.mjs'
+import { versus } from './versus.mjs'
+import { pay } from './pay.mjs'
+import { warranty } from './warranty.mjs'
+import { faq } from './faq.mjs'
+import { collage } from './collage.mjs'
+import { close } from './close.mjs'
+import { social } from './social.mjs'
+import { sticky } from './sticky.mjs'
+
+export const SECTIONS = { top, hero, people, problem, botany, sources, volume, offer, ritual, box, voices, versus, pay, warranty, faq, collage, close, social, sticky }

@@ -1,0 +1,121 @@
+	/* ---------------------------------------------------------
+	   Hero C · La baraja (flema, remarketing)
+	   -----------------------------------------------------------
+	   Una cinta verde con los dolores del ángulo cruza arriba, el
+	   titular va centrado y las cuatro imágenes se apilan en abanico.
+	   La de delante está despejada; las de detrás, empañadas. Pasar una
+	   la lanza fuera y la manda al fondo. El precio y el CTA van juntos
+	   en una tarjeta.
+	   --------------------------------------------------------- */
+	.ns-lp .ns-hero.ns-hero--deck { padding: 0 0 22px; background: radial-gradient(120% 46% at 50% 44%, var(--ns-apple-50) 0%, var(--ns-white) 72%); }
+
+	/* La cinta: dos mitades iguales; al llegar a −50% vuelve a empezar sin salto */
+	.ns-lp .ns-ticker { overflow: hidden; background: var(--ns-apple); color: var(--ns-apple-ink); }
+	.ns-lp .ns-ticker__track { display: flex; width: max-content; padding: 8px 0; font-size: 13px; line-height: 1.3; letter-spacing: 0.4px; white-space: nowrap; }
+	/* Más ancha que la pantalla a propósito: GemPages pone max-width: 100% a todo lo de sus filas (/AGENTS.md §4.14) */
+	.ns-lp .ns-ticker .ns-ticker__track { max-width: none; }
+	.ns-lp .ns-ticker__group { display: flex; align-items: center; }
+	.ns-lp .ns-ticker__item { padding: 0 14px; }
+	.ns-lp .ns-ticker__drop { width: 8px; height: 10px; fill: var(--ns-white); }
+	.ns-lp .ns-hero.ns-hero--deck.is-live .ns-ticker__track { animation: ns-ticker 40s linear infinite; }
+	@keyframes ns-ticker {
+		to { transform: translateX(-50%); }
+	}
+
+	.ns-lp .ns-deck__intro { margin-top: 18px; text-align: center; }
+
+	/* Centrado con flex, no con margin: auto (Chrome informa 0px en los auto de un aspect-ratio) */
+	.ns-lp .ns-deck__gallery { display: flex; flex-direction: column; align-items: center; margin-top: 24px; }
+	/* El hueco lateral deja asomar las de detrás sin salirse del carril */
+	.ns-lp .ns-deck__stack { position: relative; width: calc(100% - 40px); max-width: 520px; aspect-ratio: 1 / 1; touch-action: pan-y; cursor: pointer; -webkit-user-select: none; user-select: none; }
+	.ns-lp .ns-deck__card {
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+		overflow: hidden;
+		border-radius: 26px;
+		background: var(--ns-apple-50);
+		box-shadow: 0 2px 6px rgba(15, 26, 16, 0.06), 0 26px 50px -30px rgba(47, 125, 34, 0.55);
+		opacity: 0;
+		transform: translateY(-18px) scale(0.84);
+		transition: transform 560ms var(--ns-ease), opacity 400ms ease;
+	}
+	.ns-lp .ns-deck__card img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; -webkit-user-drag: none; }
+	/* Vaho sobre las de detrás: al pasar delante, se despeja */
+	.ns-lp .ns-deck__card::after { content: ''; position: absolute; inset: 0; background: rgba(245, 251, 241, 0.45); transition: opacity 560ms ease; pointer-events: none; }
+	.ns-lp .ns-deck__card[data-ns-pos='0'] { z-index: 3; opacity: 1; transform: none; }
+	.ns-lp .ns-deck__card[data-ns-pos='0']::after { opacity: 0; }
+	.ns-lp .ns-deck__card[data-ns-pos='1'] { z-index: 2; opacity: 1; transform: translate(16px, -10px) rotate(5deg) scale(0.95); }
+	.ns-lp .ns-deck__card[data-ns-pos='2'] { z-index: 1; opacity: 1; transform: translate(-16px, -16px) rotate(-5deg) scale(0.92); }
+	/* La de delante sale lanzada y vuelve al fondo; al retroceder, entra desde fuera */
+	.ns-lp .ns-deck__card.is-thrown { z-index: 4; animation: ns-deck-throw 560ms var(--ns-ease) both; }
+	.ns-lp .ns-deck__card.is-back { z-index: 4; animation: ns-deck-back 560ms var(--ns-ease) both; }
+	@keyframes ns-deck-throw {
+		0% { opacity: 1; transform: none; }
+		55% { opacity: 0; transform: translate(-112%, 18px) rotate(-12deg); }
+		100% { opacity: 0; transform: translateY(-18px) scale(0.84); }
+	}
+	@keyframes ns-deck-back {
+		from { opacity: 0; transform: translate(-112%, 18px) rotate(-12deg); }
+		to { opacity: 1; transform: none; }
+	}
+
+	/* Mando en cápsula: flechas y leyenda en una sola pieza, con ancho fijo */
+	.ns-lp .ns-deck__bar {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		width: 100%;
+		max-width: 330px;
+		margin-top: 14px;
+		padding: 4px;
+		border-radius: 999px;
+		background: var(--ns-white);
+		box-shadow: inset 0 0 0 1px var(--ns-line), var(--ns-shadow);
+	}
+	.ns-lp .ns-deck__arrow { display: grid; place-items: center; width: 40px; height: 40px; flex: none; border-radius: 999px; background: var(--ns-apple-100); color: var(--ns-apple-deep); transition: transform 180ms ease; }
+	.ns-lp .ns-deck__arrow svg { width: 18px; height: 18px; }
+	.ns-lp .ns-deck__arrow:hover { transform: scale(1.06); }
+	.ns-lp .ns-deck__caption { flex: 1; min-width: 0; color: var(--ns-ink); font-size: 14px; line-height: 1.3; text-align: center; }
+	.ns-lp .ns-deck__count { margin-left: 6px; color: var(--ns-apple-deep); font-size: 12px; letter-spacing: 1px; white-space: nowrap; }
+
+	/* Tarjeta de compra: precio, CTA, confianza y medios de pago en una pieza. Sale
+	   8px hacia el margen y el CTA conserva el ancho de columna: nunca se parte en dos.
+	   Va con .ns-deck en el selector para ganar al max-width: 100% de GemPages (§4.14). */
+	.ns-lp .ns-deck .ns-deck__buy { max-width: none; margin: 14px -8px 0; padding: 18px 8px 14px; border-radius: 28px; background: var(--ns-white); box-shadow: inset 0 0 0 1px var(--ns-line), var(--ns-shadow); text-align: center; }
+	.ns-lp .ns-deck__buy .ns-price { flex-wrap: wrap; justify-content: center; }
+	.ns-lp .ns-deck__buy .ns-price__alt { justify-content: center; }
+
+	.ns-lp .ns-deck__details { margin-top: 22px; text-align: center; }
+	.ns-lp .ns-deck__details .ns-hero__lead { margin-top: 0; }
+	/* Los datos en fichas: tres casillas iguales */
+	.ns-lp .ns-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 16px; }
+	.ns-lp .ns-tiles__item { display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 4px; padding: 12px 8px; border-radius: var(--ns-radius-sm); background: var(--ns-apple-50); box-shadow: inset 0 0 0 1px var(--ns-line); }
+	.ns-lp .ns-tiles__item dt { font-size: 12px; line-height: 1.35; }
+	.ns-lp .ns-tiles__item dd { color: var(--ns-apple-deep); font-size: 18px; line-height: 1.2; letter-spacing: -0.3px; }
+
+	@media (min-width: 700px) {
+		.ns-lp .ns-deck .ns-deck__buy { max-width: 576px; margin-right: auto; margin-left: auto; }
+		.ns-lp .ns-deck__details { max-width: 560px; margin-right: auto; margin-left: auto; }
+	}
+
+	@media (min-width: 980px) {
+		.ns-lp .ns-hero.ns-hero--deck { padding: 0 0 44px; background: radial-gradient(60% 70% at 50% 62%, var(--ns-apple-50) 0%, var(--ns-white) 72%); }
+		.ns-lp .ns-ticker__track { padding: 10px 0; font-size: 14px; }
+		/* Titular centrado arriba; debajo, la baraja y la tarjeta frente a frente */
+		.ns-lp .ns-deck {
+			display: grid;
+			grid-template-columns: minmax(0, 480px) minmax(0, 440px);
+			grid-template-areas: 'intro intro' 'gallery buy' 'gallery details';
+			grid-template-rows: auto auto 1fr;
+			justify-content: center;
+			gap: 0 72px;
+			align-items: start;
+		}
+		.ns-lp .ns-deck__intro { grid-area: intro; max-width: 900px; margin: 34px auto 26px; }
+		.ns-lp .ns-deck__gallery { grid-area: gallery; margin-top: 18px; }
+		.ns-lp .ns-deck__stack { width: calc(100% - 40px); }
+		.ns-lp .ns-deck .ns-deck__buy { grid-area: buy; max-width: none; margin: 0; padding: 26px 22px 22px; }
+		.ns-lp .ns-deck__buy .ns-hero__trust { text-align: center; }
+		.ns-lp .ns-deck__details { grid-area: details; max-width: none; margin: 22px 0 0; }
+	}

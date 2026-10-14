@@ -11,9 +11,11 @@ html{font-size:16px}
 body{font-size:16px;font-family:Helvetica,Arial,sans-serif}
 a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:empty,h6:empty,p:empty,section:empty,ul:empty{display:none}
 .h0,.h1,.h2,.h3,.h4,.h5,h1,h2,h3,h4,h5{font-family:Georgia,serif}
+.gps-preview .\[\&_\*\]\:gp-max-w-full *{max-width:100%}
 </style>
 </head>
 <body>
+<div class="gps-preview"><div class="[&_*]:gp-max-w-full">
 <!--
 	MIMA · MIMACALM — Landing de venta, ángulo SUEÑO (campaña septiembre)
 	=================================================================
@@ -32,6 +34,9 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 
 	CTA → abre el modal de Releasit mediante las clases de integración
 	_rsi-cod-form-gempages-button-overwrite y _rsi-cod-form-is-gempage.
+	Y el de EasySell con id="es-popup-button" y las clases es-popup-button
+	es-popup-button-cart. Los dos ganchos conviven: abre el formulario de la
+	app que esté activa (mima/AGENTS.md §5).
 
 	PENDIENTES ANTES DE PUBLICAR — ver mimacalm/AGENTS.md §8.
 
@@ -100,9 +105,9 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 			</figure>
 
 			<div class="mc-hero__buy">
-				<p class="mc-price"><span class="mc-price__amount">$89.900</span> <span class="mc-price__note">Envío gratis a Colombia</span></p>
-				<p class="mc-price__prepay"><strong>$79.900</strong> con pago anticipado</p>
-				<button type="button" class="mc-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMACALM</button>
+				<p class="mc-price"><span class="mc-price__amount">$79.900</span> <span class="mc-price__note">Envío gratis a Colombia</span></p>
+				<p class="mc-price__prepay"><strong>$69.900</strong> con pago anticipado</p>
+				<button type="button" id="es-popup-button" class="mc-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMACALM</button>
 
 				<ul class="mc-trust">
 					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h3.7l2.8 3v4h-6.5z"/><circle cx="7" cy="18" r="1.7"/><circle cx="17" cy="18" r="1.7"/></svg> Entrega de 3 a 5 días hábiles</li>
@@ -149,10 +154,6 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 	     en cuanto alguien la toca. El JS solo escribe --mc-lit por
 	     ventana; sin JS todas quedan encendidas y el carril desliza. -->
 	<section class="mc-facade" data-mc-facade>
-		<div class="mc-shell mc-facade__head">
-			<p class="mc-overline mc-overline--light">Videos y fotos reales</p>
-		</div>
-
 		<ul class="mc-facade__track" data-mc-facade-track tabindex="0" role="region" aria-label="Personas que ya usan MIMACALM">
 			<li class="mc-facade__item" data-mc-facade-item>
 				<figure class="mc-pane">
@@ -320,7 +321,7 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 			</ul>
 
 			<div class="mc-cta-row">
-				<button type="button" class="mc-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO EMPEZAR CON MIMACALM</button>
+				<button type="button" id="es-popup-button" class="mc-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO EMPEZAR CON MIMACALM</button>
 			</div>
 		</div>
 	</section>
@@ -371,7 +372,7 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 			</ul>
 
 			<div class="mc-cta-row">
-				<button type="button" class="mc-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMACALM</button>
+				<button type="button" id="es-popup-button" class="mc-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMACALM</button>
 			</div>
 		</div>
 	</section>
@@ -394,7 +395,7 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 				</ul>
 
 				<div class="mc-cta-row mc-cta-row--start mc-recipe__cta">
-					<button type="button" class="mc-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMACALM</button>
+					<button type="button" id="es-popup-button" class="mc-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMACALM</button>
 				</div>
 			</div>
 
@@ -451,7 +452,7 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 					<span class="mc-pay__box mc-pay__box--best">
 						<span class="mc-pay__badge">Recomendado</span>
 						<span class="mc-pay__name">Pago anticipado</span>
-						<span class="mc-pay__amount">$79.900</span>
+						<span class="mc-pay__amount">$69.900</span>
 						<span class="mc-pay__save">Ahorras $10.000</span>
 						<span class="mc-pay__detail">Confirmación y seguimiento por WhatsApp</span>
 						<span class="mc-pay__methods">
@@ -466,14 +467,14 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 					<input type="radio" name="mc-payment" id="mc-pay-cod" value="cod">
 					<span class="mc-pay__box">
 						<span class="mc-pay__name">Pago contraentrega</span>
-						<span class="mc-pay__amount">$89.900</span>
+						<span class="mc-pay__amount">$79.900</span>
 						<span class="mc-pay__detail">Pagas cuando recibes tu pedido</span>
 					</span>
 				</label>
 			</fieldset>
 
 			<div class="mc-cta-row">
-				<button type="button" class="mc-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage" data-mc-cta-price>ELEGIR MI FORMA DE PAGO</button>
+				<button type="button" id="es-popup-button" class="mc-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage" data-mc-cta-price>ELEGIR MI FORMA DE PAGO</button>
 			</div>
 
 			<ul class="mc-trust">
@@ -520,8 +521,8 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 			</div>
 		</div>
 
-		<div class="mc-stories">
-			<ul class="mc-stories__track" tabindex="0" role="region" aria-label="Historias de personas que usan MIMACALM">
+		<div class="mc-stories" data-mc-stories>
+			<ul class="mc-stories__track" data-mc-stories-track tabindex="0" role="region" aria-label="Historias de personas que usan MIMACALM">
 				<li class="mc-stories__item">
 					<article class="mc-story">
 						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimacalm-ugc-natalia-1.webp?width=560"
@@ -565,6 +566,20 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 					</article>
 				</li>
 			</ul>
+
+			<div class="mc-stories__nav" data-mc-stories-nav hidden>
+				<button type="button" class="mc-stories__arrow" data-mc-stories-prev aria-label="Historia anterior">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"/></svg>
+				</button>
+				<div class="mc-stories__dots" role="group" aria-label="Elegir historia">
+					<button type="button" class="mc-stories__dot" data-mc-stories-dot aria-label="Ver la historia de Natalia Portelo" aria-current="true"></button>
+					<button type="button" class="mc-stories__dot" data-mc-stories-dot aria-label="Ver la historia de Catalina"></button>
+					<button type="button" class="mc-stories__dot" data-mc-stories-dot aria-label="Ver la historia de Alejandra"></button>
+				</div>
+				<button type="button" class="mc-stories__arrow" data-mc-stories-next aria-label="Historia siguiente">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 6 6 6-6 6"/></svg>
+				</button>
+			</div>
 		</div>
 	</section>
 
@@ -669,7 +684,7 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 			</ul>
 
 			<div class="mc-cta-row">
-				<button type="button" class="mc-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMACALM</button>
+				<button type="button" id="es-popup-button" class="mc-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMACALM</button>
 			</div>
 		</div>
 	</section>
@@ -692,7 +707,7 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 				</ul>
 
 				<div class="mc-cta-row mc-cta-row--start">
-					<button type="button" class="mc-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMACALM</button>
+					<button type="button" id="es-popup-button" class="mc-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMACALM</button>
 				</div>
 			</div>
 
@@ -779,7 +794,7 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 					<summary>¿Puedo pagar al recibir?</summary>
 					<div class="mc-faq__body">
 						<p>Sí.</p>
-						<p class="mc-faq__prices"><span class="mc-faq__best">Pago anticipado: <strong>$79.900</strong></span> <span>Contraentrega: $89.900</span></p>
+						<p class="mc-faq__prices"><span class="mc-faq__best">Pago anticipado: <strong>$69.900</strong></span> <span>Contraentrega: $79.900</span></p>
 						<p>Ahorras $10.000 pagando anticipado.</p>
 					</div>
 				</details>
@@ -829,17 +844,17 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 					<div class="mc-close__option mc-close__option--best">
 						<span class="mc-close__badge">Recomendado</span>
 						<p class="mc-close__label">Pago anticipado</p>
-						<p class="mc-close__amount">$79.900</p>
+						<p class="mc-close__amount">$69.900</p>
 						<p class="mc-close__save">Ahorras $10.000</p>
 					</div>
 					<div class="mc-close__option">
 						<p class="mc-close__label">Pago contraentrega</p>
-						<p class="mc-close__amount">$89.900</p>
+						<p class="mc-close__amount">$79.900</p>
 					</div>
 				</div>
 
 				<div class="mc-cta-row">
-					<button type="button" class="mc-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMACALM</button>
+					<button type="button" id="es-popup-button" class="mc-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMACALM</button>
 				</div>
 
 				<ul class="mc-trust">
@@ -890,8 +905,8 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 	<!-- ========================= CTA STICKY ========================= -->
 	<div class="mc-sticky" data-mc-sticky hidden>
 		<div class="mc-sticky__inner">
-			<p class="mc-sticky__price"><strong data-mc-sticky-price>$89.900</strong> <span>Envío gratis</span></p>
-			<button type="button" class="mc-cta mc-cta--sm _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMACALM</button>
+			<p class="mc-sticky__price"><strong data-mc-sticky-price>$79.900</strong> <span>Envío gratis</span></p>
+			<button type="button" id="es-popup-button" class="mc-cta mc-cta--sm es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMACALM</button>
 		</div>
 	</div>
 
@@ -1117,6 +1132,9 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 	   cuando el botón está en pantalla. Sin JS es un botón quieto. */
 
 	.mc-lp .mc-cta {
+		/* EasySell abre su formulario desde .es-popup-button y su hoja estila esa
+		   clase: margin 10px 0 6px. Sin este cero cada fila de botón crece 16px. */
+		margin: 0;
 		position: relative;
 		overflow: hidden;
 		isolation: isolate;
@@ -1144,6 +1162,9 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 	}
 
 	.mc-lp .mc-cta::before {
+		/* La hoja de EasySell trae .es-popup-button:before { display: none
+		   !important }, que apaga esta capa. Con Releasit no cambia nada. */
+		display: block !important;
 		content: '';
 		position: absolute;
 		z-index: -1;
@@ -2146,7 +2167,10 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 
 	/* ---------- Testimonios ---------- */
 
-	.mc-lp .mc-stories__track { gap: 14px; }
+	.mc-lp .mc-stories__track { position: relative; gap: 14px; }
+	/* Ya carrusel, la barra sobra: la sustituyen las flechas y los puntos */
+	.mc-lp .mc-stories.is-carousel .mc-stories__track { scrollbar-width: none; }
+	.mc-lp .mc-stories.is-carousel .mc-stories__track::-webkit-scrollbar { display: none; }
 
 	.mc-lp .mc-stories__item {
 		flex: 0 0 auto;
@@ -2201,6 +2225,91 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
 		color: var(--mc-melon-deep);
+	}
+
+	/* Mando: flechas a los lados y un punto por historia. Lo enciende el JS
+	   solo si hay algo que deslizar; sin JS queda el carril con el dedo. */
+	.mc-lp .mc-stories__nav {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 12px;
+		margin-top: 4px;
+		padding-inline: var(--mc-gutter);
+	}
+
+	.mc-lp .mc-stories__nav[hidden] { display: none; }
+
+	.mc-lp .mc-stories__arrow {
+		display: grid;
+		place-items: center;
+		width: 40px;
+		height: 40px;
+		padding: 0;
+		border: 1px solid var(--mc-border);
+		border-radius: 50%;
+		background: var(--mc-surface);
+		color: var(--mc-navy);
+		cursor: pointer;
+		transition: transform 0.15s ease, opacity 0.15s ease;
+	}
+
+	.mc-lp .mc-stories__arrow svg { width: 18px; height: 18px; }
+	.mc-lp .mc-stories__arrow:not([disabled]):hover { transform: scale(1.06); }
+	.mc-lp .mc-stories__arrow:focus-visible { outline: 3px solid var(--mc-melon-deep); outline-offset: 2px; }
+	.mc-lp .mc-stories__arrow[disabled] { opacity: 0.35; cursor: default; }
+
+	.mc-lp .mc-stories__dots { display: flex; align-items: center; }
+
+	/* El punto se ve de 8px; el área tocable es de 24px */
+	.mc-lp .mc-stories__dot {
+		display: grid;
+		place-items: center;
+		width: 24px;
+		height: 24px;
+		padding: 0;
+		border: 0;
+		border-radius: 50%;
+		background: none;
+		cursor: pointer;
+	}
+
+	.mc-lp .mc-stories__dot::before {
+		content: '';
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		box-shadow: inset 0 0 0 1.5px var(--mc-muted);
+		transition: transform 0.2s ease;
+	}
+
+	.mc-lp .mc-stories__dot[aria-current='true']::before { background: var(--mc-melon-deep); box-shadow: none; transform: scale(1.25); }
+	.mc-lp .mc-stories__dot:focus-visible { outline: 3px solid var(--mc-melon-deep); outline-offset: -2px; }
+
+	/* Desde 600px la historia activa va al centro y las vecinas asoman a los
+	   dos lados; el relleno del carril deja encajar también la primera y la última */
+	@media (min-width: 600px) {
+		.mc-lp .mc-stories {
+			--mc-story-w: 340px;
+			--mc-rail-pad: calc((100% - var(--mc-story-w)) / 2);
+		}
+
+		.mc-lp .mc-stories__item { width: var(--mc-story-w); }
+	}
+
+	/* Tarjeta horizontal: la foto a la izquierda y el relato al lado */
+	@media (min-width: 760px) {
+		.mc-lp .mc-stories { --mc-story-w: 600px; }
+		.mc-lp .mc-story { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr); }
+		.mc-lp .mc-story img { height: 100%; }
+		.mc-lp .mc-story__body { padding: 28px 30px 30px; }
+		.mc-lp .mc-story p.mc-story__lead { font-size: 19px; }
+	}
+
+	@media (min-width: 900px) {
+		.mc-lp .mc-stories { --mc-story-w: 720px; }
+		.mc-lp .mc-story__body { padding: 34px 36px 36px; }
+		.mc-lp .mc-story p.mc-story__lead { font-size: 21px; }
 	}
 
 	/* ---------- Respaldo de los ingredientes ---------- */
@@ -2911,9 +3020,6 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 
 		.mc-lp .mc-pay { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
-		.mc-lp .mc-stories__track { justify-content: center; }
-		.mc-lp .mc-stories__item { width: 320px; }
-
 		.mc-lp .mc-sources__item { width: 320px; }
 		.mc-lp .mc-sources__track { justify-content: center; }
 
@@ -2956,12 +3062,12 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 		var PREPAID_ENABLED = false
 
 		var PRICES = {
-			prepaid: '$79.900',
-			cod: '$89.900'
+			prepaid: '$69.900',
+			cod: '$79.900'
 		}
 
 		var CTA_LABELS = {
-			prepaid: 'QUIERO MI MIMACALM POR $79.900',
+			prepaid: 'QUIERO MI MIMACALM POR $69.900',
 			cod: 'QUIERO MI MIMACALM CONTRAENTREGA'
 		}
 
@@ -2972,6 +3078,7 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 		var PAY_ATTRIBUTE = 'data-sg-pay'
 
 		var LIVE_CLASS = 'is-live'
+		var CAROUSEL_CLASS = 'is-carousel'
 		var ACTIVE_CLASS = 'is-active'
 		var ARMED_CLASS = 'is-armed'
 		var REVEALED_CLASS = 'is-in'
@@ -3322,6 +3429,82 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 			forEach(tail, function (el) { tailObserver.observe(el) })
 		}
 
+		// Testimonios: el carril de historias pasa a carrusel. El índice sale
+		// del scroll, así sigue al dedo; flechas y puntos solo aparecen si hay
+		// algo que deslizar.
+		function initStories(root) {
+			var stories = root.querySelector('[data-mc-stories]')
+			if (!stories) return
+
+			var track = stories.querySelector('[data-mc-stories-track]')
+			var nav = stories.querySelector('[data-mc-stories-nav]')
+			var prev = stories.querySelector('[data-mc-stories-prev]')
+			var next = stories.querySelector('[data-mc-stories-next]')
+			var dots = stories.querySelectorAll('[data-mc-stories-dot]')
+			if (!track || !nav || track.children.length < 2) return
+
+			var items = track.children
+			var current = 0
+
+			function maxScroll() {
+				return track.scrollWidth - track.clientWidth
+			}
+
+			// La última historia no llega al punto de encaje: se queda en el tope
+			function targetOf(index) {
+				return Math.min(maxScroll(), items[index].offsetLeft - items[0].offsetLeft)
+			}
+
+			function paint() {
+				if (prev) prev.disabled = current === 0
+				if (next) next.disabled = current === items.length - 1
+				forEach(dots, function (dot, index) {
+					if (index === current) dot.setAttribute('aria-current', 'true')
+					else dot.removeAttribute('aria-current')
+				})
+			}
+
+			function readIndex() {
+				var best = 0
+				forEach(items, function (item, index) {
+					if (Math.abs(targetOf(index) - track.scrollLeft) < Math.abs(targetOf(best) - track.scrollLeft)) best = index
+				})
+				current = best
+				paint()
+			}
+
+			function go(index) {
+				var target = Math.max(0, Math.min(items.length - 1, index))
+				track.scrollTo({ left: targetOf(target), behavior: prefersReducedMotion() ? 'auto' : 'smooth' })
+			}
+
+			function sync() {
+				nav.hidden = maxScroll() < 2
+				readIndex()
+			}
+
+			var ticking = false
+			track.addEventListener('scroll', function () {
+				if (ticking) return
+				ticking = true
+				window.requestAnimationFrame(function () {
+					ticking = false
+					readIndex()
+				})
+			}, { passive: true })
+
+			if (prev) prev.addEventListener('click', function () { go(current - 1) })
+			if (next) next.addEventListener('click', function () { go(current + 1) })
+			forEach(dots, function (dot, index) {
+				dot.addEventListener('click', function () { go(index) })
+			})
+
+			window.addEventListener('resize', sync, { passive: true })
+
+			stories.classList.add(CAROUSEL_CLASS)
+			sync()
+		}
+
 		function init() {
 			var root = document.querySelector(ROOT_SELECTOR)
 			if (!root || root.dataset[READY_FLAG] === 'true') return
@@ -3329,6 +3512,7 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 			root.dataset[READY_FLAG] = 'true'
 			initPaymentSelector(root)
 			initHeroSlider(root)
+			initStories(root)
 			initFacade(root)
 			initReveals(root)
 			initCompare(root)
@@ -3344,5 +3528,6 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 		}
 	})()
 </script>
+</div></div>
 </body>
 </html>

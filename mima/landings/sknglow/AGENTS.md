@@ -12,7 +12,14 @@ de uso**. Actúa sobre piel, cabello y uñas — de ahí que tenga más de un á
 
 | | Anticipado | Contraentrega |
 |---|---|---|
-| Precio | **$79.900** | **$89.900** |
+| Precio | **$69.900** (ahorras $10.000) | **$79.900** |
+
+Precios vigentes desde el **2026-10-10** (antes $79.900 / $89.900). Los `.md` de copy del ángulo conservan
+las cifras anteriores: en precio **manda esta tabla**. Coinciden con la tienda: el producto enlazado vale
+$79.900 y el botón de pago en línea del formulario descuenta $10.000 fijos.
+
+Producto enlazado en las dos landings: `adverotiral-celulitis-y-envejecimiento-sknglow`
+(variante `46271674548364`). Leído de la tienda el 2026-10-10.
 
 Envío gratis a Colombia, entrega 3–5 días. Order bump **MIMACALM** y upsell **MIMANAD**, ambos a
 $39.950 (copy en `piel/order_bump_upsell.md`).
@@ -25,6 +32,10 @@ $39.950 (copy en `piel/order_bump_upsell.md`).
 |---|---|---|
 | [`piel/`](piel/) | Piel firme, luminosa, con menos manchas | **En producción** — handle `sknglow-piel-firme` |
 | [`cabello/`](cabello/) | Cabello con cuerpo desde la raíz, uñas resistentes | **Construida, sin publicar** — ver §6 |
+| [`advertorial-cabello/`](advertorial-cabello/) | Advertorial: el desagüe de la ducha y la caída por estrés | **Publicado** en `/blogs/noticias/advertorial-sknglow-cabello` — ver §7 |
+| [`advertorial-piel/`](advertorial-piel/) | Advertorial: la mancha en forma de mariposa | **Construido, sin publicar** — ver §7 |
+| [`listicle-cabello/`](listicle-cabello/) | Listicle: 5 razones por las que se te cae el pelo aunque cambies de champú | **Construido, sin publicar** — ver §7 |
+| [`listicle-piel/`](listicle-piel/) | Listicle: 5 razones por las que tu piel sigue apagada aunque uses sérums caros | **Construido, sin publicar** — ver §7 |
 
 Mismo producto, misma variante de Shopify, mismo precio. **Lo único que cambia es el argumento.** Un
 ángulo nuevo es una carpeta nueva con su copy y su HTML, nunca un `if` dentro de una landing existente.
@@ -347,3 +358,167 @@ Regla general en `/docs/image-optimization.md` §5. Estado real en cualquier mom
 
 Los nombres de los testimonios son los **reales del pool de UGC** (Anny, Camila, Natalia). El copy
 llega siempre con nombres ficticios: se sustituyen. Las ciudades sí vienen del copy.
+
+---
+
+## 7. Formatos editoriales: advertorial y listicle
+
+Páginas que venden SKNGLOW **con forma de artículo**. Las lee quien todavía no busca una solución: está
+viviendo el problema. Por eso el orden lo pone el relato, y el producto no aparece hasta que el relato lo
+presenta.
+
+🔴 **La primera imagen es la del problema, no la del producto ni un esquema** (cliente, 2026-10-13: *«la
+primera imagen se suele poner una imagen del problema/dolor, porque esas páginas se muestran a personas
+que no son tan conscientes de la solución»*). Vale para advertoriales y listicles.
+
+| Artículo | Abre con | Por qué esa |
+|---|---|---|
+| `advertorial-cabello` | `adv-cab-raya`: la raya ancha con el cuero cabelludo a la vista | Es la mitad superior de la sexta imagen entregada. La mitad inferior (`adv-cab-fibras`) va más abajo |
+| `advertorial-piel` | `adv-piel-mancha`: el bloque de piel con la zona oscura en la superficie | De las seis láminas, es la única que enseña la mancha. **No hay foto de una mancha en una mejilla**: si llega, abre ella |
+| `listicle-cabello` | `lst-cab-caida`: los cabellos entre los dedos y el cepillo lleno | Es la escena con la que arranca el copy |
+| `listicle-piel` | `lst-piel-apagada`: la cara apagada, con gesto de cansancio | Es la señal que nombra el copy: «cara opaca, con aspecto de cansancio» |
+
+### El generador
+
+Los artículos **se generan**; el `october.html` de cada carpeta es derivado y no se edita a mano.
+
+```sh
+node mima/landings/sknglow/editorial/build.mjs                       # todos, con vista previa y pestañas
+node mima/landings/sknglow/editorial/build.mjs advertorial-cabello
+```
+
+```
+editorial/
+├── build.mjs             # ensambla el fragmento, llama a preview.sh y a split-tabs.sh
+├── articles/             # un archivo por artículo: el copy y con qué bloque se cuenta cada parte
+│   └── shared.mjs        # precios, oferta, CTA, firma, pie: lo que repiten los artículos
+├── blocks/               # p, key, pull, heading, plate, flow, flatline, ladder, product, reviews, cta, offer
+│   └── lists.mjs         # lo del listicle: reason, signs, cards, advice
+├── lib/images.mjs        # catálogo de imágenes: archivo, medidas y alt
+├── lib/cta.mjs           # el botón, con los ganchos de Releasit y EasySell
+├── styles/article.css    # la base de los dos formatos
+├── styles/listicle.css   # lo que añade el listicle; solo entra en los listicles
+└── scripts/article.js    # progreso, entradas, carriles, barra de compra, visor
+```
+
+- **Un artículo nuevo** es un archivo en `articles/` y una línea en `articles/index.mjs`. El `id` es la
+  carpeta donde se escribe. Un `type` de bloque desconocido para el build.
+- **El formato** (`format: 'advertorial' | 'listicle'`) decide qué hojas lleva el artículo (`FORMATS` en
+  `build.mjs`). Un formato nuevo es una entrada ahí y, si hace falta, su hoja.
+- **Los carriles comparten mecánica** (`.sg-rail`, `.sg-rail__track`, `.sg-rail__item` y `initRail`). Cada
+  bloque solo pone la piel de sus tarjetas y, desde 600 px, el ancho con el que se centran (`--sg-card`).
+- La hoja cuelga de `.sg-lp`, como la de las landings, pero **es otra hoja**: nunca conviven en una página.
+- En la vista previa local (`file:` o `localhost`), una imagen que aún no está en el CDN se lee de
+  `../assets/` (`initLocalFallback`). En producción ese código no hace nada.
+
+### La línea visual
+
+La paleta, la tipografía y el CTA (el barrido de luz) son los de las landings de SKNGLOW. Cambia la
+composición:
+
+- **Una columna de lectura de 680 px**, cuerpo de 18 px (19 desde 720) e interlineado 1,62. El copy llega
+  en frases cortas, una por párrafo.
+- **Franja de arriba** con el logotipo y la etiqueta «Contenido publicitario». No está en el copy: se
+  añadió para que una página que cuenta una historia en primera persona se declare como publicidad.
+- **Firma del copy tal cual** (nombre, lugar, «Verificado») y los minutos de lectura, medidos sobre el copy.
+- **Láminas con pie y visor.** Los rótulos de las láminas no se leen a 350 px de ancho: cada una se abre a
+  un toque en un visor donde sí. Sin JS o sin `<dialog>`, el enlace abre el archivo.
+- **El recorrido** (`flow`): la lámina del estrés trae mucho texto y va partida en sus cuatro pasos, que se
+  recorren deslizando y se leen sin ampliar. La lámina entera sigue a un toque.
+- **La línea plana** (`flatline`): lo que la autora ya probó, sobre una línea que no se mueve. Sustituye a
+  la «línea de tiempo» que pedía el copy, con sus mismas palabras.
+- **Foto de UGC en la llamada a la acción** (cliente, 2026-10-13: *«al final, cuando se haga el llamado a
+  la acción hay que agregar imagen de UGC»*). La tarjeta de la oferta abre con una persona real del pool con
+  el frasco en la mano: `photo` en el bloque `offer`, definida una vez en `OFFER_PHOTO` (`shared.mjs`). Hoy
+  es Shelyka (`landings-sknglow-ugc-shelyka.webp`, la misma de la galería de piel) en los dos artículos.
+  En móvil va arriba, recortada a 3:4; desde 600 px es la columna izquierda. Con foto, la tarjeta no repite
+  el frasco suelto. Lleva su nombre y «Contenido en colaboración con MIMA»: **no es la autora** del
+  artículo y no se puede leer como si lo fuera.
+- **Barra de compra**: en móvil, fija abajo; sale cuando el relato ya presentó el producto (`reveal: true`
+  en ese titular) y se retira cuando asoma **el botón** de la oferta, no la tarjeta: con la foto arriba, el
+  botón llega una pantalla después. 🔴 **Eso es solo en móvil.** En escritorio (≥ 1140 px) es la tarjeta
+  del margen y **se ve desde la primera pantalla hasta el final**: el 2026-10-13 se probó a esconderla
+  hasta presentar el producto y el cliente lo devolvió al verlo publicado («no aparece de primera entrada
+  … aparece y vuelve a desaparecer»).
+- **Barra de progreso de lectura** arriba.
+- Sin secciones oscuras, sin serif, sin iconografía añadida.
+
+### El listicle
+
+«5 razones por las que…»: el mismo artículo, contado como una lista numerada. Hereda todo lo anterior y
+añade (`styles/listicle.css`, `blocks/lists.mjs`):
+
+- **El motivo es el número.** El del titular va de capitular (lo saca `head` de cualquier titular que
+  empiece por una cifra) y cada razón abre con el suyo en grande y «de 5». Numeración sin cero.
+- **Ninguna lista del copy va apilada tal cual** (el cliente las rechaza: memoria «nada de listas planas»).
+  Cada una tiene su bloque:
+
+  | Bloque | Para qué | Cómo se ve |
+  |---|---|---|
+  | `signs` | Señales cortas | Fichas grandes en rejilla (2 por fila; 3 desde 600 px), cada una con una luz que se enciende al entrar, una tras otra |
+  | `ladder` | «El cuerpo prioriza…» | Filas que se llenan en orden; la última —el pelo, la piel— se queda casi vacía. Con las palabras del copy |
+  | `cards` | Frases para recorrer (`kind: 'note' \| 'question'`) | Carril deslizable con flechas y puntos |
+  | `advice` | Qué hacer en cada caso | Tarjetas con la condición (`when`) y, destacado, lo que toca (`then`). La frase se lee entera y en su orden |
+  | `product` con `stats` y `notes` | Los datos de uso | La ficha del frasco con la cifra en grande («4», «120», «kiwi») y las frases debajo |
+
+- **Las fotos van sin visor** (`zoom: false` en `plate`); las láminas con rótulos lo conservan. La foto de
+  apertura es cuadrada: desde 720 px se queda en 5:4 para que el texto no empiece una pantalla más abajo.
+- **El producto aparece en la razón 4** (`reveal: true`), con su foto, su ficha y un botón. Hasta ahí, en
+  móvil, no hay frasco ni barra de compra.
+- **Cierra con la oferta y la foto de UGC**, igual que el advertorial.
+
+Lo que el copy del listicle **no trae** y de dónde sale:
+
+- **Precio**: no menciona ninguno. Va la oferta de los advertoriales (`OFFER`), con los precios de §1.
+- **Texto del botón**: tampoco. Va «QUIERO MI SKNGLOW», el de las landings.
+- **Autora y reseñas**: no hay. La cabecera lleva solo los minutos de lectura y no se añade ninguna reseña.
+
+⚠️ **Las tres fotos de cada listicle son imágenes generadas** (modelo y escenas de referencia). Llevan la
+nota «Imagen de referencia». En `lst-cab-rutina` y `lst-piel-tocador` sale un frasco de Sknglow **con la
+etiqueta deformada** (se lee «SKNGLOW» y el resto son garabatos): se ve si se amplía. Conviene pedirlas de
+nuevo con el frasco real antes de escalar la pauta.
+
+### Reglas del copy
+
+- **Los textos van tal cual**, incluidos los titulares con mayúscula inicial en cada palabra.
+- **Los precios no salen del copy**: trae $89.900 / $79.900 y van los vigentes de §1.
+- **Manda el contraentrega.** El copy da ese como «el precio de Sknglow»: es la cifra grande. El anticipado
+  va debajo, con su ahorro, sin tachar nada.
+- **Los pies de lámina** se arman con fragmentos del propio copy.
+- **Las notas `[IMAGEN: …]` del copy son dirección de arte**, no texto. Solo se entregaron seis imágenes
+  por artículo. Lo que se pedía y no se entregó **no se inventa**: el cepillo con mechones, la comparación
+  con y sin flash, el mapa facial y los dos «antes y después» no están.
+- **Reseñas.** El copy las pide como tarjeta sin foto de rostro: nombre, ciudad, estrellas y texto. Los
+  nombres son del pool real (§6), sin repetir a quien ya firma en la landing del mismo ángulo; la ciudad es
+  la del copy; la edad no va. 🔴 **Los textos son del copy, no de esas personas**: antes de publicar, el
+  cliente tiene que confirmarlos con quien los firma o cambiarlos por reseñas reales.
+
+### Lo que decide el cliente antes de publicar
+
+1. **La autora.** «Yolimar Cantillo» y su «Verificado» solo existen en el copy: no está en el pool de
+   clientas reales. No se puede comprobar qué se verificó.
+2. **«Antes de que se agoten las unidades de este mes».** Es escasez. `/AGENTS.md` §7 solo la admite si es
+   real.
+3. **Los titulares prometen un resultado** («Detuve la Caída de Pelo», «Boté la Mancha») y el de piel nombra
+   el melasma. Para un suplemento, `/AGENTS.md` §8 pide hablar de apariencia y cuidado.
+4. **La etiqueta del frasco dice «120 masticable»** y el copy, «no masticables».
+
+### Despliegue
+
+Publicado: `advertorial-cabello` en `/blogs/noticias/advertorial-sknglow-cabello` (2026-10-13, como artículo
+de blog). Los otros tres, sin publicar.
+
+1. Custom Code de GemPages en una fila de ancho completo, con las tres pestañas (`october.tab-*`).
+2. **Product Element al final**, enlazado al producto: sin él los CTA no abren el formulario.
+3. La línea de la página en `paid_landings_config` del tema y su `landings-og-<handle>.jpg` (§5).
+4. Imágenes. Las de los advertoriales (`landings-sknglow-adv-*.webp`) y la foto de UGC **están en el CDN**
+   desde el 2026-10-13. 🔴 **Las seis de los listicles están por subir** (`landings-sknglow-lst-*.webp`).
+   Estado en cualquier momento: `./check-cdn.sh mima/landings/sknglow/listicle-cabello/october.html`.
+
+Verificado el 2026-10-13 en los cuatro: sin scroll horizontal a 320, 360, 390, 600, 768 y 1280 px; cada
+punto de los carriles llega a su tarjeta; contraste AA sin fallos; fusión de GemPages sin cambios de estilo;
+en móvil la barra de compra sale al presentar el producto y se retira al entrar el botón de la oferta, y en
+escritorio la tarjeta del margen está a la vista de principio a fin; todos los CTA
+llevan los ganchos de Releasit y EasySell; cada frase del copy está en la página (en los advertoriales, salvo
+precios y nombres de las reseñas); y la página montada desde las tres pestañas es idéntica al fragmento.
+

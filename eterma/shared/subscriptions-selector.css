@@ -1,0 +1,266 @@
+/* ============================================================================
+   Selector de compra única / suscripción · app «Shopify Subscriptions»
+   ============================================================================
+
+   Dónde va: Tienda online → Temas → Personalizar → Configuración del tema →
+   CSS personalizado. Es CSS global del tema; el bloque solo existe en la
+   página de producto, así que no toca nada más.
+
+   Por qué los selectores van colgados de `.shopify_subscriptions_app_block`:
+   la app imprime su propio <style> DENTRO del bloque, es decir, DESPUÉS del
+   CSS del tema. Con la misma especificidad gana el suyo. Sus reglas son de una
+   sola clase (`.plan_card`, `.subscription_group`…), así que todo lo de aquí
+   lleva el bloque delante y gana por especificidad, no por orden.
+
+   Por qué no hay colores fijos: el bloque hereda el esquema de color de la
+   sección (hoy «color-scheme-4»: fondo #0f2e20, texto blanco). Se usan las
+   variables del tema, así que si la sección cambia de esquema o el bloque se
+   pone en otra plantilla, el selector sigue al fondo en vez de romperlo. Los
+   valores de reserva son los del tema de Eterma, por si una variable falta.
+
+   Única excepción: la flecha del desplegable (solo aparece si un grupo tiene
+   dos o más planes) es un SVG incrustado y `var()` no vale dentro de un
+   data-URI. Va en blanco, como el texto de esta sección; sobre fondo claro hay
+   que cambiar el `%23ffffff` del trazo por `%230f2e20`.
+   ========================================================================= */
+
+.shopify_subscriptions_app_block {
+	--subs-ink: rgb(var(--color-foreground, 255, 255, 255));
+	--subs-ink-soft: rgba(var(--color-foreground, 255, 255, 255), 0.72);
+	--subs-paper: rgb(var(--color-background, 15, 46, 32));
+	--subs-line: rgba(var(--color-foreground, 255, 255, 255), 0.3);
+	--subs-line-strong: rgba(var(--color-foreground, 255, 255, 255), 0.6);
+	--subs-fill: rgba(var(--color-foreground, 255, 255, 255), 0.09);
+	--subs-fill-hover: rgba(var(--color-foreground, 255, 255, 255), 0.05);
+	--subs-radius: 20px;
+	--subs-pad-x: 18px;
+
+	display: block;
+	margin-bottom: 4px;
+}
+
+.shopify_subscriptions_app_block .shopify_subscriptions_fieldset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+/* ---------- La caja ----------
+   Transparente y con filete, como la caja de cantidad del tema: el bloque se
+   apoya en el fondo de la sección en vez de abrir un hueco blanco. */
+
+.shopify_subscriptions_app_block .plan_card {
+	overflow: hidden;
+	border: 1px solid var(--subs-line);
+	border-radius: var(--subs-radius);
+	background: transparent;
+	color: var(--subs-ink);
+}
+
+.shopify_subscriptions_app_block .subscription_group {
+	display: block;
+	margin: 0;
+	padding: 0;
+	border-bottom: 1px solid var(--subs-line);
+}
+
+.shopify_subscriptions_app_block .subscription_group:last-child { border-bottom: 0; }
+
+/* ---------- Las filas que se eligen ----------
+   El aire va en la fila, no en el grupo, para que el resalte de la elegida
+   llegue de borde a borde. Son <label>: toda la fila es zona de clic. */
+
+.shopify_subscriptions_app_block .subscription_group > label.title_and_price_wrapper,
+.shopify_subscriptions_app_block .group_list label.group_list_item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	width: 100%;
+	min-height: 56px;
+	margin: 0;
+	padding: 12px var(--subs-pad-x);
+	cursor: pointer;
+	transition: background-color 0.15s ease;
+}
+
+.shopify_subscriptions_app_block .subscription_group > label.title_and_price_wrapper:hover,
+.shopify_subscriptions_app_block .group_list label.group_list_item:hover { background: var(--subs-fill-hover); }
+
+.shopify_subscriptions_app_block .subscription_group > label.title_and_price_wrapper:has(input:checked),
+.shopify_subscriptions_app_block .group_list label.group_list_item:has(input:checked) { background: var(--subs-fill); }
+
+/* El envoltorio del botón y su texto, dentro de cada fila */
+.shopify_subscriptions_app_block div.one_time_purchase_option_app_block,
+.shopify_subscriptions_app_block label.group_list_item {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin: 0;
+}
+
+.shopify_subscriptions_app_block label.group_list_item .title_and_price_wrapper {
+	align-items: center;
+	gap: 12px;
+}
+
+.shopify_subscriptions_app_block .title_and_price_wrapper span {
+	font-size: 16px;
+	line-height: 1.3;
+	color: var(--subs-ink);
+}
+
+/* Gana a la regla de arriba, que también alcanza al nombre del grupo */
+.shopify_subscriptions_app_block .title_and_price_wrapper span.group_name {
+	font-size: 13px;
+	letter-spacing: 0.8px;
+	text-transform: uppercase;
+	color: var(--subs-ink-soft);
+}
+
+/* ---------- Cabecera de un grupo de planes ---------- */
+
+.shopify_subscriptions_app_block .subscription_group > div.title_and_price_wrapper {
+	padding: 14px var(--subs-pad-x) 0;
+}
+
+.shopify_subscriptions_app_block .group_name {
+	display: block;
+	margin: 0;
+	font-size: 13px;
+	line-height: 1.3;
+	letter-spacing: 0.8px;
+	text-transform: uppercase;
+	color: var(--subs-ink-soft);
+}
+
+.shopify_subscriptions_app_block .group_name_with_radio_button {
+	gap: 10px;
+	margin: 0;
+	padding: 12px var(--subs-pad-x) 0;
+}
+
+.shopify_subscriptions_app_block .group_list {
+	margin: 0;
+	padding: 2px 0 6px;
+	list-style: none;
+}
+
+.shopify_subscriptions_app_block .group_list .group_list_item { margin: 0; }
+
+/* ---------- El botón redondo ----------
+   El <input> va oculto (1 px recortado) y el círculo lo dibuja la app en
+   `.custom_radio_button::before`: gris #6d7175, pensado para fondo blanco. Se
+   repinta con los colores del esquema. Elegido = aro y punto del color del
+   texto, con el hueco del color del fondo. */
+
+.shopify_subscriptions_app_block .custom_radio_button::before {
+	width: 18px;
+	height: 18px;
+	margin: 0 10px 0 0;
+	border: 1px solid var(--subs-line-strong);
+	background: transparent;
+	box-shadow: none;
+	transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.shopify_subscriptions_app_block .custom_radio_button:has(input[type='radio']:checked)::before {
+	border: 4px solid var(--subs-paper);
+	background: var(--subs-ink);
+	box-shadow: 0 0 0 1px var(--subs-ink);
+}
+
+/* El contorno gris de la app, con el color del texto */
+.shopify_subscriptions_app_block .custom_radio_button:has(input[type='radio']:focus-visible) {
+	outline: 2px solid var(--subs-ink);
+	outline-offset: 3px;
+	border-radius: 6px;
+}
+
+.shopify_subscriptions_app_block .title_and_price_wrapper:has(input[type='radio']:focus-visible) { outline: none; }
+
+/* ---------- Precio de la fila ----------
+   La app solo lo enseña cuando el plan cuesta distinto que la compra única. */
+
+.shopify_subscriptions_app_block .in_widget_price {
+	align-self: center;
+	padding: 0;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.3;
+	white-space: nowrap;
+	color: var(--subs-ink);
+}
+
+/* ---------- Desplegable (solo con dos o más planes en un grupo) ---------- */
+
+.shopify_subscriptions_app_block .group_dropdown {
+	width: calc(100% - var(--subs-pad-x) * 2);
+	max-width: calc(100% - var(--subs-pad-x) * 2);
+	min-height: 44px;
+	margin: 0 var(--subs-pad-x) 14px;
+	padding: 10px 40px 10px 16px;
+	border: 1px solid var(--subs-line-strong);
+	border-radius: var(--inputs-radius, 26px);
+	background-color: transparent;
+	background-image: url("data:image/svg+xml,<svg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0.75 0.75L4.75 4.75L8.75 0.75' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+	font-family: inherit;
+	font-size: 15px;
+	color: var(--subs-ink);
+	cursor: pointer;
+}
+
+.shopify_subscriptions_app_block .group_dropdown:focus-visible {
+	outline: 2px solid var(--subs-ink);
+	outline-offset: 2px;
+}
+
+/* El menú nativo lo pinta el sistema: texto oscuro sobre blanco */
+.shopify_subscriptions_app_block .group_dropdown option {
+	background: #ffffff;
+	color: #0f2e20;
+}
+
+/* ---------- La línea de «se renueva automáticamente» ---------- */
+
+.shopify_subscriptions_app_block .shopify_subscriptions_app_policy {
+	margin: 10px 2px 0;
+	font-size: 13px;
+	line-height: 1.5;
+	color: var(--subs-ink-soft);
+}
+
+.shopify_subscriptions_app_block .shopify_subscriptions_app_policy a {
+	color: var(--subs-ink);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+/* ---------- Aviso de la app (plan no disponible para la variante) ----------
+   Se deja blanco a propósito, que para eso es un aviso; solo hereda la letra
+   del tema en vez de traerse Inter. */
+
+.shopify_subscriptions_app_container .shopify_subscriptions_warning_banner {
+	font-family: inherit;
+	border-radius: 12px;
+}
+
+/* ---------- Móvil ---------- */
+
+@media (max-width: 749px) {
+	.shopify_subscriptions_app_block { --subs-pad-x: 14px; }
+
+	.shopify_subscriptions_app_block .subscription_group > label.title_and_price_wrapper,
+	.shopify_subscriptions_app_block .group_list label.group_list_item { min-height: 52px; }
+
+	.shopify_subscriptions_app_block .title_and_price_wrapper span,
+	.shopify_subscriptions_app_block .in_widget_price { font-size: 15px; }
+}
+
+/* ---------- Movimiento reducido ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+	.shopify_subscriptions_app_block .subscription_group > label.title_and_price_wrapper,
+	.shopify_subscriptions_app_block .group_list label.group_list_item,
+	.shopify_subscriptions_app_block .custom_radio_button::before { transition: none; }
+}

@@ -77,7 +77,9 @@ conflicto. Antes de tocar una landing hay que haber leído los tres.
 
 Marcas activas: `mima` (productos: **SKNGLOW**, **MIMACALM**, **MIMANAD**), `eterma` (productos:
 **CLOROFULL**, **VALERIANA** y cinco **kits** —`kit-dia-liviano`, `kit-piel-viva`, `kit-tinto-almohada`,
-`kit-duerme-florece` y `kit-cuerpo-punto`, los cinco construidos—), `nambu` (aún vacía).
+`kit-duerme-florece` y `kit-cuerpo-punto`, los cinco construidos—), `nambu` (producto: **SPRAY NASAL**, seis
+ángulos construidos desde un generador propio: `nambu/landings/spray/src/`, ver su `AGENTS.md` §7; y sus
+**advertoriales**, el mismo producto en formato de artículo: `nambu/landings/advertoriales/`).
 
 **Regla:** antes de escribir una sola línea de una landing, leer el `AGENTS.md` del producto, el
 `docs/` de la marca (branding) y el copy del ángulo. El copy y los claims salen de ahí, **no se
@@ -150,6 +152,14 @@ su header sticky. Todo lo que se escriba debe ser **a prueba de colisiones**.
     (`.sg-lp .sg-plan.sg-plan--best`, `.sg-lp .sg-quote.sg-quote--noche::before`), y **antes de
     entregar se pasa `node check-css-merge.mjs <landing>`**, que simula la fusión en el peor caso y
     compara los estilos computados de todos los elementos (§9.7).
+14. 🔴 **Toda fila de GemPages pone `max-width: 100%` a todo lo que lleva dentro**
+    (`.gps-<id> .\[\&_\*\]\:gp-max-w-full * { max-width: 100% }`, especificidad 0,2,0; medido en
+    nambu, mima y eterma el 2026-09-28). Lo que se diseña **más ancho que su caja** —una cinta
+    `max-content`, una tarjeta con sangrado negativo, una bruma al 124 %— sale recortado al publicar:
+    en la flema de Nambu la cinta del hero se solapaba y el CTA de la tarjeta se partía en dos líneas.
+    Defensa: esos elementos declaran `max-width: none` con especificidad ≥ (0,3,0)
+    (`.ns-lp .ns-ticker .ns-ticker__track`). `preview.sh` envuelve el fragmento en una fila simulada con
+    esa regla, así que la vista previa ya lo enseña.
 
 ---
 
@@ -267,6 +277,12 @@ Prueba social:
 * Cada uno debe responder a un beneficio o microángulo distinto
 * Nombre, ciudad, foto/video real y contexto
 * Identificación clara si es una colaboración pagada
+* **Siempre en carrusel**, en móvil y en escritorio (petición del cliente, 2026-09-22): carril con
+  `scroll-snap`, la siguiente tarjeta asomando y un mando (flechas y/o puntos) que **mueve de verdad** en
+  todos los anchos. Si en escritorio caben las tres, no es carrusel: se ensancha la tarjeta o se pasa a
+  una destacada. El índice sale de la tarjeta cuyo punto de encaje queda más cerca del scroll, **nunca
+  de una proporción** (`scrollLeft / maxScroll`), que asigna mal los puntos en cuanto caben dos tarjetas.
+  Sin JS queda el carril deslizable. La piel del carrusel es de cada marca.
 8. **Autoridad** — respaldo de ingrediente/medios/estudios, siempre verificable.
 * Registro sanitario, certificaciones o fuentes verificables
 * Estudios o instituciones asociados correctamente al ingrediente, no atribuidos indebidamente al producto final

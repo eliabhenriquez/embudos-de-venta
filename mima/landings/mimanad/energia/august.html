@@ -15,6 +15,9 @@
 
 	CTA → abre el modal de Releasit mediante las clases de integración
 	_rsi-cod-form-gempages-button-overwrite y _rsi-cod-form-is-gempage.
+	Y el de EasySell con id="es-popup-button" y las clases es-popup-button
+	es-popup-button-cart. Los dos ganchos conviven: abre el formulario de la
+	app que esté activa (mima/AGENTS.md §5).
 
 	PENDIENTES ANTES DE PUBLICAR — ver mimanad/AGENTS.md §8:
 	  1. Handle de la página → paid_landings en theme.gempages.blank.liquid.
@@ -89,9 +92,9 @@
 			</figure>
 
 			<div class="mn-hero__buy">
-				<p class="mn-price"><span class="mn-price__amount">$89.900</span> <span class="mn-price__note">Envío gratis a Colombia</span></p>
-				<p class="mn-price__prepay"><strong>$79.900</strong> con pago anticipado</p>
-				<button type="button" class="mn-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
+				<p class="mn-price"><span class="mn-price__amount">$79.900</span> <span class="mn-price__note">Envío gratis a Colombia</span></p>
+				<p class="mn-price__prepay"><strong>$69.900</strong> con pago anticipado</p>
+				<button type="button" id="es-popup-button" class="mn-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
 
 				<ul class="mn-trust">
 					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h3.7l2.8 3v4h-6.5z"/><circle cx="7" cy="18" r="1.7"/><circle cx="17" cy="18" r="1.7"/></svg> Entrega de 3 a 5 días hábiles</li>
@@ -221,7 +224,7 @@
 			<p class="mn-sky__dose">4 dulces duros sabor kiwi al día.</p>
 
 			<div class="mn-cta-row">
-				<button type="button" class="mn-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MÁS ENERGÍA PARA MI DÍA</button>
+				<button type="button" id="es-popup-button" class="mn-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MÁS ENERGÍA PARA MI DÍA</button>
 			</div>
 		</div>
 	</section>
@@ -338,7 +341,7 @@
 			<p class="mn-statement">Una fórmula pensada para seguir cuando tu día todavía tiene mucho por delante.</p>
 
 			<div class="mn-cta-row">
-				<button type="button" class="mn-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
+				<button type="button" id="es-popup-button" class="mn-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
 			</div>
 		</div>
 	</section>
@@ -463,7 +466,7 @@
 			</ol>
 
 			<div class="mn-cta-row mn-use__cta">
-				<button type="button" class="mn-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO EMPEZAR</button>
+				<button type="button" id="es-popup-button" class="mn-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO EMPEZAR</button>
 			</div>
 		</div>
 	</section>
@@ -519,7 +522,7 @@
 					<span class="mn-pay__box mn-pay__box--best">
 						<span class="mn-pay__badge">Recomendado</span>
 						<span class="mn-pay__name">Pago anticipado</span>
-						<span class="mn-pay__amount">$79.900</span>
+						<span class="mn-pay__amount">$69.900</span>
 						<span class="mn-pay__save">Ahorras $10.000</span>
 						<span class="mn-pay__detail">Confirmación y seguimiento por WhatsApp</span>
 						<span class="mn-pay__methods">
@@ -534,7 +537,7 @@
 					<input type="radio" name="mn-payment" id="mn-pay-cod" value="cod">
 					<span class="mn-pay__box">
 						<span class="mn-pay__name">Pago contraentrega</span>
-						<span class="mn-pay__amount">$89.900</span>
+						<span class="mn-pay__amount">$79.900</span>
 						<span class="mn-pay__detail">Pagas cuando recibes</span>
 					</span>
 				</label>
@@ -547,7 +550,7 @@
 			</ul>
 
 			<div class="mn-cta-row">
-				<button type="button" class="mn-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage" data-mn-cta-price>ELEGIR MI FORMA DE PAGO</button>
+				<button type="button" id="es-popup-button" class="mn-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage" data-mn-cta-price>ELEGIR MI FORMA DE PAGO</button>
 			</div>
 
 			<ul class="mn-trust">
@@ -593,8 +596,8 @@
 			</div>
 		</div>
 
-		<div class="mn-stories">
-			<ul class="mn-stories__track" tabindex="0" role="region" aria-label="Historias de personas que usan MIMANAD">
+		<div class="mn-stories" data-mn-stories>
+			<ul class="mn-stories__track" data-mn-stories-track tabindex="0" role="region" aria-label="Historias de personas que usan MIMANAD">
 				<li class="mn-stories__item">
 					<article class="mn-story">
 						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-story-camilo.webp?width=560"
@@ -635,6 +638,20 @@
 					</article>
 				</li>
 			</ul>
+
+			<div class="mn-stories__nav" data-mn-stories-nav hidden>
+				<button type="button" class="mn-stories__arrow" data-mn-stories-prev aria-label="Historia anterior">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"/></svg>
+				</button>
+				<div class="mn-stories__dots" role="group" aria-label="Elegir historia">
+					<button type="button" class="mn-stories__dot" data-mn-stories-dot aria-label="Ver la historia de Camilo" aria-current="true"></button>
+					<button type="button" class="mn-stories__dot" data-mn-stories-dot aria-label="Ver la historia de Camila"></button>
+					<button type="button" class="mn-stories__dot" data-mn-stories-dot aria-label="Ver la historia de Luis Alejandro"></button>
+				</div>
+				<button type="button" class="mn-stories__arrow" data-mn-stories-next aria-label="Historia siguiente">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 6 6 6-6 6"/></svg>
+				</button>
+			</div>
 		</div>
 	</section>
 
@@ -688,7 +705,7 @@
 			</ul>
 
 			<div class="mn-cta-row">
-				<button type="button" class="mn-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
+				<button type="button" id="es-popup-button" class="mn-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
 			</div>
 		</div>
 	</section>
@@ -709,7 +726,7 @@
 				</ul>
 
 				<div class="mn-cta-row mn-cta-row--start">
-					<button type="button" class="mn-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
+					<button type="button" id="es-popup-button" class="mn-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
 				</div>
 			</div>
 
@@ -788,7 +805,7 @@
 					<summary>¿Puedo pagar al recibir?</summary>
 					<div class="mn-faq__body">
 						<p>Sí.</p>
-						<p class="mn-faq__prices"><span class="mn-faq__best">Pago anticipado: <strong>$79.900</strong></span> <span>Contraentrega: $89.900</span></p>
+						<p class="mn-faq__prices"><span class="mn-faq__best">Pago anticipado: <strong>$69.900</strong></span> <span>Contraentrega: $79.900</span></p>
 						<p>Ahorras $10.000 pagando anticipado.</p>
 					</div>
 				</details>
@@ -848,17 +865,17 @@
 					<div class="mn-close__option mn-close__option--best">
 						<span class="mn-close__badge">Recomendado</span>
 						<p class="mn-close__label">Pago anticipado</p>
-						<p class="mn-close__amount">$79.900</p>
+						<p class="mn-close__amount">$69.900</p>
 						<p class="mn-close__save">Ahorras $10.000</p>
 					</div>
 					<div class="mn-close__option">
 						<p class="mn-close__label">Pago contraentrega</p>
-						<p class="mn-close__amount">$89.900</p>
+						<p class="mn-close__amount">$79.900</p>
 					</div>
 				</div>
 
 				<div class="mn-cta-row">
-					<button type="button" class="mn-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
+					<button type="button" id="es-popup-button" class="mn-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
 				</div>
 
 				<ul class="mn-trust">
@@ -908,8 +925,8 @@
 	<!-- ========================= CTA STICKY ========================= -->
 	<div class="mn-sticky" data-mn-sticky hidden>
 		<div class="mn-sticky__inner">
-			<p class="mn-sticky__price"><strong data-mn-sticky-price>$89.900</strong> <span>Envío gratis</span></p>
-			<button type="button" class="mn-cta mn-cta--sm _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
+			<p class="mn-sticky__price"><strong data-mn-sticky-price>$79.900</strong> <span>Envío gratis</span></p>
+			<button type="button" id="es-popup-button" class="mn-cta mn-cta--sm es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
 		</div>
 	</div>
 
@@ -1138,6 +1155,9 @@
 	   un botón quieto en su ámbar de reposo. */
 
 	.mn-lp .mn-cta {
+		/* EasySell abre su formulario desde .es-popup-button y su hoja estila esa
+		   clase: margin 10px 0 6px. Sin este cero cada fila de botón crece 16px. */
+		margin: 0;
 		position: relative;
 		overflow: hidden;
 		isolation: isolate;
@@ -1165,6 +1185,9 @@
 	}
 
 	.mn-lp .mn-cta::before {
+		/* La hoja de EasySell trae .es-popup-button:before { display: none
+		   !important }, que apaga esta capa. Con Releasit no cambia nada. */
+		display: block !important;
 		content: '';
 		position: absolute;
 		inset: 0;
@@ -2455,7 +2478,10 @@
 		--mn-rail-pad: max(var(--mn-gutter), calc((100% - var(--mn-shell)) / 2 + var(--mn-gutter)));
 	}
 
-	.mn-lp .mn-stories__track { gap: 14px; }
+	.mn-lp .mn-stories__track { position: relative; gap: 14px; }
+	/* Ya carrusel, la barra sobra: la sustituyen las flechas y los puntos */
+	.mn-lp .mn-stories.is-carousel .mn-stories__track { scrollbar-width: none; }
+	.mn-lp .mn-stories.is-carousel .mn-stories__track::-webkit-scrollbar { display: none; }
 
 	.mn-lp .mn-stories__item {
 		flex: 0 0 auto;
@@ -2510,6 +2536,91 @@
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
 		color: var(--mn-violet);
+	}
+
+	/* Mando: flechas a los lados y un punto por historia. Lo enciende el JS
+	   solo si hay algo que deslizar; sin JS queda el carril con el dedo. */
+	.mn-lp .mn-stories__nav {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 12px;
+		margin-top: 4px;
+		padding-inline: var(--mn-gutter);
+	}
+
+	.mn-lp .mn-stories__nav[hidden] { display: none; }
+
+	.mn-lp .mn-stories__arrow {
+		display: grid;
+		place-items: center;
+		width: 40px;
+		height: 40px;
+		padding: 0;
+		border: 1px solid var(--mn-border);
+		border-radius: 50%;
+		background: var(--mn-surface);
+		color: var(--mn-plum);
+		cursor: pointer;
+		transition: transform 0.15s ease, opacity 0.15s ease;
+	}
+
+	.mn-lp .mn-stories__arrow svg { width: 18px; height: 18px; }
+	.mn-lp .mn-stories__arrow:not([disabled]):hover { transform: scale(1.06); }
+	.mn-lp .mn-stories__arrow:focus-visible { outline: 3px solid var(--mn-violet); outline-offset: 2px; }
+	.mn-lp .mn-stories__arrow[disabled] { opacity: 0.35; cursor: default; }
+
+	.mn-lp .mn-stories__dots { display: flex; align-items: center; }
+
+	/* El punto se ve de 8px; el área tocable es de 24px */
+	.mn-lp .mn-stories__dot {
+		display: grid;
+		place-items: center;
+		width: 24px;
+		height: 24px;
+		padding: 0;
+		border: 0;
+		border-radius: 50%;
+		background: none;
+		cursor: pointer;
+	}
+
+	.mn-lp .mn-stories__dot::before {
+		content: '';
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		box-shadow: inset 0 0 0 1.5px var(--mn-muted);
+		transition: transform 0.2s ease;
+	}
+
+	.mn-lp .mn-stories__dot[aria-current='true']::before { background: var(--mn-violet); box-shadow: none; transform: scale(1.25); }
+	.mn-lp .mn-stories__dot:focus-visible { outline: 3px solid var(--mn-violet); outline-offset: -2px; }
+
+	/* Desde 600px la historia activa va al centro y las vecinas asoman a los
+	   dos lados; el relleno del carril deja encajar también la primera y la última */
+	@media (min-width: 600px) {
+		.mn-lp .mn-stories {
+			--mn-story-w: 340px;
+			--mn-rail-pad: calc((100% - var(--mn-story-w)) / 2);
+		}
+
+		.mn-lp .mn-stories__item { width: var(--mn-story-w); }
+	}
+
+	/* Tarjeta horizontal: la foto a la izquierda y el relato al lado */
+	@media (min-width: 760px) {
+		.mn-lp .mn-stories { --mn-story-w: 600px; }
+		.mn-lp .mn-story { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr); }
+		.mn-lp .mn-story img { height: 100%; }
+		.mn-lp .mn-story__body { padding: 28px 30px 30px; }
+		.mn-lp .mn-story p.mn-story__lead { font-size: 19px; }
+	}
+
+	@media (min-width: 900px) {
+		.mn-lp .mn-stories { --mn-story-w: 720px; }
+		.mn-lp .mn-story__body { padding: 34px 36px 36px; }
+		.mn-lp .mn-story p.mn-story__lead { font-size: 21px; }
 	}
 
 	/* ---------- Comparativa ---------- */
@@ -3140,9 +3251,6 @@
 
 		.mn-lp .mn-pay { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
-		.mn-lp .mn-stories__track { justify-content: center; }
-		.mn-lp .mn-stories__item { width: 320px; }
-
 		.mn-lp .mn-receive { grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr); }
 		.mn-lp .mn-receive__media { max-width: 460px; justify-self: center; }
 
@@ -3186,12 +3294,12 @@
 		var PREPAID_ENABLED = false
 
 		var PRICES = {
-			prepaid: '$79.900',
-			cod: '$89.900'
+			prepaid: '$69.900',
+			cod: '$79.900'
 		}
 
 		var CTA_LABELS = {
-			prepaid: 'QUIERO MI MIMANAD POR $79.900',
+			prepaid: 'QUIERO MI MIMANAD POR $69.900',
 			cod: 'QUIERO MI MIMANAD CONTRAENTREGA'
 		}
 
@@ -3202,6 +3310,7 @@
 		var PAY_ATTRIBUTE = 'data-sg-pay'
 
 		var LIVE_CLASS = 'is-live'
+		var CAROUSEL_CLASS = 'is-carousel'
 		var ACTIVE_CLASS = 'is-active'
 		var REVEALED_CLASS = 'is-in'
 		var CHARGED_CLASS = 'is-charged'
@@ -3552,6 +3661,82 @@
 			forEach(tail, function (el) { tailObserver.observe(el) })
 		}
 
+		// Testimonios: el carril de historias pasa a carrusel. El índice sale
+		// del scroll, así sigue al dedo; flechas y puntos solo aparecen si hay
+		// algo que deslizar.
+		function initStories(root) {
+			var stories = root.querySelector('[data-mn-stories]')
+			if (!stories) return
+
+			var track = stories.querySelector('[data-mn-stories-track]')
+			var nav = stories.querySelector('[data-mn-stories-nav]')
+			var prev = stories.querySelector('[data-mn-stories-prev]')
+			var next = stories.querySelector('[data-mn-stories-next]')
+			var dots = stories.querySelectorAll('[data-mn-stories-dot]')
+			if (!track || !nav || track.children.length < 2) return
+
+			var items = track.children
+			var current = 0
+
+			function maxScroll() {
+				return track.scrollWidth - track.clientWidth
+			}
+
+			// La última historia no llega al punto de encaje: se queda en el tope
+			function targetOf(index) {
+				return Math.min(maxScroll(), items[index].offsetLeft - items[0].offsetLeft)
+			}
+
+			function paint() {
+				if (prev) prev.disabled = current === 0
+				if (next) next.disabled = current === items.length - 1
+				forEach(dots, function (dot, index) {
+					if (index === current) dot.setAttribute('aria-current', 'true')
+					else dot.removeAttribute('aria-current')
+				})
+			}
+
+			function readIndex() {
+				var best = 0
+				forEach(items, function (item, index) {
+					if (Math.abs(targetOf(index) - track.scrollLeft) < Math.abs(targetOf(best) - track.scrollLeft)) best = index
+				})
+				current = best
+				paint()
+			}
+
+			function go(index) {
+				var target = Math.max(0, Math.min(items.length - 1, index))
+				track.scrollTo({ left: targetOf(target), behavior: prefersReducedMotion() ? 'auto' : 'smooth' })
+			}
+
+			function sync() {
+				nav.hidden = maxScroll() < 2
+				readIndex()
+			}
+
+			var ticking = false
+			track.addEventListener('scroll', function () {
+				if (ticking) return
+				ticking = true
+				window.requestAnimationFrame(function () {
+					ticking = false
+					readIndex()
+				})
+			}, { passive: true })
+
+			if (prev) prev.addEventListener('click', function () { go(current - 1) })
+			if (next) next.addEventListener('click', function () { go(current + 1) })
+			forEach(dots, function (dot, index) {
+				dot.addEventListener('click', function () { go(index) })
+			})
+
+			window.addEventListener('resize', sync, { passive: true })
+
+			stories.classList.add(CAROUSEL_CLASS)
+			sync()
+		}
+
 		function init() {
 			var root = document.querySelector(ROOT_SELECTOR)
 			if (!root || root.dataset[READY_FLAG] === 'true') return
@@ -3559,6 +3744,7 @@
 			root.dataset[READY_FLAG] = 'true'
 			initPaymentSelector(root)
 			initHeroSlider(root)
+			initStories(root)
 			initReel(root)
 			initMechanism(root)
 			initCompare(root)

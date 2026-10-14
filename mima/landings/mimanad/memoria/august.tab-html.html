@@ -1,0 +1,844 @@
+<!--
+	MIMA · MIMANAD — Landing de venta, ángulo MEMORIA (campaña agosto)
+	=================================================================
+	Bloque autocontenido para pegar en GemPages (elemento HTML/Liquid).
+	Sin <html>, <head> ni <body>. Todo el CSS va namespaced bajo .mn-lp.
+
+	Mismo producto, precio y paleta que el ángulo energía (el frasco:
+	berenjena, violeta, ámbar). Lo que NO comparte es el diseño: allí el
+	motivo es la tarde y la carga; aquí es LA CONEXIÓN — nodos que se
+	unen, como una idea que vuelve. Hero en pila de fotos, muro de
+	recuerdos, red que se enciende, tríada de ingredientes, libreta de
+	beneficios y un CTA violeta cuyas dos mitades se encuentran.
+
+	CTA → abre el modal de Releasit mediante las clases de integración
+	_rsi-cod-form-gempages-button-overwrite y _rsi-cod-form-is-gempage.
+	Y el de EasySell con id="es-popup-button" y las clases es-popup-button
+	es-popup-button-cart. Los dos ganchos conviven: abre el formulario de la
+	app que esté activa (mima/AGENTS.md §5).
+
+	PENDIENTES ANTES DE PUBLICAR — ver mimanad/AGENTS.md §8.
+	data-rsi-banner="mimanad-memoria" enciende en el formulario de Releasit
+	el banner de la guía de este ángulo (regla en shared/releasit-form.css).
+-->
+
+<section class="mn-lp" id="mn-mimanad" data-rsi-banner="mimanad-memoria">
+
+	<!-- =========================== CABECERA ========================= -->
+	<header class="mn-topbar">
+		<div class="mn-shell mn-topbar__inner">
+			<img
+				src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-mima-white.webp?width=200"
+				width="300" height="180" decoding="async"
+				alt="MIMA">
+		</div>
+	</header>
+
+	<!-- ============================ HERO ============================ -->
+	<section class="mn-hero">
+		<div class="mn-shell mn-hero__grid">
+			<div class="mn-hero__head">
+				<p class="mn-hero__brand">MIMANAD</p>
+				<h1 class="mn-h1">Que tu mente siga el <span class="mn-accent">ritmo</span> de tu día.</h1>
+				<p class="mn-lead">Niacina, Resveratrol y Melena de León para acompañar memoria, concentración y claridad mental.</p>
+			</div>
+
+			<figure class="mn-hero__media">
+				<!-- La pila de fotos: dos tarjetas asoman DETRÁS de la foto, como
+				     recuerdos apilados. Van con pseudo-elementos del marco, nunca
+				     encima de la imagen. Flechas a los lados, sin puntos.
+				     Sin ?width=: fichero propio a 1050 px. -->
+				<div class="mn-slider" data-mn-slider>
+					<button type="button" class="mn-slider__arrow" data-mn-slider-prev aria-label="Imagen anterior">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"/></svg>
+					</button>
+					<div class="mn-deck">
+						<ul class="mn-slider__track" data-mn-slider-track tabindex="0"
+							role="region" aria-label="Imágenes de MIMANAD">
+							<li class="mn-slider__slide">
+								<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-mem-hero-1.webp"
+									width="1050" height="1050"
+									alt="Mujer y hombre sonrientes mostrando sus frascos de MIMANAD"
+									fetchpriority="high" decoding="async">
+							</li>
+							<li class="mn-slider__slide">
+								<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-hero-2.webp"
+									width="1050" height="1050"
+									alt="Mujer mostrando dulces duros de MIMANAD en la palma: energía, concentración, claridad mental y rejuvenecimiento celular"
+									loading="lazy" decoding="async">
+							</li>
+							<li class="mn-slider__slide">
+								<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-hero-3.webp"
+									width="1050" height="1050"
+									alt="Frasco de MIMANAD en la mano con sus tres ingredientes: Niacina, Resveratrol y Melena de León"
+									loading="lazy" decoding="async">
+							</li>
+						</ul>
+					</div>
+					<button type="button" class="mn-slider__arrow" data-mn-slider-next aria-label="Imagen siguiente">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 6 6 6-6 6"/></svg>
+					</button>
+					<p class="mn-visually-hidden" data-mn-slider-count aria-live="polite">Imagen 1 de 3</p>
+				</div>
+			</figure>
+
+			<div class="mn-hero__buy">
+				<p class="mn-price"><span class="mn-price__amount">$79.900</span> <span class="mn-price__note">Envío gratis a Colombia</span></p>
+				<p class="mn-price__prepay"><strong>$69.900</strong> con pago anticipado</p>
+				<button type="button" id="es-popup-button" class="mn-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
+
+				<ul class="mn-trust">
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h3.7l2.8 3v4h-6.5z"/><circle cx="7" cy="18" r="1.7"/><circle cx="17" cy="18" r="1.7"/></svg> Entrega de 3 a 5 días hábiles</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19.5c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><path d="M15.5 5.2a3.2 3.2 0 0 1 0 5.6M17.6 14.8c1.6.7 2.6 2.3 2.9 4.7"/></svg> +1.400 clientes</li>
+				</ul>
+			</div>
+
+			<div class="mn-hero__specs">
+				<!-- La fórmula como tres nodos unidos: el motivo de la conexión que
+				     vuelve en la promesa, el mecanismo, la constancia y el botón. -->
+				<ul class="mn-nodes" aria-label="Fórmula de MIMANAD">
+					<li class="mn-nodes__item"><span class="mn-nodes__name">Niacina</span> <span class="mn-nodes__dose">500 mg</span></li>
+					<li class="mn-nodes__item"><span class="mn-nodes__name">Resveratrol</span> <span class="mn-nodes__dose">100 mg</span></li>
+					<li class="mn-nodes__item"><span class="mn-nodes__name">Melena de León</span> <span class="mn-nodes__dose">200 mg</span></li>
+				</ul>
+
+				<ul class="mn-facts">
+					<li><strong>120</strong> dulces duros sabor kiwi</li>
+					<li><strong>4</strong> al día · <strong>30</strong> días</li>
+				</ul>
+
+				<ul class="mn-perks">
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="12" rx="6.5" ry="8.5"/><ellipse cx="12" cy="12" rx="3" ry="4.4"/><path d="M12 3.5v2M12 18.5v2"/></svg> Fresco sabor kiwi</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8.5h14l-1.2 11a1.5 1.5 0 0 1-1.5 1.3H7.7a1.5 1.5 0 0 1-1.5-1.3Z"/><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5"/></svg> Fácil de llevar</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="6" rx="3"/><path d="M12 9v6"/><path d="M4 4l16 16"/></svg> Sin cápsulas</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- ==================== MURO DE RECUERDOS (PARTE 2) =============
+	     Polaroids en dos filas que derivan despacio en sentidos opuestos.
+	     Cada fila repite su serie dos veces más para que el bucle no tenga
+	     costura en ningún ancho: las copias van aria-hidden. Se para al tocarla, fuera de
+	     pantalla y con movimiento reducido (entonces se desliza a mano). -->
+	<section class="mn-section mn-section--tight">
+		<div class="mn-wall" data-mn-wall>
+			<p class="mn-visually-hidden">Personas que ya usan MIMANAD: Camila, Camilo, Catalina, Carlos Mauricio, José Fernando y Luis Alejandro.</p>
+			<div class="mn-wall__row">
+				<ul class="mn-wall__track">
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-camila-l.webp?width=340" width="800" height="1067" loading="lazy" decoding="async" alt="Camila sonriendo con su frasco de MIMANAD"><span class="mn-polaroid__name">Camila</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-catalina.webp?width=340" width="507" height="905" loading="lazy" decoding="async" alt="Catalina abriendo su frasco de MIMANAD"><span class="mn-polaroid__name">Catalina</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-jose.webp?width=340" width="507" height="908" loading="lazy" decoding="async" alt="José Fernando con su frasco de MIMANAD"><span class="mn-polaroid__name">José Fernando</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-camilo.webp?width=340" width="800" height="1422" loading="lazy" decoding="async" alt="Camilo mostrando su frasco de MIMANAD"><span class="mn-polaroid__name">Camilo</span></li>
+				</ul>
+				<ul class="mn-wall__track" aria-hidden="true">
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-camila-l.webp?width=340" width="800" height="1067" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">Camila</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-catalina.webp?width=340" width="507" height="905" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">Catalina</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-jose.webp?width=340" width="507" height="908" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">José Fernando</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-camilo.webp?width=340" width="800" height="1422" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">Camilo</span></li>
+				</ul>
+				<ul class="mn-wall__track" aria-hidden="true">
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-camila-l.webp?width=340" width="800" height="1067" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">Camila</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-catalina.webp?width=340" width="507" height="905" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">Catalina</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-jose.webp?width=340" width="507" height="908" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">José Fernando</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-camilo.webp?width=340" width="800" height="1422" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">Camilo</span></li>
+				</ul>
+			</div>
+			<div class="mn-wall__row mn-wall__row--reverse">
+				<ul class="mn-wall__track">
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-luis.webp?width=340" width="508" height="908" loading="lazy" decoding="async" alt="Luis Alejandro en su escritorio con el frasco de MIMANAD"><span class="mn-polaroid__name">Luis Alejandro</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-carlos.webp?width=340" width="510" height="902" loading="lazy" decoding="async" alt="Carlos Mauricio con el pulgar arriba y su frasco de MIMANAD"><span class="mn-polaroid__name">Carlos Mauricio</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-camila.webp?width=340" width="508" height="905" loading="lazy" decoding="async" alt="Camila al aire libre en Bogotá con su frasco de MIMANAD"><span class="mn-polaroid__name">Camila</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-story-catalina.webp?width=340" width="508" height="903" loading="lazy" decoding="async" alt="Catalina trabajando en su portátil con el frasco de MIMANAD en el escritorio"><span class="mn-polaroid__name">Catalina</span></li>
+				</ul>
+				<ul class="mn-wall__track" aria-hidden="true">
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-luis.webp?width=340" width="508" height="908" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">Luis Alejandro</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-carlos.webp?width=340" width="510" height="902" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">Carlos Mauricio</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-camila.webp?width=340" width="508" height="905" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">Camila</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-story-catalina.webp?width=340" width="508" height="903" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">Catalina</span></li>
+				</ul>
+				<ul class="mn-wall__track" aria-hidden="true">
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-luis.webp?width=340" width="508" height="908" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">Luis Alejandro</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-carlos.webp?width=340" width="510" height="902" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">Carlos Mauricio</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-ugc-camila.webp?width=340" width="508" height="905" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">Camila</span></li>
+					<li class="mn-polaroid"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-story-catalina.webp?width=340" width="508" height="903" loading="lazy" decoding="async" alt=""><span class="mn-polaroid__name">Catalina</span></li>
+				</ul>
+			</div>
+			<p class="mn-wall__note">Contenido en colaboración con MIMA</p>
+		</div>
+	</section>
+
+	<!-- ===================== PROMESA (PARTE 3) ======================
+	     La red: las cuatro escenas son nodos de una misma línea que se
+	     encienden uno detrás de otro al entrar en pantalla. -->
+	<section class="mn-net">
+		<div class="mn-shell mn-narrow mn-net__inner">
+			<h2 class="mn-h2 mn-h2--light">Que las ideas no se te queden a mitad de camino.</h2>
+
+			<ol class="mn-thoughts" data-mn-reveal>
+				<li class="mn-thought">Recordar un nombre.</li>
+				<li class="mn-thought">Encontrar la palabra.</li>
+				<li class="mn-thought">Terminar una lectura sin volver al mismo párrafo.</li>
+				<li class="mn-thought">Llegar a una reunión sabiendo qué querías decir.</li>
+			</ol>
+
+			<p class="mn-net__text">MIMANAD acompaña tu memoria, concentración y claridad para los días que exigen tener la cabeza presente.</p>
+			<p class="mn-net__dose">4 dulces duros sabor kiwi al día.</p>
+
+			<div class="mn-cta-row">
+				<button type="button" id="es-popup-button" class="mn-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO CUIDAR MI CLARIDAD MENTAL</button>
+			</div>
+		</div>
+	</section>
+
+	<!-- ==================== AUTORIDAD (PARTE 4) ===================== -->
+	<section class="mn-section">
+		<div class="mn-shell">
+			<div class="mn-headline">
+				<h2 class="mn-h2">Recordar también depende de cómo se conectan tus neuronas.</h2>
+			</div>
+
+			<div class="mn-cells">
+				<figure class="mn-cells__media">
+					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-neuronas.webp?width=900"
+						width="1000" height="668" loading="lazy" decoding="async"
+						alt="Ilustración de neuronas conectadas entre sí">
+				</figure>
+				<div class="mn-cells__copy">
+					<p>La memoria y la atención dependen de redes nerviosas que reciben, procesan y conectan información.</p>
+					<p>La <strong>Melena de León</strong> contiene compuestos como <strong>hericenonas y erinacinas</strong>, estudiados por su relación con procesos vinculados a la función neuronal.</p>
+					<p class="mn-cells__foot">MIMANAD combina Melena de León, Resveratrol y Niacina para acompañar memoria, concentración y vitalidad mental.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="mn-sources">
+			<ul class="mn-sources__track" tabindex="0" role="region" aria-label="Publicaciones sobre los ingredientes de MIMANAD">
+				<li class="mn-sources__item">
+					<article class="mn-source">
+						<p class="mn-source__name"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-logo-lavanguardia.webp?width=300" width="580" height="324" loading="lazy" decoding="async" alt="La Vanguardia"></p>
+						<h3 class="mn-source__title">Melena de León + conexiones nerviosas</h3>
+						<p>Investigaciones preclínicas han estudiado compuestos de Melena de León por su relación con crecimiento neuronal y memoria.</p>
+					</article>
+				</li>
+				<li class="mn-sources__item">
+					<article class="mn-source">
+						<p class="mn-source__name"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-logo-infobae.webp?width=300" width="377" height="122" loading="lazy" decoding="async" alt="Infobae"></p>
+						<h3 class="mn-source__title">Hericenonas + erinacinas</h3>
+						<p>Compuestos bioactivos de la Melena de León investigados por su posible relación con conexiones neuronales y función cognitiva.</p>
+					</article>
+				</li>
+				<li class="mn-sources__item">
+					<article class="mn-source">
+						<p class="mn-source__name"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-logo-lavanguardia.webp?width=300" width="580" height="324" loading="lazy" decoding="async" alt="La Vanguardia"></p>
+						<h3 class="mn-source__title">Resveratrol + función cerebral</h3>
+						<p>El resveratrol ha sido estudiado por su actividad antioxidante y su posible relación con memoria y función cerebral.</p>
+					</article>
+				</li>
+			</ul>
+		</div>
+
+		<div class="mn-shell">
+			<p class="mn-disclaimer">La evidencia corresponde a investigaciones sobre ingredientes y procesos biológicos. Los resultados individuales pueden variar.</p>
+		</div>
+	</section>
+
+	<!-- =============== CÓMO ACTÚA LA FÓRMULA (PARTE 5) ==============
+	     La tríada: tres nodos con la foto de cada ingrediente, unidos por
+	     líneas. Cada nodo es un botón que resalta su ficha; las tres
+	     fichas se ven siempre, nada queda oculto. -->
+	<section class="mn-section mn-section--cream">
+		<div class="mn-shell mn-narrow">
+			<div class="mn-headline">
+				<h2 class="mn-h2">Memoria. Foco. Energía mental.</h2>
+			</div>
+
+			<div class="mn-triad" data-mn-triad>
+				<div class="mn-triad__map" role="group" aria-label="Elige un ingrediente">
+					<button type="button" class="mn-triad__node mn-triad__node--1" data-mn-triad-go="0" aria-pressed="true">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-melena.webp?width=240" width="1000" height="667" loading="lazy" decoding="async" alt="">
+						<span class="mn-triad__label">Melena de León</span>
+					</button>
+					<button type="button" class="mn-triad__node mn-triad__node--2" data-mn-triad-go="1" aria-pressed="false">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-resveratrol.webp?width=240" width="1000" height="942" loading="lazy" decoding="async" alt="">
+						<span class="mn-triad__label">Resveratrol</span>
+					</button>
+					<button type="button" class="mn-triad__node mn-triad__node--3" data-mn-triad-go="2" aria-pressed="false">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-niacina.webp?width=240" width="1000" height="642" loading="lazy" decoding="async" alt="">
+						<span class="mn-triad__label">Niacina</span>
+					</button>
+				</div>
+
+				<ol class="mn-triad__cards">
+					<li class="mn-fact is-active" data-mn-triad-item>
+						<p class="mn-fact__tag">Función cognitiva</p>
+						<h3 class="mn-fact__title">Melena de León <span>200 mg</span></h3>
+						<p>Estudiada por sus compuestos bioactivos y su relación con procesos vinculados a la función neuronal.</p>
+					</li>
+					<li class="mn-fact" data-mn-triad-item>
+						<p class="mn-fact__tag">Protección antioxidante</p>
+						<h3 class="mn-fact__title">Resveratrol <span>100 mg</span></h3>
+						<p>Investigado por su actividad antioxidante y su relación con distintas funciones cerebrales.</p>
+					</li>
+					<li class="mn-fact" data-mn-triad-item>
+						<p class="mn-fact__tag">Energía celular</p>
+						<h3 class="mn-fact__title">Niacina <span>500 mg</span></h3>
+						<p>Participa en la formación de NAD y NADP, coenzimas involucradas en el metabolismo energético.</p>
+					</li>
+				</ol>
+			</div>
+
+			<p class="mn-statement">Tres ingredientes para los días en que necesitas leer, recordar, decidir y seguir.</p>
+
+			<div class="mn-cta-row">
+				<button type="button" id="es-popup-button" class="mn-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
+			</div>
+		</div>
+	</section>
+
+	<!-- ==================== BENEFICIOS (PARTE 6) ====================
+	     La libreta: cuatro notas de papel rayado, cada una con la foto de
+	     alguien prendida en la esquina. Los renglones se marcan uno a uno
+	     al entrar en pantalla. -->
+	<section class="mn-section">
+		<div class="mn-shell">
+			<div class="mn-headline">
+				<h2 class="mn-h2">Más presente en lo que haces.</h2>
+			</div>
+
+			<ul class="mn-notes">
+				<li class="mn-note" data-mn-reveal>
+					<img class="mn-note__pin" src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-close-camila.webp?width=200" width="800" height="1067" loading="lazy" decoding="async" alt="Camila sonriendo con su frasco de MIMANAD">
+					<h3 class="mn-note__title"><span class="mn-note__num">1</span> Encontrar las palabras</h3>
+					<ul class="mn-note__lines">
+						<li>Seguir una conversación sin sentir que la idea se te perdió.</li>
+						<li>Decir lo que querías decir cuando lo necesitas.</li>
+					</ul>
+				</li>
+				<li class="mn-note" data-mn-reveal>
+					<img class="mn-note__pin" src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-benefit-planes.webp?width=200" width="510" height="905" loading="lazy" decoding="async" alt="Camila guardando su frasco de MIMANAD en el bolso">
+					<h3 class="mn-note__title"><span class="mn-note__num">2</span> Recordar lo cotidiano</h3>
+					<ul class="mn-note__lines">
+						<li>Esa llamada.</li>
+						<li>Ese correo.</li>
+						<li>Ese nombre.</li>
+						<li>Eso que necesitabas comprar.</li>
+					</ul>
+				</li>
+				<li class="mn-note" data-mn-reveal>
+					<img class="mn-note__pin" src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-benefit-claridad.webp?width=200" width="510" height="905" loading="lazy" decoding="async" alt="Catalina frente a su portátil con el frasco de MIMANAD">
+					<h3 class="mn-note__title"><span class="mn-note__num">3</span> Leer y seguir</h3>
+					<ul class="mn-note__lines">
+						<li>Sostener la atención.</li>
+						<li>Avanzar.</li>
+						<li>Dejar de regresar al mismo párrafo.</li>
+					</ul>
+				</li>
+				<li class="mn-note" data-mn-reveal>
+					<img class="mn-note__pin" src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-use-pausa.webp?width=200" width="510" height="903" loading="lazy" decoding="async" alt="Luis Alejandro en su escritorio con dulces duros de MIMANAD">
+					<h3 class="mn-note__title"><span class="mn-note__num">4</span> Decidir con claridad</h3>
+					<ul class="mn-note__lines">
+						<li>Priorizar.</li>
+						<li>Responder.</li>
+						<li>Terminar pendientes.</li>
+						<li>Mantener la cabeza en lo que tienes al frente.</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- ==================== MODO DE USO (PARTE 7) =================== -->
+	<section class="mn-section mn-section--cream">
+		<div class="mn-shell mn-use">
+			<figure class="mn-use__media">
+				<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-bottle-table.webp?width=560"
+					width="1000" height="1333" loading="lazy" decoding="async"
+					alt="Frasco de MIMANAD sobre una mesa">
+			</figure>
+
+			<div class="mn-use__body">
+				<h2 class="mn-h2">4 al día. Sabor kiwi.</h2>
+
+				<!-- Los cuatro dulces del día, unidos como nodos. Decorativo. -->
+				<ul class="mn-candies" aria-hidden="true">
+					<li></li><li></li><li></li><li></li>
+				</ul>
+
+				<dl class="mn-stats">
+					<div class="mn-stat"><dt>120</dt><dd>dulces duros</dd></div>
+					<div class="mn-stat"><dt>30</dt><dd>días de uso</dd></div>
+				</dl>
+
+				<p class="mn-use__note">Puedes consumirlos juntos o distribuirlos durante el día.</p>
+
+				<ol class="mn-moments">
+					<li class="mn-moment">
+						<span class="mn-moment__num">1</span>
+						<span class="mn-moment__label">Después del desayuno.</span>
+						<span class="mn-moment__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5h12v4a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5Z"/><path d="M16 11.5h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 4.5c-.8 1 .8 2 0 3M12 4.5c-.8 1 .8 2 0 3"/></svg></span>
+					</li>
+					<li class="mn-moment">
+						<span class="mn-moment__num">2</span>
+						<span class="mn-moment__label">Antes de estudiar.</span>
+						<span class="mn-moment__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5c-2-1.5-5-2-8-1.5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5Z"/><path d="M12 6.5v13"/></svg></span>
+					</li>
+					<li class="mn-moment">
+						<span class="mn-moment__num">3</span>
+						<span class="mn-moment__label">Durante una pausa.</span>
+						<span class="mn-moment__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M10 9v6M14 9v6"/></svg></span>
+					</li>
+				</ol>
+
+				<div class="mn-cta-row mn-cta-row--start">
+					<button type="button" id="es-popup-button" class="mn-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO EMPEZAR</button>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ==================== CONSTANCIA (PARTE 8) ====================
+	     Cada tramo dibuja una red más tupida: 3, 5 y 8 conexiones. -->
+	<section class="mn-section">
+		<div class="mn-shell">
+			<div class="mn-headline">
+				<h2 class="mn-h2">La claridad también se entrena con constancia.</h2>
+			</div>
+
+			<ol class="mn-steps">
+				<li class="mn-step">
+					<svg class="mn-step__net" viewBox="0 0 64 40" aria-hidden="true"><path d="M8 30 26 12 44 28"/><circle cx="8" cy="30" r="3.5"/><circle cx="26" cy="12" r="3.5"/><circle cx="44" cy="28" r="3.5"/><circle class="mn-step__off" cx="56" cy="10" r="3.5"/></svg>
+					<p class="mn-step__when">Días 1–30</p>
+					<p class="mn-step__lead">4 dulces duros al día.</p>
+					<p>Empiezas a incorporar MIMANAD a tus jornadas de trabajo, estudio o lectura.</p>
+				</li>
+				<li class="mn-step">
+					<svg class="mn-step__net" viewBox="0 0 64 40" aria-hidden="true"><path d="M8 30 26 12 44 28 56 10M26 12 56 10M8 30 44 28"/><circle cx="8" cy="30" r="3.5"/><circle cx="26" cy="12" r="3.5"/><circle cx="44" cy="28" r="3.5"/><circle cx="56" cy="10" r="3.5"/></svg>
+					<p class="mn-step__when">Días 31–60</p>
+					<p>La constancia encuentra espacio entre pendientes, reuniones y horas de concentración.</p>
+				</li>
+				<li class="mn-step">
+					<svg class="mn-step__net" viewBox="0 0 64 40" aria-hidden="true"><path d="M8 30 26 12 44 28 56 10M26 12 56 10M8 30 44 28M8 30 30 36 44 28M30 36 26 12M56 10 60 30 44 28"/><circle cx="8" cy="30" r="3.5"/><circle cx="26" cy="12" r="3.5"/><circle cx="44" cy="28" r="3.5"/><circle cx="56" cy="10" r="3.5"/><circle cx="30" cy="36" r="3"/><circle cx="60" cy="30" r="3"/></svg>
+					<p class="mn-step__when">Días 61–90</p>
+					<p>El objetivo: construir días con más presencia y atención en lo que quieres recordar.</p>
+				</li>
+			</ol>
+
+			<p class="mn-disclaimer">Los resultados pueden variar según descanso, alimentación, actividad física, condiciones individuales y otras variables.</p>
+		</div>
+	</section>
+
+	<!-- ======================= PAGO (PARTE 9) ======================= -->
+	<section class="mn-section mn-section--cream" id="mn-payment">
+		<div class="mn-shell mn-narrow">
+			<div class="mn-headline">
+				<h2 class="mn-h2">Tú eliges cómo pagar.</h2>
+			</div>
+
+			<fieldset class="mn-pay">
+				<legend class="mn-visually-hidden">Forma de pago</legend>
+
+				<label class="mn-pay__option" for="mn-pay-prepaid">
+					<input type="radio" name="mn-payment" id="mn-pay-prepaid" value="prepaid" checked>
+					<span class="mn-pay__box mn-pay__box--best">
+						<span class="mn-pay__badge">Recomendado</span>
+						<span class="mn-pay__name">Pago anticipado</span>
+						<span class="mn-pay__amount">$69.900</span>
+						<span class="mn-pay__save">Ahorras $10.000</span>
+						<span class="mn-pay__detail">Confirmación y seguimiento por WhatsApp</span>
+						<span class="mn-pay__methods">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-pay-visa.webp?width=222" width="222" height="72" loading="lazy" decoding="async" alt="Visa">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-pay-mastercard.webp?width=92" width="92" height="72" loading="lazy" decoding="async" alt="Mastercard">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-pay-pse.webp?width=72" width="72" height="72" loading="lazy" decoding="async" alt="PSE">
+						</span>
+					</span>
+				</label>
+
+				<label class="mn-pay__option" for="mn-pay-cod">
+					<input type="radio" name="mn-payment" id="mn-pay-cod" value="cod">
+					<span class="mn-pay__box">
+						<span class="mn-pay__name">Pago contraentrega</span>
+						<span class="mn-pay__amount">$79.900</span>
+						<span class="mn-pay__detail">Pagas cuando recibes</span>
+					</span>
+				</label>
+			</fieldset>
+
+			<ul class="mn-pay__same">
+				<li>Mismo producto.</li>
+				<li>120 dulces duros.</li>
+				<li>30 días.</li>
+			</ul>
+
+			<div class="mn-cta-row">
+				<button type="button" id="es-popup-button" class="mn-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage" data-mn-cta-price>ELEGIR MI FORMA DE PAGO</button>
+			</div>
+
+			<ul class="mn-trust">
+				<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h3.7l2.8 3v4h-6.5z"/><circle cx="7" cy="18" r="1.7"/><circle cx="17" cy="18" r="1.7"/></svg> Envío gratis · 3 a 5 días</li>
+				<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.3 7.5L3.6 20.4l1.4-4.4A8.4 8.4 0 1 1 20.5 11.6Z"/></svg> Confirmamos por WhatsApp</li>
+				<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg> Notificación sanitaria NSA-0009109-2020</li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- ========================= BONO (PARTE 10) ====================
+	     La lámina ya trae todo el copy del bono —titular, qué incluye e
+	     iconos—: se usa tal cual, sin reconstruir su texto en HTML. El copy
+	     completo va oculto, para lector de pantalla y buscadores. -->
+	<section class="mn-section mn-bonus">
+		<div class="mn-shell mn-narrow">
+			<h2 class="mn-visually-hidden">Gratis con tu compra: 30 días para ordenar tu mente y tus pendientes</h2>
+			<figure class="mn-bonus__poster mn-deck">
+				<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-bono-memoria.webp"
+					width="1050" height="1050" loading="lazy" decoding="async"
+					alt="Guía digital gratis con tu compra de MIMANAD: 30 días para ordenar tu mente y tus pendientes">
+			</figure>
+			<div class="mn-visually-hidden">
+				<p>Una guía para descargar de tu cabeza todo lo que intentas recordar al mismo tiempo.</p>
+				<p>Incluye:</p>
+				<ul>
+					<li>Hoja para vaciar pendientes</li>
+					<li>Organización semanal</li>
+					<li>Pausas para recuperar atención</li>
+					<li>Claves para preparar una jornada de lectura o estudio</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- =================== TESTIMONIOS (PARTE 11) ===================
+	     Nombres reales del pool de UGC; texto y ciudad, del copy. Las fotos
+	     de Catalina y Camila son selfies volteadas: la etiqueta salía en
+	     espejo. -->
+	<section class="mn-section">
+		<div class="mn-shell">
+			<div class="mn-headline">
+				<h2 class="mn-h2">Cuando tu cabeza vuelve a sentirse presente.</h2>
+				<p class="mn-sub">Contenido en colaboración con MIMA</p>
+			</div>
+		</div>
+
+		<div class="mn-stories" data-mn-stories>
+			<ul class="mn-stories__track" data-mn-stories-track tabindex="0" role="region" aria-label="Historias de personas que usan MIMANAD">
+				<li class="mn-stories__item">
+					<article class="mn-story">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-story-catalina.webp?width=560"
+							width="508" height="903" loading="lazy" decoding="async"
+							alt="Catalina trabajando en su portátil con el frasco de MIMANAD en el escritorio">
+						<div class="mn-story__body">
+							<p class="mn-story__who">Catalina <span>· Bogotá</span></p>
+							<p class="mn-story__lead">Me molestaba quedarme buscando palabras simples mientras hablaba.</p>
+							<p>También dependía demasiado de notas para recordar cosas pequeñas.</p>
+							<p>Elegí MIMANAD porque es fácil de tener en el escritorio y el sabor kiwi me gustó desde el principio.</p>
+							<p class="mn-story__tag">Colaboración con MIMA</p>
+						</div>
+					</article>
+				</li>
+				<li class="mn-stories__item">
+					<article class="mn-story">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-story-luis.webp?width=560"
+							width="510" height="905" loading="lazy" decoding="async"
+							alt="Luis Alejandro abriendo su frasco de MIMANAD en el escritorio">
+						<div class="mn-story__body">
+							<p class="mn-story__who">Luis Alejandro <span>· Medellín</span></p>
+							<p class="mn-story__lead">Trabajo frente a pantalla todo el día y había momentos en los que leía el mismo correo varias veces.</p>
+							<p>Buscaba algo práctico para acompañar mi concentración.</p>
+							<p>Los dulces duros de MIMANAD son fáciles de llevar y los tomo durante una pausa antes de seguir trabajando.</p>
+							<p class="mn-story__tag">Colaboración con MIMA</p>
+						</div>
+					</article>
+				</li>
+				<li class="mn-stories__item">
+					<article class="mn-story">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-story-camila-m.webp?width=560"
+							width="510" height="905" loading="lazy" decoding="async"
+							alt="Camila abriendo su frasco de MIMANAD">
+						<div class="mn-story__body">
+							<p class="mn-story__who">Camila <span>· Cali</span></p>
+							<p class="mn-story__lead">Usaba alarmas para casi todo.</p>
+							<p>La lista del mercado, una llamada, un pendiente.</p>
+							<p>Me interesó MIMANAD por la Melena de León y me gustó que fueran dulces duros sabor kiwi.</p>
+							<p>4 al día y sigo con mi jornada.</p>
+							<p class="mn-story__tag">Colaboración con MIMA</p>
+						</div>
+					</article>
+				</li>
+			</ul>
+
+			<div class="mn-stories__nav" data-mn-stories-nav hidden>
+				<button type="button" class="mn-stories__arrow" data-mn-stories-prev aria-label="Historia anterior">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"/></svg>
+				</button>
+				<div class="mn-stories__dots" role="group" aria-label="Elegir historia">
+					<button type="button" class="mn-stories__dot" data-mn-stories-dot aria-label="Ver la historia de Catalina" aria-current="true"></button>
+					<button type="button" class="mn-stories__dot" data-mn-stories-dot aria-label="Ver la historia de Luis Alejandro"></button>
+					<button type="button" class="mn-stories__dot" data-mn-stories-dot aria-label="Ver la historia de Camila"></button>
+				</div>
+				<button type="button" class="mn-stories__arrow" data-mn-stories-next aria-label="Historia siguiente">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 6 6 6-6 6"/></svg>
+				</button>
+			</div>
+		</div>
+	</section>
+
+	<!-- ==================== COMPARATIVA (PARTE 12) ==================
+	     Cada icono es un botón que resalta su opción sin ocultar ninguna
+	     (regla de comparativas, /AGENTS.md §7). -->
+	<section class="mn-section mn-section--cream">
+		<div class="mn-shell mn-narrow">
+			<div class="mn-headline">
+				<h2 class="mn-h2">Tu mente necesita más que recordar pendientes.</h2>
+			</div>
+
+			<ul class="mn-compare" data-mn-compare>
+				<li class="mn-compare__item" data-mn-compare-item>
+					<button type="button" class="mn-compare__icon" data-mn-compare-toggle aria-pressed="false" aria-label="Destacar café y energizantes">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 9.5h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5Z"/><path d="M15.5 10.5H17a2.5 2.5 0 0 1 0 5h-1.5"/><path d="m10.8 3.5-1.6 3h2.6l-1.6 3"/></svg>
+					</button>
+					<h3 class="mn-compare__name">Café y energizantes</h3>
+					<p class="mn-compare__what">Pueden dar un impulso puntual cuando aparece el cansancio.</p>
+				</li>
+				<li class="mn-compare__item" data-mn-compare-item>
+					<button type="button" class="mn-compare__icon" data-mn-compare-toggle aria-pressed="false" aria-label="Destacar notas y alarmas">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 2h-15Z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg>
+					</button>
+					<h3 class="mn-compare__name">Notas y alarmas</h3>
+					<p class="mn-compare__what">Ayudan a organizar fechas y pendientes.</p>
+				</li>
+				<li class="mn-compare__item" data-mn-compare-item>
+					<button type="button" class="mn-compare__icon" data-mn-compare-toggle aria-pressed="false" aria-label="Destacar multivitamínicos">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8.5" width="18" height="7" rx="3.5" transform="rotate(-35 12 12)"/><path d="m9.8 8.9 4.4 6.2"/></svg>
+					</button>
+					<h3 class="mn-compare__name">Multivitamínicos</h3>
+					<p class="mn-compare__what">Aportan vitaminas y minerales de manera amplia.</p>
+				</li>
+				<li class="mn-compare__item mn-compare__item--ours is-active" data-mn-compare-item>
+					<button type="button" class="mn-compare__icon" data-mn-compare-toggle aria-pressed="true" aria-label="Destacar MIMANAD">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5.5" cy="16" r="2"/><circle cx="12" cy="6" r="2"/><circle cx="18.5" cy="15" r="2"/><path d="M7 14.4 10.8 7.7M13.3 7.6l3.9 5.8M7.5 16h9"/></svg>
+					</button>
+					<div class="mn-compare__ours">
+						<h3 class="mn-compare__name">MIMANAD</h3>
+						<ul class="mn-compare__formula">
+							<li>Niacina 500 mg</li>
+							<li>Resveratrol 100 mg</li>
+							<li>Melena de León 200 mg</li>
+						</ul>
+						<p class="mn-compare__what">Memoria + concentración + energía mental</p>
+						<p class="mn-compare__meta">120 dulces duros sabor kiwi · 4 al día · 30 días</p>
+					</div>
+				</li>
+			</ul>
+
+			<div class="mn-cta-row">
+				<button type="button" id="es-popup-button" class="mn-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
+			</div>
+		</div>
+	</section>
+
+	<!-- =================== QUÉ RECIBES (PARTE 13) =================== -->
+	<section class="mn-section">
+		<div class="mn-shell mn-receive">
+			<div class="mn-receive__copy">
+				<h2 class="mn-h2">Todo en un frasco.</h2>
+
+				<ul class="mn-checklist">
+					<li>1 MIMANAD</li>
+					<li>120 dulces duros sabor kiwi</li>
+					<li>30 días de uso</li>
+					<li>Guía digital para organizar mente y pendientes</li>
+					<li>Envío gratis a Colombia</li>
+					<li>Confirmación por WhatsApp</li>
+				</ul>
+
+				<div class="mn-cta-row mn-cta-row--start">
+					<button type="button" id="es-popup-button" class="mn-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
+				</div>
+			</div>
+
+			<div class="mn-receive__media">
+				<figure>
+					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-bottle-hand.webp?width=560"
+						width="1000" height="1333" loading="lazy" decoding="async"
+						alt="Frasco de MIMANAD sostenido en la mano frente a unas plantas">
+				</figure>
+				<figure>
+					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-pills-hand.webp?width=560"
+						width="1000" height="1333" loading="lazy" decoding="async"
+						alt="Cuatro dulces duros de MIMANAD en la palma de la mano">
+				</figure>
+			</div>
+		</div>
+	</section>
+
+	<!-- ==================== GARANTÍA (PARTE 14) ===================== -->
+	<section class="mn-section mn-section--cream">
+		<div class="mn-shell mn-narrow">
+			<div class="mn-guarantee">
+				<img class="mn-guarantee__brand"
+					src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-mima-badge.webp?width=140"
+					width="176" height="176" loading="lazy" decoding="async"
+					alt="MIMA">
+				<h2 class="mn-h2">Tu pedido llega. O respondemos.</h2>
+
+				<ol class="mn-promise">
+					<li class="mn-promise__item">
+						<span class="mn-promise__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h3.7l2.8 3v4h-6.5z"/><circle cx="7" cy="18" r="1.7"/><circle cx="17" cy="18" r="1.7"/></svg></span>
+						<p>Entrega estimada de 3 a 5 días hábiles.</p>
+					</li>
+					<li class="mn-promise__item">
+						<span class="mn-promise__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12a7.5 7.5 0 0 1 12.8-5.3L19.5 9"/><path d="M19.5 4.5V9H15"/><path d="M19.5 12a7.5 7.5 0 0 1-12.8 5.3L4.5 15"/><path d="M4.5 19.5V15H9"/></svg></span>
+						<p>Si no llega dentro de ese plazo, lo reenviamos sin costo adicional.</p>
+					</li>
+					<li class="mn-promise__item mn-promise__item--best">
+						<span class="mn-promise__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="12" rx="2.5"/><circle cx="12" cy="12" r="2.6"/><path d="M6 12h.01M18 12h.01"/></svg></span>
+						<p>Si pagaste anticipado y prefieres no esperar el reenvío, devolvemos tu dinero.</p>
+					</li>
+				</ol>
+			</div>
+		</div>
+	</section>
+
+	<!-- ====================== FAQ (PARTE 15) ======================== -->
+	<section class="mn-section">
+		<div class="mn-shell mn-narrow">
+			<div class="mn-headline">
+				<h2 class="mn-h2">Preguntas frecuentes</h2>
+			</div>
+
+			<div class="mn-faq">
+				<details class="mn-faq__item">
+					<summary>¿Cómo tomo MIMANAD?</summary>
+					<div class="mn-faq__body"><p>4 dulces duros al día. Juntos o distribuidos durante el día.</p></div>
+				</details>
+				<details class="mn-faq__item">
+					<summary>¿Cuánto dura?</summary>
+					<div class="mn-faq__body"><p>30 días. Cada frasco contiene 120 dulces duros.</p></div>
+				</details>
+				<details class="mn-faq__item">
+					<summary>¿A qué sabe?</summary>
+					<div class="mn-faq__body"><p>Kiwi. Fresco y frutal.</p></div>
+				</details>
+				<details class="mn-faq__item">
+					<summary>¿Qué contiene?</summary>
+					<div class="mn-faq__body"><p>Niacina 500 mg, Resveratrol 100 mg y Melena de León 200 mg por porción indicada.</p></div>
+				</details>
+				<details class="mn-faq__item">
+					<summary>¿Cuándo puedo tomarlo?</summary>
+					<div class="mn-faq__body"><p>Después del desayuno, antes de estudiar o durante una pausa.</p></div>
+				</details>
+				<details class="mn-faq__item">
+					<summary>¿Puedo pagar al recibir?</summary>
+					<div class="mn-faq__body">
+						<p>Sí.</p>
+						<p class="mn-faq__prices"><span class="mn-faq__best">Pago anticipado: <strong>$69.900</strong></span> <span>Contraentrega: $79.900</span></p>
+						<p>Ahorras $10.000 pagando anticipado.</p>
+					</div>
+				</details>
+				<details class="mn-faq__item">
+					<summary>¿Quién debe consultar antes de consumirlo?</summary>
+					<div class="mn-faq__body"><p>Personas embarazadas, en lactancia, con condiciones de salud, que tomen medicamentos o tengan alergia a los hongos deben consultar a un profesional de salud.</p></div>
+				</details>
+				<details class="mn-faq__item">
+					<summary>¿Y si los olvidos son frecuentes o empeoran?</summary>
+					<div class="mn-faq__body"><p>Los olvidos nuevos, progresivos o que interfieren con tu vida diaria requieren valoración profesional.</p></div>
+				</details>
+			</div>
+		</div>
+	</section>
+
+	<!-- ===================== CTA FINAL (PARTE 16) ===================
+	     Vuelve la red de la promesa: las cinco razones se encienden como
+	     nodos y la tarjeta de compra cierra el recorrido. -->
+	<section class="mn-net mn-net--close">
+		<div class="mn-shell mn-narrow mn-close">
+			<h2 class="mn-h2 mn-h2--light">Que tu cabeza esté contigo cuando la necesitas.</h2>
+
+			<ul class="mn-close__reasons" data-mn-reveal>
+				<li>Para recordar.</li>
+				<li>Para concentrarte.</li>
+				<li>Para encontrar las palabras.</li>
+				<li>Para terminar lo que empezaste.</li>
+				<li>Para estar presente.</li>
+			</ul>
+
+			<div class="mn-close__card">
+				<img class="mn-close__photo"
+					src="https://www.mimacolombia.com/cdn/shop/files/landings-mimanad-mem-hero-1.webp"
+					width="1050" height="1050" loading="lazy" decoding="async"
+					alt="Mujer y hombre sonrientes con sus frascos de MIMANAD">
+				<p class="mn-close__product">MIMANAD</p>
+				<p class="mn-close__formula">Niacina 500 mg + Resveratrol 100 mg + Melena de León 200 mg</p>
+				<p class="mn-close__meta">120 dulces duros sabor kiwi · 4 al día · 30 días</p>
+
+				<div class="mn-close__options">
+					<div class="mn-close__option mn-close__option--best">
+						<span class="mn-close__badge">Recomendado</span>
+						<p class="mn-close__label">Pago anticipado</p>
+						<p class="mn-close__amount">$69.900</p>
+						<p class="mn-close__save">Ahorras $10.000</p>
+					</div>
+					<div class="mn-close__option">
+						<p class="mn-close__label">Pago contraentrega</p>
+						<p class="mn-close__amount">$79.900</p>
+					</div>
+				</div>
+
+				<div class="mn-cta-row">
+					<button type="button" id="es-popup-button" class="mn-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
+				</div>
+
+				<ul class="mn-trust">
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2.5"/><circle cx="12" cy="12" r="2.6"/><path d="M6 12h.01M18 12h.01"/></svg> Pagas al recibir</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h3.7l2.8 3v4h-6.5z"/><circle cx="7" cy="18" r="1.7"/><circle cx="17" cy="18" r="1.7"/></svg> Envío gratis · 3 a 5 días</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.3 7.5L3.6 20.4l1.4-4.4A8.4 8.4 0 1 1 20.5 11.6Z"/></svg> Confirmamos por WhatsApp</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- =========================== INSTAGRAM ======================== -->
+	<section class="mn-section mn-social">
+		<div class="mn-shell mn-narrow">
+			<figure class="mn-social__card">
+				<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-instagram-u.webp?width=1000"
+					width="1000" height="398" loading="lazy" decoding="async"
+					alt="Perfil de Instagram de MIMA, @mima_tiendaoficial, con 106 mil seguidores">
+			</figure>
+		</div>
+	</section>
+
+	<!-- ============================ FOOTER ========================== -->
+	<footer class="mn-footer">
+		<div class="mn-shell mn-footer__inner">
+			<img class="mn-footer__logo"
+				src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-mima-white.webp?width=200"
+				width="300" height="180" loading="lazy" decoding="async"
+				alt="MIMA">
+
+			<dl class="mn-footer__data">
+				<div class="mn-footer__block">
+					<dt>Notificación sanitaria</dt>
+					<dd>NSA-0009109-2020</dd>
+				</div>
+				<div class="mn-footer__block">
+					<dt>Atención al cliente MIMA</dt>
+					<dd><a href="tel:+573006964582">300 696 4582</a></dd>
+				</div>
+			</dl>
+
+			<p class="mn-footer__legal">MIMANAD es un suplemento dietario. No sustituye una alimentación equilibrada, el descanso, la actividad física ni la valoración de un profesional de salud. No está destinado a diagnosticar, prevenir, tratar ni curar enfermedades. Suspende su uso y consulta a un profesional de salud si presentas una reacción adversa. Mantener fuera del alcance de los niños.</p>
+			<p class="mn-footer__legal">Contiene edulcorantes.</p>
+		</div>
+	</footer>
+
+	<!-- ========================= CTA STICKY ========================= -->
+	<div class="mn-sticky" data-mn-sticky hidden>
+		<div class="mn-sticky__inner">
+			<p class="mn-sticky__price"><strong data-mn-sticky-price>$79.900</strong> <span>Envío gratis</span></p>
+			<button type="button" id="es-popup-button" class="mn-cta mn-cta--sm es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMANAD</button>
+		</div>
+	</div>
+
+</section>
+

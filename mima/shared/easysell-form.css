@@ -1,0 +1,373 @@
+/* =============================================================================
+   MIMA · Skin del formulario COD de EasySell — FUENTE
+   -----------------------------------------------------------------------------
+   Esto NO es lo que se pega. El campo de CSS personalizado de EasySell admite
+   5.000 caracteres, así que se pega el compilado:
+
+       node mima/shared/build-easysell-css.mjs   →   easysell-form.min.css
+
+   El compilador falla si el resultado pasa del límite. Cada regla nueva sale de
+   algún sitio: antes de añadir, mirar cuánto queda.
+
+   Por ese límite esta skin es más corta que la de Releasit: usa :is() para
+   compartir cuerpos, no lleva transiciones y deja sin tocar lo que la app ya
+   resuelve de forma aceptable (velo, flecha de los desplegables, texto de
+   error). Qué se quedó fuera y por qué: mima/shared/easysell-form-designer.md.
+
+   ÁMBITO   Todo cuelga de #easysell, la raíz del formulario.
+   GANCHOS  Clases es-* y de plantilla de la app. Los data-v-xxxx son hashes de
+            build: nunca usarlos.
+   LÍMITE   La app pinta botones, títulos de oferta e insignias con estilo
+            INLINE !important. No se pisa: se pinta por encima (:before,
+            clip-path, -webkit-text-fill-color, box-shadow inset).
+   MEDIDAS  En px. El CSS de la app va en rem y la raíz mide 10px en la ficha de
+            producto y 16px en las landings.
+
+   Verificado en vivo el 2026-10-10 sobre mimacolombia.com/pages/mimacalm-sueno
+   (easysell-cod-form-525), 390 y 1280px.
+   ============================================================================= */
+
+/* Tokens — Manual de Marca MIMA 2025, los mismos de releasit-form.css.
+   El compilador los sustituye por su valor y borra este bloque: en 5.000
+   caracteres, var(--x) ocupa más que el color que guarda. */
+#easysell {
+	--mima-magenta-deep: #e0008f;
+	--mima-magenta-tint: #fdf0f8;
+	--mima-ink: #7b3e76;
+	--mima-purple: #aa6aa6;
+	--mima-text-muted: #6b5f6a;
+	--mima-border: #ded0dc;
+	--mima-surface-alt: #faf5f9;
+	--mima-error: #c0261f;
+	--mima-radius: 12px;
+	--mima-focus-ring: 0 0 0 3px #e0008f29;
+}
+
+/* -----------------------------------------------------------------------------
+   1. Tarjeta y tipografía
+   -----------------------------------------------------------------------------
+   El radio del contenedor es inline (10px): la tarjeta se recorta un nivel por
+   encima. Las landings no dan tipografía al <body>, así que sin esto el
+   formulario sale en serif. AOK la declara cada landing; en la ficha cae a
+   Baloo 2, la del tema.
+   -------------------------------------------------------------------------- */
+
+#easysell {
+	/* variable de la app: bordes de la línea de producto y del envío */
+	--es-fields-border: var(--mima-border);
+
+	overflow: hidden;
+	border-radius: 18px;
+	font-family: 'AOK Buenos Aires', 'Baloo 2', sans-serif;
+}
+
+#easysell .es-form-container {
+	margin-top: 0;
+	padding: 0 18px 18px;
+	line-height: 1.4;
+}
+
+/* -----------------------------------------------------------------------------
+   2. Cabecera
+   -----------------------------------------------------------------------------
+   El relleno izquierdo compensa el botón de cerrar para que el título quede
+   centrado en la tarjeta, no en el hueco que deja la X.
+   -------------------------------------------------------------------------- */
+
+#easysell .es-form-header {
+	align-items: center !important;
+	margin: 0 -18px 16px;
+	padding: 14px 14px 14px 32px;
+	background: var(--mima-surface-alt);
+	border-bottom: 1px solid var(--mima-border);
+}
+
+#easysell .es-form-header .mb-2 {
+	margin: 0 !important;
+	color: var(--mima-ink);
+	line-height: 1.25;
+}
+
+#easysell .close-icon {
+	color: var(--mima-text-muted) !important;
+}
+
+/* -----------------------------------------------------------------------------
+   3. Resumen del pedido
+   -----------------------------------------------------------------------------
+   Fondo y borde llegan inline, sin !important.
+   -------------------------------------------------------------------------- */
+
+#easysell .total-container {
+	margin: 0 !important;
+	background: var(--mima-surface-alt) !important;
+	border-color: var(--mima-border) !important;
+	border-radius: var(--mima-radius);
+}
+
+#easysell .total-row {
+	border-color: var(--mima-border);
+	color: var(--mima-ink);
+}
+
+/* Línea de producto: solo sale cuando no hay oferta de cantidad */
+#easysell .quantity-badge {
+	background: var(--mima-ink);
+}
+
+/* -----------------------------------------------------------------------------
+   4. Campos
+   -----------------------------------------------------------------------------
+   La posición de la etiqueta se decide en la app y aquí se respeta:
+     auto        siempre encima. La app la pasa a un lado desde 576px, y en un
+                 modal de 560 eso parte las etiquetas.
+     horizontal  al lado, pero en una columna del 34% y a 13px. Con el 25% de
+                 la app quedan 59px útiles en un móvil: "Whatsap-p" se parte y
+                 "Departamento" se monta sobre el desplegable.
+
+   Con icono, la app parte el control en dos cajas con su propio borde. El marco
+   pasa al grupo y sus hijos quedan transparentes: un control, un borde. Los
+   47px del hijo más el 1,5 de cada borde igualan los 50 del desplegable.
+   -------------------------------------------------------------------------- */
+
+#easysell [data-layout=auto] :is(.es-label-column, .es-input-column) {
+	flex: 0 0 100%;
+}
+
+#easysell .es-label {
+	margin-bottom: 6px;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1.2;
+}
+
+#easysell [data-layout=horizontal] .es-label-column {
+	flex: 0 0 34%;
+}
+
+#easysell [data-layout=horizontal] .es-label {
+	margin: 0;
+	font-size: 13px;
+}
+
+/* El asterisco en rojo lee como error antes de que lo haya */
+#easysell .text-danger {
+	color: var(--mima-purple) !important;
+}
+
+/* 16px evita el zoom de iOS al enfocar */
+#easysell .es-input {
+	height: 50px;
+	border: 1.5px solid var(--mima-border) !important;
+	border-radius: var(--mima-radius) !important;
+	font-size: 16px !important;
+}
+
+#easysell .es-input-group {
+	border: 1.5px solid var(--mima-border);
+	border-radius: var(--mima-radius);
+	overflow: hidden;
+}
+
+#easysell .es-input-group > * {
+	height: 47px;
+	border: 0 !important;
+	border-radius: 0 !important;
+	background: none !important;
+	box-shadow: none !important;
+}
+
+#easysell .es-input-group-text {
+	color: var(--mima-purple);
+}
+
+#easysell :is(.es-input:focus, .es-input-group:focus-within) {
+	border-color: var(--mima-magenta-deep) !important;
+	box-shadow: var(--mima-focus-ring);
+	outline: 0;
+}
+
+/* .es-error va en el grupo (campos) o en la columna (desplegables) */
+#easysell :is(.es-error, .es-error > select) {
+	border-color: var(--mima-error) !important;
+}
+
+/* -----------------------------------------------------------------------------
+   5. Oferta de cantidad y order bump
+   -----------------------------------------------------------------------------
+   Fondo, borde y radio llegan inline sin !important. El fondo de la insignia
+   sí lo lleva: se tapa con una sombra interior, que pinta sobre el fondo y bajo
+   el texto.
+   -------------------------------------------------------------------------- */
+
+#easysell :is(.es-qo-container, .es-offer-container) {
+	padding: 8px !important;
+	background: #fff !important;
+	border: 1.5px solid var(--mima-border) !important;
+	border-radius: var(--mima-radius) !important;
+}
+
+/* El énfasis va después de la decisión: se marca lo elegido */
+#easysell :is([offer-selected], .es-offer-container:has(:checked)) {
+	background: var(--mima-magenta-tint) !important;
+	border-color: var(--mima-magenta-deep) !important;
+}
+
+#easysell .es-offer-badge {
+	padding: 1px 10px;
+	border-radius: 99px !important;
+	box-shadow: inset 0 0 0 99px var(--mima-magenta-deep);
+	white-space: nowrap;
+}
+
+/* El primer escalón es la unidad suelta. En magenta llamaría la atención sobre
+   la opción que menos interesa. Tinta sobre borde: 5,1:1. */
+#easysell .es-qo-container:first-child .es-offer-badge {
+	box-shadow: inset 0 0 0 99px var(--mima-border);
+	-webkit-text-fill-color: var(--mima-ink);
+}
+
+/* Con la foto a la derecha, el margen de la app queda del lado contrario */
+#easysell .es-offer-text {
+	margin-right: 8px;
+}
+
+#easysell .bump-checkbox span {
+	border-color: var(--mima-magenta-deep) !important;
+}
+
+/* Marcada, la app le pone inline su color de tick */
+#easysell :checked + .bump-checkbox span {
+	background: var(--mima-magenta-deep) !important;
+}
+
+/* -----------------------------------------------------------------------------
+   6. Botones
+   -----------------------------------------------------------------------------
+   Color, fondo, borde, radio y sombra llegan inline !important desde el
+   diseñador de la app. La piel se pinta por encima:
+
+     :before                     relleno y contorno, sobre el fondo de la app
+     clip-path                   la píldora; recorta también la sombra de la app
+     -webkit-text-fill-color     texto e icono; gana a `color`
+
+   Cada estado solo cambia tres variables.
+
+   El :before se mide desde la caja interior del botón. Con borde 1 en la app
+   (contraentrega hoy) queda 1px corto y se compensa; con 2 o más, no.
+   -------------------------------------------------------------------------- */
+
+#easysell .es-button {
+	--btn-fill: var(--mima-magenta-deep);
+	--btn-ink: #fff;
+	--btn-ring: #0000;
+
+	position: relative;
+	isolation: isolate;
+	min-height: 54px;
+	margin: 0;
+	padding: 10px 20px;
+	clip-path: inset(1px round 99px);
+	-webkit-text-fill-color: var(--btn-ink);
+	cursor: pointer;
+}
+
+#easysell .es-button:before {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	inset: 0;
+	border: 3px solid var(--btn-ring);
+	border-radius: 99px;
+	background: var(--btn-fill);
+}
+
+#easysell .es-button[style*='width: 1px']:before {
+	inset: -1px;
+}
+
+/* El clip-path se come el outline: el foco de teclado va por dentro */
+#easysell .es-button:focus-visible:before {
+	box-shadow: inset 0 0 0 2px var(--btn-fill), inset 0 0 0 4px var(--btn-ink);
+}
+
+/* El icono ocupa 40px a un lado (16 de glifo + 12 + 12 de margen). El texto reserva lo
+   mismo al otro para quedar centrado en el botón. */
+#easysell .es-button-content > div:has(> .bi) + div {
+	padding-right: 40px;
+}
+
+/* El spinner trae inline el color de texto de la app */
+#easysell .es-loading-mask {
+	background: var(--btn-ink) !important;
+}
+
+/* Secundario, en contorno. Por defecto lo es contraentrega (.es-cta-btn), y
+   solo si convive con el pago en línea (.es-checkout-btn): sola, es el botón
+   principal. Si la landing eligió contraentrega —<html data-sg-pay="cod">— se
+   invierten. No se esconde ninguno: quien cambia de idea dentro del formulario
+   tiene que seguir encontrando la otra forma de pago. */
+html:not([data-sg-pay=cod]) #easysell .es-form:has(.es-checkout-btn) .es-cta-btn,
+[data-sg-pay=cod] #easysell .es-checkout-btn {
+	--btn-fill: #fff;
+	--btn-ink: var(--mima-magenta-deep);
+	--btn-ring: var(--mima-magenta-deep);
+}
+
+/* -----------------------------------------------------------------------------
+   7. Lo que sobra en una landing
+   -----------------------------------------------------------------------------
+   La app inyecta su propio botón junto al Product Element y, con scroll, una
+   barra fija negra que tapa el sticky de la landing. Los CTA de la landing ya
+   abren el formulario. En la ficha de producto no se toca nada.
+   -------------------------------------------------------------------------- */
+
+body:has([data-rsi-banner]) :is(.es-sticky, .es-popup-button-product) {
+	display: none !important;
+}
+
+/* -----------------------------------------------------------------------------
+   8. Banner por ángulo
+   -----------------------------------------------------------------------------
+   Bloque "Imagen" de la app. Sale oculto y solo se enciende donde la raíz de la
+   landing lleva data-rsi-banner (el atributo conserva el nombre de Releasit
+   para no tocar las landings). content:url() cambia lo que pinta el <img> sin
+   tocar su src. URL relativas: la hoja va en el documento de la tienda.
+   -------------------------------------------------------------------------- */
+
+#easysell .es-group:has(> .d-flex > img) {
+	display: none;
+}
+
+body:has([data-rsi-banner]) #easysell .es-group:has(> .d-flex > img) {
+	display: block;
+}
+
+#easysell .es-group > .d-flex > img {
+	content: var(--banner);
+	border-radius: var(--mima-radius);
+}
+
+html:has([data-rsi-banner=piel]) {
+	--banner: url(/cdn/shop/files/banner-image-form-final-sknglow.webp?width=1100);
+}
+
+html:has([data-rsi-banner=cabello]) {
+	--banner: url(/cdn/shop/files/banner-formulario-cabello-sknglow.webp?width=1100);
+}
+
+html:has([data-rsi-banner=mimanad-energia]) {
+	--banner: url(/cdn/shop/files/banner-formulario-energia-mimanad.webp);
+}
+
+html:has([data-rsi-banner=mimanad-memoria]) {
+	--banner: url(/cdn/shop/files/banner-formulario-memoria-mimanad.webp);
+}
+
+html:has([data-rsi-banner=mimacalm-sueno]) {
+	--banner: url(/cdn/shop/files/banner-formulario-sueno-mimacalm.webp);
+}
+
+html:has([data-rsi-banner=mimacalm-cuerpo]) {
+	--banner: url(/cdn/shop/files/banner-formulario-cuerpo-mimacalm.webp);
+}

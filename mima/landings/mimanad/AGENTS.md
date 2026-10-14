@@ -12,7 +12,14 @@ Presentación: **120 unidades, 4 al día, 30 días de uso**.
 
 | | Anticipado | Contraentrega |
 |---|---|---|
-| Precio | **$79.900** (ahorras $10.000) | **$89.900** |
+| Precio | **$69.900** (ahorras $10.000) | **$79.900** |
+
+Precios vigentes desde el **2026-10-10** (antes $79.900 / $89.900). Los `.md` de copy del ángulo conservan
+las cifras anteriores: en precio **manda esta tabla**. Coinciden con la tienda: el producto enlazado vale
+$79.900 y el botón de pago en línea del formulario descuenta $10.000 fijos.
+
+Producto enlazado en las dos landings: `mimanad` (variante `44343316381836`). Leído de la tienda el
+2026-10-10.
 
 Envío gratis a Colombia, entrega 3–5 días hábiles, +1.400 clientes, confirmación por WhatsApp.
 Además es el **upsell de SKNGLOW** a $39.950 (copy en `sknglow/piel/order_bump_upsell.md`).

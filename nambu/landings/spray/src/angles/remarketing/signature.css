@@ -1,0 +1,62 @@
+	/* ---------------------------------------------------------
+	   Sello del remarketing: el precio que baja y las dudas
+	   --------------------------------------------------------- */
+	/* La escalera: cada escalón baja un poco más que el anterior */
+	.ns-lp .ns-ladder__steps { display: grid; gap: 12px; }
+	.ns-lp .ns-ladder__step { position: relative; padding: 20px 18px; border-radius: 24px; background: var(--ns-white); box-shadow: inset 0 0 0 1px var(--ns-line), var(--ns-shadow); }
+	.ns-lp .ns-ladder__step.ns-ladder__step--before { margin-right: 22%; padding: 14px 18px; background: rgba(255, 255, 255, 0.7); box-shadow: inset 0 0 0 1px var(--ns-line); }
+	.ns-lp .ns-ladder__step.ns-ladder__step--cod { margin-left: 5%; box-shadow: inset 0 0 0 2px var(--ns-apple), var(--ns-shadow-lift); }
+	.ns-lp .ns-ladder__step.ns-ladder__step--prepaid { margin-left: 10%; }
+	/* El peldaño: una flecha que baja de un escalón al siguiente */
+	.ns-lp .ns-ladder__step + .ns-ladder__step::before { content: ''; position: absolute; top: -9px; left: 26px; width: 9px; height: 9px; border-right: 2px solid var(--ns-apple-deep); border-bottom: 2px solid var(--ns-apple-deep); transform: rotate(45deg); }
+	.ns-lp .ns-ladder__label { color: var(--ns-text); font-size: 13px; letter-spacing: 1px; text-transform: uppercase; }
+	.ns-lp .ns-ladder__figure { margin-top: 6px; color: var(--ns-apple-deep); font-size: 44px; line-height: 1.05; letter-spacing: -1.6px; }
+	.ns-lp .ns-ladder__step--before .ns-ladder__figure { color: var(--ns-text); font-size: 28px; letter-spacing: -0.8px; }
+	.ns-lp .ns-ladder__cur { color: var(--ns-text); font-size: 13px; letter-spacing: 1px; }
+	.ns-lp .ns-ladder__now { white-space: nowrap; }
+	.ns-lp .ns-ladder__note { margin: 6px 0 16px; color: var(--ns-ink); font-size: 16px; }
+	.ns-lp .ns-ladder__title { color: var(--ns-ink); font-size: 22px; line-height: 1.2; letter-spacing: -0.5px; }
+	.ns-lp .ns-ladder__text { margin-top: 6px; font-size: 15px; }
+	.ns-lp .ns-ladder__step--prepaid .ns-ladder__figure { margin-top: 12px; }
+	.ns-lp .ns-ladder__step--prepaid .ns-ticks { margin: 14px 0; }
+	.ns-lp .ns-ladder__total { margin-bottom: 16px; color: var(--ns-apple-deep); font-size: 15px; }
+	/* Tachado dibujado: sin text-decoration, una línea que crece al verse */
+	.ns-lp .ns-ladder__was { position: relative; display: inline-block; color: var(--ns-text); font-size: 0.62em; letter-spacing: -0.4px; text-decoration: none; }
+	.ns-lp .ns-ladder__step--before .ns-ladder__was { font-size: 1em; }
+	.ns-lp .ns-ladder__was::after { content: ''; position: absolute; top: 52%; left: -4%; width: 108%; height: 2px; border-radius: 2px; background: var(--ns-apple-deep); transform-origin: left center; }
+	.ns-lp.is-js .ns-ladder__was::after { transform: scaleX(0); transition: transform 700ms var(--ns-ease) 200ms; }
+	.ns-lp.is-js .ns-ladder__steps.is-live .ns-ladder__was::after { transform: scaleX(1); }
+	.ns-lp.is-js .ns-ladder__steps.is-live .ns-ladder__step--prepaid .ns-ladder__was::after { transition-delay: 600ms; }
+
+	/* Las dudas: carril con asomo, un bocadillo por duda */
+	.ns-lp .ns-doubts__track {
+		display: flex;
+		gap: 14px;
+		margin-top: 22px;
+		padding: 4px var(--ns-gutter) 18px;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		scroll-padding: 0 var(--ns-gutter);
+		scrollbar-width: none;
+	}
+	.ns-lp .ns-doubts__track::-webkit-scrollbar { display: none; }
+	.ns-lp .ns-doubt { display: flex; flex: 0 0 84%; flex-direction: column; max-width: 360px; padding: 12px 12px 18px; border-radius: 26px; background: var(--ns-white); box-shadow: inset 0 0 0 1px var(--ns-line), var(--ns-shadow); scroll-snap-align: start; }
+	.ns-lp .ns-doubt__quote { position: relative; margin-bottom: 18px; padding: 18px 18px 20px; border-radius: 20px 20px 20px 6px; background: var(--ns-apple-100); color: var(--ns-ink); font-size: 19px; line-height: 1.3; letter-spacing: -0.3px; }
+	.ns-lp .ns-doubt__quote::after { content: ''; position: absolute; bottom: -8px; left: 22px; width: 16px; height: 16px; border-radius: 0 0 0 4px; background: var(--ns-apple-100); transform: skewX(-24deg); }
+	.ns-lp .ns-doubt__answer { padding: 0 8px; font-size: 15px; }
+	.ns-lp .ns-doubt__answer p + p { margin-top: 8px; }
+
+	@media (min-width: 700px) {
+		.ns-lp .ns-doubt { flex: 0 0 340px; }
+	}
+	@media (min-width: 980px) {
+		.ns-lp .ns-ladder__steps { grid-template-columns: 0.8fr 1fr 1.1fr; align-items: start; gap: 18px; max-width: 1000px; margin: 0 auto; }
+		.ns-lp .ns-ladder__step.ns-ladder__step--before { margin: 0; }
+		.ns-lp .ns-ladder__step.ns-ladder__step--cod { margin: 40px 0 0; }
+		.ns-lp .ns-ladder__step.ns-ladder__step--prepaid { margin: 80px 0 0; }
+		.ns-lp .ns-ladder__step + .ns-ladder__step::before { top: 26px; left: -14px; transform: rotate(-45deg); }
+		.ns-lp .ns-doubts__track { max-width: var(--ns-shell); margin-right: auto; margin-left: auto; }
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.ns-lp.is-js .ns-ladder__was::after { transform: scaleX(1); }
+	}

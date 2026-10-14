@@ -947,7 +947,10 @@
 		.kp-lp .kp-after__flow { grid-template-columns: repeat(3, 1fr); }
 		.kp-lp .kp-after__flow li { grid-template-columns: 1fr; align-content: start; padding: 18px; }
 		.kp-lp .kp-after__icon { grid-row: auto; margin-bottom: 8px; }
-		.kp-lp .kp-quote { flex-basis: 46%; }
+		/* Una cita destacada y la siguiente asomando: cada punto tiene su tarjeta */
+		.kp-lp .kp-quote { flex-basis: 72%; grid-template-columns: 200px 1fr; }
+		.kp-lp .kp-quote__body { align-content: center; gap: 12px; padding: 24px 28px; }
+		.kp-lp .kp-quote blockquote { font-size: 23px; }
 		.kp-lp .kp-details { grid-template-columns: 1fr 1fr; }
 		.kp-lp .kp-details div:last-child { grid-column: 1 / -1; }
 		.kp-lp .kp-close__grid { grid-template-columns: 1fr 0.8fr; gap: 60px; }
@@ -972,7 +975,8 @@
 		.kp-lp .kp-hero__body { grid-area: body; gap: 14px; }
 		.kp-lp .kp-hero__body .kp-facts { order: 0; }
 		.kp-lp .kp-hero .kp-cta { max-width: 460px; }
-		.kp-lp .kp-quote { flex-basis: 32%; }
+		.kp-lp .kp-quote { grid-template-columns: 240px 1fr; min-height: 300px; }
+		.kp-lp .kp-quote blockquote { font-size: 26px; }
 		.kp-lp .kp-sticky { display: none; }
 		.kp-lp .kp-footer { padding-bottom: 52px; }
 	}
@@ -1015,9 +1019,22 @@
 			})
 		}
 
+		// La tarjeta cuyo punto de encaje queda más cerca del scroll. La última
+		// no llega al suyo y se queda en el tope del carril: también cuenta.
 		function slideIndexOf(track) {
+			var slides = track.children
 			var maxScroll = track.scrollWidth - track.clientWidth
-			return maxScroll > 0 ? Math.round((track.scrollLeft / maxScroll) * (track.children.length - 1)) : 0
+			var best = 0
+			var bestDistance = Infinity
+			Array.prototype.forEach.call(slides, function (slide, index) {
+				var target = Math.min(maxScroll, slide.offsetLeft - slides[0].offsetLeft)
+				var distance = Math.abs(target - track.scrollLeft)
+				if (distance < bestDistance) {
+					bestDistance = distance
+					best = index
+				}
+			})
+			return best
 		}
 
 		function scrollToSlide(track, index, reduceMotion) {

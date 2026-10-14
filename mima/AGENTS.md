@@ -18,8 +18,8 @@ sin promesas médicas**: acompaña, no receta. Nada de lenguaje clínico ni de v
 | Producto | Qué es | Papel en el funnel |
 |---|---|---|
 | **SKNGLOW** | Dulces duros de Biotina + Resveratrol para piel, cabello y uñas | Producto principal |
-| **MIMACALM** | Polvo sabor sandía de Ashwagandha, Glicinato de Magnesio y Té Verde | **Order bump** de SKNGLOW ($39.950) y landing propia ($79.900 / $89.900) |
-| **MIMANAD** | Niacina, Resveratrol y Melena de León | **Upsell** one-time de SKNGLOW ($39.950) y landing propia ($79.900 / $89.900) |
+| **MIMACALM** | Polvo sabor sandía de Ashwagandha, Glicinato de Magnesio y Té Verde | **Order bump** de SKNGLOW ($39.950) y landing propia ($69.900 / $79.900) |
+| **MIMANAD** | Niacina, Resveratrol y Melena de León | **Upsell** one-time de SKNGLOW ($39.950) y landing propia ($69.900 / $79.900) |
 
 Los tres van dentro del mismo pedido de Releasit. El copy del bump y del upsell vive en el ángulo que
 los dispara, no en `docs/`.
@@ -101,6 +101,19 @@ moneda y el `@font-face` de la cabecera. Y **añade** el código base de Meta.
 🔴 **Cuando publiques una landing nueva, añade su línea a esa configuración y sube su `landings-og-<handle>.jpg`.** Si no, hereda el tema completo
 y pierde toda la optimización sin avisar de nada.
 
+### Cómo se pasa una landing a GemPages
+
+El Custom Code de GemPages tiene **tres pestañas** (HTML, CSS, JS), y el CSS y el JS van sin sus etiquetas.
+`./split-tabs.sh mima/landings/<producto>/<ángulo>/<campaña>.html` genera las tres al lado del fragmento
+(`…tab-html.html`, `…tab-css.css`, `…tab-js.js`). Son derivadas: se regeneran, nunca se editan. Van
+versionadas a propósito: tras tocar una landing, `git status` dice cuál de las tres hay que volver a pegar.
+
+En MIMA la pestaña CSS lleva **solo** el CSS de la landing: las skins de los formularios se pegan en su
+app (Releasit o EasySell), no detrás.
+
+Verificado el 2026-10-10 en las seis: la página montada desde las tres pestañas da los mismos estilos
+calculados y las mismas cajas que el fragmento, a 390 y 1280, sin errores de JS.
+
 ---
 
 ## 4. Píxeles y medición
@@ -135,14 +148,51 @@ El reparto de responsabilidades es estricto y la mitad de los problemas vienen d
 
 Cualquier cambio se verifica **renderizado en vivo**, nunca leyendo el CSS.
 
+### EasySell (en prueba desde 2026-10-10)
+
+El cliente está probando **EasySell** como formulario COD en lugar de Releasit. Solo una de las dos apps
+está activa a la vez, y las landings funcionan con cualquiera.
+
+- **Los CTA llevan los dos ganchos.** Además de las clases de Releasit: `id="es-popup-button"` y las clases
+  `es-popup-button es-popup-button-cart`. Un CTA nuevo los lleva todos.
+- 🔴 **La clase de EasySell no es gratis.** Su hoja trae `.es-popup-button:before { display: none
+  !important }` y márgenes: apaga la capa animada del CTA y cada fila crece 16px. Cada landing lo
+  neutraliza en la regla base de su CTA (`margin: 0` y `::before { display: block !important }`).
+- **La skin tiene un límite de 5.000 caracteres**, el del campo de CSS de la app. Se edita
+  [`shared/easysell-form.css`](shared/easysell-form.css) y se pega el compilado, `easysell-form.min.css`,
+  que genera `node mima/shared/build-easysell-css.mjs`. El compilador falla si se pasa.
+- EasySell pinta botones e insignias con **estilo inline `!important`**. La skin no lo pisa: pinta por
+  encima con `:before`, `clip-path` y `-webkit-text-fill-color`.
+- Reutiliza los atributos de las landings (`data-sg-pay`, `data-rsi-banner`). Donde hay
+  `data-rsi-banner`, la skin oculta el botón y la barra fija que la app inyecta por su cuenta.
+- Ganchos, estados, lo que quedó fuera y cómo se verifica:
+  [`shared/easysell-form-designer.md`](shared/easysell-form-designer.md).
+
 ---
 
 ## 6. Comercial
 
-- Precios en **COP**, formato `$89.900`. Envío gratis a Colombia, entrega 3–5 días hábiles.
+- Precios en **COP**, formato `$79.900`. Las tres landings: **$69.900 anticipado / $79.900 contraentrega**
+  (desde 2026-10-10). Envío gratis a Colombia, entrega 3–5 días hábiles.
 - Dos formas de pago: **anticipado** (con descuento) y **contraentrega**. Confirmación por WhatsApp.
 - **Claims — crítico.** Son suplementos, no medicamentos. Se habla de **apariencia y cuidado**
   ("ayuda a que la piel se vea…"), nunca de curar, tratar o prevenir. No reescribas un claim aprobado.
 - Autoridad citable: **El País, Univision, La Vanguardia, PubMed**. Los logos están en `/docs/`. No
   añadas medios, estudios ni cifras que no estén documentados.
 - Testimonios: solo los aprobados. El UGC crudo está en `/humanized-images/<producto>/<persona>/`.
+
+### Testimonios en carrusel (los tres productos, 2026-09-22)
+
+Mismo mecanismo en SKNGLOW (`sg-`), MIMACALM (`mc-`) y MIMANAD (`mn-`), cada uno con sus tokens:
+
+- `[data-*-stories]` envuelve un carril a sangre (`[data-*-stories-track]`) y un mando
+  `[data-*-stories-nav]` que nace `hidden`: flecha, un punto por historia (`aria-current`) y flecha.
+  El JS (`initStories`) lo enciende solo si hay algo que deslizar y añade `is-carousel`, que quita la
+  barra de scroll. Sin JS queda el carril con el dedo.
+- Móvil: tarjeta vertical al 82 % arrancando en la línea del shell, la siguiente asoma.
+- Desde 600 px la activa va **al centro** y las vecinas asoman a los dos lados: el relleno del carril es
+  `(100% - ancho de tarjeta) / 2`, así la primera y la última también encajan y cada punto tiene su
+  posición. Desde 760 px (700 en SKNGLOW) la tarjeta es horizontal (foto a la izquierda, relato al
+  lado), 600 px de ancho; desde 900, 720 px.
+- En SKNGLOW la firma «Colaboración con MIMA» baja al pie de la tarjeta para quedar a la misma altura en
+  todas.

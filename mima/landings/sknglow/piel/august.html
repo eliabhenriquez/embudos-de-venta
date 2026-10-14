@@ -6,13 +6,16 @@
 
 	CTA → abre el modal de Releasit mediante las clases de integración
 	_rsi-cod-form-gempages-button-overwrite y _rsi-cod-form-is-gempage.
+	Y el de EasySell con id="es-popup-button" y las clases es-popup-button
+	es-popup-button-cart. Los dos ganchos conviven: abre el formulario de la
+	app que esté activa (mima/AGENTS.md §5).
 
 	PAGO ANTICIPADO — resuelto (verificado el 2026-08-27)
 	El aviso anterior decía que no se podía publicar porque ambas rutas
-	cobraban $89.900. Ya no: el formulario de Releasit tiene activo el
+	cobraban lo mismo. Ya no: el formulario de Releasit tiene activo el
 	botón "Paga con tarjeta o PSE" con descuento fijo de $10.000
 	(código RSI_ADDITIONAL_CHECKOUT_BUTTON_935459008), así que el
-	$79.900 que promete el hero es el que se cobra por esa vía.
+	precio de anticipado que promete el hero es el que se cobra por esa vía.
 	Si algún día se desactiva ese botón o cambia el descuento, hay que
 	quitar el chip .sg-price__prepay del hero.
 
@@ -154,9 +157,9 @@
 			</div>
 
 			<div class="sg-hero__buy">
-				<p class="sg-price"><span class="sg-price__amount">$89.900</span> <span class="sg-price__note">Envío gratis a Colombia</span></p>
-				<p class="sg-price__prepay"><strong>$79.900</strong> si pagas con tarjeta o PSE</p>
-				<button type="button" class="sg-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI SKNGLOW</button>
+				<p class="sg-price"><span class="sg-price__amount">$79.900</span> <span class="sg-price__note">Envío gratis a Colombia</span></p>
+				<p class="sg-price__prepay"><strong>$69.900</strong> si pagas con tarjeta o PSE</p>
+				<button type="button" id="es-popup-button" class="sg-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI SKNGLOW</button>
 
 				<ul class="sg-trust">
 					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="12" rx="2.5"/><circle cx="12" cy="12" r="2.6"/><path d="M6 12h.01M18 12h.01"/></svg> Pagas al recibir</li>
@@ -306,7 +309,7 @@
 			</div>
 
 			<div class="sg-cta-row">
-				<button type="button" class="sg-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO EMPEZAR CON SKNGLOW</button>
+				<button type="button" id="es-popup-button" class="sg-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO EMPEZAR CON SKNGLOW</button>
 			</div>
 		</div>
 	</section>
@@ -396,7 +399,7 @@
 				</dl>
 
 				<div class="sg-cta-row sg-cta-row--start">
-					<button type="button" class="sg-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI SKNGLOW</button>
+					<button type="button" id="es-popup-button" class="sg-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI SKNGLOW</button>
 				</div>
 			</div>
 
@@ -428,7 +431,7 @@
 
 			<div class="sg-headline">
 				<p class="sg-overline">Elige cómo pagar</p>
-				<h2 class="sg-h2">Sknglow vale $89.900</h2>
+				<h2 class="sg-h2">Sknglow vale $79.900</h2>
 				<p class="sg-sub">Luego eliges la opción que más te conviene</p>
 			</div>
 
@@ -440,7 +443,7 @@
 					<span class="sg-pay__box">
 						<span class="sg-pay__badge">Recomendado</span>
 						<span class="sg-pay__name">Pago anticipado</span>
-						<span class="sg-pay__amount">$79.900</span>
+						<span class="sg-pay__amount">$69.900</span>
 						<span class="sg-pay__save">Ahorras $10.000</span>
 						<span class="sg-pay__detail">Recibes confirmación y seguimiento por WhatsApp</span>
 						<span class="sg-pay__methods">
@@ -455,7 +458,7 @@
 					<input type="radio" name="sg-payment" id="sg-pay-cod" value="cod">
 					<span class="sg-pay__box">
 						<span class="sg-pay__name">Pago contraentrega</span>
-						<span class="sg-pay__amount">$89.900</span>
+						<span class="sg-pay__amount">$79.900</span>
 						<span class="sg-pay__detail">Pagas cuando recibes tu pedido</span>
 					</span>
 				</label>
@@ -468,7 +471,7 @@
 			</ul>
 
 			<div class="sg-cta-row">
-				<button type="button" class="sg-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage" data-sg-cta-price>ELEGIR MI FORMA DE PAGO</button>
+				<button type="button" id="es-popup-button" class="sg-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage" data-sg-cta-price>ELEGIR MI FORMA DE PAGO</button>
 			</div>
 
 			<ul class="sg-trust">
@@ -518,49 +521,69 @@
 				<h2 class="sg-h2">Mujeres hablando de lo que quieren volver a ver en su piel</h2>
 				<p class="sg-sub">Contenido en colaboración con MIMA</p>
 			</div>
+		</div>
 
-			<div class="sg-stories">
-				<article class="sg-story">
-					<img
-						src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ugc-isabella.webp?width=510"
-						width="510" height="902" loading="lazy" decoding="async"
-						alt="Isabella con su frasco de Sknglow">
-					<div class="sg-story__body">
-						<p class="sg-story__who">Isabella <span>· Bogotá</span></p>
-						<p>Yo estaba en ese punto en el que me maquillaba y aun así sentía que mi cara se veía cansada. Como apagada.</p>
-						<p>Empecé a consumir Sknglow porque quería hacer algo que también sumara a mi cuidado desde adentro.</p>
-						<p>Lo que más me gustó fue volverlo fácil. Son cuatro dulces duros sabor kiwi y ya. Siento que mi piel se ve mucho más cuidada.</p>
-						<p class="sg-story__tag">Colaboración con MIMA</p>
-					</div>
-				</article>
+		<div class="sg-stories" data-sg-stories>
+			<ul class="sg-stories__track" data-sg-stories-track tabindex="0" role="region" aria-label="Historias de mujeres que usan Sknglow">
+				<li class="sg-stories__item">
+					<article class="sg-story">
+						<img
+							src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ugc-isabella.webp?width=510"
+							width="510" height="902" loading="lazy" decoding="async"
+							alt="Isabella con su frasco de Sknglow">
+						<div class="sg-story__body">
+							<p class="sg-story__who">Isabella <span>· Bogotá</span></p>
+							<p>Yo estaba en ese punto en el que me maquillaba y aun así sentía que mi cara se veía cansada. Como apagada.</p>
+							<p>Empecé a consumir Sknglow porque quería hacer algo que también sumara a mi cuidado desde adentro.</p>
+							<p>Lo que más me gustó fue volverlo fácil. Son cuatro dulces duros sabor kiwi y ya. Siento que mi piel se ve mucho más cuidada.</p>
+							<p class="sg-story__tag">Colaboración con MIMA</p>
+						</div>
+					</article>
+				</li>
+				<li class="sg-stories__item">
+					<article class="sg-story">
+						<img
+							src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ugc-catalina.webp?width=510"
+							width="507" height="905" loading="lazy" decoding="async"
+							alt="Catalina con su frasco de Sknglow">
+						<div class="sg-story__body">
+							<p class="sg-story__who">Catalina <span>· Medellín</span></p>
+							<p>Les voy a contar algo que me daba pena admitir. Yo dejé de ponerme falda muchas veces por cómo se me marcaba la celulitis.</p>
+							<p>Sknglow me gustó porque se volvió una forma sencilla de ser constante con mi cuidado. No tengo que preparar nada.</p>
+							<p>Tomo mis cuatro dulces duros y sigo con mi día. Me gusta sentir que estoy haciendo algo por mí sin volverlo complicado.</p>
+							<p class="sg-story__tag">Colaboración con MIMA</p>
+						</div>
+					</article>
+				</li>
+				<li class="sg-stories__item">
+					<article class="sg-story">
+						<img
+							src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ugc-sonia.webp?width=510"
+							width="508" height="906" loading="lazy" decoding="async"
+							alt="Sonia con su frasco de Sknglow">
+						<div class="sg-story__body">
+							<p class="sg-story__who">Sonia <span>· Cali</span></p>
+							<p>Las manchas hormonales son de esas cosas que una nota en cada foto. En cada espejo. En cada momento en que se quita el maquillaje.</p>
+							<p>Empecé a consumir Sknglow y también a seguir la guía que viene con la compra.</p>
+							<p>Me ayudó a tener mucho más cuidado con el sol y con los productos que uso. Ahora siento que entiendo mucho mejor lo que mi piel necesita.</p>
+							<p class="sg-story__tag">Colaboración con MIMA</p>
+						</div>
+					</article>
+				</li>
+			</ul>
 
-				<article class="sg-story">
-					<img
-						src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ugc-catalina.webp?width=510"
-						width="507" height="905" loading="lazy" decoding="async"
-						alt="Catalina con su frasco de Sknglow">
-					<div class="sg-story__body">
-						<p class="sg-story__who">Catalina <span>· Medellín</span></p>
-						<p>Les voy a contar algo que me daba pena admitir. Yo dejé de ponerme falda muchas veces por cómo se me marcaba la celulitis.</p>
-						<p>Sknglow me gustó porque se volvió una forma sencilla de ser constante con mi cuidado. No tengo que preparar nada.</p>
-						<p>Tomo mis cuatro dulces duros y sigo con mi día. Me gusta sentir que estoy haciendo algo por mí sin volverlo complicado.</p>
-						<p class="sg-story__tag">Colaboración con MIMA</p>
-					</div>
-				</article>
-
-				<article class="sg-story">
-					<img
-						src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ugc-sonia.webp?width=510"
-						width="508" height="906" loading="lazy" decoding="async"
-						alt="Sonia con su frasco de Sknglow">
-					<div class="sg-story__body">
-						<p class="sg-story__who">Sonia <span>· Cali</span></p>
-						<p>Las manchas hormonales son de esas cosas que una nota en cada foto. En cada espejo. En cada momento en que se quita el maquillaje.</p>
-						<p>Empecé a consumir Sknglow y también a seguir la guía que viene con la compra.</p>
-						<p>Me ayudó a tener mucho más cuidado con el sol y con los productos que uso. Ahora siento que entiendo mucho mejor lo que mi piel necesita.</p>
-						<p class="sg-story__tag">Colaboración con MIMA</p>
-					</div>
-				</article>
+			<div class="sg-stories__nav" data-sg-stories-nav hidden>
+				<button type="button" class="sg-stories__arrow" data-sg-stories-prev aria-label="Historia anterior">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"/></svg>
+				</button>
+				<div class="sg-stories__dots" role="group" aria-label="Elegir historia">
+					<button type="button" class="sg-stories__dot" data-sg-stories-dot aria-label="Ver la historia de Isabella" aria-current="true"></button>
+					<button type="button" class="sg-stories__dot" data-sg-stories-dot aria-label="Ver la historia de Catalina"></button>
+					<button type="button" class="sg-stories__dot" data-sg-stories-dot aria-label="Ver la historia de Sonia"></button>
+				</div>
+				<button type="button" class="sg-stories__arrow" data-sg-stories-next aria-label="Historia siguiente">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 6 6 6-6 6"/></svg>
+				</button>
 			</div>
 		</div>
 	</section>
@@ -644,7 +667,7 @@
 				</ul>
 
 				<div class="sg-cta-row sg-cta-row--start">
-					<button type="button" class="sg-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI SKNGLOW</button>
+					<button type="button" id="es-popup-button" class="sg-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI SKNGLOW</button>
 				</div>
 			</div>
 
@@ -722,11 +745,11 @@
 				</details>
 				<details class="sg-faq__item">
 					<summary>¿Puedo pagar cuando reciba el pedido?</summary>
-					<div class="sg-faq__body"><p>Sí. Tu Sknglow vale $89.900 y pagas cuando recibes el pedido.</p></div>
+					<div class="sg-faq__body"><p>Sí. Tu Sknglow vale $79.900 y pagas cuando recibes el pedido.</p></div>
 				</details>
 				<details class="sg-faq__item">
 					<summary>¿Qué pasa si pago anticipado?</summary>
-					<div class="sg-faq__body"><p>Tu Sknglow queda en $79.900. Ahorras $10.000. Además recibes confirmación y seguimiento por WhatsApp.</p></div>
+					<div class="sg-faq__body"><p>Tu Sknglow queda en $69.900. Ahorras $10.000. Además recibes confirmación y seguimiento por WhatsApp.</p></div>
 				</details>
 				<details class="sg-faq__item">
 					<summary>¿Cuándo llega mi pedido?</summary>
@@ -754,23 +777,23 @@
 					alt="Isabella sosteniendo su frasco de Sknglow">
 			</figure>
 
-			<p class="sg-close__product">SKNGLOW <span>$89.900</span></p>
+			<p class="sg-close__product">SKNGLOW <span>$79.900</span></p>
 
 			<div class="sg-close__options">
 				<div class="sg-close__option sg-close__option--best">
 					<span class="sg-close__badge">Recomendado</span>
 					<p class="sg-close__label">Pago anticipado</p>
-					<p class="sg-close__amount">$79.900</p>
+					<p class="sg-close__amount">$69.900</p>
 					<p class="sg-close__save">Ahorras $10.000</p>
 				</div>
 				<div class="sg-close__option">
 					<p class="sg-close__label">Pago contraentrega</p>
-					<p class="sg-close__amount">$89.900</p>
+					<p class="sg-close__amount">$79.900</p>
 				</div>
 			</div>
 
 			<div class="sg-cta-row">
-				<button type="button" class="sg-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO ELEGIR MI FORMA DE PAGO</button>
+				<button type="button" id="es-popup-button" class="sg-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO ELEGIR MI FORMA DE PAGO</button>
 			</div>
 
 			<ul class="sg-trust">
@@ -821,8 +844,8 @@
 	<!-- ========================= CTA STICKY ========================= -->
 	<div class="sg-sticky" data-sg-sticky hidden>
 		<div class="sg-sticky__inner">
-			<p class="sg-sticky__price"><strong data-sg-sticky-price>$89.900</strong> <span>Envío gratis</span></p>
-			<button type="button" class="sg-cta sg-cta--sm _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI SKNGLOW</button>
+			<p class="sg-sticky__price"><strong data-sg-sticky-price>$79.900</strong> <span>Envío gratis</span></p>
+			<button type="button" id="es-popup-button" class="sg-cta sg-cta--sm es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI SKNGLOW</button>
 		</div>
 	</div>
 
@@ -1037,6 +1060,9 @@
 	/* ---------- CTA ---------- */
 
 	.sg-lp .sg-cta {
+		/* EasySell abre su formulario desde .es-popup-button y su hoja estila esa
+		   clase: margin 10px 0 6px. Sin este cero cada fila de botón crece 16px. */
+		margin: 0;
 		position: relative;
 		overflow: hidden;
 		isolation: isolate;
@@ -2288,11 +2314,41 @@
 
 	/* ---------- Historias ---------- */
 
-	.sg-lp .sg-stories { display: grid; gap: 22px; }
+	/* Carril con asomo que el JS convierte en carrusel */
+	.sg-lp .sg-stories {
+		--sg-rail-pad: max(20px, calc((100% - var(--sg-shell)) / 2 + 20px));
+	}
+
+	.sg-lp .sg-stories__track {
+		position: relative;
+		display: flex;
+		gap: 14px;
+		overflow-x: auto;
+		overscroll-behavior-x: contain;
+		scroll-snap-type: x mandatory;
+		scroll-padding-inline-start: var(--sg-rail-pad);
+		padding-inline: var(--sg-rail-pad);
+		padding-block: 2px 14px;
+		scrollbar-width: thin;
+		scrollbar-color: var(--sg-border) transparent;
+	}
+
+	.sg-lp .sg-stories__track:focus-visible { outline: 3px solid var(--sg-ink); outline-offset: -3px; border-radius: var(--sg-radius); }
+	/* Ya carrusel, la barra sobra: la sustituyen las flechas y los puntos */
+	.sg-lp .sg-stories.is-carousel .sg-stories__track { scrollbar-width: none; }
+	.sg-lp .sg-stories.is-carousel .sg-stories__track::-webkit-scrollbar { display: none; }
+
+	.sg-lp .sg-stories__item {
+		flex: 0 0 auto;
+		display: flex;
+		width: min(300px, 82%);
+		scroll-snap-align: start;
+	}
 
 	.sg-lp .sg-story {
 		display: flex;
 		flex-direction: column;
+		width: 100%;
 		overflow: hidden;
 		border-radius: var(--sg-radius-lg);
 		background: var(--sg-surface);
@@ -2306,7 +2362,7 @@
 		object-position: center 22%;
 	}
 
-	.sg-lp .sg-story__body { padding: clamp(22px, 3.2vw, 28px); }
+	.sg-lp .sg-story__body { display: flex; flex-direction: column; flex: 1; padding: clamp(22px, 3.2vw, 28px); }
 
 	.sg-lp .sg-story p.sg-story__who {
 		font-size: 17px;
@@ -2319,9 +2375,10 @@
 
 	.sg-lp .sg-story p { color: var(--sg-muted); font-size: 15.8px; }
 	.sg-lp .sg-story__body p + p { margin-top: 10px; }
+	.sg-lp .sg-story__body p:nth-last-child(2) { margin-bottom: 18px; }
 
 	.sg-lp .sg-story p.sg-story__tag {
-		margin-top: 18px;
+		margin-top: auto;
 		padding-top: 14px;
 		border-top: 1px solid var(--sg-border);
 		font-size: 13px;
@@ -2329,6 +2386,89 @@
 		text-transform: uppercase;
 		color: var(--sg-ink);
 		font-weight: 700;
+	}
+
+	/* Mando: flechas a los lados y un punto por historia. Lo enciende el JS
+	   solo si hay algo que deslizar; sin JS queda el carril con el dedo. */
+	.sg-lp .sg-stories__nav {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 12px;
+		margin-top: 4px;
+		padding-inline: 20px;
+	}
+
+	.sg-lp .sg-stories__nav[hidden] { display: none; }
+
+	.sg-lp .sg-stories__arrow {
+		display: grid;
+		place-items: center;
+		width: 40px;
+		height: 40px;
+		padding: 0;
+		border: 1px solid var(--sg-border);
+		border-radius: 50%;
+		background: var(--sg-surface);
+		color: var(--sg-ink);
+		cursor: pointer;
+		transition: transform 0.15s ease, opacity 0.15s ease;
+	}
+
+	.sg-lp .sg-stories__arrow svg { width: 18px; height: 18px; }
+	.sg-lp .sg-stories__arrow:not([disabled]):hover { transform: scale(1.06); }
+	.sg-lp .sg-stories__arrow:focus-visible { outline: 3px solid var(--sg-magenta-deep); outline-offset: 2px; }
+	.sg-lp .sg-stories__arrow[disabled] { opacity: 0.35; cursor: default; }
+
+	.sg-lp .sg-stories__dots { display: flex; align-items: center; }
+
+	/* El punto se ve de 8px; el área tocable es de 24px */
+	.sg-lp .sg-stories__dot {
+		display: grid;
+		place-items: center;
+		width: 24px;
+		height: 24px;
+		padding: 0;
+		border: 0;
+		border-radius: 50%;
+		background: none;
+		cursor: pointer;
+	}
+
+	.sg-lp .sg-stories__dot::before {
+		content: '';
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		box-shadow: inset 0 0 0 1.5px var(--sg-muted);
+		transition: transform 0.2s ease;
+	}
+
+	.sg-lp .sg-stories__dot[aria-current='true']::before { background: var(--sg-magenta-deep); box-shadow: none; transform: scale(1.25); }
+	.sg-lp .sg-stories__dot:focus-visible { outline: 3px solid var(--sg-magenta-deep); outline-offset: -2px; }
+
+	/* Desde 600px la historia activa va al centro y las vecinas asoman a los
+	   dos lados; el relleno del carril deja encajar también la primera y la última */
+	@media (min-width: 600px) {
+		.sg-lp .sg-stories {
+			--sg-story-w: 340px;
+			--sg-rail-pad: calc((100% - var(--sg-story-w)) / 2);
+		}
+
+		.sg-lp .sg-stories__item { width: var(--sg-story-w); }
+	}
+
+	/* Tarjeta horizontal: la foto a la izquierda y el relato al lado */
+	@media (min-width: 700px) {
+		.sg-lp .sg-stories { --sg-story-w: 600px; }
+		.sg-lp .sg-story { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr); }
+		.sg-lp .sg-story img { height: 100%; }
+		.sg-lp .sg-story__body { padding: 28px 30px 30px; }
+	}
+
+	@media (min-width: 900px) {
+		.sg-lp .sg-stories { --sg-story-w: 720px; }
+		.sg-lp .sg-story__body { padding: 34px 36px 36px; }
 	}
 
 	/* ---------- Autoridad ---------- */
@@ -2874,7 +3014,6 @@
 		.sg-lp .sg-bonus { grid-template-columns: 0.85fr 1.15fr; }
 		.sg-lp .sg-bonus__visual { justify-self: start; }
 		.sg-lp .sg-bonus__cover { width: 100%; max-width: 330px; }
-		.sg-lp .sg-stories { grid-template-columns: repeat(3, 1fr); }
 		.sg-lp .sg-sources__item { width: 306px; }
 		.sg-lp .sg-pay { grid-template-columns: repeat(2, 1fr); }
 		.sg-lp .sg-sticky { display: none; }
@@ -2972,22 +3111,24 @@
 		var READY_FLAG = 'sgLandingReady'
 
 		// El flujo de pago anticipado todavía no está cableado: hoy AMBAS
-		// opciones abren el formulario contraentrega de Releasit a $89.900.
+		// opciones abren el formulario contraentrega de Releasit a $79.900.
 		// Mientras esté en false, la página nunca anuncia un precio distinto
 		// al que va a cobrar el formulario. Poner en true al cablearlo.
 		var PREPAID_ENABLED = false
 
 		var PRICES = {
-			prepaid: '$79.900',
-			cod: '$89.900'
+			prepaid: '$69.900',
+			cod: '$79.900'
 		}
 
 		var CTA_LABELS = {
-			prepaid: 'QUIERO MI SKNGLOW POR $79.900',
+			prepaid: 'QUIERO MI SKNGLOW POR $69.900',
 			cod: 'QUIERO MI SKNGLOW CONTRAENTREGA'
 		}
 
 		var CTA_LABEL_FALLBACK = 'ELEGIR MI FORMA DE PAGO'
+
+		var CAROUSEL_CLASS = 'is-carousel'
 
 		function initPaymentSelector(root) {
 			var inputs = root.querySelectorAll('input[name="sg-payment"]')
@@ -3150,6 +3291,82 @@
 			})
 		}
 
+		// Testimonios: el carril de historias pasa a carrusel. El índice sale
+		// del scroll, así sigue al dedo; flechas y puntos solo aparecen si hay
+		// algo que deslizar.
+		function initStories(root) {
+			var stories = root.querySelector('[data-sg-stories]')
+			if (!stories) return
+
+			var track = stories.querySelector('[data-sg-stories-track]')
+			var nav = stories.querySelector('[data-sg-stories-nav]')
+			var prev = stories.querySelector('[data-sg-stories-prev]')
+			var next = stories.querySelector('[data-sg-stories-next]')
+			var dots = stories.querySelectorAll('[data-sg-stories-dot]')
+			if (!track || !nav || track.children.length < 2) return
+
+			var items = track.children
+			var current = 0
+
+			function maxScroll() {
+				return track.scrollWidth - track.clientWidth
+			}
+
+			// La última historia no llega al punto de encaje: se queda en el tope
+			function targetOf(index) {
+				return Math.min(maxScroll(), items[index].offsetLeft - items[0].offsetLeft)
+			}
+
+			function paint() {
+				if (prev) prev.disabled = current === 0
+				if (next) next.disabled = current === items.length - 1
+				Array.prototype.forEach.call(dots, function (dot, index) {
+					if (index === current) dot.setAttribute('aria-current', 'true')
+					else dot.removeAttribute('aria-current')
+				})
+			}
+
+			function readIndex() {
+				var best = 0
+				Array.prototype.forEach.call(items, function (item, index) {
+					if (Math.abs(targetOf(index) - track.scrollLeft) < Math.abs(targetOf(best) - track.scrollLeft)) best = index
+				})
+				current = best
+				paint()
+			}
+
+			function go(index) {
+				var target = Math.max(0, Math.min(items.length - 1, index))
+				track.scrollTo({ left: targetOf(target), behavior: (typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) ? 'auto' : 'smooth' })
+			}
+
+			function sync() {
+				nav.hidden = maxScroll() < 2
+				readIndex()
+			}
+
+			var ticking = false
+			track.addEventListener('scroll', function () {
+				if (ticking) return
+				ticking = true
+				window.requestAnimationFrame(function () {
+					ticking = false
+					readIndex()
+				})
+			}, { passive: true })
+
+			if (prev) prev.addEventListener('click', function () { go(current - 1) })
+			if (next) next.addEventListener('click', function () { go(current + 1) })
+			Array.prototype.forEach.call(dots, function (dot, index) {
+				dot.addEventListener('click', function () { go(index) })
+			})
+
+			window.addEventListener('resize', sync, { passive: true })
+
+			stories.classList.add(CAROUSEL_CLASS)
+			sync()
+		}
+
 		function init() {
 			var root = document.querySelector(ROOT_SELECTOR)
 			if (!root || root.dataset[READY_FLAG] === 'true') return
@@ -3157,6 +3374,7 @@
 			root.dataset[READY_FLAG] = 'true'
 			initPaymentSelector(root)
 			initHeroSlider(root)
+			initStories(root)
 			initStickyCta(root)
 		}
 

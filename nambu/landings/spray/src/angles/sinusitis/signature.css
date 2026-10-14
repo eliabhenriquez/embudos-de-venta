@@ -1,0 +1,35 @@
+	/* ---------------------------------------------------------
+	   Sello de sinusitis: el mapa de la presión
+	   --------------------------------------------------------- */
+	.ns-lp .ns-sinus__cavity { fill: var(--ns-apple-100); stroke: var(--ns-apple-deep); stroke-width: 1.2; transform-box: fill-box; transform-origin: center; }
+	.ns-lp .ns-sinus.ns-sinus--inflamed .ns-sinus__cavity { stroke-width: 2.4; }
+	.ns-lp .ns-sinus.ns-sinus--retained .ns-sinus__cavity,
+	.ns-lp .ns-sinus.ns-sinus--pressure .ns-sinus__cavity { fill: var(--ns-apple); }
+	.ns-lp .ns-sinus__drain { fill: none; stroke: var(--ns-apple-200); stroke-width: 2.4; stroke-linecap: round; }
+	.ns-lp .ns-sinus__stop path { fill: none; stroke: var(--ns-apple-deep); stroke-width: 2; stroke-linecap: round; }
+	.ns-lp .ns-sinus__rings circle { fill: none; stroke: var(--ns-apple-deep); stroke-width: 1.2; opacity: 0.5; transform-box: fill-box; transform-origin: center; }
+	.ns-lp .ns-sinus__fog { fill: var(--ns-apple); opacity: 0.55; }
+
+	/* La mucosa se hincha, el drenaje late cerrado, el moco se queda y la presión empuja */
+	.ns-lp .ns-chain.is-live .ns-sinus--inflamed .ns-sinus__cavity { animation: ns-sinus-swell 2.2s ease-in-out infinite alternate; }
+	.ns-lp .ns-chain.is-live .ns-sinus__stop { animation: ns-sinus-stop 1.4s ease-in-out infinite; }
+	.ns-lp .ns-chain.is-live .ns-sinus--retained .ns-sinus__cavity { animation: ns-sinus-fill 2.6s ease-in-out infinite alternate; }
+	.ns-lp .ns-chain.is-live .ns-sinus__rings circle { animation: ns-sinus-press 2.4s ease-out infinite; }
+	.ns-lp .ns-chain.is-live .ns-sinus__rings circle:nth-child(2) { animation-delay: 0.4s; }
+	.ns-lp .ns-chain.is-live .ns-sinus__rings circle:nth-child(3) { animation-delay: 0.8s; }
+	@keyframes ns-sinus-swell {
+		from { transform: scale(0.92); }
+		to { transform: scale(1.14); }
+	}
+	@keyframes ns-sinus-stop {
+		0%, 100% { opacity: 1; }
+		50% { opacity: 0.35; }
+	}
+	@keyframes ns-sinus-fill {
+		from { opacity: 0.55; }
+		to { opacity: 1; }
+	}
+	@keyframes ns-sinus-press {
+		0% { transform: scale(0.7); opacity: 0.7; }
+		100% { transform: scale(1.35); opacity: 0; }
+	}

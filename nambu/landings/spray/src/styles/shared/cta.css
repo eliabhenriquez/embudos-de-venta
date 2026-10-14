@@ -1,0 +1,144 @@
+	/* ---------------------------------------------------------
+	   2. El CTA: el disparo
+	   -----------------------------------------------------------
+	   Un frasco de perfil a la izquierda. Cada 4,2s se presiona la
+	   boquilla y sale la bruma: doce gotas que cruzan el botón entero
+	   en abanico y se deshacen, con un golpe de frescor detrás. Se lee
+	   como lo que es: un spray. Solo transform y opacity, pausado fuera
+	   de pantalla (.is-live) y quieto con movimiento reducido.
+	   --------------------------------------------------------- */
+	.ns-lp .ns-cta {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		max-width: 100%;
+		min-height: 58px;
+		padding: 14px 24px 14px 18px;
+		overflow: hidden;
+		border-radius: 999px;
+		background: linear-gradient(180deg, var(--ns-apple-light) 0%, var(--ns-apple) 55%, #62b845 100%);
+		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 14px 28px -14px rgba(47, 125, 34, 0.65);
+		color: var(--ns-apple-ink);
+		text-align: center;
+		transition: transform 180ms ease, box-shadow 180ms ease;
+	}
+	.ns-lp .ns-cta::before {
+		content: '';
+		position: absolute;
+		top: -40%;
+		bottom: -40%;
+		left: 0;
+		width: 70%;
+		background: radial-gradient(closest-side, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+		opacity: 0;
+		transform: translateX(-30%);
+		pointer-events: none;
+	}
+	.ns-lp .ns-cta:hover { transform: translateY(-2px); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 20px 34px -14px rgba(47, 125, 34, 0.7); }
+	.ns-lp .ns-cta:active { transform: translateY(1px); }
+
+	/* Contenedor de definiciones compartidas (el degradado de la nube): sin tamaño,
+	   pero nunca display:none, que deja sin pintar los degradados en Safari y Firefox */
+	.ns-lp .ns-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+	.ns-lp .ns-cta__spray { position: relative; z-index: 1; width: 30px; height: 33px; flex: none; margin: -4px 0 -2px; overflow: visible; }
+	.ns-lp .ns-cta__body,
+	.ns-lp .ns-cta__nozzle,
+	.ns-lp .ns-cta__flange,
+	.ns-lp .ns-cta__collar { fill: #fff; stroke: var(--ns-apple-ink); stroke-width: 1.4; stroke-linejoin: round; }
+	.ns-lp .ns-cta__band { fill: var(--ns-apple-deep); }
+	.ns-lp .ns-cta__rest circle { fill: #fff; }
+	.ns-lp .ns-cta__plume ellipse { fill: url(#ns-puff); opacity: 0; transform-box: fill-box; transform-origin: 0% 50%; }
+	.ns-lp .ns-cta__mist circle { fill: #fff; opacity: 0; transform-box: fill-box; transform-origin: center; }
+	.ns-lp .ns-cta__label { position: relative; z-index: 2; font-size: 17px; line-height: 1.2; letter-spacing: 0.1px; }
+
+	.ns-lp .ns-cta.is-live::before { animation: ns-fresh 4.2s ease-out infinite; }
+	.ns-lp .ns-cta.is-live .ns-cta__pump { animation: ns-press 4.2s ease-in-out infinite; }
+	.ns-lp .ns-cta.is-live .ns-cta__rest { animation: ns-rest 4.2s ease infinite; }
+	.ns-lp .ns-cta.is-live .ns-cta__plume ellipse { animation: ns-plume 4.2s cubic-bezier(0.1, 0.6, 0.3, 1) infinite; animation-delay: var(--d); }
+	.ns-lp .ns-cta.is-live .ns-cta__mist circle { animation: ns-drop 4.2s cubic-bezier(0.15, 0.6, 0.3, 1) infinite; animation-delay: var(--d); }
+
+	/* El icono se pinta a 0,75 de su viewBox: las distancias van en unidades del
+	   dibujo (×1,33 sobre los px que se ven en pantalla) */
+	.ns-lp .ns-cta__plume ellipse:nth-child(1) { --dx: 27px; --dy: 4px; --s: 2.4; --d: 0ms; }
+	.ns-lp .ns-cta__plume ellipse:nth-child(2) { --dx: 67px; --dy: 11px; --s: 3.4; --d: 60ms; }
+	.ns-lp .ns-cta__plume ellipse:nth-child(3) { --dx: 127px; --dy: 17px; --s: 4.4; --d: 120ms; }
+	.ns-lp .ns-cta__plume ellipse:nth-child(4) { --dx: 200px; --dy: 15px; --s: 5.2; --d: 180ms; }
+
+	.ns-lp .ns-cta__mist circle:nth-child(1) { --dx: 53px; --dy: -4px; --d: 0ms; }
+	.ns-lp .ns-cta__mist circle:nth-child(2) { --dx: 93px; --dy: 11px; --d: 40ms; }
+	.ns-lp .ns-cta__mist circle:nth-child(3) { --dx: 133px; --dy: -3px; --d: 80ms; }
+	.ns-lp .ns-cta__mist circle:nth-child(4) { --dx: 173px; --dy: 21px; --d: 30ms; }
+	.ns-lp .ns-cta__mist circle:nth-child(5) { --dx: 213px; --dy: 5px; --d: 110ms; }
+	.ns-lp .ns-cta__mist circle:nth-child(6) { --dx: 253px; --dy: 29px; --d: 70ms; }
+	.ns-lp .ns-cta__mist circle:nth-child(7) { --dx: 293px; --dy: 12px; --d: 150ms; }
+	.ns-lp .ns-cta__mist circle:nth-child(8) { --dx: 333px; --dy: 35px; --d: 130ms; }
+	.ns-lp .ns-cta__mist circle:nth-child(9) { --dx: 373px; --dy: 3px; --d: 190ms; }
+	.ns-lp .ns-cta__mist circle:nth-child(10) { --dx: 413px; --dy: 24px; --d: 170ms; }
+
+	@keyframes ns-press {
+		0%, 8%, 100% { transform: translateY(0); }
+		3% { transform: translateY(1.8px); }
+	}
+	@keyframes ns-rest {
+		0%, 2% { opacity: 1; }
+		5%, 44% { opacity: 0; }
+		56%, 100% { opacity: 1; }
+	}
+	@keyframes ns-plume {
+		0% { opacity: 0; transform: translate(0, 0) scale(0.3); }
+		5% { opacity: 0.95; }
+		38%, 100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(var(--s)); }
+	}
+	@keyframes ns-drop {
+		0% { opacity: 0; transform: translate(0, 0) scale(0.3); }
+		3% { opacity: 1; }
+		26% { opacity: 0.6; }
+		36%, 100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(1.4); }
+	}
+	@keyframes ns-fresh {
+		0%, 6% { opacity: 0; transform: translateX(-30%); }
+		18% { opacity: 1; }
+		44%, 100% { opacity: 0; transform: translateX(120%); }
+	}
+
+	.ns-lp .ns-cta.ns-cta--block { display: flex; width: 100%; }
+	.ns-lp .ns-cta.ns-cta--sm { min-height: 48px; padding: 10px 18px 10px 14px; gap: 8px; }
+	.ns-lp .ns-cta.ns-cta--sm .ns-cta__spray { width: 24px; height: 26px; }
+	.ns-lp .ns-cta.ns-cta--sm .ns-cta__label { font-size: 15px; }
+
+	/* Secundario: existe, se ve y se pulsa, pero no compite con el anticipado */
+	.ns-lp .ns-ghost {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		min-height: 54px;
+		margin-top: 18px;
+		padding: 14px 22px;
+		border-radius: 999px;
+		background: var(--ns-white);
+		box-shadow: inset 0 0 0 1.5px var(--ns-apple);
+		color: var(--ns-apple-deep);
+		transition: background-color 180ms ease, transform 180ms ease;
+	}
+	.ns-lp .ns-ghost:hover { background: var(--ns-apple-50); transform: translateY(-2px); }
+	.ns-lp .ns-ghost__label { font-size: 16px; }
+
+	/* Móviles estrechos (360 px): la etiqueta más larga del copy cabe en una línea */
+	@media (max-width: 379px) {
+		.ns-lp .ns-cta { padding: 13px 14px 13px 10px; gap: 7px; }
+		.ns-lp .ns-cta__spray { width: 26px; height: 29px; }
+		.ns-lp .ns-cta__label { font-size: 15.5px; }
+	}
+
+	@media (min-width: 700px) {
+		.ns-lp .ns-cta { min-height: 62px; padding: 16px 30px 16px 22px; }
+		.ns-lp .ns-cta__label { font-size: 18px; }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.ns-lp .ns-cta__mist circle, .ns-lp .ns-cta__plume ellipse { opacity: 0; }
+	}

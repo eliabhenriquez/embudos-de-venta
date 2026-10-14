@@ -1,0 +1,901 @@
+/* =============================================================================
+   NAMBU · Skin del formulario COD de Releasit (formulario NUEVO)
+   -----------------------------------------------------------------------------
+   Objetivo: que el modal de pago se sienta Nambu, la misma pieza blanca y verde
+   manzana que la landing. Por defecto es el formulario genérico de la app, en
+   Public Sans: un order bump amarillo con borde rojo, otro verde fosforito con
+   borde de hormigas, un bloque de totales azulado y dos botones —negro y
+   naranja— que no son de ninguna marca.
+
+   ⚠️ ESTA TIENDA SIRVE EL FORMULARIO **NUEVO** DESDE EL 2026-09-28.
+   Verificado en vivo sobre nambuoficial.com/pages/spray-nasal-sinusitis y
+   /products/lung-cleansing, modal abierto, 390 y 1280 px: existe
+   `dialog#rsi_form_wrapper` y NO `#_rsi-cod-form-modal`. Bundle
+   `releasit-cod-form-451/assets/main-DKQLqBEL.js`. Es el mismo formulario que
+   MIMA: el mapa que aplica es `/docs/releasit-form-styling.md` §6.7. El skin
+   del formulario antiguo (LEGACY, `_rsi-`) se retiró entero: no hacía nada
+   contra este DOM. Si algún día se vuelve atrás en Releasit → Settings →
+   General → COD Form version, este archivo deja de aplicar entero.
+
+   ÁMBITO
+   Todo cuelga de #rsi_form_wrapper, el <dialog> del formulario, que cuelga de
+   <body>. Nada de este archivo puede afectar al resto de la página. Lo añade
+   `src/build.mjs` al final del CSS de cada landing del Spray, así que va en la
+   misma pestaña CSS del Custom Code (docs §4.4 y §7.1): en páginas sin landing
+   el formulario sigue saliendo genérico.
+
+   GANCHOS
+   Cada nodo lleva DOS clases: un hash de styled-components (.sc-gjNGSd), que
+   cambia en cada build de la app y NUNCA se usa, y una clase semántica estable
+   (.rsi-text-input-field), que es la que se usa aquí.
+
+   GEMPAGES FUSIONA REGLAS AL PUBLICAR (/AGENTS.md §4.13)
+   Este CSS viaja con el de la landing y pasa por el mismo minificador. Toda
+   regla que pise a otra gana por especificidad, nunca por orden: los estados
+   llevan la base en el selector y la elección de pago cuelga de
+   `html[data-ns-pay]`.
+
+   POR QUÉ CASI TODO LLEVA !important (excepción documentada, docs §7.3)
+   A diferencia del formulario antiguo, aquí nada llega en línea con
+   `!important`: se viste entero desde esta hoja, sin capas encima. Pero la
+   hoja de la app (styled-components) declara casi todas sus propiedades con
+   `!important` desde una clase suelta (0,1,0). Un `!important` ajeno gana a
+   cualquier especificidad, así que aquí hace falta el mismo peso; con él, los
+   selectores de este archivo (llevan el ID) ganan por especificidad. Los
+   estados (marcado, foco, error, elección de pago) llevan más especificidad
+   que su base y el mismo `!important`: ganan sin depender del orden, que
+   GemPages no respeta. Lo poco que trae estilo en línea (sin `!important`)
+   está marcado en su regla: el marco de la línea de producto, el color de los
+   textos del bump y el peso del «Total».
+   Lo que NO es cosa del CSS —los textos, los precios, qué llega premarcado,
+   qué oferta viene elegida— está en `nambu/shared/releasit-form-designer.md`.
+   ============================================================================= */
+
+#rsi_form_wrapper {
+	/* Los tokens de la landing (`.ns-lp` en src/styles/landing.css), con el
+	   mismo nombre: solo el verde manzana del frasco y blanco. */
+	--ns-apple: #6fc350;
+	--ns-apple-deep: #2f7d22;   /* 5,2:1 sobre blanco: texto y cifras */
+	--ns-apple-ink: #0f2e0b;    /* 6,8:1 sobre --ns-apple: texto sobre verde */
+	--ns-apple-50: #f5fbf1;
+	--ns-apple-100: #e8f6e0;    /* --ns-apple-deep encima: 4,6:1 */
+	--ns-apple-200: #cfeebf;
+	--ns-white: #ffffff;
+	--ns-ink: #0f1a10;
+	--ns-text: #4d5a4f;         /* 7,3:1 sobre blanco */
+	--ns-line: #e5eee1;
+	/* El filete de la landing (1,2:1) no basta para marcar dónde se escribe:
+	   un campo necesita 3:1 contra el fondo (WCAG 1.4.11). */
+	--ns-field-line: #869a82;
+
+	/* El error se mantiene rojo: es un código universal y en verde no se
+	   leería como error. 6,5:1 sobre blanco. */
+	--ns-error: #b3261e;
+
+	--ns-radius: 24px;
+	--ns-radius-md: 16px;
+	--ns-radius-sm: 12px;
+	--ns-field-h: 52px;
+
+	/* El tema sirve Questrial como fuente de cuerpo. Questrial tiene UN SOLO
+	   PESO: la negrita sale simulada, así que aquí no se piden negritas y la
+	   jerarquía se hace con color y tamaño, igual que en la landing. */
+	--ns-font: 'Questrial', var(--font-body-family, 'Helvetica Neue', Helvetica, Arial, sans-serif);
+
+	/* El dialog es el que hace scroll: el último botón no puede quedar pegado
+	   al indicador de inicio del iPhone. */
+	padding-bottom: env(safe-area-inset-bottom) !important;
+}
+
+/* -----------------------------------------------------------------------------
+   1. Velo y tarjeta
+   -------------------------------------------------------------------------- */
+
+/* El velo negro al 50% apaga la landing justo al pagar. Este es el verde tinta
+   de la marca, con un desenfoque leve: la página sigue ahí, detrás del vaho. */
+#rsi_form_wrapper::backdrop {
+	background: rgba(15, 46, 11, 0.45) !important;
+	backdrop-filter: blur(3px) !important;
+	-webkit-backdrop-filter: blur(3px) !important;
+}
+
+#rsi_form_wrapper .rsi-form-main {
+	background: var(--ns-white) !important;
+	border-radius: var(--ns-radius) !important;
+	box-shadow: 0 2px 4px rgba(15, 26, 16, 0.04), 0 30px 60px -28px rgba(47, 125, 34, 0.55) !important;
+	font-family: var(--ns-font) !important;
+	color: var(--ns-ink) !important;
+}
+
+/* La familia no se hereda sola: styled-components la fija en cada nodo. Se
+   fuerza por etiqueta, que es lo que gana a una regla de clase heredada. */
+#rsi_form_wrapper h1, #rsi_form_wrapper h2, #rsi_form_wrapper h3,
+#rsi_form_wrapper p, #rsi_form_wrapper span, #rsi_form_wrapper div,
+#rsi_form_wrapper label, #rsi_form_wrapper input, #rsi_form_wrapper select,
+#rsi_form_wrapper button, #rsi_form_wrapper a, #rsi_form_wrapper b, #rsi_form_wrapper strong {
+	font-family: var(--ns-font) !important;
+}
+
+/* Sin negrita simulada: los 600 de la app y los <b> del bump se quedan en el
+   único peso que tiene Questrial. */
+#rsi_form_wrapper .rsi-form-title-container,
+#rsi_form_wrapper .rsi-product-item-name,
+#rsi_form_wrapper .rsi-product-item-original-price,
+#rsi_form_wrapper .rsi-total-summary-total-value,
+#rsi_form_wrapper .rsi-custom-text,
+#rsi_form_wrapper .rsi-custom-text span,
+#rsi_form_wrapper b,
+#rsi_form_wrapper strong {
+	font-weight: 400 !important;
+}
+
+/* -----------------------------------------------------------------------------
+   2. Cabecera
+   -----------------------------------------------------------------------------
+   El texto («PAGO CONTRA REEMBOLSO») es de la app: designer §7.
+   -------------------------------------------------------------------------- */
+
+#rsi_form_wrapper .rsi-form-header {
+	align-items: center !important;
+	padding: 14px 16px 12px 20px !important;
+	border-bottom: 1px solid var(--ns-line) !important;
+}
+
+#rsi_form_wrapper .rsi-form-title-container {
+	color: var(--ns-ink) !important;
+	font-size: 18px !important;
+	line-height: 1.3 !important;
+	letter-spacing: 0 !important;
+}
+
+#rsi_form_wrapper .rsi-form-close-button {
+	margin: 0 !important;
+	border-radius: 50% !important;
+	color: var(--ns-text) !important;
+	transition: background-color 0.15s ease, color 0.15s ease !important;
+}
+
+#rsi_form_wrapper .rsi-form-close-button:hover {
+	background: var(--ns-apple-50) !important;
+	color: var(--ns-apple-deep) !important;
+}
+
+/* -----------------------------------------------------------------------------
+   3. Ritmo del formulario
+   -----------------------------------------------------------------------------
+   `.rsi-layout-wrapper` es una columna flex y cada bloque es un hijo directo
+   (un <div> sin clase). La app separa con 3px de gap y márgenes sueltos en
+   cada pieza; aquí el ritmo lo pone el gap y las piezas no llevan margen. Los
+   campos traen 4px de padding arriba y abajo: entre dos campos quedan 18px.
+   -------------------------------------------------------------------------- */
+
+#rsi_form_wrapper .rsi-layout-wrapper {
+	gap: 10px !important;
+	padding: 14px 16px 4px !important;
+}
+
+/* Dos huecos fantasma, medidos: el bloque de texto libre que la app usa como
+   gancho de bumps propios (#rsi-cod-form-tick-ups-custom-hook) mide 0px pero
+   suma un gap, y la fila de error de la casilla del boletín ocupa 22px vacía.
+   Se recogen solo mientras estén vacíos: si la app pinta algo dentro, :empty
+   deja de cumplirse y vuelven solos. */
+#rsi_form_wrapper .rsi-layout-wrapper > :has(#rsi-cod-form-tick-ups-custom-hook:empty),
+#rsi_form_wrapper .rsi-checkbox-error-row:has(> span:empty) {
+	display: none !important;
+}
+
+/* -----------------------------------------------------------------------------
+   4. Línea de producto
+   -----------------------------------------------------------------------------
+   Fondo, borde, radio y color vienen en línea (sin `!important`).
+   ⚠️ Hoy abre con 2 unidades y sin selector: designer §1.
+   -------------------------------------------------------------------------- */
+
+#rsi_form_wrapper .rsi-product-item-wrapper {
+	margin: 0 !important;
+	padding: 12px 14px !important;
+	background-color: var(--ns-white) !important;
+	border: 1px solid var(--ns-line) !important;
+	border-radius: var(--ns-radius-md) !important;
+	color: var(--ns-ink) !important;
+}
+
+#rsi_form_wrapper .rsi-product-item-image img {
+	border-radius: var(--ns-radius-sm) !important;
+	background: var(--ns-apple-50) !important;
+}
+
+#rsi_form_wrapper .rsi-product-item-quantity {
+	background: var(--ns-apple-deep) !important;
+	color: var(--ns-white) !important;
+}
+
+#rsi_form_wrapper .rsi-product-item-name {
+	color: var(--ns-ink) !important;
+	font-size: 15px !important;
+}
+
+#rsi_form_wrapper .rsi-product-item-original-price {
+	color: var(--ns-apple-deep) !important;
+	font-size: 15px !important;
+}
+
+/* Con descuento de pack la app tacha el original (.strike-through) y añade el
+   final: el tachado pasa a gris y el verde se queda en el que se paga */
+#rsi_form_wrapper .rsi-product-item-original-price.strike-through {
+	color: var(--ns-text) !important;
+	font-size: 14px !important;
+}
+
+#rsi_form_wrapper .rsi-product-item-final-price {
+	color: var(--ns-apple-deep) !important;
+	font-size: 15px !important;
+	font-weight: 400 !important;
+}
+
+/* -----------------------------------------------------------------------------
+   4b. Ofertas de cantidad
+   -----------------------------------------------------------------------------
+   El bloque está activo en el formulario desde octubre de 2026 (antes venía
+   apagado en la maqueta: `quantity_offer` con `isActive: false`). Verificado
+   en vivo en /products/lung-cleansig-bg-3 el 2026-10-05, a 390 px.
+
+   Tres tarjetas iguales en blanco; la elegida, en verde claro con filete
+   manzana. La oferta no lleva clase de seleccionada: se detecta con
+   :has(input:checked) (docs §6.7, trampa 6). Los colores de selección de la
+   app (selBC / selBgC, hoy verde césped y lima) los pisa esta hoja.
+   -------------------------------------------------------------------------- */
+
+#rsi_form_wrapper .rsi-quantity-product {
+	background: var(--ns-white) !important;
+	border: 0 !important;
+	border-radius: var(--ns-radius-md) !important;
+	box-shadow: inset 0 0 0 1px var(--ns-line) !important;
+	transition: background-color 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+#rsi_form_wrapper .rsi-quantity-product:has(input:checked) {
+	background: var(--ns-apple-50) !important;
+	box-shadow: inset 0 0 0 2px var(--ns-apple) !important;
+}
+
+#rsi_form_wrapper .rsi-quantity-title {
+	color: var(--ns-ink) !important;
+	font-weight: 400 !important;
+	line-height: 1.3 !important;
+}
+
+#rsi_form_wrapper .rsi-quantity-image {
+	border-radius: var(--ns-radius-sm) !important;
+}
+
+/* El tachado se aparta; el vigente, en verde hondo */
+#rsi_form_wrapper .rsi-quantity-old-price,
+#rsi_form_wrapper .rsi-quantity-old-price span {
+	color: var(--ns-text) !important;
+	font-weight: 400 !important;
+}
+
+#rsi_form_wrapper .rsi-quantity-price-wrapper > span:last-child {
+	color: var(--ns-apple-deep) !important;
+	font-size: 18px !important;
+	font-weight: 400 !important;
+}
+
+/* Precio a la izquierda y plaquita a la derecha; si no caben, baja la plaquita */
+#rsi_form_wrapper .rsi-quantity-price-container {
+	display: flex !important;
+	flex-wrap: wrap !important;
+	align-items: center !important;
+	justify-content: space-between !important;
+	gap: 4px 8px !important;
+}
+
+/* La app le da `flex: 1 1 0%`: con base cero nunca baja de línea y el importe
+   se montaba sobre la plaquita (medido el 2026-09-28 a 390 px). Con base
+   automática ocupa lo suyo; el tachado va encima del vigente, no al lado. */
+#rsi_form_wrapper .rsi-quantity-price-wrapper {
+	display: flex !important;
+	flex: 0 1 auto !important;
+	flex-direction: column !important;
+	align-items: flex-start !important;
+	gap: 2px !important;
+	min-width: 0 !important;
+	line-height: 1.15 !important;
+}
+
+/* Con decimales el importe se parte a mitad de número (docs §6.7, trampa 8) */
+#rsi_form_wrapper .rsi-quantity-price-wrapper,
+#rsi_form_wrapper .rsi-quantity-price-wrapper span {
+	white-space: nowrap !important;
+}
+
+#rsi_form_wrapper .rsi-quantity-plaque {
+	flex-shrink: 0 !important;
+	background: var(--ns-apple-100) !important;
+	border-radius: 999px !important;
+	color: var(--ns-apple-deep) !important;
+	font-weight: 400 !important;
+}
+
+#rsi_form_wrapper .rsi-quantity-product:has(input:checked) .rsi-quantity-plaque {
+	background: var(--ns-apple) !important;
+	color: var(--ns-apple-ink) !important;
+}
+
+/* El radio es un input con appearance:none: el círculo se dibuja con el borde */
+#rsi_form_wrapper .rsi-quantity-product input[type='radio'] {
+	border-color: var(--ns-field-line) !important;
+}
+
+#rsi_form_wrapper .rsi-quantity-product input[type='radio']:checked {
+	border-color: var(--ns-apple-deep) !important;
+}
+
+/* -----------------------------------------------------------------------------
+   5. Totales y código de descuento
+   -----------------------------------------------------------------------------
+   Por defecto es un bloque azulado de sistema que parece un panel de
+   depuración entre el producto y los datos personales. El código de
+   descuento vive dentro del mismo bloque, tras el filete.
+   -------------------------------------------------------------------------- */
+
+#rsi_form_wrapper .rsi-total-summary-wrapper {
+	padding: 14px 16px !important;
+	background: var(--ns-apple-50) !important;
+	border: 1px solid var(--ns-line) !important;
+	border-radius: var(--ns-radius-md) !important;
+}
+
+#rsi_form_wrapper .rsi-total-summary-label {
+	color: var(--ns-text) !important;
+	font-size: 14px !important;
+}
+
+#rsi_form_wrapper .rsi-total-summary-value {
+	color: var(--ns-ink) !important;
+	font-size: 14px !important;
+}
+
+/* El peso viene en línea (600) */
+#rsi_form_wrapper .rsi-total-summary-total-label {
+	color: var(--ns-ink) !important;
+	font-size: 15px !important;
+	font-weight: 400 !important;
+}
+
+/* La cifra que decide */
+#rsi_form_wrapper .rsi-total-summary-total-value {
+	color: var(--ns-apple-deep) !important;
+	font-size: 20px !important;
+	letter-spacing: -0.3px !important;
+}
+
+#rsi_form_wrapper .rsi-total-summary-divider {
+	background: var(--ns-line) !important;
+}
+
+/* 16px en el campo: por debajo, iOS hace zoom al enfocar y descuadra el modal */
+#rsi_form_wrapper .rsi-discounts-row {
+	gap: 8px !important;
+	height: auto !important;
+}
+
+#rsi_form_wrapper .rsi-discounts-input {
+	flex: 1 1 auto !important;
+	height: 44px !important;
+	margin: 0 !important;
+	padding: 0 14px !important;
+	background: var(--ns-white) !important;
+	border: 1px solid var(--ns-field-line) !important;
+	border-radius: var(--ns-radius-sm) !important;
+	color: var(--ns-ink) !important;
+	font-size: 16px !important;
+}
+
+#rsi_form_wrapper .rsi-discounts-input::placeholder {
+	color: var(--ns-text) !important;
+	opacity: 1 !important;
+}
+
+#rsi_form_wrapper .rsi-discounts-input:focus {
+	outline: none !important;
+	border-color: var(--ns-apple-deep) !important;
+	box-shadow: 0 0 0 3px rgba(111, 195, 80, 0.28) !important;
+}
+
+/* Aplicar: secundario, en contorno. El negro de la app no es de la marca. */
+#rsi_form_wrapper .rsi-discounts-button {
+	flex: 0 0 auto !important;
+	align-items: center !important;
+	height: 44px !important;
+	padding: 0 18px !important;
+	background: var(--ns-white) !important;
+	border: 0 !important;
+	border-radius: 999px !important;
+	box-shadow: inset 0 0 0 1.5px var(--ns-apple) !important;
+	color: var(--ns-apple-deep) !important;
+	font-size: 14px !important;
+}
+
+#rsi_form_wrapper .rsi-discounts-button:hover {
+	background: var(--ns-apple-50) !important;
+}
+
+/* Descuentos aplicados (el del pack, un código): chip verde, no la caja gris */
+#rsi_form_wrapper .rsi-discounts-item {
+	padding: 6px 12px !important;
+	background: var(--ns-apple-100) !important;
+	border: 0 !important;
+	border-radius: 999px !important;
+	color: var(--ns-apple-deep) !important;
+}
+
+#rsi_form_wrapper .rsi-discounts-item-text,
+#rsi_form_wrapper .rsi-discounts-item-text * {
+	color: inherit !important;
+	font-size: 13px !important;
+	letter-spacing: 0.2px !important;
+}
+
+/* -----------------------------------------------------------------------------
+   6. Método de envío — oculto mientras haya una sola tarifa
+   -----------------------------------------------------------------------------
+   Con una sola tarifa («Envío gratis») no es una elección: es un paso más
+   justo antes de pagar, y el envío gratis ya está en los totales. Se oculta
+   visualmente, NO con display:none: el radio sigue marcado y la tarifa viaja
+   con el pedido. Igual que en MIMA (/mima/shared/releasit-form.css §4b).
+
+   OJO: solo es correcto mientras haya UNA tarifa. Antes de configurar una
+   segunda en Releasit, quitar esta regla o el cliente no podría elegir.
+   -------------------------------------------------------------------------- */
+
+#rsi_form_wrapper .rsi-shipping-rates-wrapper {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	overflow: hidden !important;
+	clip-path: inset(50%) !important;
+	pointer-events: none !important;
+}
+
+/* -----------------------------------------------------------------------------
+   7. Textos sueltos
+   -----------------------------------------------------------------------------
+   El color vive en el <span> interior, no en el <p> (docs §6.7, trampa 3).
+   -------------------------------------------------------------------------- */
+
+#rsi_form_wrapper .rsi-custom-text,
+#rsi_form_wrapper .rsi-custom-text span {
+	color: var(--ns-ink) !important;
+	font-size: 17px !important;
+	line-height: 1.3 !important;
+}
+
+/* -----------------------------------------------------------------------------
+   8. Campos
+   -----------------------------------------------------------------------------
+   El campo llega partido en dos: el icono es una caja hermana con su propio
+   fondo y el input lleva radio asimétrico (0 9px 9px 0). Se mueve el marco a
+   la fila y se dejan icono y campo sin marco: un solo control, con un solo
+   filete y un solo radio. El icono es un SVG en currentColor, así que se
+   recolorea con `color` (en el formulario antiguo había que redibujarlo).
+   -------------------------------------------------------------------------- */
+
+#rsi_form_wrapper .rsi-text-input-label,
+#rsi_form_wrapper .rsi-select-label {
+	height: auto !important;
+	margin-bottom: 6px !important;
+	color: var(--ns-ink) !important;
+	font-size: 14px !important;
+	line-height: 1.3 !important;
+}
+
+/* El asterisco en rojo lee como error antes de que haya error. Pasa al verde
+   hondo: sigue marcando obligatoriedad sin gritar. */
+#rsi_form_wrapper .rsi-text-input-required,
+#rsi_form_wrapper .rsi-select-required {
+	height: auto !important;
+	margin-left: 3px !important;
+	color: var(--ns-apple-deep) !important;
+	font-size: 14px !important;
+	line-height: 1.3 !important;
+}
+
+#rsi_form_wrapper .rsi-text-input-row,
+#rsi_form_wrapper .rsi-select-input-row {
+	height: auto !important;
+	min-height: var(--ns-field-h) !important;
+	overflow: hidden !important;
+	background: var(--ns-white) !important;
+	/* `!important` para que el rojo del error (§12) gane por especificidad
+	   dentro del mismo peso, no por el orden, que GemPages no respeta */
+	border: 1px solid var(--ns-field-line) !important;
+	border-radius: var(--ns-radius-sm) !important;
+	box-shadow: none !important;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+#rsi_form_wrapper .rsi-text-input-row:focus-within,
+#rsi_form_wrapper .rsi-select-input-row:focus-within {
+	border-color: var(--ns-apple-deep) !important;
+	box-shadow: 0 0 0 3px rgba(111, 195, 80, 0.28) !important;
+}
+
+/* El plato del icono, con su divisoria */
+#rsi_form_wrapper .rsi-text-input-icon {
+	flex: 0 0 48px !important;
+	align-items: center !important;
+	justify-content: center !important;
+	width: 48px !important;
+	height: auto !important;
+	aspect-ratio: auto !important;
+	align-self: stretch !important;
+	background: var(--ns-apple-100) !important;
+	border-right: 1px solid var(--ns-apple-200) !important;
+	color: var(--ns-apple-deep) !important;
+}
+
+/* El SVG es el plato entero de la app (46×51) con el glifo en el centro, y trae
+   32px en línea más un scale(1.25). Ocupa el plato y sin escalar: el glifo queda
+   en ~15px. */
+#rsi_form_wrapper .rsi-text-input-icon svg {
+	width: 44px !important;
+	height: 48px !important;
+	transform: none !important;
+}
+
+#rsi_form_wrapper .rsi-text-input-field,
+#rsi_form_wrapper .rsi-select-field {
+	flex: 1 1 auto !important;
+	width: auto !important;
+	min-width: 0 !important;
+	margin: 0 !important;
+	outline: none !important;
+	box-shadow: none !important;
+	-webkit-text-fill-color: currentColor !important;
+	height: auto !important;
+	min-height: calc(var(--ns-field-h) - 2px) !important;
+	padding: 0 14px !important;
+	background-color: transparent !important;
+	border: 0 !important;
+	border-radius: 0 !important;
+	color: var(--ns-ink) !important;
+	/* 16px es el mínimo que evita que iOS haga zoom al enfocar */
+	font-size: 16px !important;
+}
+
+#rsi_form_wrapper .rsi-text-input-field:focus,
+#rsi_form_wrapper .rsi-select-field:focus {
+	outline: none !important;
+}
+
+#rsi_form_wrapper .rsi-text-input-field::placeholder {
+	color: var(--ns-text) !important;
+	opacity: 1 !important;
+}
+
+/* La flecha del desplegable es un fondo SVG negro de la app: se cambia por la
+   misma flecha en verde hondo, con aire a la derecha. */
+#rsi_form_wrapper .rsi-select-field {
+	padding-right: 42px !important;
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px' fill='%232f7d22'%3e%3cpath d='M8.12 9.29L12 13.17l3.88-3.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-4.59 4.59c-.39.39-1.02.39-1.41 0L6.7 10.7c-.39-.39-.39-1.02 0-1.41.39-.38 1.03-.39 1.42 0z'/%3e%3c/svg%3e") !important;
+	background-repeat: no-repeat !important;
+	background-position: right 12px center !important;
+	background-size: 22px 22px !important;
+}
+
+/* Casilla del boletín. OJO: llega PREMARCADA (designer §8). */
+#rsi_form_wrapper .rsi-checkbox-label,
+#rsi_form_wrapper .rsi-checkbox-label span {
+	height: auto !important;
+	color: var(--ns-text) !important;
+	font-size: 14px !important;
+	line-height: 1.4 !important;
+}
+
+#rsi_form_wrapper input[type='checkbox'],
+#rsi_form_wrapper input[type='radio'] {
+	accent-color: #2f7d22 !important;
+}
+
+/* -----------------------------------------------------------------------------
+   9. Order bumps
+   -----------------------------------------------------------------------------
+   Por defecto son dos cajas saturadas: «Envío Prioritario» en amarillo con
+   borde rojo (y PREMARCADO, designer §3) y «Chest Relief» en verde fosforito
+   con un borde de hormigas: cuatro degradados en `background-image` que
+   corren sin parar (`rsiTickUpsBorder`). Un borde que se mueve junto al botón
+   de pagar es urgencia falsa (`/AGENTS.md` §7): se apaga.
+
+   El contenedor es `.rsi-onetick-wrapper` (docs §6.7, trampa 1). El filete va
+   como sombra interior y no como borde: el marcado lo engrosa sin mover nada.
+   -------------------------------------------------------------------------- */
+
+#rsi_form_wrapper .rsi-onetick-wrapper {
+	align-items: center !important;
+	margin: 0 !important;
+	padding: 12px 14px !important;
+	background: var(--ns-apple-50) !important;
+	background-image: none !important;
+	border: 0 !important;
+	border-radius: var(--ns-radius-md) !important;
+	outline: none !important;
+	box-shadow: inset 0 0 0 1px var(--ns-apple) !important;
+	animation: none !important;
+}
+
+/* El énfasis va después de la decisión, no antes */
+#rsi_form_wrapper .rsi-onetick-wrapper:has(.rsi-onetick-checkbox:checked) {
+	background-color: var(--ns-apple-100) !important;
+	box-shadow: inset 0 0 0 2px var(--ns-apple) !important;
+}
+
+#rsi_form_wrapper .rsi-onetick-checkbox {
+	flex: none !important;
+	margin: 0 !important;
+}
+
+#rsi_form_wrapper .rsi-onetick-label {
+	align-items: center !important;
+	gap: 12px !important;
+	margin-left: 12px !important;
+}
+
+/* El color viene en línea (negro) */
+#rsi_form_wrapper .rsi-onetick-text {
+	color: var(--ns-ink) !important;
+	font-size: 15px !important;
+	line-height: 1.35 !important;
+}
+
+/* El nombre y el precio del extra, en verde hondo (5:1 sobre el fondo) */
+#rsi_form_wrapper .rsi-onetick-text b,
+#rsi_form_wrapper .rsi-onetick-text b span {
+	color: var(--ns-apple-deep) !important;
+}
+
+/* El color viene en línea (gris) */
+#rsi_form_wrapper .rsi-onetick-desc {
+	margin-top: 4px !important;
+	color: var(--ns-text) !important;
+	font-size: 14px !important;
+	line-height: 1.4 !important;
+}
+
+#rsi_form_wrapper .rsi-onetick-image {
+	flex: none !important;
+	border-radius: var(--ns-radius-sm) !important;
+	background: var(--ns-white) !important;
+}
+
+/* -----------------------------------------------------------------------------
+   10. Los dos botones de pago
+   -----------------------------------------------------------------------------
+   Por defecto: negro (contraentrega, con un pulso) y naranja (anticipado, con
+   una sacudida), 2px de radio. Aquí, la misma pareja que la landing: el
+   anticipado en la píldora verde manzana del CTA «el disparo», con el texto
+   en tinta (blanco sobre este verde se queda en 2,2:1), y la contraentrega en
+   blanco con filete verde. Nada viene en línea: se visten directamente.
+
+   El botón son tres columnas flex —icono, texto y un <div> vacío que
+   equilibra al icono—. El icono es un SVG en currentColor: basta `color`.
+   -------------------------------------------------------------------------- */
+
+#rsi_form_wrapper .rsi-custom-button-wrapper {
+	padding: 0 !important;
+}
+
+#rsi_form_wrapper .rsi-custom-button {
+	position: relative !important;
+	min-height: 58px !important;
+	padding: 12px 22px !important;
+	border: 0 !important;
+	border-radius: 999px !important;
+	box-shadow: none !important;
+	line-height: 1.25 !important;
+	transition: opacity 0.18s ease, transform 0.12s ease, background-color 0.15s ease !important;
+}
+
+#rsi_form_wrapper .rsi-custom-button:active {
+	transform: translateY(1px) !important;
+}
+
+/* El pulso y la sacudida son urgencia falsa (`/AGENTS.md` §7) y la app los
+   aplica a los dos botones a la vez: ruido en la pantalla de pago. */
+#rsi_form_wrapper .rsi_animation_pulse,
+#rsi_form_wrapper .rsi_animation_shake,
+#rsi_form_wrapper .rsi_animation_bounce {
+	animation: none !important;
+}
+
+#rsi_form_wrapper .rsi-custom-button .rsi-custom-button-content > p {
+	margin-top: 2px !important;
+}
+
+/* Anticipado: verde manzana, texto en tinta (6,8:1) */
+#rsi_form_wrapper .rsi-additionals_checkout_button {
+	background: var(--ns-apple) !important;
+}
+
+#rsi_form_wrapper .rsi-additionals_checkout_button,
+#rsi_form_wrapper .rsi-additionals_checkout_button * {
+	color: var(--ns-apple-ink) !important;
+}
+
+#rsi_form_wrapper .rsi-additionals_checkout_button:hover {
+	background: #7fce61 !important;
+}
+
+/* Contraentrega: blanco con filete verde. Sigue siendo la vía mayoritaria en
+   Colombia, así que se ve entera; lo que cambia es la jerarquía, no el acceso. */
+#rsi_form_wrapper .rsi-submit_button {
+	background: var(--ns-white) !important;
+	box-shadow: inset 0 0 0 2px var(--ns-apple) !important;
+}
+
+#rsi_form_wrapper .rsi-submit_button,
+#rsi_form_wrapper .rsi-submit_button * {
+	color: var(--ns-apple-deep) !important;
+}
+
+#rsi_form_wrapper .rsi-submit_button:hover {
+	background: var(--ns-apple-50) !important;
+}
+
+/* -----------------------------------------------------------------------------
+   10b. El pago anticipado va primero
+   -----------------------------------------------------------------------------
+   En la landing de Nambu $79.900 es la cifra grande y el anticipado va como
+   alternativa (/nambu/AGENTS.md §5), salvo donde se enfrentan las dos formas
+   de pago: ahí el anticipado se destaca. El formulario es justo ese sitio, y
+   la app lo pone DEBAJO de la contraentrega.
+
+   Cada botón vive en su propio bloque, hijo directo de la columna flex
+   `.rsi-layout-wrapper`, así que `order` sí puede moverlos (en MIMA se
+   descartó por eso mismo: el selector estructural). Aquí el selector se
+   engancha a dos clases estables —la columna y la del botón— con `:has()`,
+   sin depender de posiciones. Los demás bloques tienen `order: 0`: los
+   botones siguen al final.
+
+   Ritmo: 28px desde los bumps hasta el primer botón y 14px entre los dos
+   (con los 10px de gap de §3).
+
+   Contrapartida anotada: `order` cambia el orden VISUAL, no el del DOM, así
+   que con teclado se tabula antes al de contraentrega. Con dos controles
+   contiguos y rotulados es asumible.
+   -------------------------------------------------------------------------- */
+
+#rsi_form_wrapper .rsi-layout-wrapper > :has(.rsi-additionals_checkout_button) { order: 1 !important; margin-top: 18px !important; }
+#rsi_form_wrapper .rsi-layout-wrapper > :has(.rsi-submit_button) { order: 2 !important; margin-top: 4px !important; }
+
+/* -----------------------------------------------------------------------------
+   10c. El pago anticipado respira
+   -----------------------------------------------------------------------------
+   Un anillo verde manzana nace en el borde del botón, se abre y se desvanece
+   cada 2,8 s, como la nube del disparo de la landing. Solo en el anticipado.
+   No es la sacudida de la app: no mueve el texto ni el botón. Solo
+   `transform` y `opacity`.
+   -------------------------------------------------------------------------- */
+
+#rsi_form_wrapper .rsi-additionals_checkout_button::after {
+	content: '' !important;
+	position: absolute !important;
+	inset: 0 !important;
+	border: 2px solid var(--ns-apple) !important;
+	border-radius: 999px !important;
+	opacity: 0 !important;
+	pointer-events: none !important;
+	animation: ns-rsi-breath 2.8s cubic-bezier(0.2, 0.7, 0.3, 1) infinite !important;
+}
+
+@keyframes ns-rsi-breath {
+	0% { opacity: 0.7; transform: scale(1); }
+	65%, 100% { opacity: 0; transform: scale(1.04, 1.26); }
+}
+
+/* -----------------------------------------------------------------------------
+   11. La elección hecha en la landing manda dentro del formulario
+   -----------------------------------------------------------------------------
+   La sección de pago de la landing pregunta cómo se quiere pagar y escribe la
+   respuesta en <html data-ns-pay="prepaid|cod"> (`initPaymentChoice` en
+   src/scripts/landing.js). Sin ese atributo (CTA del hero, sticky, cierre) no
+   cambia nada y vale §10b.
+
+   BAJAR DE RANGO, NO ESCONDER. Contraentrega es la vía mayoritaria en
+   Colombia: si se lo repiensa dentro del formulario y no encuentra cómo pagar
+   al recibir, el pedido se pierde. La descartada sigue ahí, entera y
+   clicable. La diferencia se hace con la FORMA y no con la opacidad: la
+   elegida va llena de verde y la descartada en blanco con filete, más baja y
+   sin icono ni subtítulo (con opacidad, el texto caía a 2,6:1).
+   -------------------------------------------------------------------------- */
+
+/* La elegida va primero; la descartada, debajo */
+html[data-ns-pay='cod'] #rsi_form_wrapper .rsi-layout-wrapper > :has(.rsi-submit_button) { order: 1 !important; margin-top: 18px !important; }
+html[data-ns-pay='cod'] #rsi_form_wrapper .rsi-layout-wrapper > :has(.rsi-additionals_checkout_button) { order: 2 !important; margin-top: 4px !important; }
+
+/* La descartada, más baja */
+html[data-ns-pay='prepaid'] #rsi_form_wrapper .rsi-submit_button,
+html[data-ns-pay='cod'] #rsi_form_wrapper .rsi-additionals_checkout_button {
+	min-height: 48px !important;
+	padding: 10px 18px !important;
+}
+
+/* Sin icono ni subtítulo. El <div> que equilibra al icono cae con él: si no,
+   el texto queda desplazado (medido en MIMA, 54px de 339). */
+html[data-ns-pay='prepaid'] #rsi_form_wrapper .rsi-submit_button .rsi-icon,
+html[data-ns-pay='prepaid'] #rsi_form_wrapper .rsi-submit_button .rsi-custom-button-content > p,
+html[data-ns-pay='prepaid'] #rsi_form_wrapper .rsi-submit_button .rsi-custom-button-content ~ div,
+html[data-ns-pay='cod'] #rsi_form_wrapper .rsi-additionals_checkout_button .rsi-icon,
+html[data-ns-pay='cod'] #rsi_form_wrapper .rsi-additionals_checkout_button .rsi-custom-button-content > p,
+html[data-ns-pay='cod'] #rsi_form_wrapper .rsi-additionals_checkout_button .rsi-custom-button-content ~ div {
+	display: none !important;
+}
+
+/* Contraentrega elegida: se intercambian las dos pieles de §10 */
+html[data-ns-pay='cod'] #rsi_form_wrapper .rsi-submit_button {
+	background: var(--ns-apple) !important;
+	box-shadow: none !important;
+}
+
+html[data-ns-pay='cod'] #rsi_form_wrapper .rsi-submit_button,
+html[data-ns-pay='cod'] #rsi_form_wrapper .rsi-submit_button * {
+	color: var(--ns-apple-ink) !important;
+}
+
+html[data-ns-pay='cod'] #rsi_form_wrapper .rsi-additionals_checkout_button {
+	background: var(--ns-white) !important;
+	box-shadow: inset 0 0 0 2px var(--ns-apple) !important;
+}
+
+html[data-ns-pay='cod'] #rsi_form_wrapper .rsi-additionals_checkout_button,
+html[data-ns-pay='cod'] #rsi_form_wrapper .rsi-additionals_checkout_button * {
+	color: var(--ns-apple-deep) !important;
+}
+
+/* Y el anillo acompaña a la elegida */
+html[data-ns-pay='cod'] #rsi_form_wrapper .rsi-additionals_checkout_button::after {
+	animation: none !important;
+}
+
+/* -----------------------------------------------------------------------------
+   12. Errores
+   -----------------------------------------------------------------------------
+   Un campo de texto con error lleva `aria-invalid="true"` en el input; el
+   <select> no (verificado), así que el gancho común es el mensaje:
+   `.rsi-text-input-error` / `.rsi-select-error` (role="alert") solo existe
+   mientras hay error. La fila se pinta desde el bloque con :has(): gana a §8
+   por especificidad, con el mismo peso, y sigue roja con foco.
+   -------------------------------------------------------------------------- */
+
+#rsi_form_wrapper .rsi-text-input-wrapper:has(.rsi-text-input-error) .rsi-text-input-row,
+#rsi_form_wrapper .rsi-select-wrapper:has(.rsi-select-error) .rsi-select-input-row,
+#rsi_form_wrapper .rsi-text-input-row:has([aria-invalid='true']),
+#rsi_form_wrapper .rsi-text-input-wrapper:has(.rsi-text-input-error) .rsi-text-input-row:focus-within,
+#rsi_form_wrapper .rsi-select-wrapper:has(.rsi-select-error) .rsi-select-input-row:focus-within {
+	border-color: var(--ns-error) !important;
+	box-shadow: 0 0 0 3px rgba(179, 38, 30, 0.14) !important;
+}
+
+#rsi_form_wrapper .rsi-text-input-error,
+#rsi_form_wrapper .rsi-select-error,
+#rsi_form_wrapper .rsi-checkbox-error-row span {
+	color: var(--ns-error) !important;
+	font-size: 13px !important;
+	line-height: 1.35 !important;
+}
+
+/* -----------------------------------------------------------------------------
+   13. Accesibilidad
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+	#rsi_form_wrapper *,
+	#rsi_form_wrapper .rsi-custom-button,
+	#rsi_form_wrapper .rsi-additionals_checkout_button::after {
+		animation: none !important;
+		transition: none !important;
+	}
+}

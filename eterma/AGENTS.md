@@ -198,6 +198,137 @@ con lo que se elija en el editor del tema, así que la landing las usa con fallb
 `var(--font-body-family, inherit)` en el resto. Cambiar la serif en el tema cambia todas las landings.
 En la vista previa local caen a Georgia y Helvetica, que es justo el contraste serif/sans buscado.
 
+### La línea «Eterma viva» de los kits nuevos (2026-09-15)
+
+**Decisión del cliente:** «siento que la marca de Eterma es muy triste y poco agradable, sobre todo por
+los colores»; pidió más dinamismo y **otra forma de enseñar el logo**, que la cabecera con el wordmark
+centrado le parece «repetitivo y aburrido». Aplica a la tanda nueva de kits (Reset Digestivo, Mujer
+Saciada, Glucosa en Calma, Duerme y Florece, Rejuvenece), no a las landings de producto ya hechas. Lo
+que cambia respecto a lo anterior:
+
+| | Kits de septiembre (1.ª tanda) | Línea «Eterma viva» |
+|---|---|---|
+| Fondo | Hueso `#fffcf5` + gris frío `#eff0f5` | **Hueso más cálido `#fffbf2`** y secciones en crema, rubor, amarillo y menta suaves. **El gris frío desaparece** |
+| Verde profundo | Fondo de varios bloques | **Un solo bloque** por página: la pausa seria |
+| Color | Menta detrás del producto y poco más | **Un color por producto**: amarillo (mañana), menta (día), cielo (noche), rubor (la foto de la persona) y **lima solo para la acción** |
+| CTA | Píldora verde profundo | **Píldora lima con sombra sólida**, tipo pegatina, texto en verde profundo |
+| Titulares | Serif del tema (en Android, Times New Roman) | **Fraunces 600 SOFT 100** (OFL, instancia latina de 18 KB, `fraunces-600-soft.woff2`), cálida y redonda. Fallback: la serif del tema |
+| Logo | Cabecera blanca con el wordmark centrado | **Sin cabecera.** Firma pequeña a la izquierda en el hero + **wordmark gigante en el pie**; la **hoja** se usa suelta como recurso gráfico |
+| Motivo | «El momento del día» | Se mantiene, pero con **una pieza interactiva por página** (marcar, barajar, cambiar de pestaña) |
+
+Tokens nuevos, dentro de la raíz de cada landing: `--et-sun #ffdf6e` / `--et-sun-soft #fff5cf`,
+`--et-mint #c9efcc` / `--et-mint-soft #e9f8e8`, `--et-sky #cfe0fb` / `--et-sky-soft #eaf1fd`,
+`--et-blush #ffd3ca` / `--et-blush-soft #fff0ec`, `--et-tea #bfe6dd` / `--et-tea-soft #e6f5f2`,
+`--et-grape #ddd2f0` / `--et-grape-soft #f3eefb`, `--et-amber #f6dcb0` / `--et-amber-soft #fdf3e4`,
+`--et-lime #d4ec5c` / `--et-lime-soft #f1f9cf`, `--et-cream #fbf1de`, `--et-paper #fffbf2`,
+`--et-leaf #2e9e5b`. Cada color de texto sobre su tono está comprobado a 4,5:1 o más. Los verdes de marca
+(`--et-green-deep`, `--et-green`) siguen mandando en el texto.
+
+**Un color por producto, igual en todas las landings.** Es lo que le gustó al cliente («la idea de usar
+los colores en base a los productos me ha gustado bastante»), así que se fija como vocabulario de marca:
+
+| Producto | Token | Sale de |
+|---|---|---|
+| **VITA-ADVANCE** | `--et-sun` | El tarro crema y el sabor vainilla; es el producto de la mañana |
+| **CLOROFULL** | `--et-mint` | La botella verde oliva y la clorofila |
+| **MULTIBRINA** | `--et-sky` | La botella azul clara; es el producto del final del día |
+| **ADVANCE** | `--et-tea` | El té verde de la fórmula. **La botella real es gris**, y el gris es justo lo que el cliente pidió quitar |
+| **TODO EN UNO** | `--et-grape` | El resveratrol, que viene de la uva. La botella es verde salvia, pero la gama ya tiene dos verdes |
+| **VALERIANA** | `--et-amber` | El frasco ámbar con gotero |
+
+El **rubor** queda para la foto de la persona y el **lima**, solo para la acción.
+
+**El logo, en vector.** `docs/branding.pdf` → [`shared/eterma-wordmark.svg`](shared/eterma-wordmark.svg)
+(`pdftocairo -svg` + recorte de la variante sage). Se incrusta como `<symbol>` y se pinta con `<use>`:
+las letras toman `color` y la hoja, `fill`, así que el pie puede llevar el wordmark en hueso con la hoja
+en lima sin tocar el archivo. **Ojo:** el `<svg>` que hace el `<use>` va con `viewBox="0 0 322 95"`, no
+con el del símbolo, o el logo se dibuja fuera del lienzo.
+
+**Estado: las cinco están construidas y verificadas en local, ninguna publicada** (Reset Digestivo el
+2026-09-15; las otras cuatro el 2026-09-16). Cada una cambia hero, motivo, pieza interactiva y CTA:
+
+| Kit | Hero | Pieza interactiva | CTA |
+|---|---|---|---|
+| [**Reset Digestivo**](landings/kit-reset-digestivo/AGENTS.md) | Baraja de cuatro cartas que se lanzan | Seis notas que **se marcan** + contador | Burbujas que avanzan en ola |
+| [**Mujer Saciada**](landings/kit-mujer-saciada/AGENTS.md) | Bandeja: una foto y cuatro fichas redondas | Seis situaciones que **se abren** + barras de evidencia | Tres barras que suben (el nivel) |
+| [**Glucosa en Calma**](landings/kit-glucosa-calma/AGENTS.md) | Turno de fotos **solo, con pausa** | Conversación (burbuja y respuesta), sin clic | Los picos que dan paso a la curva |
+| [**Duerme y Florece**](landings/kit-duerme-florece/AGENTS.md) | **Interruptor que apaga el día** | Carril de cinco noches, solo gesto | Tres fases de luna |
+| [**Rejuvenece**](landings/kit-rejuvenece/AGENTS.md) | Tres verbos que se encienden (sin carrusel) | Carril de cinco tarjetas **con flechas y cuenta 1/5** | Tres pasos que avanzan |
+
+**Ninguna landing repite pieza.** Si se construye una sexta, mirar esta tabla antes de elegir mecanismo.
+
+**El precio se ve sin hacer scroll (2026-09-16).** Decisión del cliente: «no veo el precio de los kits
+inmediatamente en la primera visualización». Las cinco llevan ahora una banda `.<pfx>-deal` **justo
+encima del CTA del hero**, con el mismo reparto que la sección de pago: **$119.900 en píldora verde
+profundo con «anticipado» en lima** y, al lado y en gris, «o $129.900 contraentrega». Cabe en una sola
+línea desde 360 px. Reglas que la acompañan:
+
+- **El CTA del hero sigue entrando entero en la primera pantalla**, también a 360 × 740. Donde la banda
+  no cabía se recortó aire, nunca copy: en Reset Digestivo, Mujer Saciada y Glucosa en Calma **el trío de
+  píldoras de producto baja bajo el CTA** en móvil (`order: 3`) y vuelve a su sitio a partir de 900 px.
+- **El sticky sale con la mitad de scroll**: `STICKY_REVEAL_MARGIN = '-40% 0px 0px 0px'` en el observador
+  del CTA del hero. Aparece a ~0,5 pantallas (400–460 px a 390 × 844) en vez de ~0,9. La regla de fondo
+  no cambia: sigue escondido mientras el CTA del hero está a la vista y al llegar al cierre y al pie.
+- **El sticky también abre con el anticipado**: `$119.900` grande y «o $129.900 al recibir» debajo. Antes
+  mandaba el contraentrega, que contradecía la regla de destacar siempre el pago anticipado. «Al recibir»
+  y no «contraentrega» porque a 360 px el texto largo no cabe junto al botón.
+
+**Cómo se pasa una landing a GemPages: tres pestañas, no una (2026-09-17).** En el repo cada landing es
+**un solo fichero** autocontenido —`<section>`, `<style>` y `<script>` seguidos— porque así se puede
+previsualizar y medir entera. En GemPages el Custom Code tiene **tres pestañas separadas** (HTML, CSS y
+JS) y el CSS y el JS van **sin** sus etiquetas `<style>` y `<script>`, que las pone GemPages. Pegar el
+fichero entero en la pestaña HTML deja el CSS como texto y la landing sale rota.
+
+- **`./split-tabs.sh <fragmento.html>`** genera los tres ficheros al lado del fragmento
+  (`…tab-html.html`, `…tab-css.css`, `…tab-js.js`). Son **derivados**: se regeneran, nunca se editan a
+  mano; lo que se edita es siempre el fragmento.
+- **El CSS sale minificado y el JS compactado** (`minify.mjs`, sin dependencias). Los comentarios que
+  explican el porqué viven en el fragmento, que es lo que se lee; dentro de GemPages no le sirven a
+  nadie. Con **`--legible`** se generan sin tocar, para depurar dentro del editor.
+- **El JS no se minifica del todo a propósito**: se le quitan comentarios, sangrías y líneas en blanco,
+  pero **se conservan los saltos de línea**. Renombrar variables y quitar puntos y coma es donde salen
+  los fallos difíciles, y este código cobra dinero. Si alguna vez hace falta apretarlo más, se mete un
+  minificador probado y se vuelve a pasar la verificación, no se improvisa.
+- **Verificado el 2026-09-17 en las cinco**: el CSS minificado da los **mismos estilos calculados** que el
+  original —más de 50 propiedades en cada elemento, a 390 y 1280— y la página montada desde las tres
+  pestañas mide **exactamente igual** que el fragmento y conserva todas las interacciones. Ojo con el
+  CSS: hay que respetar cadenas, `url()` y los espacios de `calc(100% - 36px)`.
+- **Van versionados a propósito.** Así, después de tocar una landing, se regeneran las pestañas y
+  `git status` dice **exactamente cuál de las tres hay que volver a pegar**. Si solo cambia
+  `tab-html.html`, la pestaña CSS y la JS se dejan en paz.
+- Detrás del CSS de la landing va [`shared/releasit-form.css`](shared/releasit-form.css), en la misma
+  pestaña CSS (`docs/releasit-form-styling.md` §4.4).
+- **Ojo con suponer que un cambio es «solo de texto»**: casi ningún cambio lo es. Corregir un copy que
+  alarga una ficha, mover una pieza o añadir un bloque suele tocar las tres.
+
+**Confianza: medios de pago e Instagram, con ficheros compartidos (2026-09-16).** Pedido del cliente:
+«le hace falta la imagen del IG al final y los iconos de Visa, Mastercard y PSE en lugares estratégicos…
+esos iconos pueden tener nombres genéricos, para no tener que cargarlos por cada landing». El patrón
+viene de [`clorofull/olor`](landings/clorofull/olor/september.html), que fue la primera en usarlos.
+
+**Cuatro ficheros, una sola subida, todas las landings de la marca** (en
+[`shared/assets/`](shared/assets)): `landings-shared-pay-visa.webp` (222×72),
+`landings-shared-pay-mastercard.webp` (92×72), `landings-shared-pay-pse.webp` (72×72) y
+`landings-shared-instagram.webp` (1100×371). Son copia de los `landings-clorofull-*`, que siguen vivos y
+**no se tocan**: el CDN cachea por nombre y la landing de Clorofull publicada los está usando.
+
+- **Los medios de pago van donde se ofrece el anticipado**: la tarjeta verde de la oferta (en píldora
+  blanca, `--on-dark`: el negro de Mastercard y el azul de PSE no se leen sobre verde profundo), bajo el
+  ahorro del cierre y en el pie (`--sm`, con el rótulo «Pago anticipado»). **Nunca en el hero**, que es
+  lo que decidió el cliente en Clorofull, ni en el sticky, donde no cabe.
+- **El Instagram va justo antes del pie**, como captura y **sin enlace**: mandar a la clienta a Instagram
+  a dos dedos del CTA es una salida del embudo. La captura tiene fondo casi negro, así que se enmarca en
+  una tarjeta del color del kit para que se lea como una pantalla y no como un rectángulo suelto.
+- Lo único que cambia por landing es **el color del marco y el titular**: Reset Digestivo en menta,
+  Mujer Saciada en amarillo, Glucosa en Calma en té verde, Duerme y Florece en cielo y Rejuvenece en uva.
+- La sección de Instagram entra en la **cola del sticky** (`.<pfx>-close__buy, .<pfx>-social,
+  .<pfx>-footer`): sin eso el sticky reaparecía sobre el banner y volvía a irse en el pie.
+
+Las landings de la primera tanda (Día Liviano, Del Tinto a la Almohada, Cuerpo en su Punto, Piel Viva)
+**quedan como están**: sus kits se retiran, pero **sus imágenes siguen sirviendo del CDN** con los
+nombres que publicaron, y las cinco nuevas tiran de ellas. **Duerme y Florece es el único de la tanda
+nueva que ya existe en Shopify** (`kit-duerme-y-florece`): su landing vieja se sustituye por la nueva.
+
 ---
 
 ## 3. El tema de Shopify — Refresh, no Dawn, y sin exportar
@@ -223,6 +354,26 @@ hereda sus trampas. Verificado sobre la página viva el 2026-09-01:
 `is_paid_landing`. Pendiente pedir acceso al tema y replicar el patrón de
 [`/mima/theme/`](../mima/theme/) (layout limpio para landings de paid + lista de handles). Hasta entonces
 la landing hereda el tema completo.
+
+### El selector de suscripción (app «Shopify Subscriptions»), 2026-10-07
+
+[`shared/subscriptions-selector.css`](shared/subscriptions-selector.css) repinta el bloque de
+«Compra única / Suscripción mensual» que la app mete en la página de producto. Se pega en
+**Personalizar → Configuración del tema → CSS personalizado**. Verificado en vivo sobre
+`etermagrupoempresarial.com/products/clorofull™` (tienda de pruebas) a 390 y 1280 px.
+
+- **Especificidad, no orden.** La app imprime su `<style>` **dentro** del bloque, o sea después del CSS
+  del tema: con la misma especificidad gana ella. Sus reglas son de una clase, así que todo cuelga de
+  `.shopify_subscriptions_app_block`.
+- **Sin colores fijos.** Usa `--color-foreground`, `--color-background` e `--inputs-radius` del esquema
+  de color de la sección (hoy la PDP va en verde profundo con texto blanco), así que el selector sigue
+  al fondo en vez de abrir una tarjeta blanca en medio.
+- **El botón redondo no es el `<input>`**: la app lo oculta (1 px recortado) y dibuja el círculo en
+  `.custom_radio_button::before`, en gris `#6d7175` pensado para fondo blanco. Se repinta ahí.
+- **Única excepción al no-color-fijo**: la flecha del desplegable (solo con dos o más planes en un
+  grupo) es un SVG incrustado y `var()` no vale dentro de un data-URI; va en blanco.
+- Al medir con `shot.mjs`: `:focus` y `:focus-visible` **no casan sin ventana activa**, y los colores
+  leídos justo después de inyectar el CSS salen a medio camino de la transición de la app.
 
 ---
 
@@ -436,7 +587,21 @@ y medida del `font-size` raíz (§3), serif de titulares (§2), logo en SVG.
 
 ---
 
-## 9. Las landings de CLOROFULL: olor (2026-09-02) e hidratación (2026-09-08)
+## 9. Las landings de CLOROFULL: olor (2026-09-02), hidratación (2026-09-08), remarketing (2026-09-17) y detox (2026-10-09)
+
+**La cuarta, detox digestivo (2026-10-09)**, estrena piel: «la frontera». Sin barra ni cabecera, dos
+tonos con significado (crema es lo que entra, menta es lo que sale), lámina y filete en vez de tarjeta
+blanda, y el CTA «el paso», un punto que cruza un filete. Su hilo es la ruta: seis hebras que se
+juntan en una y entran en el bloque verde. **Manda el contraentrega ($79.900)**; el anticipado
+($69.900) va al lado, sin resaltar: decisión del cliente, como en remarketing. Decisiones,
+imágenes por subir y lo que falta confirmar en
+[`landings/clorofull/AGENTS.md`](landings/clorofull/AGENTS.md) §12.
+
+**La tercera, remarketing (2026-09-17)**, es para quien no compró en la principal: ataca el precio. **Manda
+el contraentrega rebajado ($79.900 → $69.900)** y el anticipado ($59.900) va como descuento extra: es la
+excepción a resaltar siempre el anticipado. Va con la línea «Eterma viva» y no con la de olor, y su motivo
+es «la bajada» (el precio en un boleto cuyo primer dígito rueda de 7 a 6). Decisiones y el producto que falta en Shopify en
+[`landings/clorofull/AGENTS.md`](landings/clorofull/AGENTS.md) §11.
 
 La segunda, ángulo hidratación / El Niño, está en `landings/clorofull/hidratacion/` y sus decisiones en
 [`landings/clorofull/AGENTS.md`](landings/clorofull/AGENTS.md) §10: mismo producto y prefijo, hero propio

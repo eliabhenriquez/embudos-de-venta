@@ -1,0 +1,32 @@
+	/* ---------------------------------------------------------
+	   Andamiaje de GemPages y Releasit
+	   -----------------------------------------------------------
+	   Fuera del scope a propósito: son nodos de las apps, hermanos de
+	   la landing. Excepción documentada en docs/releasit-form-styling.md
+	   §4.4. Nunca display:none en un nodo que la app usa (el Product
+	   Element, el flotante): se sacan del flujo. El esqueleto no lo usa.
+	   --------------------------------------------------------- */
+	gp-product {
+		position: absolute !important;   /* el Product Element solo da contexto a Releasit */
+		width: 1px !important;
+		height: 1px !important;
+		overflow: hidden !important;
+		clip-path: inset(50%) !important;
+		pointer-events: none !important;
+	}
+	/* El flotante del formulario nuevo es #floatingBuyNowButton (hoy apagado en la app):
+	   si alguien lo enciende, taparía el sticky y el pie */
+	#floatingBuyNowButton {
+		position: absolute !important;   /* el flotante de Releasit tapa el sticky y el pie */
+		width: 1px !important;
+		height: 1px !important;
+		overflow: hidden !important;
+		clip-path: inset(50%) !important;
+		pointer-events: none !important;
+	}
+	/* En una ficha de producto (/products/), Releasit pinta el esqueleto gris de su botón y,
+	   sin formulario del tema donde colocarlo, lo deja arriba del todo. Es solo un marcador
+	   de carga (la app también lo esconde con display: none): aquí no hace falta nunca */
+	.rsi-btn-skel {
+		display: none !important;   /* gana a .rsi-btn-skel.show de la app */
+	}

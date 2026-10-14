@@ -48,10 +48,17 @@ TITLE=$(basename "${SRC%.html}")
 	# Fuente deliberadamente distinta: si un titular sale en serif, es que
 	# la regla de etiqueta del tema le está ganando a la nuestra.
 	printf '%s\n' '.h0,.h1,.h2,.h3,.h4,.h5,h1,h2,h3,h4,h5{font-family:Georgia,serif}'
+	# Cada fila de GemPages V7 pone max-width:100% a TODO lo que lleva dentro,
+	# con especificidad (0,2,0). Medido en nambu, mima y eterma (2026-09-28):
+	# una cinta max-content o un bloque con sangrado negativo se recortan al
+	# publicar. El envoltorio de abajo reproduce la fila (AGENTS.md §4.14).
+	printf '%s\n' '.gps-preview .\[\&_\*\]\:gp-max-w-full *{max-width:100%}'
 	printf '%s\n' '</style>'
 	printf '%s\n' '</head>'
 	printf '%s\n' '<body>'
+	printf '%s\n' '<div class="gps-preview"><div class="[&_*]:gp-max-w-full">'
 	cat "$SRC"
+	printf '%s\n' '</div></div>'
 	printf '%s\n' '</body>'
 	printf '%s\n' '</html>'
 } > "$OUT"

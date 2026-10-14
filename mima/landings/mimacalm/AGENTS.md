@@ -14,13 +14,18 @@ todo lo visual gira alrededor de la cucharada, el vaso y el agua.
 
 | | Anticipado | Contraentrega |
 |---|---|---|
-| Precio | **$79.900** (ahorras $10.000) | **$89.900** |
+| Precio | **$69.900** (ahorras $10.000) | **$79.900** |
+
+Precios vigentes desde el **2026-10-10** (antes $79.900 / $89.900). Los `.md` de copy del ángulo conservan
+las cifras anteriores: en precio **manda esta tabla**. Coinciden con la tienda: el producto enlazado vale
+$79.900 y el botón de pago en línea del formulario descuenta $10.000 fijos.
 
 Envío gratis a Colombia, entrega 3–5 días hábiles, +1.400 clientes, confirmación por WhatsApp.
 Además es el **order bump de SKNGLOW** a $39.950 (copy en `sknglow/piel/order_bump_upsell.md`).
 
-Handle en Shopify: **`mima-calm`** (variante `44333360545932`, $89.900). Existe también
-`mima-calm-sueno-black-friday` a $79.900 (campaña vieja; no se usa).
+Producto enlazado en las dos landings publicadas: **`mima-calm-sueno-black-friday`** (variante
+`44806281658508`, $79.900, tachado $159.900). El de catálogo es `mima-calm` (variante `44333360545932`,
+también $79.900). Leído de la tienda el 2026-10-10.
 
 ### Lo que dice la etiqueta (y no el copy)
 

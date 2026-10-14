@@ -1,0 +1,23 @@
+	/* ---------------------------------------------------------
+	   Sello de alergias: la reacción en cadena del alérgeno
+	   --------------------------------------------------------- */
+	.ns-lp .ns-allergen { fill: var(--ns-apple-100); stroke: var(--ns-apple-deep); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+	.ns-lp .ns-allergen path { fill: none; }
+	.ns-lp .ns-allergen .ns-allergen__dot { fill: var(--ns-apple); stroke: none; }
+	.ns-lp .ns-allergen__swell { stroke-width: 9; }
+	/* Las partículas flotan desfasadas, como en el aire de una casa */
+	.ns-lp .ns-chain.is-live .ns-allergen { animation: ns-allergen-float 4.8s ease-in-out infinite; }
+	.ns-lp .ns-chain.is-live .ns-allergen--mite { animation-delay: -1.2s; }
+	.ns-lp .ns-chain.is-live .ns-allergen--dust { animation-delay: -2.4s; animation-duration: 3.8s; }
+	.ns-lp .ns-chain.is-live .ns-allergen--mold { animation-delay: -3.1s; }
+	.ns-lp .ns-chain.is-live .ns-allergen--paw { animation-delay: -0.6s; animation-duration: 5.6s; }
+	.ns-lp .ns-chain.is-live .ns-allergen__swell { transform-box: fill-box; transform-origin: center; animation: ns-allergen-swell 2.4s ease-in-out infinite alternate; }
+	@keyframes ns-allergen-float {
+		0%, 100% { transform: translate(0, 0) rotate(0deg); }
+		33% { transform: translate(3px, -4px) rotate(8deg); }
+		66% { transform: translate(-2px, 2px) rotate(-6deg); }
+	}
+	@keyframes ns-allergen-swell {
+		from { transform: scaleY(0.8); opacity: 0.45; }
+		to { transform: scaleY(1.25); opacity: 0.8; }
+	}

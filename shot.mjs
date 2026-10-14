@@ -19,6 +19,9 @@
 //   --hover='.cf-hero .cf-cta'         pone el ratón sobre ese elemento (:hover)
 //   --probe=expr.js                    evalúa un fichero JS en la página y
 //                                      escribe el resultado como JSON en stdout
+//   --init=antes.js                    evalúa un fichero JS ANTES de cualquier
+//                                      script de la página (trampas sobre globales
+//                                      de una app, p. ej. la config de EasySell)
 //   --out=captura.png                  destino; sin --out solo se evalúa --probe
 //
 // Las imágenes del CDN que aún no estén subidas salen rotas: para revisar en
@@ -45,6 +48,7 @@ const evaluate = async expr => (await send('Runtime.evaluate', { expression: exp
 const width = +args.width, height = +(args.height || 844), dpr = +(args.dpr || 1)
 await send('Page.enable')
 await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: dpr, mobile: true })
+if (args.init) await send('Page.addScriptToEvaluateOnNewDocument', { source: readFileSync(args.init, 'utf8') })
 const loadP = new Promise(r => { loaded = r })
 await send('Page.navigate', { url: args.url })
 await loadP

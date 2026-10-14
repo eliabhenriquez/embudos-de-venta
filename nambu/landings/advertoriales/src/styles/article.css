@@ -1,0 +1,448 @@
+	/* =========================================================
+	   NAMBU · SPRAY NASAL — advertorial (formato editorial)
+	   Todo cuelga de .ns-lp.ns-adv. La base (tokens, reset), el CTA
+	   «el disparo», los medios de pago y el andamiaje de Releasit son
+	   los del spray (/nambu/landings/spray/src/styles/shared/).
+	   LÍNEA: la de la marca —verde manzana, blanco, Questrial en un
+	   solo peso— puesta en formato de artículo de prensa: una columna
+	   de lectura de 680px, texto de 18px y fotografía con pie. Sin
+	   iconos: el relato lo llevan las fotos (escenas de referencia
+	   antes del producto; producto y personas reales después) y la
+	   tipografía. Nada de bloques de venta hasta que el texto lo presenta.
+	   TODAS las medidas en px: la raíz del tema va a 10,5px.
+	   ========================================================= */
+	.ns-lp.ns-adv {
+		--ns-gutter: 20px;
+		--ns-col: 680px;      /* columna de lectura */
+		--ns-rail: 316px;     /* margen con la tarjeta de compra (escritorio) */
+		--ns-read: 18px;      /* cuerpo del artículo */
+	}
+
+	/* ---------------------------------------------------------
+	   1. Progreso de lectura
+	   --------------------------------------------------------- */
+	.ns-lp .ns-progress { position: fixed; top: 0; right: 0; left: 0; z-index: 50; height: 3px; pointer-events: none; }
+	.ns-lp .ns-progress__bar { display: block; height: 100%; background: var(--ns-apple); transform: scaleX(0); transform-origin: 0 50%; }
+
+	/* ---------------------------------------------------------
+	   2. Columna y encabezado del artículo
+	   --------------------------------------------------------- */
+	/* El hueco de abajo deja sitio a la barra de compra fija */
+	.ns-lp .ns-layout { width: 100%; max-width: calc(var(--ns-col) + var(--ns-gutter) * 2); margin: 0 auto; padding: 0 var(--ns-gutter) 112px; }
+
+	.ns-lp .ns-article__head { padding-top: 18px; }
+	/* De quién es el contenido: el logotipo hace de la palabra «Nambu» y se
+	   asienta en la línea base del rótulo (la marca no tiene descendentes) */
+	.ns-lp .ns-kicker { display: flex; align-items: baseline; gap: 8px; padding-bottom: 14px; border-bottom: 1px solid var(--ns-line); font-size: 11.5px; line-height: 1.2; letter-spacing: 1.6px; text-transform: uppercase; }
+	.ns-lp .ns-kicker .ns-kicker__logo { width: auto; height: 17px; }
+	.ns-lp .ns-article__title { margin-top: 20px; color: var(--ns-ink); font-size: 29px; line-height: 1.14; letter-spacing: -0.9px; }
+	.ns-lp .ns-article__title em { font-style: normal; color: var(--ns-apple-deep); }
+	.ns-lp .ns-article__dek { margin-top: 14px; font-size: 18px; line-height: 1.5; }
+
+	.ns-lp .ns-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; margin-top: 18px; font-size: 13px; line-height: 1.3; }
+	.ns-lp .ns-meta__item { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; }
+	.ns-lp .ns-meta__names { color: var(--ns-ink); }
+
+	/* Logotipo de la fuente, en un solo tono (lib/logos.mjs del spray) */
+	.ns-lp .ns-source__brand { display: flex; align-items: center; }
+	.ns-lp .ns-source__logo { width: auto; height: 18px; color: var(--ns-ink); }
+	.ns-lp .ns-meta .ns-source__logo { height: 14px; }
+
+	/* ---------------------------------------------------------
+	   3. Texto corrido
+	   -----------------------------------------------------------
+	   El copy va en frases cortas, una por párrafo: el ritmo lo
+	   pone el margen, no la sangría.
+	   --------------------------------------------------------- */
+	.ns-lp .ns-p { margin-top: 16px; font-size: var(--ns-read); line-height: 1.62; }
+	/* La idea que cierra un tramo */
+	.ns-lp .ns-p.ns-p--key { margin-top: 24px; color: var(--ns-apple-deep); font-size: 22px; line-height: 1.32; letter-spacing: -0.4px; }
+
+	.ns-lp .ns-heading { margin-top: 46px; color: var(--ns-ink); font-size: 26px; line-height: 1.14; letter-spacing: -0.8px; }
+	.ns-lp .ns-heading em { font-style: normal; color: var(--ns-apple-deep); }
+	/* Capítulo del artículo (una ciudad, una pista): filete encima */
+	.ns-lp .ns-heading.ns-heading--chapter { margin-top: 40px; padding-top: 30px; border-top: 1px solid var(--ns-line); }
+	.ns-lp .ns-heading + .ns-p { margin-top: 14px; }
+
+	/* «Ejem… ejem»: la interjección de la escena */
+	.ns-lp .ns-shout { margin-top: 16px; color: var(--ns-apple-deep); font-size: 36px; line-height: 1.08; letter-spacing: -1.2px; }
+
+	.ns-lp .ns-pull { margin-top: 28px; padding: 2px 0 2px 18px; border-left: 3px solid var(--ns-apple); color: var(--ns-ink); font-size: 22px; line-height: 1.32; letter-spacing: -0.4px; }
+	.ns-lp .ns-pull + .ns-p { margin-top: 26px; }
+
+	/* Frases en cadena: se leen de un golpe; con --closing, la última cierra en verde */
+	.ns-lp .ns-beats { margin-top: 22px; }
+	.ns-lp .ns-beats__line { color: var(--ns-ink); font-size: 23px; line-height: 1.22; letter-spacing: -0.5px; }
+	.ns-lp .ns-beats__line + .ns-beats__line { margin-top: 6px; }
+	.ns-lp .ns-beats.ns-beats--closing .ns-beats__line:last-child { color: var(--ns-apple-deep); }
+
+	/* Palabras sueltas, seguidas en un mismo renglón */
+	.ns-lp .ns-run { display: flex; flex-wrap: wrap; gap: 2px 12px; margin-top: 20px; color: var(--ns-ink); font-size: 22px; line-height: 1.3; letter-spacing: -0.4px; }
+
+	/* Frases del copy una por línea, entre filetes */
+	.ns-lp .ns-rows { margin-top: 22px; border-bottom: 1px solid var(--ns-line); }
+	.ns-lp .ns-row { padding: 13px 0; border-top: 1px solid var(--ns-line); color: var(--ns-ink); font-size: 19px; line-height: 1.34; letter-spacing: -0.2px; }
+
+	/* La cifra del copy, delante del párrafo que la explica */
+	.ns-lp .ns-stat { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin-top: 24px; }
+	.ns-lp .ns-stat__value { color: var(--ns-apple-deep); font-size: 64px; line-height: 0.95; letter-spacing: -2.6px; }
+	.ns-lp .ns-stat__label { color: var(--ns-ink); font-size: 17px; line-height: 1.3; }
+
+	/* ---------------------------------------------------------
+	   4. Figuras: fotografía con pie
+	   --------------------------------------------------------- */
+	.ns-lp .ns-fig { margin-top: 28px; }
+	.ns-lp .ns-fig__cap { margin-top: 10px; font-size: 13px; line-height: 1.45; }
+	.ns-lp .ns-fig__note { color: var(--ns-apple-deep); }
+
+	.ns-lp .ns-photo__frame { overflow: hidden; border-radius: var(--ns-radius); box-shadow: var(--ns-shadow); }
+	.ns-lp .ns-photo__frame img { width: 100%; }
+
+	/* Placas de las landings: el negro pasa al verde hondo de la marca; el hueso sigue blanco */
+	.ns-lp .ns-photo__frame.ns-photo__frame--plate { background: var(--ns-apple-ink); box-shadow: var(--ns-shadow-lift); }
+	.ns-lp .ns-photo__frame.ns-photo__frame--plate img { mix-blend-mode: screen; }
+	.ns-lp .ns-photo__frame.ns-photo__frame--airway { aspect-ratio: 16 / 10; }
+	.ns-lp .ns-photo__frame.ns-photo__frame--airway img { height: 100%; object-fit: cover; object-position: 62% 46%; }
+
+	/* El frasco está nivelado a blanco puro: con multiply se funde con el halo del panel */
+	.ns-lp .ns-photo__frame.ns-photo__frame--still { position: relative; aspect-ratio: 5 / 4; background: radial-gradient(90% 80% at 50% 38%, var(--ns-white) 0%, var(--ns-apple-50) 58%, var(--ns-apple-100) 100%); box-shadow: inset 0 0 0 1px var(--ns-line); }
+	.ns-lp .ns-photo__frame.ns-photo__frame--still img { position: absolute; top: 0; left: 0; height: 100%; padding: 24px; object-fit: contain; mix-blend-mode: multiply; }
+
+	/* La ilustración trae su propio marco de color: se amplía hasta dejarlo fuera */
+	.ns-lp .ns-photo__frame.ns-photo__frame--sinus-art { aspect-ratio: 2 / 1; }
+	.ns-lp .ns-photo__frame.ns-photo__frame--sinus-art img { height: 100%; object-fit: cover; transform: scale(1.12); }
+
+	/* La foto que abre: a sangre en móvil. max-width por el max-width: 100% que
+	   GemPages pone a todo lo de sus filas (/AGENTS.md §4.14) */
+	.ns-lp .ns-photo.ns-photo--lead { max-width: none; margin: 22px calc(var(--ns-gutter) * -1) 0; }
+	.ns-lp .ns-photo.ns-photo--lead .ns-photo__frame { border-radius: 0; box-shadow: none; }
+	.ns-lp .ns-photo.ns-photo--lead .ns-photo__frame img { height: 100%; object-fit: cover; }
+	/* Casi cuadrada: se abre a 4:3 con la muestra en el centro */
+	.ns-lp .ns-photo.ns-photo--lead .ns-photo__frame.ns-photo__frame--scene-phlegm { aspect-ratio: 4 / 3; }
+	.ns-lp .ns-photo.ns-photo--lead .ns-photo__frame.ns-photo__frame--scene-phlegm img { object-position: 50% 72%; }
+	.ns-lp .ns-photo.ns-photo--lead .ns-fig__cap { padding: 0 var(--ns-gutter); }
+
+	/* La ruta nariz–garganta sobre la placa. El negro de la placa pasa al verde hondo
+	   de la marca; el hueso sigue blanco. El marco es 4:3 y la placa se ancla abajo:
+	   así el dibujo (viewBox 712 × 534, lib/art.mjs) cae sobre la anatomía. */
+	.ns-lp .ns-route__frame { position: relative; overflow: hidden; aspect-ratio: 4 / 3; border-radius: var(--ns-radius); background: var(--ns-apple-ink); box-shadow: var(--ns-shadow-lift); }
+	.ns-lp .ns-route__frame img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 100%; mix-blend-mode: screen; }
+	.ns-lp .ns-route__svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+	.ns-lp .ns-route__halo { fill: none; stroke: var(--ns-apple); stroke-width: 26; stroke-linecap: round; opacity: 0.22; }
+	.ns-lp .ns-route__lane { fill: none; stroke: var(--ns-apple-light); stroke-width: 6; stroke-linecap: round; stroke-dasharray: 2 16; }
+	.ns-lp .ns-route__dot { fill: var(--ns-white); stroke: var(--ns-apple); stroke-width: 5; }
+	.ns-lp .ns-route__drop { opacity: 0; transform: translate(572px, 226px); }
+	.ns-lp .ns-route__drop path { fill: var(--ns-apple-light); stroke: var(--ns-white); stroke-width: 3; }
+	.ns-lp .ns-route.is-live .ns-route__drop { animation: ns-route-drop 4.6s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
+	@keyframes ns-route-drop {
+		0% { opacity: 0; transform: translate(572px, 226px); }
+		8% { opacity: 1; }
+		24% { transform: translate(462px, 217px); }
+		44% { transform: translate(352px, 240px); }
+		60% { transform: translate(302px, 300px); }
+		76% { transform: translate(294px, 400px); }
+		90% { opacity: 1; transform: translate(292px, 452px); }
+		100% { opacity: 0; transform: translate(292px, 462px); }
+	}
+	/* Las paradas se anclan a los puntos del dibujo */
+	.ns-lp .ns-route__stops { position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
+	.ns-lp .ns-route__stop { position: absolute; padding: 5px 11px; border-radius: 999px; background: var(--ns-white); color: var(--ns-ink); font-size: 13px; line-height: 1.2; white-space: nowrap; }
+	.ns-lp .ns-route__stop.ns-route__stop--1 { top: 42.3%; left: 80.3%; transform: translate(-50%, -165%); }
+	.ns-lp .ns-route__stop.ns-route__stop--2 { top: 44.9%; left: 49.4%; transform: translate(-58%, -165%); }
+	.ns-lp .ns-route__stop.ns-route__stop--3 { top: 86.5%; left: 41%; transform: translate(18px, -50%); background: var(--ns-apple); color: var(--ns-apple-ink); }
+
+	/* ---------------------------------------------------------
+	   5. El término, con la fuente que lo explica
+	   --------------------------------------------------------- */
+	.ns-lp .ns-term { margin-top: 26px; padding: 20px; border-radius: var(--ns-radius); background: var(--ns-apple-50); box-shadow: inset 0 0 0 1px var(--ns-line); }
+	.ns-lp .ns-term__lead { font-size: 15px; line-height: 1.4; }
+	.ns-lp .ns-term__word { margin-top: 2px; color: var(--ns-apple-deep); font-size: 34px; line-height: 1.05; letter-spacing: -1.2px; }
+	.ns-lp .ns-term__word dfn { font-style: normal; }
+	.ns-lp .ns-term__source { display: grid; gap: 12px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--ns-apple-200); }
+	.ns-lp .ns-term__text { color: var(--ns-ink); font-size: 16px; line-height: 1.55; }
+
+	/* ---------------------------------------------------------
+	   6. El producto dentro del relato
+	   --------------------------------------------------------- */
+	/* El producto solo, junto al párrafo que lo presenta */
+	.ns-lp .ns-spot { margin-top: 24px; }
+	.ns-lp .ns-spot__formula { margin-top: 8px; color: var(--ns-apple-deep); font-size: 23px; line-height: 1.2; letter-spacing: -0.5px; }
+
+	.ns-lp .ns-plants { display: grid; gap: 10px; margin-top: 24px; }
+	.ns-lp .ns-plantcard { display: grid; grid-template-columns: 96px minmax(0, 1fr); align-items: center; gap: 14px; padding: 10px; border-radius: var(--ns-radius-sm); background: var(--ns-white); box-shadow: inset 0 0 0 1px var(--ns-line); }
+	.ns-lp .ns-plantcard__photo { display: block; overflow: hidden; aspect-ratio: 1 / 1; border-radius: 12px; }
+	.ns-lp .ns-plantcard__photo img { width: 100%; height: 100%; object-fit: cover; }
+	.ns-lp .ns-plantcard__body { display: grid; gap: 3px; }
+	.ns-lp .ns-plantcard__name { color: var(--ns-apple-deep); font-size: 12px; line-height: 1.3; letter-spacing: 1.2px; text-transform: uppercase; }
+	.ns-lp .ns-plantcard__text { color: var(--ns-ink); font-size: 16px; line-height: 1.4; }
+
+	/* Una persona real del pool, con su nombre: así se distingue de una imagen de referencia */
+	.ns-lp .ns-ugc { position: relative; display: block; overflow: hidden; border-radius: var(--ns-radius-sm); }
+	.ns-lp .ns-ugc img { width: 100%; height: 100%; object-fit: cover; }
+	.ns-lp .ns-ugc__name { position: absolute; bottom: 8px; left: 8px; padding: 4px 10px; border-radius: 999px; background: var(--ns-white); color: var(--ns-ink); font-size: 12px; line-height: 1.2; }
+	.ns-lp .ns-ugc.ns-ugc--portrait { aspect-ratio: 3 / 4; border-radius: var(--ns-radius); box-shadow: var(--ns-shadow); }
+	.ns-lp .ns-ugc.ns-ugc--portrait img { object-position: 50% 12%; }
+	/* Casi la foto entera: es el formato vertical del pool */
+	.ns-lp .ns-ugc.ns-ugc--step { aspect-ratio: 4 / 7; }
+	.ns-lp .ns-ugc.ns-ugc--review { aspect-ratio: 5 / 4; border-radius: 0; }
+	.ns-lp .ns-ugc.ns-ugc--review img { object-position: 50% 22%; }
+
+	/* Una persona real con el producto y, al lado, las frases del copy */
+	.ns-lp .ns-portrait { display: grid; grid-template-columns: minmax(0, 0.82fr) minmax(0, 1fr); align-items: center; gap: 18px; margin-top: 24px; }
+	.ns-lp .ns-portrait.ns-portrait--flip { grid-template-columns: minmax(0, 1fr) minmax(0, 0.82fr); }
+	.ns-lp .ns-portrait.ns-portrait--flip .ns-ugc { order: 1; }
+	.ns-lp .ns-portrait__body { display: grid; gap: 10px; }
+	.ns-lp .ns-portrait__line { font-size: 17px; line-height: 1.45; }
+	.ns-lp .ns-portrait__beat { color: var(--ns-apple-deep); font-size: 24px; line-height: 1.1; letter-spacing: -0.6px; }
+
+	/* CTA dentro del artículo, con su línea de confianza. La etiqueta del copy
+	   («Quiero pedir mi Spray Nasal de Nambu») es más larga que la de las landings:
+	   en móvil el botón va más ceñido para que quepa en una línea. */
+	.ns-lp .ns-article .ns-cta.ns-cta--block { gap: 7px; padding: 13px 12px 13px 10px; }
+	.ns-lp .ns-article .ns-cta.ns-cta--block .ns-cta__spray { width: 26px; height: 29px; }
+	.ns-lp .ns-article .ns-cta.ns-cta--block .ns-cta__label { font-size: 15.5px; letter-spacing: 0; white-space: nowrap; }
+	.ns-lp .ns-buy { margin-top: 30px; text-align: center; }
+	.ns-lp .ns-buy__note { margin-top: 10px; font-size: 13px; line-height: 1.4; }
+
+	/* Cómo se siente: la secuencia del copy, cada paso con una persona real */
+	.ns-lp .ns-seq { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 24px; }
+	.ns-lp .ns-seq__step { display: grid; align-content: start; gap: 8px; }
+	.ns-lp .ns-seq__text { color: var(--ns-ink); font-size: 15px; line-height: 1.25; }
+	.ns-lp.is-js .ns-seq .ns-seq__step { opacity: 0; transform: translateY(10px); transition: opacity 460ms ease, transform 460ms var(--ns-ease); }
+	.ns-lp.is-js .ns-seq.is-in .ns-seq__step { opacity: 1; transform: translateY(0); }
+	.ns-lp.is-js .ns-seq.is-in .ns-seq__step:nth-child(2) { transition-delay: 220ms; }
+	.ns-lp.is-js .ns-seq.is-in .ns-seq__step:nth-child(3) { transition-delay: 440ms; }
+
+	/* ---------------------------------------------------------
+	   7. Testimonios (carril con asomo) y cuándo consultar
+	   --------------------------------------------------------- */
+	.ns-lp .ns-reviews { margin-top: 46px; }
+	.ns-lp .ns-reviews__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+	.ns-lp .ns-reviews__track { display: flex; gap: 12px; margin: 14px calc(var(--ns-gutter) * -1) 0; padding: 4px var(--ns-gutter) 16px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: var(--ns-gutter); scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+	/* Sale a sangre por los dos lados: GemPages pone max-width: 100% a todo lo de sus filas (/AGENTS.md §4.14) */
+	.ns-lp .ns-reviews .ns-reviews__track { max-width: none; }
+	.ns-lp .ns-reviews__track::-webkit-scrollbar { display: none; }
+	/* La foto de quien firma abre la tarjeta */
+	.ns-lp .ns-review { display: flex; flex: 0 0 84%; flex-direction: column; scroll-snap-align: start; overflow: hidden; border-radius: var(--ns-radius); background: var(--ns-white); box-shadow: 0 0 0 1px var(--ns-line), var(--ns-shadow); }
+	.ns-lp .ns-review__quote { padding: 18px 18px 0; color: var(--ns-ink); font-size: 20px; line-height: 1.28; letter-spacing: -0.4px; }
+	.ns-lp .ns-review__text { padding: 12px 18px 20px; font-size: 15.5px; line-height: 1.58; }
+
+	.ns-lp .ns-caution { margin-top: 22px; padding: 18px 18px 18px 20px; border-left: 3px solid var(--ns-apple); border-radius: 0 var(--ns-radius-sm) var(--ns-radius-sm) 0; background: var(--ns-apple-50); }
+	.ns-lp .ns-caution__text { color: var(--ns-ink); font-size: 17px; line-height: 1.5; }
+	.ns-lp .ns-caution__text + .ns-caution__text { margin-top: 10px; }
+
+	/* ---------------------------------------------------------
+	   8. La oferta: una sola tarjeta, con todo lo que dice el copy
+	   --------------------------------------------------------- */
+	.ns-lp .ns-offer { margin-top: 24px; padding: 10px 10px 20px; border-radius: 28px; background: radial-gradient(120% 60% at 50% 0%, var(--ns-apple-100) 0%, var(--ns-apple-50) 48%, var(--ns-white) 100%); box-shadow: inset 0 0 0 1px var(--ns-line), var(--ns-shadow-lift); text-align: center; }
+	/* La foto va entera: no se recorta el frasco */
+	.ns-lp .ns-offer .ns-photo__frame { border-radius: 20px; box-shadow: none; }
+	.ns-lp .ns-offer .ns-photo__frame.ns-photo__frame--still { aspect-ratio: 16 / 10; background: none; }
+	.ns-lp .ns-offer .ns-photo__frame.ns-photo__frame--still img { padding: 14px; }
+	.ns-lp .ns-offer__body { padding: 18px 6px 0; }
+	.ns-lp .ns-offer__name { color: var(--ns-ink); font-size: 23px; line-height: 1.2; letter-spacing: -0.5px; }
+	.ns-lp .ns-offer__intro { font-size: 16px; line-height: 1.5; }
+	.ns-lp .ns-offer__formula { margin-top: 6px; color: var(--ns-apple-deep); font-size: 23px; line-height: 1.2; letter-spacing: -0.5px; }
+	.ns-lp .ns-offer__specs { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 16px; margin-top: 10px; color: var(--ns-ink); font-size: 16px; line-height: 1.4; }
+	.ns-lp .ns-offer__usage { margin-top: 8px; font-size: 16px; line-height: 1.5; }
+	.ns-lp .ns-offer__deal { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--ns-apple-200); }
+	.ns-lp .ns-offer__available { font-size: 14px; }
+	.ns-lp .ns-offer__price { margin-top: 2px; color: var(--ns-apple-deep); line-height: 1; }
+	.ns-lp .ns-offer__figure { font-size: 56px; letter-spacing: -2.2px; }
+	.ns-lp .ns-offer__currency { color: var(--ns-text); font-size: 14px; letter-spacing: 1.4px; }
+	.ns-lp .ns-offer__terms { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 14px 0 18px; }
+	.ns-lp .ns-offer__terms li { padding: 7px 14px; border-radius: 999px; background: var(--ns-white); box-shadow: inset 0 0 0 1px var(--ns-apple-200); color: var(--ns-ink); font-size: 14px; line-height: 1.3; }
+	.ns-lp .ns-offer__made { margin-top: 14px; font-size: 13px; }
+
+	/* ---------------------------------------------------------
+	   9. Pie: fuentes, aviso e Instagram
+	   --------------------------------------------------------- */
+	.ns-lp .ns-foot { margin-top: 44px; padding-top: 22px; border-top: 1px solid var(--ns-line); }
+	.ns-lp .ns-foot__sources { display: grid; gap: 10px; font-size: 13px; line-height: 1.55; }
+	.ns-lp .ns-follow { margin-top: 26px; padding: 12px; border-radius: var(--ns-radius); background: var(--ns-white); box-shadow: inset 0 0 0 1px var(--ns-line), var(--ns-shadow); text-align: center; }
+	.ns-lp .ns-follow img { width: 100%; border-radius: var(--ns-radius-sm); }
+	.ns-lp .ns-follow figcaption { margin-top: 10px; font-size: 13px; }
+
+	/* ---------------------------------------------------------
+	   10. Barra de compra
+	   -----------------------------------------------------------
+	   En móvil, fija abajo y con el área segura del iPhone
+	   (/AGENTS.md §4.11): sale cuando el artículo ya presentó el
+	   producto. En escritorio es la tarjeta del margen, siempre visible.
+	   --------------------------------------------------------- */
+	.ns-lp .ns-buybar {
+		position: fixed;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 40;
+		padding: 10px var(--ns-gutter) calc(10px + env(safe-area-inset-bottom));
+		background: rgba(255, 255, 255, 0.88);
+		box-shadow: 0 -1px 0 var(--ns-line), 0 -18px 34px -26px rgba(47, 125, 34, 0.5);
+		-webkit-backdrop-filter: blur(16px);
+		backdrop-filter: blur(16px);
+		visibility: hidden;
+		transform: translateY(110%);
+		transition: transform 320ms var(--ns-ease), visibility 0s linear 320ms;
+	}
+	.ns-lp .ns-buybar.is-on { visibility: visible; transform: translateY(0); transition-delay: 0s; }
+	.ns-lp .ns-buybar__shot, .ns-lp .ns-buybar__name, .ns-lp .ns-buybar__specs { display: none; }
+	.ns-lp .ns-buybar .ns-paymethods { display: none; }
+	.ns-lp .ns-buybar__row { display: flex; align-items: center; gap: 12px; max-width: var(--ns-col); margin: 0 auto; }
+	.ns-lp .ns-buybar__price { display: grid; flex: none; }
+	.ns-lp .ns-buybar__price strong { color: var(--ns-apple-deep); font-size: 21px; line-height: 1.1; letter-spacing: -0.5px; }
+	.ns-lp .ns-buybar__price span { font-size: 11px; line-height: 1.3; }
+	.ns-lp .ns-buybar .ns-cta { flex: 1; }
+
+	/* ---------------------------------------------------------
+	   11. Entradas: las figuras suben un punto al llegar
+	   --------------------------------------------------------- */
+	.ns-lp.is-js [data-ns-reveal] { opacity: 0; transform: translateY(14px); transition: opacity 520ms ease, transform 520ms var(--ns-ease); }
+	.ns-lp.is-js [data-ns-reveal].is-in { opacity: 1; transform: translateY(0); }
+
+	/* ---------------------------------------------------------
+	   12. Móviles estrechos (360 px, el Android más común en Colombia)
+	   --------------------------------------------------------- */
+	@media (max-width: 379px) {
+		.ns-lp.ns-adv { --ns-gutter: 16px; --ns-read: 17px; }
+		.ns-lp .ns-article__title { font-size: 27px; }
+		.ns-lp .ns-shout { font-size: 33px; }
+		.ns-lp .ns-beats__line { font-size: 21px; }
+		.ns-lp .ns-run { font-size: 20px; }
+		.ns-lp .ns-row { font-size: 18px; }
+		.ns-lp .ns-stat__value { font-size: 56px; }
+		.ns-lp .ns-portrait { gap: 14px; }
+		.ns-lp .ns-portrait__beat { font-size: 22px; }
+		.ns-lp .ns-seq__text { font-size: 14px; }
+		.ns-lp .ns-article .ns-cta.ns-cta--block { gap: 6px; padding-right: 10px; padding-left: 8px; }
+		.ns-lp .ns-article .ns-cta.ns-cta--block .ns-cta__label { font-size: 14.5px; }
+		.ns-lp .ns-offer__figure { font-size: 50px; }
+	}
+
+	/* ---------------------------------------------------------
+	   13. Tablet y escritorio
+	   --------------------------------------------------------- */
+	@media (min-width: 700px) {
+		.ns-lp.ns-adv { --ns-gutter: 28px; --ns-read: 19px; }
+		.ns-lp .ns-article__head { padding-top: 32px; }
+		.ns-lp .ns-kicker { padding-bottom: 18px; font-size: 12.5px; }
+		.ns-lp .ns-kicker .ns-kicker__logo { height: 20px; }
+		.ns-lp .ns-article__title { margin-top: 28px; font-size: 44px; line-height: 1.08; letter-spacing: -1.7px; }
+		.ns-lp .ns-article__dek { margin-top: 18px; font-size: 21px; }
+		.ns-lp .ns-meta { margin-top: 24px; font-size: 14px; }
+		.ns-lp .ns-p { margin-top: 18px; line-height: 1.68; }
+		.ns-lp .ns-p.ns-p--key { font-size: 27px; letter-spacing: -0.6px; }
+		.ns-lp .ns-heading { margin-top: 60px; font-size: 34px; letter-spacing: -1.2px; }
+		.ns-lp .ns-shout { font-size: 48px; letter-spacing: -1.8px; }
+		.ns-lp .ns-pull { margin-top: 34px; padding-left: 24px; font-size: 27px; letter-spacing: -0.6px; }
+		.ns-lp .ns-pull + .ns-p { margin-top: 32px; }
+		.ns-lp .ns-beats__line { font-size: 30px; letter-spacing: -0.9px; }
+		.ns-lp .ns-heading.ns-heading--chapter { margin-top: 52px; padding-top: 40px; }
+		.ns-lp .ns-run { gap: 2px 16px; font-size: 28px; letter-spacing: -0.8px; }
+		.ns-lp .ns-row { padding: 16px 0; font-size: 22px; }
+		.ns-lp .ns-stat { gap: 6px 18px; margin-top: 32px; }
+		.ns-lp .ns-stat__value { font-size: 96px; letter-spacing: -4.4px; }
+		.ns-lp .ns-stat__label { font-size: 21px; }
+		.ns-lp .ns-fig { margin-top: 36px; }
+		.ns-lp .ns-fig__cap { font-size: 14px; }
+		/* Con columna, la foto que abre deja de ir a sangre */
+		.ns-lp .ns-photo.ns-photo--lead { margin: 30px 0 0; }
+		.ns-lp .ns-photo.ns-photo--lead .ns-photo__frame { aspect-ratio: 3 / 2; border-radius: var(--ns-radius); box-shadow: var(--ns-shadow); }
+		.ns-lp .ns-photo.ns-photo--lead .ns-photo__frame.ns-photo__frame--scene-phlegm { aspect-ratio: 3 / 2; }
+		.ns-lp .ns-photo.ns-photo--lead .ns-photo__frame.ns-photo__frame--scene-phlegm img { object-position: 50% 66%; }
+		/* La placa trae rótulos hasta los bordes: va entera, sin recorte */
+		.ns-lp .ns-photo.ns-photo--lead .ns-photo__frame.ns-photo__frame--sinus-xray { aspect-ratio: auto; }
+		/* Las fotos cuadradas se abren a 3:2: el encuadre sigue la cara */
+		.ns-lp .ns-photo.ns-photo--lead .ns-photo__frame.ns-photo__frame--scene-balcony img { object-position: 50% 16%; }
+		.ns-lp .ns-photo.ns-photo--lead .ns-photo__frame.ns-photo__frame--lungs img { object-position: 50% 34%; }
+		/* Igual dentro del texto: una foto cuadrada a toda la columna sale demasiado alta */
+		.ns-lp .ns-photo__frame.ns-photo__frame--scene-valley, .ns-lp .ns-photo__frame.ns-photo__frame--scene-consult { aspect-ratio: 3 / 2; }
+		.ns-lp .ns-photo__frame.ns-photo__frame--scene-valley img { height: 100%; object-fit: cover; object-position: 50% 18%; }
+		.ns-lp .ns-photo__frame.ns-photo__frame--scene-consult img { height: 100%; object-fit: cover; object-position: 50% 30%; }
+		.ns-lp .ns-photo.ns-photo--lead .ns-fig__cap { padding: 0; }
+		.ns-lp .ns-route__stop { padding: 7px 14px; font-size: 15px; }
+		.ns-lp .ns-term { padding: 28px; }
+		.ns-lp .ns-term__word { font-size: 46px; letter-spacing: -1.8px; }
+		.ns-lp .ns-term__text { font-size: 18px; }
+		.ns-lp .ns-spot { display: grid; grid-template-columns: 300px minmax(0, 1fr); align-items: center; gap: 32px; margin-top: 32px; }
+		.ns-lp .ns-spot .ns-photo__frame.ns-photo__frame--still { aspect-ratio: 1 / 1; }
+		.ns-lp .ns-spot .ns-p { margin-top: 0; }
+		.ns-lp .ns-spot__formula { margin-top: 12px; font-size: 30px; letter-spacing: -0.8px; }
+		.ns-lp .ns-plants { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 32px; }
+		.ns-lp .ns-plantcard { grid-template-columns: minmax(0, 1fr); align-content: start; gap: 12px; padding: 12px 12px 16px; }
+		.ns-lp .ns-plantcard__photo { aspect-ratio: 4 / 3; }
+		.ns-lp .ns-ugc__name { bottom: 12px; left: 12px; padding: 5px 12px; font-size: 13px; }
+		.ns-lp .ns-portrait { grid-template-columns: 290px minmax(0, 1fr); gap: 40px; margin-top: 32px; }
+		.ns-lp .ns-portrait.ns-portrait--flip { grid-template-columns: minmax(0, 1fr) 290px; }
+		.ns-lp .ns-portrait__body { gap: 14px; }
+		.ns-lp .ns-portrait__line { font-size: 21px; }
+		.ns-lp .ns-portrait__beat { font-size: 40px; letter-spacing: -1.4px; }
+		.ns-lp .ns-seq { gap: 14px; margin-top: 32px; }
+		.ns-lp .ns-seq__step { gap: 12px; }
+		.ns-lp .ns-seq__text { font-size: 19px; letter-spacing: -0.3px; }
+		.ns-lp .ns-review { flex-basis: 56%; }
+		.ns-lp .ns-review__quote { padding: 24px 24px 0; font-size: 23px; }
+		.ns-lp .ns-review__text { padding: 14px 24px 26px; font-size: 16.5px; }
+		.ns-lp .ns-caution { padding: 24px 24px 24px 26px; }
+		.ns-lp .ns-caution__text { font-size: 19px; }
+		/* La foto a un lado y los datos al otro; el CTA cierra a todo el ancho */
+		.ns-lp .ns-offer { display: grid; grid-template-columns: 280px minmax(0, 1fr); align-items: center; gap: 0 28px; padding: 14px 14px 28px; text-align: left; }
+		.ns-lp .ns-offer__body { padding: 0 14px 0 0; }
+		.ns-lp .ns-offer .ns-photo__frame.ns-photo__frame--still { aspect-ratio: 1 / 1; }
+		.ns-lp .ns-offer__name { font-size: 27px; letter-spacing: -0.7px; }
+		.ns-lp .ns-offer__specs { justify-content: flex-start; font-size: 17px; }
+		.ns-lp .ns-offer__intro, .ns-lp .ns-offer__usage { font-size: 17px; }
+		.ns-lp .ns-offer__formula { font-size: 27px; letter-spacing: -0.7px; }
+		.ns-lp .ns-offer__figure { font-size: 64px; letter-spacing: -2.8px; }
+		.ns-lp .ns-offer__terms { justify-content: flex-start; margin-bottom: 0; }
+		.ns-lp .ns-offer__foot { grid-column: 1 / -1; margin-top: 26px; text-align: center; }
+		.ns-lp .ns-article .ns-cta.ns-cta--block { display: inline-flex; width: auto; min-width: 400px; margin: 0; gap: 10px; padding: 16px 30px 16px 22px; }
+		.ns-lp .ns-article .ns-cta.ns-cta--block .ns-cta__spray { width: 30px; height: 33px; }
+		.ns-lp .ns-article .ns-cta.ns-cta--block .ns-cta__label { font-size: 18px; }
+		.ns-lp .ns-foot__sources { font-size: 14px; }
+	}
+
+	/* Con sitio para el margen: columna de lectura y tarjeta de compra pegada */
+	@media (min-width: 1140px) {
+		.ns-lp .ns-layout { display: grid; grid-template-columns: minmax(0, var(--ns-col)) var(--ns-rail); align-items: start; justify-content: center; gap: 0 72px; max-width: none; padding-bottom: 96px; }
+		.ns-lp .ns-buybar {
+			position: sticky;
+			top: 32px;
+			right: auto;
+			bottom: auto;
+			left: auto;
+			z-index: 1;
+			margin-top: 32px;
+			padding: 26px 22px 22px;
+			border-radius: 28px;
+			background: radial-gradient(120% 60% at 50% 0%, var(--ns-apple-100) 0%, var(--ns-apple-50) 48%, var(--ns-white) 100%);
+			box-shadow: inset 0 0 0 1px var(--ns-line), var(--ns-shadow-lift);
+			-webkit-backdrop-filter: none;
+			backdrop-filter: none;
+			visibility: visible;
+			transform: none;
+			transition: none;
+			text-align: center;
+		}
+		/* En el margen está siempre: es la columna lateral del artículo, también sin JS */
+		.ns-lp .ns-buybar.is-on { transform: none; }
+		/* El frasco está nivelado a blanco puro: con multiply se funde con el halo */
+		.ns-lp .ns-buybar__shot { display: block; width: 96px; margin: 0 auto; }
+		.ns-lp .ns-buybar__shot img { width: 100%; mix-blend-mode: multiply; }
+		.ns-lp .ns-buybar__name { display: block; margin-top: 10px; color: var(--ns-ink); font-size: 21px; line-height: 1.2; letter-spacing: -0.5px; }
+		.ns-lp .ns-buybar__specs { display: block; margin-top: 4px; font-size: 13px; line-height: 1.4; }
+		.ns-lp .ns-buybar .ns-paymethods { display: flex; }
+		.ns-lp .ns-buybar__row { flex-direction: column; align-items: stretch; gap: 14px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--ns-apple-200); }
+		.ns-lp .ns-buybar__price { justify-items: center; gap: 4px; }
+		.ns-lp .ns-buybar__price strong { font-size: 44px; line-height: 1; letter-spacing: -1.8px; }
+		.ns-lp .ns-buybar__price span { font-size: 13px; }
+	}
+
+	/* ---------------------------------------------------------
+	   14. Movimiento reducido: todo quieto, nada se pierde
+	   --------------------------------------------------------- */
+	@media (prefers-reduced-motion: reduce) {
+		.ns-lp.is-js [data-ns-reveal] { opacity: 1; transform: none; }
+		.ns-lp .ns-route .ns-route__drop { opacity: 1; transform: translate(302px, 300px); }
+		.ns-lp.is-js .ns-seq .ns-seq__step { opacity: 1; transform: none; }
+	}

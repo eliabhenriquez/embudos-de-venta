@@ -43,6 +43,8 @@ D.C. Ficha completa (ingredientes, tabla oficial por 100 ml y 120 ml): `/eterma/
 |---|---|---|
 | [`olor/`](olor/) | "Que el olor no decida qué tan cerca te pones": aliento, sudor, gases, olor corporal que reaparece | **Construida y verificada en local, sin publicar** — [`olor/september.html`](olor/september.html) |
 | [`hidratacion/`](hidratacion/) | "Que el calor no te lleve al límite": El Niño 2026-2027, calor extremo, pérdida de agua y sales; clorofila + vitaminas + minerales en 30 ml | **Construida y verificada en local (2026-09-08), sin publicar** — [`hidratacion/september.html`](hidratacion/september.html). Decisiones en §10 |
+| [`remarketing/`](remarketing/) | "Que el olor deje de frenarte. Ahora te cuesta $10.000 menos empezar.": para quien vio la landing principal y no compró; **la objeción que se ataca es el precio** ($69.900 / $59.900) | **Construida y verificada en local (2026-09-17), sin publicar** — [`remarketing/september.html`](remarketing/september.html). **Falta el producto en Shopify a ese precio** (§11) |
+| [`detox/`](detox/) | "Limpia por dentro. Empieza por el intestino.": detox digestivo; seis motivos (ciudad, polen, olor, panza inflada, colon lento, dejar el cigarrillo) y una sola ruta; clorofila + pectina + polidextrosa | **Construida y verificada en local (2026-10-09), sin publicar** — [`detox/september.html`](detox/september.html). Piel propia, «la frontera» (§12). **Manda el contraentrega.** Falta subir `detox-hero-2` |
 
 Ángulo **unisex**: público mixto, testimonios de hombres y mujeres. El copy de este ángulo es
 [`olor/copy-olor.md`](olor/copy-olor.md) y **manda** sobre la web de la marca y sobre la etiqueta.
@@ -668,3 +670,472 @@ producto del app embed (`#rsi-cod-form-product-cache`) sale `null` sin `product`
 Verificado en vivo inyectando esa misma función: las tres ofertas salen idénticas a las de la ficha.
 Detalle en `docs/releasit-form-styling.md` §4.4. **Si cambia el producto de la landing, cambiar
 `PRODUCT_HANDLE`**: ahora también decide qué ofertas enseña Releasit.
+
+---
+
+## 11. Remarketing · la bajada de precio (2026-09-17)
+
+La ve **quien pasó por la landing principal y no compró**. De sus objeciones, la que se ataca es el
+precio: el producto baja $10.000 y eso manda desde el hero y a lo largo de toda la página. Copy:
+[`remarketing/copy landing remarketing - Clorofull.txt`](remarketing/copy%20landing%20remarketing%20-%20Clorofull.txt),
+**manda sobre todo**. Fragmento: [`remarketing/september.html`](remarketing/september.html).
+
+| | Contraentrega | Anticipado |
+|---|---|---|
+| Remarketing | **$69.900** (antes $79.900) | $59.900 (ahorras $10.000 extra) |
+| Olor e hidratación | $79.900 | $69.900 |
+
+**Aquí manda el contraentrega, no el anticipado** (corrección del cliente, 2026-09-17): «lo importante
+es resaltar el precio de 69.900, este producto originalmente vale 79.900, la rebaja del precio es a
+69.900… el foco principal es el precio contra entrega que ya tiene una rebaja de 10 mil». Es la
+**excepción** a la regla de marca de resaltar siempre el anticipado. El anticipado sigue visible en
+todas partes, pero como **descuento extra**, en segundo plano.
+
+**El tachado de $79.900 es un precio real**, no un «antes» inventado (`/eterma/AGENTS.md` §1): es lo que
+cuesta hoy en la tienda y en la landing principal, y lo confirmó el cliente.
+
+### ⚠️ Antes de publicar: el producto no existe a ese precio
+
+Releasit cobra **el precio del producto de Shopify**, no el que pinta la landing. Leído
+`/products.json` el 2026-09-17: los cinco Clorofull (`clorofull™`, `clorofull-1`, `clorofull`,
+`clorofull-2`, `clorofull-mal-olor`) están a **$79.900**. Con cualquiera de ellos el formulario abriría
+$20.000 por encima de lo que promete la página. Hace falta **un producto propio de este embudo a
+$69.900**, con el ahorro del pago anticipado configurado en Releasit a **$10.000** (hoy la app ofrece
+$5.000, `/eterma/AGENTS.md` §5) y sus ofertas de cantidad revisadas. `PRODUCT_HANDLE =
+'clorofull-remarketing'` es **provisional**: poner el handle real al crearlo.
+
+### Otra piel, a propósito
+
+Decisión del cliente: **no puede parecerse a olor ni a hidratación**. Las dos comparten franja verde con
+marquesina, logo centrado sobre blanco, foto a sangre, titular con cursiva, rejilla de dos precios y CTA
+verde profundo. Esta va con la línea **«Eterma viva»** de los kits (`/eterma/AGENTS.md` §2): Fraunces,
+papel cálido, **sin cabecera** (la firma va dentro del boleto del hero y el wordmark gigante en el pie), CTA lima tipo
+pegatina y **menta** como color de Clorofull. Prefijo **`cr-`**, raíz `#cr-clorofull-remarketing`.
+
+### Motivo: «la bajada»
+
+- **El precio va en un boleto.** Parte de arriba en verde profundo con el **contraentrega**: «Pago contra
+  entrega», **$79.900 tachado con la etiqueta «$10.000 menos» al lado** (antes → rebaja → ahora, en una
+  fila) y **$69.900** en grande. Debajo, un **troquel** con agujeros y una muesca a cada lado (toman el
+  color del fondo con `--cr-notch`, que fija cada sección) y el talón claro: en el hero, el anticipado
+  como extra («Pago anticipado $59.900 COP · Ahorras $10.000 COP pagando anticipado.»); en la oferta y
+  el cierre, el CTA del contraentrega. Con `--bottle` (solo en el cierre) **la botella recortada se
+  apoya en el troquel**, con un halo menta detrás.
+- **La firma va en el boleto del hero** (`--brand`, pedido del cliente el 2026-09-17): Eterma sobre el
+  chip «Clorofull», **arriba a la derecha**, a la altura de la etiqueta y del precio tachado. Van
+  **apiladas** porque en la fila de la etiqueta no caben (172 + 165 px contra 314 a 390). Rejilla
+  `'label brand' 'was brand' 'price price'`: el precio sigue usando todo el ancho. El wordmark va en
+  papel con la hoja menta y el chip en menta translúcida (`--cr-glow`), para no competir con la
+  etiqueta «$10.000 menos», que es menta sólida.
+- **El primer dígito rueda de 7 a 6**: de $79.900 a $69.900, que es lo único que cambia entre las dos
+  cifras. Es una ventana de una línea con una tira `6 / 7` dentro: arranca enseñando el 7, espera
+  0,6 s, baja en 1,1 s con aceleración y frenada, y rebota al asentarse. Después aparece la etiqueta
+  «$10.000 menos». Solo `transform` y `opacity`. Pasa **una vez por boleto**, al verse al 60 %
+  (`initDrops`): en el hero, en la oferta y en el cierre. **Sin JS o con movimiento reducido no se arma
+  y se ve el precio final.** El precio real va en un `<span>` oculto para lectores de pantalla («Antes:
+  $79.900», «Ahora: $69.900 COP»); la cifra animada es `aria-hidden`.
+- **El anticipado es la tarjeta blanca** (`.cr-plan`) en la oferta y el cierre: $59.900 en Fraunces más
+  pequeño que el del boleto, etiqueta menta «Ahorras $10.000…», su CTA lima y Visa, Mastercard y PSE.
+  Los dos CTA son lima: los dos son compra; la jerarquía la pone el boleto, no el botón.
+- **El rotulador de menta** (`.cr-mark`) subraya «$10.000 menos» en el hero y en la oferta. En el cierre
+  el titular del copy dice «Empieza hoy por $59.900» y se deja **sin** rotulador: el protagonista es
+  $69.900. Va con `white-space: nowrap`: en escritorio «$10.000 / menos» se partía entre líneas.
+- **El CTA es «la etiqueta»**: píldora lima con una etiqueta de precio colgada de su hilo que se mece
+  (`rotate` desde el hilo); al pasar el dedo, el lima vivo **baja desde arriba**, como el precio. El
+  agujero de la etiqueta se hace con `fill-rule: evenodd` y deja ver el lima: `var()` no vale en un
+  atributo SVG. La primera versión, estrecha y alta, se leía como una botellita. `.cr-cta--ghost` (borde
+  y sin lima) queda definido pero hoy no lo usa ningún botón.
+
+### Piezas (ninguna repite las de olor, hidratación ni los kits)
+
+| Sección | Mecanismo |
+|---|---|
+| Barra | **Tres avisos que se turnan** (suben, se quedan y se van, 12 s por vuelta), con **festón de cupón** abajo. 30 px de alto: el cliente la quería más baja. Sin JS se queda el primero; con movimiento reducido se apilan los tres |
+| Prueba social | **Historias**, como en Instagram, que es de donde llega este tráfico: foto 4:5 que avanza sola cuando se llena su barra (4,5 s, `--cr-story-time`, el único sitio donde vive el tiempo), se pausa fuera de pantalla y mientras se toca, y sigue al dedo y a las flechas. Barras en banda propia arriba, nombre y flechas en banda propia abajo: **nada sobre la foto** |
+| Identificación | **Cuatro escenas que se apilan** al bajar (`position: sticky` con `top` creciente de 14 en 14 px): cada una tapa la anterior y deja asomar su franja. Sin JS. En escritorio, rejilla 2 × 2 |
+| Producto | **La toma en foto real** (Ana sirviendo su medida en el vasito) con los tres datos apilados al lado, y debajo el **calendario de 33 vasitos** (11 × 3), que se llenan columna a columna al entrar en pantalla: lo que da de sí una botella |
+| Uso | Foto del vertido en **arco** y «30 ml» a 58–72 px; las tres formas de tomarlo en fichas |
+| Objeciones | **La respuesta en grande** («33 días.», «No.»): se lee sin leer la pregunta. La del vaso medidor lleva **la foto del vasito servido en la mano**, en círculo |
+| Confianza | **La ficha**: los datos del fabricante con filetes gruesos y finos, como la tabla de un envase, junto a **la botella con sus ingredientes señalados** (segunda foto del hero de olor) |
+| Oferta | **La botella en la mano con «1 litro · 33 días completos»** (tercera foto del hero de olor, recortada) entre el titular y los precios: el valor, justo cuando se decide. Después, el boleto del contraentrega (con «Pagas cuando recibes tu pedido.» y su CTA) y la tarjeta blanca del anticipado con su CTA y los medios de pago |
+| Qué recibes | **Lista de empaque**: cada renglón se marca uno tras otro, papel con el borde en dientes |
+| Garantía | El único bloque en verde profundo: **la ruta del pedido**, tres pasos unidos por un camino |
+| Cierre | **Valentina sirviendo en el vasito**, bajo el titular; el boleto del contraentrega otra vez, con la botella (el dígito vuelve a bajar), y debajo la tarjeta del anticipado |
+
+- **Forma de pago.** Los CTA del copy que eligen pago llevan `data-cr-pay-choice="prepaid|cod"` y lo
+  escriben en `<html data-cf-pay>` para la skin de Releasit; **los genéricos lo borran**, para no
+  arrastrar una elección vieja si se cierra el formulario y se vuelve a abrir desde el hero.
+- Sticky: **`$69.900`** y «~~$79.900~~ · pagas al recibir», sale con medio scroll
+  (`STICKY_REVEAL_MARGIN`) y se esconde en el cierre, el Instagram y el pie.
+- El CTA del producto («Quiero empezar por $59.900») lleva `data-cr-pay-choice="prepaid"`: su texto es
+  el precio anticipado, así que el formulario abre resaltando esa opción.
+- Medios de pago (ficheros `landings-shared-*`) en la oferta, el cierre y el pie; **nunca en el hero**.
+  Instagram (`landings-shared-instagram.webp`) antes del pie, enmarcado en menta y sin enlace.
+
+### Copy: qué no es literal
+
+- **La barra** va en frase («Clorofull · $10.000 menos con pago anticipado») y no en versales, como
+  todos los titulares de la marca; su segunda línea se parte en dos avisos («1 litro para 33 días · Vaso
+  medidor de regalo» y «Hecho en Colombia») porque entera no cabe en una línea a 360 px.
+- **«CLOROFULL» del hero** es el chip bajo la firma de Eterma, dentro del boleto; el del cierre, la versalita encima
+  del titular.
+- **El $79.900 tachado y la etiqueta «$10.000 menos» del boleto no vienen en el copy**: salen de la
+  corrección del cliente (el precio original es $79.900 y la rebaja es a $69.900). «$10.000 menos» es la
+  frase del propio titular del copy.
+- **En la oferta y el cierre el contraentrega va primero**, aunque el copy da antes el anticipado y
+  llama «principal» a su CTA: manda el foco que pidió el cliente. Los textos de los CTA son los del copy.
+- El párrafo del producto y los datos («1 litro para 33 días»…) bajan bajo el CTA en móvil y en
+  escritorio, para que el boleto quede arriba.
+- **Dirección: `Carrera 59 # 5B-31`**, la de la etiqueta; el copy escribe «#5-B31».
+- El titular del Instagram («Hay una marca detrás de tu Clorofull. Y está en Instagram.»), el registro
+  **INVIMA RSA-0029174-2023** del pie y su aviso legal (el de olor) **no vienen en este copy**: son los
+  de la marca. En «Confianza» el copy dice «registro sanitario aplicable» y así se deja.
+
+### Imágenes
+
+**Nada que subir**: todo sale de lo que ya está en el CDN (`check-cdn.sh` en ok el 2026-09-17, incluidos
+los cuatro `landings-shared-*`). **El hero lleva la foto principal de olor** (`landings-clorofull-hero-1`,
+la mujer que toma su medida del vasito junto a la botella; pedido del cliente), enmarcada, sin nada
+encima y **entera en todos los anchos** (1200:1141). La botella va de arriba abajo del encuadre y
+cualquier recorte la corta: el 16:9 que llevaba en móvil lo rechazó el cliente («el producto se corta y
+eso no está bien, se ve mal», 2026-09-17). **No volver a recortarla.** Para hacerle sitio, la firma pasó
+al boleto, la barra bajó a 30 px y se redujeron el titular (34 px; 31 por debajo de 381; 50 en
+escritorio), la bajada (19 px, en una línea desde unos 382 px de ancho) y los márgenes. En tablet
+(640–899) el hero va en una columna de 600 px: a todo el ancho la foto pasaba de 800 px de alto y el
+CTA se iba lejos. Además, botella
+recortada (`bottle`, solo en el cierre), vertido (`pour`), botella con el vaso (`producto-vasito`) y
+cuatro personas del pool en las historias: **Ana (tomando del vasito, abre), Joselin, Camilo y Víctor**.
+**Natalia no se usa aquí**: su foto está girada 90° de origen y como primera historia salía tumbada.
+
+**Producto + vasito en foto real, en tres puntos más** (pedido del cliente, 2026-09-17: «le hacen falta
+imágenes del producto + vasito como de UGC»). Una foto distinta en cada sitio, sin repetir la del hero:
+
+| Dónde | Foto | Fichero |
+|---|---|---|
+| Producto («Una toma diaria») | Ana sirve su medida de la botella al vasito | `landings-clorofull-ugc-ana-vasito.webp` · nuevo, **ya subido** (`check-cdn.sh` en ok) |
+| Objeciones («¿Cómo sé cuánto servir?») | El vasito servido, en la mano | `landings-kit-dia-liviano-vasito-clorofull.webp` · ya en el CDN (lo publicó Día Liviano; `check-cdn.sh` avisa de que no está en esta carpeta, y es correcto) |
+| Cierre | Valentina sirve en el vasito | `landings-clorofull-ugc-valentina-vasito.webp` · ya en el CDN |
+
+- `ugc-ana-vasito` sale de `humanized-images/clorofull/ana 2.png` (718 × 1256), **recortada a 4:5 sin
+  ampliar** (718 × 898, desde y = 110 para que entren cara, botella y vasito), `-strip`, q84 · 30 KB.
+- **Ana 1 no vale para el cierre**: de la botella solo asoma el tapón. **`calor-hero` tampoco**: es la
+  misma modelo que la foto del hero.
+- El nombre de quien sale va **en banda propia bajo la foto** (`.cr-who`), nunca encima.
+
+**La segunda y la tercera foto del hero de olor**, también a petición del cliente («creo que son buenas
+imágenes que pueden ayudar»). Las dos ya estaban en el CDN:
+
+| Dónde | Foto | Por qué ahí |
+|---|---|---|
+| Confianza, junto a la ficha | `hero-2`: la botella con clorofila, estevia, vitamina C, zinc y selenio señalados (los cinco están en la etiqueta) | «Saber qué compras» es qué lleva dentro además de quién lo hace |
+| Oferta, entre el titular y los precios | `hero-3`: la botella en la mano con «1 litro» y «33 días completos» | El valor de la botella justo donde se decide el precio |
+
+⚠️ **`hero-3` va recortada a propósito.** Su tercer dato dice **«30 mil al día» junto a un icono de
+moneda**. Es casi seguro que quería decir 30 ml, pero en una landing cuyo argumento es el precio se lee
+como «$30.000 al día» (el día real sale por unos $2.100). `.cr-offer__photo` la sirve a **16:10 anclada
+arriba**: se ven los 750 px superiores de los 1200 y el dato empieza hacia los 830. Medido a 320, 360,
+390, 640, 899, 900 y 1280: siempre 16:10 y 750 px. **No cambiar la proporción ni el anclaje** sin mirar el
+recorte; si se quiere la foto entera, pedir al cliente la versión corregida («30 ml al día», con el icono
+del vaso). La landing de olor la publica entera: allí el precio no es el tema, pero conviene corregirla
+también.
+
+### Medidas (vista previa local, 2026-09-17)
+
+Con la foto del hero entera y la firma dentro del boleto:
+
+| Ancho | Boleto | CTA del hero | Sticky | Alto de página | Desborde |
+|---|---|---|---|---|---|
+| 360×740 | 456–667 | **679–737**, entero en la primera pantalla | 460 px | 12 186 px | ninguno |
+| 375×667 | 470–681 | 693–751: **fuera**; el sticky sale desde el principio | desde 0 | 12 208 px | ninguno |
+| 390×844 | 505–741 | **753–811**, y la nota de entrega hasta 844 | 480 px | 12 304 px | ninguno |
+| 412×915 | 526–762 | 774–832 | 480 px | 12 220 px | ninguno |
+| 768×1024 | 651–887 | 899–957 | 560 px | 12 986 px | ninguno |
+| 1280×900 | 237–517 | 539–597 | — | 10 342 px | ninguno |
+
+A 375×667 (iPhone SE) el CTA del hero ya no entra: la foto entera no deja sitio. Se ve el precio del
+contraentrega y el sticky trae precio y CTA desde el primer momento.
+
+Los altos incluyen las cinco fotos añadidas después (las tres de producto + vasito y las dos del hero de
+olor). Sin desbordes de 320 a 1280.
+
+- **El precio nunca toca la botella** (boleto del cierre): 15 px de holgura a 360, 20 a 390, 60 a
+  1280, 3 a 320. El «COP» se queda en la línea del precio de 340 a 1280 en los tres boletos; a 320 baja
+  de línea en vez de desbordar (`flex-wrap`). El precio va a 56 px en móvil (52 por debajo de 381; 50
+  con botella, 44 con botella por debajo de 381) y a 72 en escritorio.
+- **A ≤380 se recorta aire del hero** (márgenes, relleno del boleto, titular a 31 px, bajada a 17 px en
+  una línea y precio tachado a 18 px con menos hueco, para que quepa junto a la firma) para que el CTA
+  entre a 360 × 740. A 320 la etiqueta baja a 1 px de espaciado para seguir en una línea junto a la
+  firma; el precio tachado y su rebaja sí bajan a dos líneas; **a ≤340** el texto de los CTA baja a 15 px: «Quiero Clorofull por $59.900» desbordaba
+  la tarjeta del anticipado a 320.
+- `check-css-merge.mjs`: **sin cambios** a 390, 768 y 1280 (405 reglas, 24 fusiones simuladas).
+  **Ojo:** a 1280 puede marcar, de vez en cuando y **también en el control `--no-merge`**,
+  `.cr-close__layout margin-left/right: 0px → 80px`. No es la fusión: Chrome devuelve en esas pasadas el
+  valor computado del `auto` en vez del usado. La caja está en x = 80 en todas las pasadas
+  (`getBoundingClientRect`). Se repite y sale limpio.
+- **Las tres pestañas** (`./split-tabs.sh`, CSS −26 %, JS −28 %) montadas de nuevo dan una página
+  **idéntica píxel a píxel** a la del fragmento a 360, 390, 768 y 1280, y conservan las historias, la bajada, el
+  sticky y la elección de pago.
+- Comprobado sin JS (primer aviso de la barra, precio final, historias deslizables sin barras ni
+  flechas, sticky fuera) y con movimiento reducido (nada se mueve; los tres avisos apilados, 79 px).
+  Esa prueba destapó que el calendario seguía animándose con movimiento reducido: su regla ganaba por
+  especificidad a la que apaga los revelados. Corregido.
+- El apilado de las escenas **no se ve en una captura de página completa** (`captureBeyondViewport`
+  descoloca lo `sticky`): se comprobó midiendo las tarjetas al hacer scroll (20 / 34 / 48 px) y con
+  capturas solo del viewport.
+
+### Pendientes
+
+1. **Crear el producto a $69.900** en Shopify, con el ahorro anticipado de $10.000 en Releasit, y poner
+   su handle en `PRODUCT_HANDLE` y en el Product Element (§11, arriba).
+2. Pedir al cliente la **versión corregida de `hero-3`** («30 ml al día»): hasta entonces va recortada.
+3. Pegar en GemPages **en sus tres pestañas** y, detrás del CSS, `/eterma/shared/releasit-form.css`.
+4. Medir en vivo el `font-size` raíz y probar el formulario con el producto nuevo.
+5. **No publicar sin pedirlo el cliente.**
+
+---
+
+## 12. Detox digestivo · «la frontera» (2026-10-09)
+
+Copy: [`detox/copy_landing_detox_clorofull.txt`](detox/copy_landing_detox_clorofull.txt), **manda sobre
+todo**. Fragmento: [`detox/september.html`](detox/september.html). Prefijo **`cd-`**, raíz
+`#cd-clorofull-detox`. Mismo producto y mismos precios que olor e hidratación (**$79.900 contraentrega /
+$69.900 anticipado**, ahorras $10.000), sin pack ×2, sin order bump ni upsell (no hay copy).
+
+**Aquí manda el contraentrega** (corrección del cliente, 2026-10-09): «el precio de anticipado no se debe
+resaltar, el contraentrega es el precio primario». La primera versión salió con el anticipado delante,
+por la regla de marca, y se rehízo. **$79.900 es la cifra grande** en el hero, el sticky, la oferta y el
+cierre; el anticipado va al lado o debajo, visible, **sin tachar nada y sin lima ni verde profundo**. Es
+lo que dice el propio copy, que abre con «Precio: $79.900» y da el anticipado como frase aparte. Con
+remarketing y Nambu ya son tres: **si el copy abre con el contraentrega, manda el contraentrega.**
+
+### Otra piel, a propósito
+
+Pedido del cliente: «quiero que seas creativo y uses una nueva línea visual, diferente a los ángulos ya
+existentes de este producto». Es la **cuarta piel** de Clorofull. Lo que la separa de las otras tres:
+
+| | Olor / hidratación | Remarketing | **Detox** |
+|---|---|---|---|
+| Arranque | Franja verde + logo centrado | Barra de avisos que se turnan | **Sin barra ni cabecera**: firma pequeña a la izquierda, dentro del hero |
+| Color | Hueso, gris frío, verde profundo | Papel cálido, crema, menta | **Dos tonos con significado**: crema es lo que entra, menta es lo que sale |
+| Superficies | Filetes, radios 10–14 | Boleto con troquel, tarjetas de 22 px, sombra sólida | **Lámina y filete, radio 8**; solo el CTA es píldora |
+| Hilo | El momento del día / el sol | La bajada del precio | **La ruta**: seis hebras que se juntan en una y entran en el bloque verde |
+| CTA | La medida (el vasito se llena) | La etiqueta que se mece | **El paso**: un punto cruza la frontera |
+
+**El motivo sale del copy, no de un adorno.** «Seis motivos. Una sola ruta.» y «El intestino decide qué
+se absorbe y qué sale. Clorofull trabaja justo en esa frontera.» Por eso:
+
+- **Crema = fuera, menta = dentro.** `.cd-section--outside` (crema) lleva lo que entra: las seis
+  entradas y los testimonios, que hablan del antes. `.cd-section--inside` (menta) lleva lo que se gana:
+  beneficios, uso, bono y cierre. El resto va en papel. **No es alternancia decorativa**: si se añade
+  una sección, se le da el tono que le toca por lo que dice.
+- **La frontera es el único bloque verde del argumento** («Lo que entra, pasa por aquí.»), con la foto
+  de vellosidades del cliente de fondo: en gris, **al 50 %** (salió al 20 % y el cliente la quiso más
+  visible) y con un velo verde que oscurece arriba y abajo y la deja respirar en medio. **No subirla más
+  sin volver a medir**: el contraste se calcula contra el píxel más claro que queda detrás de cada
+  texto, no contra el verde plano, y hoy el más justo da 5,3:1. Para eso el texto de las paradas pasó
+  del tono suave al claro (con el suave se quedaba en 4,7:1). El verde profundo vuelve en la garantía y
+  en el pie: tres veces, como pide la marca.
+- **El rótulo de sección lleva un filete verde delante** (`.cd-overline::before`): es la marca de
+  estación de la ruta y sale en todas.
+- **Titulares en dos frases**, la segunda en verde medio (`.cd-h2__soft`), porque el copy los trae
+  siempre así («33 días. / Un hábito.», «Gotero. / O litro.»). Fraunces 600 en titulares y cifras,
+  Questrial en el resto, como en la línea «Eterma viva».
+
+### Piezas (ninguna repite las de olor, hidratación, remarketing ni los kits)
+
+| Sección | Mecanismo |
+|---|---|
+| Hero | Firma + chip «Clorofull», titular, **carrusel de cuatro fotos** (las cuatro `img_*` del cliente, en su orden: Joselin con el tracto digestivo dibujado en verde, Celeste con la botella, la mano con «1 litro · 33 días» y la tabla nutricional), **mando en banda propia debajo** —nada tapa la foto—, ficha de tres datos, **banda de precio** y CTA. Todo en la primera pantalla |
+| Caras | Cuatro retratos **redondos** con nombre real (Joselin, Celeste, Gabriela, Ana). Sin titular: son prueba, no sección |
+| Lo que entra | **El mapa de la ruta** (rehecha el 2026-10-09; ver abajo): un tronco baja por el centro y los seis motivos se le unen, uno a cada lado y a alturas alternas, cada uno por su ramal curvo y con su empalme. Abajo, la frase «Todos pasan por el mismo lugar: tu intestino.» en píldora verde y **una sola línea que baja hasta tocar el bloque verde** (la sección va sin relleno abajo para que la toque) |
+| La frontera | **La ruta**: un riel lima que crece de arriba abajo (`scaleY`) y tres paradas que se encienden en orden. La del medio —«Se intercepta.»— es la frontera: nodo lleno en menta, con halo, y nombre en lima. **De fondo, las vellosidades a la vista** (el cliente pidió que la foto «se vea un poco más») |
+| La fórmula | Tres fichas con **la foto de cada ingrediente** y su «Para tu…» en verde; debajo, la botella con sus ingredientes señalados (segunda foto del hero de olor) junto a «Además: vitaminas y minerales…» |
+| Lo que ganas | Seis fichas blancas con **la lámina del cliente en un círculo de menta**. Son seis, como las entradas, a propósito: seis motivos, seis respuestas |
+| El proceso | **La regla de 33 marcas**: tres tramos (7, 14 y 12) de claro a oscuro, la primera marca de cada tramo más alta. Crecen al entrar. En escritorio cada tramo del copy cae **bajo su trozo de regla** (`7fr 14fr 12fr`) |
+| Cómo se toma | Foto del vertido, «30 ml.» a 40–58 px (la dosis es la unidad de la marca) y los tres pasos numerados **1, 2, 3** (sin cero) |
+| La oferta | **La botella entera al lado del precio** y, debajo, las dos formas de pago: **contraentrega primero, en verde profundo** (`.cd-plan--main`), con el CTA lima; anticipado en blanco, con CTA de borde y los medios de pago |
+| El bono | El vaso medidor en primer plano y el pedido como lista con **la hoja del logo de viñeta** |
+| Lo cuentan ellas | **Carrusel** (regla de marca) con flechas y puntos; la tarjeta siguiente asoma. Debajo, el respaldo en tres renglones |
+| Gotero o litro | Tabla con **las dos fotos reales** y un icono por criterio. La columna de Clorofull es **una banda de menta continua**, de la foto a la última fila |
+| Garantía | Bloque verde con sello |
+| Cierre | **Collage de UGC** (pedido del cliente: «antes de finalizar la landing debe haber un collage de UGC»): una foto grande —Valentina sirviendo su medida— y cuatro pequeñas (Natalia, María Fernanda, María de los Ángeles, Camilo) en una retícula de cuatro columnas, sin giros: el de olor va con las fotos torcidas, este no. Después, los tres puntos del copy, precio y CTA |
+
+- **El CTA es «el paso».** Píldora lima con un filete vertical cerca del borde derecho —la frontera— y
+  un punto que sale apagado a su izquierda, **lo cruza y llega entero al otro lado** (3,6 s por vuelta).
+  Al pasar el dedo o el ratón, el lima vivo **entra desde la izquierda**, en la misma dirección. El
+  punto es `<span class="cd-cta__pass">` y vive **en el hueco entre el texto y el filete**: la primera
+  versión pasaba por debajo del texto y se leía como un punto y seguido pegado a la última letra. Solo
+  `transform` y `opacity`; `is-playing` lo sirve y lo pausa; sin JS es una píldora quieta; con
+  `prefers-reduced-motion` no hay punto. `--quiet` (borde, relleno menta) es el del contraentrega.
+- **«Seis motivos. Una sola ruta.» es un mapa, no una rejilla.** La primera versión eran seis tarjetas
+  altas en dos columnas con las hebras debajo, y el cliente la devolvió: «muy larga y muy lineal…
+  enfócate en el concepto de que es una ruta y plasma la idea de esa forma; la conexión con la siguiente
+  sección sí está perfecta, eso debe mantenerse». Ahora:
+  - **Tronco y ramales.** El tronco es el `::before` de `.cd-map`; cada ramal, el `::after` de su
+    parada (un cuarto de círculo hecho con dos bordes, de radio medio hueco central) y cada empalme, su
+    `::before`. Cuelgan de la parada, así que **se colocan solos con cualquier ancho**: no hay SVG ni
+    coordenadas que mantener. Todo sale de cuatro variables de `.cd-map`: `--cd-map-gap`,
+    `--cd-stop-art`, `--cd-pitch` y `--cd-route-w`.
+  - **Zigzag.** Rejilla de dos columnas y siete filas; cada parada ocupa dos filas y empieza una más
+    abajo que la anterior (`grid-row: n / span 2`), impares a la izquierda y pares a la derecha. Si un
+    texto necesita más alto, las filas ceden solas.
+  - **Las láminas, recortadas por CSS.** Los ficheros `entra-*` (480 × 744) traen el dibujo y una fila
+    de pictogramas que a 80 px no se lee. Cada parada dice qué cuadrado del lienzo enseña
+    (`--cd-crop`, `--cd-crop-x`, `--cd-crop-y`, en px del original, medidos sobre el alfa) y la imagen
+    se escala y se corre hasta que ese cuadrado llena la caja. **No hubo que subir imágenes nuevas.**
+  - **En escritorio** la lámina y su texto van en fila, con la lámina siempre del lado del tronco.
+  - **Lo que no se toca:** la píldora y la línea que entra en el bloque verde (`.cd-merge`).
+  - Mide **728 px a 390** (antes 1 119) y 723 a 1280.
+- **Dos atributos de revelado.** `data-cd-reveal` escalona a los hijos; `data-cd-play` arma una pieza con
+  coreografía propia (el mapa, la ruta, la regla). Van separados para que la regla genérica nunca
+  toque a las piezas: así no dependen del orden del CSS, que GemPages cambia.
+- **El carrusel tiene una parada por punto.** Un `::after` del carril, de ancho
+  `100% − tarjeta − hueco`, deja el sitio justo para que **la última tarjeta encaje al principio**. No
+  se hace con `padding-right`: algunos navegadores lo ignoran en un carril con scroll. Medido:
+  encajes `[0, 324, 649]` y `maxScroll 649` a 390; `[0, 538, 1076]` y `1076` a 1280.
+- **Un solo carrusel en el script, dos en la página.** `initCarousel` vale para cualquier
+  `[data-cd-carousel]`: las fotos del hero y los testimonios. Cada uno dice cómo se llaman sus puntos
+  con `data-cd-carousel-label`; las flechas son opcionales. El del hero lleva el mando fino
+  (`.cd-mando--slim`): **solo puntos en móvil**, para no gastar alto de la primera pantalla, y flechas
+  desde 900 px. La segunda foto va con `loading="lazy"`; el LCP es la primera.
+- **El carrusel del hero va enmarcado** (pedido del cliente, 2026-10-09: «algún border o algo que haga
+  parecer que está enmarcado y resalte un poco»): paspartú de menta de 6 px (`--cd-frame-pad`), filete y
+  sombra. Las fotos traen el fondo blanco y sin marco se fundían con el papel. **Los puntos van dentro
+  del marco**, como el pie de una lámina. El radio de fuera es el de dentro más el paspartú, para que
+  las dos curvas vayan paralelas. No gasta alto: la foto cede 12 px de ancho y el marco los devuelve.
+- **El CTA del hero ocupa todo el ancho** de su columna (354 px a 390; 488 a 1280), también por pedido
+  del cliente. Los demás CTA siguen a su ancho natural, salvo los de las tarjetas de pago.
+- Sticky: **`$79.900`** y «pagas al recibir». Sale con medio scroll
+  (`STICKY_REVEAL_MARGIN`) y se esconde en el cierre, el Instagram y el pie. Oculto en escritorio.
+- Forma de pago: igual que remarketing (`data-cd-pay-choice` → `<html data-cf-pay>`; los CTA genéricos
+  lo borran).
+- **Producto: `PRODUCT_HANDLE = 'clorofull-1'`**, el mismo sobre el que está publicada la de olor
+  ($79.900, con las ofertas de cantidad de Releasit ya configuradas). **Sin confirmar con el cliente**:
+  si este embudo estrena producto propio, cambiar la constante y enlazar el Product Element al mismo.
+  A diferencia de remarketing, aquí el precio de la tienda y el de la landing coinciden.
+
+### Copy: qué no es literal
+
+- **Dos frases del hero las cambió el cliente (2026-10-09)** y mandan sobre el `.txt`: el preheadline es
+  «Tu panza. Tu energía. Tu día a día.» (el copy decía «Para tu ciudad. Tu panza. Tu día a día.») y el
+  subtítulo acaba en «En 1 litro de Clorofull.» (decía «de menta»). **No devolverlas al texto del
+  fichero.**
+- Cada motivo del mapa parte su frase en dos: lo primero va de titular («Respiras ciudad.») y lo
+  demás, de detalle («Humo, polvo, buses.»). Las palabras son las del copy.
+- **El registro va como `RSA-0029174-2023`.** El copy escribe `RSA-0029274-2023` (un 2 por un 1); el
+  número de la etiqueta y del resto de landings es 0029**1**74. Es una errata del copy. **Confirmar con
+  el cliente** antes de publicar: es un dato legal.
+- **Dirección: `Carrera 59 # 5B-31`**, la de la etiqueta; el copy escribe «#5-B31».
+- **La oferta va en el orden del copy**: contraentrega y después anticipado, con sus textos y sus CTA.
+- **La banda de precio del hero** («$79.900 contraentrega · o $69.900 pago anticipado») resume la frase
+  del copy («Precio: $79.900. Con pago anticipado, ahorras $10.000 y pagas $69.900.»). La frase
+  completa va en el cierre. A 340 px y menos el rótulo se queda en «anticipado» para caber en una fila.
+- El sticky dice «pagas al recibir» y no «contraentrega», que no cabe junto al botón.
+- La nota bajo el CTA del hero («Pagas cuando recibes. Envío con garantía de entrega.») junta dos
+  frases de la sección de oferta.
+- Los rótulos («Por dónde entra», «La ruta de limpieza», «La fórmula», «Lo que ganas», «El proceso»,
+  «Cómo se toma», «La oferta», «El bono», «Experiencias», «La comparación», «Garantía», «Clientes de
+  Eterma») y el titular de las preguntas («Lo que suelen preguntar.») son andamiaje, no copy.
+- **CTA intermedio tras la fórmula** («Quiero mi Clorofull»): no viene en el copy; es el del hero,
+  repetido para que no pasen siete secciones sin botón.
+- Los testimonios van con las citas tal cual; el de Ana pierde los corchetes de borrador que traía.
+- El titular del Instagram es el de la marca. **El aviso legal del pie es el de olor** («En condiciones
+  reales, Clorofull es un alimento y no un medicamento…») **sin la cláusula de higiene oral**, que es de
+  aquel ángulo. Ojo: es un **alimento** (el registro es RSA), no un suplemento; no cambiar la palabra.
+
+### Imágenes
+
+Las crudas que entregó el cliente estaban en `detox/assets/` y se movieron a
+`product-images/clorofull/detox/` (fuera de git, 16 MB). Nuevas, 19. **Las 18 primeras ya están en el
+CDN** (subidas el 2026-10-09); **falta `landings-clorofull-detox-hero-2.webp`**
+(`./check-cdn.sh eterma/landings/clorofull/detox/september.html`):
+
+| Archivo | Origen | Uso |
+|---|---|---|
+| `landings-clorofull-detox-hero.webp` | `img_1_hero_detox.png` (1254²). Se le quita blanco sobrante a la izquierda y de la mesa; **ni la botella ni la persona se tocan**. 1100×1068, q82 · 130 KB | Hero, primera foto (LCP), entera en todos los anchos |
+| `landings-clorofull-detox-hero-2.webp` | `img_beneficios_hero.png` (1254²). Solo pierde 36 px de mesa por abajo, para medir **lo mismo que la primera** (1100×1068): las dos comparten marco y ninguna se recorta al pasar. Botella, vaso y los cinco rótulos, enteros · 91 KB | Hero, segunda foto |
+| `landings-clorofull-detox-villi.webp` | `bloque_mecanismo_clorofull.jpeg` (2048²) a 1100, q74 | Textura del bloque verde |
+| `landings-clorofull-detox-entra-{humo,ambiente,olor,inflada,colon,cigarrillo}.webp` | `icono 2, 3, 4, 5, 6 y 1.png`: láminas sobre papel crema, **pasadas a alfa** y llevadas todas al mismo lienzo (480×744) para que la rejilla no baile | Las seis entradas |
+| `landings-clorofull-detox-gana-{liviana,ambiente,frescura,transito,colon,cigarrillo}.webp` | `liviana`, `eliminación ambiente`, `frescura`, `tránsito ligero`, `colon limpio` y `cigarrillo.png`: se les recorta el marco, a alfa y al mismo cuadrado (340²) | Los seis beneficios |
+| `landings-clorofull-detox-{clorofila,pectina,polidextrosa}.webp` | Las tres fotos del cliente, a 520 px | La fórmula |
+| `landings-clorofull-detox-gotero.webp` | `gotero_clorofila_competencia.png` recortado al frasco, **sobre su blanco** (el paso a alfa le comía la etiqueta) | Comparativa |
+
+Reutilizadas, ya en el CDN: `ugc-joselin`, `-celeste`, `-gabriela`, `-ana`, `-ana-vasito` y
+`-valentina-vasito`; `hero-2`, `pour`, `producto-vasito`, `vasito-medidor`, `bottle`; los cuatro
+`landings-shared-*` y las dos fuentes.
+
+**Las cuatro `img_*` van en el carrusel del hero por decisión del cliente** (2026-10-09: «en el hero
+debe haber un carrusel con todas esas imágenes» y, al ver que solo iban dos, «faltan la imagen de modo
+de uso y tabla nutricional»). Tres se habían dejado fuera y se le avisó del motivo; lo confirmó dos
+veces, así que **van tal cual y no se vuelven a quitar por cuenta propia**. Lo que arrastra cada una,
+por si el cliente manda versiones corregidas (se subirían con sufijo `-v2`):
+
+- `img_beneficios_hero.png` → `detox-hero-2`: cinco rótulos incrustados; tres —**«Respiración»,
+  «Energía», «Rendimiento»**— son claims que el copy no hace. No se pueden quitar sin cortar la
+  botella («Digestión» se monta sobre ella).
+- `img_modo-de-uso_cloro.png`: dice **«30 mil al día»** con un icono de moneda. Ni es el precio ni es
+  la dosis (son 30 **ml**).
+- `img_tabla-nutricional_clorofull.png`: la etiqueta se lee, y dice «porción ½ vaso (120 ml) · 8
+  porciones», que contradice los 30 ml y las 33 dosis del copy (§1).
+
+**La tercera y la cuarta no se suben otra vez**: son las mismas fotos que olor publicó como
+`landings-clorofull-hero-3.webp` y `-hero-4.webp` (comparadas con las crudas: 1 % de diferencia, la de la
+compresión). Se sirven con ese nombre. Son cuadradas (1200²) y el marco del carrusel mide 1100 × 1068,
+así que van con `object-fit: cover` y **ceden un 1,5 % arriba y abajo**: es aire, la botella de la
+tercera se queda a más de un 4 % del borde.
+
+### Medidas (vista previa local, 2026-10-09)
+
+| Pantalla | Alto de página | Fotos del hero + mando | CTA del hero |
+|---|---|---|---|
+| 320 × 640 | 11 773 | 241–542 | 652–708, 68 px fuera; el precio sí entra |
+| 360 × 740 | 11 439 | 241–580 | **669–725, entero** |
+| 375 × 667 | 11 351 | 208–562 | 650–706, 39 px fuera; el precio sí entra |
+| 390 × 844 | 11 441 | 266–634 | **732–788, entero** |
+| 412 × 915 | 11 337 | 229–619 | **717–773, entero** |
+| 768 × 1024 | 11 252 | 205–718 | **817–873, entero** |
+| 1280 × 900 | 10 721 | 32–579 | **503–563, entero** |
+
+- **Sin desbordes** en ninguno de los siete anchos. Entre 640 y 899 px el hero se queda en una columna
+  de 560: a todo el ancho la foto, que va entera, mandaría el CTA lejos.
+- **Contraste**: 91 combinaciones de texto y fondo calculadas sobre la página; la más justa, 5,7:1.
+- `node check-css-merge.mjs …/detox/september.html --widths=320,390,768,1280`: 472 reglas, 30 fusiones,
+  **cero cambios**.
+- Los dos carruseles, el sticky, la forma de pago y las preguntas, probados a 390 y 1280. Encajes del
+  hero: `[0, 354, 708, 1062]` y `maxScroll 1062` a 390; `[0, 520, 1040, 1560]` y `1560` a 1280. El sticky aparece hacia los
+  450 px de scroll a 390 × 844.
+- **Sin JS**: nada se arma, todo visible, el carril se desliza a mano y el mando y el sticky no salen.
+  **Con movimiento reducido**: nada viaja ni se arma.
+- Pestañas (`./split-tabs.sh`): CSS 62 → 43 KB, JS 9 → 7 KB. La página montada desde las tres tiene
+  **los mismos 669 elementos, con la misma caja y los mismos estilos calculados** (propios, `::before` y
+  `::after`) que el fragmento, a 390 y 1280. Ojo al comparar: hay que **dejar fuera las variables CSS**
+  (el minificador las reescribe —`0.16` → `.16`— y Chrome las lista con el resto, así que salían los
+  669 como distintos) y **no fiarse solo de los píxeles**: con los dos carriles, dos capturas del mismo
+  fichero ya difieren en 14–37 px, que son el suavizado de las esquinas redondas de las tarjetas.
+
+### Trampas que salieron al construirla
+
+- **El `<svg>` que hace el `<use>` va con `viewBox="0 0 …"`**, no con el del símbolo. Con el del símbolo
+  el wordmark y la hoja se dibujaban fuera del lienzo y no se veía nada (`/eterma/AGENTS.md` §2).
+- **Nada de `<p>` vacío como celda de relleno.** La cabecera de la tabla llevaba uno para ocupar la
+  primera columna: el tema lo borra (`p:empty`) y las fotos se corren. Las columnas se colocan con
+  `grid-column`.
+- **Una imagen con `position: absolute` puede falsear el comprobador de fusión.** El recorte de las
+  láminas del mapa se hizo primero con la imagen posicionada (`top`/`left` en %). La página se veía
+  bien, pero `check-css-merge` daba cuatro «cambios» a 1280: el margen calculado del contenedor
+  centrado y del mapa pasaba de `0px` a `80px`. **No era la fusión**: salía igual con `--no-merge`.
+  Con la imagen fuera de flujo, Chrome devuelve `0px` para un `margin: auto` aunque la caja esté
+  centrada, y lo corrige en cuanto algo fuerza otro cálculo. Se resolvió corriendo la imagen con
+  **márgenes negativos, en flujo**. Si el comprobador da cambios raros en márgenes, **pasar primero
+  `--no-merge`**: si también salen, no es el orden del CSS.
+- **La foto de producto de la oferta no se recorta.** La primera versión iba a 5:4 con `cover` y la
+  botella perdía la tapa. Ahora va entera, en columna, al lado del precio.
+
+### Pendientes
+
+1. **Subir `landings-clorofull-detox-hero-2.webp`** a Contenido → Archivos, con el mismo nombre. Las
+   otras 18 ya están.
+2. **Confirmar el registro sanitario** (0029174 o 0029274) y **el producto de Shopify** del embudo.
+3. Pegar las tres pestañas en GemPages, con `/eterma/shared/releasit-form.css` detrás del CSS, y
+   enlazar el Product Element. Medir el `font-size` raíz sobre la página viva.
+4. Publicar **solo a petición explícita**.

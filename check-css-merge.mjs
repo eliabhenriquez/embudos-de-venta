@@ -74,7 +74,8 @@ if (!prefix) {
 const preview = spawnSync('sh', [join(REPO_DIR, 'preview.sh'), fragmentPath], { stdio: 'inherit' })
 if (preview.status !== 0) process.exit(preview.status ?? 1)
 
-const styleBlocks = [...source.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)].map(m => m[1]).filter(css => css.includes(`.${prefix}-lp`))
+// Sin los comentarios HTML: un «<style>» escrito en una cabecera se tomaría por la etiqueta
+const styleBlocks = [...source.replace(/<!--[\s\S]*?-->/g, '').matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)].map(m => m[1]).filter(css => css.includes(`.${prefix}-lp`))
 const merge = mergeIdenticalRules(styleBlocks.join('\n'), { disabled: Boolean(args['no-merge']) })
 
 if (args['dump-css']) writeFileSync(resolve(String(args['dump-css'])), merge.css)

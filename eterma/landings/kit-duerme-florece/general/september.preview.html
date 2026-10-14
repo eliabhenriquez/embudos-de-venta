@@ -15,488 +15,608 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 </head>
 <body>
 <!--
-	ETERMA · KIT DUERME Y FLORECE — Landing de venta (campaña septiembre)
-	====================================================================
-	Bloque autocontenido para el Custom Code de GemPages.
-	Copy: general/Copy Kit duerme y florece - eterma.txt (manda sobre la web y la etiqueta).
-	Contexto: /AGENTS.md → /eterma/AGENTS.md → ../AGENTS.md (motivo, la ventana de noche, CTA, nombres pendientes).
-	Producto: /products/kit-duerme-y-florece (variante 64093190914417). Los CTA abren Releasit por el
-	contexto de la ficha; no usan /cart/add.js.
-	Imágenes: assets/ con el mismo nombre en Contenido → Archivos. Las fotos de MULTIBRINA son las ya
-	publicadas por Día Liviano y las de VALERIANA y TODO EN UNO, las de Piel Viva: mismo CDN, un solo
-	fichero por foto. Logo, Instagram y fuente, de ficheros ya publicados por otras landings de Eterma.
+	KIT DUERME Y FLORECE — landing para GemPages (Custom Code)
+	Cuarta landing de la línea «Eterma viva» de los kits (2026-09-16).
+	Rehecha sobre el copy nuevo; sustituye a la versión de la primera tanda.
+	Contexto, decisiones y medidas: eterma/landings/kit-duerme-florece/AGENTS.md
+	Todo cuelga de .df-lp; los CTA llevan las clases de Releasit
+	_rsi-cod-form-gempages-button-overwrite y _rsi-cod-form-is-gempage.
 -->
-
 <section class="df-lp" id="df-kit-duerme-florece">
-	<header class="df-topbar">
-		<div class="df-topbar__strip" aria-label="Envío gratis · Pago anticipado: ahorra $10.000 · Contraentrega disponible">
-			<div class="df-topbar__track">
-				<span class="df-topbar__set"><span>Envío gratis</span><span>Pago anticipado: ahorra $10.000</span><span>Contraentrega disponible</span></span>
-				<span class="df-topbar__set" aria-hidden="true"><span>Envío gratis</span><span>Pago anticipado: ahorra $10.000</span><span>Contraentrega disponible</span></span>
-			</div>
-		</div>
-		<div class="df-shell df-topbar__inner">
-			<img class="df-topbar__logo" src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-eterma-logo.webp" width="634" height="185" decoding="async" alt="Eterma">
-		</div>
-	</header>
 
-	<!-- ============================ HERO: LA VENTANA DE NOCHE ============================ -->
-	<section class="df-hero">
+	<!-- Símbolos compartidos: el logo en vector (del manual) y los iconos. -->
+	<svg class="df-sprite" aria-hidden="true" focusable="false">
+		<symbol id="df-wordmark" viewBox="137 340 322 95"><g fill="currentColor"><path d="M352 427.5L341.9 427.5C341.9 426.9 341.9 426.3 341.9 425.6C341.9 412.7 341.9 399.8 341.9 386.8C341.8 385.1 341.5 383.3 340.9 381.6C339.1 376.8 333.9 374.8 328.4 376.6C322 378.6 316.4 386.2 316.4 393C316.4 403.1 316.4 413.2 316.5 423.3C316.5 424.7 316.9 426.1 317.1 427.6L306.5 427.6C306.6 425.5 306.8 423.6 306.8 421.6C306.8 407.1 306.7 392.5 306.8 377.9C306.8 375.5 306.5 373.3 304.4 371.4L316.4 371.4L316.4 384C318 381.8 319.5 379.2 321.5 377.2C326.4 372.2 332.5 370.1 339.5 371.1C344.8 371.9 349.3 376.3 350.6 382.4C351.1 384.7 351.4 387.1 351.4 389.5C351.5 399.8 351.4 410 351.4 420.3C351.5 422.7 351.8 425.1 352 427.5"/><path d="M349.4 384C351 381.8 352.5 379.2 354.5 377.2C359.4 372.2 365.5 370.1 372.5 371.1C377.8 371.9 382.3 376.3 383.6 382.4C384.1 384.7 384.3 387.1 384.3 389.5C384.4 399.8 384.3 410 384.4 420.3C384.4 422.7 384.8 425.1 384.9 427.5L374.9 427.5C374.9 426.9 374.9 426.3 374.9 425.6C374.9 412.7 374.9 399.8 374.8 386.8C374.8 385.1 374.4 383.3 373.8 381.6C372.1 376.8 366.9 374.8 361.4 376.6C355 378.6 349.4 386.2 349.4 393C349.4 403.1 349.4 413.2 349.4 423.3C349.4 424.7 349.8 426.1 350.1 427.6"/><path d="M184 416.8C183.5 420.4 183 423.9 182.5 427.5L138.1 427.5C138.4 427.3 138.6 427.1 138.8 426.9C140.6 425.7 141.1 423.9 141.1 421.9C141.2 400.4 141.2 378.8 141.2 357.3C141.2 354.8 140 352.9 137.7 351.1L177.5 351.1L177.5 360.4C177.4 360.5 177.2 360.5 177.2 360.5C174.4 356.6 170.4 355 165.8 354.7C161 354.4 156.2 354.3 151.2 354.1L151.2 383.2C159.5 382.6 168 384.6 175.6 379.5L175.6 389.5C167.9 385.5 159.6 386.9 151.3 386.5L151.3 424.1C151.3 424.1 151.4 424.2 151.5 424.2C157.6 424.2 163.6 424.3 169.7 424C175.4 423.7 180.4 421.6 184 416.8"/><path d="M421.7 392.3C421.6 392.3 421.4 392.3 421.4 392.3C414.9 396.1 408.8 400.2 403.8 405.8C401.4 408.5 399.3 411.4 399 415.2C398.7 419.6 402.4 422.7 406.7 421.8C409.1 421.3 411.1 420 412.7 418.3C419.8 411 422.8 402.4 421.7 392.3M393.6 391.8C393.6 388.6 393.6 385.5 393.6 382.3C393.6 382 393.8 381.6 394 381.3C399.1 376.8 404.4 372.5 411.3 371.2C414.1 370.7 417.2 370.7 420.1 371.2C427 372.3 430.8 377.1 430.8 384.2C430.8 394.5 430.8 404.8 430.8 415.1C430.8 416.3 430.8 417.5 430.9 418.7C431 420.9 431.7 421.4 434.1 421C433.8 421.6 433.6 422.4 433.1 422.8C430.9 424.4 428.6 425.9 426.3 427.4C425.9 427.6 425.4 427.9 424.9 428.1C423 428.8 421.8 428.1 421.7 426.1C421.6 421 421.7 415.9 421.7 410.8C421.7 410.5 421.7 410.3 421.7 409.8C420.6 412 419.6 414.1 418.6 416.1C415.9 421.4 412 425.4 406.4 427.5C402.4 429.1 398.4 429.2 394.7 426.6C391.2 424.1 390.7 420.4 391.5 416.5C392.5 411.8 395.4 408.2 398.8 405C405.2 399.1 412.6 394.7 420.3 390.7C421.4 390.1 421.9 389.5 421.8 388.2C421.6 385.5 421.8 382.7 421.5 380.1C420.9 375.9 418.1 373.8 413.9 374.1C409.2 374.4 405.4 376.7 402 379.7C398.4 382.8 395.9 386.8 394.1 391.2C394 391.4 393.9 391.6 393.9 391.8C393.8 391.8 393.7 391.8 393.6 391.8"/><path d="M227.5 386.5L254.6 386.5C255.6 381.3 252.6 376.5 247.5 374.9C238.8 372 229.8 377.2 227.5 386.5M262.3 389.7L226.4 389.7C226.4 392.6 226.2 395.4 226.3 398.2C226.5 403.2 227.5 408 230 412.5C236 422.9 249.6 425.4 258.6 417.5C260.2 416.1 261.4 414.2 262.7 412.4C263 412.1 263.2 411.8 263.6 411.5C263.5 411.9 263.5 412.3 263.4 412.6C258.4 427.5 240.2 433.6 227.9 424.5C223.1 420.9 220.5 415.9 219.2 410.2C217.1 400.6 217.8 391.2 223.1 382.6C228.9 373.3 240.6 368.7 250.4 372C258 374.5 262.7 381.4 262.3 389.7"/><path d="M203 358.7L203 371.3L215.9 371.3L215.9 374.7L202.7 374.7C202.7 375.4 202.7 375.9 202.7 376.4C202.6 388.3 202.6 400.3 202.7 412.2C202.7 414.3 203 416.6 203.8 418.5C205.9 423.8 211.5 424.9 215.8 421.1C216.1 420.8 216.5 420.6 216.9 420.4C215.3 424.5 212.2 427 207.9 428C202.6 429.4 197.1 427.2 194.8 422.3C193.8 420.3 193.4 417.7 193.3 415.4C193.2 403.3 193.3 391.2 193.3 379.1C193.3 377.7 193.3 376.4 193.3 374.9L187.1 374.9C192.3 369.5 197.6 364.2 203 358.7"/><path d="M267.8 371.3L280.1 371.3L280.1 384.2C282.1 380.3 284.3 376.7 287.7 374C291.2 371.2 295.2 370.2 299.8 371.1L299.8 379.8C298.4 379.4 297.1 379 295.7 378.8C290.1 377.6 285.3 379.7 282.4 384.8C281 387.3 280.1 390 280.2 393C280.2 402.8 280.2 412.7 280.2 422.5C280.2 424.1 280.6 425.8 280.8 427.5L270.3 427.5C270.4 424.8 270.5 422.2 270.5 419.5C270.5 405.9 270.5 392.2 270.6 378.6C270.6 375.9 270.2 373.4 267.8 371.3"/></g><g><path d="M441.8 366.7C440.6 364.8 439.4 362.6 437.9 360.7C433.1 354.6 433 352.7 437.9 346.6C438.7 345.6 439.4 344.6 440.1 343.5C440.7 342.5 441.2 341.3 441.5 340.6C443.4 343.3 445.4 346.2 447.4 349.1C449.7 352.4 449.8 354.6 447.5 358C446.4 359.5 445.2 360.9 444.2 362.4C443.2 363.9 442.5 365.5 441.8 366.7"/><path d="M440.4 379.7C437.8 374.7 433.4 371.3 429.6 367.3C426 363.6 425.6 358.6 428.4 354.6C436 361.2 441.1 369 440.4 379.7"/><path d="M443 380.2C442.2 369 447.4 361.2 455.1 354.6C458.1 359 457.2 364.3 452.8 368.5C449.1 371.8 445.5 375.2 443 380.2"/></g></symbol>
+		<symbol id="df-leaf" viewBox="425 340 34 41"><path d="M441.8 366.7C440.6 364.8 439.4 362.6 437.9 360.7C433.1 354.6 433 352.7 437.9 346.6C438.7 345.6 439.4 344.6 440.1 343.5C440.7 342.5 441.2 341.3 441.5 340.6C443.4 343.3 445.4 346.2 447.4 349.1C449.7 352.4 449.8 354.6 447.5 358C446.4 359.5 445.2 360.9 444.2 362.4C443.2 363.9 442.5 365.5 441.8 366.7"/><path d="M440.4 379.7C437.8 374.7 433.4 371.3 429.6 367.3C426 363.6 425.6 358.6 428.4 354.6C436 361.2 441.1 369 440.4 379.7"/><path d="M443 380.2C442.2 369 447.4 361.2 455.1 354.6C458.1 359 457.2 364.3 452.8 368.5C449.1 371.8 445.5 375.2 443 380.2"/></symbol>
+		<symbol id="df-i-moon" viewBox="0 0 24 24"><path d="M19.5 14.6A8 8 0 0 1 9.4 4.5a8 8 0 1 0 10.1 10.1Z"/></symbol>
+		<symbol id="df-i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></symbol>
+		<symbol id="df-i-drops" viewBox="0 0 24 24"><path d="M9.5 2.5h5v4.2l3 6.4V20a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 6.5 20v-6.9l3-6.4V2.5Z"/><path d="M8.2 2.5h7.6M6.8 13.3h10.4"/></symbol>
+		<symbol id="df-i-bottle" viewBox="0 0 24 24"><path d="M9.5 2.5h5v3l1.5 2.2V20a1.5 1.5 0 0 1-1.5 1.5h-5A1.5 1.5 0 0 1 8 20V7.7l1.5-2.2v-3Z"/><path d="M8 12h8"/></symbol>
+		<symbol id="df-i-list" viewBox="0 0 24 24"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></symbol>
+		<symbol id="df-i-tired" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M7.6 10.2 10.4 9M16.4 10.2 13.6 9"/><path d="M9 16.2c1.6-1 4.4-1 6 0"/></symbol>
+		<symbol id="df-i-spark" viewBox="0 0 24 24"><path d="M12 3.2 13.8 9l5.8 1.8-5.8 1.8L12 18.4l-1.8-5.8L4.4 10.8 10.2 9 12 3.2Z"/><path d="M18.6 3.4v3M17.1 4.9h3"/></symbol>
+		<symbol id="df-i-plate" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/></symbol>
+		<symbol id="df-i-wheel" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.4"/><path d="M12 3v5.6M4.5 16.2l4.9-2.8M19.5 16.2l-4.9-2.8"/></symbol>
+		<symbol id="df-i-brain" viewBox="0 0 24 24"><path d="M12 5.4a3 3 0 0 0-5.7-1.3A2.9 2.9 0 0 0 3.5 7a2.9 2.9 0 0 0 .8 2 3 3 0 0 0 .4 4.6 3.2 3.2 0 0 0 3 4.3A3 3 0 0 0 12 19.5V5.4Z"/><path d="M12 5.4a3 3 0 0 1 5.7-1.3A2.9 2.9 0 0 1 20.5 7a2.9 2.9 0 0 1-.8 2 3 3 0 0 1-.4 4.6 3.2 3.2 0 0 1-3 4.3A3 3 0 0 1 12 19.5"/></symbol>
+		<symbol id="df-i-metabolism" viewBox="0 0 24 24"><path d="M3 15.5c2.5 0 3.5-7 6-7s3.5 7 6 7 3.5-4 6-4"/><circle cx="9" cy="8.5" r="1.4"/><circle cx="15" cy="15.5" r="1.4"/></symbol>
+		<symbol id="df-i-heart" viewBox="0 0 24 24"><path d="M12 20.3S3.5 15.1 3.5 9.4a4.9 4.9 0 0 1 8.5-3.3 4.9 4.9 0 0 1 8.5 3.3c0 5.7-8.5 10.9-8.5 10.9Z"/><path d="M3.9 12.2h4l1.6-2.6 2 5 1.7-3.2 1.3 1.1h5.6"/></symbol>
+		<symbol id="df-i-alert" viewBox="0 0 24 24"><path d="M12 3.5 21.5 20H2.5L12 3.5Z"/><path d="M12 9.5v5M12 17.4v.2"/></symbol>
+		<symbol id="df-i-focus" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3"/><path d="M12 1.8v3M12 19.2v3M1.8 12h3M19.2 12h3"/></symbol>
+		<symbol id="df-i-flame" viewBox="0 0 24 24"><path d="M12 2.8c4 4.4 6.5 7.2 6.5 11.1a6.5 6.5 0 0 1-13 0C5.5 10 8 7.2 12 2.8Z"/><path d="M12 20.2a3 3 0 0 1-3-3c0-1.6 1.2-2.9 3-5 1.8 2.1 3 3.4 3 5a3 3 0 0 1-3 3Z"/></symbol>
+		<symbol id="df-i-battery" viewBox="0 0 24 24"><rect x="2.5" y="7" width="16" height="10" rx="2.5"/><path d="M21.5 10.5v3"/><path d="M6 10.5v3"/></symbol>
+		<symbol id="df-i-leafy" viewBox="0 0 24 24"><path d="M5 19.5c0-7 4.5-12 14-12.5.8 7.5-3.5 13-11 13-1 0-2-.2-3-.5Z"/><path d="M4 21c1.5-4 4-7.2 7.5-9.5"/></symbol>
+		<symbol id="df-i-flower" viewBox="0 0 24 24"><circle cx="12" cy="9.5" r="2.6"/><path d="M12 6.9c0-2.4-1-3.9-1-3.9s3-.4 3 1.6c0 1.2-1 2.3-2 2.3ZM9.4 9.5C7 9.5 5.6 8.5 5.6 8.5s-.4 3 1.6 3c1.2 0 2.2-1 2.2-2ZM14.6 9.5c2.4 0 3.8-1 3.8-1s.4 3-1.6 3c-1.2 0-2.2-1-2.2-2Z"/><path d="M12 12.1v9.4M12 16.5c-1.6-.6-3-1.8-3.4-3.2"/></symbol>
+		<symbol id="df-i-phone" viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></symbol>
+		<symbol id="df-i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></symbol>
+		<symbol id="df-i-bed" viewBox="0 0 24 24"><path d="M2.5 19.5v-11M2.5 12.5h19v7M21.5 19.5v-2"/><path d="M6.5 12.5v-3h11v3"/><circle cx="8.2" cy="10.6" r="0.1"/></symbol>
+		<symbol id="df-i-cup" viewBox="0 0 24 24"><path d="M5.5 5h13l-1.6 14.3a2 2 0 0 1-2 1.7H9.1a2 2 0 0 1-2-1.7L5.5 5Z"/><path d="M6.4 11h11.2"/></symbol>
+		<symbol id="df-i-doses" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="16" rx="2.5"/><path d="M3.5 9.5h17M8 2.5v4M16 2.5v4"/><path d="M8 14h2M12 14h4M8 17.2h4"/></symbol>
+		<symbol id="df-i-truck" viewBox="0 0 24 24"><path d="M2.5 6.5h11v9h-11z"/><path d="M13.5 9.5h4l3 3.2v2.8h-7"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></symbol>
+		<symbol id="df-i-shield" viewBox="0 0 24 24"><path d="M12 2.8 4.5 5.6v6c0 4.7 3.2 8.3 7.5 9.6 4.3-1.3 7.5-4.9 7.5-9.6v-6L12 2.8Z"/><path d="m8.6 12 2.4 2.4 4.5-4.6"/></symbol>
+		<symbol id="df-i-coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M14.6 9.2c-.5-.9-1.5-1.4-2.6-1.4-1.5 0-2.6.8-2.6 2s1.1 1.7 2.6 2 2.6.9 2.6 2.1-1.1 2-2.6 2c-1.2 0-2.2-.5-2.7-1.4M12 6.2v1.6M12 16.2v1.6"/></symbol>
+		<symbol id="df-i-repeat" viewBox="0 0 24 24"><path d="m17 2.5 3 3-3 3"/><path d="M4 11.5v-2a4 4 0 0 1 4-4h12"/><path d="m7 21.5-3-3 3-3"/><path d="M20 12.5v2a4 4 0 0 1-4 4H4"/></symbol>
+		<symbol id="df-i-chat" viewBox="0 0 24 24"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.3 7.5L3.5 20.5l1.4-4.5a8.4 8.4 0 1 1 15.6-4.4Z"/><path d="M9 9.8c.3 2.4 2.2 4.4 4.7 4.8l1.3-1.1 1.8.9"/></symbol>
+	</svg>
+
+	<!-- ============================ CINTA ============================ -->
+	<div class="df-ribbon">
+		<div class="df-ribbon__track" data-df-marquee>
+			<ul class="df-ribbon__set">
+				<li class="df-ribbon__item">Entrega en 3 a 5 días hábiles</li>
+				<li class="df-ribbon__item">Paga al recibir</li>
+				<li class="df-ribbon__item">Ahorra $10.000 COP pagando anticipado</li>
+				<li class="df-ribbon__item">Garantía de entrega ETERMA</li>
+			</ul>
+			<ul class="df-ribbon__set" aria-hidden="true">
+				<li class="df-ribbon__item">Entrega en 3 a 5 días hábiles</li>
+				<li class="df-ribbon__item">Paga al recibir</li>
+				<li class="df-ribbon__item">Ahorra $10.000 COP pagando anticipado</li>
+				<li class="df-ribbon__item">Garantía de entrega ETERMA</li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- ============================ HERO ============================
+	     El hero hace lo que dice el titular: un interruptor apaga el día y
+	     la sección baja la luz. Empieza encendido; sin JS se queda así. -->
+	<section class="df-hero" data-df-hero>
 		<div class="df-shell df-hero__layout">
 			<div class="df-hero__head">
-				<p class="df-overline">Kit Duerme y Florece · Noche y cuidado diario</p>
-				<h1 class="df-h1">Cierra el día con calma. <em>Cuida lo que ves cada mañana.</em></h1>
-				<p class="df-lead df-hero__lead">MULTIBRINA para bajar el ritmo antes de dormir. VALERIANA para noches de tensión ocasional. TODO EN UNO para piel, cabello y uñas.</p>
+				<div class="df-brand">
+					<svg class="df-brand__logo" viewBox="0 0 322 95" role="img" aria-label="Eterma"><use href="#df-wordmark"/></svg>
+					<span class="df-brand__kit">Kit Duerme y Florece</span>
+				</div>
+				<p class="df-sticker">Para quien se acuesta cansada, pero su cabeza sigue despierta</p>
+				<div class="df-h1row">
+					<h1 class="df-h1">
+						<span class="df-h1__line">Apaga el <span class="df-glow">día<span class="df-glow__halo" aria-hidden="true"></span></span>.</span>
+						<span class="df-h1__line df-h1__line--soft">Dale espacio al descanso.</span>
+					</h1>
+					<button type="button" class="df-switch" data-df-switch aria-label="Apagar el día" hidden>
+						<span class="df-switch__track" aria-hidden="true">
+							<svg class="df-switch__icon df-switch__icon--sun"><use href="#df-i-sun"/></svg>
+							<svg class="df-switch__icon df-switch__icon--moon"><use href="#df-i-moon"/></svg>
+							<span class="df-switch__knob"></span>
+						</span>
+						<span class="df-switch__label" data-df-switch-label>Apagar el día</span>
+					</button>
+				</div>
 			</div>
 
-			<!-- La ventana: un carrusel (el kit primero, luego una foto por producto) cuya caja cambia
-			     con el momento: menta con el kit, noche con estrellas con Multibrina, noche suave con
-			     Valeriana y de nuevo menta (la mañana) con Todo en uno. El rótulo va en banda propia bajo
-			     la foto. Los chips de abajo saltan a su foto y se marcan solos; sin JS quedan el kit,
-			     el gesto y los chips como texto. -->
 			<div class="df-hero__media">
-				<div class="df-window" data-df-window>
-					<div class="df-window__track" data-df-carousel data-df-window-track tabindex="0" role="region" aria-label="Imágenes del Kit Duerme y Florece">
-						<figure class="df-window__slide df-window__slide--kit">
-							<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-duerme-florece-hero-kit.webp?width=900"
-								srcset="https://etermacolombia.com/cdn/shop/files/landings-kit-duerme-florece-hero-kit.webp?width=600 600w, https://etermacolombia.com/cdn/shop/files/landings-kit-duerme-florece-hero-kit.webp?width=900 900w, https://etermacolombia.com/cdn/shop/files/landings-kit-duerme-florece-hero-kit.webp?width=1200 1200w"
-								sizes="(min-width: 1000px) 520px, 100vw" data-df-file="landings-kit-duerme-florece-hero-kit.webp"
-								width="1200" height="1200" fetchpriority="high" decoding="async"
-								alt="Kit Duerme y Florece: las botellas de Multibrina y Todo en uno de 1 litro y el frasco de Valeriana Eterma en gotas">
-							<figcaption class="df-window__caption">Kit Duerme y Florece · 3 productos</figcaption>
-						</figure>
-						<figure class="df-window__slide">
-							<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-bottle-multibrina.webp?width=800"
-								srcset="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-bottle-multibrina.webp?width=500 500w, https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-bottle-multibrina.webp?width=800 800w"
-								sizes="(min-width: 1000px) 520px, 100vw" data-df-shared="kit-dia-liviano/assets/landings-kit-dia-liviano-bottle-multibrina.webp"
-								width="800" height="1000" loading="eager" decoding="async" alt="Botella de Multibrina de 1 litro en la mano">
-							<figcaption class="df-window__caption">Multibrina · Antes de dormir</figcaption>
-						</figure>
-						<figure class="df-window__slide">
-							<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-valeriana-studio.webp?width=675"
-								srcset="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-valeriana-studio.webp?width=400 400w, https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-valeriana-studio.webp?width=675 675w"
-								sizes="(min-width: 1000px) 520px, 100vw" data-df-shared="kit-piel-viva/assets/landings-kit-piel-viva-valeriana-studio.webp"
-								width="675" height="900" loading="lazy" decoding="async" alt="Frasco de Valeriana Eterma en gotas">
-							<figcaption class="df-window__caption">Valeriana · Noches puntuales</figcaption>
-						</figure>
-						<figure class="df-window__slide">
-							<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-bottle-todo-en-uno.webp?width=800"
-								srcset="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-bottle-todo-en-uno.webp?width=500 500w, https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-bottle-todo-en-uno.webp?width=800 800w"
-								sizes="(min-width: 1000px) 520px, 100vw" data-df-shared="kit-piel-viva/assets/landings-kit-piel-viva-bottle-todo-en-uno.webp"
-								width="800" height="1000" loading="lazy" decoding="async" alt="Botella de Todo en uno de 1 litro en la mano">
-							<figcaption class="df-window__caption">Todo en uno · Durante el día o la noche</figcaption>
-						</figure>
+				<figure class="df-stage df-tone-sky">
+					<div class="df-stage__photo">
+						<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-duerme-florece-hero.webp?width=800"
+							srcset="https://etermacolombia.com/cdn/shop/files/landings-kit-duerme-florece-hero.webp?width=500 500w, https://etermacolombia.com/cdn/shop/files/landings-kit-duerme-florece-hero.webp?width=800 800w, https://etermacolombia.com/cdn/shop/files/landings-kit-duerme-florece-hero.webp?width=1200 1200w"
+							sizes="(min-width: 900px) 470px, 88vw" width="1200" height="1200" fetchpriority="high" decoding="async"
+							alt="Mujer toma su dosis en el vaso medidor junto a Multibrina, Todo en Uno y Valeriana">
 					</div>
-					<button type="button" class="df-carousel__arrow df-carousel__arrow--prev" data-df-prev disabled aria-label="Imagen anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button>
-					<button type="button" class="df-carousel__arrow df-carousel__arrow--next" data-df-next aria-label="Imagen siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
-				</div>
-			</div>
-
-			<div class="df-hero__body">
-				<!-- Los chips del copy son los controles de la ventana: luna, luna con estrella y flor -->
-				<div class="df-chips" role="group" aria-label="Los tres productos del kit">
-					<button type="button" class="df-chip df-chip--night" data-df-phase data-df-slide="1" aria-pressed="false">
-						<span class="df-chip__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><path d="M9.5 10h.01M14 9h.01M11.5 14.5h.01"/></svg></span>
-						<span class="df-chip__when">Antes de dormir</span>
-						<strong class="df-chip__what">MULTIBRINA</strong>
-						<span class="df-chip__why">Pausa herbal y calma nocturna</span>
-					</button>
-					<button type="button" class="df-chip df-chip--late" data-df-phase data-df-slide="2" aria-pressed="false">
-						<span class="df-chip__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18 14.5A7 7 0 0 1 9.5 6a7 7 0 1 0 8.5 8.5Z"/><path d="M17.5 3.5v3M16 5h3"/></svg></span>
-						<span class="df-chip__when">Noches puntuales</span>
-						<strong class="df-chip__what">VALERIANA</strong>
-						<span class="df-chip__why">Tensión ocasional</span>
-					</button>
-					<button type="button" class="df-chip df-chip--day" data-df-phase data-df-slide="3" aria-pressed="false">
-						<span class="df-chip__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.4"/><path d="M12 3.5a2.8 2.8 0 0 1 0 5.6 2.8 2.8 0 0 1 0-5.6ZM12 14.9a2.8 2.8 0 0 1 0 5.6 2.8 2.8 0 0 1 0-5.6ZM3.5 12a2.8 2.8 0 0 1 5.6 0 2.8 2.8 0 0 1-5.6 0ZM14.9 12a2.8 2.8 0 0 1 5.6 0 2.8 2.8 0 0 1-5.6 0Z"/></svg></span>
-						<span class="df-chip__when">Durante el día o la noche</span>
-						<strong class="df-chip__what">TODO EN UNO</strong>
-						<span class="df-chip__why">Piel, cabello y uñas</span>
-					</button>
-				</div>
-
-				<ul class="df-facts" aria-label="Datos del kit">
-					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 3h5v3.2l1.6 2.3c.6.8.9 1.8.9 2.8V19a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-7.7c0-1 .3-2 .9-2.8L9.5 6.2V3Z"/><path d="M7 14h10"/></svg><span>2 botellas de 1 litro para 33 días</span></li>
-					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3h4v3h-4zM11 6h2v3l2 3v7a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2v-7l2-3V6Z"/><path d="M12 12c-1.2 1.8-1.8 2.8-1.8 3.6a1.8 1.8 0 0 0 3.6 0c0-.8-.6-1.8-1.8-3.6Z"/></svg><span>Valeriana en gotas</span></li>
-					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l-1 11.2a2 2 0 0 1-2 1.8H9a2 2 0 0 1-2-1.8L6 8Z"/><path d="M7 13h10"/></svg><span>Vasos medidores incluidos</span></li>
+					<figcaption class="df-stage__caption">
+						<span class="df-stage__kicker">El kit</span>
+						<span class="df-stage__title">Kit Duerme y Florece</span>
+					</figcaption>
+				</figure>
+				<ul class="df-stage__trio">
+					<li class="df-mini df-tone-sky">
+						<span class="df-mini__photo"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-bottle-multibrina.webp?width=200" width="200" height="250" loading="lazy" decoding="async" alt="Botella de Multibrina"></span>
+						<span class="df-mini__name">Multibrina</span>
+					</li>
+					<li class="df-mini df-tone-amber">
+						<span class="df-mini__photo"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-valeriana-studio.webp?width=200" width="200" height="250" loading="lazy" decoding="async" alt="Frasco de Valeriana en gotas"></span>
+						<span class="df-mini__name">Valeriana</span>
+					</li>
+					<li class="df-mini df-tone-grape">
+						<span class="df-mini__photo"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-bottle-todo-en-uno.webp?width=200" width="200" height="250" loading="lazy" decoding="async" alt="Botella de Todo en Uno"></span>
+						<span class="df-mini__name">Todo en Uno</span>
+					</li>
 				</ul>
+			</div>
 
-				<dl class="df-pricing">
-					<div class="df-pricing__cell df-pricing__cell--best">
-						<dt>Pago anticipado</dt>
-						<dd>$119.900 <span>COP</span><small>Ahorras $10.000 COP</small></dd>
-					</div>
-					<div class="df-pricing__cell">
-						<dt>Contraentrega</dt>
-						<dd>$129.900 <span>COP</span><small>Pagas al recibir</small></dd>
-					</div>
-				</dl>
-
-				<button type="button" class="df-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage"><span class="df-cta__label">Quiero el kit y ahorrar $10.000</span></button>
-				<p class="df-hero__note">Envío gratis a Colombia <span>·</span> También puedes pagar al recibir</p>
+			<div class="df-hero__buy">
+				<p class="df-lead">Tres productos para acompañar el momento de bajar revoluciones, soltar la tensión acumulada y construir una noche más tranquila.</p>
+				<p class="df-deal">
+					<span class="df-deal__now"><strong class="df-deal__amount">$119.900</strong> anticipado</span>
+					<span class="df-deal__alt">o <strong>$129.900</strong> contraentrega</span>
+				</p>
+				<button type="button" class="df-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage"><span class="df-cta__label">Quiero mi kit Duerme y Florece</span><span class="df-cta__moon" aria-hidden="true"><i></i><i></i><i></i></span></button>
+				<p class="df-hero__note"><svg class="df-icon"><use href="#df-i-truck"/></svg><span>Entrega en <strong>3 a 5 días hábiles</strong>.</span></p>
 			</div>
 		</div>
 	</section>
 
-	<!-- ================== MOSAICO BAJO EL HERO (solo imágenes, sin scroll) ================== -->
+	<!-- ============================ PERSONAS ============================
+	     Polaroids con cinta del color de su producto. Nombres reales del
+	     pool; sin cita, porque el copy no trae testimonios. -->
 	<section class="df-people" aria-label="Personas reales con los productos del kit">
-		<div class="df-shell df-mosaic">
-			<figure class="df-mosaic__item"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-ugc-maria-de-los-angeles.webp?width=420" data-df-shared="kit-dia-liviano/assets/landings-kit-dia-liviano-ugc-maria-de-los-angeles.webp" width="720" height="900" loading="lazy" decoding="async" alt="María de los Ángeles con su botella de Multibrina"></figure>
-			<figure class="df-mosaic__item"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-ugc-valeriana-3.webp?width=420" data-df-shared="kit-piel-viva/assets/landings-kit-piel-viva-ugc-valeriana-3.webp" width="720" height="900" loading="lazy" decoding="async" alt="Gotero de Valeriana Eterma sobre un vaso de agua"></figure>
-			<figure class="df-mosaic__item"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-ugc-todo-en-uno-1.webp?width=420" data-df-shared="kit-piel-viva/assets/landings-kit-piel-viva-ugc-todo-en-uno-1.webp" width="720" height="900" loading="lazy" decoding="async" alt="Mujer sostiene Todo en uno en la cocina de su casa"></figure>
-			<figure class="df-mosaic__item"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-ugc-gabriela.webp?width=420" data-df-shared="kit-dia-liviano/assets/landings-kit-dia-liviano-ugc-gabriela.webp" width="720" height="900" loading="lazy" decoding="async" alt="Gabriela con su botella de Multibrina"></figure>
+		<div class="df-people__track" data-df-marquee>
+			<ul class="df-people__set">
+				<li class="df-polaroid df-tone-sky"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-ugc-maria-de-los-angeles.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt="María de los Ángeles con su botella de Multibrina"><p class="df-polaroid__caption"><span class="df-polaroid__name">María de los Ángeles</span><span class="df-polaroid__product">Multibrina</span></p></li>
+				<li class="df-polaroid df-tone-amber"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-ugc-valeriana-1.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt="Clienta con su frasco de Valeriana"><p class="df-polaroid__caption"><span class="df-polaroid__product">Valeriana</span></p></li>
+				<li class="df-polaroid df-tone-grape"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-ugc-todo-en-uno-1.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt="Clienta con su botella de Todo en Uno"><p class="df-polaroid__caption"><span class="df-polaroid__product">Todo en Uno</span></p></li>
+				<li class="df-polaroid df-tone-sky"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-ugc-gabriela.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt="Gabriela con su botella de Multibrina"><p class="df-polaroid__caption"><span class="df-polaroid__name">Gabriela</span><span class="df-polaroid__product">Multibrina</span></p></li>
+				<li class="df-polaroid df-tone-amber"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-ugc-valeriana-2.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt="Valeriana en gotas sobre un vaso de agua"><p class="df-polaroid__caption"><span class="df-polaroid__product">Valeriana</span></p></li>
+				<li class="df-polaroid df-tone-grape"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-ugc-todo-en-uno-2.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt="Todo en Uno servido en el vaso medidor"><p class="df-polaroid__caption"><span class="df-polaroid__product">Todo en Uno</span></p></li>
+				<li class="df-polaroid df-tone-sky"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-ugc-victor.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt="Victor con su botella de Multibrina"><p class="df-polaroid__caption"><span class="df-polaroid__name">Victor</span><span class="df-polaroid__product">Multibrina</span></p></li>
+				<li class="df-polaroid df-tone-amber"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-ugc-valeriana-3.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt="Clienta con su frasco de Valeriana"><p class="df-polaroid__caption"><span class="df-polaroid__product">Valeriana</span></p></li>
+				<li class="df-polaroid df-tone-grape"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-ugc-todo-en-uno-3.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt="Clienta con su botella de Todo en Uno"><p class="df-polaroid__caption"><span class="df-polaroid__product">Todo en Uno</span></p></li>
+			</ul>
+			<ul class="df-people__set" aria-hidden="true">
+				<li class="df-polaroid df-tone-sky"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-ugc-maria-de-los-angeles.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt=""><p class="df-polaroid__caption"><span class="df-polaroid__name">María de los Ángeles</span><span class="df-polaroid__product">Multibrina</span></p></li>
+				<li class="df-polaroid df-tone-amber"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-ugc-valeriana-1.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt=""><p class="df-polaroid__caption"><span class="df-polaroid__product">Valeriana</span></p></li>
+				<li class="df-polaroid df-tone-grape"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-ugc-todo-en-uno-1.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt=""><p class="df-polaroid__caption"><span class="df-polaroid__product">Todo en Uno</span></p></li>
+				<li class="df-polaroid df-tone-sky"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-ugc-gabriela.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt=""><p class="df-polaroid__caption"><span class="df-polaroid__name">Gabriela</span><span class="df-polaroid__product">Multibrina</span></p></li>
+				<li class="df-polaroid df-tone-amber"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-ugc-valeriana-2.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt=""><p class="df-polaroid__caption"><span class="df-polaroid__product">Valeriana</span></p></li>
+				<li class="df-polaroid df-tone-grape"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-ugc-todo-en-uno-2.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt=""><p class="df-polaroid__caption"><span class="df-polaroid__product">Todo en Uno</span></p></li>
+				<li class="df-polaroid df-tone-sky"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-ugc-victor.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt=""><p class="df-polaroid__caption"><span class="df-polaroid__name">Victor</span><span class="df-polaroid__product">Multibrina</span></p></li>
+				<li class="df-polaroid df-tone-amber"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-ugc-valeriana-3.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt=""><p class="df-polaroid__caption"><span class="df-polaroid__product">Valeriana</span></p></li>
+				<li class="df-polaroid df-tone-grape"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-ugc-todo-en-uno-3.webp?width=420" width="720" height="900" loading="lazy" decoding="async" alt=""><p class="df-polaroid__caption"><span class="df-polaroid__product">Todo en Uno</span></p></li>
+			</ul>
 		</div>
 	</section>
 
-	<!-- ============================ TRES MOMENTOS: LAS NOTAS ============================ -->
-	<section class="df-section df-moments" id="df-moments">
-		<div class="df-shell">
-			<p class="df-overline">Cada producto tiene su papel</p>
-			<h2 class="df-h2">Una pausa nocturna y un vaso diario para piel, cabello y uñas.</h2>
-			<p class="df-lead df-narrow-text">MULTIBRINA y TODO EN UNO se miden en 30 ml. VALERIANA se usa de acuerdo con la indicación de su etiqueta.</p>
+	<!-- ============================ LA MENTE DESPIERTA ============================
+	     Los pensamientos se apilan y se van apagando: cada uno entra con
+	     menos luz que el anterior. -->
+	<section class="df-section df-awake">
+		<div class="df-shell df-narrow">
+			<h2 class="df-h2">Tu cuerpo llegó a la cama.<span class="df-h2__soft">Tu mente todavía no.</span></h2>
+			<ul class="df-thoughts" data-df-reveal>
+				<li class="df-thought">Repasas conversaciones.</li>
+				<li class="df-thought">Piensas en mañana.</li>
+				<li class="df-thought">Miras el celular otra vez.</li>
+				<li class="df-thought">Cambias de posición.</li>
+			</ul>
+			<p class="df-awake__text">Y cuando finalmente duermes, sientes que la noche pasó demasiado rápido.</p>
+			<p class="df-awake__close">Dormir también necesita espacio.</p>
+		</div>
+	</section>
 
-			<!-- Tres notas de mesa de noche, con la esquina doblada: la noche oscura, la noche suave y la mañana -->
-			<ol class="df-notes" data-df-reveal data-df-icon-group aria-label="Los tres momentos del kit, en orden">
-				<li class="df-note df-note--night is-active">
-					<figure class="df-note__photo">
-						<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-bottle-multibrina.webp?width=500" data-df-shared="kit-dia-liviano/assets/landings-kit-dia-liviano-bottle-multibrina.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Botella de Multibrina de 1 litro en la mano">
-					</figure>
-					<div class="df-note__body">
-						<div class="df-note__head">
-							<span class="df-note__index" aria-hidden="true">1</span>
-							<span class="df-note__when">Antes de dormir</span>
-							<button type="button" class="df-icon-button" data-df-icon-toggle aria-pressed="true" aria-label="Destacar el momento de antes de dormir"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7"/><path d="M9.5 10h.01M14 9h.01M11.5 14.5h.01"/></svg></button>
+	<!-- ============================ TRES PRODUCTOS ============================ -->
+	<section class="df-section df-section--sky df-order">
+		<div class="df-shell">
+			<h2 class="df-h2">Tres productos.<span class="df-h2__soft">Una noche con menos ruido.</span></h2>
+			<ol class="df-steps">
+				<li class="df-step df-tone-sky">
+					<article class="df-item">
+						<div class="df-item__photo">
+							<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-bottle-multibrina.webp?width=500" width="800" height="1000" loading="lazy" decoding="async" alt="Botella de Multibrina en la mano">
 						</div>
-						<h3 class="df-note__title">MULTIBRINA</h3>
-						<p class="df-note__promise">Una bebida herbal para bajar revoluciones.</p>
-						<p class="df-note__formula">Manzanilla, toronjil, hierbabuena y mejorana para cerrar el día con más calma.</p>
-						<p class="df-note__dose">Toma <strong>30 ml</strong> antes de acostarte.</p>
-					</div>
+						<div class="df-item__body">
+							<h3 class="df-h3">Multibrina</h3>
+							<p class="df-item__claim">Empieza a bajar el ritmo.</p>
+							<p class="df-item__formula">Manzanilla + toronjil + hierbabuena + mejorana.</p>
+							<p class="df-item__text">Una bebida para acompañar la calma al final de una jornada intensa.</p>
+							<p class="df-dose">1 litro para 33 días. 33 dosis de 30 ml. Vaso medidor de regalo.</p>
+						</div>
+					</article>
 				</li>
-				<li class="df-note df-note--late">
-					<figure class="df-note__photo">
-						<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-valeriana-studio.webp?width=500" data-df-shared="kit-piel-viva/assets/landings-kit-piel-viva-valeriana-studio.webp" width="675" height="900" loading="lazy" decoding="async" alt="Frasco de Valeriana Eterma en gotas">
-					</figure>
-					<div class="df-note__body">
-						<div class="df-note__head">
-							<span class="df-note__index" aria-hidden="true">2</span>
-							<span class="df-note__when">En noches de tensión ocasional</span>
-							<button type="button" class="df-icon-button" data-df-icon-toggle aria-pressed="false" aria-label="Destacar las noches puntuales"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 14.5A7 7 0 0 1 9.5 6a7 7 0 1 0 8.5 8.5Z"/><path d="M17.5 3.5v3M16 5h3"/></svg></button>
+				<li class="df-step df-tone-amber">
+					<article class="df-item">
+						<div class="df-item__photo">
+							<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-valeriana-studio.webp?width=500" width="800" height="1000" loading="lazy" decoding="async" alt="Frasco de Valeriana en gotas">
 						</div>
-						<h3 class="df-note__title">VALERIANA</h3>
-						<p class="df-note__promise">Gotas herbales para cuando cuesta desconectarse.</p>
-						<p class="df-note__formula">Un formato práctico para tener en la mesa de noche.</p>
-						<p class="df-note__dose">Usa según la indicación de la etiqueta.</p>
-					</div>
+						<div class="df-item__body">
+							<h3 class="df-h3">Valeriana</h3>
+							<p class="df-item__claim">Para ese momento en que cuesta desconectarse.</p>
+							<p class="df-item__text">Valeriana en gotas para acompañar episodios de tensión ocasional y tu momento previo a dormir.</p>
+							<p class="df-dose">Se consume diluida en agua.</p>
+						</div>
+					</article>
 				</li>
-				<li class="df-note df-note--day">
-					<figure class="df-note__photo">
-						<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-bottle-todo-en-uno.webp?width=500" data-df-shared="kit-piel-viva/assets/landings-kit-piel-viva-bottle-todo-en-uno.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Botella de Todo en uno de 1 litro en la mano">
-					</figure>
-					<div class="df-note__body">
-						<div class="df-note__head">
-							<span class="df-note__index" aria-hidden="true">3</span>
-							<span class="df-note__when">Durante el día o en la noche</span>
-							<button type="button" class="df-icon-button" data-df-icon-toggle aria-pressed="false" aria-label="Destacar el vaso diario"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2.4"/><path d="M12 3.5a2.8 2.8 0 0 1 0 5.6 2.8 2.8 0 0 1 0-5.6ZM12 14.9a2.8 2.8 0 0 1 0 5.6 2.8 2.8 0 0 1 0-5.6ZM3.5 12a2.8 2.8 0 0 1 5.6 0 2.8 2.8 0 0 1-5.6 0ZM14.9 12a2.8 2.8 0 0 1 5.6 0 2.8 2.8 0 0 1-5.6 0Z"/></svg></button>
+				<li class="df-step df-tone-grape">
+					<article class="df-item">
+						<div class="df-item__photo">
+							<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-bottle-todo-en-uno.webp?width=500" width="800" height="1000" loading="lazy" decoding="async" alt="Botella de Todo en Uno en la mano">
 						</div>
-						<h3 class="df-note__title">TODO EN UNO</h3>
-						<p class="df-note__promise">Piel, cabello y uñas en una bebida sabor uva.</p>
-						<p class="df-note__formula">Colágeno, pepino y resveratrol en 30 ml diarios.</p>
-						<p class="df-note__dose">Toma <strong>una porción</strong> al día.</p>
-					</div>
+						<div class="df-item__body">
+							<h3 class="df-h3">Todo en Uno</h3>
+							<p class="df-item__claim">Mientras cuidas tu noche, sigues cuidándote.</p>
+							<p class="df-item__formula">Colágeno + pepino + resveratrol.</p>
+							<p class="df-item__text">Una bebida diaria pensada para complementar el cuidado cotidiano de piel, cabello, uñas y articulaciones.</p>
+							<p class="df-dose">1 litro para 33 días. 33 dosis de 30 ml. Vaso medidor de regalo.</p>
+						</div>
+					</article>
 				</li>
 			</ol>
-
-			<div class="df-cta-row">
-				<button type="button" class="df-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage"><span class="df-cta__label">Comprar Kit Duerme y Florece</span></button>
-				<p class="df-cta-note">Pago anticipado $119.900 COP <span>·</span> Contraentrega $129.900 COP</p>
-			</div>
 		</div>
 	</section>
 
-	<!-- ============================ FÓRMULAS Y USO: LA ETIQUETA ============================ -->
-	<section class="df-section df-section--alt df-formula">
-		<div class="df-shell df-formula__grid">
-			<div class="df-formula__content">
-				<p class="df-overline">Fórmulas y uso</p>
-				<h2 class="df-h2">Qué tomas antes de dormir y cada día.</h2>
-				<!-- La tabla del copy, como la etiqueta de un frasco: regla gruesa arriba y abajo -->
-				<div class="df-label">
-					<p class="df-label__legend">Producto <span>·</span> Ingredientes destacados <span>·</span> Uso sugerido</p>
-					<ul class="df-label__list" aria-label="Ingredientes destacados y uso sugerido por producto">
-						<li class="df-label__row df-label__row--night">
-							<span class="df-label__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/><path d="M9.5 10h.01M14 9h.01M11.5 14.5h.01"/></svg></span>
-							<div class="df-label__text">
-								<span class="df-label__product">MULTIBRINA</span>
-								<p class="df-label__ingredients">Manzanilla, toronjil, hierbabuena y mejorana</p>
-								<span class="df-label__use">30 ml antes de dormir</span>
-							</div>
-						</li>
-						<li class="df-label__row df-label__row--late">
-							<span class="df-label__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 14.5A7 7 0 0 1 9.5 6a7 7 0 1 0 8.5 8.5Z"/><path d="M17.5 3.5v3M16 5h3"/></svg></span>
-							<div class="df-label__text">
-								<span class="df-label__product">VALERIANA</span>
-								<p class="df-label__ingredients">Valeriana en gotas</p>
-								<span class="df-label__use">Según etiqueta, en la noche</span>
-							</div>
-						</li>
-						<li class="df-label__row df-label__row--day">
-							<span class="df-label__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.4"/><path d="M12 3.5a2.8 2.8 0 0 1 0 5.6 2.8 2.8 0 0 1 0-5.6ZM12 14.9a2.8 2.8 0 0 1 0 5.6 2.8 2.8 0 0 1 0-5.6ZM3.5 12a2.8 2.8 0 0 1 5.6 0 2.8 2.8 0 0 1-5.6 0ZM14.9 12a2.8 2.8 0 0 1 5.6 0 2.8 2.8 0 0 1-5.6 0Z"/></svg></span>
-							<div class="df-label__text">
-								<span class="df-label__product">TODO EN UNO</span>
-								<p class="df-label__ingredients">Colágeno, pepino y resveratrol</p>
-								<span class="df-label__use">30 ml al día</span>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<figure class="df-formula__media">
-				<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-duerme-florece-mecanismo.webp?width=900" data-df-file="landings-kit-duerme-florece-mecanismo.webp" width="1000" height="1000" loading="lazy" decoding="async" alt="Ingredientes del Kit Duerme y Florece: raíz de valeriana; colágeno, pepino y resveratrol de Todo en uno; manzanilla, toronjil, hierbabuena y mejorana de Multibrina">
-			</figure>
-		</div>
-
-		<div class="df-shell df-use">
-			<h3 class="df-h3">Uso diario</h3>
-			<!-- La rutina: una sola tarjeta con las tres tomas en fila y las formas de tomarlas al pie -->
-			<div class="df-routine">
-				<ol class="df-routine__list" data-df-reveal aria-label="Uso diario del kit">
-					<li class="df-routine__row df-routine__row--night">
-						<figure class="df-routine__photo"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-vasito-multibrina.webp?width=240" data-df-shared="kit-dia-liviano/assets/landings-kit-dia-liviano-vasito-multibrina.webp" width="800" height="800" loading="lazy" decoding="async" alt="Vaso medidor con 30 ml de Multibrina"></figure>
-						<div class="df-routine__text">
-							<span class="df-routine__when">Antes de acostarte</span>
-							<p>Toma <strong>30 ml</strong> de MULTIBRINA.</p>
-						</div>
-					</li>
-					<li class="df-routine__row df-routine__row--late">
-						<figure class="df-routine__photo"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-valeriana-drops.webp?width=240" data-df-shared="kit-piel-viva/assets/landings-kit-piel-viva-valeriana-drops.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Gotero de Valeriana sobre un vaso de agua"></figure>
-						<div class="df-routine__text">
-							<span class="df-routine__when">En la noche</span>
-							<p>Usa VALERIANA conforme a la indicación del frasco.</p>
-						</div>
-					</li>
-					<li class="df-routine__row df-routine__row--day">
-						<figure class="df-routine__photo"><img src="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-vasito-todo-en-uno.webp?width=240" data-df-shared="kit-piel-viva/assets/landings-kit-piel-viva-vasito-todo-en-uno.webp" width="800" height="800" loading="lazy" decoding="async" alt="Vaso medidor con 30 ml de Todo en uno"></figure>
-						<div class="df-routine__text">
-							<span class="df-routine__when">Durante el día o en la noche</span>
-							<p>Toma <strong>30 ml</strong> de TODO EN UNO.</p>
-						</div>
-					</li>
-				</ol>
-				<div class="df-ways">
-					<p class="df-ways__label">Las bebidas se pueden tomar</p>
-					<ul class="df-ways__list" aria-label="Formas de tomar las bebidas">
-						<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h8v14a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V4Z"/><path d="M8 10h8"/></svg>Directas</li>
-						<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg>Con agua</li>
-						<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h10l-1.2 15.2a2 2 0 0 1-2 1.8H10.2a2 2 0 0 1-2-1.8L7 4Z"/><path d="M7.6 11h8.8"/><path d="m14 4 3-2"/></svg>En jugo natural no cítrico</li>
-					</ul>
-				</div>
-			</div>
-
-			<ul class="df-facts df-use__facts" aria-label="Datos de las bebidas">
-				<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 3h5v3.2l1.6 2.3c.6.8.9 1.8.9 2.8V19a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-7.7c0-1 .3-2 .9-2.8L9.5 6.2V3Z"/><path d="M7 14h10"/></svg><span>MULTIBRINA y TODO EN UNO: 1 litro para 33 días</span></li>
-				<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4"/></svg><span>33 dosis de 30 ml</span></li>
-				<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l-1 11.2a2 2 0 0 1-2 1.8H9a2 2 0 0 1-2-1.8L6 8Z"/><path d="M7 13h10"/></svg><span>Un vaso medidor por botella</span></li>
-			</ul>
-			<div class="df-cta-row">
-				<button type="button" class="df-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage"><span class="df-cta__label">Quiero mis 33 días</span></button>
-			</div>
-		</div>
-	</section>
-
-	<!-- ============================ OFERTA Y ENTREGA ============================ -->
-	<section class="df-section df-offer" id="df-offer">
-		<div class="df-shell df-narrow">
-			<p class="df-overline">Oferta y entrega</p>
-			<h2 class="df-h2">Elige cómo pagar tu Kit Duerme y Florece.</h2>
-			<div class="df-plans">
-				<article class="df-plan df-plan--best">
-					<p class="df-plan__badge">Opción destacada</p>
-					<h3 class="df-plan__title">Pago anticipado</h3>
-					<p class="df-plan__price">$119.900 <span>COP</span></p>
-					<ul class="df-plan__perks">
-						<li>Ahorras $10.000 COP frente al precio regular.</li>
-						<li>Envío gratis a Colombia.</li>
-					</ul>
-					<button type="button" class="df-cta df-cta--light _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage" data-df-pay-choice="prepaid"><span class="df-cta__label">Comprar y ahorrar $10.000</span></button>
-				</article>
-				<article class="df-plan">
-					<p class="df-plan__eyebrow">Pago al recibir</p>
-					<h3 class="df-plan__title">Pago contraentrega</h3>
-					<p class="df-plan__price">$129.900 <span>COP</span></p>
-					<ul class="df-plan__perks">
-						<li>Pagas cuando recibes tu pedido.</li>
-						<li>Envío gratis a Colombia.</li>
-					</ul>
-					<button type="button" class="df-cta df-cta--secondary _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage" data-df-pay-choice="cod"><span class="df-cta__label">Comprar contraentrega</span></button>
-				</article>
-			</div>
-
-			<div class="df-after">
-				<p class="df-after__title">Después de tu compra</p>
-				<ol class="df-after__flow" data-df-reveal>
-					<li>
-						<span class="df-after__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14v16H5z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></span>
-						<span class="df-after__number">1</span>
-						<p>Dejas nombre, dirección y celular.</p>
-					</li>
-					<li>
-						<span class="df-after__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4V5Z"/><path d="M8 9h8M8 12h5"/></svg></span>
-						<span class="df-after__number">2</span>
-						<p>ETERMA confirma el pedido por WhatsApp o llamada.</p>
-					</li>
-					<li>
-						<span class="df-after__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span>
-						<span class="df-after__number">3</span>
-						<p>Recibes el kit en 3 a 5 días hábiles.</p>
-					</li>
-				</ol>
-			</div>
-		</div>
-
-		<div class="df-guarantee">
-			<div class="df-shell df-narrow df-guarantee__inner">
-				<span class="df-guarantee__seal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 19 5.8v5.4c0 4.2-2.8 7.3-7 8.8-4.2-1.5-7-4.6-7-8.8V5.8L12 3Z"/><path d="m9 12 2 2 4-4"/></svg></span>
-				<p class="df-overline">Garantía de entrega</p>
-				<p class="df-guarantee__text">Si tu pedido no llega en 3 a 5 días hábiles, se reenvía sin costo. Si pagaste anticipado, puedes pedir devolución del dinero en lugar del reenvío.</p>
-			</div>
-		</div>
-	</section>
-
-	<!-- ============================ INCLUYE Y CONFIANZA ============================ -->
-	<section class="df-section df-section--surface df-includes">
-		<div class="df-shell df-includes__grid">
-			<figure class="df-includes__media">
-				<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-duerme-florece-kit-podium.webp?width=800" data-df-file="landings-kit-duerme-florece-kit-podium.webp" width="1000" height="1000" loading="lazy" decoding="async" alt="Multibrina, el frasco de Valeriana y Todo en uno sobre pedestales de piedra">
-			</figure>
-			<div class="df-includes__content">
-				<p class="df-overline">Incluye y confianza</p>
-				<h2 class="df-h2">Esto llega en tu pedido.</h2>
-				<ul class="df-checks">
-					<li><strong>1 botella de MULTIBRINA</strong> · 1 litro · 33 dosis de 30 ml</li>
-					<li><strong>1 frasco de VALERIANA</strong> en gotas</li>
-					<li><strong>1 botella de TODO EN UNO</strong> · 1 litro · 33 dosis de 30 ml · sabor uva</li>
-					<li>1 vaso medidor con MULTIBRINA y otro con TODO EN UNO</li>
-					<li>Envío gratis a Colombia</li>
-				</ul>
-				<dl class="df-details">
-					<div><dt>MULTIBRINA</dt><dd>Una porción diaria de 30 ml antes de dormir.</dd></div>
-					<div><dt>TODO EN UNO</dt><dd>Una porción diaria de 30 ml, en el horario que prefieras.</dd></div>
-					<div><dt>Duración</dt><dd>MULTIBRINA y TODO EN UNO: 1 litro para 33 días.</dd></div>
-					<div><dt>Registro sanitario</dt><dd>MULTIBRINA y TODO EN UNO: INVIMA RSA-0029174-2023</dd></div>
-					<div><dt>Fabricado en Colombia</dt><dd>Laboratorios NaturalSplast SAS, Carrera 59 #5-B31, Bogotá D.C.</dd></div>
-				</dl>
-			</div>
-		</div>
-	</section>
-
-	<!-- ============================ EXPERIENCIAS: NOTAS CON PIN ============================ -->
-	<section class="df-section df-voices">
+	<!-- ============================ ¿TE SUENA? ============================
+	     Cinco tarjetas que se pasan deslizando, como quien va pasando las
+	     noches. Sin puntos: la siguiente asoma por el borde. -->
+	<section class="df-section df-section--cream df-nights">
 		<div class="df-shell">
-			<p class="df-overline">Experiencias reales</p>
-			<div class="df-quotes-host">
-				<div class="df-quotes" data-df-carousel tabindex="0" role="region" aria-label="Experiencias de clientas con el kit">
-					<figure class="df-quote df-quote--night">
-						<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-ugc-victor.webp?width=200" data-df-shared="kit-dia-liviano/assets/landings-kit-dia-liviano-ugc-victor.webp" width="720" height="900" loading="lazy" decoding="async" alt="Victor con su botella de Multibrina">
-						<blockquote>MULTIBRINA es el vaso que preparo cuando ya quiero dejar el día atrás.</blockquote>
-						<figcaption><strong>Victor</strong> <span>· Cartagena</span><em>Antes de dormir</em></figcaption>
-					</figure>
-					<figure class="df-quote df-quote--late">
-						<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-ugc-valeriana-2.webp?width=200" data-df-shared="kit-piel-viva/assets/landings-kit-piel-viva-ugc-valeriana-2.webp" width="720" height="900" loading="lazy" decoding="async" alt="Clienta muestra la caja de Valeriana Eterma">
-						<blockquote>Dejo la Valeriana en la mesa de noche para las noches con demasiados pendientes.</blockquote>
-						<figcaption data-df-name-pending><strong>Clienta</strong> <span>· Bucaramanga</span><em>Noches puntuales</em></figcaption>
-					</figure>
-					<figure class="df-quote df-quote--day">
-						<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-ugc-todo-en-uno-2.webp?width=200" data-df-shared="kit-piel-viva/assets/landings-kit-piel-viva-ugc-todo-en-uno-2.webp" width="720" height="900" loading="lazy" decoding="async" alt="Clienta con su botella de Todo en uno">
-						<blockquote>TODO EN UNO quedó fijo en mi día porque piel, cabello y uñas van en el mismo vaso.</blockquote>
-						<figcaption data-df-name-pending><strong>Clienta</strong> <span>· Pereira</span><em>Cada día</em></figcaption>
-					</figure>
-				</div>
-				<div class="df-dots" aria-label="Elegir experiencia">
-					<button type="button" class="df-dot" data-df-dot aria-current="true" aria-label="Ver experiencia 1"><span class="df-visually-hidden">1</span></button>
-					<button type="button" class="df-dot" data-df-dot aria-label="Ver experiencia 2"><span class="df-visually-hidden">2</span></button>
-					<button type="button" class="df-dot" data-df-dot aria-label="Ver experiencia 3"><span class="df-visually-hidden">3</span></button>
-				</div>
+			<div class="df-nights__head">
+				<h2 class="df-h2">¿Te suena?</h2>
+				<p class="df-nights__hint">Desliza para ver las cinco.</p>
 			</div>
-			<div class="df-cta-row">
-				<button type="button" class="df-cta _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage"><span class="df-cta__label">Pedir Kit Duerme y Florece</span></button>
-			</div>
+		</div>
+		<div class="df-nights__rail" data-df-rail tabindex="0" role="group" aria-label="Cinco situaciones de una noche difícil">
+			<ul class="df-nights__list">
+				<li class="df-night df-tone-sky">
+					<span class="df-night__mark" aria-hidden="true"><svg class="df-icon"><use href="#df-i-list"/></svg></span>
+					<h3 class="df-night__title">Estás agotada.<span class="df-night__sub">Pero tu cabeza sigue haciendo listas.</span></h3>
+					<p class="df-night__text">Tu cuerpo pide cama.</p>
+					<p class="df-night__text">Tu mente sigue resolviendo pendientes que pueden esperar hasta mañana.</p>
+				</li>
+				<li class="df-night df-tone-amber">
+					<span class="df-night__mark" aria-hidden="true"><svg class="df-icon"><use href="#df-i-tired"/></svg></span>
+					<h3 class="df-night__title">Duermes.<span class="df-night__sub">Pero despiertas como si no hubieras descansado.</span></h3>
+					<p class="df-night__text">No todas las noches cortas se sienten igual.</p>
+					<p class="df-night__text">Cuando dormir mal se vuelve repetitivo, la energía, concentración y ánimo del día siguiente pueden empezar a sentirlo.</p>
+				</li>
+				<li class="df-night df-tone-blush">
+					<span class="df-night__mark" aria-hidden="true"><svg class="df-icon"><use href="#df-i-spark"/></svg></span>
+					<h3 class="df-night__title">Últimamente todo te afecta más.</h3>
+					<p class="df-night__text">Menos paciencia. Más irritabilidad. Menos ganas de hacer cosas.</p>
+					<p class="df-night__text">El sueño y la salud mental están profundamente relacionados. Si los cambios de ánimo son intensos o persistentes, merecen atención profesional.</p>
+				</li>
+				<li class="df-night df-tone-grape">
+					<span class="df-night__mark" aria-hidden="true"><svg class="df-icon"><use href="#df-i-plate"/></svg></span>
+					<h3 class="df-night__title">Comes diferente después de una mala noche.</h3>
+					<p class="df-night__text">Más dulce. Porciones más grandes. Café para continuar.</p>
+					<p class="df-night__text">Dormir poco también puede alterar señales relacionadas con hambre y regulación metabólica.</p>
+				</li>
+				<li class="df-night df-tone-mint">
+					<span class="df-night__mark" aria-hidden="true"><svg class="df-icon"><use href="#df-i-wheel"/></svg></span>
+					<h3 class="df-night__title">“Solo cierro los ojos un segundo.”</h3>
+					<p class="df-night__text">Ese segundo importa.</p>
+					<p class="df-night__text">La falta importante de sueño puede producir <strong>microsueños</strong>: episodios breves que pueden ocurrir sin que notes que te dormiste. Al conducir, pueden ser especialmente peligrosos.</p>
+				</li>
+			</ul>
 		</div>
 	</section>
 
-	<!-- ============================ FAQ ============================ -->
-	<section class="df-section df-section--alt">
+	<!-- ============================ NO TERMINA CON LA ALARMA ============================
+	     El único bloque en verde profundo: la pausa seria de la página. -->
+	<section class="df-section df-section--deep df-risk">
+		<div class="df-shell">
+			<h2 class="df-h2">Dormir poco no termina cuando suena la alarma.</h2>
+			<p class="df-risk__lead">La falta de sueño sostenida se ha relacionado con problemas que van mucho más allá del cansancio.</p>
+			<ul class="df-risk__list" data-df-reveal>
+				<li class="df-risk__item">
+					<span class="df-risk__mark" aria-hidden="true"><svg class="df-icon"><use href="#df-i-brain"/></svg></span>
+					<h3 class="df-risk__name">Cerebro</h3>
+					<p class="df-risk__text">Dormir poco durante años se ha asociado con mayor riesgo de deterioro cognitivo y demencia.</p>
+					<p class="df-risk__limit">Eso <strong>no significa</strong> que este kit prevenga Alzheimer. Significa que el sueño merece tomarse en serio.</p>
+				</li>
+				<li class="df-risk__item">
+					<span class="df-risk__mark" aria-hidden="true"><svg class="df-icon"><use href="#df-i-metabolism"/></svg></span>
+					<h3 class="df-risk__name">Metabolismo</h3>
+					<p class="df-risk__text">El sueño insuficiente está relacionado con <strong>diabetes tipo 2 y aumento de peso</strong>.</p>
+					<p class="df-risk__limit">Dormir mejor no reemplaza alimentación, movimiento ni tratamiento médico. Forma parte del cuidado.</p>
+				</li>
+				<li class="df-risk__item">
+					<span class="df-risk__mark" aria-hidden="true"><svg class="df-icon"><use href="#df-i-heart"/></svg></span>
+					<h3 class="df-risk__name">Corazón</h3>
+					<p class="df-risk__text">Los problemas de sueño también se relacionan con salud cardiovascular.</p>
+					<p class="df-risk__limit">Hipertensión, enfermedad cardíaca y accidente cerebrovascular forman parte de las razones por las que un descanso deficiente recurrente merece atención.</p>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- ============================ CUANDO ES EXTREMA ============================ -->
+	<section class="df-section df-extreme">
 		<div class="df-shell df-narrow">
-			<p class="df-overline">Antes de pedir</p>
-			<h2 class="df-h2">Preguntas frecuentes</h2>
-			<div class="df-faq">
-				<details><summary>¿Cuánto duran MULTIBRINA y TODO EN UNO?</summary><p>Cada botella contiene 1 litro para 33 días: 33 dosis de 30 ml.</p></details>
-				<details><summary>¿Cómo tomo MULTIBRINA y TODO EN UNO?</summary><p>Mide 30 ml con el vaso incluido. Puedes tomar las bebidas directas, con agua o en jugo natural no cítrico. MULTIBRINA va antes de dormir; TODO EN UNO puede tomarse durante el día o en la noche.</p></details>
-				<details><summary>¿Cómo uso VALERIANA?</summary><p>Sigue la indicación de uso que aparece en la etiqueta de tu frasco. Está planteada para uso nocturno.</p></details>
-				<details><summary>¿Puedo usar los tres productos el mismo día?</summary><p>Sí. MULTIBRINA se toma antes de dormir, VALERIANA se usa según etiqueta y TODO EN UNO se puede tomar en el horario que prefieras.</p></details>
-				<details><summary>¿Puedo pagar contraentrega?</summary><p>Sí. Contraentrega cuesta $129.900 COP. Con pago anticipado cuesta $119.900 COP y ahorras $10.000 COP.</p></details>
-				<details><summary>¿Cuándo llega mi pedido?</summary><p>Después de confirmar tu pedido, llega en 3 a 5 días hábiles.</p></details>
-				<details><summary>¿Qué pasa si mi pedido no llega?</summary><p>Si no llega en 3 a 5 días hábiles, ETERMA lo reenvía sin costo. Si pagaste anticipado, puedes solicitar devolución del dinero en lugar del reenvío.</p></details>
-				<details><summary>¿Puedo usar el kit si tomo medicamentos, estoy embarazada o lactando?</summary><p>Si estás bajo tratamiento médico, embarazada o lactando, consulta con tu médico antes de incorporar bebidas funcionales o productos herbales.</p></details>
+			<div class="df-warning df-tone-blush">
+				<span class="df-warning__mark" aria-hidden="true"><svg class="df-icon"><use href="#df-i-alert"/></svg></span>
+				<h2 class="df-h2 df-warning__title">Y cuando la falta de sueño es extrema…</h2>
+				<p class="df-warning__text">Pueden aparecer desorientación, alteraciones perceptivas e incluso alucinaciones.</p>
+				<p class="df-warning__strong">Eso ya no es una noche difícil. Es una señal para buscar atención médica.</p>
+				<p class="df-warning__note">El Kit Duerme y Florece está pensado para acompañar una rutina nocturna cotidiana. No para tratar depresión, psicosis, insomnio crónico ni otros trastornos del sueño.</p>
+			</div>
+
+			<h2 class="df-h2 df-effects__title">También afecta cómo funcionas.</h2>
+			<p class="df-effects__lead">Con poco descanso puedes notar:</p>
+			<ul class="df-effects" data-df-reveal>
+				<li class="df-effect df-tone-sky"><svg class="df-icon"><use href="#df-i-focus"/></svg><span>Menos concentración.</span></li>
+				<li class="df-effect df-tone-amber"><svg class="df-icon"><use href="#df-i-flame"/></svg><span>Más hambre.</span></li>
+				<li class="df-effect df-tone-blush"><svg class="df-icon"><use href="#df-i-spark"/></svg><span>Más irritabilidad.</span></li>
+				<li class="df-effect df-tone-mint"><svg class="df-icon"><use href="#df-i-battery"/></svg><span>Menos energía.</span></li>
+				<li class="df-effect df-tone-grape"><svg class="df-icon"><use href="#df-i-heart"/></svg><span>Menor deseo sexual.</span></li>
+			</ul>
+			<p class="df-effects__note">Y en situaciones de privación total de sueño, estudios también han observado disminuciones de testosterona en hombres.</p>
+			<p class="df-effects__close">Dormir no es tiempo perdido.</p>
+		</div>
+	</section>
+
+	<!-- ============================ FÁCIL DE INCORPORAR ============================ -->
+	<section class="df-section df-section--amber df-use">
+		<div class="df-shell">
+			<h2 class="df-h2">Fácil de incorporar a tu noche.</h2>
+			<ol class="df-takes" data-df-reveal>
+				<li class="df-take df-tone-sky">
+					<span class="df-take__mark" aria-hidden="true"><svg class="df-icon"><use href="#df-i-bottle"/></svg></span>
+					<h3 class="df-take__name">Multibrina</h3>
+					<p class="df-take__dose">30 ml una vez al día.</p>
+					<p class="df-take__how">Directamente del vaso medidor, diluida en agua o en jugos naturales no cítricos.</p>
+				</li>
+				<li class="df-take df-tone-amber">
+					<span class="df-take__mark" aria-hidden="true"><svg class="df-icon"><use href="#df-i-drops"/></svg></span>
+					<h3 class="df-take__name">Valeriana</h3>
+					<p class="df-take__dose">En gotas, diluida en un vaso de agua.</p>
+					<p class="df-take__how">Siguiendo la cantidad indicada en la presentación.</p>
+				</li>
+				<li class="df-take df-tone-grape">
+					<span class="df-take__mark" aria-hidden="true"><svg class="df-icon"><use href="#df-i-bottle"/></svg></span>
+					<h3 class="df-take__name">Todo en Uno</h3>
+					<p class="df-take__dose">30 ml una vez al día.</p>
+					<p class="df-take__how">Directamente del vaso medidor, diluido en agua o en jugos naturales no cítricos.</p>
+				</li>
+			</ol>
+			<ul class="df-facts">
+				<li class="df-fact"><svg class="df-icon"><use href="#df-i-bottle"/></svg><span>Multibrina y Todo en Uno: 1 litro para 33 días cada uno.</span></li>
+				<li class="df-fact"><svg class="df-icon"><use href="#df-i-doses"/></svg><span>33 dosis de 30 ml.</span></li>
+				<li class="df-fact"><svg class="df-icon"><use href="#df-i-cup"/></svg><span>Vasos medidores de regalo.</span></li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- ============================ LO QUE SABEMOS ============================ -->
+	<section class="df-section df-science">
+		<div class="df-shell df-science__layout">
+			<h2 class="df-h2 df-science__title">Plantas que llevan años estudiándose alrededor de la noche.</h2>
+			<figure class="df-science__art">
+				<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-duerme-florece-mecanismo-v2.webp?width=800" srcset="https://etermacolombia.com/cdn/shop/files/landings-kit-duerme-florece-mecanismo-v2.webp?width=500 500w, https://etermacolombia.com/cdn/shop/files/landings-kit-duerme-florece-mecanismo-v2.webp?width=800 800w" sizes="(min-width: 900px) 420px, 90vw" width="1000" height="1000" loading="lazy" decoding="async" alt="Lámina del Kit Duerme y Florece: el descanso rodeado de manzanilla, toronjil, hierbabuena, mejorana, valeriana, colágeno, pepino y uvas">
+			</figure>
+			<ol class="df-papers">
+				<li class="df-paper df-tone-amber">
+					<p class="df-paper__head"><svg class="df-icon"><use href="#df-i-drops"/></svg><span class="df-paper__name">Valeriana</span></p>
+					<p class="df-paper__tag">Los resultados varían</p>
+					<p class="df-paper__text">La valeriana tiene una larga historia de uso relacionada con el descanso y continúa siendo estudiada en este contexto.</p>
+					<p class="df-paper__text">NCCIH recoge investigaciones sobre su uso en personas con dificultades para dormir, aunque los resultados varían entre estudios.</p>
+					<p class="df-paper__text">En Duerme y Florece ocupa un momento muy concreto:</p>
+					<p class="df-paper__text"><strong>acompañar esa pausa previa a acostarte cuando necesitas bajar el ritmo.</strong></p>
+				</li>
+				<li class="df-paper df-tone-sky">
+					<p class="df-paper__head"><svg class="df-icon"><use href="#df-i-flower"/></svg><span class="df-paper__name">Manzanilla</span></p>
+					<p class="df-paper__tag">Uso tradicional</p>
+					<p class="df-paper__text">La manzanilla también ha sido utilizada tradicionalmente antes de dormir y forma parte de investigaciones relacionadas con descanso y relajación.</p>
+					<p class="df-paper__text">Multibrina la combina con <strong>toronjil, hierbabuena y mejorana</strong> en una bebida pensada para cerrar el día con más calma.</p>
+				</li>
+				<li class="df-paper df-tone-mint">
+					<p class="df-paper__head"><svg class="df-icon"><use href="#df-i-bed"/></svg><span class="df-paper__name">Dormir también es parte de cuidarte</span></p>
+					<p class="df-paper__tag">Según el CDC</p>
+					<p class="df-paper__text">CDC relaciona el sueño insuficiente con diferentes aspectos de la salud metabólica, cardiovascular y emocional.</p>
+					<p class="df-paper__text">Por eso Duerme y Florece organiza sus productos alrededor de un momento que muchas veces queda olvidado:</p>
+					<p class="df-paper__text"><strong>preparar la noche antes de intentar dormir.</strong></p>
+				</li>
+			</ol>
+			<p class="df-science__sources">Fuentes: NCCIH · CDC · NIH</p>
+		</div>
+	</section>
+
+	<!-- ============================ SEÑALES PARA LA NOCHE ============================ -->
+	<section class="df-section df-section--grape df-signals">
+		<div class="df-shell df-narrow">
+			<h2 class="df-h2">No necesitas perseguir ocho horas perfectas mañana.</h2>
+			<p class="df-signals__lead">Empieza por darle señales claras a tu noche.</p>
+			<ul class="df-signals__list" data-df-reveal>
+				<li class="df-signal df-tone-sky"><svg class="df-icon"><use href="#df-i-phone"/></svg><span>Menos pantalla.</span></li>
+				<li class="df-signal df-tone-amber"><svg class="df-icon"><use href="#df-i-list"/></svg><span>Menos trabajo desde la cama.</span></li>
+				<li class="df-signal df-tone-mint"><svg class="df-icon"><use href="#df-i-clock"/></svg><span>Una hora más estable para acostarte.</span></li>
+				<li class="df-signal df-tone-grape"><svg class="df-icon"><use href="#df-i-bed"/></svg><span>Una habitación más tranquila.</span></li>
+				<li class="df-signal df-tone-blush"><svg class="df-icon"><use href="#df-i-moon"/></svg><span>Un momento para desacelerar antes de dormir.</span></li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- ============================ TODO EL KIT ============================ -->
+	<section class="df-section df-box">
+		<div class="df-shell df-box__layout">
+			<h2 class="df-h2 df-box__title">Todo el Kit Duerme y Florece.</h2>
+			<figure class="df-box__photo">
+				<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-duerme-florece-kit.webp?width=800" srcset="https://etermacolombia.com/cdn/shop/files/landings-kit-duerme-florece-kit.webp?width=500 500w, https://etermacolombia.com/cdn/shop/files/landings-kit-duerme-florece-kit.webp?width=800 800w" sizes="(min-width: 900px) 440px, 90vw" width="1000" height="1334" loading="lazy" decoding="async" alt="Multibrina, Todo en Uno y Valeriana juntos">
+			</figure>
+			<ul class="df-pack">
+				<li class="df-pack__row df-tone-sky"><span class="df-pack__qty">1 ×</span><span class="df-pack__name">Multibrina</span><span class="df-pack__detail">1 litro · 33 dosis.</span></li>
+				<li class="df-pack__row df-tone-amber"><span class="df-pack__qty">1 ×</span><span class="df-pack__name">Valeriana</span><span class="df-pack__detail">Formato en gotas.</span></li>
+				<li class="df-pack__row df-tone-grape"><span class="df-pack__qty">1 ×</span><span class="df-pack__name">Todo en Uno</span><span class="df-pack__detail">1 litro · 33 dosis.</span></li>
+				<li class="df-pack__row df-tone-mint"><span class="df-pack__qty">+</span><span class="df-pack__name">Vasos medidores</span><span class="df-pack__detail">Incluidos con los productos líquidos de 1 litro.</span></li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- ============================ OFERTA ============================ -->
+	<section class="df-section df-section--sky df-offer" id="df-offer">
+		<div class="df-shell df-narrow">
+			<h2 class="df-h2">Tú eliges cómo pagar.</h2>
+			<div class="df-prices">
+				<article class="df-price df-price--prepaid">
+					<p class="df-price__label">Pago anticipado</p>
+					<p class="df-price__amount">$119.900 <span class="df-price__cur">COP</span></p>
+					<p class="df-price__save">Ahorras $10.000 COP.</p>
+					<span class="df-pay df-pay--on-dark">
+						<img src="https://etermacolombia.com/cdn/shop/files/landings-shared-pay-visa.webp" width="222" height="72" loading="lazy" decoding="async" alt="Visa">
+						<img src="https://etermacolombia.com/cdn/shop/files/landings-shared-pay-mastercard.webp" width="92" height="72" loading="lazy" decoding="async" alt="Mastercard">
+						<img src="https://etermacolombia.com/cdn/shop/files/landings-shared-pay-pse.webp" width="72" height="72" loading="lazy" decoding="async" alt="PSE">
+					</span>
+				</article>
+				<article class="df-price df-price--cod">
+					<p class="df-price__label">Pago contraentrega</p>
+					<p class="df-price__amount">$129.900 <span class="df-price__cur">COP</span></p>
+					<p class="df-price__note">Pagas cuando recibes.</p>
+				</article>
+			</div>
+			<button type="button" class="df-cta df-cta--wide _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage"><span class="df-cta__label">Quiero pedir mi kit</span><span class="df-cta__moon" aria-hidden="true"><i></i><i></i><i></i></span></button>
+		</div>
+	</section>
+
+	<!-- ============================ GARANTÍA ============================ -->
+	<section class="df-section df-guarantee">
+		<div class="df-shell df-narrow">
+			<div class="df-guarantee__card">
+				<span class="df-seal" aria-hidden="true"><svg class="df-icon"><use href="#df-i-shield"/></svg></span>
+				<h2 class="df-h2">Tu pedido está protegido.</h2>
+				<ol class="df-promise">
+					<li class="df-promise__row"><span class="df-promise__num">1</span><p class="df-promise__text">Tu Kit Duerme y Florece debe llegar en <strong>3 a 5 días hábiles</strong>.</p><svg class="df-icon df-promise__icon"><use href="#df-i-truck"/></svg></li>
+					<li class="df-promise__row"><span class="df-promise__num">2</span><p class="df-promise__text">Si no llega dentro de ese periodo, <strong>lo reenviamos sin costo</strong>.</p><svg class="df-icon df-promise__icon"><use href="#df-i-repeat"/></svg></li>
+					<li class="df-promise__row"><span class="df-promise__num">3</span><p class="df-promise__text">Si pagaste anticipado, puedes elegir entre el reenvío o <strong>la devolución de tu dinero</strong>.</p><svg class="df-icon df-promise__icon"><use href="#df-i-coin"/></svg></li>
+				</ol>
+				<a class="df-whatsapp" href="https://wa.me/573006964582" target="_blank" rel="noopener">
+					<svg class="df-icon"><use href="#df-i-chat"/></svg>
+					<span class="df-whatsapp__label">Atención ETERMA</span>
+					<span class="df-whatsapp__number">300 696 4582</span>
+				</a>
 			</div>
 		</div>
 	</section>
 
-	<!-- ============================ CIERRE: AMANECE ============================ -->
+	<!-- ============================ PREGUNTAS ============================ -->
+	<section class="df-section df-section--mint df-faq">
+		<div class="df-shell df-narrow">
+			<h2 class="df-h2">Preguntas rápidas.</h2>
+			<div class="df-faq__list">
+				<details class="df-faq__item">
+					<summary class="df-faq__q"><span>¿Este kit me hace dormir?</span><span class="df-faq__icon" aria-hidden="true"></span></summary>
+					<p class="df-faq__a">Está pensado para acompañar tu momento de calma antes de acostarte. No debe presentarse como un producto que induce el sueño ni como tratamiento para el insomnio.</p>
+				</details>
+				<details class="df-faq__item">
+					<summary class="df-faq__q"><span>¿La Valeriana trata la ansiedad?</span><span class="df-faq__icon" aria-hidden="true"></span></summary>
+					<p class="df-faq__a">No. Puede formar parte de una pausa ante tensión ocasional, pero no sustituye evaluación o tratamiento para ansiedad.</p>
+				</details>
+				<details class="df-faq__item">
+					<summary class="df-faq__q"><span>¿Previene Alzheimer o demencia?</span><span class="df-faq__icon" aria-hidden="true"></span></summary>
+					<p class="df-faq__a">No. Se ha estudiado la relación entre sueño insuficiente y deterioro cognitivo, pero eso no significa que el kit prevenga estas enfermedades.</p>
+				</details>
+				<details class="df-faq__item">
+					<summary class="df-faq__q"><span>¿Me protege de infartos o diabetes?</span><span class="df-faq__icon" aria-hidden="true"></span></summary>
+					<p class="df-faq__a">No. Dormir adecuadamente forma parte de los hábitos asociados con salud cardiometabólica, pero el kit no previene ni trata estas enfermedades.</p>
+				</details>
+				<details class="df-faq__item">
+					<summary class="df-faq__q"><span>¿Qué pasa si llevo noches casi sin dormir?</span><span class="df-faq__icon" aria-hidden="true"></span></summary>
+					<p class="df-faq__a">Si la falta de sueño es persistente, afecta seriamente tu funcionamiento o aparecen confusión, alucinaciones o cambios importantes de conducta, busca atención profesional.</p>
+				</details>
+				<details class="df-faq__item">
+					<summary class="df-faq__q"><span>¿Qué hago si siento sueño manejando?</span><span class="df-faq__icon" aria-hidden="true"></span></summary>
+					<p class="df-faq__a">No continúes conduciendo confiando en que podrás mantenerte despierta. Los microsueños pueden aparecer sin previo aviso.</p>
+				</details>
+				<details class="df-faq__item">
+					<summary class="df-faq__q"><span>¿Cuánto duran Multibrina y Todo en Uno?</span><span class="df-faq__icon" aria-hidden="true"></span></summary>
+					<p class="df-faq__a">Cada botella contiene <strong>1 litro para 33 días</strong>, equivalente a <strong>33 dosis de 30 ml</strong>.</p>
+				</details>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================ CIERRE ============================ -->
 	<section class="df-section df-close">
-		<div class="df-shell df-close__grid">
-			<div class="df-close__content">
-				<p class="df-overline">Kit Duerme y Florece</p>
-				<h2 class="df-h2">Tu pausa nocturna y tu vaso diario, en un mismo kit.</h2>
-				<p class="df-close__lead">MULTIBRINA para bajar el ritmo. VALERIANA para noches de tensión ocasional. TODO EN UNO para piel, cabello y uñas.</p>
+		<div class="df-shell df-narrow">
+			<h2 class="df-h2">Mañana empieza con la noche de hoy.</h2>
+			<ol class="df-close__day" data-df-reveal>
+				<li class="df-close__step df-tone-sky"><svg class="df-icon"><use href="#df-i-moon"/></svg><span>Baja el ritmo.</span></li>
+				<li class="df-close__step df-tone-amber"><svg class="df-icon"><use href="#df-i-drops"/></svg><span>Dale espacio a tu mente para desconectarse.</span></li>
+				<li class="df-close__step df-tone-grape"><svg class="df-icon"><use href="#df-i-leafy"/></svg><span>Vuelve a tratar el descanso como una parte importante de cuidarte.</span></li>
+			</ol>
+			<div class="df-close__buy">
+				<p class="df-close__kit">Kit Duerme y Florece</p>
+				<p class="df-close__trio">Multibrina + Valeriana + Todo en Uno</p>
 				<dl class="df-close__prices">
-					<div><dt>Precio anticipado</dt><dd>$119.900 <span>COP</span><small>Ahorras $10.000</small></dd></div>
-					<div><dt>Contraentrega</dt><dd>$129.900 <span>COP</span><small>Pagas al recibir</small></dd></div>
+					<div class="df-close__price df-close__price--prepaid"><dt>Pago anticipado</dt><dd>$119.900 COP</dd></div>
+					<div class="df-close__price"><dt>Contraentrega</dt><dd>$129.900 COP</dd></div>
 				</dl>
-				<button type="button" class="df-cta df-cta--light _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage"><span class="df-cta__label">Quiero el Kit Duerme y Florece</span></button>
-				<p class="df-close__note">Envío gratis <span>·</span> Entrega en 3 a 5 días hábiles <span>·</span> Atención por WhatsApp: <a href="https://wa.me/573006964582" target="_blank" rel="noopener">300 696 4582</a></p>
-			</div>
-			<!-- La ventana de tres hojas: tres fotos en un mismo marco -->
-			<div class="df-panes" aria-label="Personas reales con los productos del kit">
-				<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-dia-liviano-ugc-maria-de-los-angeles.webp?width=420" data-df-shared="kit-dia-liviano/assets/landings-kit-dia-liviano-ugc-maria-de-los-angeles.webp" width="720" height="900" loading="lazy" decoding="async" alt="María de los Ángeles con su botella de Multibrina">
-				<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-ugc-valeriana-1.webp?width=420" data-df-shared="kit-piel-viva/assets/landings-kit-piel-viva-ugc-valeriana-1.webp" width="720" height="900" loading="lazy" decoding="async" alt="Cliente muestra el frasco de Valeriana Eterma">
-				<img src="https://etermacolombia.com/cdn/shop/files/landings-kit-piel-viva-ugc-todo-en-uno-3.webp?width=420" data-df-shared="kit-piel-viva/assets/landings-kit-piel-viva-ugc-todo-en-uno-3.webp" width="720" height="900" loading="lazy" decoding="async" alt="Clienta toma Todo en uno en su vaso medidor">
+				<p class="df-close__save">Ahorra $10.000 COP pagando anticipado.</p>
+				<p class="df-close__pay">
+					<span class="df-pay">
+						<img src="https://etermacolombia.com/cdn/shop/files/landings-shared-pay-visa.webp" width="222" height="72" loading="lazy" decoding="async" alt="Visa">
+						<img src="https://etermacolombia.com/cdn/shop/files/landings-shared-pay-mastercard.webp" width="92" height="72" loading="lazy" decoding="async" alt="Mastercard">
+						<img src="https://etermacolombia.com/cdn/shop/files/landings-shared-pay-pse.webp" width="72" height="72" loading="lazy" decoding="async" alt="PSE">
+					</span>
+				</p>
+				<button type="button" class="df-cta df-cta--wide _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage"><span class="df-cta__label">Quiero mi kit Duerme y Florece</span><span class="df-cta__moon" aria-hidden="true"><i></i><i></i><i></i></span></button>
+				<p class="df-close__note">Entrega en 3 a 5 días hábiles. Garantía de entrega ETERMA.</p>
 			</div>
 		</div>
 	</section>
 
+	<!-- ============================ INSTAGRAM ============================
+	     El aval de que la marca existe de verdad, justo antes del pie. Va como
+	     captura y SIN enlace a propósito: mandar a la clienta a Instagram a dos
+	     dedos del CTA es una salida del embudo. El fichero es compartido
+	     (`landings-shared-instagram.webp`), así que no se sube por landing; lo
+	     que cambia en cada una es el color del marco y el titular. -->
 	<section class="df-section df-social">
 		<div class="df-shell df-narrow">
-			<p class="df-overline">En Instagram</p>
-			<figure class="df-social__shot">
-				<img src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-instagram.webp?width=900"
-					srcset="https://etermacolombia.com/cdn/shop/files/landings-valeriana-instagram.webp?width=560 560w, https://etermacolombia.com/cdn/shop/files/landings-valeriana-instagram.webp?width=900 900w, https://etermacolombia.com/cdn/shop/files/landings-valeriana-instagram.webp?width=1100 1100w"
-					sizes="(min-width: 900px) 760px, 100vw"
-					width="1100" height="356" loading="lazy" decoding="async"
-					alt="Perfil de Instagram @etermacompany, Eterma Oficial: bebidas funcionales listas para tomar, hecho en Colombia con registro INVIMA">
+			<h2 class="df-h2">La marca no se esconde.<span class="df-h2__soft">Míranos en Instagram.</span></h2>
+			<figure class="df-social__card df-tone-sky">
+				<img class="df-social__shot"
+					src="https://etermacolombia.com/cdn/shop/files/landings-shared-instagram.webp?width=780"
+					srcset="https://etermacolombia.com/cdn/shop/files/landings-shared-instagram.webp?width=560 560w, https://etermacolombia.com/cdn/shop/files/landings-shared-instagram.webp?width=780 780w, https://etermacolombia.com/cdn/shop/files/landings-shared-instagram.webp?width=1100 1100w"
+					sizes="(min-width: 900px) 560px, 92vw"
+					width="1100" height="371" loading="lazy" decoding="async"
+					alt="Perfil de Instagram @etermacompany, Eterma Oficial: 28 publicaciones y 16,4 mil seguidores. En la biografía: bebidas funcionales listas para tomar, hecho en Colombia con registro INVIMA.">
 			</figure>
 		</div>
 	</section>
 
+	<!-- ============================ PIE ============================ -->
 	<footer class="df-footer">
 		<div class="df-shell">
-			<img class="df-footer__logo" src="https://etermacolombia.com/cdn/shop/files/landings-valeriana-eterma-logo-white.webp" width="767" height="212" loading="lazy" decoding="async" alt="Eterma">
-			<p>Fabricado en Colombia por Laboratorios NaturalSplast SAS.<br>Carrera 59 #5-B31, Bogotá D.C. · MULTIBRINA y TODO EN UNO: registro INVIMA RSA-0029174-2023.</p>
-			<p>Atención al cliente Eterma · WhatsApp: <a href="https://wa.me/573006964582" target="_blank" rel="noopener">300 696 4582</a></p>
-			<p class="df-footer__legal">Si estás bajo tratamiento médico, embarazada o lactando, consulta con tu médico antes de incorporar bebidas funcionales o productos herbales.</p>
+			<div class="df-footer__grid">
+				<div class="df-footer__block">
+					<p class="df-footer__label">Registros sanitarios</p>
+					<ul class="df-footer__list">
+						<li><strong>Multibrina:</strong> INVIMA RSA-0029174-2023</li>
+						<li><strong>Todo en Uno:</strong> INVIMA RSA-0029174-2023</li>
+						<li><strong>Valeriana:</strong> registro sanitario no comunicado hasta validación específica.</li>
+					</ul>
+				</div>
+				<div class="df-footer__block">
+					<p>Fabricado en Colombia por <strong>Laboratorios NaturalSplast SAS</strong>. Carrera 59 # 5B-31, Bogotá D.C.</p>
+					<p>Atención ETERMA · WhatsApp <a href="https://wa.me/573006964582" target="_blank" rel="noopener">300 696 4582</a></p>
+					<p class="df-footer__legal">Multibrina, Valeriana y Todo en Uno son alimentos, no medicamentos. Este kit no trata el insomnio ni otros trastornos del sueño.</p>
+				</div>
+			</div>
+			<p class="df-footer__pay"><span class="df-footer__label">Pago anticipado</span>
+				<span class="df-pay df-pay--on-dark df-pay--sm">
+					<img src="https://etermacolombia.com/cdn/shop/files/landings-shared-pay-visa.webp" width="222" height="72" loading="lazy" decoding="async" alt="Visa">
+					<img src="https://etermacolombia.com/cdn/shop/files/landings-shared-pay-mastercard.webp" width="92" height="72" loading="lazy" decoding="async" alt="Mastercard">
+					<img src="https://etermacolombia.com/cdn/shop/files/landings-shared-pay-pse.webp" width="72" height="72" loading="lazy" decoding="async" alt="PSE">
+				</span>
+			</p>
 		</div>
+		<svg class="df-footer__mark" viewBox="0 0 322 95" role="img" aria-label="Eterma"><use href="#df-wordmark"/></svg>
 	</footer>
 
+	<!-- ============================ STICKY (móvil) ============================ -->
 	<div class="df-sticky" data-df-sticky hidden>
 		<div class="df-sticky__inner">
-			<p class="df-sticky__price"><strong data-df-sticky-price>$129.900</strong><span data-df-sticky-sub>o $119.900 anticipado</span></p>
-			<button type="button" class="df-cta df-cta--sm _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage" data-df-sticky-cta><span class="df-cta__label">Quiero el kit</span></button>
+			<p class="df-sticky__price"><strong class="df-sticky__main">$119.900</strong><span class="df-sticky__alt">o $129.900 al recibir</span></p>
+			<button type="button" class="df-cta df-cta--sm _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage"><span class="df-cta__label">Quiero pedir mi kit</span><span class="df-cta__moon" aria-hidden="true"><i></i><i></i><i></i></span></button>
 		</div>
 	</div>
 </section>
 
 <style>
-	/* Tipografía de marca (OFL), un solo peso; alojada en Contenido → Archivos. docs/brand-typography.md §4 */
+	/* Kit Duerme y Florece · línea «Eterma viva» (2026-09-16)
+	   Los colores salen de los productos: cielo de Multibrina, ámbar del
+	   frasco de Valeriana y uva de Todo en Uno (resveratrol). El verde
+	   profundo queda para el texto y un único bloque.
+	   Todo en px (la raíz del tema va a 10,5px). Solo se anima transform y
+	   opacity. GemPages fusiona reglas con el mismo cuerpo: los modificadores
+	   llevan la base en el selector (node check-css-merge.mjs). */
+
 	@font-face {
 		font-family: 'Questrial';
 		src: url('https://etermacolombia.com/cdn/shop/files/questrial-400.woff2') format('woff2');
@@ -505,430 +625,1840 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 		font-display: swap;
 	}
 
-	/* =========================================================
-	   ETERMA · KIT DUERME Y FLORECE
-	   Todo bajo .df-lp. Paleta de etermacolombia.com (eterma/AGENTS.md §2).
-	   Todas las medidas en px: la raíz del tema va a 10,5px.
-	   ========================================================= */
-	.df-lp {
-		--et-green-deep: #0f2e20;
-		--et-green-mid: #315b45;
-		--et-green: #496c56;
-		--et-ink: #10251a;
-		--et-muted: #52715b;
-		--et-lime: #c2d85a;
-		--et-mint: #dcf2dc;
-		--et-bg: #fffcf5;
-		--et-bg-alt: #eff0f5;
-		--et-surface: #ffffff;
-		--et-border: #d7d5c9;
-
-		/* Los tres momentos: noche cerrada, noche suave y la mañana */
-		--df-night: var(--et-green-deep);
-		--df-late: var(--et-green-mid);
-		--df-day: var(--et-mint);
-
-		--df-serif: var(--font-heading-family, Georgia, 'Times New Roman', serif);
-		--df-sans: 'Questrial', var(--font-body-family, 'Helvetica Neue', Helvetica, Arial, sans-serif);
-		--df-shell: 1100px;
-		--df-narrow: 780px;
-		--df-radius: 14px;
-		--df-radius-sm: 10px;
-		--df-line: 1px solid var(--et-border);
-		--df-pad: 48px;
-
-		position: relative;
-		isolation: isolate;
-		display: block;
-		width: 100%;
-		overflow: clip;
-		background: var(--et-bg);
-		color: var(--et-ink);
-		font-family: var(--df-sans);
-		font-size: 16px;
-		line-height: 1.55;
-		letter-spacing: 0;
+	@font-face {
+		font-family: 'Fraunces';
+		src: url('https://etermacolombia.com/cdn/shop/files/fraunces-600-soft.woff2') format('woff2');
+		font-weight: 600;
+		font-style: normal;
+		font-display: swap;
 	}
 
-	.df-lp *, .df-lp *::before, .df-lp *::after { box-sizing: border-box; }
+	.df-lp {
+		--et-green-deep: #0f2e20;
+		--et-ink: #10251a;
+		--et-green: #1f6b43;
+		--et-leaf: #2e9e5b;
+		--et-muted: #4f6457;
+		--et-lime: #d4ec5c;
+		--et-lime-deep: #c2dd3d;
+		--et-lime-soft: #f1f9cf;
+		--et-sky: #cfe0fb;
+		--et-sky-soft: #eaf1fd;
+		--et-amber: #f6dcb0;
+		--et-amber-soft: #fdf3e4;
+		--et-grape: #ddd2f0;
+		--et-grape-soft: #f3eefb;
+		--et-mint: #c9efcc;
+		--et-mint-soft: #e9f8e8;
+		--et-blush: #ffd3ca;
+		--et-blush-soft: #fff0ec;
+		--et-paper: #fffbf2;
+		--et-cream: #fbf1de;
+		--et-surface: #ffffff;
+		--et-border: #eadfca;
+		--et-on-deep: #e6efe4;
+
+		--df-display: 'Fraunces', var(--font-heading-family, Georgia, serif);
+		--df-sans: 'Questrial', var(--font-body-family, 'Helvetica Neue', Helvetica, Arial, sans-serif);
+
+		--df-shell: 1120px;
+		--df-narrow: 720px;
+		--df-radius: 22px;
+		--df-radius-sm: 14px;
+		--df-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+		--df-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+		--df-shadow: 0 12px 28px -18px rgba(15, 46, 32, 0.45);
+
+		display: block;
+		overflow-x: clip;
+		background: var(--et-paper);
+		color: var(--et-ink);
+		font-family: var(--df-sans);
+		font-size: 17px;
+		line-height: 1.55;
+		letter-spacing: 0; /* el tema pone .06rem en body y se hereda */
+		-webkit-font-smoothing: antialiased;
+	}
+
+	/* ---------- Tonos: cada producto trae su color ---------- */
+
+	.df-lp .df-tone-sky { --df-tint: var(--et-sky); --df-tint-soft: var(--et-sky-soft); --df-tint-ink: #2d4c82; }
+	.df-lp .df-tone-amber { --df-tint: var(--et-amber); --df-tint-soft: var(--et-amber-soft); --df-tint-ink: #7a4b12; }
+	.df-lp .df-tone-grape { --df-tint: var(--et-grape); --df-tint-soft: var(--et-grape-soft); --df-tint-ink: #5b3f8c; }
+	.df-lp .df-tone-mint { --df-tint: var(--et-mint); --df-tint-soft: var(--et-mint-soft); --df-tint-ink: #1d6440; }
+	.df-lp .df-tone-blush { --df-tint: var(--et-blush); --df-tint-soft: var(--et-blush-soft); --df-tint-ink: #93392c; }
+
+	/* ---------- Base ---------- */
+
+	.df-lp *,
+	.df-lp *::before,
+	.df-lp *::after { box-sizing: border-box; }
+
+	.df-lp p,
+	.df-lp h1,
+	.df-lp h2,
+	.df-lp h3,
+	.df-lp ul,
+	.df-lp ol,
+	.df-lp dl,
+	.df-lp dd,
+	.df-lp figure { margin: 0; padding: 0; }
+
+	.df-lp ul,
+	.df-lp ol { list-style: none; }
+
+	/* Refresh (familia Dawn) trae div:empty{display:none} */
 	.df-lp div:empty { display: block; }
+	.df-lp [hidden] { display: none !important; }
+
+	/* El tema estila por etiqueta y gana a la herencia: la familia se fija
+	   aquí. Los <span> no entran, para que hereden la serif de su titular. */
+	.df-lp p, .df-lp li, .df-lp a, .df-lp button, .df-lp summary,
+	.df-lp figcaption, .df-lp dt, .df-lp dd, .df-lp strong, .df-lp cite {
+		font-family: var(--df-sans);
+	}
+
+	.df-lp strong { font-weight: 400; color: var(--et-green-deep); }
 	.df-lp img { display: block; max-width: 100%; height: auto; }
-	.df-lp button, .df-lp summary, .df-lp a { font: inherit; letter-spacing: 0; }
-	.df-lp button { margin: 0; border: 0; background: none; color: inherit; }
 	.df-lp a { color: inherit; }
-	.df-lp h1, .df-lp h2, .df-lp h3, .df-lp p, .df-lp figure, .df-lp ul, .df-lp ol, .df-lp dl, .df-lp dd, .df-lp blockquote { margin: 0; }
-	.df-lp ul, .df-lp ol { padding: 0; list-style: none; }
-	.df-lp button:focus-visible, .df-lp a:focus-visible, .df-lp summary:focus-visible, .df-lp [tabindex]:focus-visible { outline: 3px solid var(--et-green); outline-offset: 3px; }
-	.df-lp .df-visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+	.df-lp button { color: inherit; }
 
-	.df-lp .df-shell { width: min(100% - 32px, var(--df-shell)); margin-inline: auto; }
+	.df-lp .df-sprite {
+		position: absolute;
+		width: 0;
+		height: 0;
+		overflow: hidden;
+	}
+
+	.df-lp .df-icon {
+		flex: none;
+		width: 24px;
+		height: 24px;
+		fill: none;
+		stroke: currentColor;
+		stroke-width: 1.6;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+	}
+
+	.df-lp .df-shell {
+		width: 100%;
+		max-width: var(--df-shell);
+		margin-inline: auto;
+		padding-inline: 18px;
+	}
+
 	.df-lp .df-narrow { max-width: var(--df-narrow); }
-	.df-lp .df-narrow-text { max-width: 620px; }
-	.df-lp .df-section { padding: var(--df-pad) 0; }
-	.df-lp .df-section--alt { background: var(--et-bg-alt); }
-	.df-lp .df-section--surface { background: var(--et-surface); border-top: var(--df-line); border-bottom: var(--df-line); }
 
-	.df-lp .df-overline { margin-bottom: 12px; color: var(--et-muted); font-size: 12px; line-height: 1.2; letter-spacing: 2px; text-transform: uppercase; }
-	.df-lp .df-h1, .df-lp .df-h2, .df-lp .df-h3, .df-lp .df-note__title, .df-lp .df-plan__title { font-family: var(--df-serif); font-weight: 400; color: var(--et-green-deep); letter-spacing: -0.4px; }
-	.df-lp .df-h1 { font-size: 31px; line-height: 1.04; }
-	.df-lp .df-h1 em { font-style: italic; color: var(--et-green); }
-	.df-lp .df-h2 { font-size: 30px; line-height: 1.1; }
-	.df-lp .df-h3 { font-size: 24px; line-height: 1.15; }
-	.df-lp .df-lead { color: var(--et-muted); font-size: 17px; line-height: 1.5; }
-	.df-lp .df-h2 + .df-lead { margin-top: 14px; }
+	.df-lp .df-section { padding-block: 56px; }
+	.df-lp .df-section--cream { background: var(--et-cream); }
+	.df-lp .df-section--sky { background: var(--et-sky-soft); }
+	.df-lp .df-section--amber { background: var(--et-amber-soft); }
+	.df-lp .df-section--grape { background: var(--et-grape-soft); }
+	.df-lp .df-section--mint { background: var(--et-mint-soft); }
 
-	/* ---------- Cabecera ---------- */
-	.df-lp .df-topbar { position: relative; z-index: 3; background: var(--et-surface); border-bottom: var(--df-line); }
-	.df-lp .df-topbar__strip { overflow: hidden; padding: 8px 0; background: var(--et-green-deep); color: var(--et-surface); font-size: 12px; line-height: 1.4; white-space: nowrap; }
-	.df-lp .df-topbar__track { display: inline-flex; width: max-content; max-width: none; animation: df-marquee 22s linear infinite; will-change: transform; }
-	.df-lp .df-topbar__strip:hover .df-topbar__track { animation-play-state: paused; }
-	.df-lp .df-topbar__set { display: inline-flex; flex: none; max-width: none; }
-	.df-lp .df-topbar__set span::after { content: '\00B7'; margin-inline: 14px; color: var(--et-lime); }
-	.df-lp .df-topbar__inner { display: flex; align-items: center; justify-content: center; min-height: 50px; }
-	.df-lp .df-topbar__logo { width: auto; height: 22px; }
+	.df-lp .df-section--deep {
+		background: var(--et-green-deep);
+		color: var(--et-on-deep);
+	}
 
-	/* ---------- Hero: la ventana de noche ---------- */
-	.df-lp .df-hero { padding: 10px 0 26px; }
-	.df-lp .df-hero__layout { display: grid; gap: 10px; }
-	.df-lp .df-hero__head { display: grid; gap: 8px; }
-	.df-lp .df-hero .df-overline { margin-bottom: 0; font-size: 11px; letter-spacing: 1.4px; }
-	.df-lp .df-hero__lead { font-size: 14px; line-height: 1.45; }
-	.df-lp .df-hero__media { position: relative; }
-	/* La caja arranca en menta (el kit) y se apaga o amanece según la hoja visible: dos capas de
-	   color con opacidad, el cielo con estrellas y la noche suave */
-	.df-lp .df-window { position: relative; overflow: hidden; aspect-ratio: 16 / 11; border: var(--df-line); border-radius: var(--df-radius); background: var(--et-mint); }
-	.df-lp .df-window::before { content: ''; position: absolute; z-index: 0; inset: 0; background:
-		radial-gradient(circle at 9% 16%, rgba(255, 252, 245, 0.95) 0 1.2px, transparent 2px),
-		radial-gradient(circle at 22% 42%, rgba(255, 252, 245, 0.6) 0 0.8px, transparent 1.6px),
-		radial-gradient(circle at 15% 70%, rgba(194, 216, 90, 0.8) 0 1px, transparent 1.8px),
-		radial-gradient(circle at 84% 14%, rgba(255, 252, 245, 0.9) 0 1.3px, transparent 2.2px),
-		radial-gradient(circle at 92% 38%, rgba(255, 252, 245, 0.55) 0 0.8px, transparent 1.6px),
-		radial-gradient(circle at 76% 6%, rgba(194, 216, 90, 0.85) 0 1px, transparent 1.8px),
-		radial-gradient(circle at 88% 66%, rgba(255, 252, 245, 0.7) 0 1px, transparent 1.8px),
-		radial-gradient(circle at 6% 90%, rgba(255, 252, 245, 0.5) 0 0.8px, transparent 1.6px),
-		var(--df-night); opacity: 0; transition: opacity 0.5s ease; }
-	.df-lp .df-window::after { content: ''; position: absolute; z-index: 0; inset: 0; background: var(--df-late); opacity: 0; transition: opacity 0.5s ease; }
-	.df-lp .df-window[data-df-slide='1']::before, .df-lp .df-window[data-df-slide='2']::before { opacity: 1; }
-	.df-lp .df-window[data-df-slide='2']::after { opacity: 0.55; }
-	.df-lp .df-window__track { position: absolute; z-index: 1; inset: 0; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
-	.df-lp .df-window__track::-webkit-scrollbar { display: none; }
-	/* Cada hoja: foto entera arriba y rótulo en banda propia debajo, nunca sobre el producto */
-	.df-lp .df-window__slide { position: relative; display: grid; grid-template-rows: minmax(0, 1fr) auto; flex: 0 0 100%; height: 100%; justify-items: center; padding-top: 4%; scroll-snap-align: start; }
-	.df-lp .df-window__slide img { width: auto; max-width: 100%; height: 100%; min-height: 0; object-fit: contain; border-radius: var(--df-radius-sm); }
-	.df-lp .df-window__slide--kit { padding-top: 2%; }
-	.df-lp .df-window__slide--kit img { border-radius: 0; }
-	.df-lp .df-window__caption { position: relative; z-index: 2; margin: 6px 0 8px; padding: 4px 10px; border-radius: 999px; background: rgba(255, 252, 245, 0.92); color: var(--et-green-deep); font-size: 10px; line-height: 1.4; letter-spacing: 1px; white-space: nowrap; text-transform: uppercase; }
-	.df-lp .df-carousel__arrow { position: absolute; top: 50%; z-index: 2; display: grid; width: 36px; height: 36px; place-items: center; padding: 0; border: 1px solid rgba(15, 46, 32, 0.18); border-radius: 50%; background: rgba(255, 252, 245, 0.9); color: var(--et-green-deep); cursor: pointer; transform: translateY(-50%); transition: transform 0.2s ease, opacity 0.2s ease; }
-	.df-lp .df-carousel__arrow svg { width: 18px; height: 18px; }
-	.df-lp .df-carousel__arrow--prev { left: 8px; }
-	.df-lp .df-carousel__arrow--next { right: 8px; }
-	.df-lp .df-carousel__arrow:disabled { opacity: 0.3; cursor: default; }
+	/* ---------- Tipografía ---------- */
 
-	.df-lp .df-hero__body { display: grid; gap: 8px; }
-	.df-lp .df-hero__body .df-facts { order: 10; }
+	.df-lp .df-h1,
+	.df-lp .df-h2,
+	.df-lp .df-h3 {
+		font-family: var(--df-display);
+		font-weight: 600;
+		font-style: normal;
+		color: var(--et-green-deep);
+		overflow-wrap: anywhere;
+	}
 
-	/* Los chips del copy son los controles de la ventana: luna, luna con estrella y flor */
-	.df-lp .df-chips { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
-	.df-lp .df-chip { display: grid; justify-items: center; align-content: start; gap: 1px; padding: 8px 4px 8px; border: var(--df-line); border-radius: var(--df-radius-sm); background: var(--et-surface); color: var(--et-green-deep); text-align: center; cursor: pointer; transition: transform 0.2s ease; }
-	.df-lp .df-chip:hover { transform: translateY(-2px); }
-	.df-lp .df-chip__icon { display: grid; width: 28px; height: 28px; place-items: center; margin-bottom: 2px; border-radius: 50%; background: var(--df-night); color: var(--et-lime); }
-	.df-lp .df-chip__icon svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-	.df-lp .df-chip--late .df-chip__icon { background: var(--df-late); }
-	.df-lp .df-chip--day .df-chip__icon { background: var(--df-day); color: var(--et-green-deep); }
-	.df-lp .df-chip__when { color: var(--et-muted); font-size: 9.5px; letter-spacing: 0.6px; line-height: 1.15; text-transform: uppercase; }
-	.df-lp .df-chip__what { font-family: var(--df-serif); font-size: 13.5px; font-weight: 400; line-height: 1.1; white-space: nowrap; }
-	.df-lp .df-chip__why { color: var(--et-muted); font-size: 11px; line-height: 1.3; }
-	.df-lp .df-chip[aria-pressed='true'] { border-color: var(--et-green-deep); background: var(--et-green-deep); color: var(--et-bg); }
-	.df-lp .df-chip[aria-pressed='true'] .df-chip__when, .df-lp .df-chip[aria-pressed='true'] .df-chip__why { color: var(--et-lime); }
-	.df-lp .df-chip[aria-pressed='true'] .df-chip__icon { background: var(--et-lime); color: var(--et-green-deep); }
+	.df-lp .df-h1 {
+		font-size: 42px;
+		line-height: 1.02;
+		letter-spacing: -1.2px;
+	}
 
-	.df-lp .df-facts { display: grid; grid-template-columns: repeat(3, 1fr); border-top: var(--df-line); border-bottom: var(--df-line); }
-	.df-lp .df-facts li { display: grid; justify-items: center; gap: 3px; padding: 8px 4px; color: var(--et-green-deep); font-size: 11px; line-height: 1.25; text-align: center; }
-	.df-lp .df-facts li + li { border-left: var(--df-line); }
-	.df-lp .df-facts svg { width: 18px; height: 18px; color: var(--et-green); }
+	.df-lp .df-h1__line { display: block; }
 
-	.df-lp .df-pricing { display: grid; grid-template-columns: 1.15fr 0.85fr; overflow: hidden; border: var(--df-line); border-radius: var(--df-radius); background: var(--et-surface); }
-	.df-lp .df-pricing__cell { padding: 8px 12px 9px; }
-	.df-lp .df-pricing__cell + .df-pricing__cell { border-left: var(--df-line); }
-	.df-lp .df-pricing__cell--best { background: var(--et-mint); }
-	.df-lp .df-pricing dt { margin-bottom: 2px; color: var(--et-muted); font-size: 10px; letter-spacing: 0.8px; text-transform: uppercase; }
-	.df-lp .df-pricing dd { font-family: var(--df-serif); color: var(--et-green-deep); font-size: 23px; line-height: 1; }
-	.df-lp .df-pricing dd span { font-family: var(--df-sans); font-size: 11px; }
-	.df-lp .df-pricing dd small { display: block; margin-top: 4px; font-family: var(--df-sans); color: var(--et-green-mid); font-size: 11px; }
-	.df-lp .df-hero__note, .df-lp .df-cta-note { color: var(--et-muted); font-size: 12px; text-align: center; }
-	.df-lp .df-hero__note span, .df-lp .df-cta-note span, .df-lp .df-close__note span { color: var(--et-green); }
+	.df-lp .df-h1__line--soft {
+		margin-top: 8px;
+		font-size: 27px;
+		line-height: 1.12;
+		letter-spacing: -0.5px;
+		color: var(--et-green);
+	}
 
-	/* ---------- CTA: las estrellas y la flor ----------
-	   Dos estrellas de cuatro puntas (::before y ::after del botón) parpadean a
-	   destiempo en las esquinas de la píldora, como el cielo de la ventana; al
-	   pasar, una flor de color se abre desde el centro (::before de la etiqueta,
-	   un círculo que escala de 0 a 1). Solo transform y opacity; arranca pausado
-	   y el JS lo sirve con .is-inview. */
+	.df-lp .df-h2 {
+		font-size: 32px;
+		line-height: 1.08;
+		letter-spacing: -0.8px;
+		max-width: 640px;
+	}
+
+	.df-lp .df-h2__soft { display: block; color: var(--et-green); }
+
+	.df-lp .df-section--deep .df-h2 { color: var(--et-lime); }
+	.df-lp .df-section--deep strong { color: var(--et-lime); }
+
+	.df-lp .df-h3 {
+		font-size: 25px;
+		line-height: 1.1;
+		letter-spacing: -0.4px;
+	}
+
+	/* «día» lleva detrás un halo que se apaga: la luz que se baja */
+	.df-lp .df-glow {
+		position: relative;
+		display: inline-block;
+		isolation: isolate;
+	}
+
+	.df-lp .df-glow__halo {
+		position: absolute;
+		left: -14px;
+		right: -14px;
+		top: 50%;
+		z-index: -1;
+		height: 120%;
+		margin-top: -60%;
+		border-radius: 50%;
+		background: radial-gradient(circle, var(--et-amber) 0%, rgba(246, 220, 176, 0) 70%);
+		animation: df-dim 5.4s var(--df-ease-in-out) infinite;
+		animation-play-state: paused;
+	}
+
+	.df-lp .df-glow.is-playing .df-glow__halo { animation-play-state: running; }
+
+	@keyframes df-dim {
+		0%, 22% { opacity: 1; transform: scale(1); }
+		62%, 88% { opacity: 0.1; transform: scale(0.82); }
+		100% { opacity: 1; transform: scale(1); }
+	}
+
+	/* ---------- CTA: «la luna que crece» ----------
+	   Píldora lima con sombra sólida. Al final del texto, tres fases de luna
+	   que se encienden una tras otra. */
 	.df-lp .df-cta {
-		--df-star: var(--et-lime);
-		--df-bloom: var(--et-green-mid);
 		position: relative;
 		isolation: isolate;
 		overflow: hidden;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
+		gap: 12px;
+		min-height: 58px;
+		padding: 0 20px 0 26px;
+		border: 0;
+		border-radius: 999px;
+		background: var(--et-lime);
+		color: var(--et-green-deep);
+		box-shadow: 0 4px 0 var(--et-green-deep);
+		font-size: 18px;
+		line-height: 1;
+		white-space: nowrap;
+		cursor: pointer;
+		transition: transform 0.12s var(--df-ease-out);
+		-webkit-tap-highlight-color: transparent;
+	}
+
+	.df-lp .df-cta::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		background: var(--et-lime-deep);
+		transform: scale(0);
+		transform-origin: 50% 50%;
+		border-radius: 999px;
+		transition: transform 0.45s var(--df-ease-out);
+	}
+
+	.df-lp .df-cta:hover::before { transform: scale(1.6); }
+	.df-lp .df-cta:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--et-green-deep); }
+
+	.df-lp .df-cta:focus-visible {
+		outline: 3px solid var(--et-green-deep);
+		outline-offset: 4px;
+	}
+
+	.df-lp .df-cta__label { position: relative; }
+
+	.df-lp .df-cta__moon {
+		display: inline-flex;
+		align-items: center;
+		gap: 5px;
+	}
+
+	.df-lp .df-cta__moon i {
+		display: block;
+		width: 9px;
+		height: 9px;
+		border-radius: 50%;
+		border: 1.5px solid var(--et-green-deep);
+		background: var(--et-green-deep);
+		transform: scale(0.7);
+		opacity: 0.45;
+		animation: df-phase 2.1s var(--df-ease-in-out) infinite;
+		animation-play-state: paused;
+	}
+
+	.df-lp .df-cta__moon i:nth-child(2) { animation-delay: 0.2s; }
+	.df-lp .df-cta__moon i:nth-child(3) { animation-delay: 0.4s; }
+	.df-lp .df-cta.is-playing .df-cta__moon i { animation-play-state: running; }
+
+	@keyframes df-phase {
+		0%, 58%, 100% { transform: scale(0.7); opacity: 0.45; }
+		26% { transform: scale(1.05); opacity: 1; }
+	}
+
+	.df-lp .df-cta.df-cta--wide { width: 100%; }
+
+	.df-lp .df-cta.df-cta--sm {
+		min-height: 48px;
+		gap: 8px;
+		padding: 0 14px 0 18px;
+		box-shadow: 0 3px 0 var(--et-green-deep);
+		font-size: 16px;
+	}
+
+	.df-lp .df-cta.df-cta--sm .df-cta__moon i { width: 7px; height: 7px; }
+
+	/* ---------- Cinta ---------- */
+
+	.df-lp .df-ribbon {
+		overflow: hidden;
+		background: var(--et-sky);
+		color: var(--et-green-deep);
+	}
+
+	/* GemPages impone max-width:100% a todo lo que hay dentro del bloque:
+	   sin max-width:none el carril mide la pantalla y los textos se pisan. */
+	.df-lp .df-ribbon__track,
+	.df-lp .df-people__track {
+		display: flex;
+		width: max-content;
+		max-width: none;
+		animation: df-marquee 36s linear infinite;
+		animation-play-state: paused;
+	}
+
+	.df-lp .df-ribbon__track.is-playing { animation-play-state: running; }
+
+	@keyframes df-marquee {
+		from { transform: translateX(0); }
+		to { transform: translateX(-50%); }
+	}
+
+	.df-lp .df-ribbon__set {
+		display: flex;
+		flex: none;
+		max-width: none;
+	}
+
+	.df-lp .df-ribbon__item {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		padding: 9px 14px;
+		font-size: 14px;
+		line-height: 1.2;
+		white-space: nowrap;
+	}
+
+	/* La hoja del logo como separador */
+	.df-lp .df-ribbon__item::before {
+		content: '';
+		flex: none;
+		width: 12px;
+		height: 15px;
+		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='425 340 34 41'%3E%3Cg fill='%230f2e20'%3E%3Cpath d='M441.8 366.7C440.6 364.8 439.4 362.6 437.9 360.7C433.1 354.6 433 352.7 437.9 346.6C438.7 345.6 439.4 344.6 440.1 343.5C440.7 342.5 441.2 341.3 441.5 340.6C443.4 343.3 445.4 346.2 447.4 349.1C449.7 352.4 449.8 354.6 447.5 358C446.4 359.5 445.2 360.9 444.2 362.4C443.2 363.9 442.5 365.5 441.8 366.7'/%3E%3Cpath d='M440.4 379.7C437.8 374.7 433.4 371.3 429.6 367.3C426 363.6 425.6 358.6 428.4 354.6C436 361.2 441.1 369 440.4 379.7'/%3E%3Cpath d='M443 380.2C442.2 369 447.4 361.2 455.1 354.6C458.1 359 457.2 364.3 452.8 368.5C449.1 371.8 445.5 375.2 443 380.2'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+	}
+
+	/* ---------- Hero ---------- */
+
+	.df-lp .df-hero {
+		padding-block: 12px 32px;
+		transition: background-color 0.6s var(--df-ease-out);
+	}
+
+	.df-lp .df-hero__layout {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		grid-template-areas:
+			'head'
+			'media'
+			'buy';
+		row-gap: 14px;
+	}
+
+	.df-lp .df-hero__head { grid-area: head; }
+	.df-lp .df-hero__media { grid-area: media; min-width: 0; }
+	.df-lp .df-hero__buy { grid-area: buy; display: flex; flex-direction: column; align-items: flex-start; }
+
+	.df-lp .df-brand {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	.df-lp .df-brand__logo {
+		display: block;
+		width: 92px;
+		height: 27px;
+		color: var(--et-green-deep);
+		fill: var(--et-leaf);
+		transition: color 0.6s var(--df-ease-out);
+	}
+
+	.df-lp .df-brand__kit {
+		padding: 4px 10px;
+		border: 1.5px solid var(--et-green-deep);
+		border-radius: 999px;
+		font-size: 13px;
+		line-height: 1.2;
+		color: var(--et-green-deep);
+	}
+
+	.df-lp .df-sticker {
+		display: inline-block;
+		margin-top: 12px;
+		padding: 6px 12px;
+		border-radius: 10px;
+		background: var(--et-amber);
+		box-shadow: 0 2px 0 rgba(15, 46, 32, 0.18);
+		transform: rotate(-1.5deg);
+		font-size: 14px;
+		line-height: 1.3;
+		color: var(--et-green-deep);
+	}
+
+	/* El titular y su interruptor comparten fila: el gesto queda al lado de
+	   «Apaga el día», no debajo. Si no cabe, el interruptor baja solo. */
+	.df-lp .df-h1row {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		gap: 8px;
+		margin-top: 12px;
+	}
+
+	.df-lp .df-hero__head .df-h1 { margin-top: 0; }
+
+	/* El interruptor: baja la luz de todo el hero. En el móvil habla por
+	   iconos —sol y luna— para caber en la fila del titular; el rótulo
+	   vuelve en cuanto hay sitio. */
+	.df-lp .df-switch {
+		display: inline-flex;
+		flex: none;
+		align-items: center;
+		gap: 10px;
+		margin-top: 3px;
+		padding: 4px;
+		border: 1.5px solid var(--et-green-deep);
+		border-radius: 999px;
+		background: transparent;
+		font-size: 14px;
+		line-height: 1.2;
+		color: var(--et-green-deep);
+		cursor: pointer;
+		transition: border-color 0.4s var(--df-ease-out), color 0.4s var(--df-ease-out);
+		-webkit-tap-highlight-color: transparent;
+	}
+
+	.df-lp .df-switch:focus-visible { outline: 3px solid var(--et-lime); outline-offset: 3px; }
+
+	.df-lp .df-switch__track {
+		position: relative;
+		display: block;
+		flex: none;
+		width: 40px;
+		height: 24px;
+		padding: 3px;
+		border-radius: 999px;
+		background: var(--et-amber);
+		transition: background-color 0.4s var(--df-ease-out);
+	}
+
+	/* Sol y luna dentro del carril: el que asoma es el estado al que vas. */
+	.df-lp .df-switch__icon {
+		position: absolute;
+		top: 6px;
+		width: 12px;
+		height: 12px;
+		fill: none;
+		stroke: var(--et-green-deep);
+		stroke-width: 2;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+	}
+
+	.df-lp .df-switch__icon.df-switch__icon--sun { left: 5px; }
+	.df-lp .df-switch__icon.df-switch__icon--moon { right: 5px; }
+
+	.df-lp .df-switch__knob {
+		position: relative;
+		display: block;
+		width: 18px;
+		height: 18px;
+		border-radius: 50%;
+		background: var(--et-surface);
+		box-shadow: 0 1px 3px rgba(15, 46, 32, 0.3);
+		transition: transform 0.35s var(--df-ease-out);
+	}
+
+	.df-lp .df-switch__label { display: none; }
+
+	.df-lp .df-switch[aria-pressed='true'] .df-switch__knob { transform: translateX(16px); }
+	.df-lp .df-switch[aria-pressed='true'] .df-switch__track { background: var(--et-lime); }
+
+	/* Noche: el hero baja la luz. La foto no se toca. */
+	.df-lp .df-hero.is-night { background: #10241c; }
+	.df-lp .df-hero.is-night .df-h1 { color: var(--et-paper); }
+	.df-lp .df-hero.is-night .df-h1__line--soft { color: var(--et-lime); }
+	.df-lp .df-hero.is-night .df-brand__logo { color: var(--et-paper); }
+	.df-lp .df-hero.is-night .df-brand__kit { border-color: var(--et-on-deep); color: var(--et-on-deep); }
+	.df-lp .df-hero.is-night .df-lead { color: var(--et-on-deep); }
+	.df-lp .df-hero.is-night .df-hero__note { color: #a9bdb0; }
+	.df-lp .df-hero.is-night .df-hero__note strong { color: var(--et-paper); }
+	.df-lp .df-hero.is-night .df-switch { border-color: var(--et-on-deep); color: var(--et-on-deep); }
+	/* La píldora del precio se aclara, como las de los frascos: de noche
+	   el verde profundo se perdería contra el fondo. */
+	.df-lp .df-hero.is-night .df-deal__now { background: var(--et-paper); color: var(--et-green); }
+	.df-lp .df-hero.is-night .df-deal__amount { color: var(--et-green-deep); }
+	.df-lp .df-hero.is-night .df-deal__alt { color: #a9bdb0; }
+	.df-lp .df-hero.is-night .df-deal__alt strong { color: var(--et-paper); }
+	.df-lp .df-hero.is-night .df-hero__note .df-icon { color: var(--et-lime); }
+	.df-lp .df-hero.is-night .df-glow__halo { animation: none; opacity: 0.12; }
+
+	.df-lp .df-stage {
+		display: flex;
+		flex-direction: column;
+		padding: 10px;
+		border-radius: 26px;
+		background: var(--df-tint);
+		box-shadow: var(--df-shadow);
+	}
+
+	.df-lp .df-stage__photo {
+		overflow: hidden;
+		aspect-ratio: 4 / 3;
+		border-radius: 18px;
+		background: var(--et-surface);
+	}
+
+	.df-lp .df-stage__photo img {
 		width: 100%;
-		min-height: 56px;
-		padding: 14px 40px;
-		border: 1px solid var(--et-green-deep);
+		height: 100%;
+		object-fit: cover;
+		object-position: 50% 42%;
+	}
+
+	.df-lp .df-stage__caption {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 2px;
+		min-height: 46px;
+		padding: 6px 6px 0;
+	}
+
+	.df-lp .df-stage__kicker {
+		font-size: 12px;
+		line-height: 1.2;
+		letter-spacing: 1.2px;
+		text-transform: uppercase;
+		color: var(--df-tint-ink);
+	}
+
+	.df-lp .df-stage__title {
+		font-family: var(--df-display);
+		font-weight: 600;
+		font-size: 16px;
+		line-height: 1.2;
+		color: var(--et-green-deep);
+	}
+
+	/* Los tres frascos, en fila bajo la foto */
+	.df-lp .df-stage__trio {
+		display: flex;
+		gap: 8px;
+		margin-top: 10px;
+	}
+
+	.df-lp .df-mini {
+		display: flex;
+		flex: 1 1 0;
+		align-items: center;
+		gap: 8px;
+		min-width: 0;
+		padding: 5px 10px 5px 5px;
+		border-radius: 999px;
+		background: var(--df-tint-soft);
+		font-size: 13px;
+		line-height: 1.2;
+		color: var(--et-green-deep);
+	}
+
+	.df-lp .df-mini__photo {
+		overflow: hidden;
+		flex: none;
+		width: 34px;
+		height: 34px;
+		border-radius: 50%;
+		background: var(--et-surface);
+	}
+
+	/* En el móvil no caben foto y nombre: manda el nombre, la miniatura
+	   vuelve en cuanto hay sitio. */
+	@media (max-width: 599px) {
+		.df-lp .df-mini { justify-content: center; padding: 8px 10px; }
+		.df-lp .df-mini__photo { display: none; }
+	}
+
+	.df-lp .df-mini__photo img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.df-lp .df-mini__name {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.df-lp .df-lead {
+		order: 4;
+		margin-top: 16px;
+		font-size: 16px;
+		line-height: 1.5;
+		max-width: 520px;
+		transition: color 0.6s var(--df-ease-out);
+	}
+
+	/* El precio, en la primera pantalla. Mismo reparto que la sección de
+	   pago: el anticipado en verde y delante; el contraentrega al lado y
+	   en segundo plano. */
+
+	.df-lp .df-deal {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 6px 10px;
+		margin-top: 14px;
+	}
+
+	.df-lp .df-deal__now {
+		display: inline-flex;
+		align-items: baseline;
+		gap: 6px;
+		padding: 6px 12px 7px;
 		border-radius: 999px;
 		background: var(--et-green-deep);
-		color: var(--et-surface);
-		font-size: 17px;
+		font-size: 12px;
 		line-height: 1.2;
-		text-align: center;
-		cursor: pointer;
-		-webkit-appearance: none;
-		appearance: none;
-		-webkit-tap-highlight-color: transparent;
-		transition: transform 0.18s ease;
-	}
-	.df-lp .df-cta:active { transform: scale(0.985); }
-	.df-lp .df-cta::before, .df-lp .df-cta::after { content: ''; position: absolute; z-index: 1; width: 12px; height: 12px; background: var(--df-star); clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%); opacity: 0.35; transform: scale(0.7); animation: df-twinkle 3.6s ease-in-out infinite; animation-play-state: paused; pointer-events: none; will-change: transform, opacity; }
-	.df-lp .df-cta::before { top: 22%; left: 20px; }
-	.df-lp .df-cta::after { right: 22px; bottom: 20%; animation-delay: -1.8s; }
-	.df-lp .df-cta.is-inview::before, .df-lp .df-cta.is-inview::after { animation-play-state: running; }
-	.df-lp .df-cta__label { position: static; display: inline-block; }
-	.df-lp .df-cta__label::before { content: ''; position: absolute; z-index: -1; top: 50%; left: 50%; width: 130%; aspect-ratio: 1; border-radius: 50%; background: var(--df-bloom); transform: translate(-50%, -50%) scale(0); transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1); }
-	.df-lp .df-cta:hover .df-cta__label::before, .df-lp .df-cta:focus-visible .df-cta__label::before { transform: translate(-50%, -50%) scale(1); }
-	.df-lp .df-cta:active .df-cta__label::before { transform: translate(-50%, -50%) scale(1); transition-duration: 0.15s; }
-	.df-lp .df-cta--light { --df-star: var(--et-green); --df-bloom: var(--et-mint); border-color: var(--et-bg); background: var(--et-bg); color: var(--et-green-deep); }
-	.df-lp .df-cta--secondary { --df-star: var(--et-green); --df-bloom: var(--et-mint); background: var(--et-surface); color: var(--et-green-deep); }
-	.df-lp .df-cta--sm { min-height: 48px; padding: 10px 30px; font-size: 15px; }
-	.df-lp .df-cta--sm::before { left: 12px; }
-	.df-lp .df-cta--sm::after { right: 12px; }
-	.df-lp .df-cta-row { display: grid; gap: 10px; max-width: 460px; margin: 22px auto 0; }
-
-	@keyframes df-marquee { to { transform: translateX(-50%); } }
-	@keyframes df-twinkle {
-		0%, 100% { opacity: 0.3; transform: scale(0.7); }
-		50% { opacity: 1; transform: scale(1.15); }
+		color: var(--et-lime);
 	}
 
-	/* ---------- Mosaico de personas, sin scroll ---------- */
-	.df-lp .df-people { padding: 10px 0 16px; }
-	.df-lp .df-mosaic { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding-bottom: 14px; }
-	.df-lp .df-mosaic__item { aspect-ratio: 4 / 5; overflow: hidden; border: var(--df-line); border-radius: var(--df-radius); background: var(--et-surface); }
-	.df-lp .df-mosaic__item:nth-child(even) { transform: translateY(14px); }
-	.df-lp .df-mosaic__item img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+	.df-lp .df-deal__amount {
+		font-family: var(--df-display);
+		font-weight: 600;
+		font-size: 20px;
+		line-height: 1;
+		letter-spacing: -0.5px;
+		color: var(--et-surface);
+		font-variant-numeric: tabular-nums;
+	}
 
-	/* ---------- Tres momentos: las notas ---------- */
-	.df-lp .df-notes { display: grid; gap: 16px; margin-top: 24px; }
-	.df-lp .df-note { position: relative; display: grid; grid-template-columns: 92px 1fr; gap: 14px; align-items: start; padding: 16px 16px 16px 14px; border: var(--df-line); border-radius: 4px var(--df-radius) var(--df-radius) var(--df-radius); background: var(--et-surface); transition: transform 0.25s ease; }
-	.df-lp .df-note:nth-child(even) { margin-left: 10px; }
-	.df-lp .df-note:nth-child(odd) { margin-right: 10px; }
-	/* La esquina doblada: el triángulo de fuera es el fondo de la sección, el de dentro la solapa */
-	.df-lp .df-note::after { content: ''; position: absolute; top: -1px; right: -1px; width: 26px; height: 26px; border-bottom-left-radius: 6px; background: linear-gradient(225deg, var(--et-bg) 0 50%, rgba(15, 46, 32, 0.16) 50% 100%); }
-	.df-lp .df-note--night { border-color: var(--df-night); background: var(--df-night); color: var(--et-bg); }
-	.df-lp .df-note--late { border-color: var(--df-late); background: var(--df-late); color: var(--et-bg); }
-	.df-lp .df-note--night::after, .df-lp .df-note--late::after { background: linear-gradient(225deg, var(--et-bg) 0 50%, rgba(255, 252, 245, 0.22) 50% 100%); }
-	.df-lp .df-note__photo { overflow: hidden; aspect-ratio: 4 / 5; border-radius: var(--df-radius-sm); background: var(--et-surface); }
-	.df-lp .df-note__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 45%; }
-	.df-lp .df-note__body { display: grid; gap: 6px; }
-	/* Numeral, icono y momento en la misma fila */
-	.df-lp .df-note__head { display: flex; align-items: center; gap: 10px; }
-	.df-lp .df-note__head .df-icon-button { margin-left: auto; }
-	.df-lp .df-note__index { min-width: 22px; font-family: var(--df-serif); color: var(--et-green); font-size: 30px; line-height: 1; }
-	.df-lp .df-note--night .df-note__index, .df-lp .df-note--late .df-note__index { color: var(--et-lime); }
-	.df-lp .df-note__when { color: var(--et-muted); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
-	.df-lp .df-note--night .df-note__when, .df-lp .df-note--late .df-note__when { color: rgba(255, 252, 245, 0.72); }
-	.df-lp .df-note__title { font-size: 24px; line-height: 1.1; }
-	.df-lp .df-note--night .df-note__title, .df-lp .df-note--late .df-note__title { color: var(--et-bg); }
-	.df-lp .df-note__promise { color: var(--et-green-deep); font-size: 16px; line-height: 1.35; }
-	.df-lp .df-note__formula { color: var(--et-muted); font-size: 14px; line-height: 1.45; }
-	.df-lp .df-note__dose { padding-top: 8px; border-top: var(--df-line); color: var(--et-green-deep); font-size: 14px; }
-	.df-lp .df-note__dose strong { font-family: var(--df-serif); font-size: 20px; font-weight: 400; }
-	.df-lp .df-note--night .df-note__promise, .df-lp .df-note--late .df-note__promise, .df-lp .df-note--night .df-note__dose, .df-lp .df-note--late .df-note__dose { color: var(--et-bg); }
-	.df-lp .df-note--night .df-note__formula, .df-lp .df-note--late .df-note__formula { color: rgba(255, 252, 245, 0.78); }
-	.df-lp .df-note--night .df-note__dose, .df-lp .df-note--late .df-note__dose { border-top-color: rgba(255, 252, 245, 0.22); }
-	.df-lp .df-note--day { border-color: var(--et-lime); }
+	.df-lp .df-deal__alt {
+		font-size: 12px;
+		line-height: 1.3;
+		color: var(--et-muted);
+	}
 
-	.df-lp .df-icon-button { display: grid; flex: none; width: 40px; height: 40px; place-items: center; padding: 0; border: 1px solid var(--et-green); border-radius: 50%; background: var(--et-surface); color: var(--et-green); cursor: pointer; transition: transform 0.22s ease; }
-	.df-lp .df-icon-button:hover, .df-lp .df-icon-button:focus-visible { transform: scale(1.06); }
-	.df-lp .df-icon-button[aria-pressed='true'] { background: var(--et-lime); border-color: var(--et-lime); color: var(--et-green-deep); transform: scale(1.08) rotate(-4deg); }
-	.df-lp .df-icon-button svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+	.df-lp .df-deal__alt strong {
+		font-weight: 400;
+		color: var(--et-green-deep);
+		font-variant-numeric: tabular-nums;
+	}
 
-	/* ---------- Fórmulas y uso: la etiqueta ---------- */
-	.df-lp .df-formula__grid { display: grid; gap: 20px; }
-	.df-lp .df-formula__media { overflow: hidden; border: var(--df-line); border-radius: var(--df-radius); background: var(--et-surface); }
-	.df-lp .df-formula__content { display: grid; gap: 16px; align-content: start; }
-	.df-lp .df-formula__content .df-overline { margin-bottom: 0; }
-	.df-lp .df-label { padding: 10px 14px 4px; border-top: 6px solid var(--et-green-deep); border-bottom: 3px solid var(--et-green-deep); background: var(--et-surface); }
-	.df-lp .df-label__legend { padding-bottom: 8px; border-bottom: var(--df-line); color: var(--et-muted); font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; }
-	.df-lp .df-label__legend span { color: var(--et-lime); }
-	.df-lp .df-label__row { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; padding: 12px 0; border-bottom: var(--df-line); }
-	.df-lp .df-label__row:last-child { border-bottom: 0; }
-	.df-lp .df-label__icon { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 50%; background: var(--df-night); color: var(--et-lime); }
-	.df-lp .df-label__icon svg { width: 18px; height: 18px; }
-	.df-lp .df-label__row--late .df-label__icon { background: var(--df-late); }
-	.df-lp .df-label__row--day .df-label__icon { background: var(--df-day); color: var(--et-green-deep); }
-	.df-lp .df-label__text { display: grid; gap: 3px; }
-	.df-lp .df-label__product { font-family: var(--df-serif); font-size: 18px; color: var(--et-green-deep); }
-	.df-lp .df-label__ingredients { color: var(--et-ink); font-size: 14px; line-height: 1.4; }
-	.df-lp .df-label__use { position: relative; margin-top: 2px; padding-left: 16px; color: var(--et-muted); font-size: 11px; letter-spacing: 0.8px; text-transform: uppercase; }
-	.df-lp .df-label__use::before { content: ''; position: absolute; left: 0; top: 50%; width: 10px; height: 2px; background: var(--et-lime); }
+	.df-lp .df-hero__buy .df-cta { margin-top: 14px; }
 
-	.df-lp .df-use { margin-top: 32px; }
-	.df-lp .df-use .df-h3 { margin-bottom: 14px; }
-	.df-lp .df-routine { overflow: hidden; border: var(--df-line); border-radius: var(--df-radius); background: var(--et-surface); }
-	.df-lp .df-routine__row { display: grid; grid-template-columns: 64px 1fr; gap: 14px; align-items: center; padding: 12px 14px; border-bottom: var(--df-line); }
-	.df-lp .df-routine__photo { width: 64px; height: 64px; overflow: hidden; border: 2px solid var(--df-night); border-radius: 50%; background: var(--et-surface); }
-	.df-lp .df-routine__row--late .df-routine__photo { border-color: var(--df-late); }
-	.df-lp .df-routine__row--day .df-routine__photo { border-color: var(--et-lime); }
-	.df-lp .df-routine__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 55%; }
-	.df-lp .df-routine__text { display: grid; gap: 2px; }
-	.df-lp .df-routine__when { color: var(--et-muted); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
-	.df-lp .df-routine__text p { color: var(--et-green-deep); font-size: 15px; line-height: 1.4; }
-	.df-lp .df-routine__text strong { font-family: var(--df-serif); font-size: 19px; font-weight: 400; }
-	.df-lp .df-ways { display: grid; gap: 6px; padding: 12px 14px; background: var(--et-bg); }
-	.df-lp .df-ways__label { color: var(--et-green-deep); font-size: 14px; }
-	.df-lp .df-ways__list { display: flex; flex-wrap: wrap; gap: 6px 14px; }
-	.df-lp .df-ways__list li { display: inline-flex; align-items: center; gap: 5px; color: var(--et-muted); font-size: 13px; }
-	.df-lp .df-ways svg { width: 18px; height: 18px; color: var(--et-green); }
-	.df-lp .df-use__facts { margin-top: 12px; background: var(--et-surface); }
-	.df-lp .df-use .df-cta-row { margin-top: 20px; }
+	.df-lp .df-hero__note {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		margin-top: 12px;
+		font-size: 14px;
+		color: var(--et-muted);
+	}
+
+	.df-lp .df-hero__note .df-icon { width: 20px; height: 20px; color: var(--et-green); }
+
+	/* ---------- Personas ---------- */
+
+	.df-lp .df-people {
+		overflow: hidden;
+		padding-block: 12px 40px;
+	}
+
+	.df-lp .df-people__track { animation-duration: 70s; }
+	.df-lp .df-people__track.is-playing { animation-play-state: running; }
+	.df-lp .df-people__track.is-held { animation-play-state: paused; }
+
+	.df-lp .df-people__set {
+		display: flex;
+		flex: none;
+		max-width: none;
+	}
+
+	.df-lp .df-polaroid {
+		position: relative;
+		flex: none;
+		width: 152px;
+		margin-right: 16px;
+		padding: 8px 8px 10px;
+		border-radius: 6px;
+		background: var(--et-surface);
+		box-shadow: var(--df-shadow);
+		transform: rotate(-2deg);
+	}
+
+	.df-lp .df-polaroid:nth-child(even) { transform: translateY(10px) rotate(2deg); }
+
+	.df-lp .df-polaroid::before {
+		content: '';
+		position: absolute;
+		top: -8px;
+		left: 50%;
+		width: 56px;
+		height: 18px;
+		margin-left: -28px;
+		border-radius: 3px;
+		background: var(--df-tint);
+		opacity: 0.92;
+		transform: rotate(-4deg);
+	}
+
+	.df-lp .df-polaroid img {
+		width: 100%;
+		aspect-ratio: 4 / 5;
+		object-fit: cover;
+		border-radius: 3px;
+	}
+
+	.df-lp .df-polaroid__caption {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 5px;
+		min-height: 44px;
+		margin-top: 8px;
+	}
+
+	.df-lp .df-polaroid__name {
+		font-family: var(--df-display);
+		font-weight: 600;
+		font-size: 15px;
+		line-height: 1.1;
+		color: var(--et-green-deep);
+	}
+
+	.df-lp .df-polaroid__product {
+		padding: 3px 7px;
+		border-radius: 999px;
+		background: var(--df-tint-soft);
+		font-size: 11px;
+		line-height: 1.2;
+		color: var(--df-tint-ink);
+	}
+
+	/* ---------- La mente despierta ---------- */
+
+	.df-lp .df-awake { padding-block: 52px 56px; }
+
+	.df-lp .df-thoughts {
+		display: grid;
+		gap: 8px;
+		margin-top: 24px;
+	}
+
+	/* Cada pensamiento entra con menos luz que el anterior */
+	.df-lp .df-thought {
+		justify-self: start;
+		padding: 10px 18px;
+		border-radius: 999px;
+		background: var(--et-sky-soft);
+		font-size: 17px;
+		line-height: 1.35;
+	}
+
+	.df-lp .df-thought:nth-child(2) { margin-left: 16px; opacity: 0.86; }
+	.df-lp .df-thought:nth-child(3) { margin-left: 32px; opacity: 0.72; }
+	.df-lp .df-thought:nth-child(4) { margin-left: 48px; opacity: 0.58; }
+
+	.df-lp .df-awake__text {
+		margin-top: 22px;
+		font-size: 17px;
+		line-height: 1.5;
+	}
+
+	.df-lp .df-awake__close {
+		margin-top: 16px;
+		padding: 14px 18px;
+		border-radius: var(--df-radius);
+		background: var(--et-amber-soft);
+		border-left: 4px solid var(--et-amber);
+		font-family: var(--df-display);
+		font-weight: 600;
+		font-size: 22px;
+		line-height: 1.2;
+		color: var(--et-green-deep);
+	}
+
+	/* ---------- Tres productos ---------- */
+
+	.df-lp .df-order { padding-block: 52px 60px; }
+
+	.df-lp .df-steps {
+		display: grid;
+		gap: 14px;
+		margin-top: 26px;
+	}
+
+	.df-lp .df-step {
+		padding: 14px;
+		border-radius: var(--df-radius);
+		background: var(--et-surface);
+	}
+
+	.df-lp .df-item {
+		display: grid;
+		grid-template-columns: 96px minmax(0, 1fr);
+		column-gap: 14px;
+		align-items: start;
+	}
+
+	.df-lp .df-item__photo {
+		overflow: hidden;
+		aspect-ratio: 4 / 5;
+		border-radius: var(--df-radius-sm);
+		background: var(--df-tint-soft);
+	}
+
+	.df-lp .df-item__photo img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.df-lp .df-item__body {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 6px;
+		min-width: 0;
+	}
+
+	.df-lp .df-item__claim {
+		font-size: 16px;
+		line-height: 1.35;
+		color: var(--et-green);
+	}
+
+	.df-lp .df-item__formula {
+		padding: 5px 12px;
+		border-radius: 999px;
+		background: var(--df-tint);
+		font-size: 15px;
+		line-height: 1.35;
+		color: var(--et-green-deep);
+	}
+
+	.df-lp .df-item__text {
+		font-size: 15px;
+		line-height: 1.45;
+	}
+
+	.df-lp .df-dose {
+		margin-top: 2px;
+		padding: 8px 11px;
+		border-radius: 12px;
+		background: var(--df-tint-soft);
+		font-size: 14px;
+		line-height: 1.4;
+		color: var(--et-muted);
+	}
+
+	/* ---------- ¿Te suena?: las noches ---------- */
+
+	.df-lp .df-nights { padding-bottom: 60px; }
+
+	.df-lp .df-nights__head {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 10px;
+	}
+
+	.df-lp .df-nights__hint {
+		padding: 6px 12px;
+		border-radius: 999px;
+		background: var(--et-surface);
+		font-size: 14px;
+		line-height: 1.3;
+		color: var(--et-green-deep);
+	}
+
+	.df-lp .df-nights__rail {
+		overflow-x: auto;
+		margin-top: 24px;
+		padding-inline: 18px;
+		scroll-snap-type: x mandatory;
+		scrollbar-width: none;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.df-lp .df-nights__rail::-webkit-scrollbar { display: none; }
+	.df-lp .df-nights__rail:focus-visible { outline: 3px solid var(--et-green-deep); outline-offset: -3px; }
+
+	.df-lp .df-nights__list {
+		display: flex;
+		gap: 12px;
+		width: max-content;
+		max-width: none;
+		padding-right: 18px;
+	}
+
+	.df-lp .df-night {
+		display: flex;
+		flex: none;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 8px;
+		width: 270px;
+		padding: 18px 16px 20px;
+		border-radius: var(--df-radius);
+		background: var(--df-tint-soft);
+		scroll-snap-align: center;
+	}
+
+	.df-lp .df-night__mark {
+		display: grid;
+		place-items: center;
+		width: 44px;
+		height: 44px;
+		border-radius: 50%;
+		background: var(--df-tint);
+		color: var(--et-green-deep);
+	}
+
+	.df-lp .df-night__title {
+		font-family: var(--df-display);
+		font-weight: 600;
+		font-size: 20px;
+		line-height: 1.15;
+		color: var(--et-green-deep);
+	}
+
+	.df-lp .df-night__sub {
+		display: block;
+		margin-top: 4px;
+		font-size: 16px;
+		color: var(--et-green);
+	}
+
+	.df-lp .df-night__text { font-size: 15px; line-height: 1.45; }
+
+	/* ---------- No termina con la alarma ---------- */
+
+	.df-lp .df-risk { padding-block: 64px; }
+
+	.df-lp .df-risk__lead {
+		margin-top: 16px;
+		font-size: 17px;
+		line-height: 1.5;
+		max-width: 640px;
+	}
+
+	.df-lp .df-risk__list {
+		display: grid;
+		gap: 14px;
+		margin-top: 26px;
+	}
+
+	.df-lp .df-risk__item {
+		display: grid;
+		gap: 8px;
+		padding: 18px 18px 20px;
+		border-radius: var(--df-radius);
+		background: rgba(255, 255, 255, 0.07);
+	}
+
+	.df-lp .df-risk__mark {
+		display: grid;
+		place-items: center;
+		width: 46px;
+		height: 46px;
+		border-radius: 50%;
+		background: var(--et-lime);
+		color: var(--et-green-deep);
+	}
+
+	.df-lp .df-risk__mark .df-icon { width: 26px; height: 26px; }
+
+	.df-lp .df-risk__name {
+		font-family: var(--df-display);
+		font-weight: 600;
+		font-size: 22px;
+		line-height: 1.1;
+		color: var(--et-lime);
+	}
+
+	.df-lp .df-risk__text { font-size: 16px; line-height: 1.5; }
+
+	.df-lp .df-risk__limit {
+		padding-left: 14px;
+		border-left: 3px solid var(--et-lime);
+		font-size: 15px;
+		line-height: 1.45;
+		color: #c3d3c6;
+	}
+
+	/* ---------- Cuando es extrema ---------- */
+
+	.df-lp .df-extreme { padding-block: 56px; }
+
+	.df-lp .df-warning {
+		display: grid;
+		gap: 10px;
+		padding: 20px 18px 22px;
+		border-radius: var(--df-radius);
+		background: var(--df-tint-soft);
+		border: 2px solid var(--df-tint);
+	}
+
+	.df-lp .df-warning__mark {
+		display: grid;
+		place-items: center;
+		width: 46px;
+		height: 46px;
+		border-radius: 50%;
+		background: var(--df-tint);
+		color: var(--et-green-deep);
+	}
+
+	.df-lp .df-warning__title { font-size: 26px; }
+	.df-lp .df-warning__text { font-size: 16px; line-height: 1.5; }
+
+	.df-lp .df-warning__strong {
+		font-family: var(--df-display);
+		font-weight: 600;
+		font-size: 20px;
+		line-height: 1.2;
+		color: var(--et-green-deep);
+	}
+
+	.df-lp .df-warning__note {
+		padding-top: 10px;
+		border-top: 1.5px dashed var(--df-tint);
+		font-size: 14px;
+		line-height: 1.45;
+		color: var(--et-muted);
+	}
+
+	.df-lp .df-effects__title { margin-top: 48px; }
+
+	.df-lp .df-effects__lead {
+		margin-top: 14px;
+		font-size: 17px;
+	}
+
+	.df-lp .df-effects {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		margin-top: 18px;
+	}
+
+	.df-lp .df-effect {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		padding: 7px 18px 7px 7px;
+		border-radius: 999px;
+		background: var(--df-tint);
+		font-family: var(--df-display);
+		font-weight: 600;
+		font-size: 19px;
+		line-height: 1.2;
+		color: var(--et-green-deep);
+	}
+
+	.df-lp .df-effect span { font-family: var(--df-display); }
+
+	.df-lp .df-effect .df-icon {
+		width: 36px;
+		height: 36px;
+		padding: 7px;
+		border-radius: 50%;
+		background: var(--et-surface);
+	}
+
+	.df-lp .df-effects__note {
+		margin-top: 18px;
+		font-size: 15px;
+		line-height: 1.5;
+		color: var(--et-muted);
+	}
+
+	.df-lp .df-effects__close {
+		margin-top: 16px;
+		font-family: var(--df-display);
+		font-weight: 600;
+		font-size: 24px;
+		line-height: 1.2;
+		color: var(--et-green);
+	}
+
+	/* ---------- Fácil de incorporar ---------- */
+
+	.df-lp .df-use { padding-block: 52px 56px; }
+
+	.df-lp .df-takes {
+		display: grid;
+		gap: 12px;
+		margin-top: 24px;
+	}
+
+	.df-lp .df-take {
+		display: grid;
+		grid-template-columns: 52px minmax(0, 1fr);
+		grid-template-areas:
+			'mark name'
+			'dose dose'
+			'how how';
+		column-gap: 14px;
+		row-gap: 6px;
+		align-items: center;
+		padding: 16px;
+		border-radius: var(--df-radius);
+		background: var(--et-surface);
+	}
+
+	.df-lp .df-take__mark {
+		grid-area: mark;
+		display: grid;
+		place-items: center;
+		width: 52px;
+		height: 52px;
+		border-radius: 50%;
+		background: var(--df-tint);
+		color: var(--et-green-deep);
+	}
+
+	.df-lp .df-take__name {
+		grid-area: name;
+		font-family: var(--df-display);
+		font-weight: 600;
+		font-size: 22px;
+		line-height: 1.1;
+		color: var(--et-green-deep);
+	}
+
+	.df-lp .df-take__dose {
+		grid-area: dose;
+		justify-self: start;
+		padding: 6px 14px;
+		border-radius: 999px;
+		background: var(--df-tint-soft);
+		font-size: 16px;
+		line-height: 1.3;
+		color: var(--et-green-deep);
+	}
+
+	.df-lp .df-take__how {
+		grid-area: how;
+		font-size: 15px;
+		line-height: 1.45;
+		color: var(--et-muted);
+	}
+
+	.df-lp .df-facts {
+		display: grid;
+		gap: 10px;
+		margin-top: 18px;
+		padding: 16px;
+		border-radius: var(--df-radius);
+		background: var(--et-surface);
+	}
+
+	.df-lp .df-fact {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		font-size: 16px;
+		line-height: 1.35;
+		color: var(--et-green-deep);
+	}
+
+	.df-lp .df-fact .df-icon { color: var(--et-green); }
+
+	/* ---------- Lo que sabemos ---------- */
+
+	.df-lp .df-science { padding-block: 60px; }
+
+	.df-lp .df-science__layout {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		row-gap: 22px;
+	}
+
+	.df-lp .df-science__art {
+		overflow: hidden;
+		width: 100%;
+		max-width: 400px;
+		margin-inline: auto;
+		border: 8px solid var(--et-sky);
+		border-radius: 50%;
+		background: var(--et-surface);
+	}
+
+	.df-lp .df-science__art img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+
+	.df-lp .df-papers { display: grid; gap: 12px; }
+
+	.df-lp .df-paper {
+		display: grid;
+		gap: 8px;
+		padding: 16px 18px 18px;
+		border-radius: var(--df-radius);
+		background: var(--df-tint-soft);
+	}
+
+	.df-lp .df-paper__head {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		color: var(--et-green-deep);
+	}
+
+	.df-lp .df-paper__name {
+		font-family: var(--df-display);
+		font-weight: 600;
+		font-size: 21px;
+		line-height: 1.1;
+	}
+
+	.df-lp .df-paper__tag {
+		justify-self: start;
+		padding: 4px 12px;
+		border-radius: 999px;
+		background: var(--df-tint);
+		font-size: 13px;
+		line-height: 1.3;
+		letter-spacing: 0.4px;
+		color: var(--df-tint-ink);
+	}
+
+	.df-lp .df-paper__text { font-size: 15px; line-height: 1.5; }
+
+
+	.df-lp .df-science__sources {
+		font-size: 13px;
+		letter-spacing: 0.3px;
+		color: var(--et-muted);
+	}
+
+	/* ---------- Señales ---------- */
+
+	.df-lp .df-signals { padding-block: 56px 60px; }
+
+	.df-lp .df-signals__lead {
+		margin-top: 14px;
+		font-size: 18px;
+		line-height: 1.5;
+	}
+
+	.df-lp .df-signals__list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		margin-top: 20px;
+	}
+
+	.df-lp .df-signal {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		padding: 7px 18px 7px 7px;
+		border-radius: 999px;
+		background: var(--df-tint);
+		font-family: var(--df-display);
+		font-weight: 600;
+		font-size: 19px;
+		line-height: 1.2;
+		color: var(--et-green-deep);
+	}
+
+	.df-lp .df-signal span { font-family: var(--df-display); }
+
+	.df-lp .df-signal .df-icon {
+		width: 38px;
+		height: 38px;
+		padding: 8px;
+		border-radius: 50%;
+		background: var(--et-surface);
+	}
+
+	/* ---------- Todo el kit ---------- */
+
+	.df-lp .df-box { padding-block: 52px 64px; }
+
+	.df-lp .df-box__layout {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		row-gap: 20px;
+	}
+
+	.df-lp .df-box__photo {
+		overflow: hidden;
+		border-radius: 26px;
+		background: var(--et-surface);
+	}
+
+	.df-lp .df-box__photo img {
+		width: 100%;
+		aspect-ratio: 4 / 5;
+		object-fit: cover;
+	}
+
+	.df-lp .df-pack { display: grid; gap: 10px; }
+
+	.df-lp .df-pack__row {
+		display: grid;
+		grid-template-columns: 54px minmax(0, 1fr);
+		grid-template-areas:
+			'qty name'
+			'qty detail';
+		column-gap: 14px;
+		align-items: center;
+		padding: 12px 16px 12px 12px;
+		border-radius: 18px;
+		background: var(--df-tint-soft);
+	}
+
+	.df-lp .df-pack__qty {
+		grid-area: qty;
+		display: grid;
+		place-items: center;
+		height: 50px;
+		border-radius: 14px;
+		background: var(--df-tint);
+		font-family: var(--df-display);
+		font-weight: 600;
+		font-size: 18px;
+		color: var(--et-green-deep);
+	}
+
+	.df-lp .df-pack__name {
+		grid-area: name;
+		font-family: var(--df-display);
+		font-weight: 600;
+		font-size: 20px;
+		line-height: 1.15;
+		color: var(--et-green-deep);
+	}
+
+	.df-lp .df-pack__detail {
+		grid-area: detail;
+		font-size: 14px;
+		line-height: 1.35;
+		color: var(--et-muted);
+	}
 
 	/* ---------- Oferta ---------- */
-	.df-lp .df-offer { padding-bottom: 0; }
-	.df-lp .df-plans { display: grid; gap: 14px; margin-top: 22px; }
-	.df-lp .df-plan { display: grid; gap: 12px; padding: 24px 22px; border: var(--df-line); border-radius: var(--df-radius); background: var(--et-surface); }
-	.df-lp .df-plan.df-plan--best { border-color: var(--et-green-deep); background: var(--et-green-deep); color: var(--et-bg); }
-	.df-lp .df-plan__badge, .df-lp .df-plan__eyebrow { width: fit-content; padding: 5px 10px; border-radius: 999px; background: var(--et-lime); color: var(--et-green-deep); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
-	.df-lp .df-plan__eyebrow { background: var(--et-bg-alt); color: var(--et-muted); }
-	.df-lp .df-plan__title { font-size: 26px; }
-	.df-lp .df-plan--best .df-plan__title { color: var(--et-bg); }
-	.df-lp .df-plan__price { font-family: var(--df-serif); font-size: 42px; line-height: 1; color: var(--et-green-deep); }
-	.df-lp .df-plan--best .df-plan__price { color: var(--et-surface); }
-	.df-lp .df-plan__price span { font-family: var(--df-sans); font-size: 12px; }
-	.df-lp .df-plan__perks { display: grid; gap: 6px; color: var(--et-muted); font-size: 15px; }
-	.df-lp .df-plan__perks li { position: relative; padding-left: 18px; }
-	.df-lp .df-plan__perks li::before { content: ''; position: absolute; left: 0; top: 9px; width: 8px; height: 8px; border-radius: 50%; background: var(--et-green); }
-	.df-lp .df-plan--best .df-plan__perks { color: rgba(255, 252, 245, 0.85); }
-	.df-lp .df-plan--best .df-plan__perks li::before { background: var(--et-lime); }
-	.df-lp .df-plan--best .df-plan__perks li:first-child { color: var(--et-lime); }
 
-	.df-lp .df-after { margin-top: 28px; }
-	.df-lp .df-after__title { margin-bottom: 14px; color: var(--et-green-deep); font-family: var(--df-serif); font-size: 22px; }
-	.df-lp .df-after__flow { display: grid; gap: 10px; }
-	.df-lp .df-after__flow li { display: grid; grid-template-columns: 44px 1fr; gap: 4px 12px; align-items: center; padding: 12px 14px; border: var(--df-line); border-radius: var(--df-radius-sm); background: var(--et-surface); }
-	.df-lp .df-after__icon { grid-row: span 2; display: grid; width: 44px; height: 44px; place-items: center; border-radius: 50%; background: var(--et-mint); color: var(--et-green-deep); }
-	.df-lp .df-after__icon svg { width: 22px; height: 22px; }
-	.df-lp .df-after__number { font-family: var(--df-serif); color: var(--et-green); font-size: 14px; }
-	.df-lp .df-after__flow p { color: var(--et-ink); font-size: 15px; }
-
-	.df-lp .df-guarantee { position: relative; margin-top: 48px; padding: 36px 0 40px; background: var(--et-mint); }
-	.df-lp .df-guarantee__inner { position: relative; }
-	.df-lp .df-guarantee__seal { position: absolute; top: -62px; left: 0; display: grid; width: 52px; height: 52px; place-items: center; border-radius: 50%; background: var(--et-green-deep); color: var(--et-lime); outline: 1px solid var(--et-green); outline-offset: 3px; }
-	.df-lp .df-guarantee__seal svg { width: 26px; height: 26px; }
-	.df-lp .df-guarantee .df-overline { color: var(--et-green-mid); }
-	.df-lp .df-guarantee__text { max-width: 620px; color: var(--et-green-deep); font-family: var(--df-serif); font-size: 22px; line-height: 1.3; }
-
-	/* ---------- Incluye ---------- */
-	.df-lp .df-includes__grid { display: grid; gap: 20px; }
-	.df-lp .df-includes__media { overflow: hidden; border: var(--df-line); border-radius: var(--df-radius); background: var(--et-bg-alt); }
-	.df-lp .df-includes__content { display: grid; gap: 18px; align-content: start; }
-	.df-lp .df-includes__content .df-overline { margin-bottom: 0; }
-	.df-lp .df-checks { border-top: var(--df-line); }
-	.df-lp .df-checks li { position: relative; padding: 12px 0 12px 30px; border-bottom: var(--df-line); color: var(--et-muted); font-size: 15px; }
-	.df-lp .df-checks li::before { content: ''; position: absolute; left: 2px; top: 17px; width: 12px; height: 7px; border-left: 1.5px solid var(--et-green); border-bottom: 1.5px solid var(--et-green); transform: rotate(-45deg); }
-	.df-lp .df-checks strong { font-weight: 400; color: var(--et-green-deep); }
-	.df-lp .df-details { display: grid; gap: 10px; }
-	.df-lp .df-details div { display: grid; gap: 2px; padding: 10px 12px; border-left: 3px solid var(--et-green); background: var(--et-bg); }
-	.df-lp .df-details dt { color: var(--et-muted); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
-	.df-lp .df-details dd { color: var(--et-ink); font-size: 14px; }
-
-	/* ---------- Experiencias: notas con pin ---------- */
-	.df-lp .df-quotes-host { position: relative; margin-top: 4px; }
-	.df-lp .df-quotes { display: flex; gap: 12px; overflow-x: auto; padding: 10px 0 12px; scroll-snap-type: x mandatory; scrollbar-width: none; }
-	.df-lp .df-quotes::-webkit-scrollbar { display: none; }
-	.df-lp .df-quote { position: relative; flex: 0 0 80%; display: grid; grid-template-columns: 56px 1fr; grid-template-areas: 'photo caption' 'quote quote'; gap: 10px 12px; align-items: center; padding: 22px 18px 18px; border: var(--df-line); border-radius: 4px; background: var(--et-bg); scroll-snap-align: start; }
-	/* El pin: un punto lima con sombra en el borde superior */
-	.df-lp .df-quote::before { content: ''; position: absolute; top: -6px; left: 50%; width: 12px; height: 12px; border-radius: 50%; background: var(--et-lime); box-shadow: 0 1px 2px rgba(15, 46, 32, 0.35), 0 0 0 2px var(--et-bg); transform: translateX(-50%); }
-	.df-lp .df-quote.df-quote--night::before { background: var(--df-night); }
-	.df-lp .df-quote.df-quote--late::before { background: var(--df-late); }
-	.df-lp .df-quote img { grid-area: photo; width: 56px; height: 56px; object-fit: cover; object-position: center 20%; border: 2px solid var(--et-surface); border-radius: 50%; box-shadow: 0 0 0 1px var(--et-border); }
-	.df-lp .df-quote figcaption { grid-area: caption; display: grid; color: var(--et-green-deep); font-size: 14px; line-height: 1.3; }
-	.df-lp .df-quote figcaption strong { font-weight: 400; }
-	.df-lp .df-quote figcaption span { color: var(--et-muted); }
-	.df-lp .df-quote figcaption em { color: var(--et-muted); font-size: 11px; font-style: normal; letter-spacing: 1px; text-transform: uppercase; }
-	.df-lp .df-quote blockquote { grid-area: quote; font-family: var(--df-serif); color: var(--et-green-deep); font-size: 18px; line-height: 1.3; }
-	.df-lp .df-quote blockquote::before { content: '\201C'; }
-	.df-lp .df-quote blockquote::after { content: '\201D'; }
-	.df-lp .df-dots { display: flex; justify-content: center; gap: 8px; margin-top: 4px; }
-	.df-lp .df-dot { width: 9px; height: 9px; padding: 0; border-radius: 50%; background: var(--et-border); cursor: pointer; transition: transform 0.2s ease; }
-	.df-lp .df-dot[aria-current='true'] { background: var(--et-green-deep); transform: scale(1.35); }
-
-	/* ---------- FAQ ---------- */
-	.df-lp .df-faq { margin-top: 8px; }
-	.df-lp .df-faq details { border-bottom: var(--df-line); }
-	.df-lp .df-faq summary { position: relative; padding: 18px 40px 18px 0; color: var(--et-green-deep); font-size: 17px; cursor: pointer; list-style: none; }
-	.df-lp .df-faq summary::-webkit-details-marker { display: none; }
-	.df-lp .df-faq summary::after { content: '+'; position: absolute; right: 4px; top: 50%; color: var(--et-green); font-size: 28px; line-height: 1; transform: translateY(-50%); transition: transform 0.2s ease; }
-	.df-lp .df-faq details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
-	.df-lp .df-faq details p { padding: 0 40px 18px 0; color: var(--et-muted); }
-
-	/* ---------- Cierre: amanece ---------- */
-	.df-lp .df-close { background: linear-gradient(180deg, var(--et-green-deep) 0%, var(--et-green-deep) 55%, var(--et-green-mid) 100%); color: var(--et-bg); }
-	.df-lp .df-close__grid { display: grid; gap: 36px; align-items: center; }
-	.df-lp .df-close .df-overline { color: var(--et-lime); }
-	.df-lp .df-close .df-h2 { color: var(--et-bg); }
-	.df-lp .df-close__content { display: grid; gap: 18px; }
-	.df-lp .df-close__lead { color: rgba(255, 252, 245, 0.82); font-size: 17px; }
-	.df-lp .df-close__prices { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid rgba(255, 252, 245, 0.22); border-bottom: 1px solid rgba(255, 252, 245, 0.22); }
-	.df-lp .df-close__prices > div { padding: 14px 8px 14px 0; }
-	.df-lp .df-close__prices > div + div { padding-left: 14px; border-left: 1px solid rgba(255, 252, 245, 0.22); }
-	.df-lp .df-close__prices dt { color: rgba(255, 252, 245, 0.7); font-size: 11px; letter-spacing: 0.8px; text-transform: uppercase; }
-	.df-lp .df-close__prices dd { margin-top: 5px; font-family: var(--df-serif); color: var(--et-surface); font-size: 26px; line-height: 1; }
-	.df-lp .df-close__prices dd span { font-family: var(--df-sans); font-size: 11px; }
-	.df-lp .df-close__prices dd small { display: block; margin-top: 4px; font-family: var(--df-sans); color: var(--et-lime); font-size: 12px; }
-	.df-lp .df-close__note { color: rgba(255, 252, 245, 0.8); font-size: 13px; text-align: center; }
-	.df-lp .df-close__note a { color: var(--et-surface); text-underline-offset: 3px; }
-	/* La ventana de tres hojas: tres fotos en un mismo marco claro */
-	.df-lp .df-panes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; max-width: 460px; margin: 0 auto; padding: 3px; overflow: hidden; border-radius: var(--df-radius); background: var(--et-bg); }
-	.df-lp .df-panes img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 20%; border-radius: 6px; }
-
-	.df-lp .df-social { padding-top: 40px; }
-	.df-lp .df-social__shot { overflow: hidden; aspect-ratio: 1100 / 356; border: var(--df-line); border-radius: var(--df-radius); background: #0c1114; }
-	.df-lp .df-social__shot img { width: 100%; height: 100%; object-fit: cover; }
-
-	.df-lp .df-footer { padding: 46px 0 110px; background: var(--et-ink); color: rgba(255, 252, 245, 0.76); font-size: 13px; text-align: center; }
-	.df-lp .df-footer .df-shell { display: grid; justify-items: center; gap: 12px; max-width: 720px; }
-	.df-lp .df-footer__logo { width: 150px; height: auto; margin-bottom: 8px; }
-	.df-lp .df-footer a { color: var(--et-surface); }
-	.df-lp .df-footer__legal { padding-top: 12px; border-top: 1px solid rgba(255, 252, 245, 0.14); }
-
-	/* ---------- Sticky (solo móvil) ---------- */
-	.df-lp .df-sticky { position: fixed; right: 0; bottom: 0; left: 0; z-index: 30; padding: 9px 12px calc(9px + env(safe-area-inset-bottom)); border-top: var(--df-line); background: rgba(255, 252, 245, 0.96); opacity: 0; pointer-events: none; transform: translateY(110%); transition: transform 0.25s ease, opacity 0.25s ease; }
-	.df-lp .df-sticky.is-visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
-	.df-lp .df-sticky__inner { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: center; max-width: 520px; margin: auto; }
-	.df-lp .df-sticky__price { line-height: 1.1; }
-	.df-lp .df-sticky__price strong { display: block; font-family: var(--df-serif); color: var(--et-green-deep); font-size: 20px; font-weight: 400; }
-	.df-lp .df-sticky__price span { display: block; margin-top: 3px; color: var(--et-muted); font-size: 11px; }
-
-	/* ---------- Aparición al entrar en pantalla ---------- */
-	.df-lp [data-df-reveal].is-armed > * { opacity: 0; transform: translateY(16px); transition: transform 0.45s ease, opacity 0.45s ease; }
-	.df-lp [data-df-reveal].is-armed.is-inview > * { opacity: 1; transform: translateY(0); }
-	.df-lp [data-df-reveal].is-armed.is-inview > *:nth-child(2) { transition-delay: 0.08s; }
-	.df-lp [data-df-reveal].is-armed.is-inview > *:nth-child(3) { transition-delay: 0.16s; }
-
-	/* ---------- Andamiaje de Releasit y GemPages (fuera del scope, excepción documentada) ----------
-	   La app necesita estos nodos renderizados; se sacan del flujo, nunca display:none.
-	   docs/releasit-form-styling.md §4.4. El flotante naranja se apaga aquí y no en Releasit →
-	   Settings, que es global a la tienda. */
-	gp-product {
-		position: absolute !important;
-		width: 1px !important;
-		height: 1px !important;
-		overflow: hidden !important;
-		clip-path: inset(50%) !important;
-		pointer-events: none !important;
+	.df-lp .df-prices {
+		display: grid;
+		gap: 12px;
+		margin-top: 24px;
 	}
+
+	.df-lp .df-price {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 6px;
+		padding: 18px 20px 20px;
+		border-radius: var(--df-radius);
+	}
+
+	.df-lp .df-price--prepaid {
+		background: var(--et-green-deep);
+		color: var(--et-on-deep);
+		box-shadow: var(--df-shadow);
+	}
+
+	.df-lp .df-price--cod {
+		border: 1.5px solid var(--et-border);
+		background: var(--et-surface);
+	}
+
+	.df-lp .df-price__label {
+		font-size: 13px;
+		letter-spacing: 1.4px;
+		text-transform: uppercase;
+		color: var(--et-muted);
+	}
+
+	.df-lp .df-price.df-price--prepaid .df-price__label { color: var(--et-lime); }
+
+	.df-lp .df-price__amount {
+		font-family: var(--df-display);
+		font-weight: 600;
+		font-size: 40px;
+		line-height: 1;
+		letter-spacing: -1px;
+		color: var(--et-green-deep);
+		font-variant-numeric: tabular-nums;
+	}
+
+	.df-lp .df-price.df-price--prepaid .df-price__amount { color: var(--et-surface); }
+
+	.df-lp .df-price__cur {
+		font-family: var(--df-sans);
+		font-size: 15px;
+		letter-spacing: 0.5px;
+	}
+
+	.df-lp .df-price__save {
+		margin-top: 4px;
+		padding: 5px 12px;
+		border-radius: 999px;
+		background: var(--et-lime);
+		font-size: 15px;
+		color: var(--et-green-deep);
+	}
+
+	.df-lp .df-price__note { font-size: 15px; color: var(--et-muted); }
+
+	.df-lp .df-offer .df-cta { margin-top: 20px; }
+
+	/* ---------- Garantía ---------- */
+
+	.df-lp .df-guarantee { padding-block: 72px 60px; }
+
+	.df-lp .df-guarantee__card {
+		position: relative;
+		padding: 40px 18px 20px;
+		border: 1.5px solid var(--et-border);
+		border-radius: 26px;
+		background: var(--et-surface);
+	}
+
+	.df-lp .df-seal {
+		position: absolute;
+		top: 0;
+		left: 18px;
+		display: grid;
+		place-items: center;
+		width: 60px;
+		height: 60px;
+		border: 5px solid var(--et-paper);
+		border-radius: 50%;
+		background: var(--et-lime);
+		color: var(--et-green-deep);
+		transform: translateY(-50%);
+	}
+
+	.df-lp .df-seal .df-icon { width: 28px; height: 28px; }
+
+	.df-lp .df-promise { margin-top: 16px; }
+
+	.df-lp .df-promise__row {
+		display: grid;
+		grid-template-columns: 26px minmax(0, 1fr) 24px;
+		column-gap: 12px;
+		align-items: center;
+		padding-block: 14px;
+		border-bottom: 1.5px dashed var(--et-border);
+	}
+
+	.df-lp .df-promise__num {
+		font-family: var(--df-display);
+		font-weight: 600;
+		font-size: 26px;
+		line-height: 1;
+		color: var(--et-green);
+	}
+
+	.df-lp .df-promise__text { font-size: 16px; line-height: 1.45; }
+	.df-lp .df-promise__icon { color: var(--et-green); }
+
+	.df-lp .df-whatsapp {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		column-gap: 10px;
+		margin-top: 18px;
+		padding: 12px 18px 12px 14px;
+		border-radius: 18px;
+		background: var(--et-sky-soft);
+		text-decoration: none;
+		color: var(--et-green-deep);
+	}
+
+	.df-lp .df-whatsapp:focus-visible { outline: 3px solid var(--et-green-deep); outline-offset: 3px; }
+	.df-lp .df-whatsapp__label { font-size: 14px; color: var(--et-muted); }
+
+	.df-lp .df-whatsapp__number {
+		font-family: var(--df-display);
+		font-weight: 600;
+		font-size: 20px;
+		white-space: nowrap;
+	}
+
+	/* ---------- Preguntas ---------- */
+
+	.df-lp .df-faq { padding-block: 52px 60px; }
+
+	.df-lp .df-faq__list {
+		display: grid;
+		gap: 10px;
+		margin-top: 22px;
+	}
+
+	.df-lp .df-faq__item {
+		border-radius: 18px;
+		background: var(--et-surface);
+	}
+
+	.df-lp .df-faq__q {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 14px;
+		min-height: 58px;
+		padding: 14px 16px 14px 18px;
+		list-style: none;
+		font-size: 17px;
+		line-height: 1.35;
+		color: var(--et-green-deep);
+		cursor: pointer;
+	}
+
+	.df-lp .df-faq__q::-webkit-details-marker { display: none; }
+	.df-lp .df-faq__q:focus-visible { outline: 3px solid var(--et-green-deep); outline-offset: 2px; border-radius: 18px; }
+
+	.df-lp .df-faq__icon {
+		position: relative;
+		flex: none;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		background: var(--et-lime);
+		transition: transform 0.3s var(--df-ease-out);
+	}
+
+	.df-lp .df-faq__icon::before,
+	.df-lp .df-faq__icon::after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 12px;
+		height: 2px;
+		margin: -1px 0 0 -6px;
+		border-radius: 2px;
+		background: var(--et-green-deep);
+	}
+
+	.df-lp .df-faq__icon::after { transform: rotate(90deg); }
+	.df-lp .df-faq__item[open] .df-faq__icon { transform: rotate(45deg); }
+
+	.df-lp .df-faq__a {
+		padding: 0 18px 18px;
+		font-size: 16px;
+		line-height: 1.55;
+	}
+
+	/* ---------- Cierre ---------- */
+
+	.df-lp .df-close {
+		padding-block: 60px 64px;
+		background: linear-gradient(180deg, var(--et-sky-soft), var(--et-paper));
+	}
+
+	.df-lp .df-close__day {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 8px;
+		margin-top: 20px;
+	}
+
+	.df-lp .df-close__step {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		padding: 7px 18px 7px 7px;
+		border-radius: 999px;
+		background: var(--df-tint);
+		font-size: 17px;
+		line-height: 1.3;
+		color: var(--et-green-deep);
+	}
+
+	.df-lp .df-close__step .df-icon {
+		width: 36px;
+		height: 36px;
+		padding: 7px;
+		border-radius: 50%;
+		background: var(--et-surface);
+	}
+
+	.df-lp .df-close__buy {
+		margin-top: 26px;
+		padding: 20px 18px;
+		border-radius: 26px;
+		background: var(--et-surface);
+		box-shadow: var(--df-shadow);
+	}
+
+	.df-lp .df-close__kit {
+		font-family: var(--df-display);
+		font-weight: 600;
+		font-size: 25px;
+		line-height: 1.1;
+		letter-spacing: -0.4px;
+		color: var(--et-green-deep);
+	}
+
+	.df-lp .df-close__trio {
+		margin-top: 4px;
+		font-size: 15px;
+		color: var(--et-muted);
+	}
+
+	.df-lp .df-close__prices {
+		display: grid;
+		gap: 6px;
+		margin-top: 14px;
+	}
+
+	.df-lp .df-close__price {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 12px;
+		padding: 10px 14px;
+		border-radius: 14px;
+		background: var(--et-paper);
+		font-size: 15px;
+		color: var(--et-muted);
+	}
+
+	.df-lp .df-close__price dd {
+		font-family: var(--df-display);
+		font-weight: 600;
+		font-size: 21px;
+		white-space: nowrap;
+		color: var(--et-green-deep);
+		font-variant-numeric: tabular-nums;
+	}
+
+	.df-lp .df-close__price.df-close__price--prepaid {
+		background: var(--et-green-deep);
+		color: var(--et-lime);
+	}
+
+	.df-lp .df-close__price.df-close__price--prepaid dd { color: var(--et-surface); }
+
+	.df-lp .df-close__save {
+		margin-top: 10px;
+		font-size: 15px;
+		color: var(--et-green);
+	}
+
+	.df-lp .df-close__buy .df-cta { margin-top: 16px; }
+
+	.df-lp .df-close__note {
+		margin-top: 12px;
+		font-size: 14px;
+		text-align: center;
+		color: var(--et-muted);
+	}
+
+	/* ---------- Pie: la marca en grande ---------- */
+
+	.df-lp .df-footer {
+		overflow: hidden;
+		padding: 44px 0 96px;
+		background: var(--et-green-deep);
+		color: var(--et-on-deep);
+		font-size: 14px;
+		line-height: 1.55;
+	}
+
+	.df-lp .df-footer__grid {
+		display: grid;
+		gap: 22px;
+	}
+
+	.df-lp .df-footer__block { display: grid; gap: 8px; }
+
+	.df-lp .df-footer__label {
+		font-size: 12px;
+		letter-spacing: 1.6px;
+		text-transform: uppercase;
+		color: var(--et-lime);
+	}
+
+	.df-lp .df-footer strong { color: var(--et-surface); }
+	.df-lp .df-footer a { text-decoration-color: var(--et-lime); text-underline-offset: 3px; }
+	.df-lp .df-footer__legal { color: #b9c9bc; }
+
+	.df-lp .df-footer__mark {
+		display: block;
+		width: calc(100% - 36px);
+		max-width: 1080px;
+		height: auto;
+		margin: 44px auto 0;
+		color: var(--et-paper);
+		fill: var(--et-lime);
+	}
+
+	/* ---------- Sticky (móvil) ---------- */
+
+	/* ---------- Medios de pago y aval de marca ---------- */
+
+	/* Visa, Mastercard y PSE, los medios del pago anticipado. Ficheros
+	   compartidos por toda la marca (`landings-shared-pay-*`): no se suben por
+	   landing. Van donde se ofrece el anticipado —la oferta, el cierre y el
+	   pie—, nunca en el hero: eso lo decidió el cliente en Clorofull. Sobre
+	   verde profundo se meten en una píldora blanca, porque el negro de
+	   Mastercard y el azul de PSE no se leen ahí. */
+
+	.df-lp .df-pay {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		vertical-align: middle;
+	}
+
+	.df-lp .df-pay img {
+		width: auto;
+		height: 16px;
+	}
+
+	.df-lp .df-pay.df-pay--on-dark {
+		padding: 4px 9px;
+		border-radius: 999px;
+		background: var(--et-surface);
+	}
+
+	.df-lp .df-pay.df-pay--sm { gap: 6px; }
+	.df-lp .df-pay.df-pay--sm img { height: 12px; }
+
+	.df-lp .df-price .df-pay { margin-top: 4px; }
+	.df-lp .df-close__pay { margin-top: 12px; }
+
+	.df-lp .df-footer__pay {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 10px;
+		margin-top: 24px;
+	}
+
+	/* La cuenta de Instagram, enmarcada. La captura tiene fondo casi negro: sin
+	   marco se leería como un rectángulo suelto sobre el hueso. */
+
+	.df-lp .df-social { padding-block: 44px; }
+
+	.df-lp .df-social__card {
+		margin-top: 18px;
+		padding: 10px;
+		border-radius: var(--df-radius);
+		background: var(--df-tint);
+		box-shadow: var(--df-shadow);
+	}
+
+	.df-lp .df-social__shot {
+		display: block;
+		width: 100%;
+		height: auto;
+		aspect-ratio: 1100 / 371;
+		border-radius: var(--df-radius-sm);
+	}
+
+	.df-lp .df-sticky {
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 60;
+		padding: 10px 14px calc(12px + env(safe-area-inset-bottom));
+		border-top: 1.5px solid var(--et-border);
+		background: rgba(255, 251, 242, 0.96);
+		transform: translateY(110%);
+		transition: transform 0.3s var(--df-ease-out);
+		-webkit-backdrop-filter: blur(6px);
+		backdrop-filter: blur(6px);
+	}
+
+	.df-lp .df-sticky.is-visible { transform: translateY(0); }
+
+	.df-lp .df-sticky__inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 12px;
+		max-width: 560px;
+		margin-inline: auto;
+	}
+
+	.df-lp .df-sticky__price {
+		display: flex;
+		flex-direction: column;
+		line-height: 1.15;
+	}
+
+	.df-lp .df-sticky__main {
+		font-family: var(--df-display);
+		font-weight: 600;
+		font-size: 22px;
+		color: var(--et-green-deep);
+	}
+
+	.df-lp .df-sticky__alt { font-size: 13px; color: var(--et-muted); }
+
+	/* ---------- Revelado ---------- */
+
+	.df-lp [data-df-reveal].is-armed > * {
+		opacity: 0;
+		transform: translateY(14px);
+		transition: opacity 0.5s var(--df-ease-out), transform 0.5s var(--df-ease-out);
+	}
+
+	.df-lp [data-df-reveal].is-armed.is-inview > * { opacity: 1; transform: none; }
+	.df-lp [data-df-reveal].is-armed > :nth-child(2) { transition-delay: 0.08s; }
+	.df-lp [data-df-reveal].is-armed > :nth-child(3) { transition-delay: 0.16s; }
+	.df-lp [data-df-reveal].is-armed > :nth-child(4) { transition-delay: 0.24s; }
+	.df-lp [data-df-reveal].is-armed > :nth-child(5) { transition-delay: 0.32s; }
+
+	/* Los pensamientos mantienen su luz al entrar */
+	.df-lp .df-thoughts[data-df-reveal].is-armed.is-inview > :nth-child(2) { opacity: 0.86; }
+	.df-lp .df-thoughts[data-df-reveal].is-armed.is-inview > :nth-child(3) { opacity: 0.72; }
+	.df-lp .df-thoughts[data-df-reveal].is-armed.is-inview > :nth-child(4) { opacity: 0.58; }
+
+	/* ---------- Product Element de GemPages y botón flotante de Releasit ----------
+	   Fuera del flujo, nunca display:none: la app necesita los nodos.
+	   docs/releasit-form-styling.md §4.4 */
+	gp-product,
 	#_rsi-buy-now-button-floating {
 		position: absolute !important;
 		width: 1px !important;
@@ -938,95 +2468,154 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 		pointer-events: none !important;
 	}
 
-	/* Móviles estrechos (360×740): el CTA del hero debe seguir en la primera pantalla */
-	@media (max-width: 375px) {
-		.df-lp .df-topbar__strip { padding: 6px 0; }
-		.df-lp .df-topbar__inner { min-height: 44px; }
-		.df-lp .df-hero { padding-top: 8px; }
-		.df-lp .df-hero__layout { gap: 8px; }
-		.df-lp .df-hero__head { gap: 6px; }
-		.df-lp .df-hero__body { gap: 7px; }
-		.df-lp .df-h1 { font-size: 28px; }
-		.df-lp .df-hero__lead { font-size: 12px; }
-		.df-lp .df-pricing dd { font-size: 21px; }
-		.df-lp .df-window { aspect-ratio: 16 / 10; }
-		.df-lp .df-window__slide { padding-top: 2%; }
-		.df-lp .df-window__caption { margin: 4px 0 5px; font-size: 9px; }
-		.df-lp .df-chip { padding: 5px 3px 6px; }
-		.df-lp .df-chip__icon { width: 24px; height: 24px; margin-bottom: 2px; }
-		.df-lp .df-chip__icon svg { width: 15px; height: 15px; }
-		.df-lp .df-chip__when { font-size: 9px; letter-spacing: 0.3px; }
-		.df-lp .df-chip__why { font-size: 10px; line-height: 1.25; }
-		.df-lp .df-chip__what { font-size: 12.5px; }
-		.df-lp .df-pricing__cell { padding: 7px 10px 8px; }
+	/* ---------- Pantallas estrechas ---------- */
+
+	@media (max-width: 380px) {
+		.df-lp .df-h1 { font-size: 36px; }
+		.df-lp .df-h1__line--soft { font-size: 24px; }
+		.df-lp .df-cta { font-size: 16px; padding-inline: 18px 16px; }
+		.df-lp .df-mini { font-size: 12px; }
+		.df-lp .df-night { width: 252px; }
+		.df-lp .df-sticky__alt { font-size: 12px; }
 	}
 
-	@media (min-width: 760px) {
-		.df-lp { --df-pad: 68px; }
-		.df-lp .df-h1 { font-size: 46px; }
-		.df-lp .df-h2 { font-size: 38px; }
-		.df-lp .df-chip { gap: 3px; padding: 12px 10px 12px; }
-		.df-lp .df-chip__icon { width: 44px; height: 44px; }
-		.df-lp .df-chip__icon svg { width: 24px; height: 24px; }
-		.df-lp .df-chip__when { font-size: 10px; letter-spacing: 1px; }
-		.df-lp .df-chip__what { font-size: 18px; }
-		.df-lp .df-chip__why { font-size: 12px; }
-		.df-lp .df-hero .df-overline { font-size: 12px; letter-spacing: 2px; }
-		.df-lp .df-facts li { font-size: 13px; }
-		.df-lp .df-mosaic { grid-template-columns: repeat(4, 1fr); gap: 14px; padding-bottom: 20px; }
-		.df-lp .df-mosaic__item:nth-child(even) { transform: translateY(20px); }
-		.df-lp .df-notes { grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 30px; }
-		.df-lp .df-note, .df-lp .df-note:nth-child(even), .df-lp .df-note:nth-child(odd) { grid-template-columns: 1fr; gap: 16px; margin: 0; padding: 18px; }
-		.df-lp .df-note__photo { max-width: 200px; }
-		.df-lp .df-note__index { font-size: 34px; }
-		.df-lp .df-formula__grid, .df-lp .df-includes__grid { grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-		.df-lp .df-label { padding: 12px 18px 6px; }
-		.df-lp .df-routine__list { display: grid; grid-template-columns: repeat(3, 1fr); }
-		.df-lp .df-routine__row { grid-template-columns: 64px 1fr; border-bottom: 0; padding: 18px 16px; }
-		.df-lp .df-routine__row + .df-routine__row { border-left: var(--df-line); }
-		.df-lp .df-ways { grid-template-columns: auto 1fr; align-items: center; gap: 18px; border-top: var(--df-line); }
-		.df-lp .df-plans { grid-template-columns: 1.1fr 0.9fr; align-items: stretch; }
-		.df-lp .df-after__flow { grid-template-columns: repeat(3, 1fr); }
-		.df-lp .df-after__flow li { grid-template-columns: 1fr; align-content: start; padding: 18px; }
-		.df-lp .df-after__icon { grid-row: auto; margin-bottom: 8px; }
-		.df-lp .df-quote { flex-basis: 46%; }
-		.df-lp .df-details { grid-template-columns: 1fr 1fr; }
-		.df-lp .df-details div:last-child { grid-column: 1 / -1; }
-		.df-lp .df-close__grid { grid-template-columns: 1fr 0.9fr; gap: 60px; }
-		.df-lp .df-panes { max-width: 520px; }
+	/* ---------- Tablet ---------- */
+
+	@media (min-width: 640px) {
+		.df-lp .df-shell { padding-inline: 28px; }
+		.df-lp .df-switch { padding: 4px 14px 4px 4px; }
+		.df-lp .df-switch .df-switch__label { display: block; }
+		.df-lp .df-nights__rail { padding-inline: 28px; }
+		.df-lp .df-polaroid { width: 184px; margin-right: 22px; }
+		.df-lp .df-night { width: 320px; }
+		.df-lp .df-risk__list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+		.df-lp .df-takes { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+		.df-lp .df-prices { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+		.df-lp .df-facts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+		.df-lp .df-footer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
 	}
 
-	@media (min-width: 1000px) {
-		.df-lp .df-topbar__strip { padding: 9px 0; }
-		.df-lp .df-topbar__inner { justify-content: flex-start; min-height: 64px; }
-		.df-lp .df-topbar__logo { height: 26px; }
-		.df-lp .df-hero { padding: 40px 0 48px; }
-		.df-lp .df-hero__layout { grid-template-columns: minmax(0, 1fr) minmax(0, 520px); grid-template-areas: 'head media' 'body media'; column-gap: 56px; row-gap: 22px; align-items: start; }
-		.df-lp .df-hero__head { grid-area: head; }
-		.df-lp .df-hero .df-h1 { font-size: 46px; }
-		.df-lp .df-hero__lead { font-size: 17px; line-height: 1.5; }
-		.df-lp .df-hero__media { grid-area: media; align-self: center; }
-		.df-lp .df-window { aspect-ratio: 1; }
-		.df-lp .df-window__slide { padding-top: 6%; }
-		.df-lp .df-window__slide--kit { padding-top: 3%; }
-		.df-lp .df-window__slide--kit img { max-width: 82%; }
-		.df-lp .df-window__caption { margin: 8px 0 12px; font-size: 11px; }
-		.df-lp .df-carousel__arrow--prev { left: 4px; }
-		.df-lp .df-carousel__arrow--next { right: 4px; }
-		.df-lp .df-hero__body { grid-area: body; gap: 14px; }
-		.df-lp .df-hero__body .df-facts { order: 0; }
-		.df-lp .df-hero .df-cta { max-width: 460px; }
-		.df-lp .df-quote { flex-basis: 32%; }
+	/* ---------- Escritorio ---------- */
+
+	@media (min-width: 900px) {
+		.df-lp .df-section { padding-block: 88px; }
+		.df-lp .df-h1 { font-size: 68px; letter-spacing: -2.2px; }
+		.df-lp .df-h1__line--soft { margin-top: 12px; font-size: 38px; letter-spacing: -0.8px; }
+		.df-lp .df-h2 { font-size: 48px; letter-spacing: -1.4px; }
+
+		.df-lp .df-hero { padding-block: 36px 72px; }
+
+		.df-lp .df-hero__layout {
+			grid-template-columns: minmax(0, 1fr) 470px;
+			grid-template-areas:
+				'head media'
+				'buy media';
+			grid-template-rows: auto 1fr;
+			column-gap: 64px;
+			row-gap: 26px;
+		}
+
+		.df-lp .df-brand__logo { width: 120px; height: 36px; }
+		.df-lp .df-lead { order: 0; margin-top: 0; font-size: 18px; }
+		.df-lp .df-hero__buy .df-cta { margin-top: 22px; }
+		.df-lp .df-stage__photo { aspect-ratio: 1 / 1; }
+		.df-lp .df-stage__title { font-size: 19px; }
+		.df-lp .df-people { padding-bottom: 64px; }
+		.df-lp .df-polaroid { width: 210px; margin-right: 28px; }
+
+		.df-lp .df-thought { font-size: 19px; }
+		.df-lp .df-thought:nth-child(2) { margin-left: 36px; }
+		.df-lp .df-thought:nth-child(3) { margin-left: 72px; }
+		.df-lp .df-thought:nth-child(4) { margin-left: 108px; }
+		.df-lp .df-awake__close { font-size: 28px; }
+
+		.df-lp .df-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 40px; }
+		.df-lp .df-step { height: 100%; padding: 20px; }
+		.df-lp .df-item { grid-template-columns: minmax(0, 1fr); row-gap: 14px; }
+		.df-lp .df-item__photo { aspect-ratio: 5 / 4; }
+
+		.df-lp .df-night { width: 340px; padding: 24px 22px 26px; }
+		.df-lp .df-night__title { font-size: 23px; }
+
+		.df-lp .df-risk { padding-block: 96px; }
+		.df-lp .df-risk__item { height: 100%; padding: 22px 20px 24px; }
+
+		.df-lp .df-warning { padding: 28px 26px 30px; }
+		.df-lp .df-warning__title { font-size: 34px; }
+		.df-lp .df-effects__title { margin-top: 64px; }
+		.df-lp .df-effect { font-size: 22px; }
+
+		.df-lp .df-take {
+			grid-template-columns: minmax(0, 1fr);
+			grid-template-areas:
+				'mark'
+				'name'
+				'dose'
+				'how';
+			justify-items: start;
+			row-gap: 10px;
+			height: 100%;
+			padding: 20px;
+		}
+
+		.df-lp .df-science__layout {
+			grid-template-columns: 420px minmax(0, 1fr);
+			grid-template-areas:
+				'art title'
+				'art papers'
+				'art sources';
+			grid-template-rows: auto auto 1fr;
+			column-gap: 60px;
+			align-items: start;
+		}
+
+		.df-lp .df-science__title { grid-area: title; }
+		.df-lp .df-science__art { grid-area: art; max-width: none; }
+		.df-lp .df-papers { grid-area: papers; margin-top: 6px; }
+		.df-lp .df-science__sources { grid-area: sources; margin-top: 14px; }
+
+		.df-lp .df-signal { font-size: 22px; }
+
+		.df-lp .df-box__layout {
+			grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+			grid-template-areas:
+				'photo title'
+				'photo pack';
+			grid-template-rows: auto 1fr;
+			column-gap: 56px;
+			align-items: start;
+		}
+
+		.df-lp .df-box__title { grid-area: title; }
+		.df-lp .df-box__photo { grid-area: photo; }
+		.df-lp .df-pack { grid-area: pack; align-content: start; }
+
+		.df-lp .df-guarantee__card { padding: 48px 36px 30px; }
+		.df-lp .df-close__day { flex-direction: row; flex-wrap: wrap; }
+		.df-lp .df-close__buy { padding: 28px 32px; }
+		.df-lp .df-footer { padding-bottom: 40px; }
 		.df-lp .df-sticky { display: none; }
-		.df-lp .df-footer { padding-bottom: 52px; }
 	}
+
+	/* ---------- Movimiento reducido ---------- */
 
 	@media (prefers-reduced-motion: reduce) {
-		.df-lp .df-topbar__track { animation: none; }
-		.df-lp .df-topbar__set[aria-hidden] { display: none; }
-		.df-lp .df-cta, .df-lp .df-cta__label::before, .df-lp .df-window::before, .df-lp .df-window::after, .df-lp .df-chip, .df-lp .df-icon-button, .df-lp .df-note, .df-lp .df-carousel__arrow, .df-lp .df-dot, .df-lp .df-faq summary::after, .df-lp .df-sticky, .df-lp [data-df-reveal].is-armed > * { animation: none; transition: none; }
-		.df-lp .df-cta::before, .df-lp .df-cta::after { animation: none; opacity: 0.6; transform: scale(1); }
-		.df-lp [data-df-reveal].is-armed > * { opacity: 1; transform: none; }
+		.df-lp .df-glow__halo,
+		.df-lp .df-cta__moon i,
+		.df-lp .df-ribbon__track { animation: none; }
+
+		.df-lp .df-cta__moon i { transform: scale(0.9); opacity: 1; }
+
+		.df-lp .df-hero,
+		.df-lp .df-switch__knob,
+		.df-lp .df-sticky { transition: none; }
+
+		/* La tira de personas deja de correr y se desliza con el dedo */
+		.df-lp .df-people { overflow-x: auto; }
+		.df-lp .df-people__track { animation: none; }
+		.df-lp .df-people__set[aria-hidden='true'] { display: none; }
+
+		.df-lp [data-df-reveal].is-armed > * { opacity: 1; transform: none; transition: none; }
 	}
 </style>
 
@@ -1036,199 +2625,112 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 
 		var ROOT_SELECTOR = '.df-lp'
 		var READY_FLAG = 'dfLandingReady'
-		var ASSET_BASE = '../assets/'
-		// Fotos ya publicadas por Día Liviano y Piel Viva: el valor lleva "<kit>/assets/<fichero>" (ver ../AGENTS.md §5)
-		var SHARED_ASSET_BASE = '../../'
-		// Solo trazabilidad: el producto lo da la página /products/kit-duerme-y-florece (ver ../AGENTS.md §1)
+
+		// El kit sí existe en la tienda: handle real (kit-duerme-florece/AGENTS.md §1)
 		var PRODUCT_HANDLE = 'kit-duerme-y-florece'
-		var PREPAID_ENABLED = false
-		var PRICES = { prepaid: '$119.900', cod: '$129.900', saving: '$10.000' }
-		var CTA_LABELS = { neutral: 'Quiero el kit', prepaid: 'Pagar anticipado y ahorrar ' + PRICES.saving }
-		var SKIN_PAY_ATTRIBUTE = 'data-cf-pay' // atributo histórico que escucha eterma/shared/releasit-form.css
-		var SLIDE_ATTRIBUTE = 'data-df-slide'
 
-		function isLocalPreview() {
-			var host = window.location.hostname
-			return window.location.protocol === 'file:' || host === '127.0.0.1' || host === 'localhost'
+		// Releasit solo pinta las ofertas de cantidad si tiene el JSON del
+		// producto; en una landing de /pages/ sale «null» (releasit-form-styling §4.4)
+		var RELEASIT_PRODUCT_CACHE_ID = 'rsi-cod-form-product-cache'
+
+		// El sticky no espera a que el CTA del hero salga del todo: aparece en
+		// cuanto sube del 40% de la pantalla, o sea con medio scroll menos.
+		var STICKY_REVEAL_MARGIN = '-40% 0px 0px 0px'
+
+		var SWITCH_OFF_LABEL = 'Apagar el día'
+		var SWITCH_ON_LABEL = 'Volver a encender'
+
+		function forEach(list, callback) {
+			Array.prototype.forEach.call(list, callback)
 		}
 
-		function swapToLocal(image, base, attribute) {
-			image.removeAttribute('srcset')
-			image.removeAttribute('sizes')
-			image.src = base + image.getAttribute(attribute)
+		function hasObserver() {
+			return typeof window.IntersectionObserver === 'function'
 		}
 
-		function initLocalAssets(root) {
-			if (!isLocalPreview()) return
-			Array.prototype.forEach.call(root.querySelectorAll('img[data-df-file]'), function (image) {
-				swapToLocal(image, ASSET_BASE, 'data-df-file')
-			})
-			Array.prototype.forEach.call(root.querySelectorAll('img[data-df-shared]'), function (image) {
-				swapToLocal(image, SHARED_ASSET_BASE, 'data-df-shared')
-			})
-		}
+		// ---------- Animaciones que solo corren en pantalla ----------
 
-		function slideIndexOf(track) {
-			var maxScroll = track.scrollWidth - track.clientWidth
-			return maxScroll > 0 ? Math.round((track.scrollLeft / maxScroll) * (track.children.length - 1)) : 0
-		}
+		function initPlayback(root) {
+			var targets = root.querySelectorAll('[data-df-marquee], .df-glow, .df-cta')
+			if (!targets.length) return
 
-		function scrollToSlide(track, index, reduceMotion) {
-			var slide = track.children[index]
-			if (!slide) return
-			track.scrollTo({ left: slide.offsetLeft - track.children[0].offsetLeft, behavior: reduceMotion ? 'auto' : 'smooth' })
-		}
-
-		// La ventana: los chips saltan a la foto de su producto; la caja cambia de color con el slide visible
-		function initWindow(root) {
-			var box = root.querySelector('[data-df-window]')
-			var track = root.querySelector('[data-df-window-track]')
-			var chips = root.querySelectorAll('[data-df-phase]')
-			if (!box || !track || !chips.length) return
-			var reduceMotion = typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
-			var ticking = false
-
-			function syncWindow() {
-				var current = String(slideIndexOf(track))
-				box.setAttribute(SLIDE_ATTRIBUTE, current)
-				Array.prototype.forEach.call(chips, function (chip) {
-					chip.setAttribute('aria-pressed', chip.getAttribute(SLIDE_ATTRIBUTE) === current ? 'true' : 'false')
-				})
-			}
-
-			Array.prototype.forEach.call(chips, function (chip) {
-				chip.addEventListener('click', function () {
-					var wasPressed = chip.getAttribute('aria-pressed') === 'true'
-					scrollToSlide(track, wasPressed ? 0 : Number(chip.getAttribute(SLIDE_ATTRIBUTE)), reduceMotion)
-				})
-			})
-
-			track.addEventListener('scroll', function () {
-				if (ticking) return
-				ticking = true
-				window.requestAnimationFrame(function () {
-					ticking = false
-					syncWindow()
-				})
-			}, { passive: true })
-		}
-
-		function paintSticky(root, mode) {
-			var price = root.querySelector('[data-df-sticky-price]')
-			var sub = root.querySelector('[data-df-sticky-sub]')
-			var label = root.querySelector('[data-df-sticky-cta] .df-cta__label')
-			if (!price || !sub || !label) return
-
-			if (mode === 'prepaid') {
-				price.textContent = PRICES.prepaid
-				sub.textContent = 'anticipado · ahorras ' + PRICES.saving
-				label.textContent = CTA_LABELS.prepaid
+			if (!hasObserver()) {
+				forEach(targets, function (target) { target.classList.add('is-playing') })
 				return
 			}
-			price.textContent = PRICES.cod
-			sub.textContent = 'o ' + PRICES.prepaid + ' anticipado'
-			label.textContent = CTA_LABELS.neutral
-		}
 
-		function initPaymentChoice(root) {
-			var buttons = root.querySelectorAll('[data-df-pay-choice]')
-			paintSticky(root, 'cod')
-
-			Array.prototype.forEach.call(buttons, function (button) {
-				button.addEventListener('click', function () {
-					var choice = button.getAttribute('data-df-pay-choice')
-					if (choice !== 'prepaid' && choice !== 'cod') return
-					document.documentElement.setAttribute(SKIN_PAY_ATTRIBUTE, choice)
-					paintSticky(root, PREPAID_ENABLED ? choice : 'cod')
-				})
-			})
-		}
-
-		function initCarousels(root) {
-			var tracks = root.querySelectorAll('[data-df-carousel]')
-			var reduceMotion = typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
-			Array.prototype.forEach.call(tracks, function (track) {
-				var host = track.parentNode
-				var slides = track.children
-				var dots = host.querySelectorAll('[data-df-dot]')
-				var prev = host.querySelector('[data-df-prev]')
-				var next = host.querySelector('[data-df-next]')
-				var current = 0
-				var ticking = false
-
-				function paint(index) {
-					current = Math.max(0, Math.min(slides.length - 1, index))
-					Array.prototype.forEach.call(dots, function (dot, dotIndex) {
-						if (dotIndex === current) dot.setAttribute('aria-current', 'true')
-						else dot.removeAttribute('aria-current')
-					})
-					if (prev) prev.disabled = current === 0
-					if (next) next.disabled = current === slides.length - 1
-				}
-
-				track.addEventListener('scroll', function () {
-					if (ticking) return
-					ticking = true
-					window.requestAnimationFrame(function () {
-						ticking = false
-						paint(slideIndexOf(track))
-					})
-				}, { passive: true })
-
-				Array.prototype.forEach.call(dots, function (dot, index) {
-					dot.addEventListener('click', function () { scrollToSlide(track, index, reduceMotion) })
-				})
-				if (prev) prev.addEventListener('click', function () { scrollToSlide(track, current - 1, reduceMotion) })
-				if (next) next.addEventListener('click', function () { scrollToSlide(track, current + 1, reduceMotion) })
-				paint(0)
-			})
-		}
-
-		function initInteractiveIcons(root) {
-			var groups = root.querySelectorAll('[data-df-icon-group]')
-			Array.prototype.forEach.call(groups, function (group) {
-				var buttons = group.querySelectorAll('[data-df-icon-toggle]')
-				Array.prototype.forEach.call(buttons, function (button) {
-					button.addEventListener('click', function () {
-						Array.prototype.forEach.call(buttons, function (item) {
-							var pressed = item === button
-							item.setAttribute('aria-pressed', pressed ? 'true' : 'false')
-							var card = item.closest('li, article')
-							if (card) card.classList.toggle('is-active', pressed)
-						})
-					})
-				})
-			})
-		}
-
-		function initCtaAnimation(root) {
-			var buttons = root.querySelectorAll('.df-cta')
-			if (typeof window.IntersectionObserver !== 'function') {
-				Array.prototype.forEach.call(buttons, function (button) { button.classList.add('is-inview') })
-				return
-			}
 			var observer = new window.IntersectionObserver(function (entries) {
-				entries.forEach(function (entry) { entry.target.classList.toggle('is-inview', entry.isIntersecting) })
+				entries.forEach(function (entry) {
+					entry.target.classList.toggle('is-playing', entry.isIntersecting)
+				})
 			}, { rootMargin: '40px 0px' })
-			Array.prototype.forEach.call(buttons, function (button) { observer.observe(button) })
+
+			forEach(targets, function (target) { observer.observe(target) })
 		}
+
+		// La tira de personas se para mientras se toca
+		function initPeopleHold(root) {
+			var track = root.querySelector('.df-people__track')
+			if (!track) return
+
+			function hold() { track.classList.add('is-held') }
+			function release() { track.classList.remove('is-held') }
+
+			track.addEventListener('pointerdown', hold)
+			track.addEventListener('pointerup', release)
+			track.addEventListener('pointercancel', release)
+			track.addEventListener('pointerleave', release)
+		}
+
+		// ---------- El interruptor del hero ----------
+		// Hace lo que dice el titular: baja la luz de la sección. La foto no
+		// se toca. Sin JS el botón no aparece y el hero se queda encendido.
+
+		function initSwitch(root) {
+			var button = root.querySelector('[data-df-switch]')
+			var hero = root.querySelector('[data-df-hero]')
+			var label = root.querySelector('[data-df-switch-label]')
+			if (!button || !hero) return
+
+			function apply(isNight) {
+				var text = isNight ? SWITCH_ON_LABEL : SWITCH_OFF_LABEL
+				button.setAttribute('aria-pressed', isNight ? 'true' : 'false')
+				hero.classList.toggle('is-night', isNight)
+				// En el móvil el rótulo no se pinta: el nombre accesible lo lleva
+				// el propio botón.
+				button.setAttribute('aria-label', text)
+				if (label) label.textContent = text
+			}
+
+			button.addEventListener('click', function () {
+				apply(button.getAttribute('aria-pressed') !== 'true')
+			})
+
+			apply(false)
+			button.hidden = false
+		}
+
+		// ---------- Revelado ----------
 
 		function initReveal(root) {
 			var blocks = root.querySelectorAll('[data-df-reveal]')
-			if (!blocks.length || typeof window.IntersectionObserver !== 'function') return
+			if (!blocks.length || !hasObserver()) return
+
 			var observer = new window.IntersectionObserver(function (entries) {
 				entries.forEach(function (entry) {
 					if (!entry.isIntersecting) return
 					entry.target.classList.add('is-inview')
 					observer.unobserve(entry.target)
 				})
-			}, { threshold: 0.15 })
-			Array.prototype.forEach.call(blocks, function (block) {
+			}, { threshold: 0.2 })
+
+			forEach(blocks, function (block) {
 				block.classList.add('is-armed')
 				observer.observe(block)
 			})
 		}
+
+		// ---------- Sticky ----------
 
 		function initSticky(root) {
 			var sticky = root.querySelector('[data-df-sticky]')
@@ -1236,46 +2738,93 @@ a:empty,article:empty,div:empty,dl:empty,h1:empty,h2:empty,h3:empty,h4:empty,h5:
 			if (!sticky || !heroCta) return
 
 			sticky.hidden = false
-			if (typeof window.IntersectionObserver !== 'function') {
+
+			if (!hasObserver()) {
 				sticky.classList.add('is-visible')
 				return
 			}
 
-			var heroVisible = true
+			var heroVisible = false
 			var tailVisible = false
-			function update() { sticky.classList.toggle('is-visible', !heroVisible && !tailVisible) }
+			var tail = root.querySelectorAll('.df-close__buy, .df-social, .df-footer')
+
+			function update() {
+				sticky.classList.toggle('is-visible', !heroVisible && !tailVisible)
+			}
 
 			new window.IntersectionObserver(function (entries) {
 				entries.forEach(function (entry) { heroVisible = entry.isIntersecting })
 				update()
-			}).observe(heroCta)
+			}, { rootMargin: STICKY_REVEAL_MARGIN }).observe(heroCta)
 
-			var tail = root.querySelectorAll('.df-close__content, .df-footer')
 			var tailObserver = new window.IntersectionObserver(function (entries) {
-				entries.forEach(function (entry) { entry.target.setAttribute('data-df-visible', entry.isIntersecting ? 'true' : 'false') })
-				tailVisible = Array.prototype.some.call(tail, function (element) { return element.getAttribute('data-df-visible') === 'true' })
+				entries.forEach(function (entry) {
+					entry.target.setAttribute('data-df-tail-visible', entry.isIntersecting ? 'true' : 'false')
+				})
+				tailVisible = Array.prototype.some.call(tail, function (element) {
+					return element.getAttribute('data-df-tail-visible') === 'true'
+				})
 				update()
 			})
-			Array.prototype.forEach.call(tail, function (element) { tailObserver.observe(element) })
+
+			forEach(tail, function (element) { tailObserver.observe(element) })
+		}
+
+		// ---------- Releasit en /pages/ ----------
+
+		function readProductCache(cache) {
+			try {
+				return JSON.parse(cache.textContent)
+			} catch (error) {
+				return null
+			}
+		}
+
+		function initReleasitProductCache() {
+			var cache = document.getElementById(RELEASIT_PRODUCT_CACHE_ID)
+			if (cache && readProductCache(cache)) return
+			if (typeof window.fetch !== 'function') return
+
+			if (!cache) {
+				cache = document.createElement('script')
+				cache.type = 'application/json'
+				cache.id = RELEASIT_PRODUCT_CACHE_ID
+				document.body.appendChild(cache)
+			}
+
+			var routes = window.Shopify && window.Shopify.routes
+			var rootPath = (routes && routes.root) || '/'
+
+			window.fetch(rootPath + 'products/' + PRODUCT_HANDLE + '.js', { credentials: 'same-origin' })
+				.then(function (response) {
+					if (!response.ok) throw new Error('product ' + response.status)
+					return response.json()
+				})
+				.then(function (product) {
+					cache.textContent = JSON.stringify(product)
+				})
+				.catch(function () {})
 		}
 
 		function init() {
 			var root = document.querySelector(ROOT_SELECTOR)
 			if (!root || root.dataset[READY_FLAG] === 'true') return
+
 			root.dataset[READY_FLAG] = 'true'
-			if (PRODUCT_HANDLE) root.setAttribute('data-df-product', PRODUCT_HANDLE)
-			initLocalAssets(root)
-			initWindow(root)
-			initPaymentChoice(root)
-			initCarousels(root)
-			initInteractiveIcons(root)
-			initCtaAnimation(root)
+			initReleasitProductCache()
+			initPlayback(root)
+			initPeopleHold(root)
+			initSwitch(root)
 			initReveal(root)
 			initSticky(root)
 		}
 
-		if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init)
-		else init()
+		// GemPages puede montar el bloque después de DOMContentLoaded
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', init)
+		} else {
+			init()
+		}
 	})()
 </script>
 </body>

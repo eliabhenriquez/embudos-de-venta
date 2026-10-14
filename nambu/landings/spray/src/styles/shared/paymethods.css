@@ -1,0 +1,6 @@
+	/* Medios de pago del anticipado: logotipos en chips blancos del mismo alto */
+	.ns-lp .ns-paymethods { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; margin-top: 12px; }
+	.ns-lp .ns-paymethods__item { display: grid; place-items: center; height: 32px; padding: 0 10px; border-radius: 8px; background: var(--ns-white); box-shadow: inset 0 0 0 1px var(--ns-line); }
+	.ns-lp .ns-paymethods__item img { width: auto; height: 20px; }
+	.ns-lp .ns-paymethods__item.ns-paymethods__item--visa img { height: 13px; }
+	.ns-lp .ns-paymethods__item.ns-paymethods__item--pse img { height: 22px; }

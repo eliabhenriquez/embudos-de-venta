@@ -1,0 +1,904 @@
+<!--
+	MIMA · MIMACALM — Landing de venta, ángulo CUERPO (campaña septiembre)
+	=================================================================
+	Bloque autocontenido para pegar en GemPages (elemento HTML/Liquid).
+	Sin <html>, <head> ni <body>. Todo el CSS va namespaced bajo .mc-lp.
+
+	Piel propia: la paleta sale del frasco (etiqueta azul marino, tapa
+	blanca, bebida sandía) — ver mimacalm/AGENTS.md §3. Frente a sueño,
+	que es fría y de noche, cuerpo es cálida: arena y mármol.
+
+	Motivo de la landing: soltar. El mapa de la tensión (mandíbula,
+	cuello, hombros, estómago), la columna de la fórmula, el nudo que se
+	afloja en la constancia y el tendedero de la comunidad. El CTA es
+	"soltar el nudo": una banda tensa en el centro se afloja hasta llenar
+	el botón.
+
+	CTA → abre el modal de Releasit mediante las clases de integración
+	_rsi-cod-form-gempages-button-overwrite y _rsi-cod-form-is-gempage.
+	Y el de EasySell con id="es-popup-button" y las clases es-popup-button
+	es-popup-button-cart. Los dos ganchos conviven: abre el formulario de la
+	app que esté activa (mima/AGENTS.md §5).
+
+	PENDIENTES ANTES DE PUBLICAR — ver mimacalm/AGENTS.md §8.
+
+	Imágenes: Shopify CDN. Subir a Contenido → Archivos los ficheros de
+	landings/mimacalm/assets/ con el nombre exacto. Logos de MIMA, medios
+	de pago e Instagram se reutilizan de SKNGLOW: ya están en el CDN.
+-->
+
+<section class="mc-lp mc-lp--cuerpo" id="mc-mimacalm" data-rsi-banner="mimacalm-cuerpo">
+
+	<!-- =========================== CABECERA ========================= -->
+	<header class="mc-topbar">
+		<div class="mc-shell mc-topbar__inner">
+			<img
+				src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-mima-white.webp?width=200"
+				width="300" height="180" decoding="async"
+				alt="MIMA">
+		</div>
+	</header>
+
+	<!-- ============================ HERO ============================ -->
+	<section class="mc-hero">
+		<div class="mc-shell mc-hero__grid">
+			<div class="mc-hero__head">
+				<p class="mc-hero__brand"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 2.5a9.5 9.5 0 1 0 7 15.6A8.5 8.5 0 0 1 14.5 2.5z" fill="currentColor"/></svg>MIMACALM</p>
+				<h1 class="mc-h1">Que el día no se te quede <span class="mc-accent">pegado</span> al cuerpo.</h1>
+				<p class="mc-lead">Ashwagandha Wanda™, Glicinato de Magnesio y Extracto de Té Verde para acompañar tensión, pesadez y esa sensación de terminar el día con el cuerpo cargado.</p>
+			</div>
+
+			<figure class="mc-hero__media">
+				<!-- Slider nativo con scroll-snap. Flechas a los lados de la
+				     foto, nunca encima: los hero 2 y 3 traen rótulos quemados.
+				     Debajo, la "repisa": una banda de arena sobre la que se
+				     apoya la foto, dibujada con ::before (nunca un div vacío).
+				     Sin ?width=: fichero propio a 1050 px. -->
+				<div class="mc-slider" data-mc-slider>
+					<button type="button" class="mc-slider__arrow" data-mc-slider-prev aria-label="Imagen anterior">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"/></svg>
+					</button>
+					<ul class="mc-slider__track" data-mc-slider-track tabindex="0"
+						role="region" aria-label="Imágenes de MIMACALM">
+						<li class="mc-slider__slide">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimacalm-cuerpo-hero-1.webp"
+								width="1050" height="1050"
+								alt="Pareja sonriente con sus frascos de MIMACALM, una cucharada de polvo y un vaso preparado"
+								fetchpriority="high" decoding="async">
+						</li>
+						<li class="mc-slider__slide">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimacalm-cuerpo-hero-2.webp"
+								width="1050" height="1050"
+								alt="Mujer con su vaso de MIMACALM: calma mental, relajación corporal y equilibrio"
+								loading="lazy" decoding="async">
+						</li>
+						<li class="mc-slider__slide">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimacalm-cuerpo-hero-3.webp"
+								width="1050" height="1050"
+								alt="Frasco de MIMACALM en la mano con sus tres ingredientes: Ashwagandha, Glicinato de Magnesio y Té Verde"
+								loading="lazy" decoding="async">
+						</li>
+					</ul>
+					<button type="button" class="mc-slider__arrow" data-mc-slider-next aria-label="Imagen siguiente">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 6 6 6-6 6"/></svg>
+					</button>
+					<p class="mc-visually-hidden" data-mc-slider-count aria-live="polite">Imagen 1 de 3</p>
+				</div>
+			</figure>
+
+			<div class="mc-hero__buy">
+				<p class="mc-price"><span class="mc-price__amount">$79.900</span> <span class="mc-price__note">Envío gratis a Colombia</span></p>
+				<p class="mc-price__prepay"><strong>$69.900</strong> con pago anticipado</p>
+				<button type="button" id="es-popup-button" class="mc-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMACALM</button>
+
+				<ul class="mc-trust">
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h3.7l2.8 3v4h-6.5z"/><circle cx="7" cy="18" r="1.7"/><circle cx="17" cy="18" r="1.7"/></svg> Entrega de 3 a 5 días hábiles</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19.5c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><path d="M15.5 5.2a3.2 3.2 0 0 1 0 5.6M17.6 14.8c1.6.7 2.6 2.3 2.9 4.7"/></svg> +1.400 clientes</li>
+				</ul>
+			</div>
+
+			<div class="mc-hero__specs">
+				<!-- La fórmula como tres zonas del cuerpo: mente, hombros y
+				     estómago, una por ingrediente. -->
+				<ul class="mc-zones" aria-label="Fórmula de MIMACALM">
+					<li class="mc-zone">
+						<svg class="mc-zone__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3.5a3.5 3.5 0 0 0-3.4 4.3A3.5 3.5 0 0 0 5 14a3.5 3.5 0 0 0 4 3.4V3.5z"/><path d="M15 3.5a3.5 3.5 0 0 1 3.4 4.3A3.5 3.5 0 0 1 19 14a3.5 3.5 0 0 1-4 3.4V3.5z"/><path d="M9 17.5v3M15 17.5v3"/></svg>
+						<span class="mc-zone__name">Ashwagandha Wanda™</span>
+					</li>
+					<li class="mc-zone">
+						<svg class="mc-zone__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="2.5"/><path d="M4 14.5c2-3.5 5-5 8-5s6 1.5 8 5"/><path d="M6.5 14.5v6M17.5 14.5v6"/></svg>
+						<span class="mc-zone__name">Glicinato de Magnesio</span>
+					</li>
+					<li class="mc-zone">
+						<svg class="mc-zone__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3.5c0 3-2.5 4-2.5 8a5.5 5.5 0 0 0 11 0c0-2-1-3.2-1-5.5"/><path d="M9 3.5h6"/><path d="M9.5 12.5c.8 1.2 2 1.6 3.5 1"/></svg>
+						<span class="mc-zone__name">Extracto de Té Verde</span>
+					</li>
+				</ul>
+
+				<ul class="mc-facts">
+					<li><strong>400 g</strong> de polvo sabor sandía</li>
+					<li><strong>1</strong> cucharada al día · aprox. <strong>27</strong> porciones</li>
+				</ul>
+
+				<ul class="mc-perks">
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.5h12l-1.4 16a1.6 1.6 0 0 1-1.6 1.5H9a1.6 1.6 0 0 1-1.6-1.5z"/><path d="M6.8 12.5h10.4"/></svg> Una cucharada en agua</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9"/></svg> Frío o caliente</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5a9 9 0 0 0 18 0Z"/><path d="M6 9.5a6 6 0 0 0 12 0Z"/><path d="M9.5 13.5h.01M12.5 15.5h.01M14.8 12.8h.01"/></svg> Sabor sandía</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- ==================== CARRUSEL UGC (PARTE 2) ==================
+	     El tendedero: las fotos cuelgan de una cuerda con su pinza y se
+	     balancean despacio; la que está al centro se endereza. El JS solo
+	     escribe --mc-focus por foto; sin JS todas cuelgan rectas y el
+	     carril desliza con el dedo. -->
+	<section class="mc-line" data-mc-line>
+		<div class="mc-line__rope" aria-hidden="true"></div>
+
+		<ul class="mc-line__track" data-mc-line-track tabindex="0" role="region" aria-label="Personas que ya usan MIMACALM">
+			<li class="mc-line__item" data-mc-line-item>
+				<figure class="mc-clip">
+					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimacalm-ugc-camila-l-1.webp?width=420" width="507" height="901" loading="lazy" decoding="async" alt="Camila tomando su vaso de MIMACALM en la cocina">
+					<figcaption class="mc-clip__name">Camila</figcaption>
+				</figure>
+			</li>
+			<li class="mc-line__item" data-mc-line-item>
+				<figure class="mc-clip">
+					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimacalm-ugc-carlos-2.webp?width=420" width="510" height="902" loading="lazy" decoding="async" alt="Carlos Aristizábal preparando su vaso de MIMACALM">
+					<figcaption class="mc-clip__name">Carlos Aristizábal</figcaption>
+				</figure>
+			</li>
+			<li class="mc-line__item" data-mc-line-item>
+				<figure class="mc-clip">
+					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimacalm-ugc-natalia-1.webp?width=420" width="510" height="910" loading="lazy" decoding="async" alt="Natalia Portelo sonriendo con su frasco de MIMACALM">
+					<figcaption class="mc-clip__name">Natalia Portelo</figcaption>
+				</figure>
+			</li>
+			<li class="mc-line__item" data-mc-line-item>
+				<figure class="mc-clip">
+					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimacalm-ugc-andres-2.webp?width=420" width="505" height="905" loading="lazy" decoding="async" alt="Andrés Iglesias tomando su vaso de MIMACALM">
+					<figcaption class="mc-clip__name">Andrés Iglesias</figcaption>
+				</figure>
+			</li>
+			<li class="mc-line__item" data-mc-line-item>
+				<figure class="mc-clip">
+					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimacalm-ugc-catalina-1.webp?width=420" width="510" height="908" loading="lazy" decoding="async" alt="Catalina sirviendo una cucharada de MIMACALM">
+					<figcaption class="mc-clip__name">Catalina</figcaption>
+				</figure>
+			</li>
+			<li class="mc-line__item" data-mc-line-item>
+				<figure class="mc-clip">
+					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimacalm-ugc-jose.webp?width=420" width="508" height="905" loading="lazy" decoding="async" alt="José Fernando tomando MIMACALM en su cocina">
+					<figcaption class="mc-clip__name">José Fernando</figcaption>
+				</figure>
+			</li>
+		</ul>
+
+		<div class="mc-shell mc-line__foot">
+			<button type="button" class="mc-line__arrow" data-mc-line-prev aria-label="Foto anterior" hidden>
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"/></svg>
+			</button>
+			<p class="mc-line__note">Contenido en colaboración con MIMA</p>
+			<button type="button" class="mc-line__arrow" data-mc-line-next aria-label="Foto siguiente" hidden>
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 6 6 6-6 6"/></svg>
+			</button>
+		</div>
+	</section>
+
+	<!-- ===================== EL PROBLEMA (PARTE 3) ==================
+	     El mapa de la tensión: una silueta con cuatro puntos —mandíbula,
+	     cuello, hombros, estómago— que se encienden uno a uno al entrar y
+	     luego responden al toque. Cada punto es un botón; las señales
+	     están siempre visibles, el punto solo resalta la suya. -->
+	<section class="mc-section mc-body" data-mc-reveal="0.3" data-mc-body>
+		<div class="mc-shell">
+			<div class="mc-headline">
+				<h2 class="mc-h2">Hay días que se sienten en todo el cuerpo.</h2>
+			</div>
+
+			<div class="mc-body__grid">
+				<div class="mc-body__map">
+					<svg class="mc-body__figure" viewBox="0 0 200 360" aria-hidden="true">
+						<path class="mc-body__outline" d="M100 14c-16 0-27 12-27 29 0 12 4 21 11 27v13c-14 4-30 10-42 20-10 8-14 20-16 34l-6 62c-1 6 4 10 9 9 5 0 7-4 8-9l9-56 6 30-6 122c0 6 5 10 11 10s10-4 11-10l14-96h4l14 96c1 6 5 10 11 10s11-4 11-10l-6-122 6-30 9 56c1 5 3 9 8 9 5 1 10-3 9-9l-6-62c-2-14-6-26-16-34-12-10-28-16-42-20V70c7-6 11-15 11-27 0-17-11-29-27-29z"/>
+						<g class="mc-body__spine">
+							<path d="M100 84v120"/>
+						</g>
+					</svg>
+					<button type="button" class="mc-body__spot" data-mc-spot="0" aria-pressed="false" aria-label="Mandíbula"><span class="mc-body__pulse"></span></button>
+					<button type="button" class="mc-body__spot" data-mc-spot="1" aria-pressed="false" aria-label="Cuello"><span class="mc-body__pulse"></span></button>
+					<button type="button" class="mc-body__spot mc-body__spot--left" data-mc-spot="2" aria-pressed="false" aria-label="Hombros"><span class="mc-body__pulse"></span></button>
+					<button type="button" class="mc-body__spot mc-body__spot--right" data-mc-spot="2" aria-pressed="false" aria-label="Hombros"><span class="mc-body__pulse"></span></button>
+					<button type="button" class="mc-body__spot" data-mc-spot="3" aria-pressed="false" aria-label="Estómago"><span class="mc-body__pulse"></span></button>
+				</div>
+
+				<ol class="mc-signals">
+					<li class="mc-signal" data-mc-signal="0" data-mc-stagger>
+						<button type="button" class="mc-signal__button" data-mc-signal-go="0">
+							<span class="mc-signal__zone">Mandíbula</span>
+							<span class="mc-signal__text">Mandíbula apretada.</span>
+						</button>
+					</li>
+					<li class="mc-signal" data-mc-signal="1" data-mc-stagger>
+						<button type="button" class="mc-signal__button" data-mc-signal-go="1">
+							<span class="mc-signal__zone">Cuello</span>
+							<span class="mc-signal__text">Cuello pesado.</span>
+						</button>
+					</li>
+					<li class="mc-signal" data-mc-signal="2" data-mc-stagger>
+						<button type="button" class="mc-signal__button" data-mc-signal-go="2">
+							<span class="mc-signal__zone">Hombros</span>
+							<span class="mc-signal__text">Hombros duros.</span>
+						</button>
+					</li>
+					<li class="mc-signal" data-mc-signal="3" data-mc-stagger>
+						<button type="button" class="mc-signal__button" data-mc-signal-go="3">
+							<span class="mc-signal__zone">Estómago</span>
+							<span class="mc-signal__text">Estómago incómodo.</span>
+							<span class="mc-signal__more">Comes poco y terminas sintiéndote llena.</span>
+						</button>
+					</li>
+				</ol>
+			</div>
+
+			<div class="mc-body__foot">
+				<p class="mc-body__text">El estrés puede quedarse activo mucho después de terminar la jornada.</p>
+				<p class="mc-body__text mc-body__text--strong">Y el cuerpo lo refleja.</p>
+				<p class="mc-statement">MIMACALM acompaña esos días en los que necesitas soltar tensión y volver a sentirte más ligera.</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ====================== LA FÓRMULA (PARTE 4) ==================
+	     La columna: tres ingredientes sobre un eje vertical, cada uno con
+	     su zona. El cerebro con la zona del estrés encendida abre la
+	     sección. -->
+	<section class="mc-section mc-section--sand mc-spine" data-mc-reveal="0.25">
+		<div class="mc-shell">
+			<div class="mc-spine__intro">
+				<figure class="mc-spine__brain">
+					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimacalm-brain.webp?width=640"
+						width="900" height="900" loading="lazy" decoding="async"
+						alt="Ilustración de un cerebro con la zona relacionada con el estrés encendida">
+				</figure>
+				<div class="mc-spine__copy">
+					<h2 class="mc-h2">Calma para una mente y un cuerpo cargados.</h2>
+					<p class="mc-lead">Tres ingredientes que se complementan al final de un día intenso.</p>
+				</div>
+			</div>
+
+			<ol class="mc-links">
+				<li class="mc-link" data-mc-stagger>
+					<span class="mc-link__node" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3.5a3.5 3.5 0 0 0-3.4 4.3A3.5 3.5 0 0 0 5 14a3.5 3.5 0 0 0 4 3.4V3.5z"/><path d="M15 3.5a3.5 3.5 0 0 1 3.4 4.3A3.5 3.5 0 0 1 19 14a3.5 3.5 0 0 1-4 3.4V3.5z"/><path d="M9 17.5v3M15 17.5v3"/></svg></span>
+					<article class="mc-ing">
+						<img class="mc-ing__photo" src="https://www.mimacolombia.com/cdn/shop/files/landings-mimacalm-ashwagandha.webp?width=240" width="800" height="557" loading="lazy" decoding="async" alt="Raíces y hojas de ashwagandha">
+						<div class="mc-ing__body">
+							<p class="mc-overline">Calma</p>
+							<h3 class="mc-ing__name">Ashwagandha Wanda™</h3>
+							<p>Estudiada por su relación con el manejo del estrés y la sensación de tranquilidad.</p>
+						</div>
+					</article>
+				</li>
+				<li class="mc-link" data-mc-stagger>
+					<span class="mc-link__node" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"/><path d="M4 14.5c2-3.5 5-5 8-5s6 1.5 8 5"/><path d="M6.5 14.5v6M17.5 14.5v6"/></svg></span>
+					<article class="mc-ing">
+						<img class="mc-ing__photo" src="https://www.mimacolombia.com/cdn/shop/files/landings-mimacalm-magnesio.webp?width=240" width="800" height="699" loading="lazy" decoding="async" alt="Cuchara con glicinato de magnesio en polvo">
+						<div class="mc-ing__body">
+							<p class="mc-overline">Relajación corporal</p>
+							<h3 class="mc-ing__name">Glicinato de Magnesio</h3>
+							<p>Una forma de magnesio asociada a relajación muscular y descanso.</p>
+						</div>
+					</article>
+				</li>
+				<li class="mc-link" data-mc-stagger>
+					<span class="mc-link__node" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3.5c0 3-2.5 4-2.5 8a5.5 5.5 0 0 0 11 0c0-2-1-3.2-1-5.5"/><path d="M9 3.5h6"/><path d="M9.5 12.5c.8 1.2 2 1.6 3.5 1"/></svg></span>
+					<article class="mc-ing">
+						<img class="mc-ing__photo" src="https://www.mimacolombia.com/cdn/shop/files/landings-mimacalm-te-verde.webp?width=240" width="800" height="540" loading="lazy" decoding="async" alt="Hojas secas de té verde">
+						<div class="mc-ing__body">
+							<p class="mc-overline">Equilibrio digestivo</p>
+							<h3 class="mc-ing__name">Extracto de Té Verde</h3>
+							<p>Sus compuestos vegetales han sido estudiados por su relación con digestión, microbiota y actividad antioxidante.</p>
+						</div>
+					</article>
+				</li>
+			</ol>
+
+			<ul class="mc-trio" aria-label="Cómo se toma">
+				<li>Una cucharada.</li>
+				<li>Un vaso de agua.</li>
+				<li>Sabor sandía.</li>
+			</ul>
+
+			<div class="mc-cta-row">
+				<button type="button" id="es-popup-button" class="mc-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO EMPEZAR CON MIMACALM</button>
+			</div>
+		</div>
+	</section>
+
+	<!-- ====================== CONSTANCIA (PARTE 5) ==================
+	     El nudo que se afloja: tres cuerdas, de nudo apretado a línea
+	     suelta, una por tramo. -->
+	<section class="mc-section mc-knots" data-mc-reveal>
+		<div class="mc-shell">
+			<div class="mc-headline">
+				<h2 class="mc-h2">Menos tensión acumulada. Más espacio para soltar.</h2>
+			</div>
+
+			<ol class="mc-stages">
+				<li class="mc-stage" data-mc-stagger>
+					<svg class="mc-stage__rope" viewBox="0 0 160 40" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+						<path d="M6 20h44c8 0 10-10 20-10s12 20 22 20 10-20 20-20 12 10 20 10h22"/>
+						<path d="M66 12c-8 4-8 12 0 16M94 12c8 4 8 12 0 16" stroke-width="2.5"/>
+					</svg>
+					<p class="mc-overline">Días 1–30</p>
+					<h3 class="mc-stage__title">Empiezas con una cucharada al día.</h3>
+					<p>Una pausa para reconocer cuánto estás cargando en mandíbula, cuello, hombros y estómago.</p>
+				</li>
+				<li class="mc-stage" data-mc-stagger>
+					<svg class="mc-stage__rope" viewBox="0 0 160 40" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+						<path d="M6 20h40c10 0 14-8 24-8s14 16 24 16 14-8 24-8h36"/>
+					</svg>
+					<p class="mc-overline">Días 31–60</p>
+					<h3 class="mc-stage__title">La constancia entra en tu día.</h3>
+					<p>Empiezas a prestar más atención a cómo termina tu cuerpo después de jornadas exigentes.</p>
+				</li>
+				<li class="mc-stage" data-mc-stagger>
+					<svg class="mc-stage__rope" viewBox="0 0 160 40" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+						<path d="M6 22c30-4 60-4 90-2s40 2 58 0"/>
+					</svg>
+					<p class="mc-overline">Días 61–90</p>
+					<h3 class="mc-stage__title">Llegar al final del día con menos tensión acumulada.</h3>
+					<p>El objetivo: una sensación corporal más ligera.</p>
+				</li>
+			</ol>
+
+			<ul class="mc-facts mc-facts--center">
+				<li><strong>1</strong> cucharada al día</li>
+				<li>Aproximadamente <strong>27</strong> porciones por frasco</li>
+			</ul>
+
+			<div class="mc-cta-row">
+				<button type="button" id="es-popup-button" class="mc-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMACALM</button>
+			</div>
+		</div>
+	</section>
+
+	<!-- ================ RESPALDO DE LOS INGREDIENTES (PARTE 6) =====
+	     Publicaciones sobre los ingredientes, nunca avales del producto.
+	     La tercera ficha no trae medio en el copy: va sin logo. -->
+	<section class="mc-section mc-section--sand">
+		<div class="mc-shell">
+			<div class="mc-headline">
+				<h2 class="mc-h2">El estrés también conversa con tu digestión.</h2>
+			</div>
+		</div>
+
+		<div class="mc-sources">
+			<ul class="mc-sources__track" tabindex="0" role="region" aria-label="Publicaciones sobre los ingredientes de MIMACALM">
+				<li class="mc-sources__item">
+					<article class="mc-source">
+						<p class="mc-source__name"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimacalm-logo-infobae.webp?width=300" width="600" height="268" loading="lazy" decoding="async" alt="Infobae"></p>
+						<h3 class="mc-source__title">Té verde + hinchazón</h3>
+						<p>Infobae ha reseñado el papel de las catequinas del té verde, incluido el EGCG, en procesos relacionados con digestión y acumulación de gases.</p>
+					</article>
+				</li>
+				<li class="mc-sources__item">
+					<article class="mc-source">
+						<p class="mc-source__name"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimacalm-logo-lavanguardia.webp?width=300" width="600" height="202" loading="lazy" decoding="async" alt="La Vanguardia"></p>
+						<h3 class="mc-source__title">Té verde + microbiota</h3>
+						<p>La Vanguardia ha abordado investigaciones sobre los compuestos del té verde y su posible relación con bacterias beneficiosas del microbioma intestinal.</p>
+					</article>
+				</li>
+				<li class="mc-sources__item">
+					<article class="mc-source">
+						<p class="mc-source__name">Investigación</p>
+						<h3 class="mc-source__title">Compuestos vegetales + intestino</h3>
+						<p>El té verde también aparece en investigaciones sobre actividad antioxidante, equilibrio digestivo y diversidad de la microbiota.</p>
+					</article>
+				</li>
+			</ul>
+		</div>
+
+		<div class="mc-shell">
+			<p class="mc-disclaimer">La evidencia citada corresponde a estudios sobre ingredientes y procesos biológicos. Los resultados individuales pueden variar.</p>
+		</div>
+	</section>
+
+	<!-- ===================== MODO DE USO (PARTE 7) ==================
+	     Tres pasos con la foto de alguien haciéndolos y los tres momentos
+	     del día en los que cabe. Numeral, rótulo y el icono al final de
+	     la fila. -->
+	<section class="mc-section mc-recipe" data-mc-reveal>
+		<div class="mc-shell mc-recipe__grid">
+			<div class="mc-recipe__copy">
+				<h2 class="mc-h2">Una cucharada. Un minuto. Menos peso al final del día.</h2>
+
+				<ul class="mc-moments" aria-label="Cuándo tomarlo">
+					<li class="mc-moment">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5a7 7 0 0 1 14 0"/><path d="M3.5 12.5h17"/><path d="M6 15.5h12"/><path d="M12 5.5V4"/></svg>
+						<span>Después de comer.</span>
+					</li>
+					<li class="mc-moment">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11.5 12 4l8 7.5"/><path d="M6.5 10v9.5h11V10"/><path d="M10 19.5v-5h4v5"/></svg>
+						<span>Al llegar a casa.</span>
+					</li>
+					<li class="mc-moment">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 18.5V9a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2v9.5"/><path d="M3.5 13.5h17"/><path d="M6.5 10.5h4v3h-4z"/></svg>
+						<span>Antes de acostarte.</span>
+					</li>
+				</ul>
+
+				<ul class="mc-chips">
+					<li>15 g por porción</li>
+					<li>240 ml de agua</li>
+					<li>Sabor sandía</li>
+					<li>Frío o caliente</li>
+				</ul>
+
+				<div class="mc-cta-row mc-cta-row--start mc-recipe__cta">
+					<button type="button" id="es-popup-button" class="mc-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMACALM</button>
+				</div>
+			</div>
+
+			<ol class="mc-steps">
+				<li class="mc-step" data-mc-stagger>
+					<figure class="mc-step__media">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimacalm-ugc-carlos-1.webp?width=300" width="510" height="905" loading="lazy" decoding="async" alt="Carlos Aristizábal sacando una cucharada de MIMACALM del frasco">
+					</figure>
+					<div class="mc-step__body">
+						<p class="mc-step__head"><span class="mc-step__num">1</span><span class="mc-step__label">La cucharada</span><span class="mc-step__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 13.5 10.5"/><ellipse cx="16.5" cy="7.5" rx="4.5" ry="3.5" transform="rotate(-45 16.5 7.5)"/></svg></span></p>
+						<p>Agrega una cucharada de MIMACALM a 240 ml de agua.</p>
+					</div>
+				</li>
+				<li class="mc-step" data-mc-stagger>
+					<figure class="mc-step__media">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimacalm-ugc-shelyka-2.webp?width=300" width="601" height="1078" loading="lazy" decoding="async" alt="Shelyka mezclando su vaso de MIMACALM">
+					</figure>
+					<div class="mc-step__body">
+						<p class="mc-step__head"><span class="mc-step__num">2</span><span class="mc-step__label">Un minuto</span><span class="mc-step__icon mc-step__icon--minute" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path class="mc-step__hand" d="M12 12V6.5"/></svg></span></p>
+						<p>Mezcla durante un minuto.</p>
+					</div>
+				</li>
+				<li class="mc-step" data-mc-stagger>
+					<figure class="mc-step__media">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimacalm-ugc-luis.webp?width=300" width="507" height="905" loading="lazy" decoding="async" alt="Luis Alejandro tomando su vaso de MIMACALM">
+					</figure>
+					<div class="mc-step__body">
+						<p class="mc-step__head"><span class="mc-step__num">3</span><span class="mc-step__label">Menos peso</span><span class="mc-step__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5h12l-1.4 16a1.6 1.6 0 0 1-1.6 1.5H9a1.6 1.6 0 0 1-1.6-1.5z"/><path d="M6.8 10.5h10.4"/><path d="M9 14.5h1M12.5 16.5h1"/></svg></span></p>
+						<p>Tómalo frío, con hielo o caliente.</p>
+					</div>
+				</li>
+			</ol>
+		</div>
+	</section>
+
+	<!-- ======================= PAGO (PARTE 8) ======================= -->
+	<section class="mc-section mc-section--sand" id="mc-payment">
+		<div class="mc-shell mc-narrow">
+			<figure class="mc-pay__product">
+				<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimacalm-cuerpo-hero-3.webp"
+					width="1050" height="1050" loading="lazy" decoding="async"
+					alt="Frasco de MIMACALM en la mano junto a un vaso preparado">
+			</figure>
+
+			<div class="mc-headline">
+				<h2 class="mc-h2">Tú eliges cómo pagar.</h2>
+			</div>
+
+			<fieldset class="mc-pay">
+				<legend class="mc-visually-hidden">Forma de pago</legend>
+
+				<label class="mc-pay__option" for="mc-pay-prepaid">
+					<input type="radio" name="mc-payment" id="mc-pay-prepaid" value="prepaid" checked>
+					<span class="mc-pay__box mc-pay__box--best">
+						<span class="mc-pay__badge">Recomendado</span>
+						<span class="mc-pay__name">Pago anticipado</span>
+						<span class="mc-pay__amount">$69.900</span>
+						<span class="mc-pay__save">Ahorras $10.000</span>
+						<span class="mc-pay__detail">Confirmación y seguimiento por WhatsApp</span>
+						<span class="mc-pay__methods">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-pay-visa.webp?width=222" width="222" height="72" loading="lazy" decoding="async" alt="Visa">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-pay-mastercard.webp?width=92" width="92" height="72" loading="lazy" decoding="async" alt="Mastercard">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-pay-pse.webp?width=72" width="72" height="72" loading="lazy" decoding="async" alt="PSE">
+						</span>
+					</span>
+				</label>
+
+				<label class="mc-pay__option" for="mc-pay-cod">
+					<input type="radio" name="mc-payment" id="mc-pay-cod" value="cod">
+					<span class="mc-pay__box">
+						<span class="mc-pay__name">Pago contraentrega</span>
+						<span class="mc-pay__amount">$79.900</span>
+						<span class="mc-pay__detail">Pagas cuando recibes tu pedido</span>
+					</span>
+				</label>
+			</fieldset>
+
+			<div class="mc-cta-row">
+				<button type="button" id="es-popup-button" class="mc-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage" data-mc-cta-price>ELEGIR MI FORMA DE PAGO</button>
+			</div>
+
+			<ul class="mc-trust">
+				<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h3.7l2.8 3v4h-6.5z"/><circle cx="7" cy="18" r="1.7"/><circle cx="17" cy="18" r="1.7"/></svg> Envío gratis · 3 a 5 días</li>
+				<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.3 7.5L3.6 20.4l1.4-4.4A8.4 8.4 0 1 1 20.5 11.6Z"/></svg> Confirmamos por WhatsApp</li>
+				<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg> Registro INVIMA RSA-0245-2025</li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- ========================= BONO (PARTE 9) =====================
+	     La lámina ya trae todo el copy del bono: se usa tal cual, sobre
+	     una banda de arena con un resplandor sandía. El copy completo va
+	     oculto, para lector de pantalla y buscadores. -->
+	<section class="mc-section mc-bonus">
+		<div class="mc-shell mc-narrow">
+			<h2 class="mc-visually-hidden">Gratis con tu compra: 21 días para soltar tensión acumulada</h2>
+			<figure class="mc-bonus__poster">
+				<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimacalm-bono-cuerpo.webp"
+					width="1050" height="1050" loading="lazy" decoding="async"
+					alt="Guía digital gratis con tu compra de MIMACALM: 21 días para soltar tensión acumulada">
+			</figure>
+			<div class="mc-visually-hidden">
+				<p>Una guía para aprender a reconocer cómo se manifiesta el estrés en tu cuerpo.</p>
+				<p>Incluye:</p>
+				<ul>
+					<li>Señales de tensión en mandíbula y cuello</li>
+					<li>Claves para identificar hombros cargados</li>
+					<li>Ideas para hacer pausas después de jornadas intensas</li>
+					<li>Herramientas para observar cómo responde tu estómago al estrés</li>
+				</ul>
+				<p>Incluida con tu compra de MIMACALM.</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ==================== TESTIMONIOS (PARTE 10) ==================
+	     Nombres reales del pool de UGC; el texto y la ciudad, del copy. -->
+	<section class="mc-section">
+		<div class="mc-shell">
+			<div class="mc-headline">
+				<h2 class="mc-h2">Cuando el cuerpo empieza a sentirse más ligero.</h2>
+				<p class="mc-overline">Contenido en colaboración con MIMA</p>
+			</div>
+		</div>
+
+		<div class="mc-stories" data-mc-stories>
+			<ul class="mc-stories__track" data-mc-stories-track tabindex="0" role="region" aria-label="Historias de personas que usan MIMACALM">
+				<li class="mc-stories__item">
+					<article class="mc-story">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimacalm-ugc-camila.webp?width=560"
+							width="646" height="1152" loading="lazy" decoding="async"
+							alt="Camila mostrando su frasco de MIMACALM">
+						<div class="mc-story__body">
+							<p class="mc-story__who">Camila <span>· Bogotá</span></p>
+							<p class="mc-story__lead">Sentía el estrés primero en el estómago.</p>
+							<p>Comía poco y terminaba pesada. Además, llegaba a la noche con los hombros duros y la mandíbula apretada.</p>
+							<p>Empecé a preparar MIMACALM frío con hielo y me gustó tener ese momento al final del día.</p>
+							<p class="mc-story__tag">Colaboración con MIMA</p>
+						</div>
+					</article>
+				</li>
+				<li class="mc-stories__item">
+					<article class="mc-story">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimacalm-ugc-shelyka-1.webp?width=560"
+							width="600" height="1078" loading="lazy" decoding="async"
+							alt="Shelyka preparando su vaso de MIMACALM">
+						<div class="mc-story__body">
+							<p class="mc-story__who">Shelyka <span>· Medellín</span></p>
+							<p class="mc-story__lead">Apretaba mucho los dientes y amanecía con las sienes cansadas.</p>
+							<p>Me interesaron la Ashwagandha y el Glicinato de Magnesio.</p>
+							<p>Lo preparo en agua fría y me gusta tomarlo cuando siento que ya cargué demasiado durante el día.</p>
+							<p class="mc-story__tag">Colaboración con MIMA</p>
+						</div>
+					</article>
+				</li>
+				<li class="mc-stories__item">
+					<article class="mc-story">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimacalm-ugc-genesis-2.webp?width=560"
+							width="505" height="905" loading="lazy" decoding="async"
+							alt="Génesis Melodía probando su vaso de MIMACALM">
+						<div class="mc-story__body">
+							<p class="mc-story__who">Génesis Melodía <span>· Cali</span></p>
+							<p class="mc-story__lead">Cuando estaba preocupada lo sentía enseguida en el estómago.</p>
+							<p>Pesadez, ardor y esa sensación de nudo debajo del pecho.</p>
+							<p>MIMACALM se volvió parte de mis noches porque es fácil de preparar y el sabor sandía me gusta.</p>
+							<p class="mc-story__tag">Colaboración con MIMA</p>
+						</div>
+					</article>
+				</li>
+			</ul>
+
+			<div class="mc-stories__nav" data-mc-stories-nav hidden>
+				<button type="button" class="mc-stories__arrow" data-mc-stories-prev aria-label="Historia anterior">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"/></svg>
+				</button>
+				<div class="mc-stories__dots" role="group" aria-label="Elegir historia">
+					<button type="button" class="mc-stories__dot" data-mc-stories-dot aria-label="Ver la historia de Camila" aria-current="true"></button>
+					<button type="button" class="mc-stories__dot" data-mc-stories-dot aria-label="Ver la historia de Shelyka"></button>
+					<button type="button" class="mc-stories__dot" data-mc-stories-dot aria-label="Ver la historia de Génesis Melodía"></button>
+				</div>
+				<button type="button" class="mc-stories__arrow" data-mc-stories-next aria-label="Historia siguiente">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 6 6 6-6 6"/></svg>
+				</button>
+			</div>
+		</div>
+	</section>
+
+	<!-- ==================== COMPARATIVA (PARTE 11) ==================
+	     Tres piezas pequeñas y una banda ancha para MIMACALM. Cada icono
+	     es un botón que resalta su opción sin ocultar ninguna. -->
+	<section class="mc-section mc-section--sand">
+		<div class="mc-shell mc-narrow">
+			<div class="mc-headline">
+				<h2 class="mc-h2">Para esos días que terminan pesando en el cuerpo.</h2>
+			</div>
+
+			<ul class="mc-compare" data-mc-compare>
+				<li class="mc-compare__item" data-mc-compare-item>
+					<button type="button" class="mc-compare__icon" data-mc-compare-toggle aria-pressed="false" aria-label="Destacar tés e infusiones">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 9.5h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5Z"/><path d="M15.5 10.5H17a2.5 2.5 0 0 1 0 5h-1.5"/><path d="M8.5 3.5c0 1.5 1.5 1.5 1.5 3M11.5 3.5c0 1.5 1.5 1.5 1.5 3"/></svg>
+					</button>
+					<h3 class="mc-compare__name">Tés e infusiones</h3>
+					<p class="mc-compare__what">Pueden acompañar una pausa después de comer o antes de dormir.</p>
+				</li>
+				<li class="mc-compare__item" data-mc-compare-item>
+					<button type="button" class="mc-compare__icon" data-mc-compare-toggle aria-pressed="false" aria-label="Destacar magnesio">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8.5" width="18" height="7" rx="3.5" transform="rotate(-35 12 12)"/><path d="m9.8 8.9 4.4 6.2"/></svg>
+					</button>
+					<h3 class="mc-compare__name">Magnesio</h3>
+					<p class="mc-compare__what">Aporta un mineral relacionado con relajación muscular.</p>
+				</li>
+				<li class="mc-compare__item" data-mc-compare-item>
+					<button type="button" class="mc-compare__icon" data-mc-compare-toggle aria-pressed="false" aria-label="Destacar productos digestivos">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3.5c0 3-2.5 4-2.5 8a5.5 5.5 0 0 0 11 0c0-2-1-3.2-1-5.5"/><path d="M9 3.5h6"/><path d="M9.5 12.5c.8 1.2 2 1.6 3.5 1"/></svg>
+					</button>
+					<h3 class="mc-compare__name">Productos digestivos</h3>
+					<p class="mc-compare__what">Suelen concentrarse únicamente en molestias después de comer.</p>
+				</li>
+				<li class="mc-compare__item mc-compare__item--ours is-active" data-mc-compare-item>
+					<button type="button" class="mc-compare__icon" data-mc-compare-toggle aria-pressed="true" aria-label="Destacar MIMACALM">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.5h12l-1.4 16a1.6 1.6 0 0 1-1.6 1.5H9a1.6 1.6 0 0 1-1.6-1.5z"/><path d="M6.8 10.5h10.4"/><path d="M14 20.5 19 8"/></svg>
+					</button>
+					<div class="mc-compare__ours">
+						<h3 class="mc-compare__name">MIMACALM</h3>
+						<ul class="mc-compare__formula">
+							<li>Ashwagandha Wanda™</li>
+							<li>Glicinato de Magnesio</li>
+							<li>Extracto de Té Verde</li>
+						</ul>
+						<p class="mc-compare__what">Una fórmula pensada para acompañar estrés, tensión corporal y molestias digestivas asociadas a días exigentes.</p>
+						<p class="mc-compare__meta">Sabor sandía · Frío o caliente</p>
+					</div>
+				</li>
+			</ul>
+
+			<div class="mc-cta-row">
+				<button type="button" id="es-popup-button" class="mc-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMACALM</button>
+			</div>
+		</div>
+	</section>
+
+	<!-- =================== QUÉ RECIBES (PARTE 12) =================== -->
+	<section class="mc-section">
+		<div class="mc-shell mc-receive">
+			<div class="mc-receive__copy">
+				<h2 class="mc-h2">Todo para empezar.</h2>
+
+				<ul class="mc-checklist">
+					<li>1 frasco de MIMACALM</li>
+					<li>400 g de polvo sabor sandía</li>
+					<li>Aproximadamente 27 porciones</li>
+					<li>1 cucharada al día</li>
+					<li>Preparación fría o caliente</li>
+					<li>Guía digital de 21 días</li>
+					<li>Envío gratis a Colombia</li>
+					<li>Confirmación por WhatsApp</li>
+				</ul>
+
+				<div class="mc-cta-row mc-cta-row--start">
+					<button type="button" id="es-popup-button" class="mc-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMACALM</button>
+				</div>
+			</div>
+
+			<div class="mc-receive__media">
+				<figure>
+					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimacalm-cuerpo-hero-2.webp"
+						width="1050" height="1050" loading="lazy" decoding="async"
+						alt="Mujer con su vaso de MIMACALM recién preparado">
+				</figure>
+				<figure>
+					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimacalm-ugc-alejandra-1.webp?width=560"
+						width="508" height="909" loading="lazy" decoding="async"
+						alt="Alejandra mostrando su frasco de MIMACALM">
+				</figure>
+			</div>
+		</div>
+	</section>
+
+	<!-- ==================== GARANTÍA (PARTE 13) ===================== -->
+	<section class="mc-section mc-section--sand">
+		<div class="mc-shell mc-narrow">
+			<div class="mc-guarantee">
+				<img class="mc-guarantee__brand"
+					src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-mima-badge.webp?width=140"
+					width="176" height="176" loading="lazy" decoding="async"
+					alt="MIMA">
+				<h2 class="mc-h2">Tu pedido llega. O respondemos.</h2>
+
+				<ol class="mc-promise">
+					<li class="mc-promise__item">
+						<span class="mc-promise__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h3.7l2.8 3v4h-6.5z"/><circle cx="7" cy="18" r="1.7"/><circle cx="17" cy="18" r="1.7"/></svg></span>
+						<p>Entrega estimada de 3 a 5 días hábiles.</p>
+					</li>
+					<li class="mc-promise__item">
+						<span class="mc-promise__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12a7.5 7.5 0 0 1 12.8-5.3L19.5 9"/><path d="M19.5 4.5V9H15"/><path d="M19.5 12a7.5 7.5 0 0 1-12.8 5.3L4.5 15"/><path d="M4.5 19.5V15H9"/></svg></span>
+						<p>Si no llega dentro de ese plazo, lo reenviamos sin costo adicional.</p>
+					</li>
+					<li class="mc-promise__item mc-promise__item--best">
+						<span class="mc-promise__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="12" rx="2.5"/><circle cx="12" cy="12" r="2.6"/><path d="M6 12h.01M18 12h.01"/></svg></span>
+						<p>Si pagaste anticipado y prefieres no esperar el reenvío, devolvemos tu dinero.</p>
+					</li>
+				</ol>
+			</div>
+		</div>
+	</section>
+
+	<!-- ====================== FAQ (PARTE 14) ======================== -->
+	<section class="mc-section">
+		<div class="mc-shell mc-narrow">
+			<div class="mc-headline">
+				<h2 class="mc-h2">Preguntas frecuentes</h2>
+			</div>
+
+			<div class="mc-faq">
+				<details class="mc-faq__item">
+					<summary>¿Cómo preparo MIMACALM?</summary>
+					<div class="mc-faq__body"><p>Mezcla una cucharada en 240 ml de agua durante un minuto.</p></div>
+				</details>
+				<details class="mc-faq__item">
+					<summary>¿Cuánto debo tomar?</summary>
+					<div class="mc-faq__body"><p>Una cucharada al día.</p></div>
+				</details>
+				<details class="mc-faq__item">
+					<summary>¿Cuánto dura un frasco?</summary>
+					<div class="mc-faq__body"><p>400 g. Aproximadamente 27 porciones.</p></div>
+				</details>
+				<details class="mc-faq__item">
+					<summary>¿A qué sabe?</summary>
+					<div class="mc-faq__body"><p>Sandía.</p></div>
+				</details>
+				<details class="mc-faq__item">
+					<summary>¿Puedo tomarlo después de comer?</summary>
+					<div class="mc-faq__body"><p>Sí. También puedes tomarlo al llegar a casa o antes de acostarte.</p></div>
+				</details>
+				<details class="mc-faq__item">
+					<summary>¿Puedo tomarlo caliente?</summary>
+					<div class="mc-faq__body"><p>Sí. Puedes prepararlo frío, con hielo o caliente.</p></div>
+				</details>
+				<details class="mc-faq__item">
+					<summary>¿Para qué tipo de días está pensado?</summary>
+					<div class="mc-faq__body"><p>Para momentos en los que el estrés se refleja en tensión de mandíbula, cuello, hombros o molestias digestivas.</p></div>
+				</details>
+				<details class="mc-faq__item">
+					<summary>¿Puedo pagar al recibir?</summary>
+					<div class="mc-faq__body">
+						<p>Sí.</p>
+						<p class="mc-faq__prices"><span class="mc-faq__best">Pago anticipado: <strong>$69.900</strong></span> <span>Contraentrega: $79.900</span></p>
+						<p>Ahorras $10.000 pagando anticipado.</p>
+					</div>
+				</details>
+			</div>
+		</div>
+	</section>
+
+	<!-- ===================== CTA FINAL (PARTE 15) ===================
+	     Banda marino con un resplandor sandía: el vaso al final del día. -->
+	<section class="mc-close">
+		<div class="mc-shell mc-narrow mc-close__inner">
+			<h2 class="mc-h2 mc-h2--light">Termina el día sintiendo menos peso encima.</h2>
+
+			<ul class="mc-close__wants">
+				<li>Menos mandíbula apretada.</li>
+				<li>Menos hombros cargados.</li>
+				<li>Más calma al llegar a casa.</li>
+				<li>Más ligereza después del día.</li>
+			</ul>
+
+			<!-- Collage inclinado. La foto del centro es el hero 1: ya está en
+			     caché, no cuesta una descarga más. -->
+			<ul class="mc-collage" aria-label="Personas de la comunidad MIMA con MIMACALM">
+				<li class="mc-collage__tile mc-collage__tile--left">
+					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimacalm-ugc-alejandra-2.webp?width=360"
+						width="508" height="904" loading="lazy" decoding="async"
+						alt="Alejandra abrazando su frasco de MIMACALM">
+				</li>
+				<li class="mc-collage__tile mc-collage__tile--center">
+					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimacalm-cuerpo-hero-1.webp"
+						width="1050" height="1050" loading="lazy" decoding="async"
+						alt="Pareja sonriente con sus frascos de MIMACALM">
+				</li>
+				<li class="mc-collage__tile mc-collage__tile--right">
+					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-mimacalm-ugc-carlos-3.webp?width=360"
+						width="508" height="906" loading="lazy" decoding="async"
+						alt="Carlos Aristizábal tomando su vaso de MIMACALM">
+				</li>
+			</ul>
+
+			<div class="mc-close__card">
+				<p class="mc-close__product">MIMACALM</p>
+				<p class="mc-close__formula">Ashwagandha Wanda™ · Glicinato de Magnesio · Extracto de Té Verde</p>
+				<p class="mc-close__meta">Sabor sandía · 1 cucharada al día</p>
+
+				<div class="mc-close__options">
+					<div class="mc-close__option mc-close__option--best">
+						<span class="mc-close__badge">Recomendado</span>
+						<p class="mc-close__label">Pago anticipado</p>
+						<p class="mc-close__amount">$69.900</p>
+						<p class="mc-close__save">Ahorras $10.000</p>
+					</div>
+					<div class="mc-close__option">
+						<p class="mc-close__label">Pago contraentrega</p>
+						<p class="mc-close__amount">$79.900</p>
+					</div>
+				</div>
+
+				<div class="mc-cta-row">
+					<button type="button" id="es-popup-button" class="mc-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMACALM</button>
+				</div>
+
+				<ul class="mc-trust">
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2.5"/><circle cx="12" cy="12" r="2.6"/><path d="M6 12h.01M18 12h.01"/></svg> Pagas al recibir</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h3.7l2.8 3v4h-6.5z"/><circle cx="7" cy="18" r="1.7"/><circle cx="17" cy="18" r="1.7"/></svg> Envío gratis · 3 a 5 días</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.3 7.5L3.6 20.4l1.4-4.4A8.4 8.4 0 1 1 20.5 11.6Z"/></svg> Confirmamos por WhatsApp</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- =========================== INSTAGRAM ======================== -->
+	<section class="mc-section mc-social">
+		<div class="mc-shell mc-narrow">
+			<figure class="mc-social__card">
+				<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-instagram-u.webp?width=1000"
+					width="1000" height="398" loading="lazy" decoding="async"
+					alt="Perfil de Instagram de MIMA, @mima_tiendaoficial, con 106 mil seguidores">
+			</figure>
+		</div>
+	</section>
+
+	<!-- ============================ FOOTER ========================== -->
+	<footer class="mc-footer">
+		<div class="mc-shell mc-footer__inner">
+			<img class="mc-footer__logo"
+				src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-mima-white.webp?width=200"
+				width="300" height="180" loading="lazy" decoding="async"
+				alt="MIMA">
+
+			<dl class="mc-footer__data">
+				<div class="mc-footer__block">
+					<dt>Registro INVIMA</dt>
+					<dd>RSA-0245-2025</dd>
+				</div>
+				<div class="mc-footer__block">
+					<dt>Atención al cliente MIMA</dt>
+					<dd><a href="tel:+573006964582">300 696 4582</a></dd>
+				</div>
+			</dl>
+
+			<p class="mc-footer__legal">MIMACALM es un suplemento dietario. No sustituye una alimentación equilibrada, el descanso, la actividad física ni la valoración de un profesional de salud. No está destinado a diagnosticar, prevenir, tratar ni curar enfermedades. Suspende su uso y consulta a un profesional de salud si presentas una reacción adversa. Mantener fuera del alcance de los niños.</p>
+			<p class="mc-footer__maker">Fabricado por Vitaliah S.A.S. · Calle 24 B N° 26-06, Bogotá, Colombia · Industria colombiana</p>
+			<p class="mc-footer__legal">Contiene edulcorantes. Consulta la información nutricional de cada producto.</p>
+		</div>
+	</footer>
+
+	<!-- ========================= CTA STICKY ========================= -->
+	<div class="mc-sticky" data-mc-sticky hidden>
+		<div class="mc-sticky__inner">
+			<p class="mc-sticky__price"><strong data-mc-sticky-price>$79.900</strong> <span>Envío gratis</span></p>
+			<button type="button" id="es-popup-button" class="mc-cta mc-cta--sm es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI MIMACALM</button>
+		</div>
+	</div>
+
+</section>
+

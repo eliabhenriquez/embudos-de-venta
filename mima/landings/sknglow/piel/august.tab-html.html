@@ -1,0 +1,853 @@
+<!--
+	MIMA · SKNGLOW — Landing de venta (campaña agosto)
+	=================================================================
+	Bloque autocontenido para pegar en GemPages (elemento HTML/Liquid).
+	Sin <html>, <head> ni <body>. Todo el CSS va namespaced bajo .sg-lp.
+
+	CTA → abre el modal de Releasit mediante las clases de integración
+	_rsi-cod-form-gempages-button-overwrite y _rsi-cod-form-is-gempage.
+	Y el de EasySell con id="es-popup-button" y las clases es-popup-button
+	es-popup-button-cart. Los dos ganchos conviven: abre el formulario de la
+	app que esté activa (mima/AGENTS.md §5).
+
+	PAGO ANTICIPADO — resuelto (verificado el 2026-08-27)
+	El aviso anterior decía que no se podía publicar porque ambas rutas
+	cobraban lo mismo. Ya no: el formulario de Releasit tiene activo el
+	botón "Paga con tarjeta o PSE" con descuento fijo de $10.000
+	(código RSI_ADDITIONAL_CHECKOUT_BUTTON_935459008), así que el
+	precio de anticipado que promete el hero es el que se cobra por esa vía.
+	Si algún día se desactiva ese botón o cambia el descuento, hay que
+	quitar el chip .sg-price__prepay del hero.
+
+	Imágenes: Shopify CDN. Requieren subir a Contenido → Archivos los
+	10 ficheros landings-sknglow-*.webp de landings/sknglow/assets/
+	conservando el nombre exacto.
+-->
+
+<!-- data-rsi-banner: enciende el banner del formulario de Releasit, que va
+     oculto por defecto porque el bloque de imagen es global a la tienda.
+     El VALOR elige qué banner se pinta: "piel" carga el suyo desde
+     shared/releasit-form.css. Sin valor se queda el que tenga puesto la app. -->
+<section class="sg-lp" id="sg-sknglow" data-rsi-banner="piel">
+
+	<!-- =========================== CABECERA ========================= -->
+	<header class="sg-topbar">
+		<div class="sg-shell sg-topbar__inner">
+			<img
+				src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-mima-mark.webp?width=200"
+				width="300" height="151" decoding="async"
+				alt="MIMA">
+		</div>
+	</header>
+
+	<!-- ============================ HERO ============================ -->
+	<section class="sg-hero">
+		<div class="sg-shell sg-hero__grid">
+			<div class="sg-hero__head">
+				<h1 class="sg-h1">Tu próxima piel empieza hoy</h1>
+				<p class="sg-lead"><strong>Sknglow</strong> trabaja desde adentro para que vuelvas a ver el cuidado que le das a tu piel</p>
+			</div>
+
+
+			<figure class="sg-hero__media">
+				<!-- Slider nativo: scroll con snap, sin librería. El JS solo sincroniza
+				     los puntos; si falla, sigue siendo un carrusel deslizable.
+				     La primera imagen es el LCP y va sin lazy; las otras cuatro sí. -->
+				<div class="sg-slider" data-sg-slider>
+					<ul class="sg-slider__track" data-sg-slider-track tabindex="0"
+						role="region" aria-label="Imágenes de Sknglow">
+					<li class="sg-slider__slide">
+						<!-- La compuesta de piel: foto y frasco horneados en una sola
+						     imagen. Recortada de 860 a 800 de ancho por el borde derecho
+						     (el frasco queda intacto) para que su proporción sea la misma
+						     que la de la caja del slider: así llena el hueco en vez de
+						     dejar banda arriba, y las cuatro infografías solo pierden un
+						     2,4% por lado, que cabe en sus márgenes.
+
+						     OJO: esta imagen trae el redondeo horneado en el alfa (radio
+						     45px sobre 800, más una banda de 25px arriba por la que asoma
+						     el tapón). El recorte se llevó las dos esquinas derechas y
+						     quedaron en pico; la v2 se las devuelve copiando en espejo el
+						     alfa de las izquierdas. Si se vuelve a recortar de ancho, hay
+						     que rehacer ese espejo. -->
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-piel-hero-1-v2.webp?width=800"
+							width="800" height="762"
+							alt="Frasco de Sknglow con Resveratrol y Biotina junto al rostro de una clienta"
+							fetchpriority="high" decoding="async">
+						<figcaption class="sg-hero__claim">Más firme. Más pareja. Más luminosa.</figcaption>
+					</li>
+					<li class="sg-slider__slide">
+						<!-- Sin ?width=: Shopify reencoda peor que nosotros. Su variante de
+						     860px pesaba 82 KB; este fichero da 1050px por 63 KB, que además
+						     es exactamente lo que pinta un móvil DPR3 (caja de 350 CSS px).
+						     Con parámetro volvería a pasar por su reencode. -->
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-hero-2-v2.webp"
+							width="1050" height="1050"
+							alt="Sknglow actúa sobre piel, cabello y uñas"
+							loading="lazy" decoding="async">
+					</li>
+					<li class="sg-slider__slide">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-hero-3.webp?width=860"
+							width="1254" height="1254"
+							alt="Ingredientes clave de Sknglow: Biotina y Resveratrol"
+							loading="lazy" decoding="async">
+					</li>
+					<li class="sg-slider__slide">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-hero-4.webp?width=860"
+							width="1254" height="1254"
+							alt="Modo de uso: 4 dulces duros al día durante 30 días, 120 por frasco"
+							loading="lazy" decoding="async">
+					</li>
+					<li class="sg-slider__slide">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-cab-hero-5.webp?width=860"
+							width="1254" height="1254"
+							alt="Información nutricional de Sknglow"
+							loading="lazy" decoding="async">
+					</li>
+					</ul>
+
+					<div class="sg-slider__dots" data-sg-slider-dots>
+					<button type="button" class="sg-slider__dot is-active" data-sg-dot="0"
+						aria-label="Ver imagen 1 de 5" aria-current="true"></button>
+					<button type="button" class="sg-slider__dot" data-sg-dot="1"
+						aria-label="Ver imagen 2 de 5"></button>
+					<button type="button" class="sg-slider__dot" data-sg-dot="2"
+						aria-label="Ver imagen 3 de 5"></button>
+					<button type="button" class="sg-slider__dot" data-sg-dot="3"
+						aria-label="Ver imagen 4 de 5"></button>
+					<button type="button" class="sg-slider__dot" data-sg-dot="4"
+						aria-label="Ver imagen 5 de 5"></button>
+					</div>
+				</div>
+			</figure>
+
+			<div class="sg-hero__specs">
+				<ul class="sg-facts">
+					<li>120 Dulces duros</li>
+					<!-- <li>Biotina + Resveratrol</li> -->
+					<!-- <li>120 dulces duros</li> -->
+					<li>4 al día por 30 días</li>
+				</ul>
+			</div>
+
+			<div class="sg-hero__mech">
+				<ul class="sg-mechanism" aria-label="Cómo trabaja Sknglow">
+					<li class="sg-mechanism__step">
+						<span class="sg-mechanism__icon" aria-hidden="true">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3.5 8.5h17M3.5 15.5h17M8.5 3.5v17M15.5 3.5v17"/></svg>
+						</span>
+						<span class="sg-mechanism__text">
+							<span class="sg-mechanism__label">Estructura</span>
+							<span class="sg-mechanism__source">Biotina</span>
+						</span>
+					</li>
+
+					<li class="sg-mechanism__join" aria-hidden="true">+</li>
+
+					<li class="sg-mechanism__step">
+						<span class="sg-mechanism__icon" aria-hidden="true">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 19 5.8v5.4c0 4.2-2.8 7.3-7 8.8-4.2-1.5-7-4.6-7-8.8V5.8L12 3Z"/><circle cx="12" cy="11" r="2"/><path d="M12 7.6v.7M12 14.4v-.7M8.6 11h.7M15.4 11h-.7"/></svg>
+						</span>
+						<span class="sg-mechanism__text">
+							<span class="sg-mechanism__label">Protección</span>
+							<span class="sg-mechanism__source">Resveratrol</span>
+						</span>
+					</li>
+				</ul>
+			</div>
+
+			<div class="sg-hero__buy">
+				<p class="sg-price"><span class="sg-price__amount">$79.900</span> <span class="sg-price__note">Envío gratis a Colombia</span></p>
+				<p class="sg-price__prepay"><strong>$69.900</strong> si pagas con tarjeta o PSE</p>
+				<button type="button" id="es-popup-button" class="sg-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI SKNGLOW</button>
+
+				<ul class="sg-trust">
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="12" rx="2.5"/><circle cx="12" cy="12" r="2.6"/><path d="M6 12h.01M18 12h.01"/></svg> Pagas al recibir</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h3.7l2.8 3v4h-6.5z"/><circle cx="7" cy="18" r="1.7"/><circle cx="17" cy="18" r="1.7"/></svg> Envío gratis · 3 a 5 días</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.3 7.5L3.6 20.4l1.4-4.4A8.4 8.4 0 1 1 20.5 11.6Z"/></svg> Confirmamos por WhatsApp</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- ======================= PUENTE: TU PIEL CAMBIA ================ -->
+	<section class="sg-band">
+		<div class="sg-shell sg-band__inner">
+			<p class="sg-band__title">Tu piel cambia</p>
+			<p class="sg-band__sub">Y casi nunca por una sola razón</p>
+
+			<ul class="sg-band__causes">
+				<li class="sg-band__cause">
+					<span class="sg-band__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.4"/><path d="M7.3 12.4 9.5 7.8l2.1 8 2-5.6 1.6 3.4h1.5"/></svg></span>
+					<div>
+						<p class="sg-band__cause-title">El estrés</p>
+						<p class="sg-band__cause-note">Los días tensos también se ven en la cara</p>
+					</div>
+				</li>
+				<li class="sg-band__cause">
+					<span class="sg-band__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.3"/><path d="M12 2.4v2.3M12 19.3v2.3M2.4 12h2.3M19.3 12h2.3M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"/></svg></span>
+					<div>
+						<p class="sg-band__cause-title">El sol</p>
+						<p class="sg-band__cause-note">Cada exposición va dejando huella</p>
+					</div>
+				</li>
+				<li class="sg-band__cause">
+					<span class="sg-band__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.7 10.6A7.7 7.7 0 0 1 18.4 8.1"/><path d="M19.3 13.4A7.7 7.7 0 0 1 5.6 15.9"/><path d="M18.9 4.6v3.7h-3.7"/><path d="M5.1 19.4v-3.7h3.7"/></svg></span>
+					<div>
+						<p class="sg-band__cause-title">Las hormonas</p>
+						<p class="sg-band__cause-note">Cada ciclo y cada etapa se notan</p>
+					</div>
+				</li>
+				<li class="sg-band__cause">
+					<span class="sg-band__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.3 14.5A8.5 8.5 0 0 1 9.5 3.7 8.5 8.5 0 1 0 20.3 14.5Z"/><path d="M17.4 3.4v2.6M16.1 4.7h2.6"/></svg></span>
+					<div>
+						<p class="sg-band__cause-title">Las noches largas</p>
+						<p class="sg-band__cause-note">Dormir poco se ve al día siguiente</p>
+					</div>
+				</li>
+			</ul>
+
+			<p class="sg-band__foot">Con cada etapa que deja marcas, textura, celulitis o falta de luminosidad.</p>
+			<p class="sg-band__claim">Sknglow convierte el cuidado de tu piel en un hábito fácil de sostener.</p>
+		</div>
+	</section>
+
+	<!-- ========================= MECANISMO ========================== -->
+	<section class="sg-section">
+		<div class="sg-shell">
+			<div class="sg-headline">
+				<p class="sg-overline">Esa es la diferencia de Sknglow</p>
+				<h2 class="sg-h2"><span class="sg-h2__mech"><svg class="sg-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3.5 8.5h17M3.5 15.5h17M8.5 3.5v17M15.5 3.5v17"/></svg> Estructura</span> + <span class="sg-h2__mech"><svg class="sg-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 19 5.8v5.4c0 4.2-2.8 7.3-7 8.8-4.2-1.5-7-4.6-7-8.8V5.8L12 3Z"/><circle cx="12" cy="11" r="2"/><path d="M12 7.6v.7M12 14.4v-.7M8.6 11h.7M15.4 11h-.7"/></svg> Protección</span></h2>
+				<p class="sg-sub">Dos acciones para una piel que se nota</p>
+			</div>
+
+			<div class="sg-reason">
+				<p>Una piel que se ve <strong>firme</strong> necesita estructura.</p>
+				<p>Una piel que se ve <strong>luminosa</strong> necesita protección frente al desgaste.</p>
+				<p class="sg-reason__foot">Sknglow combina dos ingredientes que trabajan desde dos frentes</p>
+			</div>
+
+			<div class="sg-duo">
+				<article class="sg-card sg-card--structure">
+					<div class="sg-card__head">
+						<div>
+							<p class="sg-card__tag"><svg class="sg-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3.5 8.5h17M3.5 15.5h17M8.5 3.5v17M15.5 3.5v17"/></svg> Estructura</p>
+							<h3 class="sg-card__title">Biotina</h3>
+						</div>
+						<figure class="sg-card__media">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/biotina.webp?width=320"
+								width="1254" height="1254" loading="lazy" decoding="async"
+								alt="Biotina en polvo sobre una cuchara de madera">
+						</figure>
+					</div>
+					<p>Apoya la salud de los tejidos de piel, uñas y cabello</p>
+					<p>Ayuda a cuidar una piel que quieres ver más firme, más cuidada y con mejor apariencia</p>
+				</article>
+
+				<article class="sg-card sg-card--protection">
+					<div class="sg-card__head">
+						<div>
+							<p class="sg-card__tag"><svg class="sg-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 19 5.8v5.4c0 4.2-2.8 7.3-7 8.8-4.2-1.5-7-4.6-7-8.8V5.8L12 3Z"/><circle cx="12" cy="11" r="2"/><path d="M12 7.6v.7M12 14.4v-.7M8.6 11h.7M15.4 11h-.7"/></svg> Protección</p>
+							<h3 class="sg-card__title">Resveratrol</h3>
+						</div>
+						<figure class="sg-card__media">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/resveratrol.webp?width=320"
+								width="1254" height="1254" loading="lazy" decoding="async"
+								alt="Resveratrol en polvo junto a un racimo de uvas negras">
+						</figure>
+					</div>
+					<p>Trabaja frente al desgaste oxidativo que puede apagar la apariencia de tu piel</p>
+					<p>Ayuda a conservar ese aspecto luminoso y uniforme que quieres recuperar frente al espejo</p>
+				</article>
+			</div>
+
+			<div class="sg-habit">
+				<figure class="sg-habit__media">
+					<img
+						src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ugc-anny.webp?width=560"
+						width="640" height="799" loading="lazy" decoding="async"
+						alt="Mujer sosteniendo en la palma los dulces duros de Sknglow">
+				</figure>
+				<div class="sg-habit__copy">
+					<p class="sg-habit__title">4 dulces duros al día</p>
+					<ul class="sg-habit__list">
+						<li>Un hábito sencillo</li>
+						<li>Un sabor que disfrutas</li>
+						<li>Un cuidado que puedes sostener</li>
+					</ul>
+				</div>
+
+				<!-- El collage no decora: es la prueba de que el hábito ya lo
+				     sostienen mujeres distintas, en casas distintas. -->
+				<ul class="sg-habit__bento" aria-label="Clientas de MIMA con su frasco de Sknglow">
+					<li class="sg-habit__tile sg-habit__tile--lead">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-bento-isabella.webp?width=520"
+							width="507" height="568" loading="lazy" decoding="async"
+							alt="Clienta de MIMA sonriendo con su frasco de Sknglow entre las manos">
+					</li>
+					<li class="sg-habit__tile sg-habit__tile--a">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-bento-camila.webp?width=300"
+							width="507" height="568" loading="lazy" decoding="async"
+							alt="Clienta sonriendo sostiene su frasco de Sknglow a la altura del pecho">
+					</li>
+					<li class="sg-habit__tile sg-habit__tile--b">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-bento-juli.webp?width=300"
+							width="508" height="569" loading="lazy" decoding="async"
+							alt="Clienta sonriendo muestra a cámara su frasco de Sknglow">
+					</li>
+					<li class="sg-habit__tile sg-habit__tile--c">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-bento-shelyka.webp?width=300"
+							width="595" height="666" loading="lazy" decoding="async"
+							alt="Clienta sonriendo con su frasco de Sknglow junto al rostro">
+					</li>
+					<li class="sg-habit__tile sg-habit__tile--extra">
+						<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-bento-leidy.webp?width=300"
+							width="512" height="573" loading="lazy" decoding="async"
+							alt="Clienta sonriendo levanta su frasco de Sknglow hacia la cámara">
+					</li>
+				</ul>
+			</div>
+
+			<div class="sg-cta-row">
+				<button type="button" id="es-popup-button" class="sg-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO EMPEZAR CON SKNGLOW</button>
+			</div>
+		</div>
+	</section>
+
+	<!-- ========================== DOLORES =========================== -->
+	<section class="sg-section sg-section--soft">
+		<div class="sg-shell">
+			<div class="sg-headline">
+				<h2 class="sg-h2">Tu piel te está hablando</h2>
+				<p class="sg-sub">Aprende a escuchar lo que ves</p>
+			</div>
+
+			<div class="sg-pains">
+				<article class="sg-pain">
+					<h3 class="sg-pain__title">Celulitis</h3>
+					<figure class="sg-pain__media">
+					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-case-celulitis.webp?width=360" width="440" height="550" loading="lazy" decoding="async" alt="Mujer de cuerpo entero">
+					</figure>
+					<p>La textura cambia. La piel empieza a marcarse más.</p>
+					<p>Y una termina pensando dos veces antes de ponerse esa falda que sí le gustaba.</p>
+					<p class="sg-pain__answer">Sknglow trabaja desde adentro para ayudar a que la piel vuelva a verse más firme, más uniforme y más cuidada</p>
+				</article>
+
+				<article class="sg-pain">
+					<h3 class="sg-pain__title">Manchas hormonales</h3>
+					<figure class="sg-pain__media">
+					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-case-manchas.webp?width=360" width="440" height="550" loading="lazy" decoding="async" alt="Mujer con la mano en el cuello">
+					</figure>
+					<p>Aparecen justo cuando sentías que estabas haciendo todo bien. Se vuelven parte de tu reflejo.</p>
+					<p>Y empiezas a probar productos sin saber qué necesita realmente tu piel.</p>
+					<p class="sg-pain__answer">Sknglow trabaja para una apariencia más uniforme y luminosa</p>
+				</article>
+
+				<article class="sg-pain">
+					<h3 class="sg-pain__title">Piel envejecida</h3>
+					<figure class="sg-pain__media">
+					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-case-envejecida.webp?width=360" width="440" height="550" loading="lazy" decoding="async" alt="Mujer de pelo cano apoyando la mano en la mejilla">
+					</figure>
+					<p>Hay días en los que tienes energía, pero tu piel parece contar otra historia.</p>
+					<p>Menos brillo. Más textura. Una apariencia más cansada de la que realmente sientes.</p>
+					<p class="sg-pain__answer">Sknglow trabaja para que tu piel vuelva a reflejar vitalidad</p>
+				</article>
+
+				<article class="sg-pain">
+					<h3 class="sg-pain__title">Piel opaca</h3>
+					<figure class="sg-pain__media">
+					<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-case-opaca.webp?width=360" width="440" height="550" loading="lazy" decoding="async" alt="Mujer sonriendo con la mano en el pecho">
+					</figure>
+					<p>Tu piel puede verse apagada incluso cuando cumples con el cuidado externo.</p>
+					<p>Porque la luminosidad también se construye con lo que haces todos los días.</p>
+					<p class="sg-pain__answer">Sknglow trabaja desde adentro para que tu piel vuelva a verse viva, fresca y luminosa</p>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<!-- ========================= USO SIMPLE ========================= -->
+	<section class="sg-section">
+		<div class="sg-shell sg-usage">
+			<div class="sg-usage__head">
+				<p class="sg-overline">Lo haces fácil</p>
+				<h2 class="sg-h2">Cuatro dulces duros.<br>Todos los días.</h2>
+				<p class="sg-sub">El momento lo eliges tú</p>
+			</div>
+
+			<figure class="sg-usage__product">
+				<img
+					src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-product.webp?width=340"
+					width="581" height="1000" loading="lazy" decoding="async"
+					alt="Frasco de Sknglow con varios dulces duros apoyados a su lado">
+			</figure>
+
+			<div class="sg-usage__body">
+				<ul class="sg-moments">
+					<li>Después del desayuno</li>
+					<li>Durante tu pausa de la tarde</li>
+					<li>Cuando termina el día y empieza tu momento de cuidado</li>
+				</ul>
+
+				<p class="sg-usage__foot">Lo importante es convertirlo en parte de tu día</p>
+
+				<dl class="sg-stats">
+					<div class="sg-stat"><dt>4</dt><dd>dulces duros al día</dd></div>
+					<div class="sg-stat"><dt>120</dt><dd>dulces duros por frasco</dd></div>
+					<div class="sg-stat"><dt>30</dt><dd>días de uso</dd></div>
+					<div class="sg-stat"><dt>Kiwi</dt><dd>sabor</dd></div>
+				</dl>
+
+				<div class="sg-cta-row sg-cta-row--start">
+					<button type="button" id="es-popup-button" class="sg-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI SKNGLOW</button>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="sg-gallery">
+			<ul class="sg-gallery__track" tabindex="0" role="region" aria-label="Mujeres que ya usan Sknglow">
+				<li class="sg-gallery__item"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ugc-genesis.webp?width=420" width="510" height="903" loading="lazy" decoding="async" alt="Mujer tomando uno de los dulces duros de Sknglow en casa"></li>
+				<li class="sg-gallery__item"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ugc-juli.webp?width=420" width="510" height="900" loading="lazy" decoding="async" alt="Mujer sujetando su frasco de Sknglow"></li>
+				<li class="sg-gallery__item"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ugc-camila.webp?width=420" width="510" height="900" loading="lazy" decoding="async" alt="Mujer con su frasco de Sknglow al aire libre"></li>
+				<li class="sg-gallery__item"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ugc-leidy.webp?width=420" width="510" height="901" loading="lazy" decoding="async" alt="Mujer mostrando su frasco de Sknglow"></li>
+				<li class="sg-gallery__item"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ugc-natalia.webp?width=420" width="507" height="906" loading="lazy" decoding="async" alt="Mujer con su frasco de Sknglow en la cocina"></li>
+				<li class="sg-gallery__item"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ugc-camila-l.webp?width=420" width="507" height="911" loading="lazy" decoding="async" alt="Mujer sosteniendo su frasco de Sknglow con las dos manos"></li>
+				<li class="sg-gallery__item"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ugc-shelyka.webp?width=420" width="510" height="924" loading="lazy" decoding="async" alt="Mujer con su frasco de Sknglow"></li>
+			</ul>
+			<p class="sg-gallery__note">Contenido en colaboración con MIMA</p>
+		</div>
+	</section>
+
+	<!-- ======================= SELECTOR DE PAGO ===================== -->
+	<section class="sg-section sg-section--soft" id="sg-payment">
+		<div class="sg-shell sg-narrow">
+			<figure class="sg-pay__product">
+				<img
+					src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-product.webp?width=240"
+					width="581" height="1000" loading="lazy" decoding="async"
+					alt="Frasco de Sknglow">
+			</figure>
+
+			<div class="sg-headline">
+				<p class="sg-overline">Elige cómo pagar</p>
+				<h2 class="sg-h2">Sknglow vale $79.900</h2>
+				<p class="sg-sub">Luego eliges la opción que más te conviene</p>
+			</div>
+
+			<fieldset class="sg-pay">
+				<legend class="sg-visually-hidden">Forma de pago</legend>
+
+				<label class="sg-pay__option" for="sg-pay-prepaid">
+					<input type="radio" name="sg-payment" id="sg-pay-prepaid" value="prepaid" checked>
+					<span class="sg-pay__box">
+						<span class="sg-pay__badge">Recomendado</span>
+						<span class="sg-pay__name">Pago anticipado</span>
+						<span class="sg-pay__amount">$69.900</span>
+						<span class="sg-pay__save">Ahorras $10.000</span>
+						<span class="sg-pay__detail">Recibes confirmación y seguimiento por WhatsApp</span>
+						<span class="sg-pay__methods">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-pay-visa.webp?width=222" width="222" height="72" loading="lazy" decoding="async" alt="Visa">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-pay-mastercard.webp?width=92" width="92" height="72" loading="lazy" decoding="async" alt="Mastercard">
+							<img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-pay-pse.webp?width=72" width="72" height="72" loading="lazy" decoding="async" alt="PSE">
+						</span>
+					</span>
+				</label>
+
+				<label class="sg-pay__option" for="sg-pay-cod">
+					<input type="radio" name="sg-payment" id="sg-pay-cod" value="cod">
+					<span class="sg-pay__box">
+						<span class="sg-pay__name">Pago contraentrega</span>
+						<span class="sg-pay__amount">$79.900</span>
+						<span class="sg-pay__detail">Pagas cuando recibes tu pedido</span>
+					</span>
+				</label>
+			</fieldset>
+
+			<ul class="sg-pay__same">
+				<li>El mismo producto</li>
+				<li>La misma cantidad</li>
+				<li>La elección es tuya</li>
+			</ul>
+
+			<div class="sg-cta-row">
+				<button type="button" id="es-popup-button" class="sg-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage" data-sg-cta-price>ELEGIR MI FORMA DE PAGO</button>
+			</div>
+
+			<ul class="sg-trust">
+				<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="12" rx="2.5"/><circle cx="12" cy="12" r="2.6"/><path d="M6 12h.01M18 12h.01"/></svg> Pagas al recibir</li>
+				<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h3.7l2.8 3v4h-6.5z"/><circle cx="7" cy="18" r="1.7"/><circle cx="17" cy="18" r="1.7"/></svg> Envío gratis · 3 a 5 días</li>
+				<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.3 7.5L3.6 20.4l1.4-4.4A8.4 8.4 0 1 1 20.5 11.6Z"/></svg> Confirmamos por WhatsApp</li>
+				<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg> Registro INVIMA RSA-0156-2025</li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- ============================ BONO ============================ -->
+	<section class="sg-section sg-section--bonus">
+		<div class="sg-shell sg-bonus">
+			<div class="sg-bonus__visual">
+				<p class="sg-bonus__included">Incluido con tu compra de Sknglow</p>
+				<figure class="sg-bonus__cover">
+					<img
+						src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ebook.webp?width=520"
+						width="720" height="900" loading="lazy" decoding="async"
+						alt="Portada de la guía digital 28 días para proteger tu piel">
+				</figure>
+			</div>
+
+			<div class="sg-bonus__copy">
+				<p class="sg-overline sg-overline--accent">Bono gratis</p>
+				<h2 class="sg-h2">28 días para evitar que tus manchas se marquen más</h2>
+				<p class="sg-sub">Con tu compra de Sknglow recibes una guía práctica para cuidar tu piel con más criterio</p>
+
+				<ul class="sg-checklist">
+					<li>Aprende a proteger tu piel del sol</li>
+					<li>Reduce errores que la irritan</li>
+					<li>Identifica señales que vale la pena observar</li>
+					<li>Elige mejor los productos que usas en tu cuidado de piel</li>
+				</ul>
+
+				<p class="sg-bonus__who">Un plan de 28 días para mujeres que sienten que las manchas, la textura irregular o la sensibilidad les impiden ver su piel como quieren</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ========================== HISTORIAS ========================= -->
+	<section class="sg-section sg-section--soft">
+		<div class="sg-shell">
+			<div class="sg-headline">
+				<p class="sg-overline">Historias compartidas con MIMA</p>
+				<h2 class="sg-h2">Mujeres hablando de lo que quieren volver a ver en su piel</h2>
+				<p class="sg-sub">Contenido en colaboración con MIMA</p>
+			</div>
+		</div>
+
+		<div class="sg-stories" data-sg-stories>
+			<ul class="sg-stories__track" data-sg-stories-track tabindex="0" role="region" aria-label="Historias de mujeres que usan Sknglow">
+				<li class="sg-stories__item">
+					<article class="sg-story">
+						<img
+							src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ugc-isabella.webp?width=510"
+							width="510" height="902" loading="lazy" decoding="async"
+							alt="Isabella con su frasco de Sknglow">
+						<div class="sg-story__body">
+							<p class="sg-story__who">Isabella <span>· Bogotá</span></p>
+							<p>Yo estaba en ese punto en el que me maquillaba y aun así sentía que mi cara se veía cansada. Como apagada.</p>
+							<p>Empecé a consumir Sknglow porque quería hacer algo que también sumara a mi cuidado desde adentro.</p>
+							<p>Lo que más me gustó fue volverlo fácil. Son cuatro dulces duros sabor kiwi y ya. Siento que mi piel se ve mucho más cuidada.</p>
+							<p class="sg-story__tag">Colaboración con MIMA</p>
+						</div>
+					</article>
+				</li>
+				<li class="sg-stories__item">
+					<article class="sg-story">
+						<img
+							src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ugc-catalina.webp?width=510"
+							width="507" height="905" loading="lazy" decoding="async"
+							alt="Catalina con su frasco de Sknglow">
+						<div class="sg-story__body">
+							<p class="sg-story__who">Catalina <span>· Medellín</span></p>
+							<p>Les voy a contar algo que me daba pena admitir. Yo dejé de ponerme falda muchas veces por cómo se me marcaba la celulitis.</p>
+							<p>Sknglow me gustó porque se volvió una forma sencilla de ser constante con mi cuidado. No tengo que preparar nada.</p>
+							<p>Tomo mis cuatro dulces duros y sigo con mi día. Me gusta sentir que estoy haciendo algo por mí sin volverlo complicado.</p>
+							<p class="sg-story__tag">Colaboración con MIMA</p>
+						</div>
+					</article>
+				</li>
+				<li class="sg-stories__item">
+					<article class="sg-story">
+						<img
+							src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-ugc-sonia.webp?width=510"
+							width="508" height="906" loading="lazy" decoding="async"
+							alt="Sonia con su frasco de Sknglow">
+						<div class="sg-story__body">
+							<p class="sg-story__who">Sonia <span>· Cali</span></p>
+							<p>Las manchas hormonales son de esas cosas que una nota en cada foto. En cada espejo. En cada momento en que se quita el maquillaje.</p>
+							<p>Empecé a consumir Sknglow y también a seguir la guía que viene con la compra.</p>
+							<p>Me ayudó a tener mucho más cuidado con el sol y con los productos que uso. Ahora siento que entiendo mucho mejor lo que mi piel necesita.</p>
+							<p class="sg-story__tag">Colaboración con MIMA</p>
+						</div>
+					</article>
+				</li>
+			</ul>
+
+			<div class="sg-stories__nav" data-sg-stories-nav hidden>
+				<button type="button" class="sg-stories__arrow" data-sg-stories-prev aria-label="Historia anterior">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"/></svg>
+				</button>
+				<div class="sg-stories__dots" role="group" aria-label="Elegir historia">
+					<button type="button" class="sg-stories__dot" data-sg-stories-dot aria-label="Ver la historia de Isabella" aria-current="true"></button>
+					<button type="button" class="sg-stories__dot" data-sg-stories-dot aria-label="Ver la historia de Catalina"></button>
+					<button type="button" class="sg-stories__dot" data-sg-stories-dot aria-label="Ver la historia de Sonia"></button>
+				</div>
+				<button type="button" class="sg-stories__arrow" data-sg-stories-next aria-label="Historia siguiente">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 6 6 6-6 6"/></svg>
+				</button>
+			</div>
+		</div>
+	</section>
+
+	<!-- ========================== AUTORIDAD ========================= -->
+	<section class="sg-section">
+		<div class="sg-shell">
+			<div class="sg-headline">
+				<p class="sg-overline">El ingrediente detrás de Sknglow</p>
+				<h2 class="sg-h2">El Resveratrol ha puesto a la piel en la conversación</h2>
+				<p class="sg-sub">Sknglow reúne Biotina y Resveratrol en dulces duros sabor kiwi para trabajar el cuidado de piel, uñas y cabello desde una mirada más completa</p>
+			</div>
+
+		</div>
+
+		<div class="sg-sources">
+			<ul class="sg-sources__track" tabindex="0" role="region" aria-label="El Resveratrol en medios y estudios">
+				<li class="sg-sources__item">
+					<article class="sg-source">
+						<p class="sg-source__name"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-logo-univision.webp?width=232" width="116" height="96" loading="lazy" decoding="async" alt="Univision"></p>
+						<h3 class="sg-source__title">Resveratrol y exposición solar</h3>
+						<p>Univision destaca al Resveratrol por su relación con el cuidado de la piel frente al impacto de los rayos solares</p>
+						<p class="sg-source__note">Un antioxidante que lleva el cuidado de la piel mucho más allá de la superficie</p>
+				</article>
+				</li>
+				<li class="sg-sources__item">
+					<article class="sg-source">
+						<p class="sg-source__name"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-logo-elpais.webp?width=744" width="372" height="96" loading="lazy" decoding="async" alt="EL PAÍS"></p>
+						<h3 class="sg-source__title">Un activo que la dermatología mira de cerca</h3>
+						<p>EL PAÍS recoge la conversación dermatológica alrededor del Resveratrol y su papel frente a signos visibles de edad como manchas, arrugas y flacidez</p>
+						<p class="sg-source__note">El cuidado antiedad empieza por proteger la piel del desgaste que se acumula con el tiempo</p>
+				</article>
+				</li>
+				<li class="sg-sources__item">
+					<article class="sg-source">
+						<p class="sg-source__name"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-logo-vanguardia.webp?width=1286" width="643" height="96" loading="lazy" decoding="async" alt="La Vanguardia"></p>
+						<h3 class="sg-source__title">La piel de la uva negra guarda un antioxidante poderoso</h3>
+						<p>La Vanguardia identifica al Resveratrol como uno de los antioxidantes presentes en la piel de las uvas negras</p>
+						<p class="sg-source__note">Su función se relaciona con bloquear radicales libres vinculados al envejecimiento celular</p>
+				</article>
+				</li>
+				<li class="sg-sources__item">
+					<article class="sg-source">
+						<p class="sg-source__name"><img src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-logo-pubmed.webp?width=540" width="270" height="96" loading="lazy" decoding="async" alt="PubMed Central"></p>
+						<h3 class="sg-source__title">Resveratrol y funciones de la piel</h3>
+						<p>Una revisión dermatológica indexada en PubMed Central documenta la acción antioxidante, antiinflamatoria y protectora del Resveratrol para funciones cutáneas</p>
+						<p class="sg-source__note">La piel se expone todos los días al sol, la contaminación y el estrés oxidativo. Por eso protegerla también importa</p>
+				</article>
+				</li>
+				<li class="sg-sources__item">
+					<article class="sg-source">
+						<p class="sg-source__name">Revisión sistemática</p>
+						<h3 class="sg-source__title">41 estudios alrededor del Resveratrol y la piel</h3>
+						<p>Una revisión sistemática analizó 41 investigaciones sobre Resveratrol, cicatrización, marcas cutáneas y fotoenvejecimiento</p>
+						<p class="sg-source__note">El Resveratrol destaca por su acción antioxidante y su relación con la protección de la piel frente al desgaste asociado al tiempo y la exposición solar</p>
+				</article>
+				</li>
+			</ul>
+		</div>
+
+		<div class="sg-shell">
+
+			<p class="sg-disclaimer">Estas fuentes hablan del Resveratrol como ingrediente, no de Sknglow. Sknglow es un suplemento alimenticio y no es un medicamento.</p>
+		</div>
+	</section>
+
+	<!-- ========================== QUÉ RECIBES ======================= -->
+	<section class="sg-section sg-section--soft">
+		<div class="sg-shell sg-receive">
+			<div class="sg-receive__copy">
+				<p class="sg-overline">Recibes esto</p>
+				<h2 class="sg-h2">Todo para empezar</h2>
+
+				<ul class="sg-checklist">
+					<li>1 frasco de Sknglow</li>
+					<li>120 dulces duros sabor kiwi</li>
+					<li>30 días de uso</li>
+					<li>Guía digital de 28 días para evitar que tus manchas se marquen más</li>
+					<li>Envío gratis a Colombia</li>
+					<li>Confirmación de pedido por WhatsApp</li>
+				</ul>
+
+				<div class="sg-cta-row sg-cta-row--start">
+					<button type="button" id="es-popup-button" class="sg-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI SKNGLOW</button>
+				</div>
+			</div>
+
+			<div class="sg-receive__media">
+				<figure>
+					<img
+						src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-bottle-hand.webp?width=560"
+						width="1000" height="1333" loading="lazy" decoding="async"
+						alt="Frasco de Sknglow sostenido en la mano, con la etiqueta visible">
+				</figure>
+				<figure>
+					<img
+						src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-pills-hand.webp?width=560"
+						width="1000" height="1333" loading="lazy" decoding="async"
+						alt="Dulces duros de Sknglow en la palma de la mano, junto al frasco abierto">
+				</figure>
+			</div>
+		</div>
+	</section>
+
+	<!-- =========================== GARANTÍA ========================= -->
+	<section class="sg-section">
+		<div class="sg-shell sg-narrow">
+			<div class="sg-guarantee">
+				<img class="sg-guarantee__brand"
+					src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-mima-badge.webp?width=140"
+					width="176" height="176" loading="lazy" decoding="async"
+					alt="MIMA">
+				<p class="sg-overline">Garantía de entrega</p>
+				<h2 class="sg-h2">Tu pedido llega o respondemos por él</h2>
+				<p class="sg-sub">Te cuidamos desde que confirmas tu compra hasta que recibes tu Sknglow</p>
+
+				<ul class="sg-checklist sg-checklist--center">
+					<li>Tu pedido llega entre 3 y 5 días hábiles</li>
+					<li>Si no llega dentro de ese tiempo, reenviamos tu producto</li>
+					<li>Si elegiste pago anticipado y prefieres no esperar el reenvío, devolvemos tu dinero</li>
+				</ul>
+
+				<p class="sg-guarantee__foot">
+					<span class="sg-guarantee__shield" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+					</span>
+					Tu pedido está respaldado
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================= FAQ ============================ -->
+	<section class="sg-section sg-section--soft">
+		<div class="sg-shell sg-narrow">
+			<div class="sg-headline">
+				<h2 class="sg-h2">Preguntas frecuentes</h2>
+			</div>
+
+			<div class="sg-faq">
+				<details class="sg-faq__item">
+					<summary>¿Cómo tomo Sknglow?</summary>
+					<div class="sg-faq__body">
+						<p>Consume 4 dulces duros al día. Elige el momento que te resulte más fácil de sostener todos los días.</p>
+						<p>Cada frasco trae 120 dulces duros, así que dura 30 días.</p>
+					</div>
+				</details>
+				<details class="sg-faq__item">
+					<summary>¿A qué saben?</summary>
+					<div class="sg-faq__body"><p>Tienen sabor kiwi.</p></div>
+				</details>
+				<details class="sg-faq__item">
+					<summary>¿Puedo usar Sknglow junto con mis productos de skincare?</summary>
+					<div class="sg-faq__body"><p>Sí. Puedes consumir Sknglow junto a los productos de cuidado externo que ya usas.</p></div>
+				</details>
+				<details class="sg-faq__item">
+					<summary>¿Qué incluye el bono?</summary>
+					<div class="sg-faq__body"><p>Recibes una guía digital de 28 días con pasos diarios para proteger tu piel del sol, reducir errores que la irritan y elegir productos con más criterio.</p></div>
+				</details>
+				<details class="sg-faq__item">
+					<summary>¿Puedo pagar cuando reciba el pedido?</summary>
+					<div class="sg-faq__body"><p>Sí. Tu Sknglow vale $79.900 y pagas cuando recibes el pedido.</p></div>
+				</details>
+				<details class="sg-faq__item">
+					<summary>¿Qué pasa si pago anticipado?</summary>
+					<div class="sg-faq__body"><p>Tu Sknglow queda en $69.900. Ahorras $10.000. Además recibes confirmación y seguimiento por WhatsApp.</p></div>
+				</details>
+				<details class="sg-faq__item">
+					<summary>¿Cuándo llega mi pedido?</summary>
+					<div class="sg-faq__body"><p>Tu pedido llega entre 3 y 5 días hábiles. Si no llega en ese tiempo, lo reenviamos. Si pagaste anticipado y prefieres no esperar, devolvemos tu dinero.</p></div>
+				</details>
+				<details class="sg-faq__item">
+					<summary>¿Puedo consumir Sknglow durante el embarazo o la lactancia?</summary>
+					<div class="sg-faq__body"><p>Consulta con tu médico antes de iniciar cualquier suplemento durante el embarazo o la lactancia.</p></div>
+				</details>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================ CIERRE ========================== -->
+	<section class="sg-section sg-close">
+		<div class="sg-close__glow" aria-hidden="true"></div>
+		<div class="sg-shell sg-narrow sg-close__inner">
+			<h2 class="sg-h2">Tu próxima piel empieza hoy</h2>
+			<p class="sg-sub">Haz que vuelva a verse firme, uniforme y luminosa</p>
+
+			<figure class="sg-close__media">
+				<img
+					src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-close-isabella.webp?width=520"
+					width="640" height="800" loading="lazy" decoding="async"
+					alt="Isabella sosteniendo su frasco de Sknglow">
+			</figure>
+
+			<p class="sg-close__product">SKNGLOW <span>$79.900</span></p>
+
+			<div class="sg-close__options">
+				<div class="sg-close__option sg-close__option--best">
+					<span class="sg-close__badge">Recomendado</span>
+					<p class="sg-close__label">Pago anticipado</p>
+					<p class="sg-close__amount">$69.900</p>
+					<p class="sg-close__save">Ahorras $10.000</p>
+				</div>
+				<div class="sg-close__option">
+					<p class="sg-close__label">Pago contraentrega</p>
+					<p class="sg-close__amount">$79.900</p>
+				</div>
+			</div>
+
+			<div class="sg-cta-row">
+				<button type="button" id="es-popup-button" class="sg-cta es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO ELEGIR MI FORMA DE PAGO</button>
+			</div>
+
+			<ul class="sg-trust">
+				<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="12" rx="2.5"/><circle cx="12" cy="12" r="2.6"/><path d="M6 12h.01M18 12h.01"/></svg> Pagas al recibir</li>
+				<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h3.7l2.8 3v4h-6.5z"/><circle cx="7" cy="18" r="1.7"/><circle cx="17" cy="18" r="1.7"/></svg> Envío gratis · 3 a 5 días</li>
+				<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.3 7.5L3.6 20.4l1.4-4.4A8.4 8.4 0 1 1 20.5 11.6Z"/></svg> Confirmamos por WhatsApp</li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- =========================== INSTAGRAM ======================== -->
+	<section class="sg-section sg-social">
+		<div class="sg-social__aura" aria-hidden="true"></div>
+		<div class="sg-shell sg-narrow">
+			<figure class="sg-social__card">
+				<img
+					src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-instagram-u.webp?width=1000"
+					width="1000" height="398" loading="lazy" decoding="async"
+					alt="Perfil de Instagram de MIMA, @mima_tiendaoficial, con 106 mil seguidores">
+			</figure>
+		</div>
+	</section>
+
+	<!-- ============================ FOOTER ========================== -->
+	<footer class="sg-footer">
+		<div class="sg-shell sg-footer__inner">
+			<img class="sg-footer__logo"
+				src="https://www.mimacolombia.com/cdn/shop/files/landings-sknglow-mima-white.webp?width=200"
+				width="300" height="180" loading="lazy" decoding="async"
+				alt="MIMA">
+
+			<dl class="sg-footer__data">
+				<div class="sg-footer__block">
+					<dt>Registro INVIMA</dt>
+					<dd>RSA-0156-2025</dd>
+				</div>
+				<div class="sg-footer__block">
+					<dt>Atención al cliente MIMA</dt>
+					<dd><a href="tel:+573006964582">300 696 4582</a></dd>
+				</div>
+			</dl>
+
+			<p class="sg-footer__maker">Fabricado por Vitaliah S.A.S. · Calle 24 B N° 26-06, Bogotá, Colombia · Industria colombiana</p>
+			<p class="sg-footer__legal">Contiene edulcorantes. Consulta la información nutricional de cada producto.</p>
+		</div>
+	</footer>
+
+	<!-- ========================= CTA STICKY ========================= -->
+	<div class="sg-sticky" data-sg-sticky hidden>
+		<div class="sg-sticky__inner">
+			<p class="sg-sticky__price"><strong data-sg-sticky-price>$79.900</strong> <span>Envío gratis</span></p>
+			<button type="button" id="es-popup-button" class="sg-cta sg-cta--sm es-popup-button es-popup-button-cart _rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage">QUIERO MI SKNGLOW</button>
+		</div>
+	</div>
+
+</section>
+

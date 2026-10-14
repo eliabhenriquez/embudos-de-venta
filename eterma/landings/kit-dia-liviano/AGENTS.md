@@ -117,6 +117,11 @@ de Colombia. Las fotos de los kits llegaron sin nombre (`clorofull ugc 1..4`, `a
 Las citas son las tres del copy, cada una sobre un producto distinto. Si se cambia una foto, cambiar
 también el nombre.
 
+**Carrusel en todos los anchos (2026-09-22).** Desde 760 px una cita destacada (72 %, foto de 200 px; 240
+y 300 de alto desde 1000) con la siguiente asomando. Antes, a 46 % y 32 %, cabían dos o las tres y los
+puntos no llevaban a su tarjeta. El índice lo da `slideIndexOf`: la tarjeta con el punto de encaje más
+cercano, no una proporción del scroll.
+
 ---
 
 ## 5. Imágenes

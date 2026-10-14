@@ -1,155 +1,187 @@
 # AGENTS.md — KIT DUERME Y FLORECE
 
 Contexto de producto. Hereda de `/AGENTS.md` (global) y de `/eterma/AGENTS.md` (marca), y **manda sobre
-los dos** en caso de conflicto. Cuarto kit de Eterma: comparte columna vertebral con
-[`../kit-dia-liviano/`](../kit-dia-liviano/AGENTS.md) y cambia motivo, hero, sección de producto y CTA
-(regla del cliente, 2026-09-06: "cada landing tiene algún toque único, sobre todo el hero").
+los dos** en caso de conflicto.
+
+> **Rehecha el 2026-09-16.** El copywriter rehízo los ángulos y esta landing se reconstruyó entera con la
+> línea «Eterma viva» que estrenó [`kit-reset-digestivo`](../kit-reset-digestivo/AGENTS.md). La versión
+> de la primera tanda (carrusel de la ventana de noche, notas de mesa de noche, etiqueta de frasco)
+> **queda anulada**; lo único que sobrevive de aquella es el producto de Shopify, que es el mismo. **Es
+> el único kit de la tanda nueva que ya existe en la tienda.**
 
 ---
 
 ## 1. El producto
 
-Kit de **dos bebidas de 1 litro con vaso medidor y un frasco de gotas**, pensado para la noche y el
-cuidado diario: **MULTIBRINA** (manzanilla, toronjil, hierbabuena y mejorana, antes de dormir),
-**VALERIANA** en gotas (noches de tensión ocasional, según la etiqueta) y **TODO EN UNO** (colágeno,
-pepino y resveratrol, sabor uva, durante el día o en la noche). Las dos bebidas: 30 ml al día, 33 dosis
-por botella.
+Kit de **dos bebidas de 1 litro con vaso medidor y un frasco de gotas**: **MULTIBRINA** (manzanilla,
+toronjil, hierbabuena y mejorana, al final del día), **VALERIANA** en gotas (tensión ocasional y el
+momento previo a dormir, diluida en agua según la presentación) y **TODO EN UNO** (colágeno, pepino y
+resveratrol, cuidado diario de piel, cabello, uñas y articulaciones). Las dos bebidas: 30 ml al día, 33
+dosis por botella.
+
+Copy aprobado: [`general/copy kit duerme y florece [4].txt`](general/copy%20kit%20duerme%20y%20florece%20%5B4%5D.txt).
+**El copy manda.**
+
+> **Sección de autoridad rehecha el 2026-09-17** con
+> [`../copy correcciones autoridad kits [2026-09-17].txt`](../copy%20correcciones%20autoridad%20kits%20%5B2026-09-17%5D.txt), que **manda sobre el copy aprobado
+> en esa sección concreta**. El resto de la landing sigue el copy original.
+
+**Producto de Shopify (verificado el 2026-09-16 en `/products.json`):** handle **`kit-duerme-y-florece`**,
+variante `64093190914417`, precio $129.900, que **coincide con el contraentrega del copy**. Ese handle ya
+está puesto en `PRODUCT_HANDLE`: aquí no hay nada provisional.
 
 | | Anticipado | Contraentrega |
 |---|---|---|
 | Kit | **$119.900** (ahorras $10.000) | **$129.900** |
 
-Envío gratis a Colombia, 3 a 5 días hábiles, reenvío o devolución si no llega. WhatsApp 300 696 4582.
-**Sin bono, sin order bump ni upsell.** Copy: [`general/Copy Kit duerme y florece - eterma.txt`](general/Copy%20Kit%20duerme%20y%20florece%20-%20eterma.txt), manda sobre la web y la etiqueta.
+Envío gratis, entrega **3 a 5 días hábiles**, reenvío sin costo o devolución si se pagó anticipado.
+WhatsApp de atención **300 696 4582**. **Sin bono, sin order bump ni upsell.**
 
-- **Porcentajes de TODO EN UNO fuera**, como en Piel Viva: el copy los marca "validar contra la etiqueta
-  vigente antes de publicar". Hasta entonces la landing dice "colágeno, pepino y resveratrol".
-- **VALERIANA no lleva registro sanitario ni dosis en gotas**: "según la indicación de la etiqueta".
-- Registro sanitario de las dos bebidas: **INVIMA RSA-0029174-2023**, el de toda Eterma.
-- Secciones: solo las del copy. Sin problema–agitación, sin línea de tiempo 30/60/90, sin bonos.
-
-**Producto de Shopify (leído de `/products/kit-duerme-y-florece.js` el 2026-09-06):** handle
-**`kit-duerme-y-florece`**, product ID `15870475338097`, variante única `64093190914417`, precio en
-Shopify $129.900 (coincide con el contraentrega del copy), `available: true`. Se publica como página de
-producto en `https://etermacolombia.com/products/kit-duerme-y-florece`. El handle va en `PRODUCT_HANDLE`
-por trazabilidad; los CTA abren Releasit por el contexto de la ficha, sin `/cart/add.js`.
-
-`PREPAID_ENABLED = false` hasta que Releasit descuente los $10.000 reales.
+- **Los porcentajes de TODO EN UNO se quedan fuera**, como en Piel Viva: el copy nuevo tampoco los da.
+  La landing dice «colágeno, pepino y resveratrol».
+- **VALERIANA no lleva registro sanitario**: el copy dice literalmente «registro sanitario no comunicado
+  hasta validación específica» y **así va en el pie**, sin inventar nada. Tampoco se da una dosis en
+  gotas: «siguiendo la cantidad indicada en la presentación».
+- Registros de las dos bebidas: **INVIMA RSA-0029174-2023**.
+- **El copy es de los más delicados**: microsueños al conducir, alucinaciones por privación de sueño,
+  demencia, diabetes, salud mental. Cada bloque dice **qué no hace el kit**, y el pie lo repite: «este
+  kit no trata el insomnio ni otros trastornos del sueño».
+- **Sin testimonios**: la tira de personas va sin frases.
 
 ---
 
-## 2. Motivo propio de esta landing (dentro de la línea Eterma)
+## 2. Motivo propio: apagar el día
 
-- **La ventana de noche.** El hero es un **carrusel** (regla del cliente para todos los kits: el kit
-  primero, luego una foto por producto) cuya caja **cambia con la hoja visible**: menta con el kit,
-  **noche cerrada con estrellas** con Multibrina, noche suave (verde medio) con Valeriana y otra vez
-  menta, la mañana, con Todo en uno. Son dos capas de color (`::before` con el cielo y `::after` con la
-  noche suave) que solo cambian de opacidad según `data-df-slide`. El rótulo de cada hoja va en banda
-  propia bajo la foto, nunca encima. Los **tres chips del copy son los controles**, con icono de luna,
-  luna con estrella y flor: saltan a su foto y se marcan solos (`aria-pressed`) al deslizar o usar las
-  flechas; tocar el chip marcado devuelve al kit. Sin puntos. Sin JS quedan el kit, el gesto y los chips
-  como texto.
-- **Tres momentos = notas de la mesa de noche.** Tres tarjetas con la **esquina doblada** (gradiente en
-  el `::after`), en el orden del día: Multibrina en verde profundo, Valeriana en verde medio y Todo en
-  uno en blanco con borde lima, la mañana. En móvil se escalonan diez píxeles a cada lado; en escritorio
-  van en tres columnas. Numeración sin cero (1, 2, 3) en la fila del icono y el momento.
-- **Fórmulas = la etiqueta.** La tabla del copy se presenta como la etiqueta de un frasco: regla gruesa
-  arriba y abajo, leyenda en versalitas, cada fila con su icono, nombre en serif, ingredientes y el uso
-  sugerido con un guion lima. "Uso diario" es **la rutina**: una sola tarjeta con las tres tomas en fila
-  (foto redonda del vasito o del gotero) y las formas de tomar las bebidas al pie; en escritorio las tres
-  tomas van en columnas.
-- **La tira de personas es un mosaico 2×2** sin scroll (4 columnas en escritorio, pares un punto más
-  abajo). Las experiencias son **notas con pin**: papel crema, punto de color en el borde superior,
-  avatar redondo con nombre y ciudad, y la cita en serif. El cierre **amanece**: fondo que pasa de verde
-  profundo a verde medio y una ventana de tres hojas con las fotos en un solo marco claro.
-- **El CTA es "las estrellas y la flor".** Dos estrellas lima de cuatro puntas (`::before` y `::after` del
-  botón, con `clip-path`) parpadean a destiempo en las esquinas de la píldora, como el cielo de la
-  ventana; al pasar el dedo o el ratón, **una flor de color se abre desde el centro** (`::before` de la
-  etiqueta: un círculo que escala de 0 a 1). Por eso el texto va siempre dentro de
-  `<span class="df-cta__label">`. Solo `transform` y `opacity`; `is-inview` sirve y pausa; sin JS es una
-  píldora estática; con `prefers-reduced-motion` las estrellas se quedan fijas. Las variantes
-  (`--light`, `--secondary`, `--sm`) cambian los colores con `--df-star` y `--df-bloom`, no la mecánica.
+- **Hero con interruptor, al lado del titular.** El interruptor —«Apagar el día»— **baja la luz de toda
+  la sección**: el fondo pasa a verde casi negro, el titular a hueso y el subtítulo a lima. **La foto no
+  se toca** y las píldoras de los frascos siguen claras, con su texto oscuro. Es el titular, hecho gesto.
+  Empieza encendido, se puede volver atrás y **sin JS el botón no aparece**.
+  **Va en la misma fila que «Apaga el día»** (pedido del cliente el 2026-09-16, para ahorrar alto): el
+  `<h1>` y el botón comparten un `.df-h1row` con `flex-wrap`, así que si no cabe el interruptor baja
+  solo. Para caber en el móvil **habla por iconos**: sol y luna dentro del carril, y el que asoma es el
+  estado al que vas. **El rótulo vuelve a partir de 640 px**; debajo, el nombre accesible lo lleva el
+  `aria-label` del botón, que el JS cambia junto con el estado.
+- **«día» lleva un halo** ámbar detrás que se apaga y se vuelve a encender en bucle (solo `opacity` y
+  `transform`); de noche se queda casi apagado.
+- **El CTA es «la luna que crece»**: píldora lima con **tres fases de luna** que se encienden una tras
+  otra al final del texto. Al pasar el dedo, la banda de lima más viva se abre **desde el centro**
+  (`scale`), no barre de lado como en las otras.
+- **Los pensamientos se apagan.** En «Tu cuerpo llegó a la cama», las cuatro frases entran con **más
+  sangría y menos luz** cada una (opacidad 1 → 0,58). Es la cabeza que no para, dibujada.
+- **«¿Te suena?» es un carril de cinco tarjetas** que se pasan deslizando, con la siguiente asomando por
+  el borde. **Sin puntos y sin flechas**: el gesto es el deslizamiento, y el carril es un `role="group"`
+  enfocable con teclado.
+- **El bloque en verde profundo es uno solo**: «Dormir poco no termina cuando suena la alarma», con
+  cerebro, metabolismo y corazón en tarjetas translúcidas y su límite en cada una.
+- **La advertencia de la falta de sueño extrema** va en tarjeta de rubor con borde, aparte del bloque
+  oscuro: es una señal médica, no una sección de venta.
+- **Caja = filas de color** con el disco de cantidad.
+- **El precio va en la primera pantalla**: banda `.df-deal` encima del CTA, con **$119.900 en píldora
+  verde profundo y «anticipado» en lima** y el contraentrega al lado, en gris. Es regla común a las cinco
+  (`/eterma/AGENTS.md` §2).
+- **Confianza al final**: Visa, Mastercard y PSE donde se ofrece el anticipado (oferta, cierre y pie)
+  y **la cuenta de Instagram justo antes del pie**, enmarcada en **cielo**. Ficheros compartidos por
+  toda la marca, no de este kit (`/eterma/AGENTS.md` §2).
+
+Colores: **cielo** para Multibrina, **ámbar** para el frasco de Valeriana, **uva** para Todo en Uno, y
+**menta** y **rubor** de apoyo. La cinta superior va en cielo.
 
 ---
 
 ## 3. Convenciones de código
 
-- **Prefijo `df-`.** Raíz `.df-lp` con `id="df-kit-duerme-florece"`. Tokens `--et-*` (marca) y `--df-*`.
-- Tipografía, px, pago (`data-df-pay-choice` → `data-cf-pay` en `<html>`), sticky: igual que en
-  `kit-dia-liviano` (§3 de su `AGENTS.md`).
-- **Vista previa local con dos atributos:** `data-df-file` para las imágenes de `assets/` y
-  `data-df-shared` para las reutilizadas, cuyo valor es `<kit>/assets/<fichero>` relativo a
-  `eterma/landings/` (ver §5). El script las cambia a rutas locales solo en `file://` o localhost.
-- `gp-product` y `#_rsi-buy-now-button-floating` se sacan del flujo desde este bloque, como en los demás.
-- Script: `ROOT_SELECTOR`, `READY_FLAG = 'dfLandingReady'`, `PRODUCT_HANDLE`, `PRICES`, `PREPAID_ENABLED`,
-  `CTA_LABELS`, más `initWindow` para la ventana.
+- **Prefijo `df-`.** Raíz `.df-lp` con `id="df-kit-duerme-florece"`. Tokens de marca `--et-*` y de layout
+  `--df-*`. Todo en px. Sin estilos en línea.
+- Token nuevo de la línea: **`--et-amber #f6dcb0` / `--et-amber-soft #fdf3e4`** (Valeriana).
+- Tipografía: **Fraunces 600** en titulares y **Questrial** en cuerpo, por `@font-face` desde el CDN.
+- Script: `ROOT_SELECTOR`, `READY_FLAG = 'dfLandingReady'`, `PRODUCT_HANDLE`,
+  `RELEASIT_PRODUCT_CACHE_ID`, más `initPlayback`, `initPeopleHold`, `initSwitch`, `initReveal`,
+  `initSticky`, `initReleasitProductCache`.
+- **Contraste del modo noche**: solo se recolorea lo que queda sobre el fondo oscuro. Lo que sigue siendo
+  claro —las píldoras de los frascos, el rótulo de la foto, la pegatina ámbar— **mantiene su texto
+  oscuro**. Si se añade algo al hero, comprobar los dos estados. La píldora del precio hace lo mismo: de
+  día verde profundo con el importe en blanco, de noche hueso con el importe en verde.
+- `gp-product` y `#_rsi-buy-now-button-floating` se sacan del flujo, nunca `display: none`.
+- Los CTA llevan `_rsi-cod-form-gempages-button-overwrite _rsi-cod-form-is-gempage`.
+- **Vista previa local:** `./preview.sh eterma/landings/kit-duerme-florece/general/september.html`. Solo
+  falta subir la lámina (§5); el resto ya responde del CDN. Las imágenes de la primera tanda
+  (`landings-kit-duerme-florece-hero-kit.webp`, `-kit-podium.webp`, `-mecanismo.webp`) **ya no se usan**,
+  pero no se borran: el CDN cachea por nombre.
 
 ---
 
-## 4. Testimonios: nombres reales
+## 4. Personas: nombres reales
 
-Todas las fotos son las mismas de Día Liviano (MULTIBRINA) y Piel Viva (VALERIANA y TODO EN UNO), ya
-cotejadas con `/humanized-images/clorofull/` en sus `AGENTS.md` §4. **Las dos citas de VALERIANA y TODO
-EN UNO siguen sin nombre**, las mismas caras que en Piel Viva: cuando el cliente dé esos nombres se
-escriben en las dos landings.
-
-| Foto de origen | Persona | En la landing |
+| Foto (CDN) | Persona | Producto |
 |---|---|---|
-| `multrina ugc 3` | **Victor** | Cita de MULTIBRINA (Cartagena) |
-| `valeriana ugc 2` | **pendiente** | Cita de VALERIANA: hoy "Clienta · Bucaramanga", sin nombre |
-| `todo en uno ugc 2` | **pendiente** | Cita de TODO EN UNO: hoy "Clienta · Pereira", sin nombre |
-| `multibrina ugc 1` | **María de los Ángeles** | Mosaico del hero y ventana del cierre |
-| `multibrina ugc 2` | **Gabriela** | Mosaico del hero |
-| `valeriana ugc 1`, `valeriana ugc 3`, `todo en uno ugc 1`, `todo en uno ugc 3` | sin identificar | Mosaico y ventana del cierre, sin nombre |
+| `landings-kit-dia-liviano-ugc-maria-de-los-angeles.webp` | María de los Ángeles | Multibrina |
+| `landings-kit-dia-liviano-ugc-gabriela.webp` | Gabriela | Multibrina |
+| `landings-kit-dia-liviano-ugc-victor.webp` | Victor | Multibrina |
+| `landings-kit-piel-viva-ugc-valeriana-1/2/3.webp` | sin identificar | Valeriana |
+| `landings-kit-piel-viva-ugc-todo-en-uno-1/2/3.webp` | sin identificar | Todo en Uno |
 
-Las citas son las tres del copy, una por producto. Los `figcaption` pendientes llevan
-`data-df-name-pending`. No se inventan ni se reasignan nombres del pool a otras caras.
+Las de Valeriana y Todo en Uno no están en el pool con nombre (comprobado el 2026-09-06): van **sin
+nombre**.
 
 ---
 
 ## 5. Imágenes
 
-Optimizadas en [`assets/`](assets/); originales en `/product-images/kit-duerme-florece/`, fuera de git.
-**Las tres de este kit ya están en el CDN (comprobado el 2026-09-07)**: el resto se sirve del CDN con los nombres que ya publicaron
-Día Liviano (MULTIBRINA) y Piel Viva (VALERIANA y TODO EN UNO), sin copia local ni nueva subida; por eso
-`check-cdn.sh` las lista como "no está en el repo".
-
-```sh
-./check-cdn.sh eterma/landings/kit-duerme-florece/general/september.html
-```
-
-| Archivo | Origen | Uso |
+| Archivo | Medidas | Dónde |
 |---|---|---|
-| `landings-kit-duerme-florece-hero-kit.webp` | `KIT DUERME Y FLORECE IMG.png` (1254², fondo blanco), a 1200 | Hoja del kit en la ventana, LCP |
-| `landings-kit-duerme-florece-kit-podium.webp` | `KIT DUERME Y FLORECE 2.png`, a 1000 | "Esto llega en tu pedido" |
-| `landings-kit-duerme-florece-mecanismo.webp` | `img-mecanismo-kit duerme y florece.png`, a 1000 | "Qué tomas antes de dormir y cada día" |
-| `landings-kit-dia-liviano-bottle-multibrina.webp`, `-vasito-multibrina.webp`, `-ugc-{maria-de-los-angeles,gabriela,victor}.webp` | ya en el CDN (Día Liviano) | Ventana, nota 1, rutina, mosaico, cita y cierre |
-| `landings-kit-piel-viva-valeriana-{studio,drops}.webp`, `-bottle-todo-en-uno.webp`, `-vasito-todo-en-uno.webp`, `-ugc-valeriana-{1,2,3}.webp`, `-ugc-todo-en-uno-{1,2,3}.webp` | ya en el CDN (Piel Viva, comprobado el 2026-09-06) | Ventana, notas 2 y 3, rutina, mosaico, citas y cierre |
+| `landings-kit-duerme-florece-hero.webp` | 1200 × 1200 | Foto del hero |
+| `landings-kit-duerme-florece-kit.webp` | 1000 × 1334 | «Todo el kit» |
+| `landings-kit-duerme-florece-mecanismo-v2.webp` | 1000 × 1000 | Lámina de «Lo que sabemos» |
 
-Logo, Instagram y fuente: los ficheros ya publicados por Valeriana y Clorofull, sin copia local.
+**Por subir a Contenido → Archivos: 1**, la lámina. El hero y la foto del kit **ya están subidos** con
+esos nombres (comprobado el 2026-09-16: el CDN devuelve exactamente estas imágenes).
+
+⚠️ **La lámina lleva `-v2` a propósito.** `landings-kit-duerme-florece-mecanismo.webp` ya existe en el
+CDN con la lámina de la primera tanda (la de ingredientes rotulados), y el CDN **cachea por nombre**: no
+se puede reemplazar. La lámina nueva es otra imagen, así que va con sufijo (`docs/image-optimization.md`
+§5).
+
+**Además, cuatro ficheros compartidos** que **no son de este kit** y se suben una sola vez para toda
+la marca: `landings-shared-pay-visa/-mastercard/-pse.webp` y `landings-shared-instagram.webp`
+(`/eterma/shared/assets/`, ver `/eterma/AGENTS.md` §2).
 
 ---
 
-## 6. Medidas y estado
+## 6. Medidas (vista previa local, 2026-09-17)
 
-Verificado con `shot.mjs` (móvil emulado) sobre la preview el 2026-09-06, imágenes locales:
+Con el precio ya dentro de la primera pantalla (banda `.deal` encima del CTA):
 
-| Ancho | Alto del hero | CTA del hero (top–bottom) | Página | Overflow horizontal |
+| Ancho | Precio del hero | CTA del hero | Alto de página | Desborde |
 |---|---|---|---|---|
-| 360×740 | 763 px | 656–712 px, dentro de la primera pantalla | 9 632 px | ninguno |
-| 390×844 | 846 px | 743–799 px, dentro de la primera pantalla | 9 583 px | ninguno |
-| 1280 | 785 px | 744–800 px | 7 307 px | ninguno |
+| 360×740 | dentro | **643–701 px**, entero en la primera pantalla | 13 692 px | ninguno |
+| 390×844 | dentro | **676–734 px**, entero en la primera pantalla | 13 430 px | ninguno |
+| 1280 | dentro | — | 11 728 px | ninguno |
 
-Fuentes computadas: titulares Georgia (serif del tema en producción), cuerpo Questrial. Comprobado por
-rectángulos que ni el rótulo ni las flechas tocan la foto de la hoja visible (en escritorio la hoja del
-kit va al 82 % de ancho para dejar sitio a las flechas). Ventana probada simulando el salto a la hoja de
-Multibrina: cambia la hoja, el rótulo, `aria-pressed` y el cielo pasa a opacidad 1. Ocho CTA con las
-clases de Releasit. Sticky visible tras el hero y oculto en escritorio.
+- Comprobado también a **412×915**: sin desbordes y el CTA dentro.
+- Con el copy nuevo de la **sección de autoridad** (2026-09-17), aplicado **tal cual**: sin desbordes
+  ni texto cortado a 360, 390 ni 1280, y los párrafos se leen enteros sin JavaScript.
+- **El sticky sale a 400 px de scroll** a 390×844 (~0,5 pantallas). Antes esperaba a que el CTA
+  del hero saliera del todo, casi una pantalla entera.
+- `check-css-merge.mjs`: **sin cambios** a 390 y 1280 (376 reglas, 30 fusiones simuladas).
+- Comprobado con clics reales: el interruptor apaga el hero (fondo `#10241c`, `aria-label` «Volver a
+  encender») y lo vuelve a encender; el carril de noches mide 1.452 px con sus cinco tarjetas.
+- Comprobado sin JavaScript: la banda del precio se ve, **los medios de pago y el Instagram también**,
+  los CTA visibles y el sticky fuera.
+- El sticky se queda fuera en el cierre, en el Instagram y en el pie: sin añadir `.df-social` a la cola
+  reaparecía sobre el banner.
+- Fuentes computadas: titulares Fraunces, cuerpo Questrial.
 
-- El titular es el más largo de los kits (dos frases) y va a 31 px en móvil y 28 en pantallas de 375 px
-  o menos; la ventana va a 16:11 en móvil, 16:10 en ≤375 px y cuadrada en escritorio. Los chips con
-  icono son más altos que los de texto, así que el hero se apretó (relleno, huecos, icono de 28 px) para
-  que el CTA quede en la primera pantalla también a 360×740.
-- 2026-09-06: construida en local, sin publicar. Imágenes en el CDN desde el 2026-09-07. Pendiente:
-  pegar el bloque en GemPages, nombres de dos citas (los mismos que Piel Viva), validar porcentajes de TODO EN UNO, activar el
-  anticipado en Releasit.
+---
+
+## 7. Pendientes
+
+1. Subir `landings-kit-duerme-florece-mecanismo-v2.webp` (§5) y pasar `check-cdn.sh`.
+2. Subir los **4 ficheros compartidos** de §5 (pagos + Instagram), salvo que ya los haya subido otra
+   landing: son los mismos para toda la marca.
+3. Confirmar precios (§1). El contraentrega ya coincide con Shopify; falta que Releasit descuente los
+   $10.000 del anticipado.
+4. Pegar en el Custom Code de GemPages, **en sus tres pestañas**: `./split-tabs.sh` genera
+   `september.tab-html.html`, `september.tab-css.css` y `september.tab-js.js` (`/eterma/AGENTS.md` §2).
+   Detrás del CSS va [`/eterma/shared/releasit-form.css`](../../shared/releasit-form.css), en esa misma pestaña.
+5. **No publicar sin pedirlo el cliente.** Ojo: este kit **sí está vivo** en la tienda, así que publicar
+   aquí sustituye una página que ya vende.
