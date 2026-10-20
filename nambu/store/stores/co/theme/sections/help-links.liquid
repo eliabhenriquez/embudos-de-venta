@@ -1,0 +1,29 @@
+{%- comment -%} Ayuda: enlaces de un menú (preguntas, seguimiento, devoluciones) y contacto. {%- endcomment -%}
+{%- assign links = section.settings.menu.links -%}
+{%- capture contact -%}{% if section.settings.show_contact %}{% render 'contact-links', class: 'nb-help__contact', icons: true %}{% endif %}{%- endcapture -%}
+{%- if links.size > 0 or contact != blank -%}
+	<section class="nb-shell nb-help" id="ayuda" aria-labelledby="Help-{{ section.id }}">
+		<h2 id="Help-{{ section.id }}" class="nb-h2">{{ section.settings.heading }}</h2>
+		<div>
+			{%- if links.size > 0 -%}
+				<ul class="nb-help__list">
+					{%- for link in links -%}<li><a href="{{ link.url }}">{{ link.title }}{% render 'icon', name: 'arrow' %}</a></li>{%- endfor -%}
+				</ul>
+			{%- endif -%}
+			{%- if contact != blank -%}<div class="nb-help__contacts">{{ contact }}</div>{%- endif -%}
+		</div>
+	</section>
+{%- endif -%}
+
+{% schema %}
+{
+	"name": "Ayuda",
+	"class": "nb-section-help",
+	"settings": [
+		{ "type": "text", "id": "heading", "label": "Título", "default": "¿Necesitas ayuda?" },
+		{ "type": "link_list", "id": "menu", "label": "Menú" },
+		{ "type": "checkbox", "id": "show_contact", "label": "Mostrar WhatsApp y correo", "default": true }
+	],
+	"presets": [{ "name": "Ayuda" }]
+}
+{% endschema %}

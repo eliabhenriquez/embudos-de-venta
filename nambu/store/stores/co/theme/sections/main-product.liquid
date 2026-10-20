@@ -1,0 +1,194 @@
+{%- comment -%}
+	Ficha de producto: galería con miniaturas (fotos enteras, sin recortar el producto) y caja
+	de compra. Estados: disponible, Próximamente (sin precio ni compra) y agotado.
+{%- endcomment -%}
+{%- liquid
+	assign form_id = 'ProductForm-' | append: section.id
+	assign variant = product.selected_or_first_available_variant
+	assign subtitle = product.metafields.custom.subtitle.value
+	assign short = product.metafields.custom.short_description.value
+	assign how_to = product.metafields.custom.how_to_use
+	assign ingredients = product.metafields.custom.ingredients.value
+	assign ingredients_note = product.metafields.custom.ingredients_note.value
+	assign category = blank
+	for c in product.collections
+		unless c.handle == 'all' or c.handle == 'frontpage' or c.title == blank
+			assign category = c
+			break
+		endunless
+	endfor
+-%}
+{%- capture state -%}{% render 'product-state', product: product %}{%- endcapture -%}
+<div class="nb-shell nb-pdp" data-state="{{ state }}">
+	<nav class="nb-crumbs" aria-label="Ruta">
+		<a href="{{ routes.root_url }}">{{ 'general.home' | t }}</a>
+		{%- if category != blank -%}<span aria-hidden="true">/</span><a href="{{ category.url }}">{{ category.title }}</a>{%- endif -%}
+		<span aria-hidden="true">/</span><span aria-current="page">{{ product.title }}</span>
+	</nav>
+	<div class="nb-pdp__grid">
+		<carousel-rail class="nb-gallery">
+			<ul class="nb-gallery__track" data-track>
+				{%- for media in product.media -%}
+					<li class="nb-gallery__slide">
+						{%- case media.media_type -%}
+							{%- when 'image' -%}
+								{% render 'image', image: media.preview_image, sizes: '(min-width: 900px) 620px, 100vw', class: 'nb-gallery__img', priority: forloop.first %}
+							{%- when 'video' -%}
+								{{ media | video_tag: controls: true, class: 'nb-gallery__img', preload: 'none' }}
+							{%- when 'external_video' -%}
+								{{ media | external_video_tag: class: 'nb-gallery__img' }}
+						{%- endcase -%}
+					</li>
+				{%- else -%}
+					<li class="nb-gallery__slide">{{ 'product-1' | placeholder_svg_tag: 'nb-gallery__img' }}</li>
+				{%- endfor -%}
+			</ul>
+			{%- if product.media.size > 1 -%}
+				<div class="nb-gallery__thumbs" role="group" aria-label="{{ product.title | escape }}">
+					{%- for media in product.media -%}
+						<button type="button" class="nb-thumb" data-dot aria-label="{{ 'accessibility.slide' | t: index: forloop.index }}">
+							{{ media.preview_image | image_url: width: 200 | image_tag: alt: '', loading: 'lazy' }}
+						</button>
+					{%- endfor -%}
+				</div>
+			{%- endif -%}
+		</carousel-rail>
+
+		<div class="nb-buybox{% if section.settings.app_checkout %} nb-buybox--app{% endif %}">
+			<p class="nb-buybox__brand">{{ product.vendor }}{% if category != blank %} · {{ category.title }}{% endif %}</p>
+			<h1 class="nb-buybox__title">{{ product.title }}</h1>
+			{%- if subtitle != blank -%}<p class="nb-buybox__sub">{{ subtitle }}</p>{%- endif -%}
+			<p class="nb-buybox__price">
+				{%- if state == 'soon' -%}
+					<span class="nb-buybox__soon">{{ 'products.coming_soon' | t }}</span>
+				{%- else -%}
+					{% render 'price', variant: variant %}
+					{%- if cart.taxes_included -%}<span class="nb-buybox__tax">{{ 'products.taxes_included' | t }}</span>{%- endif -%}
+				{%- endif -%}
+			</p>
+			{%- if short != blank -%}<div class="nb-buybox__lead">{{ short | newline_to_br }}</div>{%- endif -%}
+
+			{%- form 'product', product, id: form_id, class: 'nb-buybox__form', novalidate: 'novalidate' -%}
+				{%- if product.has_only_default_variant -%}
+					<input type="hidden" name="id" value="{{ variant.id }}">
+				{%- else -%}
+					<variant-select class="nb-variant">
+						<label for="Variant-{{ section.id }}">{{ 'products.variant' | t }}</label>
+						<select id="Variant-{{ section.id }}" name="id">
+							{%- for v in product.variants -%}
+								<option value="{{ v.id }}"{% if v == variant %} selected{% endif %}{% unless v.available %} disabled{% endunless %}>{{ v.title }}</option>
+							{%- endfor -%}
+						</select>
+						<script type="application/json">{{ product.variants | json }}</script>
+					</variant-select>
+				{%- endif -%}
+				{%- case state -%}
+					{%- when 'available' -%}
+						<product-form class="nb-buybox__row" data-form="{{ form_id }}">
+							{% render 'quantity-input', form_id: form_id %}
+							<button type="submit" name="add" class="nb-btn nb-btn--block" data-sticky-anchor>{{ 'products.add_to_cart' | t }}</button>
+							<p class="nb-product-form__error" role="alert" hidden></p>
+						</product-form>
+						{%- if section.settings.show_dynamic_checkout -%}
+							<div class="nb-buybox__now">{{ form | payment_button }}</div>
+						{%- endif -%}
+					{%- when 'soon' -%}
+						<button type="button" class="nb-btn nb-btn--block" disabled>{{ 'products.coming_soon' | t }}</button>
+					{%- else -%}
+						<button type="button" class="nb-btn nb-btn--block" disabled>{{ 'products.sold_out' | t }}</button>
+				{%- endcase -%}
+			{%- endform -%}
+
+			{%- if section.blocks.size > 0 -%}
+				<ul class="nb-buybox__trust">
+					{%- for block in section.blocks -%}
+						{%- if block.settings.text != blank -%}
+							<li {{ block.shopify_attributes }}>{% render 'icon', name: block.settings.icon %}<span>{{ block.settings.text }}</span></li>
+						{%- endif -%}
+					{%- endfor -%}
+				</ul>
+			{%- endif -%}
+
+			<div class="nb-buybox__acc">
+				{%- if product.description != blank -%}
+					<details class="nb-qa" open><summary>{{ 'products.description' | t }}{% render 'icon', name: 'plus' %}</summary><div class="nb-qa__a nb-rte">{{ product.description }}</div></details>
+				{%- endif -%}
+				{%- if how_to != blank -%}
+					<details class="nb-qa"><summary>{{ 'products.how_to_use' | t }}{% render 'icon', name: 'plus' %}</summary><div class="nb-qa__a nb-rte">{{ how_to | metafield_tag }}</div></details>
+				{%- endif -%}
+				{%- if ingredients.size > 0 or ingredients_note != blank -%}
+					<details class="nb-qa"><summary>{{ 'products.ingredients' | t }}{% render 'icon', name: 'plus' %}</summary>
+						<div class="nb-qa__a nb-rte">
+							{%- if ingredients.size > 0 -%}<p>{% for entry in ingredients %}{{ entry.name.value }}{% unless forloop.last %}, {% endunless %}{% endfor %}.</p>{%- endif -%}
+							{%- if ingredients_note != blank -%}<p class="nb-small">{{ ingredients_note }}</p>{%- endif -%}
+						</div>
+					</details>
+				{%- endif -%}
+				{%- if section.settings.shipping_text != blank or shop.shipping_policy or shop.refund_policy -%}
+					<details class="nb-qa"><summary>{{ 'products.shipping_returns' | t }}{% render 'icon', name: 'plus' %}</summary>
+						<div class="nb-qa__a nb-rte">
+							{{ section.settings.shipping_text }}
+							{%- if shop.shipping_policy -%}<p><a href="{{ shop.shipping_policy.url }}">{{ 'products.shipping_policy' | t }}</a></p>{%- endif -%}
+							{%- if shop.refund_policy -%}<p><a href="{{ shop.refund_policy.url }}">{{ 'products.refund_policy' | t }}</a></p>{%- endif -%}
+						</div>
+					</details>
+				{%- endif -%}
+			</div>
+		</div>
+	</div>
+</div>
+
+{%- if state == 'available' -%}
+	<sticky-buy class="nb-sticky" hidden>
+		{%- if product.featured_media -%}{{ product.featured_media.preview_image | image_url: width: 120 | image_tag: alt: '', loading: 'lazy', class: 'nb-sticky__img' }}{%- endif -%}
+		<p><strong>{{ product.title }}</strong>{% render 'price', variant: variant %}</p>
+		<button type="submit" form="{{ form_id }}" name="add" class="nb-btn">{{ 'products.add_short' | t }}</button>
+	</sticky-buy>
+{%- endif -%}
+
+<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Product",
+		"name": {{ product.title | json }},
+		"url": {{ request.origin | append: product.url | json }},
+		{%- if product.featured_media -%}"image": [{{ product.featured_media.preview_image | image_url: width: 1200 | prepend: 'https:' | json }}],{%- endif -%}
+		"description": {{ product.description | strip_html | json }},
+		"brand": { "@type": "Brand", "name": {{ product.vendor | json }} }
+		{%- if state != 'soon' -%},
+		"offers": {
+			"@type": "Offer",
+			"price": {{ variant.price | divided_by: 100.0 | json }},
+			"priceCurrency": {{ cart.currency.iso_code | json }},
+			"availability": "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
+			"url": {{ request.origin | append: variant.url | json }}
+		}
+		{%- endif %}
+	}
+</script>
+
+{% schema %}
+{
+	"name": "Ficha de producto",
+	"class": "nb-section-product",
+	"max_blocks": 4,
+	"settings": [
+		{ "type": "checkbox", "id": "show_dynamic_checkout", "label": "Botón «Comprar ahora»", "default": true },
+		{ "type": "checkbox", "id": "app_checkout", "label": "Dejar el botón de compra de las apps (Releasit)", "default": false, "info": "Solo para fichas de campañas que venden con contraentrega. En la tienda se compra con el checkout de Shopify." },
+		{ "type": "richtext", "id": "shipping_text", "label": "Envíos y devoluciones", "info": "Se completa con los enlaces a las políticas de la tienda." }
+	],
+	"blocks": [
+		{
+			"type": "trust",
+			"name": "Línea de confianza",
+			"settings": [
+				{ "type": "select", "id": "icon", "label": "Icono", "default": "truck", "options": [
+					{ "value": "truck", "label": "Envío" }, { "value": "lock", "label": "Pago" }, { "value": "chat", "label": "Atención" },
+					{ "value": "shield", "label": "Garantía" }, { "value": "box", "label": "Paquete" }
+				] },
+				{ "type": "text", "id": "text", "label": "Texto" }
+			]
+		}
+	]
+}
+{% endschema %}

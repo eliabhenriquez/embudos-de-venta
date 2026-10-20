@@ -1,0 +1,74 @@
+{
+	"sections": {
+		"main": {
+			"type": "main-product",
+			"blocks": {
+				"shipping": {
+					"type": "trust",
+					"settings": {
+						"icon": "truck",
+						"text": "Envío gratis en 3 a 5 días hábiles"
+					}
+				},
+				"payment": {
+					"type": "trust",
+					"settings": {
+						"icon": "lock",
+						"text": "Pagas cuando lo tienes en tus manos"
+					}
+				},
+				"support": {
+					"type": "trust",
+					"settings": {
+						"icon": "chat",
+						"text": "Atención por WhatsApp"
+					}
+				}
+			},
+			"block_order": [
+				"shipping",
+				"payment",
+				"support"
+			],
+			"settings": {
+				"show_dynamic_checkout": true,
+				"shipping_text": "<p>Envío gratis a toda Colombia. Llega en 3 a 5 días hábiles.</p><p>Consulta las <a href=\"/pages/politicas-de-envio\">políticas de envío</a> y la <a href=\"/pages/politica-de-devolucion\">política de devolución</a>.</p>"
+			}
+		},
+		"ingredients": {
+			"type": "product-ingredients",
+			"settings": {
+				"heading": "Ingredientes clave"
+			}
+		},
+		"voices": {
+			"type": "testimonials",
+			"settings": {
+				"heading": "Lo que dice la gente",
+				"source": "product"
+			}
+		},
+		"faq": {
+			"type": "product-faq",
+			"settings": {
+				"heading": "Preguntas frecuentes"
+			}
+		},
+		"recommendations": {
+			"type": "product-recommendations",
+			"settings": {
+				"heading": "Completa tu ritual",
+				"collection": "productos",
+				"only_collection": true,
+				"limit": 4
+			}
+		}
+	},
+	"order": [
+		"main",
+		"ingredients",
+		"voices",
+		"faq",
+		"recommendations"
+	]
+}

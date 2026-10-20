@@ -1,0 +1,56 @@
+<!doctype html>
+{%- liquid
+	# Landings de GemPages hechas sobre el tema anterior: conservan su cabeza (snippets/refresh-head)
+	assign refresh_page = false
+	if settings.gempages_refresh and template.suffix contains 'gp-template'
+		assign refresh_page = true
+	endif
+-%}
+<html lang="{{ request.locale.iso_code }}">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="theme-color" content="#ffffff">
+		<link rel="canonical" href="{{ canonical_url }}">
+		{%- if settings.favicon -%}
+			<link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 64, height: 64 }}">
+		{%- endif -%}
+		<title>
+			{{- page_title -}}
+			{%- if current_page != 1 %} – {{ 'general.page' | t: page: current_page }}{% endif -%}
+			{%- unless page_title contains shop.name %} – {{ shop.name }}{% endunless -%}
+		</title>
+		{%- if page_description -%}
+			<meta name="description" content="{{ page_description | escape }}">
+		{%- endif -%}
+		{% render 'meta-tags' %}
+		{%- if refresh_page -%}
+			{% render 'refresh-head' %}
+		{%- else -%}
+			{% render 'theme-styles' %}
+			{{ 'theme.css' | asset_url | stylesheet_tag: preload: true }}
+			<script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
+			{% render 'theme-config' %}
+		{%- endif -%}
+		{{ content_for_header }}
+	</head>
+	<body class="{% if refresh_page %}gradient{% else %}nb-body{% endif %}">
+		{%- if refresh_page -%}
+			{%- comment -%}
+				Solo existe en este layout: los de GemPages se generan sin el cuerpo. Una landing antigua que use el
+				layout del tema lleva nuestra cabecera y pie, así que les da su estilo (sin theme.js: chocaría con Refresh).
+			{%- endcomment -%}
+			{% render 'theme-styles' %}
+			{{ 'theme.css' | asset_url | stylesheet_tag }}
+		{%- endif -%}
+		<a class="nb-skip" href="#MainContent">{{ 'accessibility.skip_to_content' | t }}</a>
+		{% sections 'header-group' %}
+		<main id="MainContent" class="nb-main" role="main" tabindex="-1">
+			{{ content_for_layout }}
+		</main>
+		{% sections 'footer-group' %}
+		{%- if settings.cart_type == 'drawer' -%}
+			{% section 'cart-drawer' %}
+		{%- endif -%}
+	</body>
+</html>

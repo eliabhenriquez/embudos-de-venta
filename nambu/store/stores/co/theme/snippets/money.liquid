@@ -1,0 +1,6 @@
+{%- comment -%}
+	Importe sin ceros finales y, si la tienda lo pide (ajuste «Mostrar el código de moneda»), con el código: $460 MXN · $79.900.
+	Parámetro: amount (en centavos).
+{%- endcomment -%}
+{{- amount | money_without_trailing_zeros -}}
+{%- if settings.show_currency_code %} {{ cart.currency.iso_code }}{% endif -%}

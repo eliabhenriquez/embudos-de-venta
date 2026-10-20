@@ -1,0 +1,24 @@
+{%- comment -%}
+	WhatsApp y correo desde los ajustes del tema. Vacío: no se muestra. Un valor
+	"[POR DEFINIR]" se pinta sin enlace (scripts/check-pending.mjs impide publicarlo).
+	Parámetros: class, icons (bool).
+{%- endcomment -%}
+{%- liquid
+	assign wa = settings.whatsapp_number | strip
+	assign wa_digits = wa | remove: ' ' | remove: '+' | remove: '-' | remove: '(' | remove: ')' | remove: '.'
+	assign mail = settings.contact_email | strip
+-%}
+{%- if wa != blank -%}
+	{%- if wa contains '[POR DEFINIR]' -%}
+		<span class="{{ class }} nb-pending">{% if icons %}{% render 'icon', name: 'chat' %}{% endif %}<span>{{ 'footer.whatsapp' | t }} {{ wa }}</span></span>
+	{%- else -%}
+		<a class="{{ class }}" href="https://wa.me/{{ wa_digits }}" target="_blank" rel="noopener">{% if icons %}{% render 'icon', name: 'chat' %}{% endif %}<span>{{ 'footer.whatsapp' | t }} {{ wa }}</span></a>
+	{%- endif -%}
+{%- endif -%}
+{%- if mail != blank -%}
+	{%- if mail contains '[POR DEFINIR]' -%}
+		<span class="{{ class }} nb-pending">{% if icons %}{% render 'icon', name: 'mail' %}{% endif %}<span>{{ mail }}</span></span>
+	{%- else -%}
+		<a class="{{ class }}" href="mailto:{{ mail }}">{% if icons %}{% render 'icon', name: 'mail' %}{% endif %}<span>{{ mail }}</span></a>
+	{%- endif -%}
+{%- endif -%}

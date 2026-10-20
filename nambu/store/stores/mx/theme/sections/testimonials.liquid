@@ -1,0 +1,61 @@
+{%- comment -%}
+	Opiniones en carrusel (scroll-snap + flechas que mueven en todos los anchos).
+	Fuente: la lista elegida en la sección, o el metacampo custom.testimonials del producto.
+	Metaobjeto "testimonial": name, city, quote, body, photo, product.
+{%- endcomment -%}
+{%- liquid
+	if section.settings.source == 'product' and product != blank
+		assign entries = product.metafields.custom.testimonials.value
+	else
+		assign entries = section.settings.testimonials
+	endif
+-%}
+{%- if entries.size > 0 -%}
+	<section class="nb-voices" aria-labelledby="Voices-{{ section.id }}">
+		<carousel-rail class="nb-voices__rail">
+			<div class="nb-shell nb-head">
+				<h2 id="Voices-{{ section.id }}" class="nb-h2">{{ section.settings.heading }}</h2>
+				<div class="nb-arrows">
+					<button type="button" class="nb-round" data-prev aria-label="{{ 'general.previous' | t }}">{% render 'icon', name: 'left' %}</button>
+					<button type="button" class="nb-round" data-next aria-label="{{ 'general.next' | t }}">{% render 'icon', name: 'right' %}</button>
+				</div>
+			</div>
+			<ul class="nb-voices__track" data-track>
+				{%- for entry in entries -%}
+					{%- assign tagged = entry.product.value -%}
+					<li class="nb-voice">
+						<p class="nb-voice__quote">“{{ entry.quote.value }}”</p>
+						{%- if entry.body != blank -%}<p class="nb-voice__text">{{ entry.body.value }}</p>{%- endif -%}
+						<div class="nb-voice__who">
+							{%- if entry.photo != blank -%}
+								{{ entry.photo.value | image_url: width: 120, height: 120, crop: 'top' | image_tag: class: 'nb-voice__avatar', alt: '', loading: 'lazy' }}
+							{%- endif -%}
+							<p><strong>{{ entry.name.value }}</strong>{% if entry.city != blank %}<span>{{ entry.city.value }}</span>{% endif %}</p>
+							{%- if tagged != blank and section.settings.source != 'product' -%}
+								<a class="nb-voice__tag" href="{{ tagged.url }}">{{ tagged.title }}</a>
+							{%- endif -%}
+						</div>
+					</li>
+				{%- endfor -%}
+			</ul>
+		</carousel-rail>
+	</section>
+{%- elsif request.design_mode -%}
+	<p class="nb-shell nb-editor-note">Elige opiniones (metaobjeto «Testimonio») o usa las del producto.</p>
+{%- endif -%}
+
+{% schema %}
+{
+	"name": "Opiniones",
+	"class": "nb-section-voices",
+	"settings": [
+		{ "type": "text", "id": "heading", "label": "Título", "default": "Lo que dice la gente" },
+		{ "type": "select", "id": "source", "label": "Fuente", "default": "section", "options": [
+			{ "value": "section", "label": "Lista de esta sección" },
+			{ "value": "product", "label": "Opiniones del producto (metacampo)" }
+		] },
+		{ "type": "metaobject_list", "id": "testimonials", "label": "Opiniones", "metaobject_type": "testimonial", "limit": 12 }
+	],
+	"presets": [{ "name": "Opiniones" }]
+}
+{% endschema %}

@@ -1,0 +1,22 @@
+{%- comment -%}
+	Formulario de agregar al carrito. Funciona sin JS (POST nativo a /cart/add); con JS,
+	<product-form> lo intercepta y abre el carrito lateral.
+	Parámetros: product, form_id (obligatorio y único en la página), variant, class, label, icon.
+{%- endcomment -%}
+{%- liquid
+	assign target = variant | default: product.selected_or_first_available_variant
+	assign button_label = label
+	if button_label == blank
+		assign button_label = 'products.add_to_cart' | t
+	endif
+-%}
+<product-form class="nb-product-form">
+	{%- form 'product', product, id: form_id, class: 'nb-product-form__form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+		<input type="hidden" name="id" value="{{ target.id }}">
+		<button type="submit" name="add" class="nb-btn{% if class %} {{ class }}{% endif %}">
+			{%- if icon -%}{% render 'icon', name: icon %}{%- endif -%}
+			<span>{{ button_label }}</span>
+		</button>
+		<p class="nb-product-form__error" role="alert" hidden></p>
+	{%- endform -%}
+</product-form>

@@ -1,0 +1,56 @@
+{%- comment -%}
+	Cabecera: menú a la izquierda, logotipo al centro, buscar, cuenta y carrito a la derecha.
+	En móvil, el menú se abre con <details> (funciona sin JS).
+{%- endcomment -%}
+{%- liquid
+	assign menu = section.settings.menu.links
+	assign cart_href = routes.cart_url
+-%}
+<header class="nb-header">
+	<div class="nb-header__in">
+		<details class="nb-header__drawer">
+			<summary class="nb-header__icon" aria-label="{{ 'general.menu' | t }}">{% render 'icon', name: 'menu', class: 'nb-header__open' %}{% render 'icon', name: 'close', class: 'nb-header__shut' %}</summary>
+			<nav class="nb-header__drop" aria-label="{{ 'general.menu' | t }}">
+				{%- for link in menu -%}
+					<a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}{% render 'icon', name: 'right' %}</a>
+				{%- endfor -%}
+			</nav>
+		</details>
+		<nav class="nb-header__nav" aria-label="{{ 'general.menu' | t }}">
+			{%- for link in menu -%}
+				<a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a>
+			{%- endfor -%}
+		</nav>
+		{%- if request.page_type == 'index' -%}<h1 class="nb-header__brand">{%- else -%}<div class="nb-header__brand">{%- endif -%}
+			<a class="nb-header__logo" href="{{ routes.root_url }}">
+				{%- if settings.logo -%}
+					{%- assign logo_sizes = settings.logo_width | append: 'px' -%}
+					{{ settings.logo | image_url: width: 400 | image_tag: widths: '200, 300, 400', sizes: logo_sizes, alt: shop.name, class: 'nb-header__logo-img', loading: 'eager' }}
+				{%- else -%}
+					<span class="nb-header__name">{{ shop.name }}</span>
+				{%- endif -%}
+			</a>
+		{%- if request.page_type == 'index' -%}</h1>{%- else -%}</div>{%- endif -%}
+		<div class="nb-header__tools">
+			<a class="nb-header__icon" href="{{ routes.search_url }}" aria-label="{{ 'general.search' | t }}">{% render 'icon', name: 'search' %}</a>
+			{%- if shop.customer_accounts_enabled -%}
+				<a class="nb-header__icon nb-header__account" href="{{ routes.account_url }}" aria-label="{{ 'general.account' | t }}">{% render 'icon', name: 'user' %}</a>
+			{%- endif -%}
+			<a class="nb-header__icon" href="{{ cart_href }}" aria-label="{{ 'cart.open' | t }}" data-cart-open>
+				{% render 'icon', name: 'bag' %}
+				<span class="nb-header__count" data-cart-count{% if cart.item_count == 0 %} hidden{% endif %}>{{ cart.item_count }}</span>
+			</a>
+		</div>
+	</div>
+</header>
+
+{% schema %}
+{
+	"name": "Cabecera",
+	"class": "nb-section-header",
+	"settings": [
+		{ "type": "link_list", "id": "menu", "label": "Menú", "default": "main-menu" }
+	],
+	"enabled_on": { "groups": ["header"] }
+}
+{% endschema %}

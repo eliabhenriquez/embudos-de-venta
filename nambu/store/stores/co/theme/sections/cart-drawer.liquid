@@ -1,0 +1,35 @@
+{%- comment -%}
+	Carrito: hoja que sube desde abajo en móvil y panel flotante en escritorio.
+	theme.js la vuelve a pedir con la Section Rendering API (?sections=cart-drawer) tras cada cambio.
+{%- endcomment -%}
+<cart-drawer class="nb-drawer" hidden>
+	<div class="nb-drawer__scrim" data-cart-close></div>
+	<div class="nb-drawer__panel" role="dialog" aria-modal="true" aria-labelledby="CartDrawerTitle" tabindex="-1" data-cart-panel>
+		<span class="nb-drawer__handle" aria-hidden="true"></span>
+		<header class="nb-drawer__hd">
+			<h2 id="CartDrawerTitle">{% if cart.item_count > 0 %}{{ 'cart.title_count' | t: count: cart.item_count }}{% else %}{{ 'cart.title' | t }}{% endif %}</h2>
+			<button type="button" class="nb-round" data-cart-close aria-label="{{ 'general.close' | t }}">{% render 'icon', name: 'close' %}</button>
+		</header>
+		<span hidden data-cart-count-source>{{ cart.item_count }}</span>
+		{%- if cart.item_count == 0 -%}
+			<div class="nb-drawer__empty">
+				<p>{{ 'cart.empty' | t }}</p>
+				<a class="nb-btn nb-btn--ghost" href="{{ routes.all_products_collection_url }}">{{ 'cart.continue' | t }}</a>
+			</div>
+		{%- else -%}
+			<div class="nb-drawer__body">
+				{% render 'cart-lines' %}
+				{% render 'cart-summary' %}
+			</div>
+			<footer class="nb-drawer__ft">{% render 'cart-checkout' %}</footer>
+		{%- endif -%}
+		<p class="nb-drawer__error" role="alert" hidden data-cart-error></p>
+	</div>
+</cart-drawer>
+
+{% schema %}
+{
+	"name": "Carrito lateral",
+	"class": "nb-section-drawer"
+}
+{% endschema %}

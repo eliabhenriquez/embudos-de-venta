@@ -1,0 +1,35 @@
+/* Páginas de texto, contacto, 404 y contraseña */
+.nb-page { max-width: calc(820px + var(--nb-gut) * 2); padding-top: 22px; }
+.nb-page .nb-rte { margin-top: 18px; }
+
+/* Políticas: marcado fijo de Shopify (/policies/*). Shopify inyecta sus estilos después del tema: .nb-main sube la especificidad */
+.nb-main .shopify-policy__container { max-width: calc(820px + var(--nb-gut) * 2); margin: 0 auto; padding: 22px var(--nb-gut) 0; }
+.nb-main .shopify-policy__title { text-align: left; }
+.nb-main .shopify-policy__title h1 { font-size: 32px; line-height: 1.1; letter-spacing: -1px; }
+.nb-main .shopify-policy__body { margin-top: 18px; }
+.nb-main .shopify-policy__body .rte > div > * + * { margin-top: 10px; }
+.nb-main .shopify-policy__body h2 { margin-top: 28px; color: var(--nb-ink); font-size: 22px; line-height: 1.2; letter-spacing: -0.4px; }
+.nb-main .shopify-policy__body strong { color: var(--nb-ink); font-weight: 400; }
+.nb-main .shopify-policy__body ul { padding-left: 20px; list-style: disc; }
+.nb-main .shopify-policy__body a { color: var(--nb-apple-deep); }
+@media (min-width: 900px) {
+	.nb-main .shopify-policy__title h1 { font-size: 44px; letter-spacing: -1.5px; }
+}
+.nb-main > .nb-section-contact { margin-top: 24px; } /* va pegado al texto de la página */
+.nb-contact__form { display: grid; gap: 14px; max-width: 560px; }
+.nb-contact__form label { display: grid; gap: 6px; color: var(--nb-ink); font-size: 14px; }
+.nb-contact__form input, .nb-contact__form textarea { padding: 12px 16px; border: 0; border-radius: 14px; box-shadow: inset 0 0 0 1px var(--nb-line-strong); background: var(--nb-white); color: var(--nb-ink); }
+.nb-contact__form input:focus, .nb-contact__form textarea:focus { outline: 2px solid var(--nb-apple-deep); outline-offset: 2px; }
+.nb-contact__form .nb-btn { justify-self: start; }
+.nb-contact__ok { color: var(--nb-apple-deep); }
+.nb-contact__error { color: #a12d17; }
+.nb-404 { display: grid; justify-items: start; gap: 14px; padding-block: 40px; }
+
+.nb-body--password .nb-main { padding: 0; }
+.nb-password { display: grid; justify-items: center; align-content: center; gap: 16px; min-height: 100vh; padding: 40px var(--nb-gut); background: var(--nb-apple-50); text-align: center; }
+.nb-password__logo img { width: 160px; }
+.nb-password__msg { max-width: 46ch; }
+.nb-password__enter summary { cursor: pointer; list-style: none; }
+.nb-password__form { display: flex; gap: 8px; margin-top: 14px; }
+.nb-password__form input { height: 52px; padding: 0 20px; border: 0; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--nb-line-strong); }
+.nb-password__admin { color: var(--nb-muted); font-size: 13px; }

@@ -1,0 +1,21 @@
+{
+	"current": {
+		"logo": "shopify://shop_images/landings-nambu-wordmark-green.webp",
+		"logo_width": 124,
+		"type_font": "questrial_n4",
+		"whatsapp_number": "+57 320 7948642",
+		"contact_email": "nambumx@gmail.com",
+		"show_coming_soon": true,
+		"cart_type": "drawer",
+		"cart_shipping_note": "Gratis"
+	},
+	"presets": {
+		"Default": {
+			"logo_width": 124,
+			"type_font": "questrial_n4",
+			"show_coming_soon": true,
+			"cart_type": "drawer",
+			"cart_shipping_note": "Se calcula en el checkout"
+		}
+	}
+}

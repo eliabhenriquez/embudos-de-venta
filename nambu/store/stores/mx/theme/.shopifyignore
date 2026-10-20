@@ -1,0 +1,6 @@
+templates/*.gp-*.json
+templates/*.gem-*.json
+layout/theme.gem*
+sections/gp-*
+snippets/gp-*
+assets/gp-*

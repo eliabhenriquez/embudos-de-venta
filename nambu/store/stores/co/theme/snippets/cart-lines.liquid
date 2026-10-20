@@ -1,0 +1,31 @@
+{%- comment -%}
+	Líneas del carrito (lateral y página). Los botones de cantidad son enlaces a
+	/cart/change?line=&quantity= para que funcionen sin JS; <cart-drawer>/<cart-page>
+	los interceptan y actualizan por AJAX.
+{%- endcomment -%}
+<ul class="nb-lines">
+	{%- for item in cart.items -%}
+		{%- liquid
+			assign subtitle = item.product.metafields.custom.subtitle.value
+			assign less = item.quantity | minus: 1
+			assign more = item.quantity | plus: 1
+		-%}
+		<li class="nb-line">
+			<a class="nb-line__img" href="{{ item.url }}" tabindex="-1" aria-hidden="true">
+				{%- if item.image -%}{{ item.image | image_url: width: 200 | image_tag: alt: '', loading: 'lazy' }}{%- endif -%}
+			</a>
+			<div class="nb-line__info">
+				<h3><a href="{{ item.url }}">{{ item.product.title }}</a></h3>
+				{%- unless item.product.has_only_default_variant -%}<p>{{ item.variant.title }}</p>{%- endunless -%}
+				{%- if subtitle != blank -%}<p>{{ subtitle }}</p>{%- endif -%}
+				<p class="nb-line__price">{% render 'money', amount: item.final_line_price %}</p>
+			</div>
+			<div class="nb-qty nb-qty--sm">
+				<a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity={{ less }}" data-cart-line="{{ forloop.index }}" data-quantity="{{ less }}" aria-label="{{ 'products.decrease' | t }}">{% render 'icon', name: 'minus' %}</a>
+				<output aria-label="{{ 'products.quantity' | t }}">{{ item.quantity }}</output>
+				<a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity={{ more }}" data-cart-line="{{ forloop.index }}" data-quantity="{{ more }}" aria-label="{{ 'products.increase' | t }}">{% render 'icon', name: 'plus' %}</a>
+			</div>
+			<a class="nb-line__remove" href="{{ item.url_to_remove }}" data-cart-line="{{ forloop.index }}" data-quantity="0" aria-label="{{ 'cart.remove_item' | t: title: item.product.title | escape }}">{% render 'icon', name: 'trash' %}<span>{{ 'cart.remove' | t }}</span></a>
+		</li>
+	{%- endfor -%}
+</ul>

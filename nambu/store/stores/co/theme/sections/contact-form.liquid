@@ -1,0 +1,25 @@
+{%- comment -%} Formulario de contacto nativo: los mensajes llegan al correo de la tienda. {%- endcomment -%}
+<div class="nb-shell nb-page nb-contact">
+	{%- form 'contact', class: 'nb-contact__form' -%}
+		{%- if form.posted_successfully? -%}
+			<p class="nb-contact__ok" role="status">{{ 'contact.success' | t }}</p>
+		{%- endif -%}
+		{%- if form.errors -%}<div class="nb-contact__error" role="alert">{{ form.errors | default_errors }}</div>{%- endif -%}
+		<label>{{ 'contact.name' | t }}<input type="text" name="contact[name]" autocomplete="name" value="{{ form.name }}"></label>
+		<label>{{ 'contact.email' | t }}<input type="email" name="contact[email]" autocomplete="email" required value="{{ form.email }}"></label>
+		<label>{{ 'contact.phone' | t }}<input type="tel" name="contact[phone]" autocomplete="tel" value="{{ form.phone }}"></label>
+		<label>{{ 'contact.message' | t }}<textarea name="contact[body]" rows="6">{{ form.body }}</textarea></label>
+		<button type="submit" class="nb-btn">{{ 'contact.send' | t }}</button>
+	{%- endform -%}
+	{%- capture contact -%}{% render 'contact-links', class: 'nb-help__contact', icons: true %}{%- endcapture -%}
+	{%- if contact != blank -%}<div class="nb-help__contacts">{{ contact }}</div>{%- endif -%}
+</div>
+
+{% schema %}
+{
+	"name": "Formulario de contacto",
+	"class": "nb-section-contact",
+	"presets": [{ "name": "Formulario de contacto" }],
+	"enabled_on": { "templates": ["page"] }
+}
+{% endschema %}

@@ -1,0 +1,13 @@
+{%- comment -%}
+	Fuente de la marca desde la biblioteca de Shopify (Questrial por defecto) y las
+	variables que dependen de los ajustes del tema. El resto de tokens vive en theme.css.
+{%- endcomment -%}
+{%- assign font = settings.type_font -%}
+{{ font | font_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
+<style>
+	{{ font | font_face: font_display: 'swap' }}
+	:root {
+		--nb-font: {{ font.family }}, {{ font.fallback_families }};
+		--nb-logo-width: {{ settings.logo_width }}px;
+	}
+</style>

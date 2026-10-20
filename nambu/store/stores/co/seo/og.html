@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1200">
+<link href="https://fonts.googleapis.com/css2?family=Questrial&display=block" rel="stylesheet">
+<style>
+	:root { --apple: #6fc350; --apple-deep: #2f7d22; --apple-ink: #0f2e0b; --apple-50: #f5fbf1; --ink: #0f1a10; --muted: #5c685e; }
+	* { box-sizing: border-box; margin: 0; }
+	html, body { width: 1200px; height: 628px; overflow: hidden; background: #fff; font-family: 'Questrial', sans-serif; -webkit-font-smoothing: antialiased; }
+	.og { display: grid; grid-template-columns: 1fr 640px; width: 1200px; height: 628px; padding: 28px; }
+	.copy { display: flex; flex-direction: column; justify-content: space-between; padding: 36px 40px 36px 36px; }
+	.logo { width: 176px; height: auto; }
+	h1 { color: var(--ink); font-size: 46px; font-weight: 400; line-height: 1.06; letter-spacing: -1.5px; text-wrap: balance; }
+	h1 em { font-style: normal; color: var(--apple-deep); }
+	.product { margin-top: 20px; color: var(--muted); font-size: 21px; line-height: 1.4; }
+	.chip { align-self: flex-start; padding: 13px 26px; border-radius: 999px; background: var(--apple); color: var(--apple-ink); font-size: 21px; }
+	.media { overflow: hidden; border-radius: 28px; background: var(--apple-50); }
+	/* La línea entera: los productos viven entre el 45 y el 93 % del ancho de la foto */
+	.media img { display: block; width: 640px; height: 572px; object-fit: cover; object-position: 92% 50%; }
+</style>
+</head>
+<body>
+	<div class="og">
+		<div class="copy">
+			<img class="logo" src="../../../../landings/spray/assets/landings-nambu-wordmark-green.webp" alt="Nambu">
+			<div>
+				<h1>Del <em>Pacífico colombiano</em> para tu vida de todos los días.</h1>
+				<p class="product">Nambu nace donde la naturaleza es rutina, remedio y herencia.</p>
+			</div>
+			<p class="chip">Envío gratis a toda Colombia</p>
+		</div>
+		<div class="media"><img src="https://cdn.shopify.com/s/files/1/0661/2670/8896/files/0535d0ba-5cce-49db-ba91-c2f41d4cb67c.png?width=1600" alt=""></div>
+	</div>
+</body>
+</html>

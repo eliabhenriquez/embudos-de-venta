@@ -1,0 +1,123 @@
+{
+	"general": {
+		"page": "Página {{ page }}",
+		"home": "Inicio",
+		"view_all": "Ver todo",
+		"previous": "Anterior",
+		"next": "Siguiente",
+		"close": "Cerrar",
+		"menu": "Menú",
+		"search": "Buscar",
+		"account": "Mi cuenta",
+		"pending": "[POR DEFINIR]"
+	},
+	"accessibility": {
+		"skip_to_content": "Saltar al contenido",
+		"slide": "Foto {{ index }}",
+		"choose_slide": "Elegir elemento {{ index }}",
+		"payment_methods": "Medios de pago"
+	},
+	"products": {
+		"add_to_cart": "Agregar al carrito",
+		"add_short": "Agregar",
+		"coming_soon": "Próximamente",
+		"sold_out": "Agotado",
+		"available": "Disponible",
+		"choose_options": "Ver opciones",
+		"view_product": "Ver producto",
+		"view_details": "Ver todos los detalles",
+		"quantity": "Cantidad",
+		"decrease": "Quitar uno",
+		"increase": "Agregar uno",
+		"variant": "Presentación",
+		"taxes_included": "Impuestos incluidos.",
+		"description": "Descripción",
+		"how_to_use": "Cómo se usa",
+		"ingredients": "Ingredientes",
+		"shipping_returns": "Envíos y devoluciones",
+		"shipping_policy": "Política de envíos",
+		"refund_policy": "Política de devoluciones",
+		"error": "No pudimos agregar el producto. Inténtalo de nuevo."
+	},
+	"collections": {
+		"all": "Todo",
+		"all_products": "Todos los productos",
+		"count": {
+			"one": "{{ count }} producto",
+			"other": "{{ count }} productos"
+		},
+		"sort": "Ordenar",
+		"sort_options": {
+			"manual": "Destacados",
+			"most_relevant": "Más relevantes",
+			"best_selling": "Más vendidos",
+			"title_ascending": "Nombre: A-Z",
+			"title_descending": "Nombre: Z-A",
+			"price_ascending": "Precio: menor a mayor",
+			"price_descending": "Precio: mayor a menor",
+			"created_ascending": "Más antiguos",
+			"created_descending": "Más recientes"
+		},
+		"apply": "Aplicar",
+		"empty": "Todavía no hay productos en esta categoría.",
+		"empty_list": "Todavía no hay categorías con productos.",
+		"products_heading": "Productos"
+	},
+	"cart": {
+		"title": "Tu carrito",
+		"title_count": "Tu carrito ({{ count }})",
+		"empty": "Tu carrito está vacío.",
+		"continue": "Ver la tienda",
+		"remove": "Eliminar",
+		"remove_item": "Eliminar {{ title }}",
+		"subtotal": "Subtotal",
+		"shipping": "Envío",
+		"total": "Total estimado",
+		"taxes_included": "Impuestos incluidos.",
+		"taxes_excluded": "Impuestos calculados en el checkout.",
+		"checkout": "Finalizar compra",
+		"open": "Abrir carrito",
+		"count": "{{ count }} productos en el carrito",
+		"error": "No pudimos actualizar el carrito. Inténtalo de nuevo."
+	},
+	"search": {
+		"title": "Buscar",
+		"placeholder": "Busca un producto",
+		"submit": "Buscar",
+		"results": "Resultados para «{{ terms }}»",
+		"no_results": "No encontramos resultados para «{{ terms }}».",
+		"pages": "Páginas"
+	},
+	"newsletter": {
+		"email": "Correo electrónico",
+		"placeholder": "Tu correo electrónico",
+		"submit": "Suscribirme",
+		"success": "Listo. Te avisaremos de los lanzamientos."
+	},
+	"contact": {
+		"name": "Nombre",
+		"email": "Correo electrónico",
+		"phone": "Teléfono",
+		"message": "Mensaje",
+		"send": "Enviar",
+		"success": "Gracias. Te responderemos pronto."
+	},
+	"footer": {
+		"contact": "Contacto",
+		"whatsapp": "WhatsApp",
+		"rights": "© {{ year }} {{ shop }}"
+	},
+	"not_found": {
+		"title": "No encontramos esta página",
+		"text": "Puede que el enlace haya cambiado. Sigue en la tienda:",
+		"cta": "Ver la tienda"
+	},
+	"password": {
+		"title": "Abrimos pronto",
+		"enter": "Entrar con contraseña",
+		"password": "Contraseña",
+		"submit": "Entrar",
+		"admin": "¿Eres el dueño de la tienda?",
+		"login": "Inicia sesión aquí"
+	}
+}

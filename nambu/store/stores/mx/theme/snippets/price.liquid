@@ -1,0 +1,20 @@
+{%- comment -%}
+	Precio sin ceros finales y con la moneda aparte: $460 MXN.
+	Parámetros: product o variant, class. El precio tachado solo sale si hay compare_at_price real.
+{%- endcomment -%}
+{%- liquid
+	if variant != blank
+		assign amount = variant.price
+		assign compare = variant.compare_at_price
+	else
+		assign amount = product.price
+		assign compare = product.compare_at_price
+	endif
+-%}
+<span class="nb-price{% if class %} {{ class }}{% endif %}" data-price>
+	{%- if compare > amount -%}
+		<s class="nb-price__compare">{{ compare | money_without_trailing_zeros }}</s>
+	{%- endif -%}
+	<span class="nb-price__amount">{{ amount | money_without_trailing_zeros }}</span>
+	<small class="nb-price__currency">{{ cart.currency.iso_code }}</small>
+</span>

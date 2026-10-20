@@ -1,0 +1,9 @@
+# Un entorno por tienda, con el mismo nombre que su carpeta en stores/ (pnpm dev co, pnpm push mx…).
+# Cada uno apunta al tema propio de esa tienda.
+[environments.mx]
+store = "wieuyq-6a.myshopify.com"
+path = "stores/mx/theme"
+
+[environments.co]
+store = "pmrhdj-rj.myshopify.com"
+path = "stores/co/theme"

@@ -1,0 +1,12 @@
+{%- comment -%} Resumen tipo ticket: subtotal, descuentos reales, envío, total e impuestos. {%- endcomment -%}
+<div class="nb-sum">
+	<p><span>{{ 'cart.subtotal' | t }}</span><span>{{ cart.items_subtotal_price | money_without_trailing_zeros }} {{ cart.currency.iso_code }}</span></p>
+	{%- for discount in cart.cart_level_discount_applications -%}
+		<p class="nb-sum__discount"><span>{{ discount.title }}</span><span>−{{ discount.total_allocated_amount | money_without_trailing_zeros }}</span></p>
+	{%- endfor -%}
+	{%- if settings.cart_shipping_note != blank -%}
+		<p><span>{{ 'cart.shipping' | t }}</span><span>{{ settings.cart_shipping_note }}</span></p>
+	{%- endif -%}
+	<p class="nb-sum__total"><span>{{ 'cart.total' | t }}</span><strong>{{ cart.total_price | money_without_trailing_zeros }} {{ cart.currency.iso_code }}</strong></p>
+	<p class="nb-sum__note">{% if cart.taxes_included %}{{ 'cart.taxes_included' | t }}{% else %}{{ 'cart.taxes_excluded' | t }}{% endif %}</p>
+</div>

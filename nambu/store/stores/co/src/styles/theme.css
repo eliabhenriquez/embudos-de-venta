@@ -1,0 +1,11 @@
+/* Entrada de estilos del tema: scripts/build.mjs la empaqueta en theme/assets/theme.css */
+@import './tokens.css';
+@import './components.css';
+@import './header.css';
+@import './footer.css';
+@import './home.css';
+@import './product.css';
+@import './collection.css';
+@import './cart.css';
+@import './pages.css';
+@import './apps.css';

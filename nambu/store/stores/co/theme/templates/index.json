@@ -1,0 +1,163 @@
+{
+	"sections": {
+		"banner": {
+			"type": "featured-product-banner",
+			"settings": {
+				"product": "spray-nasal-nambu",
+				"heading": "Que la congestión deje de arruinar tu día.",
+				"text": "<p>Combina <strong>eucalipto, menta y regaliz</strong> para acompañar la sensación de despeje nasal y comodidad respiratoria.</p>"
+			}
+		},
+		"needs": {
+			"type": "need-list",
+			"blocks": {
+				"skin": {
+					"type": "need",
+					"settings": {
+						"label": "Piel con manchas o tono desigual",
+						"product": "serum-piel-de-porcelana-1"
+					}
+				},
+				"pores": {
+					"type": "need",
+					"settings": {
+						"label": "Poros abiertos y brillo excesivo",
+						"product": "serum-niacinamida-10"
+					}
+				},
+				"breath": {
+					"type": "need",
+					"settings": {
+						"label": "Nariz cargada y dificultad para respirar",
+						"product": "spray-nasal-nambu"
+					}
+				},
+				"nails": {
+					"type": "need",
+					"settings": {
+						"label": "Uñas que se rompen a cada rato",
+						"product": "1-week-fortalecedor-de-unas-copia"
+					}
+				},
+				"hair": {
+					"type": "need",
+					"settings": {
+						"label": "Cabello que quieres aclarar sin dañarlo",
+						"product": "golden-glow-plantilla"
+					}
+				},
+				"tan": {
+					"type": "need",
+					"settings": {
+						"label": "Bronceado que no quede naranja",
+						"product": "isoul-1"
+					}
+				}
+			},
+			"block_order": [
+				"skin",
+				"pores",
+				"breath",
+				"nails",
+				"hair",
+				"tan"
+			],
+			"settings": {
+				"heading": "Elige lo que quieres mejorar hoy",
+				"text": "Encuentra la fórmula que mejor acompaña tu rutina de cuidado."
+			}
+		},
+		"products": {
+			"type": "featured-collection",
+			"settings": {
+				"heading": "Productos destacados",
+				"products": [
+					"serum-piel-de-porcelana-1",
+					"spray-nasal-nambu",
+					"serum-niacinamida-10",
+					"1-week-fortalecedor-de-unas-copia",
+					"golden-glow-plantilla",
+					"isoul-1"
+				],
+				"collection": "productos",
+				"limit": 6,
+				"columns": "3",
+				"link_label": "Ver todos los productos"
+			}
+		},
+		"story": {
+			"type": "image-with-text",
+			"settings": {
+				"image": "shopify://shop_images/41c8186e-6e14-452d-8a81-e0a60cf6a514.png",
+				"heading": "La naturaleza no se explica en catálogos. Se vive.",
+				"text": "<p>En el Pacífico colombiano, la naturaleza no se explica en catálogos. Se vive, se hereda y se usa.</p><p>Nambu toma esa lógica y la lleva a cada fórmula. Los ingredientes tienen origen real. Los activos tienen concentración que sirve. Y cada producto está creado para acompañar rutinas reales de bienestar.</p><p>Eso es lo que hace que se sienta diferente.</p>"
+			}
+		},
+		"voices": {
+			"type": "testimonials",
+			"settings": {
+				"heading": "Resultados que se cuentan fácil",
+				"source": "section",
+				"testimonials": [
+					"inicio-valentina-r",
+					"inicio-carolina-m",
+					"inicio-andrea-l"
+				]
+			}
+		},
+		"trust": {
+			"type": "trust",
+			"blocks": {
+				"payment": {
+					"type": "item",
+					"settings": {
+						"icon": "lock",
+						"title": "Pagas al recibir",
+						"text": "<p>Pagas cuando el paquete llega a tu puerta.</p>"
+					}
+				},
+				"shipping": {
+					"type": "item",
+					"settings": {
+						"icon": "truck",
+						"title": "Envío gratis",
+						"text": "<p>Envío gratis a cualquier rincón de Colombia. Llega en 3 a 5 días hábiles.</p>"
+					}
+				},
+				"support": {
+					"type": "item",
+					"settings": {
+						"icon": "chat",
+						"title": "Acompañamiento real",
+						"text": "<p>Si tienes una duda antes de comprar, estamos por WhatsApp.</p>"
+					}
+				}
+			},
+			"block_order": [
+				"payment",
+				"shipping",
+				"support"
+			],
+			"settings": {
+				"heading": "Compra con confianza"
+			}
+		},
+		"help": {
+			"type": "help-links",
+			"settings": {
+				"heading": "¿Necesitas ayuda?",
+				"menu": "ayuda",
+				"show_contact": true
+			}
+		}
+	},
+	"order": [
+		"banner",
+		"needs",
+		"products",
+		"story",
+		"voices",
+		"trust",
+		"help"
+	]
+}

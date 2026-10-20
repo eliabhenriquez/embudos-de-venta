@@ -1,0 +1,10 @@
+{%- comment -%}
+	Medios de pago visibles: Visa y Mastercard, con los SVG oficiales de Shopify.
+	Comentados desde el 2026-10-20: la tienda solo cobra contra entrega. Se vuelven a mostrar quitando el comentario
+	cuando haya pago con tarjeta.
+
+	<ul class="nb-pay" aria-label="{{ 'accessibility.payment_methods' | t }}">
+		<li>{{ 'visa' | payment_type_svg_tag: class: 'nb-pay__icon' }}</li>
+		<li>{{ 'master' | payment_type_svg_tag: class: 'nb-pay__icon' }}</li>
+	</ul>
+{%- endcomment -%}

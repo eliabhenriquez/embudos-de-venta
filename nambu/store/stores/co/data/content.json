@@ -1,0 +1,669 @@
+{
+	"_about": "Contenido de las fichas de Nambu Colombia, sacado de nambuoficial.com (stores/co/copy.md). Lo carga scripts/seed.mjs: metaobjetos por handle, metacampos por producto y menús por handle. «description» sustituye la descripción del producto solo al publicar el tema nuevo (--descriptions). «search_collection»: los productos fuera de esa colección (duplicados de campañas y advertoriales) se marcan con seo.hidden para que no salgan en el buscador ni en Google; sus URLs siguen funcionando. «product_templates»: plantilla alternativa por producto (contraentrega = duplicados de campaña con ficha normal que siguen vendiendo con Releasit).",
+	"shared_faqs": [
+		{
+			"handle": "envio-colombia",
+			"question": "¿Cuánto tarda en llegar mi pedido?",
+			"answer": "El envío es gratis a toda Colombia y llega en 3 a 5 días hábiles. El plazo puede variar según la cobertura de la transportadora, los días festivos o novedades logísticas."
+		}
+	],
+	"home_testimonials": [
+		{
+			"handle": "inicio-valentina-r",
+			"name": "Valentina R",
+			"city": "34 años · Bogotá",
+			"quote": "Llevo un mes con el sérum y la mancha del cachete bajó visible. Ya no me la tapo.",
+			"photo": "Recurso_174-8.webp",
+			"product": "serum-piel-de-porcelana-1"
+		},
+		{
+			"handle": "inicio-carolina-m",
+			"name": "Carolina M",
+			"city": "41 años · Medellín",
+			"quote": "La nariz cargada era mi problema de todos los días. Con el Spray Nasal de NAMBU en pocos minutos respiro mejor.",
+			"photo": "Recurso_17-8_717db6d4-b232-455b-9067-2bc9c000236b.png",
+			"product": "spray-nasal-nambu"
+		},
+		{
+			"handle": "inicio-andrea-l",
+			"name": "Andrea L",
+			"city": "28 años · Cali",
+			"quote": "El aceite de romero me cambió el cabello. Ahora crece más fuerte y se ve más sano.",
+			"photo": "Recurso_150-8.png",
+			"product": null
+		}
+	],
+	"products": [
+		{
+			"handle": "spray-nasal-nambu",
+			"subtitle": "Eucalipto · Menta · Regaliz",
+			"short_description": "El Spray Nasal de Nambu combina eucalipto, menta y regaliz para acompañar la sensación de despeje nasal y comodidad respiratoria.",
+			"how_to_use": "<p>Aplica 2 disparos por vía nasal, 2 veces al día.</p><p>Puedes usarlo cómodamente desde casa, dentro de tu rutina diaria. Mantén el aplicador limpio después de cada uso y guárdalo en un lugar fresco y seco.</p>",
+			"ingredients": [
+				{
+					"handle": "spray-nasal-eucalipto",
+					"name": "Eucalipto",
+					"description": "Aporta esa sensación de despeje que se agradece cuando la nariz está cargada."
+				},
+				{
+					"handle": "spray-nasal-menta",
+					"name": "Menta",
+					"description": "Deja un frescor intenso que se siente rápido al aplicarlo."
+				},
+				{
+					"handle": "spray-nasal-regaliz",
+					"name": "Regaliz",
+					"description": "Complementa la fórmula con una sensación suave y calmante en las vías respiratorias."
+				}
+			],
+			"ingredients_note": "Además, su composición incluye quercetina, péptidos de colágeno, antimicrobianos naturales, extracto de ciruela y calcio vitex.",
+			"faqs": [
+				{
+					"handle": "spray-nasal-que-se-siente-al-aplicarlo",
+					"question": "¿Qué se siente al aplicarlo?",
+					"answer": "Deja una sensación de frescor nasal intenso y despeje casi inmediato. Su líquido blanco entra con una sensación fría y limpia que ayuda a sentir la nariz más fresca en pocos minutos."
+				},
+				{
+					"handle": "spray-nasal-cuanto-tarda-en-sentirse",
+					"question": "¿Cuánto tarda en sentirse?",
+					"answer": "Muchas personas perciben la sensación de alivio y frescor aproximadamente en 2 minutos."
+				},
+				{
+					"handle": "spray-nasal-es-solo-un-spray-que-refresca-un-ratico",
+					"question": "¿Es solo un spray que refresca un ratico?",
+					"answer": "El Spray Nasal de Nambu combina eucalipto, menta y regaliz para acompañar la sensación de despeje nasal y comodidad respiratoria. Su frescor se siente rápido y está pensado para usarlo cuando la congestión, la flema o la nariz cargada empiezan a fastidiar el día."
+				},
+				{
+					"handle": "spray-nasal-sirve-cuando-siento-flema-o-la-nariz-tapada",
+					"question": "¿Sirve cuando siento flema o la nariz tapada?",
+					"answer": "Sí. Es ideal para momentos de congestión, flema acumulada, nariz cargada y esa sensación de respirar incómodo. Puedes aplicarlo desde casa con 2 disparos nasales, dos veces al día."
+				},
+				{
+					"handle": "spray-nasal-tiene-registro-invima",
+					"question": "¿Tiene registro INVIMA?",
+					"answer": "El Spray Nasal de Nambu es un producto natural de bienestar elaborado en Colombia. No se comercializa como medicamento farmacéutico, por lo que no cuenta con registro INVIMA como medicamento.\nSu fórmula está creada con ingredientes naturales como eucalipto, menta y regaliz, junto con quercetina, péptidos de colágeno, antimicrobianos naturales, extracto de ciruela y calcio vitex."
+				},
+				{
+					"handle": "spray-nasal-necesito-formula-medica",
+					"question": "¿Necesito fórmula médica?",
+					"answer": "No. El Spray Nasal de Nambu está pensado para uso práctico en casa, siguiendo el modo de uso indicado de 2 aplicaciones nasales, 2 veces al día."
+				},
+				{
+					"handle": "envio-colombia",
+					"question": "¿Cuánto tarda en llegar mi pedido?",
+					"answer": "El envío es gratis a toda Colombia y llega en 3 a 5 días hábiles. El plazo puede variar según la cobertura de la transportadora, los días festivos o novedades logísticas."
+				}
+			],
+			"testimonials": [],
+			"testimonial_refs": [
+				"inicio-carolina-m"
+			],
+			"description": "<p>El Spray Nasal de Nambu está pensado para esos días en que la nariz se siente cargada, hay flema acumulada y respirar cómodo se vuelve una molestia en plena noche, trabajando, hablando o intentando descansar. Su fórmula natural combina eucalipto, menta y regaliz para brindar una sensación de frescor, despeje y alivio respiratorio casi inmediato.</p><p>Su líquido de color blanco se aplica directamente por la nariz y deja una sensación fría, limpia y refrescante desde los primeros minutos. La experiencia puede sentirse aproximadamente en 2 minutos.</p><h3>Ruta Fresca Despejante</h3><p>El Spray Nasal de Nambu funciona a través de una combinación de ingredientes naturales que acompañan la sensación de respiración más fresca y libre.</p><p>Es una opción práctica para tener en casa cuando aparece congestión, sensación de flema, nariz tapada o incomodidad al respirar.</p><h3>Ideal para quienes sienten</h3><ul><li>Nariz cargada durante el día o la noche</li><li>Flema acumulada y sensación de pecho pesado</li><li>Congestión por cambios de clima, polvo o ambientes cerrados</li><li>Molestia al dormir por sentir la nariz tapada</li><li>Incomodidad al hablar, trabajar o descansar</li><li>Sensación de respiración poco fresca</li><li>Rinitis, sinusitis, tos o molestias respiratorias ocasionales</li></ul><p>Pide hoy tu Spray Nasal de Nambu y tenlo cerca para esos momentos en que respirar cómodo se siente como lo único que necesitas.</p>"
+		},
+		{
+			"handle": "serum-piel-de-porcelana-1",
+			"subtitle": "Ácido Kójico · Vitamina C · Niacinamida",
+			"short_description": "Transforma tu piel con un tono uniforme y radiante.\nSérum Despigmentante · Cont. Neto: 30ml / 1 oz.",
+			"how_to_use": "<ol><li>Aplicar sobre piel limpia y seca por la noche</li><li>Colocar 2-3 gotas en los dedos y extender por todo el rostro o directamente en manchas</li><li>Dejar absorber completamente</li><li>Finalizar con crema hidratante habitual</li><li>Si hay sensibilidad, usar día por medio hasta adaptación</li><li>Usar protector solar por la mañana</li></ol>",
+			"ingredients": [
+				{
+					"handle": "piel-de-porcelana-agua-desmineralizada",
+					"name": "Agua desmineralizada",
+					"description": "Base pura para la fórmula."
+				},
+				{
+					"handle": "piel-de-porcelana-acido-kojico",
+					"name": "Ácido Kójico",
+					"description": "Aclara manchas desde la raíz."
+				},
+				{
+					"handle": "piel-de-porcelana-vitamina-c",
+					"name": "Vitamina C",
+					"description": "Aumenta la luminosidad y combate radicales libres."
+				},
+				{
+					"handle": "piel-de-porcelana-niacinamida",
+					"name": "Niacinamida",
+					"description": "Fortalece la barrera de la piel y previene futuros daños."
+				},
+				{
+					"handle": "piel-de-porcelana-acido-salicilico",
+					"name": "Ácido salicílico",
+					"description": "Exfolia suavemente y mejora la textura."
+				},
+				{
+					"handle": "piel-de-porcelana-acido-glicolico",
+					"name": "Ácido glicólico",
+					"description": "Renueva la superficie de la piel."
+				}
+			],
+			"faqs": [
+				{
+					"handle": "piel-de-porcelana-cuanto-tiempo-tardan-en-verse-los-resultados",
+					"question": "¿Cuánto tiempo tardan en verse los resultados?",
+					"answer": "Los primeros resultados son visibles después de 30 días de uso continuo. Para manchas más profundas o melasma, se recomienda un tratamiento completo de 3 meses."
+				},
+				{
+					"handle": "piel-de-porcelana-puedo-usarlo-si-tengo-piel-sensible",
+					"question": "¿Puedo usarlo si tengo piel sensible?",
+					"answer": "Sí, está formulado para todo tipo de piel. Si tienes piel muy sensible, comienza usándolo día por medio hasta que tu piel se adapte."
+				},
+				{
+					"handle": "piel-de-porcelana-cuanto-tiempo-dura-un-frasco",
+					"question": "¿Cuánto tiempo dura un frasco?",
+					"answer": "Con uso diario, un frasco de 30ml dura aproximadamente 1-2 meses, dependiendo de la cantidad aplicada."
+				},
+				{
+					"handle": "envio-colombia",
+					"question": "¿Cuánto tarda en llegar mi pedido?",
+					"answer": "El envío es gratis a toda Colombia y llega en 3 a 5 días hábiles. El plazo puede variar según la cobertura de la transportadora, los días festivos o novedades logísticas."
+				},
+				{
+					"handle": "piel-de-porcelana-puedo-usarlo-durante-el-embarazo",
+					"question": "¿Puedo usarlo durante el embarazo?",
+					"answer": "Por precaución, recomendamos consultar con un médico antes de usar cualquier producto despigmentante durante el embarazo o lactancia."
+				}
+			],
+			"testimonials": [
+				{
+					"handle": "piel-de-porcelana-valentina-r",
+					"name": "Valentina R",
+					"city": "34 años · Bogotá",
+					"quote": "Por años tuve manchas de embarazo. En 4 semanas se aclararon notablemente. Ahora salgo sin base de maquillaje.",
+					"photo": "Recurso_201-8_6ec29605-82ed-41d1-8a80-a46a69a2ef2a.png",
+					"product": "serum-piel-de-porcelana-1"
+				},
+				{
+					"handle": "piel-de-porcelana-carolina-m",
+					"name": "Carolina M",
+					"city": "31 años · Medellín",
+					"quote": "Las marcas de acné han disminuido. Mi piel se ve más clara y uniforme. Ligero y de rápida absorción.",
+					"photo": "Recurso_203-8.png",
+					"product": "serum-piel-de-porcelana-1"
+				},
+				{
+					"handle": "piel-de-porcelana-andrea-l",
+					"name": "Andrea L",
+					"city": "32 años",
+					"quote": "A la tercera semana mis manchas se aclaraban. Constancia y protector solar son clave.",
+					"photo": "Recurso_205-8.png",
+					"product": "serum-piel-de-porcelana-1"
+				}
+			],
+			"description": "<h3>¿Que es Sérum Piel de Porcelana?</h3><p>El Sérum Piel de Porcelana actúa directamente sobre manchas y pigmentaciones, unificando el tono y devolviendo la luminosidad natural. Su fórmula ligera pero potente se inspira en la pureza del Pacífico colombiano, combinando la sabiduría ancestral con ingredientes de grado dermatológico para una transformación visible.</p><h3>Características del producto</h3><ul><li>Fórmula desarrollada para pieles latinoamericanas</li><li>Ideal para reducir manchas, cicatrices e hiperpigmentación </li><li>Compatible con todo tipo de piel, incluso sensible </li><li>El Sistema Lumina-Restore™ nutre mientras aclara la piel </li><li>Se absorbe rápidamente sin dejar sensación grasa </li><li>Resultados visibles después de 30 días de uso continuo </li><li>Desarrollado y fabricado en Colombia</li></ul><h3>¿Qué es el Sistema Lumina-Restore™?</h3><p>Tecnología desarrollada por NAMBU que combina activos despigmentantes con extractos naturales del Pacífico colombiano para aclarar manchas mientras repara y protege la piel.</p><h3>Beneficios principales</h3><ul><li>Aclara manchas </li><li> Unifica el tono de la piel </li><li>Mejora la luminosidad </li><li>Especial para melasma o manchas oscuras </li><li>Adecuado para todo tipo de piel</li></ul><p><small><strong>Aviso importante:</strong> Este producto no está destinado a diagnosticar, tratar, curar o prevenir ninguna enfermedad. Se recomienda consultar con un dermatólogo antes de iniciar cualquier tratamiento para la piel. Fabricado por Laboratorios ADMAN bajo estrictos controles de calidad.</small></p>"
+		},
+		{
+			"handle": "serum-niacinamida-10",
+			"subtitle": "Niacinamida al 10% · Ácido Hialurónico",
+			"short_description": "Equilibra, hidrata y transforma tu piel en un solo paso.\nSérum Facial Multifuncional · Cont. Neto: 30ml / 1 oz.",
+			"how_to_use": "<ol><li>Aplicar sobre piel limpia y seca, mañana y noche</li><li>Colocar 2-3 gotas en los dedos con especial atención en zona T</li><li>Dejar absorber completamente</li><li>Finalizar con crema hidratante ligera</li><li>Usar protector solar durante el día</li><li>NO combinar con otros productos ácidos</li></ol>",
+			"ingredients": [
+				{
+					"handle": "niacinamide-niacinamida-al-10",
+					"name": "Niacinamida al 10%",
+					"description": "Regula la producción de sebo y reduce poros."
+				},
+				{
+					"handle": "niacinamide-acido-hialuronico",
+					"name": "Ácido Hialurónico",
+					"description": "Proporciona hidratación profunda sin sensación grasa."
+				},
+				{
+					"handle": "niacinamide-complejo-calmante-natural",
+					"name": "Complejo calmante natural",
+					"description": "Reduce irritación y enrojecimiento."
+				},
+				{
+					"handle": "niacinamide-antioxidantes",
+					"name": "Antioxidantes",
+					"description": "Protegen contra factores ambientales."
+				},
+				{
+					"handle": "niacinamide-formula-libre-de-fragancias",
+					"name": "Fórmula libre de fragancias",
+					"description": "Minimiza riesgos de irritación."
+				}
+			],
+			"faqs": [
+				{
+					"handle": "niacinamide-puedo-usarlo-si-tengo-acne-activo",
+					"question": "¿Puedo usarlo si tengo acné activo?",
+					"answer": "Sí, la niacinamida es conocida por ayudar a calmar la inflamación y regular la producción de sebo, beneficiando pieles con acné."
+				},
+				{
+					"handle": "niacinamide-puedo-combinarlo-con-otros-serums",
+					"question": "¿Puedo combinarlo con otros sérums?",
+					"answer": "Sí, pero evita usarlo simultáneamente con productos que contengan vitamina C, AHA o BHA. Puedes alternarlos en diferentes momentos del día o en días alternos."
+				},
+				{
+					"handle": "niacinamide-cuando-vere-resultados",
+					"question": "¿Cuándo veré resultados?",
+					"answer": "La mayoría de los usuarios notan mejoras en la textura y control de grasa en 2 semanas. Para reducción visible de manchas y uniformidad del tono, se recomienda un uso constante por 4-8 semanas."
+				},
+				{
+					"handle": "niacinamide-es-adecuado-para-piel-seca",
+					"question": "¿Es adecuado para piel seca?",
+					"answer": "Sí, gracias al ácido hialurónico en su fórmula, proporciona hidratación sin sensación grasa, beneficiando también a pieles secas."
+				},
+				{
+					"handle": "niacinamide-cuanto-tiempo-dura-un-frasco",
+					"question": "¿Cuánto tiempo dura un frasco?",
+					"answer": "Con uso diario (mañana y noche), un frasco de 30 ml dura aproximadamente 1-2 meses."
+				},
+				{
+					"handle": "envio-colombia",
+					"question": "¿Cuánto tarda en llegar mi pedido?",
+					"answer": "El envío es gratis a toda Colombia y llega en 3 a 5 días hábiles. El plazo puede variar según la cobertura de la transportadora, los días festivos o novedades logísticas."
+				}
+			],
+			"testimonials": [
+				{
+					"handle": "niacinamide-camila-r",
+					"name": "Camila R",
+					"city": "34 años · Bogotá",
+					"quote": "Zona T sin brillos por primera vez. Poros visiblemente reducidos en solo 2 semanas.",
+					"photo": "Recurso_199-8_70bc2f48-5cd3-48bb-b492-5b0a93f637c8.png",
+					"product": "serum-niacinamida-10"
+				},
+				{
+					"handle": "niacinamide-carolina-m",
+					"name": "Carolina M",
+					"city": "31 años · Medellín",
+					"quote": "Mi piel está más tersa y uniforme. Manchas rojas de acné notablemente reducidas.",
+					"photo": "Recurso_201-8_6ec29605-82ed-41d1-8a80-a46a69a2ef2a.png",
+					"product": "serum-niacinamida-10"
+				},
+				{
+					"handle": "niacinamide-andrea-l",
+					"name": "Andrea L",
+					"city": "32 años",
+					"quote": "Controla el exceso de grasa sin resecar. Perfecto bajo el maquillaje.",
+					"photo": "Recurso_198-8_d9b12470-5024-4596-9f00-ef21e1f016a6.png",
+					"product": "serum-niacinamida-10"
+				}
+			],
+			"description": "<h3>¿Que es SÉRUM NIACINAMIDA 10%?</h3><p>El Sérum Niacinamide 10 combina la potencia de la niacinamida al 10% con ácido hialurónico para equilibrar, hidratar y transformar la piel. Su fórmula ligera y sin fragancias trabaja en múltiples niveles: reduce visiblemente los poros, controla el exceso de grasa, unifica el tono y mejora la textura general de la piel. </p><h3>Características del producto</h3><ul><li>Concentración óptima de 10% de niacinamida para resultados visibles</li><li>Regula la producción de sebo sin resecar</li><li>Reduce la apariencia de poros dilatados</li><li>Textura ligera y de rápida absorción</li><li>- Apto para todo tipo de piel, ideal para mixta y grasa</li><li>- Formulado sin fragancias ni irritantes comunes</li><li>- Desarrollado y fabricado en Colombia</li></ul><h3>¿Cómo funciona la Niacinamida?</h3><p>La Niacinamida (Vitamina B3) es un activo multifuncional que fortalece la barrera cutánea, regula la producción de sebo, ayuda a unificar el tono y mejora la textura de la piel. Su alta concentración al 10% brinda resultados visibles sin irritar, equilibrando la piel desde el interior. </p><h3>Beneficios principales</h3><ul><li>Aclara y unifica el tono de la piel</li><li>Reduce hiperpigmentación</li><li>Mejora la luminosidad</li><li>Reduce visiblemente los poros</li><li>Controla el exceso de grasa</li></ul><p><small><strong>Aviso importante:</strong> Este producto no está destinado a diagnosticar, tratar, curar o prevenir ninguna enfermedad. Se recomienda consultar con un dermatólogo antes de iniciar cualquier tratamiento para la piel. Fabricado por Laboratorios ADMAN bajo estrictos controles de calidad.</small></p>"
+		},
+		{
+			"handle": "unguento-chest-relief-1",
+			"subtitle": "Eucalipto · Menta · Tomillo",
+			"short_description": "El Ungüento Chest Relief de Nambu combina eucalipto, menta y tomillo colombiano en una aplicación sencilla que deja frescor donde más se necesita: pecho, espalda y cuello.",
+			"how_to_use": "<p>Aplica una cantidad suficiente de Ungüento Chest Relief de Nambu sobre el pecho, la espalda y el cuello.</p><p>Masajea suavemente hasta que el producto se absorba. Puedes usarlo según necesidad, especialmente antes de dormir, durante días de frío o cuando sientas el pecho y el cuello cargados.</p><p>Lávate las manos después de aplicarlo y evita el contacto con ojos, boca, fosas nasales o piel irritada.</p>",
+			"ingredients": [
+				{
+					"handle": "chest-relief-eucalipto",
+					"name": "Eucalipto",
+					"description": "Aporta una sensación fresca y despejada."
+				},
+				{
+					"handle": "chest-relief-menta",
+					"name": "Menta",
+					"description": "Deja ese frescor intenso que se siente al instante."
+				},
+				{
+					"handle": "chest-relief-tomillo",
+					"name": "Tomillo",
+					"description": "Complementa la experiencia con su aroma herbal cálido."
+				}
+			],
+			"faqs": [
+				{
+					"handle": "chest-relief-que-se-siente-al-aplicarlo",
+					"question": "¿Qué se siente al aplicarlo?",
+					"answer": "Deja una sensación fresca y herbal sobre la piel. El eucalipto y la menta se sienten durante el masaje, mientras el tomillo aporta ese aroma cálido de plantas tradicionales."
+				},
+				{
+					"handle": "chest-relief-se-aplica-dentro-de-la-nariz",
+					"question": "¿Se aplica dentro de la nariz?",
+					"answer": "No. Chest Relief es un ungüento de uso externo. Se aplica únicamente sobre pecho, espalda y cuello."
+				},
+				{
+					"handle": "chest-relief-cuando-es-mejor-usarlo",
+					"question": "¿Cuándo es mejor usarlo?",
+					"answer": "Muchas personas prefieren usarlo antes de dormir, después de una ducha caliente, en noches frías o cuando sienten el pecho y el cuello cargados."
+				},
+				{
+					"handle": "chest-relief-puedo-usarlo-todos-los-dias",
+					"question": "¿Puedo usarlo todos los días?",
+					"answer": "Puedes aplicarlo según necesidad, siguiendo las indicaciones de uso. Si tienes piel sensible, aplica primero una pequeña cantidad en una zona reducida."
+				},
+				{
+					"handle": "chest-relief-sirve-para-dormir-mas-comodo",
+					"question": "¿Sirve para dormir más cómodo?",
+					"answer": "Su masaje y sensación de frescor lo hacen una buena opción para acompañar la rutina de descanso cuando se siente el pecho cargado o el clima está pesado."
+				},
+				{
+					"handle": "chest-relief-reemplaza-un-tratamiento-medico",
+					"question": "¿Reemplaza un tratamiento médico?",
+					"answer": "Chest Relief de Nambu es un producto de bienestar y uso externo. Si tienes dificultad respiratoria fuerte, dolor en el pecho, fiebre persistente o síntomas que empeoran, busca atención médica."
+				},
+				{
+					"handle": "envio-colombia",
+					"question": "¿Cuánto tarda en llegar mi pedido?",
+					"answer": "El envío es gratis a toda Colombia y llega en 3 a 5 días hábiles. El plazo puede variar según la cobertura de la transportadora, los días festivos o novedades logísticas."
+				}
+			],
+			"testimonials": [],
+			"description": "<p>El Ungüento Chest Relief de Nambu es ese apoyo que uno quiere tener cerca cuando el pecho se siente cargado, el cuello tenso y respirar cómodo se vuelve difícil por el frío, los cambios de clima o una noche de congestión.</p><p>Su mezcla de eucalipto, menta y tomillo de territorios colombianos deja una sensación fresca y reconfortante al masajear el pecho, la espalda y el cuello. Es práctico, fácil de aplicar y pensado para usar en casa cuando el cuerpo pide un respiro.</p><h3>Frescor que se siente</h3><p>Chest Relief combina plantas tradicionalmente usadas por su aroma fresco y su sensación reconfortante al aplicarse sobre la piel.</p><p>La textura del ungüento permite hacer un masaje suave sobre el pecho, la espalda y el cuello, acompañando esos momentos en que se quiere sentir más comodidad al respirar.</p><h3>Ideal para tener cerca</h3><p>Chest Relief de Nambu es ideal para quienes buscan una sensación de alivio y frescor cuando sienten:</p><ul><li>Pecho cargado por clima frío o cambios de temperatura</li><li>Incomodidad en pecho, espalda o cuello</li><li>Sensación de respiración pesada durante la noche</li><li>Necesidad de un masaje reconfortante antes de descansar</li><li>Molestias respiratorias ocasionales que hacen difícil sentirse cómodo</li><li>Ganas de dormir con una sensación más fresca y relajada</li></ul>"
+		},
+		{
+			"handle": "1-week-fortalecedor-de-unas-copia",
+			"subtitle": "Biotina · Colágeno · Aceite de Argán",
+			"short_description": "Fortalece y transforma tus uñas en solo 7 días.\nTratamiento para Uñas · Cont. Neto: 30ml / 1 oz.",
+			"how_to_use": "<ol><li>Usar en uñas limpias y secas, sin esmalte</li><li>Aplicar 1-2 gotas en cada uña y masajear suavemente</li><li>Usar una vez al día por 7 días, preferiblemente por la noche</li><li>Para uñas muy dañadas, usar por 14 días</li><li>Para mantenimiento, aplicar una vez por semana</li></ol>",
+			"ingredients": [
+				{
+					"handle": "1-week-biotina",
+					"name": "Biotina",
+					"description": "Vitamina esencial para fortalecer las uñas desde su estructura."
+				},
+				{
+					"handle": "1-week-colageno",
+					"name": "Colágeno",
+					"description": "Mejora la elasticidad y previene la rotura."
+				},
+				{
+					"handle": "1-week-aceite-de-argan",
+					"name": "Aceite de Argán",
+					"description": "Hidrata profundamente y protege contra daños."
+				},
+				{
+					"handle": "1-week-aceite-de-arbol-de-te",
+					"name": "Aceite de árbol de té",
+					"description": "Propiedades antimicrobianas para uñas saludables."
+				},
+				{
+					"handle": "1-week-extracto-de-ajo",
+					"name": "Extracto de ajo",
+					"description": "Fortalecedor natural con propiedades regenerativas."
+				},
+				{
+					"handle": "1-week-vitamina-e",
+					"name": "Vitamina E",
+					"description": "Antioxidante que protege y promueve el crecimiento saludable."
+				}
+			],
+			"faqs": [
+				{
+					"handle": "1-week-realmente-funciona-en-solo-7-dias",
+					"question": "¿Realmente funciona en solo 7 días?",
+					"answer": "Sí, la mayoría de los usuarios notan mejoras significativas en la fortaleza de sus uñas en 7 días. Para casos de uñas muy dañadas, se recomienda un tratamiento de 14 días."
+				},
+				{
+					"handle": "1-week-puedo-aplicar-esmalte-mientras-uso-el-tratamiento",
+					"question": "¿Puedo aplicar esmalte mientras uso el tratamiento?",
+					"answer": "Para resultados óptimos, recomendamos usar el tratamiento sobre uñas sin esmalte. Sin embargo, después de la absorción completa (aproximadamente 15 minutos), puede aplicarse esmalte."
+				},
+				{
+					"handle": "1-week-es-efectivo-para-unas-con-hongos",
+					"question": "¿Es efectivo para uñas con hongos?",
+					"answer": "El tratamiento contiene aceite de árbol de té con propiedades antimicrobianas, pero no está diseñado específicamente como tratamiento antimicótico. Consulte a un especialista para infecciones por hongos."
+				},
+				{
+					"handle": "1-week-es-adecuado-para-unas-de-los-pies",
+					"question": "¿Es adecuado para uñas de los pies?",
+					"answer": "Sí, puede usarse tanto en manos como en pies con los mismos beneficios."
+				},
+				{
+					"handle": "1-week-cuanto-tiempo-dura-un-frasco",
+					"question": "¿Cuánto tiempo dura un frasco?",
+					"answer": "Un frasco de 30ml es suficiente para aproximadamente 3-4 tratamientos completos de 7 días."
+				},
+				{
+					"handle": "envio-colombia",
+					"question": "¿Cuánto tarda en llegar mi pedido?",
+					"answer": "El envío es gratis a toda Colombia y llega en 3 a 5 días hábiles. El plazo puede variar según la cobertura de la transportadora, los días festivos o novedades logísticas."
+				}
+			],
+			"testimonials": [
+				{
+					"handle": "1-week-manuela-r",
+					"name": "Manuela R",
+					"city": "34 años · Bogotá",
+					"quote": "Mis uñas dejaron de romperse en solo 5 días. Ahora crecen fuertes y sanas.",
+					"photo": "Recurso_29-8.png",
+					"product": "1-week-fortalecedor-de-unas-copia"
+				},
+				{
+					"handle": "1-week-carolina-m",
+					"name": "Carolina M",
+					"city": "31 años · Medellín",
+					"quote": "Recuperé mis uñas después de años de acrílicos. Resultado impresionante.",
+					"photo": "Recurso_27-8.png",
+					"product": "1-week-fortalecedor-de-unas-copia"
+				},
+				{
+					"handle": "1-week-andrea-l",
+					"name": "Andrea L",
+					"city": "32 años",
+					"quote": "Nunca había logrado tener uñas largas hasta ahora. Crecen rápido y fuertes.",
+					"photo": "Recurso_26-8.png",
+					"product": "1-week-fortalecedor-de-unas-copia"
+				}
+			],
+			"description": "<h3>¿Que es 1 WEEK?</h3><p>1 Week es un tratamiento intensivo que transforma uñas débiles y quebradizas en fuertes y saludables en solo 7 días. Su fórmula única combina biotina, colágeno y aceite de argán para nutrir, fortalecer y proteger las uñas desde la raíz, devolviendo su fortaleza y belleza natural.</p><h3>Características del producto</h3><ul><li>Resultados visibles en solo 7 días de uso continuo</li><li>Triple acción: nutre, hidrata y protege las uñas</li><li>Sistema de Nutrición Profunda que penetra hasta la matriz ungueal</li><li>Previene la rotura y el escamado de las uñas</li><li>Fórmula no grasa de rápida absorción</li><li>Restaura uñas dañadas por manicura permanente o acrílicos</li><li>Desarrollado y fabricado en Colombia</li></ul><h3>¿Cómo funciona el Sistema de Nutrición Profunda?</h3><p>La fórmula de 1 Week contiene moléculas de penetración avanzada que transportan activos fortalecedores hasta la matriz ungueal, donde se forman las uñas, estimulando su crecimiento saludable y mejorando su estructura desde la raíz.</p><h3>Beneficios principales</h3><ul><li>Estimula el crecimiento natural de las uñas</li><li>Fortalece uñas débiles y quebradizas</li><li>Previene rotura y escamado</li><li>Nutre uñas y cutículas</li><li>Absorción rápida y eficiente</li></ul><p><small><strong>Aviso importante:</strong> Este producto no está destinado a diagnosticar, tratar, curar o prevenir ninguna enfermedad. Se recomienda consultar con un dermatólogo antes de iniciar cualquier tratamiento para la piel. Fabricado por Laboratorios ADMAN bajo estrictos controles de calidad.</small></p>"
+		},
+		{
+			"handle": "golden-glow-plantilla",
+			"subtitle": "Manzanilla · Miel · Limón",
+			"short_description": "Ilumina tu cabello naturalmente con reflejos dorados.\nSpray Aclarante para Cabello · Cont. Neto: 100ml / 3,4 fl.oz.",
+			"how_to_use": "<ol><li>Agitar bien antes de usar</li><li>Aplicar sobre el cabello húmedo o seco, distribuyendo de manera uniforme</li><li>Peinar para asegurar una distribución homogénea</li><li>Exponer al sol o utilizar calor (secador) para potenciar el efecto aclarante</li><li>No enjuagar</li><li>Repetir la aplicación hasta alcanzar el tono deseado</li></ol>",
+			"ingredients": [
+				{
+					"handle": "golden-glow-extracto-de-manzanilla",
+					"name": "Extracto de manzanilla",
+					"description": "Aclara naturalmente y aporta reflejos dorados."
+				},
+				{
+					"handle": "golden-glow-extracto-de-limon",
+					"name": "Extracto de limón",
+					"description": "Ayuda a descomponer la melanina para un aclarado suave."
+				},
+				{
+					"handle": "golden-glow-miel",
+					"name": "Miel",
+					"description": "Hidrata y protege la fibra capilar durante el proceso."
+				},
+				{
+					"handle": "golden-glow-pantenol",
+					"name": "Pantenol",
+					"description": "Fortalece y repara el cabello."
+				},
+				{
+					"handle": "golden-glow-peroxido-de-hidrogeno-en-baja-concentracion",
+					"name": "Peróxido de hidrógeno en baja concentración",
+					"description": "Potencia el efecto aclarante."
+				}
+			],
+			"faqs": [
+				{
+					"handle": "golden-glow-cuanto-tiempo-tarda-en-verse-el-efecto-aclarante",
+					"question": "¿Cuánto tiempo tarda en verse el efecto aclarante?",
+					"answer": "Los primeros resultados son visibles después de 2-3 aplicaciones. El efecto es gradual y depende del color natural del cabello y la exposición al calor/sol."
+				},
+				{
+					"handle": "golden-glow-funciona-en-cabellos-oscuros",
+					"question": "¿Funciona en cabellos oscuros?",
+					"answer": "Sí, aunque en cabellos muy oscuros el resultado será más sutil y requerirá más aplicaciones. El resultado final será un tono más cálido con reflejos dorados."
+				},
+				{
+					"handle": "golden-glow-puedo-utilizarlo-en-cabello-tenido",
+					"question": "¿Puedo utilizarlo en cabello teñido?",
+					"answer": "Sí, es seguro para cabello teñido. De hecho, puede ayudar a mantener y realzar mechas o balayage existentes."
+				},
+				{
+					"handle": "golden-glow-causa-dano-o-resequedad-como-otros-aclarantes",
+					"question": "¿Causa daño o resequedad como otros aclarantes?",
+					"answer": "No, su fórmula con miel y pantenol protege y nutre el cabello durante el proceso de aclarado, evitando la resequedad típica de los decolorantes."
+				},
+				{
+					"handle": "golden-glow-debo-enjuagar-despues-de-aplicarlo",
+					"question": "¿Debo enjuagar después de aplicarlo?",
+					"answer": "No es necesario enjuagar. Los ingredientes continúan trabajando y protegiendo tu cabello a lo largo del día."
+				},
+				{
+					"handle": "envio-colombia",
+					"question": "¿Cuánto tarda en llegar mi pedido?",
+					"answer": "El envío es gratis a toda Colombia y llega en 3 a 5 días hábiles. El plazo puede variar según la cobertura de la transportadora, los días festivos o novedades logísticas."
+				}
+			],
+			"testimonials": [
+				{
+					"handle": "golden-glow-camila-r",
+					"name": "Camila R",
+					"city": "34 años · Bogotá",
+					"quote": "Logré reflejos dorados que parecen hechos por el sol. Sin dañar mi cabello.",
+					"photo": "Recurso_151-8.png",
+					"product": "golden-glow-plantilla"
+				},
+				{
+					"handle": "golden-glow-carolina-m",
+					"name": "Carolina M",
+					"city": "31 años · Medellín",
+					"quote": "Mantengo mi balayage sin visitas al salón. Económico y efectivo.",
+					"photo": "Recurso_147-8.png",
+					"product": "golden-glow-plantilla"
+				},
+				{
+					"handle": "golden-glow-andrea-l",
+					"name": "Andrea L",
+					"city": "32 años",
+					"quote": "Me permite aclarar solo lo necesario. Brillo increíble y cabello saludable.",
+					"photo": "Recurso_141-8.png",
+					"product": "golden-glow-plantilla"
+				}
+			],
+			"description": "<h3>¿Que es Golden Glow?</h3><p>Golden Glow es una loción aclarante que transforma gradualmente tu cabello con reflejos dorados naturales. Su fórmula inspirada en la sabiduría del Pacífico colombiano combina extractos naturales que aclaran suavemente mientras protegen y nutren la fibra capilar, evitando el daño que causan los decolorantes tradicionales. </p><h3>Características del producto</h3><ul><li>Aclara el cabello de forma progresiva y controlada</li><li>Tecnología Gradual SunLift que respeta la salud capilar</li><li>Crea reflejos dorados que lucen completamente naturales</li><li>Protege y nutre el cabello durante el proceso de aclarado</li><li>Compatible con todo tipo de cabello, incluso teñido</li><li>No requiere enjuague ni procesos químicos agresivos</li><li>Desarrollado y fabricado en Colombia</li></ul><h3>¿Cómo funciona la Tecnología SunLift?</h3><p>Golden Glow utiliza una combinación única de extractos naturales que se activan con el calor o la luz solar. Estos ingredientes trabajan juntos para aclarar gradualmente el cabello mientras lo protegen, evitando la sequedad y el daño asociados con los decolorantes químicos tradicionales.</p><h3>Beneficios principales</h3><ul><li>Aclarado gradual y natural</li><li>Extractos naturales protectores</li><li>Proporciona brillo radiante</li><li>Protege la fibra capilar</li><li>Fácil de usar en casa</li></ul><p><small><strong>Aviso importante:</strong> Este producto no está destinado a diagnosticar, tratar, curar o prevenir ninguna enfermedad. Se recomienda consultar con un dermatólogo antes de iniciar cualquier tratamiento para la piel. Fabricado por Laboratorios ADMAN bajo estrictos controles de calidad.</small></p>"
+		},
+		{
+			"handle": "isoul-1",
+			"subtitle": "DHA · Eritrulosa · Sistema Antimanchas",
+			"short_description": "Brilla naturalmente sin miedo al bronceado artificial.\nAutobronceador Natural · Cont. Neto: 120ml",
+			"how_to_use": "<ol><li>Exfoliar la piel antes de la aplicación para un resultado más uniforme</li><li>Aplicar la crema de manera uniforme sobre la piel seca y limpia</li><li>Lavar bien las manos después de la aplicación para evitar manchas</li><li>Esperar a que se seque completamente antes de vestirse</li><li>Evitar el contacto con agua durante al menos 4-6 horas para un bronceado más duradero</li><li>Reaplicar cada 2-3 días para mantener el tono deseado</li></ol>",
+			"ingredients": [
+				{
+					"handle": "bronceado-dihidroxiacetona-dha",
+					"name": "Dihidroxiacetona (DHA)",
+					"description": "Bronceador natural que reacciona con la piel."
+				},
+				{
+					"handle": "bronceado-eritrulosa",
+					"name": "Eritrulosa",
+					"description": "Complementa el DHA para un bronceado más duradero y natural."
+				},
+				{
+					"handle": "bronceado-aceite-de-coco",
+					"name": "Aceite de coco",
+					"description": "Hidrata y suaviza la piel."
+				},
+				{
+					"handle": "bronceado-manteca-de-karite",
+					"name": "Manteca de karité",
+					"description": "Nutre profundamente y previene la sequedad."
+				},
+				{
+					"handle": "bronceado-acido-hialuronico",
+					"name": "Ácido hialurónico",
+					"description": "Mantiene la hidratación por más tiempo."
+				},
+				{
+					"handle": "bronceado-aloe-vera",
+					"name": "Aloe vera",
+					"description": "Calma y refresca la piel durante el proceso."
+				}
+			],
+			"faqs": [
+				{
+					"handle": "bronceado-cuanto-tarda-en-desarrollarse-el-color",
+					"question": "¿Cuánto tarda en desarrollarse el color?",
+					"answer": "El bronceado comienza a desarrollarse en las primeras 2-3 horas y alcanza su intensidad máxima a las 24 horas. Por ser gradual, puedes controlar la intensidad con aplicaciones sucesivas."
+				},
+				{
+					"handle": "bronceado-funciona-en-pieles-muy-claras",
+					"question": "¿Funciona en pieles muy claras?",
+					"answer": "Sí, la fórmula de adaptación natural se ajusta a cada tono de piel. En pieles muy claras recomendamos comenzar con una capa ligera e ir construyendo el tono deseado gradualmente."
+				},
+				{
+					"handle": "bronceado-es-adecuado-para-hombres-con-vello-corporal",
+					"question": "¿Es adecuado para hombres con vello corporal?",
+					"answer": "Sí, la fórmula funciona bien incluso con vello corporal. Recomendamos aplicar con movimientos circulares para asegurar una distribución uniforme."
+				},
+				{
+					"handle": "bronceado-que-duracion-tiene-el-bronceado",
+					"question": "¿Qué duración tiene el bronceado?",
+					"answer": "El bronceado dura aproximadamente 5-7 días, desvaneciéndose gradualmente. Para mantenerlo, recomendamos reaplicar cada 2-3 días."
+				},
+				{
+					"handle": "bronceado-tiene-proteccion-solar",
+					"question": "¿Tiene protección solar?",
+					"answer": "No, este producto no contiene protector solar. Recomendamos usar protector solar adicional cuando te expongas al sol."
+				},
+				{
+					"handle": "envio-colombia",
+					"question": "¿Cuánto tarda en llegar mi pedido?",
+					"answer": "El envío es gratis a toda Colombia y llega en 3 a 5 días hábiles. El plazo puede variar según la cobertura de la transportadora, los días festivos o novedades logísticas."
+				}
+			],
+			"testimonials": [
+				{
+					"handle": "bronceado-mariana-r",
+					"name": "Mariana R",
+					"city": "34 años · Bogotá",
+					"quote": "Por fin un autobronceador que no me deja naranja. Color natural desde la primera aplicación.",
+					"photo": "Recurso_165-8.webp",
+					"product": "isoul-1"
+				},
+				{
+					"handle": "bronceado-carolina-m",
+					"name": "Carolina M",
+					"city": "31 años · Medellín",
+					"quote": "Sin rayas en rodillas ni codos. Aplicación sencilla y resultado profesional.",
+					"photo": "Recurso_171-8.webp",
+					"product": "isoul-1"
+				},
+				{
+					"handle": "bronceado-andrea-l",
+					"name": "Andrea L",
+					"city": "32 años · Barranquilla",
+					"quote": "Primera vez usando autobronceador y quedé encantada. Imposible equivocarse.",
+					"photo": "307b4ff4-a21a-4bcb-87cd-d56eb981a5f7.webp",
+					"product": "isoul-1"
+				}
+			],
+			"description": "<h3>¿Que es ISOUL?</h3><p>ISOUL revoluciona el autobronceado con una fórmula innovadora que brinda un bronceado gradual, uniforme y completamente natural. Inspirado en la luminosidad del Pacífico colombiano, este autobronceador elimina el miedo al tono artificial gracias a su DHA de adaptación natural y sistema anti-manchas, permitiéndote brillar con confianza. </p><h3>Características del producto</h3><ul><li>Bronceado gradual que se adapta a tu tono de piel</li><li>Sistema anti-manchas que asegura un resultado uniforme</li><li>Color progresivo personalizado sin efecto naranja</li><li>Textura cremosa de rápida absorción</li><li>Fórmula hidratante que nutre la piel mientras broncea</li><li>No mancha la ropa ni las sábanas después de secar</li><li>Desarrollado y fabricado en Colombia</li></ul><h3>¿Cómo funciona el DHA de Adaptación Natural?</h3><p>El DHA (Dihidroxiacetona) de ISOUL está formulado con tecnología de adaptación que reacciona con los aminoácidos de tu piel para crear un bronceado personalizado que complementa perfectamente tu tono natural. Combinado con el sistema anti-manchas, garantiza un resultado uniforme sin rayas ni zonas desiguales.</p><h3>Beneficios principales</h3><ul><li>Bronceado gradual, uniforme y natural</li><li>Sin exposición solar dañina</li><li>Fórmula hidratante de rápida absorción</li><li>Ingredientes nutritivos para la piel</li><li>Tono dorado saludable</li></ul><p><small><strong>Aviso importante:</strong> Este producto no está destinado a diagnosticar, tratar, curar o prevenir ninguna enfermedad. Se recomienda consultar con un dermatólogo antes de iniciar cualquier tratamiento para la piel. Fabricado por Laboratorios ADMAN bajo estrictos controles de calidad.</small></p>"
+		}
+	],
+	"menus": [
+		{
+			"handle": "ayuda",
+			"title": "Ayuda",
+			"items": [
+				{
+					"title": "Cambios y devoluciones",
+					"url": "/pages/politica-de-devolucion"
+				},
+				{
+					"title": "Envíos",
+					"url": "/pages/politicas-de-envio"
+				},
+				{
+					"title": "Garantía",
+					"url": "/pages/politica-de-garantia"
+				},
+				{
+					"title": "Contacto",
+					"url": "/pages/contact"
+				}
+			]
+		}
+	],
+	"search_collection": "productos",
+	"product_templates": {
+		"contraentrega": [
+			"chest-relief-unguento",
+			"lung-cleansig-dificulad-para-respirar-por-flema-tiktok",
+			"lung-cleansing-general-tiktok",
+			"isoul"
+		]
+	}
+}

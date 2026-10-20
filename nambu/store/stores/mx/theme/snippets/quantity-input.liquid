@@ -1,0 +1,6 @@
+{%- comment -%} Selector de cantidad del formulario de producto. Parámetros: form_id {%- endcomment -%}
+<quantity-input class="nb-qty">
+	<button type="button" name="minus" aria-label="{{ 'products.decrease' | t }}">{% render 'icon', name: 'minus' %}</button>
+	<input type="number" name="quantity" value="1" min="1" step="1" inputmode="numeric" aria-label="{{ 'products.quantity' | t }}" form="{{ form_id }}">
+	<button type="button" name="plus" aria-label="{{ 'products.increase' | t }}">{% render 'icon', name: 'plus' %}</button>
+</quantity-input>

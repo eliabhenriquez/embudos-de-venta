@@ -1,0 +1,40 @@
+{
+	"type": "footer",
+	"name": "Pie de página",
+	"sections": {
+		"newsletter": {
+			"type": "newsletter",
+			"settings": {
+				"heading": "Únete al universo Nambu",
+				"text": "<p>Suscríbete y recibe tips de uso, novedades y una sorpresa en tu primer pedido.</p>"
+			}
+		},
+		"footer": {
+			"type": "footer",
+			"blocks": {
+				"shop": {
+					"type": "menu",
+					"settings": {
+						"heading": "Tienda",
+						"menu": "main-menu"
+					}
+				},
+				"help": {
+					"type": "menu",
+					"settings": {
+						"heading": "Información",
+						"menu": "footer"
+					}
+				}
+			},
+			"block_order": [
+				"shop",
+				"help"
+			]
+		}
+	},
+	"order": [
+		"newsletter",
+		"footer"
+	]
+}

@@ -1,0 +1,28 @@
+{
+	"name": "nambu-store-theme",
+	"private": true,
+	"type": "module",
+	"packageManager": "pnpm@11.1.1",
+	"scripts": {
+		"build": "node scripts/build.mjs",
+		"watch": "node scripts/build.mjs --watch",
+		"dev": "node scripts/store.mjs dev",
+		"push": "node scripts/store.mjs push",
+		"pull": "node scripts/store.mjs pull",
+		"seed": "node scripts/seed.mjs",
+		"typecheck": "tsc --noEmit",
+		"lint": "eslint stores/*/src scripts",
+		"check:theme": "node scripts/store.mjs check",
+		"check:pending": "node scripts/check-pending.mjs",
+		"check": "pnpm typecheck && pnpm lint && pnpm build && pnpm check:theme && pnpm check:pending"
+	},
+	"devDependencies": {
+		"@shopify/cli": "^4.9.3",
+		"@stylistic/eslint-plugin": "^5.10.0",
+		"esbuild": "^0.28.2",
+		"eslint": "^10.12.0",
+		"globals": "^17.13.0",
+		"typescript": "^6.0.3",
+		"typescript-eslint": "^8.71.2"
+	}
+}

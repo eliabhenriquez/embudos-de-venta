@@ -1,0 +1,26 @@
+{%- comment -%} Todas las categorías. Omite las colecciones técnicas (all, frontpage) y las vacías. {%- endcomment -%}
+{%- capture tiles -%}
+	{%- for collection in collections -%}
+		{%- unless collection.handle == 'all' or collection.handle == 'frontpage' -%}
+			{% render 'collection-tile', collection: collection, sizes: '(min-width: 900px) 240px, 46vw' %}
+		{%- endunless -%}
+	{%- endfor -%}
+{%- endcapture -%}
+<div class="nb-shell nb-coll">
+	<h1 class="nb-page-title">{{ section.settings.heading }}</h1>
+	{%- if tiles != blank -%}
+		<ul class="nb-cats__list nb-cats__list--page">{{ tiles }}</ul>
+	{%- else -%}
+		<p class="nb-coll__empty">{{ 'collections.empty_list' | t }}</p>
+	{%- endif -%}
+</div>
+
+{% schema %}
+{
+	"name": "Categorías",
+	"class": "nb-section-list-collections",
+	"settings": [
+		{ "type": "text", "id": "heading", "label": "Título", "default": "Categorías" }
+	]
+}
+{% endschema %}

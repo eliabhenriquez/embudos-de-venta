@@ -1,0 +1,45 @@
+[
+	{
+		"name": "theme_info",
+		"theme_name": "Nambu",
+		"theme_version": "1.0.0",
+		"theme_author": "Nambu",
+		"theme_documentation_url": "https://nambumx.com",
+		"theme_support_url": "https://nambumx.com"
+	},
+	{
+		"name": "Logotipo",
+		"settings": [
+			{ "type": "image_picker", "id": "logo", "label": "Logotipo" },
+			{ "type": "range", "id": "logo_width", "label": "Ancho del logotipo en escritorio", "min": 80, "max": 200, "step": 4, "unit": "px", "default": 124 },
+			{ "type": "image_picker", "id": "favicon", "label": "Favicon", "info": "Imagen cuadrada de 32 × 32 px" }
+		]
+	},
+	{
+		"name": "Tipografía",
+		"settings": [
+			{ "type": "font_picker", "id": "type_font", "label": "Fuente", "default": "questrial_n4", "info": "Questrial tiene un solo peso: la jerarquía se hace con tamaño y color." }
+		]
+	},
+	{
+		"name": "Contacto",
+		"settings": [
+			{ "type": "text", "id": "whatsapp_number", "label": "WhatsApp", "info": "Con código de país, por ejemplo +52 55 1234 5678. Vacío: no se muestra.", "default": "[POR DEFINIR]" },
+			{ "type": "text", "id": "contact_email", "label": "Correo de atención", "info": "Vacío: no se muestra.", "default": "[POR DEFINIR]" },
+			{ "type": "url", "id": "instagram_url", "label": "Instagram" }
+		]
+	},
+	{
+		"name": "Productos",
+		"settings": [
+			{ "type": "checkbox", "id": "show_coming_soon", "label": "Mostrar productos «Próximamente»", "default": true, "info": "Un producto sale como «Próximamente» si no tiene stock y su metacampo custom.coming_soon está activo. Si desactivas esto, esos productos no aparecen en rejillas ni categorías." }
+		]
+	},
+	{
+		"name": "Carrito",
+		"settings": [
+			{ "type": "select", "id": "cart_type", "label": "Tipo de carrito", "default": "drawer", "options": [{ "value": "drawer", "label": "Lateral" }, { "value": "page", "label": "Página" }] },
+			{ "type": "text", "id": "cart_shipping_note", "label": "Línea de envío en el resumen", "default": "Se calcula en el checkout" }
+		]
+	}
+]

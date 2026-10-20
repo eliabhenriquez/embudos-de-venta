@@ -1,0 +1,22 @@
+{
+	"type": "footer",
+	"name": "Pie de página",
+	"sections": {
+		"newsletter": {
+			"type": "newsletter",
+			"settings": {
+				"heading": "Entérate de los lanzamientos",
+				"text": "<p>Te avisamos cuando lleguen nuevos productos a la tienda de México.</p>"
+			}
+		},
+		"footer": {
+			"type": "footer",
+			"blocks": {
+				"shop": { "type": "menu", "settings": { "heading": "Tienda", "menu": "tienda" } },
+				"help": { "type": "menu", "settings": { "heading": "Ayuda", "menu": "footer" } }
+			},
+			"block_order": ["shop", "help"]
+		}
+	},
+	"order": ["newsletter", "footer"]
+}

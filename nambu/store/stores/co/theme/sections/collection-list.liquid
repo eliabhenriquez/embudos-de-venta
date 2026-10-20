@@ -1,0 +1,34 @@
+{%- comment -%} Categorías: foto, nombre y estado. Las vacías no salen (collection-tile decide). {%- endcomment -%}
+{%- capture tiles -%}
+	{%- for collection in section.settings.collections -%}
+		{% render 'collection-tile', collection: collection, sizes: '(min-width: 900px) 240px, 40vw' %}
+	{%- endfor -%}
+{%- endcapture -%}
+{%- if tiles != blank -%}
+	<section class="nb-shell nb-cats" aria-labelledby="Cats-{{ section.id }}">
+		<div class="nb-head">
+			<h2 id="Cats-{{ section.id }}" class="nb-h2">{{ section.settings.heading }}</h2>
+			{%- if section.settings.link_label != blank -%}
+				<a class="nb-link" href="{{ section.settings.link | default: routes.collections_url }}">{{ section.settings.link_label }}{% render 'icon', name: 'arrow' %}</a>
+			{%- endif -%}
+		</div>
+		<ul class="nb-cats__list">{{ tiles }}</ul>
+	</section>
+{%- elsif request.design_mode -%}
+	<p class="nb-shell nb-editor-note">Elige las categorías (colecciones) que se muestran. Las que no tengan productos no salen.</p>
+{%- endif -%}
+
+{% schema %}
+{
+	"name": "Categorías",
+	"class": "nb-section-cats",
+	"settings": [
+		{ "type": "text", "id": "heading", "label": "Título", "default": "Compra por categoría" },
+		{ "type": "collection_list", "id": "collections", "label": "Colecciones", "limit": 8 },
+		{ "type": "text", "id": "link_label", "label": "Texto del enlace", "default": "Ver todo" },
+		{ "type": "url", "id": "link", "label": "Enlace", "info": "Vacío: todas las colecciones." }
+	],
+	"presets": [{ "name": "Categorías" }],
+	"enabled_on": { "templates": ["index", "page", "collection", "product"] }
+}
+{% endschema %}

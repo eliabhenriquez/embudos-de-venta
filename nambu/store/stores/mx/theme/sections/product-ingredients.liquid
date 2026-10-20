@@ -1,0 +1,31 @@
+{%- comment -%} Lo que lleva: metaobjetos "ingredient" (name, image, description) del metacampo custom.ingredients. {%- endcomment -%}
+{%- assign entries = product.metafields.custom.ingredients.value -%}
+{%- if entries.size > 0 -%}
+	<section class="nb-shell nb-plants" aria-labelledby="Plants-{{ section.id }}">
+		<h2 id="Plants-{{ section.id }}" class="nb-h2">{{ section.settings.heading }}</h2>
+		<ul class="nb-plants__list">
+			{%- for entry in entries -%}
+				<li class="nb-plant">
+					{%- if entry.image != blank -%}
+						{% render 'image', image: entry.image.value, sizes: '(min-width: 900px) 380px, 90vw', class: 'nb-plant__img', widths: '360, 540, 720', alt: entry.name.value %}
+					{%- endif -%}
+					<h3>{{ entry.name.value }}</h3>
+					{%- if entry.description != blank -%}<p>{{ entry.description.value }}</p>{%- endif -%}
+				</li>
+			{%- endfor -%}
+		</ul>
+		{%- assign note = product.metafields.custom.ingredients_note.value -%}
+		{%- if note != blank -%}<p class="nb-note">{% render 'icon', name: 'info' %}<span>{{ note }}</span></p>{%- endif -%}
+	</section>
+{%- endif -%}
+
+{% schema %}
+{
+	"name": "Ingredientes",
+	"class": "nb-section-plants",
+	"settings": [
+		{ "type": "text", "id": "heading", "label": "Título", "default": "Lo que lleva" }
+	],
+	"enabled_on": { "templates": ["product"] }
+}
+{% endschema %}

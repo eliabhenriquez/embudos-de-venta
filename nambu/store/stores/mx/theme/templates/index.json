@@ -1,0 +1,50 @@
+{
+	"sections": {
+		"banner": {
+			"type": "featured-product-banner",
+			"settings": {
+				"product": "spray-nasal-nambu",
+				"heading": "Que la congestión deje de arruinar tu día.",
+				"text": "<p>Extractos botánicos de <strong>eucalipto, menta y regaliz</strong> para ayudar a despejar la sensación de congestión y facilitar el paso del aire.</p>"
+			}
+		},
+		"categories": {
+			"type": "collection-list",
+			"settings": { "heading": "Compra por categoría", "link_label": "Ver todo", "collections": ["respiracion", "piel", "unas", "cabello", "bronceado"] }
+		},
+		"products": {
+			"type": "featured-collection",
+			"settings": { "heading": "Nuestros productos", "limit": 4, "link_label": "Ver toda la tienda" }
+		},
+		"spotlight": {
+			"type": "product-spotlight",
+			"blocks": {
+				"volume": { "type": "fact", "settings": { "icon": "drop", "title": "60 ml de contenido", "text": "El doble frente a presentaciones comunes de 30 ml." } },
+				"plants": { "type": "fact", "settings": { "icon": "leaf", "title": "Eucalipto, menta y regaliz", "text": "Extractos botánicos en un formato nasal listo para usar." } },
+				"use": { "type": "fact", "settings": { "icon": "sun", "title": "Mañana y noche", "text": "2 aplicaciones en cada fosa nasal." } }
+			},
+			"block_order": ["volume", "plants", "use"],
+			"settings": { "heading": "Conoce el Spray Nasal", "product": "spray-nasal-nambu" }
+		},
+		"voices": {
+			"type": "testimonials",
+			"settings": { "heading": "Lo que dice la gente", "source": "section", "testimonials": ["catalina", "carlos-mauricio", "genesis"] }
+		},
+		"trust": {
+			"type": "trust",
+			"blocks": {
+				"shipping": { "type": "item", "settings": { "icon": "truck", "title": "Envío", "text": "<p>Envío gratis. Entrega en 2 a 5 días hábiles en ciudades principales.</p>" } },
+				"payment": { "type": "item", "settings": { "icon": "lock", "title": "Pago contra entrega", "text": "<p>Pagas cuando recibes tu pedido.</p>" } },
+				"support": { "type": "item", "settings": { "icon": "chat", "title": "Te acompañamos", "text": "<p>Escríbenos por WhatsApp o por correo y te ayudamos con tu pedido.</p>" } },
+				"guarantee": { "type": "item", "settings": { "icon": "shield", "title": "Garantía de entrega", "text": "<p>Si tu pedido no llega en el plazo indicado, te lo reenviamos sin costo.</p>" } }
+			},
+			"block_order": ["shipping", "payment", "support", "guarantee"],
+			"settings": { "heading": "Compra con confianza" }
+		},
+		"help": {
+			"type": "help-links",
+			"settings": { "heading": "¿Necesitas ayuda?", "menu": "ayuda", "show_contact": true }
+		}
+	},
+	"order": ["banner", "categories", "products", "spotlight", "voices", "trust", "help"]
+}

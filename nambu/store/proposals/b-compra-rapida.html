@@ -1,0 +1,915 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nambu México · Propuesta B · Compra rápida</title>
+<style>
+	@font-face { font-family: 'Questrial'; src: url('https://nambuoficial.com/cdn/fonts/questrial/questrial_n4.66abac5d8209a647b4bf8089b0451928ef144c07.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+	:root {
+		--apple: #6fc350; --apple-hover: #5fb343; --apple-press: #53a238; --apple-deep: #2f7d22; --apple-ink: #0f2e0b;
+		--apple-50: #f5fbf1; --apple-100: #e8f6e0; --apple-200: #cfeebf;
+		--white: #fff; --ink: #0f1a10; --text: #4d5a4f; --muted: #5c685e; --line: #e5eee1; --line-strong: #d3e1cd;
+		--font: 'Questrial', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		--ease: cubic-bezier(.2, .7, .2, 1);
+		--ease-out: cubic-bezier(.16, 1, .3, 1);
+	}
+	*, *::before, *::after { box-sizing: border-box; }
+	html { -webkit-text-size-adjust: 100%; scroll-padding-top: 90px; }
+	html.is-locked { overflow: hidden; }
+	body { margin: 0; background: var(--white); color: var(--text); font: 16px/1.6 var(--font); -webkit-font-smoothing: antialiased; }
+	::selection { background: var(--apple-200); color: var(--apple-ink); }
+	img { display: block; max-width: 100%; height: auto; }
+	svg { display: block; }
+	h1, h2, h3, p, ul, ol, figure, blockquote, dl, dd { margin: 0; }
+	h1, h2, h3 { color: var(--ink); font-weight: 400; text-wrap: balance; }
+	ul, ol { padding: 0; list-style: none; }
+	button, input { margin: 0; font: inherit; color: inherit; }
+	button { padding: 0; border: 0; background: none; cursor: pointer; }
+	a { color: var(--apple-deep); text-underline-offset: 3px; }
+	strong { font-weight: 400; color: var(--ink); }
+	:focus-visible { outline: 2px solid var(--apple-deep); outline-offset: 3px; border-radius: 8px; }
+	[hidden] { display: none !important; }
+	.ic { width: 22px; height: 22px; flex: none; }
+	.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+	.pay { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+	.pay img { width: 46px; height: auto; border-radius: 6px; box-shadow: inset 0 0 0 1px var(--line); }
+	.pay li.mock { padding: 3px 8px; font-size: 12px; color: var(--muted); }
+	.price { color: var(--ink); white-space: nowrap; font-variant-numeric: tabular-nums; }
+	.price small { font-size: .62em; color: var(--muted); letter-spacing: .3px; }
+
+	/* Botones de la tienda: quietos. Solo cambian de tono al pasar, al pulsar y al enfocar */
+	.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 12px 24px; border-radius: 999px; background: var(--apple); color: var(--apple-ink); font-size: 16px; line-height: 1.2; text-align: center; text-decoration: none; white-space: nowrap; transition: background-color 160ms ease, box-shadow 160ms ease, color 160ms ease; }
+	.btn:hover { background: var(--apple-hover); box-shadow: 0 8px 18px -12px rgba(47, 125, 34, .7); }
+	.btn:active { background: var(--apple-press); box-shadow: none; }
+	.btn .ic { width: 18px; height: 18px; }
+	.btn[disabled] { background: var(--apple-50); color: var(--muted); box-shadow: inset 0 0 0 1px var(--line); cursor: not-allowed; }
+	.btn--block { display: flex; width: 100%; }
+	.btn--ghost { background: var(--white); color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); }
+	.btn--ghost:hover { background: var(--apple-50); box-shadow: inset 0 0 0 1.5px var(--ink); }
+	.btn--ghost:active { background: var(--apple-100); }
+	.btn--sm { min-height: 42px; padding: 9px 16px; font-size: 14px; }
+
+	.qty { display: inline-flex; align-items: center; height: 52px; border-radius: 999px; background: var(--white); box-shadow: inset 0 0 0 1px var(--line-strong); }
+	.qty button { display: grid; place-items: center; width: 44px; height: 100%; border-radius: 999px; color: var(--ink); transition: background-color 160ms ease; }
+	.qty button:hover { background: var(--apple-50); }
+	.qty .ic { width: 18px; height: 18px; }
+	.qty output { min-width: 20px; text-align: center; color: var(--ink); font-size: 17px; font-variant-numeric: tabular-nums; }
+	.qty--sm { height: 40px; }
+	.qty--sm button { width: 36px; }
+
+	.round { display: grid; place-items: center; width: 44px; height: 44px; flex: none; border-radius: 999px; background: var(--white); box-shadow: inset 0 0 0 1px var(--line-strong); color: var(--ink); transition: background-color 160ms ease, opacity 160ms ease; }
+	.round:hover { background: var(--apple-50); }
+	.round[disabled] { opacity: .35; cursor: default; }
+	.round .ic { width: 18px; height: 18px; }
+	.arrows { display: flex; gap: 8px; }
+	.dots { display: flex; justify-content: center; gap: 2px; }
+	.dot { width: 26px; height: 26px; display: grid; place-items: center; }
+	.dot::before { content: ''; width: 8px; height: 8px; border-radius: 99px; background: var(--apple-200); transition: transform 220ms var(--ease), background-color 220ms ease; }
+	.dot[aria-current="true"]::before { background: var(--apple-deep); transform: scaleX(2.4); }
+
+	@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 1ms !important; animation-duration: 1ms !important; } }
+
+	.pv { position: relative; z-index: 60; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; padding: 9px 16px; background: #111512; color: #e9efe7; font: 13px/1.3 'Questrial', system-ui, sans-serif; }
+	.pv p { margin: 0; }
+	.pv__name span { color: #8bd46c; margin-right: 6px; }
+	.pv__views { display: flex; gap: 4px; }
+	.pv__views a, .pv__views button { padding: 5px 11px; border: 0; border-radius: 999px; background: transparent; color: inherit; font: inherit; text-decoration: none; cursor: pointer; }
+	.pv__views a:hover, .pv__views button:hover { background: rgba(255, 255, 255, .08); }
+	.pv__views a[aria-current="page"] { background: #6fc350; color: #0f2e0b; }
+	.pv__legend { color: #a9b4a6; }
+	.pv__legend .mock { color: #ffd68a; text-decoration-color: #ffd68a; }
+	.pv__other { margin-left: auto; color: #8bd46c; text-decoration: none; }
+	@media (max-width: 760px) { .pv__legend { display: none; } .pv { gap: 6px 10px; padding: 8px 10px; } .pv__views a, .pv__views button { padding: 5px 8px; } }
+
+	/* Dato que aún no existe: subrayado punteado ámbar, ajeno a la paleta a propósito */
+	.mock { text-decoration: underline dotted #c98a00 2px; text-underline-offset: 4px; }
+	li.mock, .pay .mock { text-decoration: none; outline: 1.5px dashed #c98a00; outline-offset: 2px; border-radius: 6px; }
+
+	.store { --shell: 1200px; --gut: 16px; --pad: 40px; --radius: 22px; --inset: 10px; }
+	@media (min-width: 900px) { .store { --gut: 40px; --pad: 64px; --inset: 20px; } }
+	main > [data-view] > * { width: 100%; max-width: calc(var(--shell) + var(--gut) * 2); margin: var(--pad) auto 0; padding-inline: var(--gut); }
+	main > [data-view] > .pdp { padding-inline: 0; }
+	main > [data-view] > .panel, main > [data-view] > .reorder { width: calc(100% - var(--inset) * 2); max-width: var(--shell); padding: 28px calc(var(--gut) - var(--inset) + 6px); }
+	.h2 { font-size: 24px; line-height: 1.15; letter-spacing: -0.5px; }
+	.h3 { font-size: 20px; line-height: 1.2; letter-spacing: -0.3px; }
+	@media (min-width: 900px) { .h2 { font-size: 32px; letter-spacing: -1px; } .h3 { font-size: 24px; } }
+	.head { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 16px; }
+	.head__count { color: var(--muted); font-size: 14px; white-space: nowrap; }
+	.panel { border-radius: 28px; background: var(--apple-50); }
+	@media (min-width: 900px) { main > [data-view] > .panel { padding: 48px 56px; } }
+	.link { display: inline-flex; align-items: center; gap: 6px; color: var(--ink); font-size: 15px; text-decoration: none; white-space: nowrap; transition: color 160ms ease; }
+	.link:hover { color: var(--apple-deep); }
+	.link .ic { width: 16px; height: 16px; color: var(--apple-deep); }
+	.crumbs { display: flex; flex-wrap: wrap; gap: 8px; color: var(--muted); font-size: 13px; }
+	.crumbs a { color: var(--muted); text-decoration: none; }
+	main > [data-view] > .coll-head { margin-top: 14px; }
+	.coll-title { margin-top: 8px; }
+	main > [data-view] > .coll-head + .finder { margin-top: 14px; }
+
+	/* Cabecera en cápsula */
+	.hd { position: sticky; top: 0; z-index: 30; padding: 8px var(--inset); background: linear-gradient(var(--white) 70%, rgba(255, 255, 255, 0)); }
+	.hd__in { display: flex; align-items: center; gap: 12px; max-width: calc(var(--shell) + 40px); margin: 0 auto; padding: 6px 6px 6px 16px; border-radius: 999px; background: var(--white); box-shadow: 0 0 0 1px var(--line), 0 12px 30px -24px rgba(15, 46, 11, .5); }
+	.hd__logo img { width: 92px; height: auto; }
+	.hd__nav { display: none; }
+	.hd__tools { display: flex; align-items: center; gap: 4px; margin-left: auto; }
+	.hd__icon { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 999px; color: var(--ink); transition: background-color 160ms ease; }
+	.hd__icon:hover { background: var(--apple-50); }
+	.hd__wide { display: none; }
+	.hd__bag { display: inline-flex; align-items: center; gap: 8px; height: 42px; padding: 0 14px; border-radius: 999px; background: var(--ink); color: var(--white); font-size: 14px; text-decoration: none; transition: background-color 160ms ease; }
+	.hd__bag:hover { background: #24311f; }
+	.hd__bag .ic { width: 18px; height: 18px; }
+	.hd__count { min-width: 20px; height: 20px; padding: 0 6px; border-radius: 99px; background: var(--apple); color: var(--apple-ink); font-size: 12px; line-height: 20px; text-align: center; }
+	.hd__drop { display: grid; gap: 2px; max-width: 520px; margin: 8px auto 0; padding: 8px; border-radius: 24px; background: var(--white); box-shadow: 0 0 0 1px var(--line), 0 20px 40px -24px rgba(15, 46, 11, .4); }
+	.hd__drop a { padding: 14px 16px; border-radius: 16px; color: var(--ink); font-size: 18px; text-decoration: none; }
+	.hd__drop a:hover { background: var(--apple-50); }
+	@media (min-width: 900px) {
+		.hd { padding-top: 14px; }
+		.hd__in { padding-left: 24px; }
+		.hd__logo img { width: 110px; }
+		.hd__nav { display: flex; gap: 4px; margin-left: 28px; }
+		.hd__nav a { padding: 9px 14px; border-radius: 999px; color: var(--ink); font-size: 15px; text-decoration: none; transition: background-color 160ms ease; }
+		.hd__nav a:hover { background: var(--apple-50); }
+		.hd__wide { display: grid; }
+		.hd__menu, .hd__drop { display: none !important; }
+	}
+
+	/* Banner compacto del spray */
+	main > [data-view] > .promo { margin-top: 10px; }
+	.promo { display: grid; grid-template-columns: 38% 1fr; gap: 14px; align-items: center; }
+	.promo__media { overflow: hidden; aspect-ratio: 4 / 5; border-radius: var(--radius); background: var(--apple-50); }
+	.promo__img { width: 100%; height: 100%; object-fit: cover; }
+	.promo__title { font-size: 22px; line-height: 1.12; letter-spacing: -0.5px; }
+	.promo__sub { margin-top: 4px; color: var(--apple-deep); font-size: 13px; line-height: 1.35; }
+	.promo__lead { display: none; }
+	.promo__buy { display: grid; gap: 10px; margin-top: 12px; }
+	.promo__price { font-size: 22px; }
+	.promo__buy .btn { min-height: 44px; padding: 8px 14px; font-size: 14px; }
+	.promo__link { display: none; }
+	@media (min-width: 900px) {
+		main > [data-view] > .promo { width: calc(100% - var(--inset) * 2); max-width: var(--shell); }
+		.promo { grid-template-columns: 380px 1fr; gap: 56px; padding: 20px !important; border-radius: 32px; background: var(--apple-50); }
+		.promo__media { aspect-ratio: 1; border-radius: 24px; }
+		.promo__title { font-size: 46px; letter-spacing: -1.6px; }
+		.promo__sub { margin-top: 10px; font-size: 16px; }
+		.promo__lead { display: block; margin-top: 16px; font-size: 18px; line-height: 1.55; max-width: 44ch; }
+		.promo__buy { display: flex; align-items: center; gap: 22px; margin-top: 28px; }
+		.promo__price { font-size: 34px; letter-spacing: -0.6px; }
+		.promo__buy .btn { min-height: 54px; padding: 12px 26px; font-size: 16px; }
+		.promo__link { display: inline-flex; margin-top: 18px; }
+	}
+
+	/* Buscador y chips: la puerta de entrada de la compra */
+	.finder__bar { position: sticky; top: 70px; z-index: 20; display: grid; gap: 10px; margin: 0 calc(var(--gut) * -1) 20px; padding: 8px var(--gut) 12px; background: var(--white); }
+	.search { display: flex; align-items: center; gap: 10px; height: 52px; padding: 0 18px; border-radius: 999px; background: var(--apple-50); box-shadow: inset 0 0 0 1px var(--line); color: var(--muted); transition: box-shadow 160ms ease; }
+	.search:focus-within { box-shadow: inset 0 0 0 2px var(--apple-deep); }
+	.search input { flex: 1; min-width: 0; height: 100%; border: 0; background: none; color: var(--ink); font-size: 16px; outline: none; }
+	.search input::placeholder { color: var(--muted); }
+	.chips { display: flex; gap: 8px; margin: 0 calc(var(--gut) * -1); padding: 0 var(--gut); overflow-x: auto; scrollbar-width: none; }
+	.chips::-webkit-scrollbar { display: none; }
+	.chip { min-height: 40px; padding: 8px 16px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--line-strong); color: var(--ink); font-size: 15px; white-space: nowrap; transition: background-color 160ms ease; }
+	.chip:hover { background: var(--apple-50); }
+	.chip[aria-pressed="true"] { background: var(--apple); box-shadow: none; color: var(--apple-ink); }
+	@media (min-width: 900px) { .finder__bar { top: 92px; grid-template-columns: 380px 1fr; align-items: center; gap: 16px; margin-inline: 0; padding-inline: 0; } .chips { margin: 0; padding: 0; } }
+
+	/* Rejilla con agregar directo */
+	.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 12px; }
+	@media (min-width: 900px) { .grid { grid-template-columns: repeat(4, 1fr); gap: 32px 22px; } }
+	.card { display: grid; grid-template-rows: auto auto 1fr auto; }
+	.card__media { display: block; overflow: hidden; aspect-ratio: 1; border-radius: var(--radius); background: var(--apple-50); }
+	.card__img { width: 100%; height: 100%; object-fit: cover; transition: transform 500ms var(--ease-out); }
+	a.card__media:hover .card__img { transform: scale(1.04); }
+	.card__name { margin-top: 12px; font-size: 16px; line-height: 1.3; }
+	.card__name a { color: inherit; text-decoration: none; }
+	.card__name a:hover { text-decoration: underline; text-decoration-color: var(--apple); }
+	.card__type { font-size: 13px; color: var(--muted); }
+	.card__row { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 10px; }
+	.card__price { font-size: 17px; }
+	.card__soon { color: var(--muted); font-size: 13px; }
+	.add { display: grid; place-items: center; width: 44px; height: 44px; flex: none; border-radius: 50%; background: var(--apple); color: var(--apple-ink); transition: background-color 160ms ease, box-shadow 160ms ease; }
+	.add:hover { background: var(--apple-hover); box-shadow: 0 8px 16px -10px rgba(47, 125, 34, .8); }
+	.add:active { background: var(--apple-press); }
+	.add[disabled] { background: var(--apple-50); color: var(--line-strong); box-shadow: inset 0 0 0 1px var(--line); cursor: not-allowed; }
+	.add .ic { width: 20px; height: 20px; }
+	.empty { padding: 32px 0; text-align: center; color: var(--muted); }
+	.more { display: flex; width: fit-content; margin: 26px auto 0; }
+
+	/* Volver a pedir */
+	.reorder { display: grid; gap: 18px; padding: 22px 18px !important; border-radius: 28px; box-shadow: inset 0 0 0 1px var(--line); }
+	.reorder__icon { display: grid; place-items: center; width: 44px; height: 44px; margin-bottom: 10px; border-radius: 50%; background: var(--apple-100); color: var(--apple-deep); }
+	.reorder__copy p { margin: 6px 0 14px; font-size: 15px; }
+	.reorder__label { margin-bottom: 8px; font-size: 13px; color: var(--muted); }
+	.mini { display: grid; grid-template-columns: 56px 1fr auto; align-items: center; gap: 12px; padding: 10px; border-radius: 18px; background: var(--apple-50); }
+	.mini__img { display: grid; place-items: center; height: 64px; border-radius: 12px; background: var(--white); }
+	.mini__img img { height: 54px; width: auto; mix-blend-mode: multiply; }
+	.mini h3 { font-size: 15px; line-height: 1.25; }
+	.mini p { font-size: 13px; color: var(--muted); }
+	@media (min-width: 900px) { .reorder { grid-template-columns: 1fr 1fr; align-items: center; gap: 48px; padding: 32px 36px !important; } }
+
+	/* Categorías: filas compactas con foto */
+	.cats__list { display: grid; gap: 8px; }
+	.cat { display: flex; align-items: center; gap: 14px; padding: 8px 14px 8px 8px; border-radius: 18px; box-shadow: inset 0 0 0 1px var(--line); color: var(--ink); text-decoration: none; transition: background-color 160ms ease; }
+	.cat:hover { background: var(--apple-50); }
+	.cat__img { width: 56px; height: 56px; border-radius: 12px; object-fit: cover; object-position: 50% 30%; }
+	.cat__name { display: grid; flex: 1; font-size: 17px; line-height: 1.25; }
+	.cat__name small { color: var(--muted); font-size: 13px; }
+	.cat .ic { width: 18px; color: var(--apple-deep); }
+	@media (min-width: 900px) { .cats__list { grid-template-columns: repeat(5, 1fr); gap: 14px; } .cat { flex-direction: column; align-items: start; padding: 10px 10px 16px; } .cat__img { width: 100%; height: auto; aspect-ratio: 1; } .cat__name { padding: 0 6px; } .cat .ic { display: none; } }
+
+	/* Spray destacado: tres datos y la foto con personas */
+	.spot { display: grid; gap: 22px; }
+	.facts { display: grid; gap: 10px; margin-top: 18px; }
+	.facts li { display: grid; grid-template-columns: 40px 1fr; column-gap: 12px; padding: 14px; border-radius: 18px; background: var(--white); }
+	.facts__icon { grid-row: span 2; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--apple-100); color: var(--apple-deep); }
+	.facts h3 { font-size: 16px; }
+	.facts p { font-size: 14px; line-height: 1.45; }
+	.spot__act { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 20px; }
+	.spot__media { overflow: hidden; aspect-ratio: 1; border-radius: 22px; }
+	.spot__img { width: 100%; height: 100%; object-fit: cover; }
+	@media (min-width: 900px) { .spot { grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; } .spot__media { border-radius: 26px; } }
+
+	/* Opiniones */
+	.voices__track { display: flex; gap: 12px; margin: 0 calc(var(--gut) * -1); padding: 0 var(--gut) 6px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: var(--gut); scrollbar-width: none; }
+	.voices__track::-webkit-scrollbar { display: none; }
+	.voice { flex: 0 0 84%; display: grid; align-content: start; gap: 12px; padding: 20px; scroll-snap-align: start; border-radius: var(--radius); background: var(--apple-50); }
+	.voice__who { display: flex; align-items: center; gap: 12px; }
+	.voice__avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: 50% 25%; }
+	.voice__who p { display: grid; font-size: 14px; line-height: 1.3; }
+	.voice__who span { color: var(--muted); }
+	.voice__quote { color: var(--ink); font-size: 19px; line-height: 1.3; letter-spacing: -0.3px; }
+	.voice__text { font-size: 14px; line-height: 1.55; }
+	@media (min-width: 900px) { .voices__track { margin: 0; padding: 0 0 6px; scroll-padding-left: 0; gap: 20px; } .voice { flex-basis: calc((100% - 40px) / 2.4); padding: 26px; } .voice__quote { font-size: 22px; } }
+
+	/* Compra segura + enlaces de ayuda */
+	.trust__list { display: grid; gap: 10px; }
+	.trust__list li { display: flex; gap: 14px; padding: 16px; border-radius: 18px; box-shadow: inset 0 0 0 1px var(--line); }
+	.trust__icon { display: grid; place-items: center; width: 40px; height: 40px; flex: none; border-radius: 50%; background: var(--apple-100); color: var(--apple-deep); }
+	.trust__list h3 { font-size: 16px; }
+	.trust__list p { margin-top: 2px; font-size: 14px; line-height: 1.45; }
+	.trust__links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+	.trust__links a { display: inline-flex; padding: 9px 16px; border-radius: 999px; background: var(--apple-50); color: var(--ink); font-size: 14px; text-decoration: none; transition: background-color 160ms ease; }
+	.trust__links a:hover { background: var(--apple-100); }
+	@media (min-width: 900px) { .trust__list { grid-template-columns: repeat(4, 1fr); gap: 16px; } .trust__list li { flex-direction: column; padding: 22px; } }
+
+	/* Pie centrado */
+	.ft { display: grid; justify-items: center; gap: 16px; margin-top: var(--pad); padding: 36px var(--gut) calc(30px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); text-align: center; font-size: 14px; }
+	.ft__logo { width: 104px; }
+	.ft__links { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; }
+	.ft__links a { color: var(--ink); text-decoration: none; }
+	.ft__links a:hover { color: var(--apple-deep); }
+	.ft__contact, .ft__legal { color: var(--muted); font-size: 13px; }
+	.ft__legal a { color: var(--muted); }
+	.ft .pay { justify-content: center; }
+
+	/* Ficha: galería a sangre y hoja que sube encima (móvil) */
+	.gallery { position: relative; }
+	.gallery__track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+	.gallery__track::-webkit-scrollbar { display: none; }
+	.gallery__slide { flex: 0 0 100%; aspect-ratio: 1; scroll-snap-align: start; background: var(--apple-50); }
+	.gallery__img { width: 100%; height: 100%; object-fit: cover; }
+	.gallery__slide--contain { display: grid; place-items: center; background: radial-gradient(closest-side, var(--apple-100), var(--apple-50)); }
+	.gallery__slide--contain .gallery__img { width: auto; height: 86%; mix-blend-mode: multiply; }
+	.gallery__bars { position: relative; z-index: 2; display: flex; gap: 4px; padding: 10px var(--gut) 34px; background: var(--white); }
+	.gallery__bar { flex: 1; height: 24px; display: grid; align-items: center; }
+	.gallery__bar::before { content: ''; height: 3px; border-radius: 3px; background: var(--apple-100); transition: background-color 200ms ease; }
+	.gallery__bar[aria-current="true"]::before { background: var(--apple-deep); }
+	.sheet { position: relative; z-index: 3; margin-top: -26px; padding: 22px var(--gut) 8px; border-radius: 28px 28px 0 0; background: var(--white); box-shadow: 0 -16px 30px -24px rgba(15, 46, 11, .4); }
+	.sheet__head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-top: 10px; }
+	.sheet__title { font-size: 30px; line-height: 1.05; letter-spacing: -1px; }
+	.sheet__price { flex: none; font-size: 22px; }
+	.sheet__sub { margin-top: 8px; color: var(--muted); font-size: 14px; }
+	.sheet__pains { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+	.sheet__pains li { padding: 5px 12px; border-radius: 999px; background: var(--apple-100); color: var(--apple-deep); font-size: 13px; }
+	.sheet__buy { display: grid; grid-template-columns: auto 1fr; gap: 10px; margin-top: 20px; }
+	.sheet__now { margin-top: 10px; }
+	.sheet__trust { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 18px; text-align: center; font-size: 12px; line-height: 1.3; }
+	.sheet__trust li { display: grid; justify-items: center; gap: 6px; padding: 12px 6px; border-radius: 16px; background: var(--apple-50); }
+	.sheet__trust .ic { color: var(--apple-deep); }
+	.info { margin-top: 22px; }
+	.seg { display: flex; gap: 4px; padding: 4px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--line); }
+	.seg__btn { flex: 1; min-height: 40px; padding: 8px 6px; border-radius: 999px; color: var(--text); font-size: 14px; transition: background-color 160ms ease, color 160ms ease; }
+	.seg__btn:hover { color: var(--ink); }
+	.seg__btn[aria-selected="true"] { background: var(--apple); color: var(--apple-ink); }
+	.info__panel { display: grid; gap: 8px; padding: 16px 4px 4px; font-size: 15px; }
+	.info__panel .small { font-size: 13px; color: var(--muted); }
+	.info__steps { display: grid; gap: 8px; }
+	.info__steps li { display: flex; gap: 10px; align-items: center; color: var(--ink); }
+	.info__steps .ic { width: 18px; color: var(--apple-deep); }
+	@media (min-width: 900px) {
+		main > [data-view] > .pdp { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 40px; align-items: start; margin-top: 18px; padding-inline: var(--gut); }
+		.gallery__track { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; overflow: visible; }
+		.gallery__slide { border-radius: 24px; overflow: hidden; }
+		.gallery__slide:first-child { grid-column: 1 / -1; }
+		.gallery__bars { display: none; }
+		.sheet { position: sticky; top: 100px; margin: 0; padding: 30px 32px 24px; border-radius: 28px; box-shadow: 0 0 0 1px var(--line), 0 30px 60px -40px rgba(15, 46, 11, .45); }
+		.sheet__title { font-size: 40px; letter-spacing: -1.4px; }
+		.sheet__price { font-size: 28px; }
+	}
+	.plants__track { display: flex; gap: 12px; margin: 0 calc(var(--gut) * -1); padding: 0 var(--gut) 4px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: var(--gut); scrollbar-width: none; }
+	.plants__track::-webkit-scrollbar { display: none; }
+	.plant { flex: 0 0 78%; display: grid; gap: 12px; scroll-snap-align: start; }
+	.plant__img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius); }
+	.plant h3 { font-size: 19px; }
+	.plant p { margin-top: 2px; font-size: 14px; }
+	@media (min-width: 900px) { .plants__track { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin: 0; padding: 0; overflow: visible; } }
+	.faq__list { display: grid; gap: 8px; max-width: 860px; }
+	.qa { border-radius: 18px; background: var(--apple-50); transition: background-color 160ms ease; }
+	.qa[open] { background: var(--apple-100); }
+	.qa summary { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 18px; color: var(--ink); font-size: 16px; line-height: 1.35; cursor: pointer; list-style: none; }
+	.qa summary::-webkit-details-marker { display: none; }
+	.qa__sign { display: grid; place-items: center; width: 32px; height: 32px; flex: none; border-radius: 50%; background: var(--white); color: var(--apple-deep); transition: transform 220ms var(--ease); }
+	.qa__sign .ic { width: 16px; height: 16px; }
+	.qa[open] .qa__sign { transform: rotate(180deg); }
+	.qa__a { display: grid; gap: 8px; padding: 0 18px 18px; font-size: 15px; }
+
+	/* Barra fija de compra (ficha) */
+	.sticky { position: fixed; left: 10px; right: 10px; bottom: calc(10px + env(safe-area-inset-bottom)); z-index: 25; display: flex; align-items: center; gap: 12px; padding: 8px 8px 8px 20px; border-radius: 999px; background: var(--ink); color: var(--white); box-shadow: 0 18px 40px -16px rgba(15, 26, 16, .6); opacity: 0; transform: translateY(130%); transition: transform 360ms var(--ease-out), opacity 240ms ease; pointer-events: none; }
+	.sticky.is-on { opacity: 1; transform: none; pointer-events: auto; }
+	.sticky p { display: grid; flex: 1; font-size: 12px; line-height: 1.3; color: #c7d3c4; }
+	.sticky strong { color: #c7d3c4; }
+	.sticky p span { color: var(--white); font-size: 17px; }
+	.sticky .btn { min-height: 46px; padding: 8px 18px; }
+	@media (min-width: 900px) { .sticky { left: 50%; right: auto; width: 440px; margin-left: -220px; bottom: 22px; } }
+
+	/* Carrito: hoja inferior en móvil, panel flotante en escritorio */
+	.drawer { position: fixed; inset: 0; z-index: 80; }
+	.drawer__scrim { position: absolute; inset: 0; width: 100%; background: rgba(15, 26, 16, .4); opacity: 0; transition: opacity 340ms ease; cursor: default; }
+	.drawer__panel { position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; max-height: 88vh; border-radius: 28px 28px 0 0; background: var(--white); transform: translateY(100%); transition: transform 400ms var(--ease-out); }
+	.drawer.is-open .drawer__scrim { opacity: 1; }
+	.drawer.is-open .drawer__panel { transform: none; }
+	.drawer__handle { align-self: center; flex: none; width: 42px; height: 5px; margin-top: 10px; border-radius: 5px; background: var(--line); }
+	.drawer__hd { display: flex; justify-content: space-between; align-items: center; padding: 10px 18px 6px 22px; }
+	.drawer__hd h2 { font-size: 22px; letter-spacing: -0.4px; }
+	.drawer__body, .drawer__empty { flex: 1 1 auto; padding: 10px 18px; overflow-y: auto; }
+	.drawer.is-empty .drawer__body, .drawer.is-empty .drawer__ft { display: none; }
+	.drawer:not(.is-empty) .drawer__empty { display: none; }
+	.drawer__empty { display: grid; justify-items: center; gap: 14px; padding-bottom: 30px; color: var(--ink); font-size: 18px; }
+	.line { display: grid; grid-template-columns: 64px 1fr auto; align-items: center; gap: 14px; padding: 12px; border-radius: 22px; background: var(--apple-50); }
+	.line__img { display: grid; place-items: center; height: 76px; border-radius: 16px; background: var(--white); }
+	.line__img img { height: 64px; width: auto; mix-blend-mode: multiply; }
+	.line__info h3 { font-size: 16px; line-height: 1.25; }
+	.line__info p { font-size: 13px; color: var(--muted); }
+	.line__remove { display: inline-flex; align-items: center; gap: 6px; margin: 10px 0 0 4px; color: var(--muted); font-size: 13px; }
+	.line__remove:hover { color: var(--ink); }
+	.line__remove .ic { width: 16px; height: 16px; }
+	.sum { display: grid; gap: 8px; margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--apple-200); font-size: 15px; }
+	.sum p { display: flex; justify-content: space-between; gap: 12px; }
+	.sum__total { padding-top: 8px; color: var(--ink); font-size: 18px; }
+	.sum__total strong { font-size: 24px; letter-spacing: -0.5px; }
+	.sum__note { font-size: 13px; color: var(--muted); }
+	.drawer__ft { display: grid; gap: 12px; padding: 14px 18px calc(16px + env(safe-area-inset-bottom)); }
+	.drawer__ft .pay { justify-content: center; }
+	@media (min-width: 900px) {
+		.drawer__panel { left: auto; top: 16px; right: 16px; bottom: 16px; width: 420px; max-height: none; border-radius: 28px; transform: translateX(calc(100% + 24px)); }
+		.drawer__handle { display: none; }
+		.drawer__hd { padding-top: 22px; }
+	}
+</style>
+</head>
+<body>
+<div class="pv" role="region" aria-label="Controles de la maqueta">
+	<p class="pv__name"><span>Nambu MX</span> Propuesta B · Compra rápida</p>
+	<nav class="pv__views" aria-label="Vista">
+		<a href="#inicio" data-pv-view="inicio">Inicio</a>
+		<a href="#tienda" data-pv-view="tienda">Tienda</a>
+		<a href="#producto" data-pv-view="producto">Producto</a>
+		<button type="button" data-pv-cart>Carrito</button>
+	</nav>
+	<p class="pv__legend"><span class="mock">punteado</span> = dato por definir · "Próximamente" = catálogo de ejemplo</p>
+	<a class="pv__other" href="a-tienda.html">Propuesta A →</a>
+</div>
+<div class="store" data-store>
+	
+<header class="hd">
+	<div class="hd__in">
+		<a class="hd__logo" href="#inicio" aria-label="Nambu, inicio"><img src="../../landings/spray/assets/landings-nambu-wordmark-green.webp" width="568" height="138" alt="Nambu"></a>
+		<nav class="hd__nav" aria-label="Principal"><a href="#tienda">Tienda</a><a href="#producto">Spray Nasal</a><a href="#ayuda">Ayuda</a><a href="#contacto">Contacto</a></nav>
+		<div class="hd__tools">
+			<a class="hd__icon hd__wide" href="#" aria-label="Mi cuenta"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.2-3.6 4-5.5 7.5-5.5s6.3 1.9 7.5 5.5"/></svg></a>
+			<a class="hd__bag" href="#carrito" data-open-cart><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8.5h14l-1.1 11.1a1.6 1.6 0 0 1-1.6 1.4H7.7a1.6 1.6 0 0 1-1.6-1.4Z"/><path d="M8.8 8.5V7a3.2 3.2 0 0 1 6.4 0v1.5"/></svg><span>Carrito</span><span class="hd__count" data-cart-count hidden>0</span></a>
+			<button class="hd__icon hd__menu" type="button" aria-label="Menú" aria-expanded="false" data-menu-toggle><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
+		</div>
+	</div>
+	<nav class="hd__drop" aria-label="Menú móvil" data-menu hidden><a href="#tienda">Tienda</a><a href="#producto">Spray Nasal</a><a href="#ayuda">Ayuda</a><a href="#contacto">Contacto</a></nav>
+</header>
+	<main>
+		<div data-view="inicio">
+			
+<section class="promo" aria-labelledby="promo-title">
+	<a class="promo__media" href="#producto"><img class="promo__img" src="https://cdn.shopify.com/s/files/1/0661/2670/8896/files/2eb9e8bd-2bf1-42b1-a04e-f5c08ff9b6d4.png?width=1000" width="1254" height="1254" alt="Spray Nasal de Nambu sobre una repisa de mármol" fetchpriority="high" sizes="(min-width: 900px) 520px, 40vw"></a>
+	<div class="promo__copy">
+		<h1 id="promo-title" class="promo__title">Spray Nasal de Nambu</h1>
+		<p class="promo__sub">60 ml · Eucalipto, menta y regaliz</p>
+		<p class="promo__lead">Extractos botánicos de <strong>eucalipto, menta y regaliz</strong> para ayudar a despejar la sensación de nariz tapada y facilitar el paso del aire.</p>
+		<div class="promo__buy"><span class="price promo__price">$460 <small>MXN</small></span><button type="button" class="btn " data-add><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span>Agregar al carrito</span></button></div>
+		<a class="link promo__link" href="#producto">Ver producto<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+	</div>
+</section>
+			
+<div class="finder" data-filter data-active="all">
+	<div class="finder__bar">
+		<label class="search"><span class="sr">Buscar productos</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg><input type="search" placeholder="Busca un producto" data-search></label>
+		<div class="chips" role="group" aria-label="Filtrar por categoría">
+			<button type="button" class="chip" aria-pressed="true" data-filter-btn="all">Todo</button>
+			<button type="button" class="chip" aria-pressed="false" data-filter-btn="respiracion">Respiración</button><button type="button" class="chip" aria-pressed="false" data-filter-btn="piel">Piel</button><button type="button" class="chip" aria-pressed="false" data-filter-btn="unas">Uñas</button><button type="button" class="chip" aria-pressed="false" data-filter-btn="cabello">Cabello</button><button type="button" class="chip" aria-pressed="false" data-filter-btn="bronceado">Bronceado</button>
+		</div>
+	</div>
+	<section class="shelf" aria-labelledby="shelf-home">
+		<div class="head"><h2 id="shelf-home" class="h2">Más pedidos</h2><p class="head__count" data-filter-count aria-live="polite"></p></div>
+		<ul class="grid"><li class="card" data-collection="respiracion" data-name="spray nasal">
+		<a class="card__media" href="#producto"><img class="card__img" src="https://cdn.shopify.com/s/files/1/0661/2670/8896/files/2eb9e8bd-2bf1-42b1-a04e-f5c08ff9b6d4.png?width=700" width="1254" height="1254" alt="Spray Nasal" loading="lazy" decoding="async" sizes="(min-width: 1000px) 260px, 46vw"></a>
+		<h3 class="card__name"><a href="#producto">Spray Nasal</a></h3>
+		<p class="card__type">Spray nasal · 60 ml</p>
+		<div class="card__row">
+			<span class="price card__price">$460 <small>MXN</small></span>
+			<button type="button" class="add" aria-label="Agregar Spray Nasal al carrito" data-add><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+		</div>
+	</li><li class="card" data-collection="piel" data-name="sérum piel de porcelana">
+		<div class="card__media"><img class="card__img" src="https://nambuoficial.com/cdn/shop/files/65a8d012-b573-46c9-b6fa-6750a5166373.png?width=700" width="1200" height="1200" alt="Sérum Piel de Porcelana" loading="lazy" decoding="async" sizes="(min-width: 1000px) 260px, 46vw"></div>
+		<h3 class="card__name">Sérum Piel de Porcelana</h3>
+		<p class="card__type">Sérum facial</p>
+		<div class="card__row">
+			<span class="card__soon">Próximamente</span>
+			<button type="button" class="add" aria-label="Sérum Piel de Porcelana: próximamente" disabled><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+		</div>
+	</li><li class="card" data-collection="piel" data-name="sérum niacinamida 10%">
+		<div class="card__media"><img class="card__img" src="https://nambuoficial.com/cdn/shop/files/3b640304-c2be-4756-a128-d1f77d55802b_1.png?width=700" width="1200" height="1200" alt="Sérum Niacinamida 10%" loading="lazy" decoding="async" sizes="(min-width: 1000px) 260px, 46vw"></div>
+		<h3 class="card__name">Sérum Niacinamida 10%</h3>
+		<p class="card__type">Sérum facial</p>
+		<div class="card__row">
+			<span class="card__soon">Próximamente</span>
+			<button type="button" class="add" aria-label="Sérum Niacinamida 10%: próximamente" disabled><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+		</div>
+	</li><li class="card" data-collection="unas" data-name="1 week">
+		<div class="card__media"><img class="card__img" src="https://nambuoficial.com/cdn/shop/files/1.jpg?width=700" width="1200" height="1200" alt="1 Week" loading="lazy" decoding="async" sizes="(min-width: 1000px) 260px, 46vw"></div>
+		<h3 class="card__name">1 Week</h3>
+		<p class="card__type">Fortalecedor de uñas</p>
+		<div class="card__row">
+			<span class="card__soon">Próximamente</span>
+			<button type="button" class="add" aria-label="1 Week: próximamente" disabled><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+		</div>
+	</li></ul>
+		<p class="empty" data-empty hidden>No encontramos productos con esa búsqueda.</p>
+		<a class="btn btn--ghost more" href="#tienda"><span>Ver toda la tienda</span></a>
+	</section>
+</div>
+			
+<section class="reorder" aria-labelledby="reorder-title">
+	<div class="reorder__copy">
+		<span class="reorder__icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11V9.5A3.5 3.5 0 0 1 7.5 6H19m0 0-3-3m3 3-3 3M20 13v1.5a3.5 3.5 0 0 1-3.5 3.5H5m0 0 3 3m-3-3 3-3"/></svg></span>
+		<h2 id="reorder-title" class="h3">Vuelve a pedir en un toque</h2>
+		<p>Inicia sesión y aquí verás lo que ya compraste, listo para pedirlo otra vez.</p>
+		<a class="btn btn--ghost btn--sm" href="#"><span>Iniciar sesión</span></a>
+	</div>
+	<div class="reorder__example">
+		<p class="reorder__label"><span class="mock">Así lo ve un cliente que regresa</span></p>
+		<article class="mini">
+			<div class="mini__img"><img class="" src="../../landings/spray/assets/landings-spray-packshot.webp" width="601" height="1100" alt="" loading="lazy" decoding="async" sizes="64px"></div>
+			<div class="mini__info"><h3>Spray Nasal de Nambu</h3><p>60 ml · $460 MXN</p></div>
+			<button type="button" class="btn btn--sm" data-add><span>Pedir de nuevo</span></button>
+		</article>
+	</div>
+</section>
+			
+<section class="cats" aria-labelledby="cats-title">
+	<div class="head"><h2 id="cats-title" class="h2">Categorías</h2></div>
+	<ul class="cats__list"><li><a class="cat" href="#tienda"><img class="cat__img" src="../../landings/spray/assets/landings-spray-ugc-catalina-aplica.webp" width="688" height="1124" alt="" loading="lazy" decoding="async" sizes="120px"><span class="cat__name">Respiración<small>Disponible</small></span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></a></li><li><a class="cat" href="#tienda"><img class="cat__img" src="https://nambuoficial.com/cdn/shop/files/65a8d012-b573-46c9-b6fa-6750a5166373.png?width=300" width="1200" height="1200" alt="" loading="lazy" decoding="async" sizes="120px"><span class="cat__name">Piel<small>Próximamente</small></span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></a></li><li><a class="cat" href="#tienda"><img class="cat__img" src="https://nambuoficial.com/cdn/shop/files/1.jpg?width=300" width="1200" height="1200" alt="" loading="lazy" decoding="async" sizes="120px"><span class="cat__name">Uñas<small>Próximamente</small></span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></a></li><li><a class="cat" href="#tienda"><img class="cat__img" src="https://nambuoficial.com/cdn/shop/files/Recurso_150-8.png?width=300" width="1200" height="1200" alt="" loading="lazy" decoding="async" sizes="120px"><span class="cat__name">Cabello<small>Próximamente</small></span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></a></li><li><a class="cat" href="#tienda"><img class="cat__img" src="https://nambuoficial.com/cdn/shop/files/32c443f4-5aba-4f65-97b6-06137c35acaf.webp?width=300" width="1200" height="1200" alt="" loading="lazy" decoding="async" sizes="120px"><span class="cat__name">Bronceado<small>Próximamente</small></span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></a></li></ul>
+</section>
+			
+<section class="panel spot" aria-labelledby="spot-title">
+	<div class="spot__copy">
+		<h2 id="spot-title" class="h2">Por qué el Spray Nasal</h2>
+		<ul class="facts"><li><span class="facts__icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5c3.2 4 5 7 5 9.5a5 5 0 0 1-10 0c0-2.5 1.8-5.5 5-9.5Z"/><path d="M9.8 13.5a2.3 2.3 0 0 0 2.2 2"/></svg></span><h3>60 ml de contenido</h3><p>El doble frente a presentaciones comunes de 30 ml.</p></li><li><span class="facts__icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14Z"/><path d="M5 19 13 11"/></svg></span><h3>Eucalipto, menta y regaliz</h3><p>Extractos botánicos en un formato nasal listo para usar.</p></li><li><span class="facts__icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4"/></svg></span><h3>Mañana y noche</h3><p>2 aplicaciones en cada fosa nasal.</p></li></ul>
+		<div class="spot__act"><button type="button" class="btn " data-add><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span>Agregar al carrito</span></button><a class="link" href="#producto">Ver producto<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+	</div>
+	<figure class="spot__media"><img class="spot__img" src="../../landings/spray/assets/landings-spray-hero.webp" width="1200" height="1200" alt="Un hombre y una mujer sostienen el Spray Nasal de Nambu" loading="lazy" decoding="async" sizes="(min-width: 900px) 460px, 100vw"></figure>
+</section>
+			
+<section class="voices" aria-labelledby="voices-h" data-rail>
+	<div class="head"><h2 id="voices-h" class="h2">Lo que dice la gente</h2><div class="arrows"><button class="round" type="button" aria-label="Opinión anterior" data-prev><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><button class="round" type="button" aria-label="Opinión siguiente" data-next><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></div></div>
+	<ul class="voices__track" data-track><li class="voice">
+			<div class="voice__who"><img class="voice__avatar" src="../../landings/spray/assets/landings-spray-ugc-catalina.webp" width="680" height="1192" alt="" loading="lazy" decoding="async" sizes="48px"><p><strong>Catalina</strong><span>Ciudad de México · Spray Nasal</span></p></div>
+			<p class="voice__quote">“Por fin pude dormir sin pasar toda la noche con la boca abierta.”</p>
+			<p class="voice__text">Lo pedí porque por las noches se me tapaba muchísimo la nariz. Lo que más noté fue poder acostarme y sentir el paso del aire mucho más libre. También me sorprendió el tamaño del frasco. Pensé que sería uno de esos sprays pequeños y trae bastante.</p>
+		</li><li class="voice">
+			<div class="voice__who"><img class="voice__avatar" src="../../landings/spray/assets/landings-spray-ugc-carlos-mauricio.webp" width="670" height="1042" alt="" loading="lazy" decoding="async" sizes="48px"><p><strong>Carlos Mauricio</strong><span>Guadalajara · Spray Nasal</span></p></div>
+			<p class="voice__quote">“Vivía aclarando la garganta por ese moco que bajaba.”</p>
+			<p class="voice__text">Mi molestia era sentir moco pegado atrás de la nariz y estar carraspeando todo el tiempo. Empecé a usar el Spray Nasal de Nambu mañana y noche y me gustó mucho la sensación que deja. Ya lo tengo al lado de la cama.</p>
+		</li><li class="voice">
+			<div class="voice__who"><img class="voice__avatar" src="../../landings/spray/assets/landings-spray-ugc-genesis.webp" width="692" height="1190" alt="" loading="lazy" decoding="async" sizes="48px"><p><strong>Genésis</strong><span>Monterrey · Spray Nasal</span></p></div>
+			<p class="voice__quote">“El polvo y el cambio de clima me cerraban la nariz enseguida.”</p>
+			<p class="voice__text">Cuando limpiaba la casa o cambiaba el clima empezaba con estornudos y nariz tapada. Quería algo fácil de usar y este me gustó porque va directo en la nariz. Además, 60 ml rinden muchísimo más de lo que esperaba.</p>
+		</li></ul>
+</section>
+			
+<section class="trust" id="ayuda" aria-labelledby="trust-title">
+	<div class="head"><h2 id="trust-title" class="h2">Compra segura</h2></div>
+	<ul class="trust__list"><li><span class="trust__icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg></span><div><h3>Envío</h3><p><span class="mock">Envío a todo México. Entrega en X a Y días hábiles.</span></p></div></li><li><span class="trust__icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2.4"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></svg></span><div><h3>Pago seguro</h3><p>Paga con tarjeta en el checkout de Shopify.</p></div></li><li><span class="trust__icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.6a8 8 0 0 1-11.8 7L4 20l1.4-4A8 8 0 1 1 20 11.6Z"/><path d="M9 10.5c.4 2 2 3.6 4 4"/></svg></span><div><h3>Te acompañamos</h3><p>WhatsApp <span class="mock">+52 55 0000 0000</span></p></div></li><li><span class="trust__icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 19 6v5.5c0 4.3-3 7.7-7 9-4-1.3-7-4.7-7-9V6Z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg></span><div><h3>Garantía de entrega</h3><p><span class="mock">Si tu pedido no llega en el plazo indicado, te lo reenviamos sin costo.</span></p></div></li></ul>
+	<ul class="trust__links"><li><a href="#faq">Preguntas frecuentes</a></li><li><a href="#">Rastrear mi pedido</a></li><li><a href="#">WhatsApp</a></li><li><a href="#">Cambios y devoluciones</a></li></ul>
+</section>
+		</div>
+		<div data-view="tienda" hidden>
+			<div class="coll-head"><nav class="crumbs" aria-label="Ruta"><a href="#inicio">Inicio</a><span aria-hidden="true">/</span><span>Tienda</span></nav><h1 class="h2 coll-title">Todos los productos</h1></div>
+			
+<div class="finder" data-filter data-active="all">
+	<div class="finder__bar">
+		<label class="search"><span class="sr">Buscar productos</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg><input type="search" placeholder="Busca un producto" data-search></label>
+		<div class="chips" role="group" aria-label="Filtrar por categoría">
+			<button type="button" class="chip" aria-pressed="true" data-filter-btn="all">Todo</button>
+			<button type="button" class="chip" aria-pressed="false" data-filter-btn="respiracion">Respiración</button><button type="button" class="chip" aria-pressed="false" data-filter-btn="piel">Piel</button><button type="button" class="chip" aria-pressed="false" data-filter-btn="unas">Uñas</button><button type="button" class="chip" aria-pressed="false" data-filter-btn="cabello">Cabello</button><button type="button" class="chip" aria-pressed="false" data-filter-btn="bronceado">Bronceado</button>
+		</div>
+	</div>
+	<section class="shelf" aria-labelledby="shelf-all">
+		<div class="head"><h2 id="shelf-all" class="h2">Catálogo</h2><p class="head__count" data-filter-count aria-live="polite"></p></div>
+		<ul class="grid"><li class="card" data-collection="respiracion" data-name="spray nasal">
+		<a class="card__media" href="#producto"><img class="card__img" src="https://cdn.shopify.com/s/files/1/0661/2670/8896/files/2eb9e8bd-2bf1-42b1-a04e-f5c08ff9b6d4.png?width=700" width="1254" height="1254" alt="Spray Nasal" loading="lazy" decoding="async" sizes="(min-width: 1000px) 260px, 46vw"></a>
+		<h3 class="card__name"><a href="#producto">Spray Nasal</a></h3>
+		<p class="card__type">Spray nasal · 60 ml</p>
+		<div class="card__row">
+			<span class="price card__price">$460 <small>MXN</small></span>
+			<button type="button" class="add" aria-label="Agregar Spray Nasal al carrito" data-add><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+		</div>
+	</li><li class="card" data-collection="piel" data-name="sérum piel de porcelana">
+		<div class="card__media"><img class="card__img" src="https://nambuoficial.com/cdn/shop/files/65a8d012-b573-46c9-b6fa-6750a5166373.png?width=700" width="1200" height="1200" alt="Sérum Piel de Porcelana" loading="lazy" decoding="async" sizes="(min-width: 1000px) 260px, 46vw"></div>
+		<h3 class="card__name">Sérum Piel de Porcelana</h3>
+		<p class="card__type">Sérum facial</p>
+		<div class="card__row">
+			<span class="card__soon">Próximamente</span>
+			<button type="button" class="add" aria-label="Sérum Piel de Porcelana: próximamente" disabled><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+		</div>
+	</li><li class="card" data-collection="piel" data-name="sérum niacinamida 10%">
+		<div class="card__media"><img class="card__img" src="https://nambuoficial.com/cdn/shop/files/3b640304-c2be-4756-a128-d1f77d55802b_1.png?width=700" width="1200" height="1200" alt="Sérum Niacinamida 10%" loading="lazy" decoding="async" sizes="(min-width: 1000px) 260px, 46vw"></div>
+		<h3 class="card__name">Sérum Niacinamida 10%</h3>
+		<p class="card__type">Sérum facial</p>
+		<div class="card__row">
+			<span class="card__soon">Próximamente</span>
+			<button type="button" class="add" aria-label="Sérum Niacinamida 10%: próximamente" disabled><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+		</div>
+	</li><li class="card" data-collection="unas" data-name="1 week">
+		<div class="card__media"><img class="card__img" src="https://nambuoficial.com/cdn/shop/files/1.jpg?width=700" width="1200" height="1200" alt="1 Week" loading="lazy" decoding="async" sizes="(min-width: 1000px) 260px, 46vw"></div>
+		<h3 class="card__name">1 Week</h3>
+		<p class="card__type">Fortalecedor de uñas</p>
+		<div class="card__row">
+			<span class="card__soon">Próximamente</span>
+			<button type="button" class="add" aria-label="1 Week: próximamente" disabled><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+		</div>
+	</li><li class="card" data-collection="cabello" data-name="golden glow">
+		<div class="card__media"><img class="card__img" src="https://cdn.shopify.com/s/files/1/0661/2670/8896/files/Recurso110-8.png?width=700" width="1200" height="1200" alt="Golden Glow" loading="lazy" decoding="async" sizes="(min-width: 1000px) 260px, 46vw"></div>
+		<h3 class="card__name">Golden Glow</h3>
+		<p class="card__type">Aclarante de cabello</p>
+		<div class="card__row">
+			<span class="card__soon">Próximamente</span>
+			<button type="button" class="add" aria-label="Golden Glow: próximamente" disabled><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+		</div>
+	</li><li class="card" data-collection="bronceado" data-name="isoul">
+		<div class="card__media"><img class="card__img" src="https://nambuoficial.com/cdn/shop/files/32c443f4-5aba-4f65-97b6-06137c35acaf.webp?width=700" width="1200" height="1200" alt="ISOUL" loading="lazy" decoding="async" sizes="(min-width: 1000px) 260px, 46vw"></div>
+		<h3 class="card__name">ISOUL</h3>
+		<p class="card__type">Autobronceador</p>
+		<div class="card__row">
+			<span class="card__soon">Próximamente</span>
+			<button type="button" class="add" aria-label="ISOUL: próximamente" disabled><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+		</div>
+	</li><li class="card" data-collection="respiracion" data-name="chest relief">
+		<div class="card__media"><img class="card__img" src="https://cdn.shopify.com/s/files/1/0661/2670/8896/files/WhatsAppImage2025-07-28at5.43.45PM.jpg?width=700" width="1024" height="1024" alt="Chest Relief" loading="lazy" decoding="async" sizes="(min-width: 1000px) 260px, 46vw"></div>
+		<h3 class="card__name">Chest Relief</h3>
+		<p class="card__type">Ungüento</p>
+		<div class="card__row">
+			<span class="card__soon">Próximamente</span>
+			<button type="button" class="add" aria-label="Chest Relief: próximamente" disabled><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+		</div>
+	</li><li class="card" data-collection="piel" data-name="jabón cuerpo de porcelana">
+		<div class="card__media"><img class="card__img" src="https://cdn.shopify.com/s/files/1/0661/2670/8896/files/Recurso88-8.png?width=700" width="590" height="590" alt="Jabón Cuerpo de Porcelana" loading="lazy" decoding="async" sizes="(min-width: 1000px) 260px, 46vw"></div>
+		<h3 class="card__name">Jabón Cuerpo de Porcelana</h3>
+		<p class="card__type">Jabón corporal</p>
+		<div class="card__row">
+			<span class="card__soon">Próximamente</span>
+			<button type="button" class="add" aria-label="Jabón Cuerpo de Porcelana: próximamente" disabled><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+		</div>
+	</li></ul>
+		<p class="empty" data-empty hidden>No encontramos productos con esa búsqueda.</p>
+		
+	</section>
+</div>
+		</div>
+		<div data-view="producto" hidden>
+<div class="pdp">
+	<div class="gallery" data-rail>
+		<ul class="gallery__track" data-track>
+			<li class="gallery__slide gallery__slide--cover"><img class="gallery__img" src="../../landings/spray/assets/landings-spray-hero.webp" width="1200" height="1200" alt="Un hombre y una mujer sostienen el Spray Nasal de Nambu junto al frasco de 60 ml" fetchpriority="high" sizes="(min-width: 900px) 360px, 100vw"></li><li class="gallery__slide gallery__slide--contain"><img class="gallery__img" src="../../landings/spray/assets/landings-spray-packshot.webp" width="601" height="1100" alt="Frasco de Spray Nasal de Nambu de 60 ml" loading="lazy" decoding="async" sizes="(min-width: 900px) 360px, 100vw"></li><li class="gallery__slide gallery__slide--cover"><img class="gallery__img" src="../../landings/spray/assets/landings-spray-modo-uso.webp" width="1000" height="1000" alt="Modo de uso del Spray Nasal de Nambu: 2 aplicaciones nasales, 2 veces al día" loading="lazy" decoding="async" sizes="(min-width: 900px) 360px, 100vw"></li><li class="gallery__slide gallery__slide--cover"><img class="gallery__img" src="../../landings/spray/assets/landings-spray-ugc-catalina-aplica.webp" width="688" height="1124" alt="Catalina se aplica el Spray Nasal de Nambu" loading="lazy" decoding="async" sizes="(min-width: 900px) 360px, 100vw"></li>
+		</ul>
+		<div class="gallery__bars" role="group" aria-label="Fotos del producto"><button type="button" class="gallery__bar" aria-label="Foto 1" data-dot></button><button type="button" class="gallery__bar" aria-label="Foto 2" data-dot></button><button type="button" class="gallery__bar" aria-label="Foto 3" data-dot></button><button type="button" class="gallery__bar" aria-label="Foto 4" data-dot></button></div>
+	</div>
+	<div class="sheet" data-buybox>
+		<nav class="crumbs" aria-label="Ruta"><a href="#inicio">Inicio</a><span aria-hidden="true">/</span><a href="#tienda">Respiración</a><span aria-hidden="true">/</span><span>Spray Nasal</span></nav>
+		<div class="sheet__head">
+			<h1 class="sheet__title">Spray Nasal de Nambu</h1>
+			<p class="sheet__price"><span class="price">$460 <small>MXN</small></span></p>
+		</div>
+		<p class="sheet__sub">60 ml · Eucalipto, menta y regaliz · <span class="mock">Impuestos incluidos.</span></p>
+		<ul class="sheet__pains"><li>Congestión</li><li>Moco</li><li>Presión nasal</li><li>Respiración por la boca</li></ul>
+		<div class="sheet__buy">
+			<div class="qty" data-qty><button type="button" aria-label="Quitar uno" data-qty-dec><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/></svg></button><output data-qty-value aria-live="polite">1</output><button type="button" aria-label="Agregar uno" data-qty-inc><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></div>
+			<div data-sticky-anchor><button type="button" class="btn btn--block" data-add><span>Agregar al carrito</span></button></div>
+		</div>
+		<button type="button" class="btn btn--ghost btn--block sheet__now" data-add><span>Comprar ahora</span></button>
+		<ul class="sheet__trust">
+			<li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg><span><span class="mock">Envío a todo México</span></span></li>
+			<li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2.4"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></svg><span>Pago seguro</span></li>
+			<li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 19 6v5.5c0 4.3-3 7.7-7 9-4-1.3-7-4.7-7-9V6Z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg><span><span class="mock">Garantía de entrega</span></span></li>
+		</ul>
+		<div class="info" data-seg data-value="details">
+			<div class="seg" role="tablist" aria-label="Información del producto"><button type="button" role="tab" class="seg__btn" aria-selected="true" data-seg-btn="details">Detalles</button><button type="button" role="tab" class="seg__btn" aria-selected="false" data-seg-btn="use">Uso</button><button type="button" role="tab" class="seg__btn" aria-selected="false" data-seg-btn="plants">Ingredientes</button><button type="button" role="tab" class="seg__btn" aria-selected="false" data-seg-btn="ship">Envío</button></div>
+			<div class="info__panel" data-seg-panel="details"><p>Spray Nasal de Nambu combina extractos botánicos de eucalipto, menta y regaliz para ayudar a despejar la sensación de nariz tapada y facilitar el paso del aire.</p><p>Trae 60 ml: el doble frente a presentaciones comunes de 30 ml.</p></div>
+			<div class="info__panel" data-seg-panel="use" hidden><ul class="info__steps"><li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>2 aplicaciones en cada fosa nasal.</li><li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Mañana y noche.</li><li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Directo en la nariz. Sin preparar mezclas.</li></ul></div>
+			<div class="info__panel" data-seg-panel="plants" hidden><p>Extractos botánicos de eucalipto, menta y regaliz.</p><p class="small">Nota sobre la etiqueta: comunicamos los nombres de las plantas de origen para explicar la fórmula de manera sencilla. En el empaque físico aparecen las nomenclaturas técnicas utilizadas para declarar sus extractos y componentes.</p></div>
+			<div class="info__panel" data-seg-panel="ship" hidden><p><span class="mock">Envío a todo México. Entrega en X a Y días hábiles.</span></p><p><span class="mock">Política de cambios y devoluciones por definir.</span></p></div>
+		</div>
+	</div>
+</div>
+<section class="plants" aria-labelledby="plants-title" data-rail>
+	<div class="head"><h2 id="plants-title" class="h2">Lo que lleva</h2></div>
+	<ul class="plants__track" data-track><li class="plant"><img class="plant__img" src="../../landings/spray/assets/landings-spray-ingrediente-eucalipto.webp" width="900" height="600" alt="Eucalipto" loading="lazy" decoding="async" sizes="(min-width: 900px) 380px, 78vw"><div><h3>Eucalipto</h3><p>Conocido por su uso tradicional durante episodios de congestión y acumulación de moco.</p></div></li><li class="plant"><img class="plant__img" src="../../landings/spray/assets/landings-spray-ingrediente-menta.webp" width="900" height="600" alt="Menta" loading="lazy" decoding="async" sizes="(min-width: 900px) 380px, 78vw"><div><h3>Menta</h3><p>Su mentol genera una sensación refrescante asociada con una percepción más libre del paso del aire.</p></div></li><li class="plant"><img class="plant__img" src="../../landings/spray/assets/landings-spray-ingrediente-regaliz.webp" width="900" height="473" alt="Regaliz" loading="lazy" decoding="async" sizes="(min-width: 900px) 380px, 78vw"><div><h3>Regaliz</h3><p>Raíz utilizada tradicionalmente en preparaciones relacionadas con garganta, tos y secreciones.</p></div></li></ul>
+</section>
+
+<section class="voices" aria-labelledby="voices-p" data-rail>
+	<div class="head"><h2 id="voices-p" class="h2">Lo que dice la gente</h2><div class="arrows"><button class="round" type="button" aria-label="Opinión anterior" data-prev><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><button class="round" type="button" aria-label="Opinión siguiente" data-next><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></div></div>
+	<ul class="voices__track" data-track><li class="voice">
+			<div class="voice__who"><img class="voice__avatar" src="../../landings/spray/assets/landings-spray-ugc-catalina.webp" width="680" height="1192" alt="" loading="lazy" decoding="async" sizes="48px"><p><strong>Catalina</strong><span>Ciudad de México · Spray Nasal</span></p></div>
+			<p class="voice__quote">“Por fin pude dormir sin pasar toda la noche con la boca abierta.”</p>
+			<p class="voice__text">Lo pedí porque por las noches se me tapaba muchísimo la nariz. Lo que más noté fue poder acostarme y sentir el paso del aire mucho más libre. También me sorprendió el tamaño del frasco. Pensé que sería uno de esos sprays pequeños y trae bastante.</p>
+		</li><li class="voice">
+			<div class="voice__who"><img class="voice__avatar" src="../../landings/spray/assets/landings-spray-ugc-carlos-mauricio.webp" width="670" height="1042" alt="" loading="lazy" decoding="async" sizes="48px"><p><strong>Carlos Mauricio</strong><span>Guadalajara · Spray Nasal</span></p></div>
+			<p class="voice__quote">“Vivía aclarando la garganta por ese moco que bajaba.”</p>
+			<p class="voice__text">Mi molestia era sentir moco pegado atrás de la nariz y estar carraspeando todo el tiempo. Empecé a usar el Spray Nasal de Nambu mañana y noche y me gustó mucho la sensación que deja. Ya lo tengo al lado de la cama.</p>
+		</li><li class="voice">
+			<div class="voice__who"><img class="voice__avatar" src="../../landings/spray/assets/landings-spray-ugc-genesis.webp" width="692" height="1190" alt="" loading="lazy" decoding="async" sizes="48px"><p><strong>Genésis</strong><span>Monterrey · Spray Nasal</span></p></div>
+			<p class="voice__quote">“El polvo y el cambio de clima me cerraban la nariz enseguida.”</p>
+			<p class="voice__text">Cuando limpiaba la casa o cambiaba el clima empezaba con estornudos y nariz tapada. Quería algo fácil de usar y este me gustó porque va directo en la nariz. Además, 60 ml rinden muchísimo más de lo que esperaba.</p>
+		</li></ul>
+</section>
+<section class="faq" id="faq" aria-labelledby="faq-title">
+	<div class="head"><h2 id="faq-title" class="h2">Preguntas frecuentes</h2></div>
+	<div class="faq__list"><details class="qa"><summary>¿Cuánto producto trae?<span class="qa__sign"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary><div class="qa__a"><p><strong>60 ml.</strong> El doble frente a una presentación común de 30 ml.</p></div></details><details class="qa"><summary>¿Cómo se usa?<span class="qa__sign"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary><div class="qa__a"><p>2 aplicaciones en cada fosa nasal, 2 veces al día.</p></div></details><details class="qa"><summary>¿Por qué aparecen otros nombres en la etiqueta?<span class="qa__sign"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary><div class="qa__a"><p>El empaque utiliza nomenclaturas técnicas para declarar extractos y componentes de la fórmula. Por eso algunos nombres impresos son diferentes a los nombres cotidianos de las plantas.</p></div></details><details class="qa"><summary>¿Tiene alguna precaución de uso?<span class="qa__sign"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary><div class="qa__a"><p>Si te preocupa que alguno de sus componentes pueda caerte mal, revisa la composición antes de usarlo. Si tienes antecedentes de alergias, utilizas otros productos nasales o tienes una condición médica, consulta primero con un profesional de salud.</p></div></details><details class="qa"><summary>¿Hacen envíos a todo México?<span class="qa__sign"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary><div class="qa__a"><p><span class="mock">Envío a todo México. Costo de envío por definir.</span></p></div></details><details class="qa"><summary>¿Cuánto tarda?<span class="qa__sign"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary><div class="qa__a"><p><span class="mock">Entrega en X a Y días hábiles.</span></p></div></details></div>
+</section>
+<section class="shelf" aria-labelledby="more-title">
+	<div class="head"><h2 id="more-title" class="h2">También en Nambu</h2><a class="link" href="#tienda">Ver todo<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+	<ul class="grid"><li class="card" data-collection="piel" data-name="sérum piel de porcelana">
+		<div class="card__media"><img class="card__img" src="https://nambuoficial.com/cdn/shop/files/65a8d012-b573-46c9-b6fa-6750a5166373.png?width=700" width="1200" height="1200" alt="Sérum Piel de Porcelana" loading="lazy" decoding="async" sizes="(min-width: 1000px) 260px, 46vw"></div>
+		<h3 class="card__name">Sérum Piel de Porcelana</h3>
+		<p class="card__type">Sérum facial</p>
+		<div class="card__row">
+			<span class="card__soon">Próximamente</span>
+			<button type="button" class="add" aria-label="Sérum Piel de Porcelana: próximamente" disabled><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+		</div>
+	</li><li class="card" data-collection="piel" data-name="sérum niacinamida 10%">
+		<div class="card__media"><img class="card__img" src="https://nambuoficial.com/cdn/shop/files/3b640304-c2be-4756-a128-d1f77d55802b_1.png?width=700" width="1200" height="1200" alt="Sérum Niacinamida 10%" loading="lazy" decoding="async" sizes="(min-width: 1000px) 260px, 46vw"></div>
+		<h3 class="card__name">Sérum Niacinamida 10%</h3>
+		<p class="card__type">Sérum facial</p>
+		<div class="card__row">
+			<span class="card__soon">Próximamente</span>
+			<button type="button" class="add" aria-label="Sérum Niacinamida 10%: próximamente" disabled><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+		</div>
+	</li><li class="card" data-collection="unas" data-name="1 week">
+		<div class="card__media"><img class="card__img" src="https://nambuoficial.com/cdn/shop/files/1.jpg?width=700" width="1200" height="1200" alt="1 Week" loading="lazy" decoding="async" sizes="(min-width: 1000px) 260px, 46vw"></div>
+		<h3 class="card__name">1 Week</h3>
+		<p class="card__type">Fortalecedor de uñas</p>
+		<div class="card__row">
+			<span class="card__soon">Próximamente</span>
+			<button type="button" class="add" aria-label="1 Week: próximamente" disabled><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+		</div>
+	</li><li class="card" data-collection="cabello" data-name="golden glow">
+		<div class="card__media"><img class="card__img" src="https://cdn.shopify.com/s/files/1/0661/2670/8896/files/Recurso110-8.png?width=700" width="1200" height="1200" alt="Golden Glow" loading="lazy" decoding="async" sizes="(min-width: 1000px) 260px, 46vw"></div>
+		<h3 class="card__name">Golden Glow</h3>
+		<p class="card__type">Aclarante de cabello</p>
+		<div class="card__row">
+			<span class="card__soon">Próximamente</span>
+			<button type="button" class="add" aria-label="Golden Glow: próximamente" disabled><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+		</div>
+	</li></ul>
+</section></div>
+	</main>
+	
+<footer class="ft" id="contacto">
+	<img class="ft__logo" src="../../landings/spray/assets/landings-nambu-wordmark-green.webp" width="568" height="138" alt="Nambu" loading="lazy">
+	<nav class="ft__links" aria-label="Pie"><a href="#tienda">Todos los productos</a><a href="#faq">Preguntas frecuentes</a><a href="#">Rastrear mi pedido</a><a href="#">Envíos</a><a href="#">Cambios y devoluciones</a><a href="#">Contacto</a></nav>
+	<p class="ft__contact">WhatsApp <span class="mock">+52 55 0000 0000</span> · <span class="mock">hola@nambumx.com</span> · <span class="mock">@nambu.mx</span></p>
+	<ul class="pay" aria-label="Medios de pago">
+	<li><img src="../../shared/assets/landings-shared-pay-visa.webp" width="60" height="38" alt="Visa" loading="lazy"></li>
+	<li><img src="../../shared/assets/landings-shared-pay-mastercard.webp" width="60" height="38" alt="Mastercard" loading="lazy"></li>
+	<li class="mock">Otros medios de pago</li>
+</ul>
+	<p class="ft__legal">© 2026 <span class="mock">Nambu México</span> · <a href="#">Aviso de privacidad</a> · <a href="#">Términos y condiciones</a></p>
+</footer>
+	
+<div class="sticky" data-sticky>
+	<p><strong>Spray Nasal · 60 ml</strong><span>$460 MXN</span></p>
+	<button type="button" class="btn " data-add><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span>Agregar</span></button>
+</div>
+	
+<div class="drawer is-empty" data-cart hidden>
+	<button class="drawer__scrim" type="button" tabindex="-1" aria-label="Cerrar carrito" data-cart-close></button>
+	<aside class="drawer__panel" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+		<span class="drawer__handle" aria-hidden="true"></span>
+		<header class="drawer__hd">
+			<h2 id="cart-title" data-cart-title>Tu carrito</h2>
+			<button class="round" type="button" aria-label="Cerrar carrito" data-cart-close><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+		</header>
+		<div class="drawer__empty">
+			<p>Tu carrito está vacío.</p>
+			<a class="btn btn--ghost" href="#tienda" data-cart-close><span>Ver la tienda</span></a>
+		</div>
+		<div class="drawer__body">
+			<article class="line">
+				<div class="line__img"><img class="" src="../../landings/spray/assets/landings-spray-packshot.webp" width="601" height="1100" alt="" loading="lazy" decoding="async" sizes="64px"></div>
+				<div class="line__info"><h3>Spray Nasal de Nambu</h3><p>60 ml</p></div>
+				<div class="qty qty--sm"><button type="button" aria-label="Quitar uno" data-line-dec><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/></svg></button><output data-line-qty>1</output><button type="button" aria-label="Agregar uno" data-line-inc><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></div>
+			</article>
+			<button type="button" class="line__remove" data-line-remove><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h14M10 7V5h4v2M7 7l.8 12a1.5 1.5 0 0 0 1.5 1.4h5.4a1.5 1.5 0 0 0 1.5-1.4L17 7"/></svg>Eliminar del carrito</button>
+			<div class="sum">
+				<p><span>Subtotal</span><span data-line-total>$460 MXN</span></p>
+				<p><span>Envío</span><span>Se calcula en el checkout</span></p>
+				<p class="sum__total"><span>Total estimado</span><strong data-subtotal>$460 MXN</strong></p>
+				<p class="sum__note"><span class="mock">Impuestos incluidos.</span></p>
+			</div>
+		</div>
+		<footer class="drawer__ft">
+			<button type="button" class="btn btn--block" data-checkout><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2.4"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></svg><span>Finalizar compra</span></button>
+			<ul class="pay" aria-label="Medios de pago">
+	<li><img src="../../shared/assets/landings-shared-pay-visa.webp" width="60" height="38" alt="Visa" loading="lazy"></li>
+	<li><img src="../../shared/assets/landings-shared-pay-mastercard.webp" width="60" height="38" alt="Mastercard" loading="lazy"></li>
+	<li class="mock">Otros medios de pago</li>
+</ul>
+		</footer>
+	</aside>
+</div>
+</div>
+<script>
+(() => {
+
+	const root = document.querySelector('[data-store]')
+	if (!root) return
+	const UNIT_PRICE = 460
+	const money = n => '$' + n.toLocaleString('es-MX') + ' MXN'
+	const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches
+	const VIEWS = ['inicio', 'tienda', 'producto']
+	root.classList.add('is-js')
+
+	// Vistas: cada una es una plantilla del mismo tema
+	const views = root.querySelectorAll('[data-view]')
+	const showView = () => {
+		const hash = location.hash.slice(1)
+		const anchor = hash && !VIEWS.includes(hash) ? root.querySelector('#' + CSS.escape(hash)) : null
+		const id = VIEWS.includes(hash) ? hash : anchor?.closest('[data-view]')?.dataset.view || 'inicio'
+		views.forEach(v => { v.hidden = v.dataset.view !== id })
+		document.querySelectorAll('[data-pv-view]').forEach(a => {
+			if (a.dataset.pvView === id) a.setAttribute('aria-current', 'page')
+			else a.removeAttribute('aria-current')
+		})
+		if (anchor) anchor.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' })
+		else window.scrollTo(0, 0)
+	}
+	addEventListener('hashchange', showView)
+
+	// Carrito
+	const cart = { qty: 0 }
+	const drawer = root.querySelector('[data-cart]')
+	const counts = root.querySelectorAll('[data-cart-count]')
+	let lastFocus = null
+	const renderCart = () => {
+		counts.forEach(c => { c.textContent = cart.qty; c.hidden = cart.qty === 0 })
+		if (!drawer) return
+		drawer.classList.toggle('is-empty', cart.qty === 0)
+		drawer.querySelectorAll('[data-line-qty]').forEach(n => { n.textContent = cart.qty })
+		drawer.querySelectorAll('[data-line-total], [data-subtotal]').forEach(n => { n.textContent = money(UNIT_PRICE * cart.qty) })
+		drawer.querySelectorAll('[data-cart-title]').forEach(n => { n.textContent = cart.qty ? 'Tu carrito (' + cart.qty + ')' : 'Tu carrito' })
+	}
+	const openCart = () => {
+		if (!drawer) return
+		lastFocus = document.activeElement
+		drawer.hidden = false
+		requestAnimationFrame(() => drawer.classList.add('is-open'))
+		document.documentElement.classList.add('is-locked')
+		drawer.querySelector('[data-cart-close]:not([tabindex])')?.focus({ preventScroll: true })
+	}
+	const closeCart = () => {
+		if (!drawer || drawer.hidden) return
+		drawer.classList.remove('is-open')
+		document.documentElement.classList.remove('is-locked')
+		setTimeout(() => { drawer.hidden = true }, reduced ? 0 : 360)
+		lastFocus?.focus?.({ preventScroll: true })
+	}
+	const pickedQty = t => Number(t.closest('[data-buybox]')?.querySelector('[data-qty-value]')?.textContent || 1)
+	root.addEventListener('click', e => {
+		const t = e.target.closest('button, a')
+		if (!t) return
+		if (t.matches('[data-add]')) { cart.qty += pickedQty(t); renderCart(); openCart() }
+		else if (t.matches('[data-open-cart]')) { e.preventDefault(); openCart() }
+		else if (t.matches('[data-cart-close]')) closeCart()
+		else if (t.matches('[data-line-inc]')) { cart.qty++; renderCart() }
+		else if (t.matches('[data-line-dec]')) { cart.qty = Math.max(0, cart.qty - 1); renderCart() }
+		else if (t.matches('[data-line-remove]')) { cart.qty = 0; renderCart() }
+		else if (t.matches('[data-qty-inc], [data-qty-dec]')) {
+			const out = t.closest('[data-qty]').querySelector('[data-qty-value]')
+			out.textContent = Math.max(1, Number(out.textContent) + (t.matches('[data-qty-inc]') ? 1 : -1))
+		}
+		else if (t.matches('[data-menu-toggle]')) {
+			const menu = root.querySelector('[data-menu]')
+			const open = t.getAttribute('aria-expanded') !== 'true'
+			t.setAttribute('aria-expanded', String(open))
+			menu.hidden = !open
+		}
+		else if (t.closest('[data-menu]') && t.matches('a')) {
+			root.querySelector('[data-menu]').hidden = true
+			root.querySelector('[data-menu-toggle]')?.setAttribute('aria-expanded', 'false')
+		}
+		else if (t.matches('[data-checkout]')) { e.preventDefault(); t.querySelector('span').textContent = 'Aquí empieza el checkout de Shopify' }
+		else if (t.matches('[data-filter-btn]')) filterBy(t)
+	})
+	document.querySelector('[data-pv-cart]')?.addEventListener('click', () => { if (!cart.qty) { cart.qty = 1; renderCart() } openCart() })
+	addEventListener('keydown', e => {
+		if (e.key === 'Escape') closeCart()
+		if (e.key !== 'Tab' || !drawer || drawer.hidden) return
+		const f = [...drawer.querySelectorAll('button:not([tabindex]), a[href]')].filter(n => n.offsetParent)
+		if (!f.length) return
+		if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f.at(-1).focus() }
+		else if (!e.shiftKey && document.activeElement === f.at(-1)) { e.preventDefault(); f[0].focus() }
+	})
+	renderCart()
+
+	// Filtros por colección y buscador: actúan sobre la rejilla de su mismo bloque
+	function applyFilter (box) {
+		const col = box.dataset.active || 'all'
+		const q = (box.querySelector('[data-search]')?.value || '').trim().toLowerCase()
+		let shown = 0
+		box.querySelectorAll('[data-collection]').forEach(card => {
+			const ok = (col === 'all' || card.dataset.collection === col) && (!q || card.dataset.name.includes(q))
+			card.hidden = !ok
+			if (ok) shown++
+		})
+		box.querySelectorAll('[data-filter-count]').forEach(n => { n.textContent = shown === 1 ? '1 producto' : shown + ' productos' })
+		box.querySelectorAll('[data-empty]').forEach(n => { n.hidden = shown > 0 })
+	}
+	function filterBy (btn) {
+		const box = btn.closest('[data-filter]')
+		box.dataset.active = btn.dataset.filterBtn
+		box.querySelectorAll('[data-filter-btn]').forEach(b => b.setAttribute('aria-pressed', String(b === btn)))
+		applyFilter(box)
+	}
+	root.querySelectorAll('[data-search]').forEach(input => input.addEventListener('input', () => applyFilter(input.closest('[data-filter]'))))
+	root.querySelectorAll('[data-filter]').forEach(applyFilter)
+
+	// Carriles con scroll-snap: el índice sale de la tarjeta más cercana al punto de encaje
+	root.querySelectorAll('[data-rail]').forEach(wrap => {
+		const track = wrap.querySelector('[data-track]')
+		const items = [...track.children]
+		const prev = wrap.querySelector('[data-prev]')
+		const next = wrap.querySelector('[data-next]')
+		const dots = [...wrap.querySelectorAll('[data-dot]')]
+		const pad = () => parseFloat(getComputedStyle(track).scrollPaddingLeft) || 0
+		const current = () => {
+			const start = track.getBoundingClientRect().left + pad()
+			let best = 0, dist = Infinity
+			items.forEach((it, i) => { const d = Math.abs(it.getBoundingClientRect().left - start); if (d < dist) { dist = d; best = i } })
+			return best
+		}
+		const go = i => { const it = items[Math.max(0, Math.min(items.length - 1, i))]; track.scrollTo({ left: it.offsetLeft - track.offsetLeft - pad(), behavior: reduced ? 'auto' : 'smooth' }) }
+		const sync = () => {
+			const i = current()
+			const max = track.scrollWidth - track.clientWidth
+			if (prev) prev.disabled = track.scrollLeft <= 2
+			if (next) next.disabled = track.scrollLeft >= max - 2
+			dots.forEach((d, k) => d.setAttribute('aria-current', k === i ? 'true' : 'false'))
+		}
+		prev?.addEventListener('click', () => go(current() - 1))
+		next?.addEventListener('click', () => go(current() + 1))
+		dots.forEach((d, k) => d.addEventListener('click', () => go(k)))
+		track.addEventListener('scroll', () => requestAnimationFrame(sync), { passive: true })
+		addEventListener('resize', sync)
+		addEventListener('hashchange', () => requestAnimationFrame(sync))
+		sync()
+	})
+
+	// Barra fija de compra en la ficha: sale cuando el botón principal deja la pantalla
+	const sticky = root.querySelector('[data-sticky]')
+	if (sticky && 'IntersectionObserver' in window) {
+		const watch = new IntersectionObserver(([en]) => sticky.classList.toggle('is-on', !en.isIntersecting && en.boundingClientRect.top < 0 && !root.querySelector('[data-view="producto"]').hidden), { rootMargin: '0px 0px -40% 0px' })
+		root.querySelectorAll('[data-sticky-anchor]').forEach(n => watch.observe(n))
+		addEventListener('hashchange', () => sticky.classList.remove('is-on'))
+	}
+
+	showView()
+
+
+	// Pestañas de la ficha
+	root.addEventListener('click', e => {
+		const tab = e.target.closest('[data-seg-btn]')
+		if (!tab) return
+		const box = tab.closest('[data-seg]')
+		box.querySelectorAll('[data-seg-btn]').forEach(b => b.setAttribute('aria-selected', String(b === tab)))
+		box.querySelectorAll('[data-seg-panel]').forEach(p => { p.hidden = p.dataset.segPanel !== tab.dataset.segBtn })
+	})
+
+})()
+</script>
+</body>
+</html>

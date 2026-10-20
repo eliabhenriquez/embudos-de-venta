@@ -1,0 +1,43 @@
+{%- comment -%} Compra con confianza: envío, pago, atención, garantía. Un bloque sin título no sale. {%- endcomment -%}
+{%- if section.blocks.size > 0 -%}
+	<section class="nb-shell nb-trust" aria-labelledby="Trust-{{ section.id }}">
+		<h2 id="Trust-{{ section.id }}" class="nb-h2">{{ section.settings.heading }}</h2>
+		<ul class="nb-trust__list">
+			{%- for block in section.blocks -%}
+				{%- if block.settings.title != blank -%}
+					<li {{ block.shopify_attributes }}>
+						<span class="nb-trust__icon">{% render 'icon', name: block.settings.icon %}</span>
+						<h3>{{ block.settings.title }}</h3>
+						{%- if block.settings.text != blank -%}<div class="nb-trust__text">{{ block.settings.text }}</div>{%- endif -%}
+					</li>
+				{%- endif -%}
+			{%- endfor -%}
+		</ul>
+	</section>
+{%- endif -%}
+
+{% schema %}
+{
+	"name": "Confianza",
+	"class": "nb-section-trust",
+	"max_blocks": 4,
+	"settings": [
+		{ "type": "text", "id": "heading", "label": "Título", "default": "Compra con confianza" }
+	],
+	"blocks": [
+		{
+			"type": "item",
+			"name": "Garantía",
+			"settings": [
+				{ "type": "select", "id": "icon", "label": "Icono", "default": "shield", "options": [
+					{ "value": "truck", "label": "Envío" }, { "value": "lock", "label": "Pago" }, { "value": "chat", "label": "Atención" },
+					{ "value": "shield", "label": "Garantía" }, { "value": "box", "label": "Paquete" }
+				] },
+				{ "type": "text", "id": "title", "label": "Título", "default": "Garantía" },
+				{ "type": "richtext", "id": "text", "label": "Texto" }
+			]
+		}
+	],
+	"presets": [{ "name": "Confianza", "blocks": [{ "type": "item" }] }]
+}
+{% endschema %}

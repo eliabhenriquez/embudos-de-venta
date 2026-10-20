@@ -1,0 +1,31 @@
+{%- comment -%}
+	Categoría con foto, nombre y estado. Devuelve vacío si no tiene nada que enseñar:
+	sin productos, o solo "Próximamente" con el ajuste show_coming_soon apagado.
+	Parámetros: collection, sizes.
+{%- endcomment -%}
+{%- liquid
+	assign has_available = false
+	assign has_soon = false
+	for product in collection.products limit: 50
+		if product.available
+			assign has_available = true
+			break
+		elsif product.metafields.custom.coming_soon.value == true
+			assign has_soon = true
+		endif
+	endfor
+	assign show = has_available
+	if has_soon and settings.show_coming_soon
+		assign show = true
+	endif
+	assign tile_image = collection.featured_image | default: collection.products.first.featured_media.preview_image
+-%}
+{%- if show -%}
+	<li class="nb-tile">
+		<a class="nb-tile__link" href="{{ collection.url }}">
+			<span class="nb-tile__media">{% render 'image', image: tile_image, sizes: sizes, class: 'nb-tile__img', widths: '240, 360, 480', decorative: true %}</span>
+			<span class="nb-tile__name">{{ collection.title }}</span>
+			<span class="nb-tile__status">{% if has_available %}{{ 'products.available' | t }}{% else %}{{ 'products.coming_soon' | t }}{% endif %}</span>
+		</a>
+	</li>
+{%- endif -%}

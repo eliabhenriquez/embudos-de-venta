@@ -1,0 +1,59 @@
+[
+	{
+		"name": "theme_info",
+		"theme_name": "Nambu",
+		"theme_version": "1.0.0",
+		"theme_author": "Nambu",
+		"theme_documentation_url": "https://nambumx.com",
+		"theme_support_url": "https://nambumx.com"
+	},
+	{
+		"name": "Logotipo",
+		"settings": [
+			{ "type": "image_picker", "id": "logo", "label": "Logotipo" },
+			{ "type": "range", "id": "logo_width", "label": "Ancho del logotipo en escritorio", "min": 80, "max": 200, "step": 4, "unit": "px", "default": 124 },
+			{ "type": "image_picker", "id": "favicon", "label": "Favicon", "info": "Cuadrada, de 64 px o más y con fondo transparente. Se ve a 16 y 32 px: solo el símbolo, sin texto." }
+		]
+	},
+	{
+		"name": "Tipografía",
+		"settings": [
+			{ "type": "font_picker", "id": "type_font", "label": "Fuente", "default": "questrial_n4", "info": "Questrial tiene un solo peso: la jerarquía se hace con tamaño y color." }
+		]
+	},
+	{
+		"name": "Contacto",
+		"settings": [
+			{ "type": "text", "id": "whatsapp_number", "label": "WhatsApp", "info": "Con código de país, por ejemplo +52 55 1234 5678. Vacío: no se muestra.", "default": "[POR DEFINIR]" },
+			{ "type": "text", "id": "contact_email", "label": "Correo de atención", "info": "Vacío: no se muestra.", "default": "[POR DEFINIR]" },
+			{ "type": "url", "id": "instagram_url", "label": "Instagram" }
+		]
+	},
+	{
+		"name": "Productos",
+		"settings": [
+			{ "type": "checkbox", "id": "show_coming_soon", "label": "Mostrar productos «Próximamente»", "default": true, "info": "Un producto sale como «Próximamente» si no tiene stock y su metacampo custom.coming_soon está activo. Si desactivas esto, esos productos no aparecen en rejillas ni categorías." }
+		]
+	},
+	{
+		"name": "Precios y pagos",
+		"settings": [
+			{ "type": "checkbox", "id": "show_currency_code", "label": "Mostrar el código de moneda", "default": true, "info": "Activado: $460 MXN. Desactivado: $79.900." },
+			{ "type": "checkbox", "id": "show_compare_price", "label": "Mostrar el precio tachado", "default": true, "info": "El «precio de comparación» del producto. Desactivado, solo sale el precio de venta." },
+			{ "type": "text", "id": "payment_icons", "label": "Iconos de medios de pago", "default": "visa, master", "info": "Nombres de Shopify separados por comas: visa, master, american_express, paypal… Vacío: no se muestran." }
+		]
+	},
+	{
+		"name": "Apps",
+		"settings": [
+			{ "type": "checkbox", "id": "gempages_refresh", "label": "Páginas de GemPages con el estilo de Refresh", "default": false, "info": "Para landings de GemPages hechas sobre el tema anterior: cargan sus estilos y scripts y se ven como antes. Las páginas de la tienda no cambian." }
+		]
+	},
+	{
+		"name": "Carrito",
+		"settings": [
+			{ "type": "select", "id": "cart_type", "label": "Tipo de carrito", "default": "drawer", "options": [{ "value": "drawer", "label": "Lateral" }, { "value": "page", "label": "Página" }] },
+			{ "type": "text", "id": "cart_shipping_note", "label": "Línea de envío en el resumen", "default": "Se calcula en el checkout" }
+		]
+	}
+]

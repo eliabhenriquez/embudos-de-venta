@@ -1,0 +1,45 @@
+{%- comment -%}
+	"También en Nambu": recomendaciones nativas de Shopify. Mientras no haya datos para
+	recomendar, se muestran productos de la colección de respaldo (sin el producto actual).
+{%- endcomment -%}
+{%- liquid
+	assign fallback = section.settings.collection | default: collections.all
+	assign limit = section.settings.limit
+-%}
+{%- capture cards -%}
+	{%- if recommendations.performed and recommendations.products_count > 0 -%}
+		{%- for rec in recommendations.products -%}
+			{% render 'product-card', product: rec, id_prefix: section.id, sizes: '(min-width: 900px) 280px, 46vw' %}
+		{%- endfor -%}
+	{%- else -%}
+		{%- assign shown = 0 -%}
+		{%- for item in fallback.products -%}
+			{%- if item.id != product.id and shown < limit -%}
+				{%- assign shown = shown | plus: 1 -%}
+				{% render 'product-card', product: item, id_prefix: section.id, sizes: '(min-width: 900px) 280px, 46vw' %}
+			{%- endif -%}
+		{%- endfor -%}
+	{%- endif -%}
+{%- endcapture -%}
+<product-recommendations class="nb-shell nb-feat" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ limit }}&intent=related">
+	{%- if cards != blank -%}
+		<div class="nb-head">
+			<h2 class="nb-h2">{{ section.settings.heading }}</h2>
+			<a class="nb-link" href="{{ fallback.url }}">{{ 'general.view_all' | t }}{% render 'icon', name: 'arrow' %}</a>
+		</div>
+		<ul class="nb-grid">{{ cards }}</ul>
+	{%- endif -%}
+</product-recommendations>
+
+{% schema %}
+{
+	"name": "Recomendaciones",
+	"class": "nb-section-recs",
+	"settings": [
+		{ "type": "text", "id": "heading", "label": "Título", "default": "También en Nambu" },
+		{ "type": "collection", "id": "collection", "label": "Colección de respaldo", "info": "Vacío: todos los productos." },
+		{ "type": "range", "id": "limit", "label": "Máximo de productos", "min": 2, "max": 8, "step": 1, "default": 4 }
+	],
+	"enabled_on": { "templates": ["product"] }
+}
+{% endschema %}

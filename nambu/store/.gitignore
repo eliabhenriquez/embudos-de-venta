@@ -1,0 +1,5 @@
+node_modules/
+.shopify/
+# Generados por pnpm build desde stores/<tienda>/src/
+stores/*/theme/assets/theme.css
+stores/*/theme/assets/theme.js

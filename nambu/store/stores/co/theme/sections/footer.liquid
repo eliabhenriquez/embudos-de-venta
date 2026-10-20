@@ -1,0 +1,61 @@
+{%- comment -%} Pie: marca y redes, menús, contacto, medios de pago y políticas de la tienda. {%- endcomment -%}
+<footer class="nb-footer">
+	<div class="nb-shell nb-footer__in">
+		<div class="nb-footer__brand">
+			<a href="{{ routes.root_url }}" class="nb-footer__logo">
+				{%- if settings.logo -%}
+					{{ settings.logo | image_url: width: 300 | image_tag: widths: '150, 300', sizes: '112px', alt: shop.name, loading: 'lazy' }}
+				{%- else -%}
+					{{ shop.name }}
+				{%- endif -%}
+			</a>
+			{%- if settings.instagram_url != blank -%}
+				<a class="nb-footer__social" href="{{ settings.instagram_url }}" target="_blank" rel="noopener">{% render 'icon', name: 'instagram' %}<span>Instagram</span></a>
+			{%- endif -%}
+		</div>
+		{%- for block in section.blocks -%}
+			{%- if block.settings.menu != blank -%}
+				<nav class="nb-footer__col" aria-labelledby="FooterMenu-{{ block.id }}" {{ block.shopify_attributes }}>
+					<h2 id="FooterMenu-{{ block.id }}" class="nb-footer__title">{{ block.settings.heading | default: block.settings.menu.title }}</h2>
+					{%- for link in block.settings.menu.links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}
+				</nav>
+			{%- endif -%}
+		{%- endfor -%}
+		{%- capture contact -%}{% render 'contact-links', class: 'nb-footer__link' %}{%- endcapture -%}
+		{%- if contact != blank -%}
+			<div class="nb-footer__col" id="contacto">
+				<h2 class="nb-footer__title">{{ 'footer.contact' | t }}</h2>
+				{{ contact }}
+			</div>
+		{%- endif -%}
+	</div>
+	<div class="nb-shell nb-footer__base">
+		{% render 'pay-icons' %}
+		{%- assign year = 'now' | date: '%Y' -%}
+		<p class="nb-footer__legal">
+			{{ 'footer.rights' | t: year: year, shop: shop.name }}
+			{%- for policy in shop.policies -%}
+				<span aria-hidden="true"> · </span><a href="{{ policy.url }}">{{ policy.title }}</a>
+			{%- endfor -%}
+		</p>
+	</div>
+</footer>
+
+{% schema %}
+{
+	"name": "Pie de página",
+	"class": "nb-section-footer",
+	"max_blocks": 3,
+	"blocks": [
+		{
+			"type": "menu",
+			"name": "Menú",
+			"settings": [
+				{ "type": "text", "id": "heading", "label": "Título" },
+				{ "type": "link_list", "id": "menu", "label": "Menú", "default": "footer" }
+			]
+		}
+	],
+	"enabled_on": { "groups": ["footer"] }
+}
+{% endschema %}

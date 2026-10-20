@@ -1,0 +1,48 @@
+{
+	"type": "header",
+	"name": "Cabecera",
+	"sections": {
+		"announcement": {
+			"type": "announcement-bar",
+			"blocks": {
+				"welcome": {
+					"type": "message",
+					"settings": {
+						"text": "Te damos la bienvenida a nuestra tienda",
+						"link": ""
+					}
+				},
+				"payment": {
+					"type": "message",
+					"settings": {
+						"text": "Pagas cuando lo tienes en tus manos",
+						"link": ""
+					}
+				},
+				"secure": {
+					"type": "message",
+					"settings": {
+						"text": "Compra segura",
+						"link": ""
+					}
+				}
+			},
+			"block_order": [
+				"welcome",
+				"payment",
+				"secure"
+			]
+		},
+		"header": {
+			"type": "header",
+			"settings": {
+				"menu": "main-menu",
+				"logo_left": true
+			}
+		}
+	},
+	"order": [
+		"announcement",
+		"header"
+	]
+}

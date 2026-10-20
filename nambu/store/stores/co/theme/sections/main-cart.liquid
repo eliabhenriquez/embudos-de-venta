@@ -1,0 +1,26 @@
+{%- comment -%} Página de carrito: las mismas líneas y el mismo resumen que el carrito lateral. {%- endcomment -%}
+<cart-page class="nb-shell nb-cart" data-section="{{ section.id }}">
+	<h1 class="nb-page-title">{% if cart.item_count > 0 %}{{ 'cart.title_count' | t: count: cart.item_count }}{% else %}{{ 'cart.title' | t }}{% endif %}</h1>
+	{%- if cart.item_count == 0 -%}
+		<div class="nb-cart__empty">
+			<p>{{ 'cart.empty' | t }}</p>
+			<a class="nb-btn" href="{{ routes.all_products_collection_url }}">{{ 'cart.continue' | t }}</a>
+		</div>
+	{%- else -%}
+		<div class="nb-cart__grid">
+			<div>{% render 'cart-lines' %}</div>
+			<aside class="nb-cart__aside">
+				{% render 'cart-summary' %}
+				{% render 'cart-checkout' %}
+			</aside>
+		</div>
+	{%- endif -%}
+	<p class="nb-drawer__error" role="alert" hidden data-cart-error></p>
+</cart-page>
+
+{% schema %}
+{
+	"name": "Carrito",
+	"class": "nb-section-cart"
+}
+{% endschema %}

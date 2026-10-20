@@ -1,0 +1,15 @@
+{%- comment -%}
+	Estado de venta de un producto: available | soon | sold-out.
+	"soon" = sin stock y con el metacampo custom.coming_soon activo. Si el producto tiene
+	stock, el metacampo se ignora: lo que se puede comprar nunca se esconde.
+	Uso: {%- capture state -%}{% render 'product-state', product: product %}{%- endcapture -%}
+{%- endcomment -%}
+{%- liquid
+	if product.available
+		echo 'available'
+	elsif product.metafields.custom.coming_soon.value == true
+		echo 'soon'
+	else
+		echo 'sold-out'
+	endif
+-%}

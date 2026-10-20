@@ -1,0 +1,74 @@
+{%- comment -%}
+	Colección: categorías como chips (enlaces a otras colecciones), orden nativo de Shopify,
+	rejilla y paginación. Los "Próximamente" se omiten si el ajuste del tema está apagado.
+{%- endcomment -%}
+<div class="nb-shell nb-coll">
+	<nav class="nb-crumbs" aria-label="Ruta">
+		<a href="{{ routes.root_url }}">{{ 'general.home' | t }}</a><span aria-hidden="true">/</span><span aria-current="page">{{ collection.title }}</span>
+	</nav>
+	<div class="nb-coll__head">
+		<h1 class="nb-page-title">{{ collection.title }}</h1>
+		<p class="nb-coll__count">{{ 'collections.count' | t: count: collection.products_count }}</p>
+	</div>
+	{%- if collection.description != blank -%}<div class="nb-coll__desc nb-rte">{{ collection.description }}</div>{%- endif -%}
+	<div class="nb-coll__bar">
+		{%- if section.settings.categories.size > 0 -%}
+			<nav class="nb-chips" aria-label="{{ 'collections.products_heading' | t }}">
+				<a class="nb-chip" href="{{ routes.all_products_collection_url }}"{% if collection.handle == 'all' %} aria-current="page"{% endif %}>{{ 'collections.all' | t }}</a>
+				{%- for c in section.settings.categories -%}
+					<a class="nb-chip" href="{{ c.url }}"{% if c.handle == collection.handle %} aria-current="page"{% endif %}>{{ c.title }}<span>{{ c.all_products_count }}</span></a>
+				{%- endfor -%}
+			</nav>
+		{%- endif -%}
+		<collection-sort class="nb-sort">
+			<form method="get" action="{{ collection.url }}">
+				<label for="Sort-{{ section.id }}">{{ 'collections.sort' | t }}</label>
+				<select id="Sort-{{ section.id }}" name="sort_by">
+					{%- liquid
+						# Nombres propios: las traducciones de Shopify no encajan (manual → «Características»)
+						assign current_sort = collection.sort_by | default: collection.default_sort_by
+					-%}
+					{%- for option in collection.sort_options -%}
+						{%- liquid
+							assign sort_key = 'collections.sort_options.' | append: option.value | replace: '-', '_'
+							assign sort_label = sort_key | t
+							# Un orden nuevo de Shopify sin traducción propia usa el nombre de Shopify
+							if sort_label contains 'Translation missing'
+								assign sort_label = option.name
+							endif
+						-%}
+						<option value="{{ option.value }}"{% if option.value == current_sort %} selected{% endif %}>{{ sort_label }}</option>
+					{%- endfor -%}
+				</select>
+				<noscript><button type="submit" class="nb-btn nb-btn--sm">{{ 'collections.apply' | t }}</button></noscript>
+			</form>
+		</collection-sort>
+	</div>
+	{%- paginate collection.products by section.settings.per_page -%}
+		<h2 class="nb-sr">{{ 'collections.products_heading' | t }}</h2>
+		{%- capture cards -%}
+			{%- for product in collection.products -%}
+				{% render 'product-card', product: product, id_prefix: section.id, sizes: '(min-width: 900px) 280px, 46vw' %}
+			{%- endfor -%}
+		{%- endcapture -%}
+		{%- if cards != blank -%}
+			<ul class="nb-grid nb-grid--coll">{{ cards }}</ul>
+		{%- else -%}
+			<p class="nb-coll__empty">{{ 'collections.empty' | t }}</p>
+		{%- endif -%}
+		{%- if paginate.pages > 1 -%}
+			<nav class="nb-pages" aria-label="{{ 'general.page' | t: page: paginate.current_page }}">{{ paginate | default_pagination: previous: '←', next: '→' }}</nav>
+		{%- endif -%}
+	{%- endpaginate -%}
+</div>
+
+{% schema %}
+{
+	"name": "Colección",
+	"class": "nb-section-collection",
+	"settings": [
+		{ "type": "collection_list", "id": "categories", "label": "Categorías (chips)", "limit": 10 },
+		{ "type": "range", "id": "per_page", "label": "Productos por página", "min": 8, "max": 48, "step": 4, "default": 24 }
+	]
+}
+{% endschema %}

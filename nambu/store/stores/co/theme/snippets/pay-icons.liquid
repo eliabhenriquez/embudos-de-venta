@@ -1,0 +1,11 @@
+{%- comment -%} Medios de pago visibles: los del ajuste «Iconos de medios de pago», con los SVG oficiales de Shopify {%- endcomment -%}
+{%- capture icons -%}
+	{%- assign payment_types = settings.payment_icons | split: ',' -%}
+	{%- for payment_type in payment_types -%}
+		{%- assign payment_name = payment_type | strip -%}
+		{%- if payment_name != blank -%}<li>{{ payment_name | payment_type_svg_tag: class: 'nb-pay__icon' }}</li>{%- endif -%}
+	{%- endfor -%}
+{%- endcapture -%}
+{%- if icons != blank -%}
+	<ul class="nb-pay" aria-label="{{ 'accessibility.payment_methods' | t }}">{{ icons }}</ul>
+{%- endif -%}

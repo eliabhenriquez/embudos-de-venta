@@ -1,0 +1,19 @@
+{%- comment -%}
+	Configuración que necesita theme.js: rutas con el prefijo de idioma y textos.
+	Va como JSON en el documento para no colgar nada de window.
+{%- endcomment -%}
+<script type="application/json" id="nb-config">
+	{
+		"routes": {
+			"cart": {{ routes.cart_url | json }},
+			"cartAdd": {{ routes.cart_add_url | append: '.js' | json }},
+			"cartChange": {{ routes.cart_change_url | append: '.js' | json }},
+			"recommendations": {{ routes.product_recommendations_url | json }}
+		},
+		"cartType": {{ settings.cart_type | json }},
+		"strings": {
+			"addError": {{ 'products.error' | t | json }},
+			"cartError": {{ 'cart.error' | t | json }}
+		}
+	}
+</script>

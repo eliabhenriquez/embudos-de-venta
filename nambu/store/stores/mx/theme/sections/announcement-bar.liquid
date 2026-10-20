@@ -1,0 +1,33 @@
+{%- comment -%} Barra de aviso estática: mensajes cortos separados por un punto. Sin carrusel ni marquesina. {%- endcomment -%}
+{%- if section.blocks.size > 0 -%}
+	<div class="nb-note-bar">
+		<p class="nb-note-bar__in">
+			{%- for block in section.blocks -%}
+				{%- unless forloop.first %}<span class="nb-note-bar__sep" aria-hidden="true">·</span>{% endunless -%}
+				<span {{ block.shopify_attributes }}>
+					{%- if block.settings.link != blank -%}<a href="{{ block.settings.link }}">{{ block.settings.text }}</a>{%- else -%}{{ block.settings.text }}{%- endif -%}
+				</span>
+			{%- endfor -%}
+		</p>
+	</div>
+{%- endif -%}
+
+{% schema %}
+{
+	"name": "Barra de aviso",
+	"class": "nb-section-note",
+	"max_blocks": 3,
+	"blocks": [
+		{
+			"type": "message",
+			"name": "Mensaje",
+			"settings": [
+				{ "type": "inline_richtext", "id": "text", "label": "Texto", "default": "Mensaje" },
+				{ "type": "url", "id": "link", "label": "Enlace" }
+			]
+		}
+	],
+	"presets": [{ "name": "Barra de aviso", "blocks": [{ "type": "message" }] }],
+	"enabled_on": { "groups": ["header"] }
+}
+{% endschema %}

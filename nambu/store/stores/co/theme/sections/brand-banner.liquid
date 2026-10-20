@@ -1,0 +1,48 @@
+{%- comment -%}
+	Banner de marca: la foto de la línea a lo ancho y el mensaje sobre la pared libre de la foto (en escritorio, con una
+	bruma blanca que entra desde la izquierda). La foto tiene que dejar libre su lado izquierdo: ahí va el texto.
+	Para la portada de una tienda multiproducto; el banner de un solo producto es featured-product-banner.
+{%- endcomment -%}
+{%- if section.settings.image != blank -%}
+	<section class="nb-hero" aria-labelledby="BannerTitle-{{ section.id }}">
+		<div class="nb-hero__in">
+			<figure class="nb-hero__media">
+				{% render 'image', image: section.settings.image, sizes: '(min-width: 1320px) 1240px, (min-width: 700px) calc(100vw - 80px), 134vw', class: 'nb-hero__img', widths: '540, 720, 900, 1080, 1440, 1920', max_width: 1920, priority: true %}
+			</figure>
+			<div class="nb-hero__copy">
+				<h2 id="BannerTitle-{{ section.id }}" class="nb-hero__title">{{ section.settings.heading }}</h2>
+				{%- if section.settings.text != blank -%}<div class="nb-hero__lead">{{ section.settings.text }}</div>{%- endif -%}
+				{%- if section.settings.button_label != blank or section.settings.secondary_label != blank -%}
+					<div class="nb-hero__act">
+						{%- if section.settings.button_label != blank -%}
+							<a class="nb-btn" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}"><span>{{ section.settings.button_label }}</span></a>
+						{%- endif -%}
+						{%- if section.settings.secondary_label != blank -%}
+							<a class="nb-btn nb-btn--ghost" href="{{ section.settings.secondary_link | default: routes.collections_url }}"><span>{{ section.settings.secondary_label }}</span></a>
+						{%- endif -%}
+					</div>
+				{%- endif -%}
+			</div>
+		</div>
+	</section>
+{%- elsif request.design_mode -%}
+	<p class="nb-shell nb-editor-note">Elige la foto del banner: los productos a la derecha y el lado izquierdo libre para el texto.</p>
+{%- endif -%}
+
+{% schema %}
+{
+	"name": "Banner de marca",
+	"class": "nb-section-banner",
+	"settings": [
+		{ "type": "image_picker", "id": "image", "label": "Imagen", "info": "Productos en la mitad derecha y el lado izquierdo libre (pared, fondo): en escritorio el texto va encima. Sin texto incrustado." },
+		{ "type": "inline_richtext", "id": "heading", "label": "Título", "default": "Bienestar de origen natural", "info": "Lo que marques en cursiva sale en verde." },
+		{ "type": "richtext", "id": "text", "label": "Texto" },
+		{ "type": "text", "id": "button_label", "label": "Botón principal" },
+		{ "type": "url", "id": "button_link", "label": "Enlace del botón principal", "info": "Vacío: todos los productos." },
+		{ "type": "text", "id": "secondary_label", "label": "Botón secundario" },
+		{ "type": "url", "id": "secondary_link", "label": "Enlace del botón secundario", "info": "Vacío: todas las categorías." }
+	],
+	"presets": [{ "name": "Banner de marca" }],
+	"enabled_on": { "templates": ["index", "page", "collection"] }
+}
+{% endschema %}

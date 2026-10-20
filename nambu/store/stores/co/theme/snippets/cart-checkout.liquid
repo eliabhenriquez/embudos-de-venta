@@ -1,0 +1,4 @@
+<form action="{{ routes.cart_url }}" method="post" class="nb-checkout">
+	<button type="submit" name="checkout" class="nb-btn nb-btn--block">{% render 'icon', name: 'lock' %}<span>{{ 'cart.checkout' | t }}</span></button>
+</form>
+{% render 'pay-icons' %}

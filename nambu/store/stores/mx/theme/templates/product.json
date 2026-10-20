@@ -1,0 +1,30 @@
+{
+	"sections": {
+		"main": {
+			"type": "main-product",
+			"blocks": {
+				"shipping": { "type": "trust", "settings": { "icon": "truck", "text": "Envío gratis en 2 a 5 días hábiles" } },
+				"payment": { "type": "trust", "settings": { "icon": "lock", "text": "Pago contra entrega" } },
+				"support": { "type": "trust", "settings": { "icon": "chat", "text": "Atención por WhatsApp" } }
+			},
+			"block_order": ["shipping", "payment", "support"],
+			"settings": {
+				"show_dynamic_checkout": true,
+				"shipping_text": "<p>Envío gratis. Entrega en 2 a 5 días hábiles en ciudades principales.</p>"
+			}
+		},
+		"ingredients": { "type": "product-ingredients", "settings": { "heading": "Lo que lleva" } },
+		"voices": { "type": "testimonials", "settings": { "heading": "Lo que dice la gente", "source": "product" } },
+		"faq": {
+			"type": "product-faq",
+			"blocks": {
+				"shipping": { "type": "question", "settings": { "question": "¿Hacen envíos a todo México?", "answer": "<p>Sí, y el envío es gratis. En ciudades principales llega en 2 a 5 días hábiles.</p>" } },
+				"delivery": { "type": "question", "settings": { "question": "¿Cuánto tarda?", "answer": "<p>De 2 a 5 días hábiles en ciudades principales.</p>" } }
+			},
+			"block_order": ["shipping", "delivery"],
+			"settings": { "heading": "Preguntas frecuentes" }
+		},
+		"recommendations": { "type": "product-recommendations", "settings": { "heading": "También en Nambu", "limit": 4 } }
+	},
+	"order": ["main", "ingredients", "voices", "faq", "recommendations"]
+}

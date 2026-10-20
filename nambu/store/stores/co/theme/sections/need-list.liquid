@@ -1,0 +1,53 @@
+{%- comment -%}
+	Accesos por necesidad: cada tarjeta nombra lo que la persona quiere mejorar y lleva al producto que lo
+	acompaña, con la foto del producto. Misma piel que las categorías (nb-tile). Un bloque sin producto no sale.
+{%- endcomment -%}
+{%- capture tiles -%}
+	{%- for block in section.blocks -%}
+		{%- assign product = block.settings.product -%}
+		{%- if product != blank and block.settings.label != blank -%}
+			<li class="nb-tile" {{ block.shopify_attributes }}>
+				<a class="nb-tile__link" href="{{ product.url }}">
+					<span class="nb-tile__media">{% render 'image', image: product.featured_media.preview_image, sizes: '(min-width: 900px) 200px, 40vw', class: 'nb-tile__img', widths: '240, 360, 480', decorative: true %}</span>
+					<span class="nb-tile__name">{{ block.settings.label }}</span>
+					<span class="nb-tile__status">{{ product.title }}</span>
+				</a>
+			</li>
+		{%- endif -%}
+	{%- endfor -%}
+{%- endcapture -%}
+{%- if tiles != blank -%}
+	<section class="nb-shell nb-cats nb-needs" aria-labelledby="Needs-{{ section.id }}">
+		<div class="nb-needs__head">
+			<h2 id="Needs-{{ section.id }}" class="nb-h2">{{ section.settings.heading }}</h2>
+			{%- if section.settings.text != blank -%}<p class="nb-needs__lead">{{ section.settings.text }}</p>{%- endif -%}
+		</div>
+		<ul class="nb-cats__list nb-cats__list--row">{{ tiles }}</ul>
+	</section>
+{%- elsif request.design_mode -%}
+	<p class="nb-shell nb-editor-note">Añade necesidades: un texto y el producto al que lleva.</p>
+{%- endif -%}
+
+{% schema %}
+{
+	"name": "Necesidades",
+	"class": "nb-section-cats",
+	"max_blocks": 8,
+	"settings": [
+		{ "type": "text", "id": "heading", "label": "Título", "default": "Elige lo que quieres mejorar" },
+		{ "type": "text", "id": "text", "label": "Texto" }
+	],
+	"blocks": [
+		{
+			"type": "need",
+			"name": "Necesidad",
+			"settings": [
+				{ "type": "text", "id": "label", "label": "Necesidad", "info": "En palabras de quien compra: «Piel con manchas o tono desigual»." },
+				{ "type": "product", "id": "product", "label": "Producto" }
+			]
+		}
+	],
+	"presets": [{ "name": "Necesidades", "blocks": [{ "type": "need" }, { "type": "need" }, { "type": "need" }] }],
+	"enabled_on": { "templates": ["index", "page", "collection"] }
+}
+{% endschema %}
