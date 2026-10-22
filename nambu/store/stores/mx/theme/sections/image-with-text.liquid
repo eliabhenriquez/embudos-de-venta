@@ -1,0 +1,40 @@
+{%- comment -%}
+	Imagen con texto: historia de la marca u otro bloque editorial. Sin título no sale.
+	«Fundir la foto» funde una foto de estudio (fondo claro) con un verde muy claro, como las fotos de las tarjetas.
+{%- endcomment -%}
+{%- if section.settings.heading != blank -%}
+	<section class="nb-story{% if section.settings.image_right %} nb-story--right{% endif %}{% if section.settings.blend %} nb-story--blend{% endif %}" aria-labelledby="Story-{{ section.id }}">
+		<div class="nb-shell nb-story__in">
+			{%- if section.settings.image != blank -%}
+				<figure class="nb-story__media">
+					{% render 'image', image: section.settings.image, sizes: '(min-width: 900px) 560px, 100vw', class: 'nb-story__img', widths: '540, 720, 900, 1120' %}
+				</figure>
+			{%- endif -%}
+			<div class="nb-story__copy">
+				<h2 id="Story-{{ section.id }}" class="nb-h2">{{ section.settings.heading }}</h2>
+				{%- if section.settings.text != blank -%}<div class="nb-story__text nb-rte">{{ section.settings.text }}</div>{%- endif -%}
+				{%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
+					<a class="nb-btn nb-btn--ghost nb-story__btn" href="{{ section.settings.button_link }}"><span>{{ section.settings.button_label }}</span></a>
+				{%- endif -%}
+			</div>
+		</div>
+	</section>
+{%- endif -%}
+
+{% schema %}
+{
+	"name": "Imagen con texto",
+	"class": "nb-section-story",
+	"settings": [
+		{ "type": "image_picker", "id": "image", "label": "Imagen", "info": "Se muestra entera, con su proporción." },
+		{ "type": "checkbox", "id": "blend", "label": "Fundir la foto con el fondo", "default": false, "info": "Para fotos de estudio con fondo claro." },
+		{ "type": "checkbox", "id": "image_right", "label": "Imagen a la derecha en escritorio", "default": false },
+		{ "type": "inline_richtext", "id": "heading", "label": "Título", "default": "Nuestra historia" },
+		{ "type": "richtext", "id": "text", "label": "Texto" },
+		{ "type": "text", "id": "button_label", "label": "Botón" },
+		{ "type": "url", "id": "button_link", "label": "Enlace del botón" }
+	],
+	"presets": [{ "name": "Imagen con texto" }],
+	"enabled_on": { "templates": ["index", "page", "collection", "product"] }
+}
+{% endschema %}

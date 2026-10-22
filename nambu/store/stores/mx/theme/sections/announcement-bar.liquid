@@ -1,5 +1,14 @@
-{%- comment -%} Barra de aviso estática: mensajes cortos separados por un punto. Sin carrusel ni marquesina. {%- endcomment -%}
-{%- if section.blocks.size > 0 -%}
+{%- comment -%}
+	Barra de aviso estática: mensajes cortos separados por un punto. Sin carrusel ni marquesina.
+	Se puede ocultar en la portada cuando allí ya lo dice la cinta de beneficios.
+{%- endcomment -%}
+{%- liquid
+	assign hidden_here = false
+	if section.settings.hide_on_home and request.page_type == 'index'
+		assign hidden_here = true
+	endif
+-%}
+{%- if section.blocks.size > 0 and hidden_here == false -%}
 	<div class="nb-note-bar">
 		<p class="nb-note-bar__in">
 			{%- for block in section.blocks -%}
@@ -17,6 +26,9 @@
 	"name": "Barra de aviso",
 	"class": "nb-section-note",
 	"max_blocks": 3,
+	"settings": [
+		{ "type": "checkbox", "id": "hide_on_home", "label": "Ocultar en la portada", "default": false, "info": "Cuando la portada ya lleva la cinta de beneficios." }
+	],
 	"blocks": [
 		{
 			"type": "message",

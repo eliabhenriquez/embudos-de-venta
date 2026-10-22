@@ -12,7 +12,7 @@
 	assign ingredients_note = product.metafields.custom.ingredients_note.value
 	assign category = blank
 	for c in product.collections
-		unless c.handle == 'all' or c.handle == 'frontpage'
+		unless c.handle == 'all' or c.handle == 'frontpage' or c.title == blank
 			assign category = c
 			break
 		endunless
@@ -22,7 +22,7 @@
 <div class="nb-shell nb-pdp" data-state="{{ state }}">
 	<nav class="nb-crumbs" aria-label="Ruta">
 		<a href="{{ routes.root_url }}">{{ 'general.home' | t }}</a>
-		{%- if category -%}<span aria-hidden="true">/</span><a href="{{ category.url }}">{{ category.title }}</a>{%- endif -%}
+		{%- if category != blank -%}<span aria-hidden="true">/</span><a href="{{ category.url }}">{{ category.title }}</a>{%- endif -%}
 		<span aria-hidden="true">/</span><span aria-current="page">{{ product.title }}</span>
 	</nav>
 	<div class="nb-pdp__grid">
@@ -55,7 +55,9 @@
 		</carousel-rail>
 
 		<div class="nb-buybox">
-			<p class="nb-buybox__brand">{{ product.vendor }}{% if category %} · {{ category.title }}{% endif %}</p>
+			<p class="nb-buybox__brand">{{ product.vendor }}{% if category != blank %} · {{ category.title }}{% endif %}</p>
+			{%- assign badge = product.metafields.custom.badge.value -%}
+			{%- if badge != blank -%}<p class="nb-buybox__badge">{{ badge }}</p>{%- endif -%}
 			<h1 class="nb-buybox__title">{{ product.title }}</h1>
 			{%- if subtitle != blank -%}<p class="nb-buybox__sub">{{ subtitle }}</p>{%- endif -%}
 			<p class="nb-buybox__price">

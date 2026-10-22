@@ -1,25 +1,55 @@
 {%- comment -%}
-	"También en Nambu": recomendaciones nativas de Shopify. Mientras no haya datos para
-	recomendar, se muestran productos de la colección de respaldo (sin el producto actual).
+	Recomendaciones nativas de Shopify, completadas hasta el límite con la colección de respaldo (sin el producto
+	actual ni repetidos). Con «Solo productos de esta colección», lo que no esté en ella no sale: así los
+	duplicados de campañas y advertoriales que Shopify también recomienda no llegan a la tienda.
 {%- endcomment -%}
 {%- liquid
 	assign fallback = section.settings.collection | default: collections.all
 	assign limit = section.settings.limit
+	assign scoped = false
+	if section.settings.only_collection and section.settings.collection != blank
+		assign scoped = true
+	endif
+	assign shown = 0
+	assign shown_ids = ','
 -%}
 {%- capture cards -%}
 	{%- if recommendations.performed and recommendations.products_count > 0 -%}
 		{%- for rec in recommendations.products -%}
-			{% render 'product-card', product: rec, id_prefix: section.id, sizes: '(min-width: 900px) 280px, 46vw' %}
-		{%- endfor -%}
-	{%- else -%}
-		{%- assign shown = 0 -%}
-		{%- for item in fallback.products -%}
-			{%- if item.id != product.id and shown < limit -%}
-				{%- assign shown = shown | plus: 1 -%}
-				{% render 'product-card', product: item, id_prefix: section.id, sizes: '(min-width: 900px) 280px, 46vw' %}
+			{%- if shown >= limit -%}{%- break -%}{%- endif -%}
+			{%- liquid
+				assign in_scope = true
+				if scoped
+					assign rec_collections = rec.collections | map: 'handle'
+					unless rec_collections contains fallback.handle
+						assign in_scope = false
+					endunless
+				endif
+			-%}
+			{%- if in_scope -%}
+				{%- capture card -%}{% render 'product-card', product: rec, id_prefix: section.id, sizes: '(min-width: 900px) 280px, 46vw' %}{%- endcapture -%}
+				{%- if card != blank -%}
+					{{ card }}
+					{%- assign shown = shown | plus: 1 -%}
+					{%- assign shown_ids = shown_ids | append: rec.id | append: ',' -%}
+				{%- endif -%}
 			{%- endif -%}
 		{%- endfor -%}
 	{%- endif -%}
+	{%- for item in fallback.products -%}
+		{%- if shown >= limit -%}{%- break -%}{%- endif -%}
+		{%- assign item_key = ',' | append: item.id | append: ',' -%}
+		{%- if item.id != product.id -%}
+			{%- unless shown_ids contains item_key -%}
+				{%- capture card -%}{% render 'product-card', product: item, id_prefix: section.id, sizes: '(min-width: 900px) 280px, 46vw' %}{%- endcapture -%}
+				{%- if card != blank -%}
+					{{ card }}
+					{%- assign shown = shown | plus: 1 -%}
+					{%- assign shown_ids = shown_ids | append: item.id | append: ',' -%}
+				{%- endif -%}
+			{%- endunless -%}
+		{%- endif -%}
+	{%- endfor -%}
 {%- endcapture -%}
 <product-recommendations class="nb-shell nb-feat" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ limit }}&intent=related">
 	{%- if cards != blank -%}
@@ -37,7 +67,8 @@
 	"class": "nb-section-recs",
 	"settings": [
 		{ "type": "text", "id": "heading", "label": "Título", "default": "También en Nambu" },
-		{ "type": "collection", "id": "collection", "label": "Colección de respaldo", "info": "Vacío: todos los productos." },
+		{ "type": "collection", "id": "collection", "label": "Colección de respaldo", "info": "Completa las recomendaciones hasta el máximo. Vacío: todos los productos." },
+		{ "type": "checkbox", "id": "only_collection", "label": "Solo productos de esta colección", "default": false, "info": "Para tiendas con productos duplicados por campaña: lo que no esté en la colección no se recomienda." },
 		{ "type": "range", "id": "limit", "label": "Máximo de productos", "min": 2, "max": 8, "step": 1, "default": 4 }
 	],
 	"enabled_on": { "templates": ["product"] }

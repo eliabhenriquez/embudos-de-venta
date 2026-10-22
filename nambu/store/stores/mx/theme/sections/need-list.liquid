@@ -1,0 +1,95 @@
+{%- comment -%}
+	Necesidades: eliges lo que quieres mejorar (pestañas) y aparece el producto que lo acompaña, con su foto sobre el
+	tinte de su etiqueta, su descripción corta, el precio y el botón. Un bloque sin producto no sale.
+	Sin JS se ven todos los productos seguidos (<need-finder> oculta los que no están elegidos).
+{%- endcomment -%}
+{%- liquid
+	assign needs = ''
+	for block in section.blocks
+		if block.settings.product != blank and block.settings.label != blank
+			assign needs = needs | append: block.id | append: ','
+		endif
+	endfor
+	assign add_label = 'products.add_to_cart' | t
+-%}
+{%- if needs != blank -%}
+	<section class="nb-shell nb-finder" aria-labelledby="Needs-{{ section.id }}">
+		<div class="nb-finder__head">
+			<h2 id="Needs-{{ section.id }}" class="nb-h2">{{ section.settings.heading }}</h2>
+			{%- if section.settings.text != blank -%}<p class="nb-finder__lead">{{ section.settings.text }}</p>{%- endif -%}
+		</div>
+		<need-finder class="nb-finder__in">
+			<div class="nb-finder__needs" role="tablist" aria-label="{{ section.settings.heading | escape }}">
+				{%- for block in section.blocks -%}
+					{%- unless needs contains block.id -%}{%- continue -%}{%- endunless -%}
+					<button type="button" role="tab" class="nb-finder__need" id="NeedTab-{{ block.id }}" aria-controls="NeedPanel-{{ block.id }}" aria-selected="false" {{ block.shopify_attributes }}>
+						<span>{{ block.settings.label }}</span>{% render 'icon', name: 'arrow' %}
+					</button>
+				{%- endfor -%}
+			</div>
+			<div class="nb-finder__panels">
+				{%- for block in section.blocks -%}
+					{%- unless needs contains block.id -%}{%- continue -%}{%- endunless -%}
+					{%- liquid
+						assign product = block.settings.product
+						assign tint = product.metafields.custom.card_tint.value | default: 'verde' | handleize
+						assign subtitle = product.metafields.custom.subtitle.value
+						assign short = product.metafields.custom.short_description.value | newline_to_br | split: '<br />' | first
+						assign form_id = 'Need-' | append: block.id
+					-%}
+					{%- capture state -%}{% render 'product-state', product: product %}{%- endcapture -%}
+					<article role="tabpanel" class="nb-finder__panel nb-tint--{{ tint }}" id="NeedPanel-{{ block.id }}" aria-labelledby="NeedTab-{{ block.id }}">
+						<a class="nb-finder__media" href="{{ product.url }}" tabindex="-1" aria-hidden="true">
+							{% render 'image', image: product.featured_media.preview_image, sizes: '(min-width: 900px) 360px, 44vw', class: 'nb-finder__img', widths: '240, 360, 540, 720', decorative: true %}
+						</a>
+						<div class="nb-finder__body">
+							{%- if product.type != blank -%}<p class="nb-card__type">{{ product.type }}</p>{%- endif -%}
+							<h3 class="nb-finder__name"><a href="{{ product.url }}">{{ product.title }}</a></h3>
+							{%- if subtitle != blank -%}<p class="nb-card__sub">{{ subtitle }}</p>{%- endif -%}
+							{%- if short != blank -%}<p class="nb-finder__text">{{ short }}</p>{%- endif -%}
+							<div class="nb-finder__buy">
+								{%- comment -%} Un «Próximamente» no tiene precio: sale el aviso, como en su tarjeta {%- endcomment -%}
+								{%- if state == 'soon' -%}
+									<p class="nb-card__note">{{ 'products.coming_soon' | t }}</p>
+								{%- else -%}
+									{% render 'price', product: product %}
+								{%- endif -%}
+								{%- if state == 'available' and product.has_only_default_variant -%}
+									{% render 'product-add', product: product, form_id: form_id, label: add_label %}
+								{%- else -%}
+									<a class="nb-btn" href="{{ product.url }}"><span>{{ 'products.view_product' | t }}</span></a>
+								{%- endif -%}
+							</div>
+						</div>
+					</article>
+				{%- endfor -%}
+			</div>
+		</need-finder>
+	</section>
+{%- elsif request.design_mode -%}
+	<p class="nb-shell nb-editor-note">Añade necesidades: un texto y el producto al que lleva.</p>
+{%- endif -%}
+
+{% schema %}
+{
+	"name": "Necesidades",
+	"class": "nb-section-finder",
+	"max_blocks": 8,
+	"settings": [
+		{ "type": "text", "id": "heading", "label": "Título", "default": "Elige lo que quieres mejorar" },
+		{ "type": "text", "id": "text", "label": "Texto" }
+	],
+	"blocks": [
+		{
+			"type": "need",
+			"name": "Necesidad",
+			"settings": [
+				{ "type": "text", "id": "label", "label": "Necesidad", "info": "En palabras de quien compra: «Piel con manchas o tono desigual»." },
+				{ "type": "product", "id": "product", "label": "Producto" }
+			]
+		}
+	],
+	"presets": [{ "name": "Necesidades", "blocks": [{ "type": "need" }, { "type": "need" }, { "type": "need" }] }],
+	"enabled_on": { "templates": ["index", "page", "collection"] }
+}
+{% endschema %}

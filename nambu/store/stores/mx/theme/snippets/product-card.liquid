@@ -1,49 +1,57 @@
 {%- comment -%}
 	Tarjeta de producto: la misma en home, colección, búsqueda y recomendaciones.
-	Parámetros: product, sizes, id_prefix (section.id, para ids únicos), heading_tag (h2|h3).
+	El producto va sobre el tinte de su etiqueta (metacampo custom.card_tint: verde, azul, lila, amarillo, naranja) y el
+	precio y «Agregar» comparten la última línea.
+	Parámetros: product, sizes, id_prefix (section.id, para ids únicos), heading_tag (h2|h3), badge (texto opcional; si no,
+	la etiqueta del producto, metacampo custom.badge).
 	Un "Próximamente" se omite entero si el ajuste show_coming_soon está apagado.
 {%- endcomment -%}
 {%- capture state -%}{% render 'product-state', product: product %}{%- endcapture -%}
 {%- liquid
 	assign tag = heading_tag | default: 'h3'
 	assign card_form_id = 'Card-' | append: id_prefix | append: '-' | append: product.id
+	assign tint = product.metafields.custom.card_tint.value | default: 'verde' | handleize
+	assign subtitle = product.metafields.custom.subtitle.value
+	assign add_label = 'products.add_short' | t
+	assign card_badge = badge | default: product.metafields.custom.badge.value
 	assign hidden_soon = false
 	if state == 'soon' and settings.show_coming_soon == false
 		assign hidden_soon = true
 	endif
 -%}
 {%- unless hidden_soon -%}
-	<li class="nb-card" data-state="{{ state }}">
+	<li class="nb-card nb-tint--{{ tint }}" data-state="{{ state }}">
 		<a class="nb-card__media" href="{{ product.url }}" tabindex="-1" aria-hidden="true">
 			{% render 'image', image: product.featured_media.preview_image, sizes: sizes, class: 'nb-card__img', widths: '360, 540, 720, 900', decorative: true %}
+			{%- if card_badge != blank -%}<span class="nb-card__badge">{{ card_badge }}</span>{%- endif -%}
 		</a>
 		<div class="nb-card__body">
 			{%- if product.type != blank -%}
 				<p class="nb-card__type">{{ product.type }}</p>
 			{%- endif -%}
 			<{{ tag }} class="nb-card__name"><a href="{{ product.url }}">{{ product.title }}</a></{{ tag }}>
-			<p class="nb-card__price">
-				{%- case state -%}
-					{%- when 'soon' -%}
-						<span class="nb-card__note">{{ 'products.coming_soon' | t }}</span>
-					{%- when 'sold-out' -%}
-						{% render 'price', product: product %}
-					{%- else -%}
-						{% render 'price', product: product %}
-				{%- endcase -%}
-			</p>
+			{%- if subtitle != blank -%}<p class="nb-card__sub">{{ subtitle }}</p>{%- endif -%}
 		</div>
-		{%- case state -%}
-			{%- when 'available' -%}
-				{%- if product.has_only_default_variant -%}
-					{% render 'product-add', product: product, form_id: card_form_id, class: 'nb-btn--sm nb-btn--block nb-card__btn' %}
+		<div class="nb-card__buy">
+			<p class="nb-card__price">
+				{%- if state == 'soon' -%}
+					<span class="nb-card__note">{{ 'products.coming_soon' | t }}</span>
 				{%- else -%}
-					<a class="nb-btn nb-btn--sm nb-btn--ghost nb-btn--block nb-card__btn" href="{{ product.url }}"><span>{{ 'products.choose_options' | t }}</span></a>
+					{% render 'price', product: product %}
 				{%- endif -%}
-			{%- when 'soon' -%}
-				<button type="button" class="nb-btn nb-btn--sm nb-btn--block nb-card__btn" disabled><span>{{ 'products.coming_soon' | t }}</span></button>
-			{%- else -%}
-				<button type="button" class="nb-btn nb-btn--sm nb-btn--block nb-card__btn" disabled><span>{{ 'products.sold_out' | t }}</span></button>
-		{%- endcase -%}
+			</p>
+			{%- case state -%}
+				{%- when 'available' -%}
+					{%- if product.has_only_default_variant -%}
+						{% render 'product-add', product: product, form_id: card_form_id, class: 'nb-card__add', label: add_label, icon: 'plus' %}
+					{%- else -%}
+						<a class="nb-btn nb-card__add nb-card__add--ghost" href="{{ product.url }}"><span>{{ 'products.choose_options' | t }}</span></a>
+					{%- endif -%}
+				{%- when 'soon' -%}
+					<button type="button" class="nb-btn nb-card__add" disabled><span>{{ 'products.coming_soon' | t }}</span></button>
+				{%- else -%}
+					<button type="button" class="nb-btn nb-card__add" disabled><span>{{ 'products.sold_out' | t }}</span></button>
+			{%- endcase -%}
+		</div>
 	</li>
 {%- endunless -%}

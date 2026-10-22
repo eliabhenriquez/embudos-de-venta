@@ -11,6 +11,7 @@
 	--nb-apple-ink: #0f2e0b;    /* texto sobre verde manzana (6:1) */
 	--nb-apple-50: #f5fbf1;
 	--nb-apple-100: #e8f6e0;
+	--nb-apple-150: #dcefcf;
 	--nb-apple-200: #cfeebf;
 	--nb-white: #ffffff;
 	--nb-ink: #0f1a10;
@@ -26,14 +27,25 @@
 	--nb-radius: 18px;
 	--nb-radius-lg: 28px;
 	--nb-header-h: 62px;
+	--nb-lift: 0 18px 40px -26px rgba(15, 46, 11, .45), 0 2px 6px -3px rgba(15, 46, 11, .12);
+	--nb-lift-hover: 0 26px 50px -26px rgba(15, 46, 11, .5), 0 4px 10px -4px rgba(15, 46, 11, .14);
 }
+/* Tinte de la etiqueta de cada producto (metacampo custom.card_tint) detrás de su foto, que se funde por multiplicación */
+.nb-tint--verde { --nb-tint: #e2f2d7; }
+.nb-tint--azul { --nb-tint: #e0ecf6; }
+.nb-tint--lila { --nb-tint: #ebe6f6; }
+.nb-tint--amarillo { --nb-tint: #faefcd; }
+.nb-tint--naranja { --nb-tint: #fbe2d2; }
+
+/* Portada: el verde entra desde arriba; la cabecera flota sobre él */
+body.nb-body--home { background: linear-gradient(180deg, var(--nb-apple-150) 0, var(--nb-apple-50) 620px, var(--nb-white) 980px) no-repeat, var(--nb-white); }
 @media (min-width: 900px) {
 	:root { --nb-gut: 40px; --nb-pad: 72px; --nb-header-h: 74px; }
 }
 
 *, *::before, *::after { box-sizing: border-box; }
 /* Los web components son inline por defecto; las clases de cada uno afinan el display */
-cart-drawer, cart-page, carousel-rail, collection-sort, product-form, product-recommendations, quantity-input, sticky-buy, variant-select { display: block; }
+cart-drawer, cart-page, carousel-rail, collection-sort, kit-stage, need-finder, product-form, product-recommendations, quantity-input, site-header, sticky-buy, variant-select { display: block; }
 html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--nb-header-h) + 16px); }
 html.nb-locked { overflow: hidden; }
 body { margin: 0; background: var(--nb-white); color: var(--nb-text); font-family: var(--nb-font, 'Questrial', 'Helvetica Neue', Arial, sans-serif); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }

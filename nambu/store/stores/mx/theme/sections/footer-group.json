@@ -6,17 +6,41 @@
 			"type": "newsletter",
 			"settings": {
 				"heading": "Entérate de los lanzamientos",
-				"text": "<p>Te avisamos cuando lleguen nuevos productos a la tienda de México.</p>"
+				"text": "<p>Te avisamos cuando lleguen nuevos productos a la tienda de México.</p>",
+				"fine": "Puedes darte de baja cuando quieras.",
+				"icon": "mail",
+				"accent": true
 			}
 		},
 		"footer": {
 			"type": "footer",
 			"blocks": {
-				"shop": { "type": "menu", "settings": { "heading": "Tienda", "menu": "tienda" } },
-				"help": { "type": "menu", "settings": { "heading": "Ayuda", "menu": "footer" } }
+				"shop": {
+					"type": "menu",
+					"settings": {
+						"heading": "Tienda",
+						"menu": "tienda"
+					}
+				},
+				"help": {
+					"type": "menu",
+					"settings": {
+						"heading": "Ayuda",
+						"menu": "footer"
+					}
+				}
 			},
-			"block_order": ["shop", "help"]
+			"block_order": [
+				"shop",
+				"help"
+			],
+			"settings": {
+				"tagline": "Del Pacífico colombiano para tu vida de todos los días."
+			}
 		}
 	},
-	"order": ["newsletter", "footer"]
+	"order": [
+		"newsletter",
+		"footer"
+	]
 }

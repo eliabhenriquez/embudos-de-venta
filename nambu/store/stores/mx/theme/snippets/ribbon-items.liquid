@@ -1,0 +1,10 @@
+{%- comment -%}
+	Elementos de la cinta de beneficios, cada uno seguido de su separador. Parámetros: blocks, copy (la segunda
+	vuelta del bucle: sin los atributos del editor, para que el bloque no salga dos veces al seleccionarlo).
+{%- endcomment -%}
+{%- for block in blocks -%}
+	{%- if block.settings.text != blank -%}
+		<li class="nb-ribbon__item"{% unless copy %} {{ block.shopify_attributes }}{% endunless %}>{% render 'icon', name: block.settings.icon %}<span>{{ block.settings.text }}</span></li>
+		<li class="nb-ribbon__sep" aria-hidden="true">{% render 'icon', name: 'sparkle' %}</li>
+	{%- endif -%}
+{%- endfor -%}

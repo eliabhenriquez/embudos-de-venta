@@ -5,15 +5,38 @@
 		"announcement": {
 			"type": "announcement-bar",
 			"blocks": {
-				"shipping": { "type": "message", "settings": { "text": "Envío gratis · Entrega en 2 a 5 días hábiles", "link": "" } },
-				"payment": { "type": "message", "settings": { "text": "Pago contra entrega", "link": "" } }
+				"shipping": {
+					"type": "message",
+					"settings": {
+						"text": "Envío gratis · Entrega en 2 a 5 días hábiles",
+						"link": ""
+					}
+				},
+				"payment": {
+					"type": "message",
+					"settings": {
+						"text": "Pago contra entrega",
+						"link": ""
+					}
+				}
 			},
-			"block_order": ["shipping", "payment"]
+			"block_order": [
+				"shipping",
+				"payment"
+			],
+			"settings": {
+				"hide_on_home": true
+			}
 		},
 		"header": {
 			"type": "header",
-			"settings": { "menu": "main-menu" }
+			"settings": {
+				"menu": "main-menu"
+			}
 		}
 	},
-	"order": ["announcement", "header"]
+	"order": [
+		"announcement",
+		"header"
+	]
 }

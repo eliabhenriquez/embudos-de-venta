@@ -1,5 +1,6 @@
 {%- comment -%}
-	Rejilla de productos (elegidos a mano o de una colección), con agregar directo en cada tarjeta.
+	Productos (elegidos a mano o de una colección), con agregar directo en cada tarjeta. En rejilla o en carril con
+	flechas. Con una colección ordenada por «Más vendidos» en Shopify, el carril sigue solo el orden real de ventas.
 	Primero lo que se puede comprar y después el resto (Próximamente), hasta el límite.
 {%- endcomment -%}
 {%- liquid
@@ -10,6 +11,14 @@
 	endif
 	assign link = section.settings.link | default: collection.url
 	assign limit = section.settings.limit
+	assign rail = false
+	if section.settings.layout == 'rail'
+		assign rail = true
+	endif
+	assign card_sizes = '(min-width: 900px) 280px, 46vw'
+	if rail
+		assign card_sizes = '(min-width: 900px) 290px, 64vw'
+	endif
 	assign shown = 0
 -%}
 {%- capture cards -%}
@@ -23,24 +32,50 @@
 				elsif pass == 2 and product.available == false
 					assign wanted = true
 				endif
+				assign badge = blank
+				if shown == 0 and pass == 1
+					assign badge = section.settings.first_badge
+				endif
 			-%}
 			{%- if wanted -%}
-				{%- capture card -%}{% render 'product-card', product: product, id_prefix: section.id, sizes: '(min-width: 900px) 280px, 46vw' %}{%- endcapture -%}
+				{%- capture card -%}{% render 'product-card', product: product, id_prefix: section.id, sizes: card_sizes, badge: badge %}{%- endcapture -%}
 				{%- if card != blank -%}{{ card }}{%- assign shown = shown | plus: 1 -%}{%- endif -%}
 			{%- endif -%}
 		{%- endfor -%}
 	{%- endfor -%}
 {%- endcapture -%}
 {%- if cards != blank -%}
-	<section class="nb-shell nb-feat" aria-labelledby="Feat-{{ section.id }}">
-		<div class="nb-head">
-			<h2 id="Feat-{{ section.id }}" class="nb-h2">{{ section.settings.heading }}</h2>
-			{%- if section.settings.link_label != blank -%}
-				<a class="nb-link" href="{{ link }}">{{ section.settings.link_label }}{% render 'icon', name: 'arrow' %}</a>
-			{%- endif -%}
-		</div>
-		<ul class="nb-grid nb-grid--{{ section.settings.columns }}">{{ cards }}</ul>
-	</section>
+	{%- capture view_all -%}
+		{%- if section.settings.link_label != blank -%}
+			<a class="nb-link" href="{{ link }}">{{ section.settings.link_label }}{% render 'icon', name: 'arrow' %}</a>
+		{%- endif -%}
+	{%- endcapture -%}
+	{%- if rail -%}
+		<section class="nb-feat nb-feat--rail" aria-labelledby="Feat-{{ section.id }}">
+			<carousel-rail>
+				<div class="nb-shell nb-head">
+					<h2 id="Feat-{{ section.id }}" class="nb-h2">{{ section.settings.heading }}</h2>
+					<div class="nb-feat__tools">
+						{{ view_all }}
+						<div class="nb-arrows">
+							<button type="button" class="nb-round" data-prev aria-label="{{ 'general.previous' | t }}">{% render 'icon', name: 'left' %}</button>
+							<button type="button" class="nb-round" data-next aria-label="{{ 'general.next' | t }}">{% render 'icon', name: 'right' %}</button>
+						</div>
+					</div>
+				</div>
+				<ul class="nb-feat__track" data-track>{{ cards }}</ul>
+			</carousel-rail>
+			{%- if view_all != blank -%}<p class="nb-shell nb-feat__more">{{ view_all }}</p>{%- endif -%}
+		</section>
+	{%- else -%}
+		<section class="nb-shell nb-feat" aria-labelledby="Feat-{{ section.id }}">
+			<div class="nb-head">
+				<h2 id="Feat-{{ section.id }}" class="nb-h2">{{ section.settings.heading }}</h2>
+				{{ view_all }}
+			</div>
+			<ul class="nb-grid nb-grid--{{ section.settings.columns }}">{{ cards }}</ul>
+		</section>
+	{%- endif -%}
 {%- endif -%}
 
 {% schema %}
@@ -49,10 +84,15 @@
 	"class": "nb-section-feat",
 	"settings": [
 		{ "type": "text", "id": "heading", "label": "Título", "default": "Nuestros productos" },
+		{ "type": "select", "id": "layout", "label": "Formato", "default": "grid", "options": [
+			{ "value": "grid", "label": "Rejilla" },
+			{ "value": "rail", "label": "Carril con flechas" }
+		] },
 		{ "type": "product_list", "id": "products", "label": "Productos", "limit": 12, "info": "Si eliges productos, salen estos y en este orden; si no, los de la colección." },
-		{ "type": "collection", "id": "collection", "label": "Colección", "info": "Vacío: todos los productos. También es el destino del enlace." },
+		{ "type": "collection", "id": "collection", "label": "Colección", "info": "Vacío: todos los productos. Salen en el orden de la colección (en Shopify, «Más vendidos» la ordena por ventas). También es el destino del enlace." },
 		{ "type": "range", "id": "limit", "label": "Máximo de productos", "min": 2, "max": 12, "step": 1, "default": 4 },
-		{ "type": "select", "id": "columns", "label": "Columnas en escritorio", "default": "4", "options": [{ "value": "3", "label": "3" }, { "value": "4", "label": "4" }], "info": "3 para 3 o 6 productos; 4 para 4 u 8." },
+		{ "type": "select", "id": "columns", "label": "Columnas en escritorio (rejilla)", "default": "4", "options": [{ "value": "3", "label": "3" }, { "value": "4", "label": "4" }], "info": "3 para 3 o 6 productos; 4 para 4 u 8." },
+		{ "type": "text", "id": "first_badge", "label": "Etiqueta del primero", "info": "Por ejemplo «El más vendido». Solo si la colección va ordenada por ventas. Vacío: sin etiqueta." },
 		{ "type": "text", "id": "link_label", "label": "Texto del enlace", "default": "Ver toda la tienda" },
 		{ "type": "url", "id": "link", "label": "Enlace", "info": "Vacío: la colección elegida." }
 	],

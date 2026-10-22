@@ -10,6 +10,7 @@
 		"push": "node scripts/store.mjs push",
 		"pull": "node scripts/store.mjs pull",
 		"seed": "node scripts/seed.mjs",
+		"upload": "node scripts/upload-files.mjs",
 		"typecheck": "tsc --noEmit",
 		"lint": "eslint stores/*/src scripts",
 		"check:theme": "node scripts/store.mjs check",

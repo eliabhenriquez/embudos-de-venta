@@ -1,0 +1,62 @@
+{%- comment -%}
+	Cifras de confianza: tarjetas con un icono o una cifra y su texto (bloques «Dato»), y al lado la marca con su frase y
+	un botón. Las cifras tienen que ser reales y comprobables (de Shopify), nunca estimadas.
+{%- endcomment -%}
+{%- if section.blocks.size > 0 -%}
+	<section class="nb-numbers" aria-label="{{ section.settings.label | escape }}">
+		<div class="nb-shell nb-numbers__in">
+			<ul class="nb-numbers__list">
+				{%- for block in section.blocks -%}
+					<li class="nb-numbers__item" {{ block.shopify_attributes }}>
+						{%- if block.settings.figure != blank -%}
+							<span class="nb-numbers__figure">{{ block.settings.figure }}</span>
+						{%- else -%}
+							<span class="nb-numbers__icon">{% render 'icon', name: block.settings.icon %}</span>
+						{%- endif -%}
+						<p class="nb-numbers__text">{{ block.settings.text }}</p>
+					</li>
+				{%- endfor -%}
+			</ul>
+			<div class="nb-numbers__brand">
+				{%- if settings.logo -%}
+					{{ settings.logo | image_url: width: 400 | image_tag: widths: '200, 400', sizes: '190px', alt: shop.name, class: 'nb-numbers__logo', loading: 'lazy' }}
+				{%- endif -%}
+				{%- if section.settings.tagline != blank -%}<p class="nb-numbers__tagline">{{ section.settings.tagline }}</p>{%- endif -%}
+				{%- if section.settings.button_label != blank -%}
+					<a class="nb-btn" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}"><span>{{ section.settings.button_label }}</span>{% render 'icon', name: 'arrow' %}</a>
+				{%- endif -%}
+			</div>
+		</div>
+	</section>
+{%- elsif request.design_mode -%}
+	<p class="nb-shell nb-editor-note">Añade datos: una cifra real o un icono, y su texto.</p>
+{%- endif -%}
+
+{% schema %}
+{
+	"name": "Cifras",
+	"class": "nb-section-numbers",
+	"max_blocks": 4,
+	"settings": [
+		{ "type": "text", "id": "label", "label": "Nombre para lectores de pantalla", "default": "Por qué elegir Nambu" },
+		{ "type": "text", "id": "tagline", "label": "Frase de marca" },
+		{ "type": "text", "id": "button_label", "label": "Botón", "default": "Ver todos los productos" },
+		{ "type": "url", "id": "button_link", "label": "Enlace del botón", "info": "Vacío: todos los productos." }
+	],
+	"blocks": [
+		{
+			"type": "fact",
+			"name": "Dato",
+			"settings": [
+				{ "type": "text", "id": "figure", "label": "Cifra", "info": "Solo cifras reales y comprobables («+49.000»). Vacío: sale el icono." },
+				{ "type": "select", "id": "icon", "label": "Icono", "default": "leaf", "options": [
+					{ "value": "leaf", "label": "Planta" }, { "value": "chat", "label": "Atención" }, { "value": "truck", "label": "Envío" },
+					{ "value": "shield", "label": "Garantía" }, { "value": "cash", "label": "Pago" }, { "value": "box", "label": "Paquete" }
+				] },
+				{ "type": "text", "id": "text", "label": "Texto" }
+			]
+		}
+	],
+	"presets": [{ "name": "Cifras", "blocks": [{ "type": "fact" }, { "type": "fact" }, { "type": "fact" }] }]
+}
+{% endschema %}

@@ -1,5 +1,24 @@
 {
-	"_about": "Contenido de las fichas de Nambu Colombia, sacado de nambuoficial.com (stores/co/copy.md). Lo carga scripts/seed.mjs: metaobjetos por handle, metacampos por producto y menús por handle. «description» sustituye la descripción del producto solo al publicar el tema nuevo (--descriptions). «search_collection»: los productos fuera de esa colección (duplicados de campañas y advertoriales) se marcan con seo.hidden para que no salgan en el buscador ni en Google; sus URLs siguen funcionando. «product_templates»: plantilla alternativa por producto (contraentrega = duplicados de campaña con ficha normal que siguen vendiendo con Releasit).",
+	"_about": "Contenido de las fichas de Nambu Colombia, sacado de nambuoficial.com (stores/co/copy.md). Lo carga scripts/seed.mjs: metaobjetos por handle, metacampos por producto y menús por handle. «description» sustituye la descripción del producto solo al publicar el tema nuevo (--descriptions). «search_collection»: los productos fuera de esa colección (duplicados de campañas y advertoriales) se marcan con seo.hidden para que no salgan en el buscador ni en Google; sus URLs siguen funcionando. «product_templates»: plantilla alternativa por producto (contraentrega = duplicados de campaña con ficha normal que siguen vendiendo con Releasit). «product_metafields»: metacampos propios de Colombia (color de la tarjeta, etiqueta del producto), con su valor por clave en cada ficha. «ingredient_refs», «faq_refs» y «testimonial_refs»: handles de entradas que ya carga otra ficha o la lista compartida.",
+	"product_metafields": [
+		{
+			"key": "card_tint",
+			"name": "Color de la tarjeta",
+			"type": "single_line_text_field",
+			"choices": [
+				"verde",
+				"azul",
+				"lila",
+				"amarillo",
+				"naranja"
+			]
+		},
+		{
+			"key": "badge",
+			"name": "Etiqueta del producto",
+			"type": "single_line_text_field"
+		}
+	],
 	"shared_faqs": [
 		{
 			"handle": "envio-colombia",
@@ -31,6 +50,54 @@
 			"quote": "El aceite de romero me cambió el cabello. Ahora crece más fuerte y se ve más sano.",
 			"photo": "Recurso_150-8.png",
 			"product": null
+		},
+		{
+			"handle": "spray-ugc-catalina",
+			"name": "Catalina",
+			"quote": "Por fin pude dormir sin pasar toda la noche con la boca abierta.",
+			"body": "Lo pedí porque por las noches se me tapaba muchísimo la nariz. Lo que más noté fue poder acostarme y sentir el paso del aire mucho más libre.",
+			"photo": "landings-spray-ugc-catalina.webp",
+			"product": "spray-nasal-nambu"
+		},
+		{
+			"handle": "spray-ugc-carlos-mauricio",
+			"name": "Carlos Mauricio",
+			"quote": "Vivía aclarando la garganta por ese moco que bajaba.",
+			"body": "Empecé a usar el Spray Nasal de Nambu mañana y noche y me gustó mucho la sensación que deja. Ya lo tengo al lado de la cama.",
+			"photo": "landings-spray-ugc-carlos-mauricio.webp",
+			"product": "spray-nasal-nambu"
+		},
+		{
+			"handle": "spray-ugc-genesis",
+			"name": "Genésis",
+			"quote": "El polvo y el cambio de clima me cerraban la nariz enseguida.",
+			"body": "Quería algo fácil de usar y este me gustó porque va directo en la nariz. Además, 60 ml rinden muchísimo más de lo que esperaba.",
+			"photo": "landings-spray-ugc-genesis.webp",
+			"product": "spray-nasal-nambu"
+		},
+		{
+			"handle": "spray-ugc-jose-fernando",
+			"name": "José Fernando",
+			"quote": "En la noche sentía la nariz completamente cerrada.",
+			"body": "Empecé a usar el spray mañana y noche. Me gusta mucho la sensación que deja y ya lo tengo siempre junto a la cama.",
+			"photo": "landings-spray-ugc-jose-fernando.webp",
+			"product": "spray-nasal-nambu"
+		},
+		{
+			"handle": "spray-ugc-andres",
+			"name": "Andrés",
+			"quote": "Lo mío era esa flema pegada atrás.",
+			"body": "Pasaba aclarando la garganta porque sentía moco pegado atrás de la nariz. Me gustó poder usar el spray directo y dejarlo al lado de la cama.",
+			"photo": "landings-spray-ugc-andres.webp",
+			"product": "spray-nasal-nambu"
+		},
+		{
+			"handle": "spray-ugc-andrea",
+			"name": "Andrea",
+			"quote": "Sacudir el cuarto era suficiente para empezar a estornudar.",
+			"body": "Quería algo que pudiera tener cerca y usar rápido. Lo que más me sorprendió de Nambu fue el tamaño del frasco, porque trae bastante.",
+			"photo": "landings-spray-ugc-andrea.webp",
+			"product": "spray-nasal-nambu"
 		}
 	],
 	"products": [
@@ -98,7 +165,8 @@
 			"testimonial_refs": [
 				"inicio-carolina-m"
 			],
-			"description": "<p>El Spray Nasal de Nambu está pensado para esos días en que la nariz se siente cargada, hay flema acumulada y respirar cómodo se vuelve una molestia en plena noche, trabajando, hablando o intentando descansar. Su fórmula natural combina eucalipto, menta y regaliz para brindar una sensación de frescor, despeje y alivio respiratorio casi inmediato.</p><p>Su líquido de color blanco se aplica directamente por la nariz y deja una sensación fría, limpia y refrescante desde los primeros minutos. La experiencia puede sentirse aproximadamente en 2 minutos.</p><h3>Ruta Fresca Despejante</h3><p>El Spray Nasal de Nambu funciona a través de una combinación de ingredientes naturales que acompañan la sensación de respiración más fresca y libre.</p><p>Es una opción práctica para tener en casa cuando aparece congestión, sensación de flema, nariz tapada o incomodidad al respirar.</p><h3>Ideal para quienes sienten</h3><ul><li>Nariz cargada durante el día o la noche</li><li>Flema acumulada y sensación de pecho pesado</li><li>Congestión por cambios de clima, polvo o ambientes cerrados</li><li>Molestia al dormir por sentir la nariz tapada</li><li>Incomodidad al hablar, trabajar o descansar</li><li>Sensación de respiración poco fresca</li><li>Rinitis, sinusitis, tos o molestias respiratorias ocasionales</li></ul><p>Pide hoy tu Spray Nasal de Nambu y tenlo cerca para esos momentos en que respirar cómodo se siente como lo único que necesitas.</p>"
+			"description": "<p>El Spray Nasal de Nambu está pensado para esos días en que la nariz se siente cargada, hay flema acumulada y respirar cómodo se vuelve una molestia en plena noche, trabajando, hablando o intentando descansar. Su fórmula natural combina eucalipto, menta y regaliz para brindar una sensación de frescor, despeje y alivio respiratorio casi inmediato.</p><p>Su líquido de color blanco se aplica directamente por la nariz y deja una sensación fría, limpia y refrescante desde los primeros minutos. La experiencia puede sentirse aproximadamente en 2 minutos.</p><h3>Ruta Fresca Despejante</h3><p>El Spray Nasal de Nambu funciona a través de una combinación de ingredientes naturales que acompañan la sensación de respiración más fresca y libre.</p><p>Es una opción práctica para tener en casa cuando aparece congestión, sensación de flema, nariz tapada o incomodidad al respirar.</p><h3>Ideal para quienes sienten</h3><ul><li>Nariz cargada durante el día o la noche</li><li>Flema acumulada y sensación de pecho pesado</li><li>Congestión por cambios de clima, polvo o ambientes cerrados</li><li>Molestia al dormir por sentir la nariz tapada</li><li>Incomodidad al hablar, trabajar o descansar</li><li>Sensación de respiración poco fresca</li><li>Rinitis, sinusitis, tos o molestias respiratorias ocasionales</li></ul><p>Pide hoy tu Spray Nasal de Nambu y tenlo cerca para esos momentos en que respirar cómodo se siente como lo único que necesitas.</p>",
+			"card_tint": "verde"
 		},
 		{
 			"handle": "serum-piel-de-porcelana-1",
@@ -190,7 +258,8 @@
 					"product": "serum-piel-de-porcelana-1"
 				}
 			],
-			"description": "<h3>¿Que es Sérum Piel de Porcelana?</h3><p>El Sérum Piel de Porcelana actúa directamente sobre manchas y pigmentaciones, unificando el tono y devolviendo la luminosidad natural. Su fórmula ligera pero potente se inspira en la pureza del Pacífico colombiano, combinando la sabiduría ancestral con ingredientes de grado dermatológico para una transformación visible.</p><h3>Características del producto</h3><ul><li>Fórmula desarrollada para pieles latinoamericanas</li><li>Ideal para reducir manchas, cicatrices e hiperpigmentación </li><li>Compatible con todo tipo de piel, incluso sensible </li><li>El Sistema Lumina-Restore™ nutre mientras aclara la piel </li><li>Se absorbe rápidamente sin dejar sensación grasa </li><li>Resultados visibles después de 30 días de uso continuo </li><li>Desarrollado y fabricado en Colombia</li></ul><h3>¿Qué es el Sistema Lumina-Restore™?</h3><p>Tecnología desarrollada por NAMBU que combina activos despigmentantes con extractos naturales del Pacífico colombiano para aclarar manchas mientras repara y protege la piel.</p><h3>Beneficios principales</h3><ul><li>Aclara manchas </li><li> Unifica el tono de la piel </li><li>Mejora la luminosidad </li><li>Especial para melasma o manchas oscuras </li><li>Adecuado para todo tipo de piel</li></ul><p><small><strong>Aviso importante:</strong> Este producto no está destinado a diagnosticar, tratar, curar o prevenir ninguna enfermedad. Se recomienda consultar con un dermatólogo antes de iniciar cualquier tratamiento para la piel. Fabricado por Laboratorios ADMAN bajo estrictos controles de calidad.</small></p>"
+			"description": "<h3>¿Que es Sérum Piel de Porcelana?</h3><p>El Sérum Piel de Porcelana actúa directamente sobre manchas y pigmentaciones, unificando el tono y devolviendo la luminosidad natural. Su fórmula ligera pero potente se inspira en la pureza del Pacífico colombiano, combinando la sabiduría ancestral con ingredientes de grado dermatológico para una transformación visible.</p><h3>Características del producto</h3><ul><li>Fórmula desarrollada para pieles latinoamericanas</li><li>Ideal para reducir manchas, cicatrices e hiperpigmentación </li><li>Compatible con todo tipo de piel, incluso sensible </li><li>El Sistema Lumina-Restore™ nutre mientras aclara la piel </li><li>Se absorbe rápidamente sin dejar sensación grasa </li><li>Resultados visibles después de 30 días de uso continuo </li><li>Desarrollado y fabricado en Colombia</li></ul><h3>¿Qué es el Sistema Lumina-Restore™?</h3><p>Tecnología desarrollada por NAMBU que combina activos despigmentantes con extractos naturales del Pacífico colombiano para aclarar manchas mientras repara y protege la piel.</p><h3>Beneficios principales</h3><ul><li>Aclara manchas </li><li> Unifica el tono de la piel </li><li>Mejora la luminosidad </li><li>Especial para melasma o manchas oscuras </li><li>Adecuado para todo tipo de piel</li></ul><p><small><strong>Aviso importante:</strong> Este producto no está destinado a diagnosticar, tratar, curar o prevenir ninguna enfermedad. Se recomienda consultar con un dermatólogo antes de iniciar cualquier tratamiento para la piel. Fabricado por Laboratorios ADMAN bajo estrictos controles de calidad.</small></p>",
+			"card_tint": "azul"
 		},
 		{
 			"handle": "serum-niacinamida-10",
@@ -282,7 +351,8 @@
 					"product": "serum-niacinamida-10"
 				}
 			],
-			"description": "<h3>¿Que es SÉRUM NIACINAMIDA 10%?</h3><p>El Sérum Niacinamide 10 combina la potencia de la niacinamida al 10% con ácido hialurónico para equilibrar, hidratar y transformar la piel. Su fórmula ligera y sin fragancias trabaja en múltiples niveles: reduce visiblemente los poros, controla el exceso de grasa, unifica el tono y mejora la textura general de la piel. </p><h3>Características del producto</h3><ul><li>Concentración óptima de 10% de niacinamida para resultados visibles</li><li>Regula la producción de sebo sin resecar</li><li>Reduce la apariencia de poros dilatados</li><li>Textura ligera y de rápida absorción</li><li>- Apto para todo tipo de piel, ideal para mixta y grasa</li><li>- Formulado sin fragancias ni irritantes comunes</li><li>- Desarrollado y fabricado en Colombia</li></ul><h3>¿Cómo funciona la Niacinamida?</h3><p>La Niacinamida (Vitamina B3) es un activo multifuncional que fortalece la barrera cutánea, regula la producción de sebo, ayuda a unificar el tono y mejora la textura de la piel. Su alta concentración al 10% brinda resultados visibles sin irritar, equilibrando la piel desde el interior. </p><h3>Beneficios principales</h3><ul><li>Aclara y unifica el tono de la piel</li><li>Reduce hiperpigmentación</li><li>Mejora la luminosidad</li><li>Reduce visiblemente los poros</li><li>Controla el exceso de grasa</li></ul><p><small><strong>Aviso importante:</strong> Este producto no está destinado a diagnosticar, tratar, curar o prevenir ninguna enfermedad. Se recomienda consultar con un dermatólogo antes de iniciar cualquier tratamiento para la piel. Fabricado por Laboratorios ADMAN bajo estrictos controles de calidad.</small></p>"
+			"description": "<h3>¿Que es SÉRUM NIACINAMIDA 10%?</h3><p>El Sérum Niacinamide 10 combina la potencia de la niacinamida al 10% con ácido hialurónico para equilibrar, hidratar y transformar la piel. Su fórmula ligera y sin fragancias trabaja en múltiples niveles: reduce visiblemente los poros, controla el exceso de grasa, unifica el tono y mejora la textura general de la piel. </p><h3>Características del producto</h3><ul><li>Concentración óptima de 10% de niacinamida para resultados visibles</li><li>Regula la producción de sebo sin resecar</li><li>Reduce la apariencia de poros dilatados</li><li>Textura ligera y de rápida absorción</li><li>- Apto para todo tipo de piel, ideal para mixta y grasa</li><li>- Formulado sin fragancias ni irritantes comunes</li><li>- Desarrollado y fabricado en Colombia</li></ul><h3>¿Cómo funciona la Niacinamida?</h3><p>La Niacinamida (Vitamina B3) es un activo multifuncional que fortalece la barrera cutánea, regula la producción de sebo, ayuda a unificar el tono y mejora la textura de la piel. Su alta concentración al 10% brinda resultados visibles sin irritar, equilibrando la piel desde el interior. </p><h3>Beneficios principales</h3><ul><li>Aclara y unifica el tono de la piel</li><li>Reduce hiperpigmentación</li><li>Mejora la luminosidad</li><li>Reduce visiblemente los poros</li><li>Controla el exceso de grasa</li></ul><p><small><strong>Aviso importante:</strong> Este producto no está destinado a diagnosticar, tratar, curar o prevenir ninguna enfermedad. Se recomienda consultar con un dermatólogo antes de iniciar cualquier tratamiento para la piel. Fabricado por Laboratorios ADMAN bajo estrictos controles de calidad.</small></p>",
+			"card_tint": "lila"
 		},
 		{
 			"handle": "unguento-chest-relief-1",
@@ -344,7 +414,8 @@
 				}
 			],
 			"testimonials": [],
-			"description": "<p>El Ungüento Chest Relief de Nambu es ese apoyo que uno quiere tener cerca cuando el pecho se siente cargado, el cuello tenso y respirar cómodo se vuelve difícil por el frío, los cambios de clima o una noche de congestión.</p><p>Su mezcla de eucalipto, menta y tomillo de territorios colombianos deja una sensación fresca y reconfortante al masajear el pecho, la espalda y el cuello. Es práctico, fácil de aplicar y pensado para usar en casa cuando el cuerpo pide un respiro.</p><h3>Frescor que se siente</h3><p>Chest Relief combina plantas tradicionalmente usadas por su aroma fresco y su sensación reconfortante al aplicarse sobre la piel.</p><p>La textura del ungüento permite hacer un masaje suave sobre el pecho, la espalda y el cuello, acompañando esos momentos en que se quiere sentir más comodidad al respirar.</p><h3>Ideal para tener cerca</h3><p>Chest Relief de Nambu es ideal para quienes buscan una sensación de alivio y frescor cuando sienten:</p><ul><li>Pecho cargado por clima frío o cambios de temperatura</li><li>Incomodidad en pecho, espalda o cuello</li><li>Sensación de respiración pesada durante la noche</li><li>Necesidad de un masaje reconfortante antes de descansar</li><li>Molestias respiratorias ocasionales que hacen difícil sentirse cómodo</li><li>Ganas de dormir con una sensación más fresca y relajada</li></ul>"
+			"description": "<p>El Ungüento Chest Relief de Nambu es ese apoyo que uno quiere tener cerca cuando el pecho se siente cargado, el cuello tenso y respirar cómodo se vuelve difícil por el frío, los cambios de clima o una noche de congestión.</p><p>Su mezcla de eucalipto, menta y tomillo de territorios colombianos deja una sensación fresca y reconfortante al masajear el pecho, la espalda y el cuello. Es práctico, fácil de aplicar y pensado para usar en casa cuando el cuerpo pide un respiro.</p><h3>Frescor que se siente</h3><p>Chest Relief combina plantas tradicionalmente usadas por su aroma fresco y su sensación reconfortante al aplicarse sobre la piel.</p><p>La textura del ungüento permite hacer un masaje suave sobre el pecho, la espalda y el cuello, acompañando esos momentos en que se quiere sentir más comodidad al respirar.</p><h3>Ideal para tener cerca</h3><p>Chest Relief de Nambu es ideal para quienes buscan una sensación de alivio y frescor cuando sienten:</p><ul><li>Pecho cargado por clima frío o cambios de temperatura</li><li>Incomodidad en pecho, espalda o cuello</li><li>Sensación de respiración pesada durante la noche</li><li>Necesidad de un masaje reconfortante antes de descansar</li><li>Molestias respiratorias ocasionales que hacen difícil sentirse cómodo</li><li>Ganas de dormir con una sensación más fresca y relajada</li></ul>",
+			"card_tint": "verde"
 		},
 		{
 			"handle": "1-week-fortalecedor-de-unas-copia",
@@ -441,7 +512,8 @@
 					"product": "1-week-fortalecedor-de-unas-copia"
 				}
 			],
-			"description": "<h3>¿Que es 1 WEEK?</h3><p>1 Week es un tratamiento intensivo que transforma uñas débiles y quebradizas en fuertes y saludables en solo 7 días. Su fórmula única combina biotina, colágeno y aceite de argán para nutrir, fortalecer y proteger las uñas desde la raíz, devolviendo su fortaleza y belleza natural.</p><h3>Características del producto</h3><ul><li>Resultados visibles en solo 7 días de uso continuo</li><li>Triple acción: nutre, hidrata y protege las uñas</li><li>Sistema de Nutrición Profunda que penetra hasta la matriz ungueal</li><li>Previene la rotura y el escamado de las uñas</li><li>Fórmula no grasa de rápida absorción</li><li>Restaura uñas dañadas por manicura permanente o acrílicos</li><li>Desarrollado y fabricado en Colombia</li></ul><h3>¿Cómo funciona el Sistema de Nutrición Profunda?</h3><p>La fórmula de 1 Week contiene moléculas de penetración avanzada que transportan activos fortalecedores hasta la matriz ungueal, donde se forman las uñas, estimulando su crecimiento saludable y mejorando su estructura desde la raíz.</p><h3>Beneficios principales</h3><ul><li>Estimula el crecimiento natural de las uñas</li><li>Fortalece uñas débiles y quebradizas</li><li>Previene rotura y escamado</li><li>Nutre uñas y cutículas</li><li>Absorción rápida y eficiente</li></ul><p><small><strong>Aviso importante:</strong> Este producto no está destinado a diagnosticar, tratar, curar o prevenir ninguna enfermedad. Se recomienda consultar con un dermatólogo antes de iniciar cualquier tratamiento para la piel. Fabricado por Laboratorios ADMAN bajo estrictos controles de calidad.</small></p>"
+			"description": "<h3>¿Que es 1 WEEK?</h3><p>1 Week es un tratamiento intensivo que transforma uñas débiles y quebradizas en fuertes y saludables en solo 7 días. Su fórmula única combina biotina, colágeno y aceite de argán para nutrir, fortalecer y proteger las uñas desde la raíz, devolviendo su fortaleza y belleza natural.</p><h3>Características del producto</h3><ul><li>Resultados visibles en solo 7 días de uso continuo</li><li>Triple acción: nutre, hidrata y protege las uñas</li><li>Sistema de Nutrición Profunda que penetra hasta la matriz ungueal</li><li>Previene la rotura y el escamado de las uñas</li><li>Fórmula no grasa de rápida absorción</li><li>Restaura uñas dañadas por manicura permanente o acrílicos</li><li>Desarrollado y fabricado en Colombia</li></ul><h3>¿Cómo funciona el Sistema de Nutrición Profunda?</h3><p>La fórmula de 1 Week contiene moléculas de penetración avanzada que transportan activos fortalecedores hasta la matriz ungueal, donde se forman las uñas, estimulando su crecimiento saludable y mejorando su estructura desde la raíz.</p><h3>Beneficios principales</h3><ul><li>Estimula el crecimiento natural de las uñas</li><li>Fortalece uñas débiles y quebradizas</li><li>Previene rotura y escamado</li><li>Nutre uñas y cutículas</li><li>Absorción rápida y eficiente</li></ul><p><small><strong>Aviso importante:</strong> Este producto no está destinado a diagnosticar, tratar, curar o prevenir ninguna enfermedad. Se recomienda consultar con un dermatólogo antes de iniciar cualquier tratamiento para la piel. Fabricado por Laboratorios ADMAN bajo estrictos controles de calidad.</small></p>",
+			"card_tint": "verde"
 		},
 		{
 			"handle": "golden-glow-plantilla",
@@ -533,7 +605,8 @@
 					"product": "golden-glow-plantilla"
 				}
 			],
-			"description": "<h3>¿Que es Golden Glow?</h3><p>Golden Glow es una loción aclarante que transforma gradualmente tu cabello con reflejos dorados naturales. Su fórmula inspirada en la sabiduría del Pacífico colombiano combina extractos naturales que aclaran suavemente mientras protegen y nutren la fibra capilar, evitando el daño que causan los decolorantes tradicionales. </p><h3>Características del producto</h3><ul><li>Aclara el cabello de forma progresiva y controlada</li><li>Tecnología Gradual SunLift que respeta la salud capilar</li><li>Crea reflejos dorados que lucen completamente naturales</li><li>Protege y nutre el cabello durante el proceso de aclarado</li><li>Compatible con todo tipo de cabello, incluso teñido</li><li>No requiere enjuague ni procesos químicos agresivos</li><li>Desarrollado y fabricado en Colombia</li></ul><h3>¿Cómo funciona la Tecnología SunLift?</h3><p>Golden Glow utiliza una combinación única de extractos naturales que se activan con el calor o la luz solar. Estos ingredientes trabajan juntos para aclarar gradualmente el cabello mientras lo protegen, evitando la sequedad y el daño asociados con los decolorantes químicos tradicionales.</p><h3>Beneficios principales</h3><ul><li>Aclarado gradual y natural</li><li>Extractos naturales protectores</li><li>Proporciona brillo radiante</li><li>Protege la fibra capilar</li><li>Fácil de usar en casa</li></ul><p><small><strong>Aviso importante:</strong> Este producto no está destinado a diagnosticar, tratar, curar o prevenir ninguna enfermedad. Se recomienda consultar con un dermatólogo antes de iniciar cualquier tratamiento para la piel. Fabricado por Laboratorios ADMAN bajo estrictos controles de calidad.</small></p>"
+			"description": "<h3>¿Que es Golden Glow?</h3><p>Golden Glow es una loción aclarante que transforma gradualmente tu cabello con reflejos dorados naturales. Su fórmula inspirada en la sabiduría del Pacífico colombiano combina extractos naturales que aclaran suavemente mientras protegen y nutren la fibra capilar, evitando el daño que causan los decolorantes tradicionales. </p><h3>Características del producto</h3><ul><li>Aclara el cabello de forma progresiva y controlada</li><li>Tecnología Gradual SunLift que respeta la salud capilar</li><li>Crea reflejos dorados que lucen completamente naturales</li><li>Protege y nutre el cabello durante el proceso de aclarado</li><li>Compatible con todo tipo de cabello, incluso teñido</li><li>No requiere enjuague ni procesos químicos agresivos</li><li>Desarrollado y fabricado en Colombia</li></ul><h3>¿Cómo funciona la Tecnología SunLift?</h3><p>Golden Glow utiliza una combinación única de extractos naturales que se activan con el calor o la luz solar. Estos ingredientes trabajan juntos para aclarar gradualmente el cabello mientras lo protegen, evitando la sequedad y el daño asociados con los decolorantes químicos tradicionales.</p><h3>Beneficios principales</h3><ul><li>Aclarado gradual y natural</li><li>Extractos naturales protectores</li><li>Proporciona brillo radiante</li><li>Protege la fibra capilar</li><li>Fácil de usar en casa</li></ul><p><small><strong>Aviso importante:</strong> Este producto no está destinado a diagnosticar, tratar, curar o prevenir ninguna enfermedad. Se recomienda consultar con un dermatólogo antes de iniciar cualquier tratamiento para la piel. Fabricado por Laboratorios ADMAN bajo estrictos controles de calidad.</small></p>",
+			"card_tint": "amarillo"
 		},
 		{
 			"handle": "isoul-1",
@@ -630,7 +703,47 @@
 					"product": "isoul-1"
 				}
 			],
-			"description": "<h3>¿Que es ISOUL?</h3><p>ISOUL revoluciona el autobronceado con una fórmula innovadora que brinda un bronceado gradual, uniforme y completamente natural. Inspirado en la luminosidad del Pacífico colombiano, este autobronceador elimina el miedo al tono artificial gracias a su DHA de adaptación natural y sistema anti-manchas, permitiéndote brillar con confianza. </p><h3>Características del producto</h3><ul><li>Bronceado gradual que se adapta a tu tono de piel</li><li>Sistema anti-manchas que asegura un resultado uniforme</li><li>Color progresivo personalizado sin efecto naranja</li><li>Textura cremosa de rápida absorción</li><li>Fórmula hidratante que nutre la piel mientras broncea</li><li>No mancha la ropa ni las sábanas después de secar</li><li>Desarrollado y fabricado en Colombia</li></ul><h3>¿Cómo funciona el DHA de Adaptación Natural?</h3><p>El DHA (Dihidroxiacetona) de ISOUL está formulado con tecnología de adaptación que reacciona con los aminoácidos de tu piel para crear un bronceado personalizado que complementa perfectamente tu tono natural. Combinado con el sistema anti-manchas, garantiza un resultado uniforme sin rayas ni zonas desiguales.</p><h3>Beneficios principales</h3><ul><li>Bronceado gradual, uniforme y natural</li><li>Sin exposición solar dañina</li><li>Fórmula hidratante de rápida absorción</li><li>Ingredientes nutritivos para la piel</li><li>Tono dorado saludable</li></ul><p><small><strong>Aviso importante:</strong> Este producto no está destinado a diagnosticar, tratar, curar o prevenir ninguna enfermedad. Se recomienda consultar con un dermatólogo antes de iniciar cualquier tratamiento para la piel. Fabricado por Laboratorios ADMAN bajo estrictos controles de calidad.</small></p>"
+			"description": "<h3>¿Que es ISOUL?</h3><p>ISOUL revoluciona el autobronceado con una fórmula innovadora que brinda un bronceado gradual, uniforme y completamente natural. Inspirado en la luminosidad del Pacífico colombiano, este autobronceador elimina el miedo al tono artificial gracias a su DHA de adaptación natural y sistema anti-manchas, permitiéndote brillar con confianza. </p><h3>Características del producto</h3><ul><li>Bronceado gradual que se adapta a tu tono de piel</li><li>Sistema anti-manchas que asegura un resultado uniforme</li><li>Color progresivo personalizado sin efecto naranja</li><li>Textura cremosa de rápida absorción</li><li>Fórmula hidratante que nutre la piel mientras broncea</li><li>No mancha la ropa ni las sábanas después de secar</li><li>Desarrollado y fabricado en Colombia</li></ul><h3>¿Cómo funciona el DHA de Adaptación Natural?</h3><p>El DHA (Dihidroxiacetona) de ISOUL está formulado con tecnología de adaptación que reacciona con los aminoácidos de tu piel para crear un bronceado personalizado que complementa perfectamente tu tono natural. Combinado con el sistema anti-manchas, garantiza un resultado uniforme sin rayas ni zonas desiguales.</p><h3>Beneficios principales</h3><ul><li>Bronceado gradual, uniforme y natural</li><li>Sin exposición solar dañina</li><li>Fórmula hidratante de rápida absorción</li><li>Ingredientes nutritivos para la piel</li><li>Tono dorado saludable</li></ul><p><small><strong>Aviso importante:</strong> Este producto no está destinado a diagnosticar, tratar, curar o prevenir ninguna enfermedad. Se recomienda consultar con un dermatólogo antes de iniciar cualquier tratamiento para la piel. Fabricado por Laboratorios ADMAN bajo estrictos controles de calidad.</small></p>",
+			"card_tint": "naranja"
+		},
+		{
+			"handle": "jabon-piel-de-porcelana",
+			"card_tint": "azul"
+		},
+		{
+			"handle": "kit-de-porcelana-1",
+			"card_tint": "azul"
+		},
+		{
+			"handle": "jabon-de-porcelana",
+			"card_tint": "azul"
+		},
+		{
+			"handle": "kit-respira-libre",
+			"badge": "Promoción del mes",
+			"card_tint": "verde",
+			"subtitle": "Eucalipto · Menta · Regaliz · Tomillo",
+			"short_description": "Uno para la nariz, otro para el pecho, y un repuesto para que no te quedes a medias. Todo por 129.900 COP.",
+			"how_to_use": "<p>Spray Nasal de Nambu: 2 aplicaciones por la nariz, 2 veces al día, en casa.</p><p>Chest Relief: masaje suave en pecho, espalda y cuello cuando lo necesites.</p>",
+			"ingredient_refs": [
+				"spray-nasal-eucalipto",
+				"spray-nasal-menta",
+				"spray-nasal-regaliz",
+				"chest-relief-tomillo"
+			],
+			"faq_refs": [
+				"envio-colombia"
+			],
+			"testimonials": [
+				{
+					"handle": "kit-respira-libre-marta-lucia-r",
+					"name": "Marta Lucía R.",
+					"city": "52 años · Cali",
+					"quote": "Yo tenía el pecho cargado desde hacía semanas y dormía sentada.",
+					"body": "Con el spray en la mañana y en la noche, y el ungüento en la espalda, esa semana dormí acostada. Le pedí el kit a mi hermana también."
+				}
+			],
+			"description": "<p>Uno para la nariz, otro para el pecho, y un repuesto para que no te quedes a medias. Todo por 129.900 COP.</p><ul><li>Spray Nasal de Nambu con eucalipto, menta y regaliz. Ayuda a despejar la respiración y mejora la sensación en 2 minutos.</li><li>Chest Relief con eucalipto, menta y tomillo de territorios colombianos. Alivia el pecho y la respiración con plantas tradicionales.</li><li>Dos sprays, uno para la casa y otro para el bolso o la mesa de noche.</li><li>Envío GRATIS a todo el país.</li></ul><p>Esta es la promoción del mes en Nambu: dos Spray Nasal de Nambu y el Chest Relief en un solo pedido, con envío gratis.</p>"
 		}
 	],
 	"menus": [

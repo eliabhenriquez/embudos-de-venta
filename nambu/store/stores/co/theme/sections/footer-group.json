@@ -5,8 +5,13 @@
 		"newsletter": {
 			"type": "newsletter",
 			"settings": {
-				"heading": "Únete al universo Nambu",
-				"text": "<p>Suscríbete y recibe tips de uso, novedades y una sorpresa en tu primer pedido.</p>"
+				"heading": "10% de descuento en tu primera compra",
+				"text": "<p>Déjanos tu correo y te enviamos el cupón a tu bandeja de entrada.</p>",
+				"button_label": "Quiero mi 10%",
+				"fine": "Puedes darte de baja cuando quieras.",
+				"klaviyo_form": "TWWXYW",
+				"icon": "percent",
+				"accent": true
 			}
 		},
 		"footer": {
@@ -30,7 +35,10 @@
 			"block_order": [
 				"shop",
 				"help"
-			]
+			],
+			"settings": {
+				"tagline": "Del Pacífico colombiano para tu vida de todos los días."
+			}
 		}
 	},
 	"order": [

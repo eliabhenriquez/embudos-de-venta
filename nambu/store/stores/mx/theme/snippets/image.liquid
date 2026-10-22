@@ -1,9 +1,11 @@
 {%- comment -%}
 	Imagen responsive desde el CDN de Shopify.
-	Parámetros: image, sizes, class, widths, priority (hero: eager + fetchpriority), decorative (alt vacío).
+	Parámetros: image, sizes, class, widths, max_width (ancho mayor del srcset, 1440 por defecto),
+	priority (hero: eager + fetchpriority), decorative (alt vacío).
 {%- endcomment -%}
 {%- liquid
 	assign img_widths = widths | default: '360, 540, 720, 900, 1080, 1440'
+	assign img_max = max_width | default: 1440
 	assign img_alt = image.alt | escape
 	if alt != blank
 		assign img_alt = alt | escape
@@ -14,9 +16,9 @@
 -%}
 {%- if image != blank -%}
 	{%- if priority -%}
-		{{ image | image_url: width: 1440 | image_tag: widths: img_widths, sizes: sizes, class: class, alt: img_alt, loading: 'eager', fetchpriority: 'high' }}
+		{{ image | image_url: width: img_max | image_tag: widths: img_widths, sizes: sizes, class: class, alt: img_alt, loading: 'eager', fetchpriority: 'high' }}
 	{%- else -%}
-		{{ image | image_url: width: 1440 | image_tag: widths: img_widths, sizes: sizes, class: class, alt: img_alt, loading: 'lazy' }}
+		{{ image | image_url: width: img_max | image_tag: widths: img_widths, sizes: sizes, class: class, alt: img_alt, loading: 'lazy' }}
 	{%- endif -%}
 {%- else -%}
 	{{ 'product-1' | placeholder_svg_tag: class }}

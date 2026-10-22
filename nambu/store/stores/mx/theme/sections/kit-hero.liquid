@@ -1,0 +1,133 @@
+{%- comment -%}
+	Portada con un kit: fotos horizontales (16:9) que rotan solas y se cambian a mano (flechas, barras o deslizando; bloques
+	«Foto», cada una con su leyenda) y la tarjeta del kit con su precio y el botón en la primera pantalla. Al pasar la portada, la misma compra sale en una barra fija que se aparta al llegar al correo.
+	El nombre corto del kit es lo que va antes de «:» en su título; el precio de referencia, su precio de comparación.
+{%- endcomment -%}
+{%- liquid
+	assign kit = section.settings.product
+	assign form_id = 'KitHero-' | append: section.id
+	assign kit_name = kit.title | split: ':' | first | strip
+	assign slides = section.blocks | where: 'type', 'slide'
+-%}
+{%- if kit != blank -%}
+	{%- capture state -%}{% render 'product-state', product: kit %}{%- endcapture -%}
+	{%- capture pair -%}
+		<span class="nb-kit__pair">
+			{%- for item in section.settings.components -%}
+				{%- unless forloop.first -%}<span class="nb-kit__plus">{% render 'icon', name: 'plus' %}</span>{%- endunless -%}
+				{{ item.featured_media.preview_image | image_url: width: 160, height: 160, crop: 'center' | image_tag: alt: '', loading: 'eager', class: 'nb-kit__thumb' }}
+			{%- endfor -%}
+		</span>
+	{%- endcapture -%}
+	<section class="nb-kithero" id="KitHero-{{ section.id }}" aria-labelledby="KitHeroTitle-{{ section.id }}">
+		<div class="nb-shell nb-kithero__in">
+			{%- if slides.size > 0 -%}
+				<kit-stage class="nb-kithero__visual">
+					<div class="nb-kithero__stage" data-stage aria-roledescription="carrusel" aria-label="{{ section.settings.slides_label | escape }}">
+						<ul class="nb-kithero__slides">
+							{%- for block in slides -%}
+								<li class="nb-kithero__slide{% if forloop.first %} is-active{% endif %}" data-slide data-name="{{ block.settings.name | escape }}" aria-label="{{ 'accessibility.slide' | t: index: forloop.index }}"{% unless forloop.first %} aria-hidden="true"{% endunless %} {{ block.shopify_attributes }}>
+									{%- if forloop.first -%}
+										{% render 'image', image: block.settings.image, sizes: '(min-width: 900px) 700px, 100vw', class: 'nb-kithero__img', widths: '480, 720, 960, 1280, 1600', max_width: 1600, priority: true %}
+									{%- else -%}
+										{% render 'image', image: block.settings.image, sizes: '(min-width: 900px) 700px, 100vw', class: 'nb-kithero__img', widths: '480, 720, 960, 1280, 1600', max_width: 1600 %}
+									{%- endif -%}
+								</li>
+							{%- endfor -%}
+						</ul>
+					</div>
+					<div class="nb-kithero__meta">
+						<p class="nb-kithero__who">
+							{%- if section.settings.slides_label != blank -%}{{ section.settings.slides_label }} · {% endif -%}
+							<strong data-who>{{ slides.first.settings.name }}</strong>
+						</p>
+						{%- if slides.size > 1 -%}
+							<div class="nb-kithero__controls">
+								<button type="button" class="nb-round" data-prev aria-label="{{ 'general.previous' | t }}">{% render 'icon', name: 'left' %}</button>
+								<div class="nb-kithero__bars">
+									{%- for block in slides -%}
+										<button type="button" class="nb-kithero__bar{% if forloop.first %} is-active{% endif %}" data-go aria-label="{{ 'accessibility.choose_slide' | t: index: forloop.index }}"{% if forloop.first %} aria-current="true"{% endif %}><span></span></button>
+									{%- endfor -%}
+								</div>
+								<button type="button" class="nb-round" data-next aria-label="{{ 'general.next' | t }}">{% render 'icon', name: 'right' %}</button>
+							</div>
+						{%- endif -%}
+					</div>
+				</kit-stage>
+			{%- endif -%}
+			<div class="nb-kithero__copy">
+				<h2 id="KitHeroTitle-{{ section.id }}" class="nb-kithero__title">{{ section.settings.heading }}</h2>
+				{%- if section.settings.text != blank -%}<div class="nb-kithero__lead">{{ section.settings.text }}</div>{%- endif -%}
+				<div class="nb-kit">
+					{{ pair }}
+					<p class="nb-kit__info">
+						<span class="nb-kit__name">
+							{%- if section.settings.tag != blank -%}<span class="nb-kit__tag">{{ section.settings.tag }}</span>{%- endif -%}
+							<a href="{{ kit.url }}">{{ kit_name }}</a>
+						</span>
+						{%- if section.settings.items_label != blank -%}<span class="nb-kit__items">{{ section.settings.items_label }}</span>{%- endif -%}
+					</p>
+					<p class="nb-kit__price">
+						{% render 'price', product: kit %}
+						{% render 'kit-anchor', product: kit, label: section.settings.anchor_label, class: 'nb-kit__anchor' %}
+					</p>
+				</div>
+				<div class="nb-kithero__act">
+					{%- if state == 'available' and kit.has_only_default_variant -%}
+						{% render 'product-add', product: kit, form_id: form_id, class: 'nb-btn--block', label: section.settings.button_label %}
+					{%- else -%}
+						<a class="nb-btn nb-btn--block" href="{{ kit.url }}"><span>{{ 'products.view_product' | t }}</span></a>
+					{%- endif -%}
+					{%- if section.settings.link_label != blank -%}
+						<a class="nb-link" href="{{ kit.url }}">{{ section.settings.link_label }}{% render 'icon', name: 'arrow' %}</a>
+					{%- endif -%}
+				</div>
+				{%- if section.settings.note != blank -%}<p class="nb-kithero__note">{% render 'icon', name: 'truck' %}<span>{{ section.settings.note }}</span></p>{%- endif -%}
+			</div>
+		</div>
+	</section>
+
+	{%- if section.settings.show_sticky and state == 'available' and kit.has_only_default_variant -%}
+		<sticky-buy class="nb-sticky nb-sticky--kit" data-anchor="#KitHero-{{ section.id }}" data-end=".nb-news" hidden>
+			{{ pair | replace: 'nb-kit__thumb', 'nb-sticky__img' }}
+			<p><strong>{{ kit_name }}</strong>{% render 'price', product: kit %}</p>
+			<button type="submit" form="{{ form_id }}" name="add" class="nb-btn">{{ 'products.add_short' | t }}</button>
+		</sticky-buy>
+	{%- endif -%}
+{%- elsif request.design_mode -%}
+	<p class="nb-shell nb-editor-note">Elige el kit de la portada.</p>
+{%- endif -%}
+
+{% schema %}
+{
+	"name": "Portada con kit",
+	"class": "nb-section-kithero",
+	"max_blocks": 5,
+	"settings": [
+		{ "type": "product", "id": "product", "label": "Kit" },
+		{ "type": "product_list", "id": "components", "label": "Productos del kit (miniaturas)", "limit": 3 },
+		{ "type": "text", "id": "tag", "label": "Etiqueta del kit", "default": "Promoción del mes" },
+		{ "type": "text", "id": "items_label", "label": "Qué trae", "info": "Por ejemplo «2 Spray Nasal + 1 Ungüento Chest Relief»." },
+		{ "type": "text", "id": "anchor_label", "label": "Texto del precio de referencia", "info": "Va junto al precio de comparación del kit: «$159.800 solo en los dos sprays». Sin precio de comparación no sale." },
+		{ "type": "inline_richtext", "id": "heading", "label": "Título", "default": "Que la congestión deje de arruinar tu día." },
+		{ "type": "richtext", "id": "text", "label": "Texto" },
+		{ "type": "text", "id": "button_label", "label": "Botón", "default": "Agregar el kit al carrito" },
+		{ "type": "text", "id": "link_label", "label": "Enlace a la ficha del kit", "default": "Qué trae el kit" },
+		{ "type": "text", "id": "note", "label": "Línea bajo el botón", "default": "Envío gratis a todo el país." },
+		{ "type": "text", "id": "slides_label", "label": "Texto fijo bajo las fotos", "info": "Va delante de la leyenda de cada foto. Vacío: solo la leyenda." },
+		{ "type": "checkbox", "id": "show_sticky", "label": "Barra fija del kit al pasar la portada", "default": true }
+	],
+	"blocks": [
+		{
+			"type": "slide",
+			"name": "Foto",
+			"settings": [
+				{ "type": "image_picker", "id": "image", "label": "Foto", "info": "Horizontal 16:9 (1672 × 941 o más). Se ve entera, sin recortes. El texto alternativo es el del archivo." },
+				{ "type": "text", "id": "name", "label": "Leyenda", "info": "Bajo la foto: «El Kit Respira Libre», «Clientes reales de Nambu»…" }
+			]
+		}
+	],
+	"presets": [{ "name": "Portada con kit", "blocks": [{ "type": "slide" }, { "type": "slide" }, { "type": "slide" }] }],
+	"enabled_on": { "templates": ["index"] }
+}
+{% endschema %}

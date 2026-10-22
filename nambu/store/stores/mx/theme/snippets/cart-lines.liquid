@@ -18,7 +18,7 @@
 				<h3><a href="{{ item.url }}">{{ item.product.title }}</a></h3>
 				{%- unless item.product.has_only_default_variant -%}<p>{{ item.variant.title }}</p>{%- endunless -%}
 				{%- if subtitle != blank -%}<p>{{ subtitle }}</p>{%- endif -%}
-				<p class="nb-line__price">{{ item.final_line_price | money_without_trailing_zeros }} {{ cart.currency.iso_code }}</p>
+				<p class="nb-line__price">{% render 'money', amount: item.final_line_price %}</p>
 			</div>
 			<div class="nb-qty nb-qty--sm">
 				<a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity={{ less }}" data-cart-line="{{ forloop.index }}" data-quantity="{{ less }}" aria-label="{{ 'products.decrease' | t }}">{% render 'icon', name: 'minus' %}</a>

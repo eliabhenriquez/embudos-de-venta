@@ -5,33 +5,36 @@
 		"announcement": {
 			"type": "announcement-bar",
 			"blocks": {
-				"welcome": {
+				"message-1": {
 					"type": "message",
 					"settings": {
-						"text": "Te damos la bienvenida a nuestra tienda",
+						"text": "Pagas al recibir",
 						"link": ""
 					}
 				},
-				"payment": {
+				"message-2": {
 					"type": "message",
 					"settings": {
-						"text": "Pagas cuando lo tienes en tus manos",
+						"text": "Envío gratis a toda Colombia",
 						"link": ""
 					}
 				},
-				"secure": {
+				"message-3": {
 					"type": "message",
 					"settings": {
-						"text": "Compra segura",
+						"text": "Llega en 3 a 5 días hábiles",
 						"link": ""
 					}
 				}
 			},
 			"block_order": [
-				"welcome",
-				"payment",
-				"secure"
-			]
+				"message-1",
+				"message-2",
+				"message-3"
+			],
+			"settings": {
+				"hide_on_home": true
+			}
 		},
 		"header": {
 			"type": "header",

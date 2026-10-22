@@ -23,7 +23,7 @@
 		{% render 'theme-config' %}
 		{{ content_for_header }}
 	</head>
-	<body class="nb-body">
+	<body class="nb-body{% if request.page_type == 'index' %} nb-body--home{% endif %}">
 		<a class="nb-skip" href="#MainContent">{{ 'accessibility.skip_to_content' | t }}</a>
 		{% sections 'header-group' %}
 		<main id="MainContent" class="nb-main" role="main" tabindex="-1">

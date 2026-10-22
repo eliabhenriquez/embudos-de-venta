@@ -1,11 +1,169 @@
 {
 	"sections": {
-		"banner": {
-			"type": "featured-product-banner",
+		"hero": {
+			"type": "kit-hero",
+			"blocks": {
+				"slide-1": {
+					"type": "slide",
+					"settings": {
+						"image": "shopify://shop_images/hero-kit-respira-libre.webp",
+						"name": "El Kit Respira Libre"
+					}
+				},
+				"slide-2": {
+					"type": "slide",
+					"settings": {
+						"image": "shopify://shop_images/hero-kit-ingredientes.webp",
+						"name": "Ingredientes y beneficios"
+					}
+				},
+				"slide-3": {
+					"type": "slide",
+					"settings": {
+						"image": "shopify://shop_images/hero-clientes-nambu.webp",
+						"name": "Clientes reales de Nambu"
+					}
+				}
+			},
+			"block_order": [
+				"slide-1",
+				"slide-2",
+				"slide-3"
+			],
 			"settings": {
-				"product": "spray-nasal-nambu",
+				"product": "kit-respira-libre",
+				"components": [
+					"spray-nasal-nambu",
+					"unguento-chest-relief-1"
+				],
+				"tag": "Promoción del mes",
+				"items_label": "2 Spray Nasal + 1 Ungüento Chest Relief",
+				"anchor_label": "solo en los dos sprays",
 				"heading": "Que la congestión deje de arruinar tu día.",
-				"text": "<p>Combina <strong>eucalipto, menta y regaliz</strong> para acompañar la sensación de despeje nasal y comodidad respiratoria.</p>"
+				"text": "<p>Esta es la promoción del mes en Nambu: dos Spray Nasal de Nambu y el Chest Relief en un solo pedido, con envío gratis.</p>",
+				"button_label": "Quiero mi Kit Respira Libre",
+				"link_label": "Qué trae el kit",
+				"note": "Envío gratis a todo el país.",
+				"slides_label": "",
+				"show_sticky": true
+			}
+		},
+		"ribbon": {
+			"type": "benefit-ribbon",
+			"blocks": {
+				"benefit-1": {
+					"type": "benefit",
+					"settings": {
+						"icon": "cash",
+						"text": "Pago contra entrega"
+					}
+				},
+				"benefit-2": {
+					"type": "benefit",
+					"settings": {
+						"icon": "truck",
+						"text": "Envío gratis a toda Colombia"
+					}
+				},
+				"benefit-3": {
+					"type": "benefit",
+					"settings": {
+						"icon": "clock",
+						"text": "Llega en 3 a 5 días hábiles"
+					}
+				},
+				"benefit-4": {
+					"type": "benefit",
+					"settings": {
+						"icon": "chat",
+						"text": "Guía de seguimiento por WhatsApp"
+					}
+				},
+				"benefit-5": {
+					"type": "benefit",
+					"settings": {
+						"icon": "shield",
+						"text": "Si llega dañado, te enviamos otro"
+					}
+				},
+				"benefit-6": {
+					"type": "benefit",
+					"settings": {
+						"icon": "percent",
+						"text": "10% en tu primera compra"
+					}
+				}
+			},
+			"block_order": [
+				"benefit-1",
+				"benefit-2",
+				"benefit-3",
+				"benefit-4",
+				"benefit-5",
+				"benefit-6"
+			],
+			"settings": {
+				"label": "Por qué comprar en Nambu"
+			}
+		},
+		"best": {
+			"type": "featured-collection",
+			"settings": {
+				"heading": "Lo más vendido",
+				"layout": "rail",
+				"collection": "productos",
+				"limit": 8,
+				"columns": "4",
+				"first_badge": "El más vendido",
+				"link_label": "Ver todos los productos"
+			}
+		},
+		"kit": {
+			"type": "kit-promo",
+			"blocks": {
+				"perk-1": {
+					"type": "perk",
+					"settings": {
+						"icon": "leaf",
+						"text": "Spray Nasal de Nambu con eucalipto, menta y regaliz. Ayuda a despejar la respiración y mejora la sensación en 2 minutos."
+					}
+				},
+				"perk-2": {
+					"type": "perk",
+					"settings": {
+						"icon": "drop",
+						"text": "Chest Relief con eucalipto, menta y tomillo de territorios colombianos. Alivia el pecho y la respiración con plantas tradicionales."
+					}
+				},
+				"perk-3": {
+					"type": "perk",
+					"settings": {
+						"icon": "box",
+						"text": "Dos sprays, uno para la casa y otro para el bolso o la mesa de noche."
+					}
+				},
+				"perk-4": {
+					"type": "perk",
+					"settings": {
+						"icon": "truck",
+						"text": "Envío GRATIS a todo el país."
+					}
+				}
+			},
+			"block_order": [
+				"perk-1",
+				"perk-2",
+				"perk-3",
+				"perk-4"
+			],
+			"settings": {
+				"product": "kit-respira-libre",
+				"image": "shopify://shop_images/kit-respira-libre-bloque.webp",
+				"tag": "Promoción del mes",
+				"text": "<p>Uno para la nariz, otro para el pecho, y un repuesto para que no te quedes a medias. Todo por 129.900 COP.</p>",
+				"anchor_label": "solo en los dos sprays",
+				"button_label": "Quiero mi Kit Respira Libre",
+				"note": "Envío gratis a todo el país."
 			}
 		},
 		"needs": {
@@ -55,9 +213,9 @@
 				}
 			},
 			"block_order": [
+				"breath",
 				"skin",
 				"pores",
-				"breath",
 				"nails",
 				"hair",
 				"tan"
@@ -67,97 +225,133 @@
 				"text": "Encuentra la fórmula que mejor acompaña tu rutina de cuidado."
 			}
 		},
-		"products": {
-			"type": "featured-collection",
+		"voices": {
+			"type": "testimonials",
 			"settings": {
-				"heading": "Productos destacados",
-				"products": [
-					"serum-piel-de-porcelana-1",
-					"spray-nasal-nambu",
-					"serum-niacinamida-10",
-					"1-week-fortalecedor-de-unas-copia",
-					"golden-glow-plantilla",
-					"isoul-1"
-				],
-				"collection": "productos",
-				"limit": 6,
-				"columns": "3",
-				"link_label": "Ver todos los productos"
+				"heading": "Lo que cuentan quienes ya lo usan",
+				"source": "section",
+				"style": "photo",
+				"band": true,
+				"testimonials": [
+					"spray-ugc-catalina",
+					"spray-ugc-carlos-mauricio",
+					"spray-ugc-jose-fernando",
+					"spray-ugc-andres",
+					"spray-ugc-andrea"
+				]
+			}
+		},
+		"numbers": {
+			"type": "trust-numbers",
+			"blocks": {
+				"fact-1": {
+					"type": "fact",
+					"settings": {
+						"icon": "leaf",
+						"text": "Marca colombiana con raíces en el Pacífico"
+					}
+				},
+				"fact-2": {
+					"type": "fact",
+					"settings": {
+						"figure": "+49.000",
+						"icon": "leaf",
+						"text": "personas ya nos compraron"
+					}
+				},
+				"fact-3": {
+					"type": "fact",
+					"settings": {
+						"icon": "chat",
+						"text": "Te atendemos por WhatsApp"
+					}
+				}
+			},
+			"block_order": [
+				"fact-1",
+				"fact-2",
+				"fact-3"
+			],
+			"settings": {
+				"label": "Por qué elegir Nambu",
+				"tagline": "Del Pacífico colombiano para tu vida de todos los días.",
+				"button_label": "Ver todos los productos",
+				"button_link": "shopify://collections/productos"
 			}
 		},
 		"story": {
 			"type": "image-with-text",
 			"settings": {
-				"image": "shopify://shop_images/41c8186e-6e14-452d-8a81-e0a60cf6a514.png",
+				"image": "shopify://shop_images/story-linea-nambu.webp",
 				"heading": "La naturaleza no se explica en catálogos. Se vive.",
-				"text": "<p>En el Pacífico colombiano, la naturaleza no se explica en catálogos. Se vive, se hereda y se usa.</p><p>Nambu toma esa lógica y la lleva a cada fórmula. Los ingredientes tienen origen real. Los activos tienen concentración que sirve. Y cada producto está creado para acompañar rutinas reales de bienestar.</p><p>Eso es lo que hace que se sienta diferente.</p>"
+				"text": "<p>En el Pacífico colombiano, la naturaleza no se explica en catálogos. Se vive, se hereda y se usa.</p><p>Nambu toma esa lógica y la lleva a cada fórmula, creada para acompañar rutinas reales de bienestar.</p>",
+				"blend": true,
+				"button_label": "Conoce Nambu",
+				"button_link": "shopify://pages/sobre-nambu"
 			}
 		},
-		"voices": {
-			"type": "testimonials",
-			"settings": {
-				"heading": "Resultados que se cuentan fácil",
-				"source": "section",
-				"testimonials": [
-					"inicio-valentina-r",
-					"inicio-carolina-m",
-					"inicio-andrea-l"
-				]
-			}
-		},
-		"trust": {
-			"type": "trust",
+		"faq": {
+			"type": "faq-contact",
 			"blocks": {
-				"payment": {
-					"type": "item",
+				"question-1": {
+					"type": "question",
 					"settings": {
-						"icon": "lock",
-						"title": "Pagas al recibir",
-						"text": "<p>Pagas cuando el paquete llega a tu puerta.</p>"
+						"question": "¿Cómo pago mi pedido?",
+						"answer": "<p>Puedes pagar cuando el pedido llega a tu casa (pago contra entrega) o en línea con Mercado Pago al finalizar la compra.</p>"
 					}
 				},
-				"shipping": {
-					"type": "item",
+				"question-2": {
+					"type": "question",
 					"settings": {
-						"icon": "truck",
-						"title": "Envío gratis",
-						"text": "<p>Envío gratis a cualquier rincón de Colombia. Llega en 3 a 5 días hábiles.</p>"
+						"question": "¿Cuánto cuesta y cuánto tarda el envío?",
+						"answer": "<p>El envío estándar es gratis a toda Colombia, en todos los pedidos, y llega en 3 a 5 días hábiles. El plazo puede variar según la cobertura de la transportadora, los festivos o novedades logísticas.</p>"
 					}
 				},
-				"support": {
-					"type": "item",
+				"question-3": {
+					"type": "question",
 					"settings": {
-						"icon": "chat",
-						"title": "Acompañamiento real",
-						"text": "<p>Si tienes una duda antes de comprar, estamos por WhatsApp.</p>"
+						"question": "¿Puedo recibirlo más rápido?",
+						"answer": "<p>En las ciudades principales hay envío prioritario: sale el mismo día si pides antes de las 3:00 p. m., o en menos de 24 horas. Tiene un costo adicional que ves antes de confirmar la compra.</p>"
+					}
+				},
+				"question-4": {
+					"type": "question",
+					"settings": {
+						"question": "¿Cómo sé dónde va mi pedido?",
+						"answer": "<p>Te confirmamos el pedido y te compartimos la guía de seguimiento por WhatsApp.</p>"
+					}
+				},
+				"question-5": {
+					"type": "question",
+					"settings": {
+						"question": "¿Y si llega dañado o se pierde?",
+						"answer": "<p>Te enviamos uno nuevo sin costo. Escríbenos a nambushop.col@gmail.com con fotos dentro de las 48 horas siguientes a recibirlo. Si el paquete se pierde en el camino, hacemos la gestión con la transportadora y te enviamos otro.</p>"
 					}
 				}
 			},
 			"block_order": [
-				"payment",
-				"shipping",
-				"support"
+				"question-1",
+				"question-2",
+				"question-3",
+				"question-4",
+				"question-5"
 			],
 			"settings": {
-				"heading": "Compra con confianza"
-			}
-		},
-		"help": {
-			"type": "help-links",
-			"settings": {
-				"heading": "¿Necesitas ayuda?",
-				"menu": "ayuda",
-				"show_contact": true
+				"heading": "Preguntas frecuentes",
+				"text": "¿Te queda otra duda? Te respondemos por WhatsApp.",
+				"open_first": true
 			}
 		}
 	},
 	"order": [
-		"banner",
+		"hero",
+		"ribbon",
+		"best",
+		"kit",
 		"needs",
-		"products",
-		"story",
 		"voices",
-		"trust",
-		"help"
+		"numbers",
+		"story",
+		"faq"
 	]
 }

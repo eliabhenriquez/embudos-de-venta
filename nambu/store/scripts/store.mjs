@@ -5,7 +5,7 @@ import { mkdtempSync, rmSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { buildAssets, watchAssets } from './lib/assets.mjs'
-import { appFilesOf, copyInto, isDataFile, listFiles, listStores, resolveStore } from './lib/stores.mjs'
+import { appFilesOf, copyInto, isDataFile, listFiles, listStores, resolveStore, storeDomain } from './lib/stores.mjs'
 
 // Con alguno de estos flags la CLI ya sabe a qué tema ir; sin ninguno, push crea uno sin publicar y pull lee el publicado
 const TARGET_FLAGS = ['--theme', '-t', '--live', '-l', '--development', '-d', '--unpublished', '-u']
@@ -38,7 +38,8 @@ const commands = {
 		const tempDir = mkdtempSync(join(tmpdir(), `nambu-${store.name}-`))
 		try {
 			const target = hasTarget(args) ? [] : ['--live']
-			const code = await shopify(['theme', 'pull', '-e', store.name, '--path', tempDir, ...repeatFlag('--only', DATA_GLOBS), ...repeatFlag('--ignore', appFilesOf(store)), ...target, ...args])
+			// Con --path en otra carpeta la CLI no ve shopify.theme.toml: la tienda va explícita
+			const code = await shopify(['theme', 'pull', '--store', storeDomain(store), '--path', tempDir, ...repeatFlag('--only', DATA_GLOBS), ...repeatFlag('--ignore', appFilesOf(store)), ...target, ...args])
 			if (code !== 0) return code
 
 			const pulled = listFiles(tempDir).filter(isDataFile)

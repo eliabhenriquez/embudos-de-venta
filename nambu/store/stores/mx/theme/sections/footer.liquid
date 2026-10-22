@@ -9,6 +9,7 @@
 					{{ shop.name }}
 				{%- endif -%}
 			</a>
+			{%- if section.settings.tagline != blank -%}<p class="nb-footer__tagline">{{ section.settings.tagline }}</p>{%- endif -%}
 			{%- if settings.instagram_url != blank -%}
 				<a class="nb-footer__social" href="{{ settings.instagram_url }}" target="_blank" rel="noopener">{% render 'icon', name: 'instagram' %}<span>Instagram</span></a>
 			{%- endif -%}
@@ -46,6 +47,9 @@
 	"name": "Pie de página",
 	"class": "nb-section-footer",
 	"max_blocks": 3,
+	"settings": [
+		{ "type": "text", "id": "tagline", "label": "Frase de marca", "info": "Bajo el logotipo." }
+	],
 	"blocks": [
 		{
 			"type": "menu",

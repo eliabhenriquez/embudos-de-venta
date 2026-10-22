@@ -1,24 +1,42 @@
-{%- comment -%} Suscripción con el formulario nativo de clientes de Shopify (etiqueta "newsletter"). {%- endcomment -%}
-<section class="nb-news" aria-labelledby="News-{{ section.id }}">
+{%- comment -%}
+	Suscripción. Con un formulario de Klaviyo (su id), el botón lo abre: es el que envía el cupón de la primera compra.
+	Sin él, el formulario nativo de clientes de Shopify (etiqueta "newsletter").
+{%- endcomment -%}
+{%- liquid
+	assign submit_label = 'newsletter.submit' | t
+	assign button_label = section.settings.button_label | default: submit_label
+-%}
+<section class="nb-news{% if section.settings.accent %} nb-news--accent{% endif %}" aria-labelledby="News-{{ section.id }}">
 	<div class="nb-shell nb-news__in">
-		<div>
-			<h2 id="News-{{ section.id }}" class="nb-h2">{{ section.settings.heading }}</h2>
-			{%- if section.settings.text != blank -%}<div class="nb-news__text">{{ section.settings.text }}</div>{%- endif -%}
+		<div class="nb-news__copy">
+			{%- if section.settings.icon != 'none' -%}<span class="nb-news__badge">{% render 'icon', name: section.settings.icon %}</span>{%- endif -%}
+			<div>
+				<h2 id="News-{{ section.id }}" class="nb-h2">{{ section.settings.heading }}</h2>
+				{%- if section.settings.text != blank -%}<div class="nb-news__text">{{ section.settings.text }}</div>{%- endif -%}
+			</div>
 		</div>
-		{%- assign form_id = 'Newsletter-' | append: section.id -%}
-		{%- form 'customer', id: form_id, class: 'nb-news__form' -%}
-			<input type="hidden" name="contact[tags]" value="newsletter">
-			{%- if form.posted_successfully? -%}
-				<p class="nb-news__ok" role="status">{{ 'newsletter.success' | t }}</p>
-			{%- else -%}
-				<label class="nb-sr" for="NewsletterEmail-{{ section.id }}">{{ 'newsletter.email' | t }}</label>
-				<input id="NewsletterEmail-{{ section.id }}" type="email" name="contact[email]" required autocomplete="email" placeholder="{{ 'newsletter.placeholder' | t }}"{% if form.errors %} aria-invalid="true" aria-describedby="NewsletterError-{{ section.id }}"{% endif %}>
-				<button type="submit" class="nb-btn">{{ 'newsletter.submit' | t }}</button>
-				{%- if form.errors -%}
-					<p id="NewsletterError-{{ section.id }}" class="nb-news__error" role="alert">{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</p>
+		{%- if section.settings.klaviyo_form != blank -%}
+			<klaviyo-open class="nb-news__action" data-form="{{ section.settings.klaviyo_form | strip | escape }}">
+				<button type="button" class="nb-btn">{{ button_label }}</button>
+				{%- if section.settings.fine != blank -%}<p class="nb-news__fine">{{ section.settings.fine }}</p>{%- endif -%}
+			</klaviyo-open>
+		{%- else -%}
+			{%- assign form_id = 'Newsletter-' | append: section.id -%}
+			{%- form 'customer', id: form_id, class: 'nb-news__form' -%}
+				<input type="hidden" name="contact[tags]" value="newsletter">
+				{%- if form.posted_successfully? -%}
+					<p class="nb-news__ok" role="status">{{ 'newsletter.success' | t }}</p>
+				{%- else -%}
+					<label class="nb-sr" for="NewsletterEmail-{{ section.id }}">{{ 'newsletter.email' | t }}</label>
+					<input id="NewsletterEmail-{{ section.id }}" type="email" name="contact[email]" required autocomplete="email" placeholder="{{ 'newsletter.placeholder' | t }}"{% if form.errors %} aria-invalid="true" aria-describedby="NewsletterError-{{ section.id }}"{% endif %}>
+					<button type="submit" class="nb-btn">{{ button_label }}</button>
+					{%- if form.errors -%}
+						<p id="NewsletterError-{{ section.id }}" class="nb-news__error" role="alert">{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</p>
+					{%- endif -%}
+					{%- if section.settings.fine != blank -%}<p class="nb-news__fine">{{ section.settings.fine }}</p>{%- endif -%}
 				{%- endif -%}
-			{%- endif -%}
-		{%- endform -%}
+			{%- endform -%}
+		{%- endif -%}
 	</div>
 </section>
 
@@ -28,7 +46,14 @@
 	"class": "nb-section-news",
 	"settings": [
 		{ "type": "text", "id": "heading", "label": "Título", "default": "Entérate de los lanzamientos" },
-		{ "type": "richtext", "id": "text", "label": "Texto", "default": "<p>Te avisamos cuando lleguen nuevos productos a la tienda.</p>" }
+		{ "type": "richtext", "id": "text", "label": "Texto", "default": "<p>Te avisamos cuando lleguen nuevos productos a la tienda.</p>" },
+		{ "type": "text", "id": "button_label", "label": "Botón", "info": "Vacío: «Suscribirme»." },
+		{ "type": "text", "id": "fine", "label": "Letra pequeña" },
+		{ "type": "text", "id": "klaviyo_form", "label": "Formulario de Klaviyo (id)", "info": "El id de la ventana emergente de Klaviyo (Formularios de registro). Con id, el botón la abre y es Klaviyo quien envía el cupón. Vacío: formulario de Shopify." },
+		{ "type": "select", "id": "icon", "label": "Icono", "default": "none", "options": [
+			{ "value": "none", "label": "Sin icono" }, { "value": "percent", "label": "Descuento" }, { "value": "mail", "label": "Correo" }
+		] },
+		{ "type": "checkbox", "id": "accent", "label": "Fondo verde manzana", "default": false }
 	],
 	"presets": [{ "name": "Suscripción" }],
 	"enabled_on": { "groups": ["footer"] }

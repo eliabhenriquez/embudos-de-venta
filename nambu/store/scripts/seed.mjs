@@ -52,15 +52,21 @@ const ensureMetaobjectDefinitions = async (admin) => {
 	return ids
 }
 
+// Las definiciones comunes (el contrato de content-model) más las propias de la tienda en content.json
+const productDefinitions = content => [...PRODUCT_METAFIELDS, ...(content.product_metafields ?? [])]
+
 // 2. Definiciones de metacampos de producto, con acceso de la tienda online
-const ensureProductMetafields = async (admin, metaobjectIds) => {
+const ensureProductMetafields = async (admin, metaobjectIds, definitions) => {
 	const { metafieldDefinitions } = await admin.graphql(`{ metafieldDefinitions(first: 100, ownerType: PRODUCT, namespace: "${NAMESPACE}") { nodes { key type { name } } } }`)
 	const existing = new Map(metafieldDefinitions.nodes.map(definition => [definition.key, definition.type.name]))
-	for (const definition of PRODUCT_METAFIELDS) {
+	for (const definition of definitions) {
 		const currentType = existing.get(definition.key)
 		if (currentType && currentType !== definition.type) throw new Error(`El metacampo ${NAMESPACE}.${definition.key} es ${currentType} y el tema espera ${definition.type}`)
 		if (currentType) continue
-		const validations = definition.metaobject ? [{ name: 'metaobject_definition_id', value: metaobjectIds[definition.metaobject] }] : []
+		const validations = [
+			...(definition.metaobject ? [{ name: 'metaobject_definition_id', value: metaobjectIds[definition.metaobject] }] : []),
+			...(definition.choices ? [{ name: 'choices', value: JSON.stringify(definition.choices) }] : [])
+		]
 		await admin.mutate('mutation ($definition: MetafieldDefinitionInput!) { metafieldDefinitionCreate(definition: $definition) { createdDefinition { id } userErrors { field message } } }', {
 			definition: { name: definition.name, namespace: NAMESPACE, key: definition.key, type: definition.type, ownerType: 'PRODUCT', pin: true, access: { storefront: 'PUBLIC_READ' }, validations }
 		})
@@ -116,6 +122,9 @@ const upsertMetaobjects = async (admin, entries) => {
 	return ids
 }
 
+// Una ficha puede traer solo algunos campos: las listas faltan → vacías
+const withDefaults = product => ({ ingredients: [], faqs: [], testimonials: [], ...product })
+
 // Reparte el contenido en entradas de metaobjetos (las compartidas se cargan una sola vez)
 const collectEntries = (content, files, products) => {
 	const testimonial = item => ({
@@ -128,7 +137,7 @@ const collectEntries = (content, files, products) => {
 	return unique([
 		...content.shared_faqs.map(faq),
 		...content.home_testimonials.map(testimonial),
-		...content.products.flatMap(product => [
+		...content.products.map(withDefaults).flatMap(product => [
 			...product.ingredients.map(ingredient),
 			...product.faqs.map(faq),
 			...product.testimonials.map(item => testimonial({ ...item, product: product.handle }))
@@ -136,8 +145,9 @@ const collectEntries = (content, files, products) => {
 	], entry => `${entry.type}/${entry.handle}`)
 }
 
-// 5. Metacampos de cada producto
-const productMetafields = (product, productId, metaobjects) => {
+// 5. Metacampos de cada producto. Las listas aceptan además *_refs: handles de entradas que ya carga otra ficha.
+const productMetafields = (content, entry, productId, metaobjects) => {
+	const product = withDefaults(entry)
 	const refs = (type, handles) => JSON.stringify(handles.map((handle) => {
 		const id = metaobjects.get(`${type}/${handle}`)
 		if (!id) throw new Error(`${product.handle}: no existe la entrada ${type}/${handle}`)
@@ -147,12 +157,17 @@ const productMetafields = (product, productId, metaobjects) => {
 		subtitle: product.subtitle,
 		short_description: product.short_description,
 		how_to_use: product.how_to_use && htmlToRichText(product.how_to_use),
-		ingredients: product.ingredients.length && refs('ingredient', product.ingredients.map(item => item.handle)),
+		ingredients: (product.ingredients.length || product.ingredient_refs?.length) && refs('ingredient', [...product.ingredients.map(item => item.handle), ...(product.ingredient_refs ?? [])]),
 		ingredients_note: product.ingredients_note,
-		faqs: product.faqs.length && refs('faq', product.faqs.map(item => item.handle)),
+		faqs: (product.faqs.length || product.faq_refs?.length) && refs('faq', [...product.faqs.map(item => item.handle), ...(product.faq_refs ?? [])]),
 		testimonials: (product.testimonials.length || product.testimonial_refs?.length) && refs('testimonial', [...product.testimonials.map(item => item.handle), ...(product.testimonial_refs ?? [])])
 	}
-	const types = new Map(PRODUCT_METAFIELDS.map(definition => [definition.key, definition.type]))
+	// Los metacampos propios de la tienda se toman tal cual de la ficha (por su clave)
+	const definitions = productDefinitions(content)
+	content.product_metafields?.forEach((definition) => {
+		values[definition.key] = product[definition.key]
+	})
+	const types = new Map(definitions.map(definition => [definition.key, definition.type]))
 	return Object.entries(values)
 		.filter(([, value]) => value)
 		.map(([key, value]) => ({ ownerId: productId, namespace: NAMESPACE, key, type: types.get(key), value }))
@@ -223,12 +238,12 @@ const dryRun = (content) => {
 	const products = new Map(content.products.map(product => [product.handle, fake(product.handle)]))
 	const entries = collectEntries(content, photos, products)
 	const metaobjects = new Map(entries.map(entry => [`${entry.type}/${entry.handle}`, fake(entry.handle)]))
-	const metafields = content.products.flatMap(product => productMetafields(product, products.get(product.handle), metaobjects))
+	const metafields = content.products.flatMap(product => productMetafields(content, product, products.get(product.handle), metaobjects))
 	const count = type => entries.filter(entry => entry.type === type).length
 	console.log(`Contenido válido: ${count('ingredient')} ingredientes, ${count('faq')} preguntas, ${count('testimonial')} opiniones, ${metafields.length} metacampos en ${products.size} productos, ${content.menus?.length ?? 0} menús, ${photos.size} fotos.`)
 }
 
-const collectPhotos = content => [...new Set([...content.home_testimonials, ...content.products.flatMap(product => [...product.testimonials, ...product.ingredients])]
+const collectPhotos = content => [...new Set([...content.home_testimonials, ...content.products.map(withDefaults).flatMap(product => [...product.testimonials, ...product.ingredients])]
 	.map(item => item.photo ?? item.image)
 	.filter(Boolean))]
 
@@ -253,7 +268,7 @@ try {
 	const metaobjectIds = await ensureMetaobjectDefinitions(admin)
 
 	console.log('2/8 Definiciones de metacampos de producto')
-	await ensureProductMetafields(admin, metaobjectIds)
+	await ensureProductMetafields(admin, metaobjectIds, productDefinitions(content))
 
 	console.log('3/8 Archivos y productos')
 	const files = await resolveFiles(admin, collectPhotos(content))
@@ -266,7 +281,7 @@ try {
 
 	console.log('5/8 Metacampos de producto')
 	for (const product of content.products) {
-		await setProductMetafields(admin, productMetafields(product, products.get(product.handle), metaobjects))
+		await setProductMetafields(admin, productMetafields(content, product, products.get(product.handle), metaobjects))
 		console.log(`  · ${product.handle}`)
 	}
 

@@ -35,7 +35,7 @@ nambu/store/
 │   ├── src/ts/           # web components en TypeScript → theme/assets/theme.js
 │   ├── src/styles/       # CSS por zonas → theme/assets/theme.css
 │   └── data/ …           # material de la tienda (contenido para `pnpm seed`, CSV, copy de origen)
-└── proposals/            # maquetas de diseño (ronda 2 elegida: A + carrito de B)
+└── proposals/            # maquetas de MX (ronda 2 elegida: A + carrito de B); las de CO, en stores/co/proposals/
 ```
 
 Modelo estable de Shopify: plantillas JSON + secciones + bloques de sección. Horizon solo fue
@@ -57,6 +57,7 @@ pnpm pull <tienda>                           # trae los datos del tema publicado
 pnpm check                                   # tipos + lint + build + theme check + pendientes, de todas las tiendas
 pnpm build [tienda]                          # solo compila theme.css y theme.js (de una tienda o de todas)
 pnpm seed <tienda> [--dry-run]               # carga stores/<tienda>/data/content.json en la tienda (§7)
+pnpm upload <tienda> <archivo>… [--alt "…"]  # sube imágenes a Contenido → Archivos (idempotente por nombre): shopify://shop_images/<nombre>
 ```
 
 Los flags de más pasan a la CLI de Shopify (`pnpm push co --theme 123 --nodelete`, `pnpm pull mx --theme 456`).
@@ -84,6 +85,20 @@ Los flags de más pasan a la CLI de Shopify (`pnpm push co --theme 123 --nodelet
   --allow-live --only <archivo>…`). Un cambio grande va antes a un tema sin publicar (`pnpm push mx`) y se
   revisa con su `preview_theme_id`. Shopify reescribe los JSON al subirlos (cabecera de comentario,
   `settings: {}` vacíos): compararlos parseados, no por texto.
+- **Portada CRO en México (2026-10-22, a petición del usuario):** el código del tema de Colombia se copió una vez a `stores/mx`
+  (sin lo que solo es de Colombia: cabeza de Refresh para GemPages, Releasit, botón de Klaviyo y
+  «Banner de marca»), con lo propio de México: logotipo al centro, Visa y Mastercard comentados y la suscripción solo con
+  el formulario de Shopify. Datos de la portada con el copy de Colombia y lo de México (pago contra entrega, envío de 2 a 5
+  días hábiles a ciudades principales, seguimiento por correo, reenvío si no llega a tiempo, 30 días para devolver; cifra
+  «+49.000 personas en Colombia»; carril elegido a mano con el Spray primero; sin botón «Conoce Nambu», que en México no
+  tiene página). Contenido en `stores/mx/data/content.json` (`pnpm seed mx`, con su `shopify store auth` aprobado el
+  2026-10-22). Kit Respira Libre a **$760 MXN** (referencia $920 = dos Spray) y Chest Relief habilitado a **$260 MXN** con
+  1000 unidades. Publicado en «Nambu MX» tras revisarlo en «Nambu MX · Portada CRO» #160847593643 (sin archivos de
+  GemPages: no publicarlo).
+- **`/collections/all` en México tiene orden propio (2026-10-22):** colección «Todos los productos» con handle `all`, que
+  sustituye a la automática de Shopify en esa dirección. Es automática (proveedor = Nambu: los productos nuevos entran
+  solos, al final) y con orden manual: Spray, kit, Chest Relief y los «Próximamente». Se reordena arrastrando en
+  Productos → Colecciones. Colombia sigue con su colección `productos` (orden real de ventas).
 
 ## 3. Reglas del tema
 
@@ -96,33 +111,39 @@ Los flags de más pasan a la CLI de Shopify (`pnpm push co --theme 123 --nodelet
   proporción para que el producto entre entero.
 - **Sin JS también funciona**: agregar al carrito, cantidades del carrito (`/cart/change?line=`),
   orden de colección y menú móvil (`<details>`) tienen su camino nativo; el JS solo mejora.
-- **Precio**: `money_without_trailing_zeros`. MX: siempre con el código (`$460 MXN`). CO (snippet `money`): el
-  código solo si lo pide el ajuste «Mostrar el código de moneda» (`$79.900`), y precio tachado solo si existe
-  `compare_at_price` real y el ajuste «Mostrar el precio tachado» activo (CO lo apaga: sus precios de comparación
-  no se tachan en la tienda; siguen en Shopify para las landings).
+- **Precio** (snippets `price` y `money`): `money_without_trailing_zeros`, con el código si lo pide el ajuste «Mostrar
+  el código de moneda» (MX: `$ 460 MXN`, el espacio es del formato de moneda de la tienda; CO: `$79.900`). Precio
+  tachado solo si existe `compare_at_price` real y el ajuste «Mostrar el precio tachado» activo: las dos tiendas lo
+  apagan (el kit enseña su referencia en texto, «solo en los dos sprays»; en CO los precios de comparación siguen en
+  Shopify para las landings).
 - **Iconos de pago**: MX, Visa y Mastercard escritos en `snippets/pay-icons.liquid` y **comentados desde el
   2026-10-20** (solo contraentrega; se descomentan cuando haya pago con tarjeta). CO, ajuste «Iconos de medios de
   pago» (nombres de Shopify).
 
-Lo que sigue es **solo del tema de Colombia** (México no lo tiene):
+Desde el 2026-10-22 los dos temas tienen la misma portada y los mismos componentes (cada uno en su carpeta). Lo que
+sigue es **solo del tema de Colombia** salvo donde se dice:
 
 - **Apps de terceros** se neutralizan en `stores/co/src/styles/apps.css`, acotadas a los componentes `nb-`. Releasit
   inyecta su «COMPRAR AHORA» en todo formulario de compra y oculta el «Comprar ahora» de Shopify: en la
-  tienda se compra con el checkout de Shopify, así que dentro de `nb-card`, `nb-buybox`, `nb-drawer`…
-  sus nodos (patrón `rsi`) no se ven y el botón de Shopify vuelve. Las landings de GemPages no usan esas
+  tienda se compra con el checkout de Shopify, así que dentro de `nb-product-form` (todo formulario del snippet
+  `product-add`: tarjetas, portada del kit, bloque del kit, buscador, banners), `nb-buybox`, `nb-sticky`, `nb-drawer`
+  y `nb-cart` sus nodos (patrón `rsi`) no se ven y el botón de Shopify vuelve. Una sección nueva que compre con
+  `product-add` ya queda cubierta (hasta el 2026-10-22 era una lista de componentes y la portada nueva salió con 16
+  «COMPRAR AHORA»). Las landings de GemPages no usan esas
   clases y siguen con Releasit. **No se apaga en los ajustes de Releasit**: son globales y las seis landings
   del Spray usan el mismo producto que la tienda (`spray-nasal-nambu`).
 - **Sin magic strings**: textos de interfaz en `locales/es.default.json`; contenido en ajustes de
   sección, metacampos o metaobjetos.
-- **Cabecera**: logotipo a la izquierda (ajuste de la sección). Si el menú no cabe en una línea, `<site-header>`
-  pasa al menú desplegable en cualquier ancho (por debajo de ~1100 px). En MX el logotipo va al centro, fijo.
+- **Cabecera** (las dos): cápsula flotante con Instagram. CO, logotipo a la izquierda (ajuste «Logotipo a la izquierda»);
+  MX, al centro. Si el menú no cabe en una línea, `<site-header>` pasa al menú desplegable en cualquier ancho.
 - **Recomendaciones** («Completa tu ritual»): las de Shopify, completadas con la colección de respaldo. Con
   «Solo productos de esta colección» no sale nada de fuera (CO: `productos`), porque Shopify también recomienda
   los duplicados de campañas y advertoriales.
-- **Secciones de la portada**: «Banner de producto» (el Spray, con el titular de MX desde el 2026-10-16) o «Banner
-  de marca» (foto de la línea con el texto sobre su pared libre; sin uso hoy); «Necesidades» (texto de la necesidad →
-  su producto); «Productos» acepta productos elegidos a mano y 3 o 4 columnas; «Imagen con texto». MX tiene
-  «Banner de producto», «Categorías» (colecciones) y «Productos» de una colección.
+- **Secciones de la portada** (las dos, salvo el banner de marca): «Portada con kit», «Cinta de beneficios», «Productos»
+  (rejilla o carril, productos elegidos a mano o de una colección), «Bloque del kit», «Necesidades» (buscador con
+  pestañas; un «Próximamente» enseña el aviso en vez del precio), «Opiniones» con foto, «Cifras», «Imagen con texto» y
+  «Preguntas y contacto». «Banner de producto», «Categorías», «Destacado» y «Confianza» siguen disponibles sin uso en la
+  portada. «Banner de marca» solo en CO, sin uso.
 
 En los dos: contraste AA, foco visible, objetivos de 44 px, `prefers-reduced-motion`.
 
@@ -247,6 +268,32 @@ tienda **solo se compra con el checkout de Shopify** (Mercado Pago + «Pago cont
 solo en las landings) y **se muestran los mismos productos que hoy**: la colección `productos` (10).
 
 - **Copy de origen:** [`stores/co/copy.md`](stores/co/copy.md), extraído el 2026-10-16. No se reescribe ahí.
+- **Portada CRO (publicada el 2026-10-22 en «Nambu CO»)**: la ronda 2 de la propuesta, aprobada por el cliente. Secciones
+  nuevas: «Portada con kit» (`kit-hero`: 3 fotos horizontales 16:9 con leyenda que rotan solas y se cambian a mano con flechas, barras, deslizando o con el teclado, tarjeta del kit, botón y barra
+  fija `sticky-buy` hasta el pie), «Cinta de beneficios» (`benefit-ribbon`, corre sin parar), «Bloque del kit»
+  (`kit-promo`), «Necesidades» como buscador con pestañas (`need-list` → `need-finder`), «Cifras» (`trust-numbers`:
+  +49.000 = clientes con al menos un pedido el 2026-10-21, redondeado hacia abajo), «Preguntas y contacto»
+  (`faq-contact`); «Productos» en carril con etiqueta del primero; testimonios con foto en banda verde; suscripción que
+  abre el formulario de Klaviyo `TWWXYW` (`klaviyo-open`); Instagram en cabecera y pie; barra de anuncios oculta en
+  la portada. Tarjetas con el tinte de cada producto (metacampo `custom.card_tint`) y etiqueta (`custom.badge`), los
+  dos en `content.json` (`product_metafields`).
+- **Modal del 10 % de Klaviyo** («Email Popup Principal», `TWWXYW`): se estila en el editor de Klaviyo, no en el tema
+  (sale también en las landings de GemPages, que no cargan `theme.css`). Desde el 2026-10-22: Questrial en todo, campos en
+  píldora de 48 px con borde `#D3E1CD` (ojo: la opacidad del color venía a 0 %) y `#2F7D22` al escribir, botones
+  `#6FC350` con texto `#0F2E0B`. Sale solo al 50 % de scroll, a los 30 s o al ir a salir, y no vuelve en 5 días a quien la
+  cerró ni a quien ya está en Klaviyo: para verla como cliente nuevo, incógnito.
+- **Kit Respira Libre** (`kit-respira-libre`, creado el 2026-10-21 por la API): $129.900, precio de comparación $159.800
+  («solo en los dos sprays»), copy del cliente en `content.json`. Foto principal: recorte cuadrado de la foto del
+  cliente con plantas (`data/media/kit-respira-libre-plantas.webp`); el bloque del kit usa la composición limpia
+  (`kit-respira-libre-bloque.webp` en Archivos) para no repetir la foto que abre la portada. Las fotos de la portada
+  están en `data/media/hero-*.webp` y en Archivos.
+- **Propuesta de portada CRO (2026-10-21, ronda 2):** [`stores/co/proposals/`](stores/co/proposals/README.md),
+  maqueta con la referencia femprobiotics.co. Ronda 2 a petición del usuario (la 1 se veía vacía y plana): más color con la
+  familia del verde y el tinte de la etiqueta de cada producto, cabecera flotante con Instagram, portada con 3 fotos de
+  clientes que rotan y un kit nuevo (Spray + Chest Relief; nombre, precio y ahorro por definir) con barra fija, cinta que
+  corre sin parar, bloque del kit y bloque de cifras (sin registro sanitario) como los de la referencia, selector de
+  necesidades y el 10% de Klaviyo. El popup y el teaser «10% de descuento» son un formulario de Klaviyo («Email Popup
+  Principal»), no del tema. El pie ya admite Instagram (ajuste «Instagram», vacío en CO); la cabecera necesita código.
 - **Contenido de las fichas:** [`stores/co/data/content.json`](stores/co/data/content.json) reparte ese copy en
   el contrato del tema (`scripts/lib/content-model.mjs`): subtítulo, descripción corta, modo de uso,
   ingredientes, preguntas, opiniones y, para el lanzamiento, la descripción larga. Una sola pregunta de envío

@@ -1,12 +1,14 @@
 {%- comment -%}
-	Cabecera: menú a la izquierda, logotipo al centro, buscar, cuenta y carrito a la derecha.
-	En móvil, el menú se abre con <details> (funciona sin JS).
+	Cabecera: menú y logotipo (al centro o a la izquierda, según la tienda), Instagram (ajuste del tema), buscar, cuenta
+	y carrito.
+	En móvil, o si el menú no cabe en una línea (<site-header>), el menú se abre con <details> (funciona sin JS).
 {%- endcomment -%}
 {%- liquid
 	assign menu = section.settings.menu.links
 	assign cart_href = routes.cart_url
 -%}
-<header class="nb-header">
+<site-header>
+<header class="nb-header{% if section.settings.logo_left %} nb-header--left{% endif %}">
 	<div class="nb-header__in">
 		<details class="nb-header__drawer">
 			<summary class="nb-header__icon" aria-label="{{ 'general.menu' | t }}">{% render 'icon', name: 'menu', class: 'nb-header__open' %}{% render 'icon', name: 'close', class: 'nb-header__shut' %}</summary>
@@ -14,9 +16,12 @@
 				{%- for link in menu -%}
 					<a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}{% render 'icon', name: 'right' %}</a>
 				{%- endfor -%}
+				{%- if settings.instagram_url != blank -%}
+					<a href="{{ settings.instagram_url }}" target="_blank" rel="noopener">Instagram{% render 'icon', name: 'instagram' %}</a>
+				{%- endif -%}
 			</nav>
 		</details>
-		<nav class="nb-header__nav" aria-label="{{ 'general.menu' | t }}">
+		<nav class="nb-header__nav" data-nav aria-label="{{ 'general.menu' | t }}">
 			{%- for link in menu -%}
 				<a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a>
 			{%- endfor -%}
@@ -32,6 +37,9 @@
 			</a>
 		{%- if request.page_type == 'index' -%}</h1>{%- else -%}</div>{%- endif -%}
 		<div class="nb-header__tools">
+			{%- if settings.instagram_url != blank -%}
+				<a class="nb-header__icon nb-header__ig" href="{{ settings.instagram_url }}" target="_blank" rel="noopener" aria-label="Instagram">{% render 'icon', name: 'instagram' %}</a>
+			{%- endif -%}
 			<a class="nb-header__icon" href="{{ routes.search_url }}" aria-label="{{ 'general.search' | t }}">{% render 'icon', name: 'search' %}</a>
 			{%- if shop.customer_accounts_enabled -%}
 				<a class="nb-header__icon nb-header__account" href="{{ routes.account_url }}" aria-label="{{ 'general.account' | t }}">{% render 'icon', name: 'user' %}</a>
@@ -43,13 +51,15 @@
 		</div>
 	</div>
 </header>
+</site-header>
 
 {% schema %}
 {
 	"name": "Cabecera",
 	"class": "nb-section-header",
 	"settings": [
-		{ "type": "link_list", "id": "menu", "label": "Menú", "default": "main-menu" }
+		{ "type": "link_list", "id": "menu", "label": "Menú", "default": "main-menu" },
+		{ "type": "checkbox", "id": "logo_left", "label": "Logotipo a la izquierda en escritorio", "default": false, "info": "Deja más sitio al menú. Si aun así no cabe en una línea, se abre como en el móvil." }
 	],
 	"enabled_on": { "groups": ["header"] }
 }

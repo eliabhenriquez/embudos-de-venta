@@ -17,7 +17,8 @@ colombiano** como eje ("La esencia del Pacífico en cada ritual", "El Pacífico 
 escucha."). Vende directo por Shopify con tráfico de paid, mayoritariamente móvil.
 
 Tienda: **nambuoficial.com** · Instagram: **@nambuoficial** · Soporte y garantías:
-**soporte@NambuShop.com** (es el único canal publicado en su política de garantía).
+**nambushop.col@gmail.com** (cliente, 2026-10-16; las políticas decían `soporte@NambuShop.com`, que no es de
+la marca, y se corrigieron ese día).
 
 El tono de la marca es **sensorial y natural, de tú**, ligado a la planta y al ritual. No es clínico y
 no receta: acompaña. El público de las landings llega frío desde un anuncio y es **mixto** (hombre y
@@ -200,12 +201,11 @@ ahorro. La landing no calcula precios ni genera descuentos, solo los comunica.
   se tacha** (se leería como precio anterior). Cliente, 2026-09-21. Es una excepción a la regla
   general de `/AGENTS.md` de resaltar el anticipado; lo único que se mantiene es la tarjeta destacada
   del anticipado en la sección que compara las dos formas de pago.
-- **Envío gratis** en la comunicación de la marca y de las landings. ⚠️ La página
-  `/pages/politicas-de-envio` publicada dice otra cosa: gratis **a partir de $74.700** y $9.700 de
-  tarifa estándar. Con el precio anticipado de $69.900 el pedido queda por debajo de ese umbral. **Es
-  una contradicción real entre la política publicada y lo que promete la landing**; hay que resolverla
-  en la tienda, no en el copy.
-- Entrega **3 a 5 días hábiles**.
+- **Envío estándar gratis en todos los pedidos** (medido en el carrito real: tarifa «Standard» a $0 incluso
+  con un jabón de $18.000). **Envío prioritario** opcional con costo (el que ofrece el formulario de Releasit).
+  La política publicada decía «gratis desde $74.700» y $9.700 de estándar: corregida el 2026-10-16 a petición
+  del cliente, junto con las fichas que decían 2–3 y 2–5 días.
+- Entrega **3 a 5 días hábiles**. Es el plazo en todas partes: política, fichas, preguntas, portada y landings.
 - **Claims — crítico.** Son productos de bienestar, no medicamentos. Se habla de **sensación y
   cuidado** ("ayuda a despejar la sensación de nariz tapada"), nunca de curar, tratar o prevenir. El
   registro sanitario como producto homeopático del Spray Nasal está **en trámite ante INVIMA** y así
@@ -239,8 +239,10 @@ nambu/
     │   ├── assets/           # webp optimizados, compartidos por los 6 ángulos y los advertoriales
     │   ├── src/              # generador de los 6 september.html (AGENTS.md §7)
     │   └── general/  alergias/  flema/  sinusitis/  tabaquismo/  remarketing/   # ← construidos
-    └── advertoriales/        # el mismo producto en formato de artículo
+    ├── advertoriales/        # el mismo producto en formato de artículo
         ├── AGENTS.md
         ├── src/              # generador de los october.html; importa lib/ y styles/shared/ del spray
         └── flema/  alergias/  sinusitis/  capitales/  neumonia/   # ← los cinco construidos
+
+nambu/store/                  # tema propio de la tienda (MX primero, luego CO): ver store/AGENTS.md
 ```

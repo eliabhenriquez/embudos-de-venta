@@ -1,0 +1,2 @@
+/* Aviso de la maqueta: los botones no compran, dicen lo que harían en la tienda. No es diseño de la tienda. */
+.pv-toast { position: fixed; left: 50%; bottom: 96px; z-index: 80; max-width: calc(100vw - 32px); padding: 12px 16px; border-radius: 12px; background: #14201a; color: #fff; font: 14px/1.4 system-ui, -apple-system, 'Segoe UI', sans-serif; transform: translateX(-50%); box-shadow: 0 16px 40px -16px rgba(0, 0, 0, .5); }

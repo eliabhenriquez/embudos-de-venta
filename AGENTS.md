@@ -79,7 +79,9 @@ Marcas activas: `mima` (productos: **SKNGLOW**, **MIMACALM**, **MIMANAD**), `ete
 **CLOROFULL**, **VALERIANA** y cinco **kits** —`kit-dia-liviano`, `kit-piel-viva`, `kit-tinto-almohada`,
 `kit-duerme-florece` y `kit-cuerpo-punto`, los cinco construidos—), `nambu` (producto: **SPRAY NASAL**, seis
 ángulos construidos desde un generador propio: `nambu/landings/spray/src/`, ver su `AGENTS.md` §7; y sus
-**advertoriales**, el mismo producto en formato de artículo: `nambu/landings/advertoriales/`).
+**advertoriales**, el mismo producto en formato de artículo: `nambu/landings/advertoriales/`). Nambu tiene
+además un **tema de Shopify propio** para su tienda (`nambu/store/`, reglas en su `AGENTS.md`): ahí no aplican
+las reglas de landings de §4.
 
 **Regla:** antes de escribir una sola línea de una landing, leer el `AGENTS.md` del producto, el
 `docs/` de la marca (branding) y el copy del ángulo. El copy y los claims salen de ahí, **no se

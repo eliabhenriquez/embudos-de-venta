@@ -1,22 +1,47 @@
-// <sticky-buy>: barra fija de compra en móvil; sale cuando el botón principal deja la pantalla
-const ANCHOR = '[data-sticky-anchor]'
+// <sticky-buy>: barra fija de compra. Sale cuando su ancla deja la pantalla por arriba y, si tiene final
+// (data-end), se aparta cuando ese final entra en pantalla o ya pasó. Ficha: el botón principal; portada: el kit.
+const DEFAULT_ANCHOR = '[data-sticky-anchor]'
 const VISIBLE_CLASS = 'is-on'
 
 export class StickyBuy extends HTMLElement {
-	private observer: IntersectionObserver | null = null
+	private observers: IntersectionObserver[] = []
+	private passedAnchor = false
+	private reachedEnd = false
 
 	connectedCallback(): void {
-		const anchor = document.querySelector(ANCHOR)
+		const anchor = document.querySelector(this.dataset.anchor ?? DEFAULT_ANCHOR)
 		if (!anchor || !('IntersectionObserver' in window)) return
 		this.hidden = false
-		this.observer = new IntersectionObserver(([entry]) => {
-			const passed = !entry.isIntersecting && entry.boundingClientRect.top < 0
-			this.classList.toggle(VISIBLE_CLASS, passed)
+		this.sync()
+		this.watch(anchor, (entry) => {
+			this.passedAnchor = !entry.isIntersecting && entry.boundingClientRect.top < 0
 		})
-		this.observer.observe(anchor)
+		const end = this.dataset.end ? document.querySelector(this.dataset.end) : null
+		if (end) {
+			this.watch(end, (entry) => {
+				this.reachedEnd = entry.isIntersecting || entry.boundingClientRect.top < 0
+			})
+		}
 	}
 
 	disconnectedCallback(): void {
-		this.observer?.disconnect()
+		this.observers.forEach(observer => observer.disconnect())
+		this.observers = []
+	}
+
+	private watch(target: Element, update: (entry: IntersectionObserverEntry) => void): void {
+		const observer = new IntersectionObserver(([entry]) => {
+			update(entry)
+			this.sync()
+		})
+		observer.observe(target)
+		this.observers.push(observer)
+	}
+
+	// Fuera de pantalla tampoco se alcanza con el tabulador
+	private sync(): void {
+		const visible = this.passedAnchor && !this.reachedEnd
+		this.classList.toggle(VISIBLE_CLASS, visible)
+		this.inert = !visible
 	}
 }

@@ -4,13 +4,12 @@
 	Releasit (formulario contraentrega) es de las landings de GemPages: en la tienda se compra con el checkout
 	de Shopify. Su script mete botones en cualquier formulario de compra y oculta con !important el botón
 	acelerado de Shopify. Se neutraliza solo dentro de los componentes de la tienda (nb-), que las landings
-	no usan, y por patrón («rsi»), no por clase exacta: Releasit las cambia entre versiones. Una ficha con
-	.nb-buybox--app (plantilla de campaña) lo deja actuar.
+	no usan, y por patrón («rsi»), no por clase exacta: Releasit las cambia entre versiones. Todo formulario de
+	compra fuera de la ficha sale del snippet product-add (.nb-product-form), así que una sección nueva ya queda
+	cubierta. Una ficha con .nb-buybox--app (plantilla de campaña) lo deja actuar.
 */
-.nb-card [class*="rsi"], .nb-card [id*="rsi"],
+.nb-product-form [class*="rsi"], .nb-product-form [id*="rsi"],
 .nb-buybox:not(.nb-buybox--app) [class*="rsi"], .nb-buybox:not(.nb-buybox--app) [id*="rsi"],
-.nb-banner [class*="rsi"], .nb-banner [id*="rsi"],
-.nb-spot [class*="rsi"], .nb-spot [id*="rsi"],
 .nb-sticky [class*="rsi"], .nb-sticky [id*="rsi"],
 .nb-drawer [class*="rsi"], .nb-drawer [id*="rsi"],
 .nb-cart [class*="rsi"], .nb-cart [id*="rsi"] {

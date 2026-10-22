@@ -34,7 +34,7 @@
 		{%- endif -%}
 		{{ content_for_header }}
 	</head>
-	<body class="{% if refresh_page %}gradient{% else %}nb-body{% endif %}">
+	<body class="{% if refresh_page %}gradient{% else %}nb-body{% if request.page_type == 'index' %} nb-body--home{% endif %}{% endif %}">
 		{%- if refresh_page -%}
 			{%- comment -%}
 				Solo existe en este layout: los de GemPages se generan sin el cuerpo. Una landing antigua que use el

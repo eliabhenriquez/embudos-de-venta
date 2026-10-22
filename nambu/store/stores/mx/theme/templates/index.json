@@ -1,50 +1,356 @@
 {
 	"sections": {
-		"banner": {
-			"type": "featured-product-banner",
+		"hero": {
+			"type": "kit-hero",
+			"blocks": {
+				"slide-1": {
+					"type": "slide",
+					"settings": {
+						"image": "shopify://shop_images/hero-kit-respira-libre.webp",
+						"name": "El Kit Respira Libre"
+					}
+				},
+				"slide-2": {
+					"type": "slide",
+					"settings": {
+						"image": "shopify://shop_images/hero-kit-ingredientes.webp",
+						"name": "Ingredientes y beneficios"
+					}
+				},
+				"slide-3": {
+					"type": "slide",
+					"settings": {
+						"image": "shopify://shop_images/hero-clientes-nambu.webp",
+						"name": "Clientes reales de Nambu"
+					}
+				}
+			},
+			"block_order": [
+				"slide-1",
+				"slide-2",
+				"slide-3"
+			],
 			"settings": {
-				"product": "spray-nasal-nambu",
+				"product": "kit-respira-libre",
+				"components": [
+					"spray-nasal-nambu",
+					"chest-relief"
+				],
+				"tag": "Promoción del mes",
+				"items_label": "2 Spray Nasal + 1 Ungüento Chest Relief",
+				"anchor_label": "solo en los dos sprays",
 				"heading": "Que la congestión deje de arruinar tu día.",
-				"text": "<p>Extractos botánicos de <strong>eucalipto, menta y regaliz</strong> para ayudar a despejar la sensación de congestión y facilitar el paso del aire.</p>"
+				"text": "<p>Esta es la promoción del mes en Nambu: dos Spray Nasal de Nambu y el Chest Relief en un solo pedido, con envío gratis.</p>",
+				"button_label": "Quiero mi Kit Respira Libre",
+				"link_label": "Qué trae el kit",
+				"note": "Envío gratis a todo el país.",
+				"slides_label": "",
+				"show_sticky": true
 			}
 		},
-		"categories": {
-			"type": "collection-list",
-			"settings": { "heading": "Compra por categoría", "link_label": "Ver todo", "collections": ["respiracion", "piel", "unas", "cabello", "bronceado"] }
-		},
-		"products": {
-			"type": "featured-collection",
-			"settings": { "heading": "Nuestros productos", "limit": 4, "link_label": "Ver toda la tienda" }
-		},
-		"spotlight": {
-			"type": "product-spotlight",
+		"ribbon": {
+			"type": "benefit-ribbon",
 			"blocks": {
-				"volume": { "type": "fact", "settings": { "icon": "drop", "title": "60 ml de contenido", "text": "El doble frente a presentaciones comunes de 30 ml." } },
-				"plants": { "type": "fact", "settings": { "icon": "leaf", "title": "Eucalipto, menta y regaliz", "text": "Extractos botánicos en un formato nasal listo para usar." } },
-				"use": { "type": "fact", "settings": { "icon": "sun", "title": "Mañana y noche", "text": "2 aplicaciones en cada fosa nasal." } }
+				"benefit-1": {
+					"type": "benefit",
+					"settings": {
+						"icon": "cash",
+						"text": "Pago contra entrega"
+					}
+				},
+				"benefit-2": {
+					"type": "benefit",
+					"settings": {
+						"icon": "truck",
+						"text": "Envío gratis a todo México"
+					}
+				},
+				"benefit-3": {
+					"type": "benefit",
+					"settings": {
+						"icon": "clock",
+						"text": "Llega en 2 a 5 días hábiles a ciudades principales"
+					}
+				},
+				"benefit-4": {
+					"type": "benefit",
+					"settings": {
+						"icon": "chat",
+						"text": "Te atendemos por WhatsApp"
+					}
+				},
+				"benefit-5": {
+					"type": "benefit",
+					"settings": {
+						"icon": "shield",
+						"text": "Si no llega a tiempo, te lo reenviamos"
+					}
+				}
 			},
-			"block_order": ["volume", "plants", "use"],
-			"settings": { "heading": "Conoce el Spray Nasal", "product": "spray-nasal-nambu" }
+			"block_order": [
+				"benefit-1",
+				"benefit-2",
+				"benefit-3",
+				"benefit-4",
+				"benefit-5"
+			],
+			"settings": {
+				"label": "Por qué comprar en Nambu"
+			}
+		},
+		"best": {
+			"type": "featured-collection",
+			"settings": {
+				"heading": "Nuestros productos",
+				"layout": "rail",
+				"products": [
+					"spray-nasal-nambu",
+					"kit-respira-libre",
+					"chest-relief",
+					"serum-piel-de-porcelana",
+					"serum-niacinamida-10",
+					"jabon-cuerpo-de-porcelana",
+					"1-week",
+					"golden-glow",
+					"isoul"
+				],
+				"limit": 9,
+				"columns": "4",
+				"link_label": "Ver toda la tienda"
+			}
+		},
+		"kit": {
+			"type": "kit-promo",
+			"blocks": {
+				"perk-1": {
+					"type": "perk",
+					"settings": {
+						"icon": "leaf",
+						"text": "Spray Nasal de Nambu con eucalipto, menta y regaliz. Ayuda a despejar la respiración y mejora la sensación en 2 minutos."
+					}
+				},
+				"perk-2": {
+					"type": "perk",
+					"settings": {
+						"icon": "drop",
+						"text": "Chest Relief con eucalipto, menta y tomillo de territorios colombianos. Alivia el pecho y la respiración con plantas tradicionales."
+					}
+				},
+				"perk-3": {
+					"type": "perk",
+					"settings": {
+						"icon": "box",
+						"text": "Dos sprays, uno para la casa y otro para el bolso o la mesa de noche."
+					}
+				},
+				"perk-4": {
+					"type": "perk",
+					"settings": {
+						"icon": "truck",
+						"text": "Envío GRATIS a todo el país."
+					}
+				}
+			},
+			"block_order": [
+				"perk-1",
+				"perk-2",
+				"perk-3",
+				"perk-4"
+			],
+			"settings": {
+				"product": "kit-respira-libre",
+				"image": "shopify://shop_images/kit-respira-libre-bloque.webp",
+				"tag": "Promoción del mes",
+				"text": "<p>Uno para la nariz, otro para el pecho, y un repuesto para que no te quedes a medias. Todo por $760 MXN.</p>",
+				"anchor_label": "solo en los dos sprays",
+				"button_label": "Quiero mi Kit Respira Libre",
+				"note": "Envío gratis a todo el país."
+			}
+		},
+		"needs": {
+			"type": "need-list",
+			"blocks": {
+				"need-1": {
+					"type": "need",
+					"settings": {
+						"label": "Nariz cargada y dificultad para respirar",
+						"product": "spray-nasal-nambu"
+					}
+				},
+				"need-2": {
+					"type": "need",
+					"settings": {
+						"label": "Piel con manchas o tono desigual",
+						"product": "serum-piel-de-porcelana"
+					}
+				},
+				"need-3": {
+					"type": "need",
+					"settings": {
+						"label": "Poros abiertos y brillo excesivo",
+						"product": "serum-niacinamida-10"
+					}
+				},
+				"need-4": {
+					"type": "need",
+					"settings": {
+						"label": "Uñas que se rompen a cada rato",
+						"product": "1-week"
+					}
+				},
+				"need-5": {
+					"type": "need",
+					"settings": {
+						"label": "Cabello que quieres aclarar sin dañarlo",
+						"product": "golden-glow"
+					}
+				},
+				"need-6": {
+					"type": "need",
+					"settings": {
+						"label": "Bronceado que no quede naranja",
+						"product": "isoul"
+					}
+				}
+			},
+			"block_order": [
+				"need-1",
+				"need-2",
+				"need-3",
+				"need-4",
+				"need-5",
+				"need-6"
+			],
+			"settings": {
+				"heading": "Elige lo que quieres mejorar hoy",
+				"text": "Encuentra la fórmula que mejor acompaña tu rutina de cuidado."
+			}
 		},
 		"voices": {
 			"type": "testimonials",
-			"settings": { "heading": "Lo que dice la gente", "source": "section", "testimonials": ["catalina", "carlos-mauricio", "genesis"] }
+			"settings": {
+				"heading": "Lo que cuentan quienes ya lo usan",
+				"source": "section",
+				"style": "photo",
+				"band": true,
+				"testimonials": [
+					"catalina",
+					"carlos-mauricio",
+					"jose-fernando",
+					"andres",
+					"andrea"
+				]
+			}
 		},
-		"trust": {
-			"type": "trust",
+		"numbers": {
+			"type": "trust-numbers",
 			"blocks": {
-				"shipping": { "type": "item", "settings": { "icon": "truck", "title": "Envío", "text": "<p>Envío gratis. Entrega en 2 a 5 días hábiles en ciudades principales.</p>" } },
-				"payment": { "type": "item", "settings": { "icon": "lock", "title": "Pago contra entrega", "text": "<p>Pagas cuando recibes tu pedido.</p>" } },
-				"support": { "type": "item", "settings": { "icon": "chat", "title": "Te acompañamos", "text": "<p>Escríbenos por WhatsApp o por correo y te ayudamos con tu pedido.</p>" } },
-				"guarantee": { "type": "item", "settings": { "icon": "shield", "title": "Garantía de entrega", "text": "<p>Si tu pedido no llega en el plazo indicado, te lo reenviamos sin costo.</p>" } }
+				"fact-1": {
+					"type": "fact",
+					"settings": {
+						"icon": "leaf",
+						"text": "Marca colombiana con raíces en el Pacífico"
+					}
+				},
+				"fact-2": {
+					"type": "fact",
+					"settings": {
+						"figure": "+49.000",
+						"icon": "leaf",
+						"text": "personas en Colombia ya nos compraron"
+					}
+				},
+				"fact-3": {
+					"type": "fact",
+					"settings": {
+						"icon": "chat",
+						"text": "Te atendemos por WhatsApp"
+					}
+				}
 			},
-			"block_order": ["shipping", "payment", "support", "guarantee"],
-			"settings": { "heading": "Compra con confianza" }
+			"block_order": [
+				"fact-1",
+				"fact-2",
+				"fact-3"
+			],
+			"settings": {
+				"label": "Por qué elegir Nambu",
+				"tagline": "Del Pacífico colombiano para tu vida de todos los días.",
+				"button_label": "Ver todos los productos",
+				"button_link": "shopify://collections/all"
+			}
 		},
-		"help": {
-			"type": "help-links",
-			"settings": { "heading": "¿Necesitas ayuda?", "menu": "ayuda", "show_contact": true }
+		"story": {
+			"type": "image-with-text",
+			"settings": {
+				"image": "shopify://shop_images/story-linea-nambu.webp",
+				"heading": "La naturaleza no se explica en catálogos. Se vive.",
+				"text": "<p>En el Pacífico colombiano, la naturaleza no se explica en catálogos. Se vive, se hereda y se usa.</p><p>Nambu toma esa lógica y la lleva a cada fórmula, creada para acompañar rutinas reales de bienestar.</p>",
+				"blend": true
+			}
+		},
+		"faq": {
+			"type": "faq-contact",
+			"blocks": {
+				"question-1": {
+					"type": "question",
+					"settings": {
+						"question": "¿Cómo pago mi pedido?",
+						"answer": "<p>Pagas cuando recibes tu pedido (pago contra entrega).</p>"
+					}
+				},
+				"question-2": {
+					"type": "question",
+					"settings": {
+						"question": "¿Cuánto cuesta y cuánto tarda el envío?",
+						"answer": "<p>El envío es gratis y llega en 2 a 5 días hábiles a ciudades principales. Los tiempos son estimados y pueden variar por la paquetería, el clima o los días festivos.</p>"
+					}
+				},
+				"question-3": {
+					"type": "question",
+					"settings": {
+						"question": "¿Cómo sé dónde va mi pedido?",
+						"answer": "<p>Cuando tu pedido sale, te enviamos un correo de confirmación con la información de seguimiento.</p>"
+					}
+				},
+				"question-4": {
+					"type": "question",
+					"settings": {
+						"question": "¿Y si no llega a tiempo, llega dañado o se pierde?",
+						"answer": "<p>Si tu pedido no llega en el plazo indicado, te lo reenviamos sin costo. Si llega dañado o se pierde, escríbenos a nambumx@gmail.com y lo resolvemos con la paquetería.</p>"
+					}
+				},
+				"question-5": {
+					"type": "question",
+					"settings": {
+						"question": "¿Puedo devolver un producto?",
+						"answer": "<p>Sí: tienes 30 días desde la entrega para pedir la devolución. Escríbenos antes de enviarlo y te decimos cómo hacerlo.</p>"
+					}
+				}
+			},
+			"block_order": [
+				"question-1",
+				"question-2",
+				"question-3",
+				"question-4",
+				"question-5"
+			],
+			"settings": {
+				"heading": "Preguntas frecuentes",
+				"text": "¿Te queda otra duda? Te respondemos por WhatsApp.",
+				"open_first": true
+			}
 		}
 	},
-	"order": ["banner", "categories", "products", "spotlight", "voices", "trust", "help"]
+	"order": [
+		"hero",
+		"ribbon",
+		"best",
+		"kit",
+		"needs",
+		"voices",
+		"numbers",
+		"story",
+		"faq"
+	]
 }

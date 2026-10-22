@@ -1,0 +1,43 @@
+{%- comment -%}
+	Cinta de beneficios: banda manzana inclinada que corre sin parar (se pausa con el puntero encima; quieta y
+	deslizable con movimiento reducido). La lista va dos veces para que el bucle no tenga costura; la copia, oculta.
+{%- endcomment -%}
+{%- capture items -%}{% render 'ribbon-items', blocks: section.blocks %}{%- endcapture -%}
+{%- if items != blank -%}
+	<section class="nb-ribbon" aria-label="{{ section.settings.label | escape }}">
+		<div class="nb-ribbon__band">
+			<div class="nb-ribbon__track">
+				<ul class="nb-ribbon__list">{{ items }}</ul>
+				<ul class="nb-ribbon__list" aria-hidden="true">{% render 'ribbon-items', blocks: section.blocks, copy: true %}</ul>
+			</div>
+		</div>
+	</section>
+{%- elsif request.design_mode -%}
+	<p class="nb-shell nb-editor-note">Añade beneficios a la cinta.</p>
+{%- endif -%}
+
+{% schema %}
+{
+	"name": "Cinta de beneficios",
+	"class": "nb-section-ribbon",
+	"max_blocks": 8,
+	"settings": [
+		{ "type": "text", "id": "label", "label": "Nombre para lectores de pantalla", "default": "Por qué comprar en Nambu" }
+	],
+	"blocks": [
+		{
+			"type": "benefit",
+			"name": "Beneficio",
+			"settings": [
+				{ "type": "select", "id": "icon", "label": "Icono", "default": "truck", "options": [
+					{ "value": "cash", "label": "Pago" }, { "value": "truck", "label": "Envío" }, { "value": "clock", "label": "Plazo" },
+					{ "value": "chat", "label": "Atención" }, { "value": "shield", "label": "Garantía" }, { "value": "percent", "label": "Descuento" },
+					{ "value": "leaf", "label": "Natural" }, { "value": "box", "label": "Paquete" }
+				] },
+				{ "type": "text", "id": "text", "label": "Texto" }
+			]
+		}
+	],
+	"presets": [{ "name": "Cinta de beneficios", "blocks": [{ "type": "benefit" }, { "type": "benefit" }, { "type": "benefit" }] }]
+}
+{% endschema %}

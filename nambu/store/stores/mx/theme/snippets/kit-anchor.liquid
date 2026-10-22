@@ -1,0 +1,9 @@
+{%- comment -%}
+	Referencia de precio de un kit: su precio de comparación de Shopify con el texto que lo explica
+	(«$159.800 solo en los dos sprays»). Sin precio de comparación mayor que el precio, no sale nada.
+	Parámetros: product, label, class.
+{%- endcomment -%}
+{%- assign kit_variant = product.selected_or_first_available_variant -%}
+{%- if label != blank and kit_variant.compare_at_price > kit_variant.price -%}
+	<span class="{{ class }}">{% render 'money', amount: kit_variant.compare_at_price %} {{ label }}</span>
+{%- endif -%}

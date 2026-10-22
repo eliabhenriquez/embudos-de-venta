@@ -1,5 +1,6 @@
 {%- comment -%}
-	Cabecera: menú y logotipo (al centro o a la izquierda, según la tienda), buscar, cuenta y carrito.
+	Cabecera: menú y logotipo (al centro o a la izquierda, según la tienda), Instagram (ajuste del tema), buscar, cuenta
+	y carrito.
 	En móvil, o si el menú no cabe en una línea (<site-header>), el menú se abre con <details> (funciona sin JS).
 {%- endcomment -%}
 {%- liquid
@@ -15,6 +16,9 @@
 				{%- for link in menu -%}
 					<a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}{% render 'icon', name: 'right' %}</a>
 				{%- endfor -%}
+				{%- if settings.instagram_url != blank -%}
+					<a href="{{ settings.instagram_url }}" target="_blank" rel="noopener">Instagram{% render 'icon', name: 'instagram' %}</a>
+				{%- endif -%}
 			</nav>
 		</details>
 		<nav class="nb-header__nav" data-nav aria-label="{{ 'general.menu' | t }}">
@@ -33,6 +37,9 @@
 			</a>
 		{%- if request.page_type == 'index' -%}</h1>{%- else -%}</div>{%- endif -%}
 		<div class="nb-header__tools">
+			{%- if settings.instagram_url != blank -%}
+				<a class="nb-header__icon nb-header__ig" href="{{ settings.instagram_url }}" target="_blank" rel="noopener" aria-label="Instagram">{% render 'icon', name: 'instagram' %}</a>
+			{%- endif -%}
 			<a class="nb-header__icon" href="{{ routes.search_url }}" aria-label="{{ 'general.search' | t }}">{% render 'icon', name: 'search' %}</a>
 			{%- if shop.customer_accounts_enabled -%}
 				<a class="nb-header__icon nb-header__account" href="{{ routes.account_url }}" aria-label="{{ 'general.account' | t }}">{% render 'icon', name: 'user' %}</a>

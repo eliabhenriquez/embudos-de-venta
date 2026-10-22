@@ -1,6 +1,7 @@
 {%- comment -%}
-	Precio sin ceros finales y con la moneda aparte: $460 MXN.
-	Parámetros: product o variant, class. El precio tachado solo sale si hay compare_at_price real.
+	Precio sin ceros finales y, si la tienda lo pide, con el código de moneda aparte: $460 MXN · $79.900.
+	Parámetros: product o variant, class. El precio tachado solo sale si hay compare_at_price real y la tienda lo
+	muestra (ajuste «Mostrar el precio tachado»).
 {%- endcomment -%}
 {%- liquid
 	if variant != blank
@@ -12,9 +13,9 @@
 	endif
 -%}
 <span class="nb-price{% if class %} {{ class }}{% endif %}" data-price>
-	{%- if compare > amount -%}
+	{%- if settings.show_compare_price and compare > amount -%}
 		<s class="nb-price__compare">{{ compare | money_without_trailing_zeros }}</s>
 	{%- endif -%}
 	<span class="nb-price__amount">{{ amount | money_without_trailing_zeros }}</span>
-	<small class="nb-price__currency">{{ cart.currency.iso_code }}</small>
+	{%- if settings.show_currency_code %} <small class="nb-price__currency">{{ cart.currency.iso_code }}</small>{% endif %}
 </span>

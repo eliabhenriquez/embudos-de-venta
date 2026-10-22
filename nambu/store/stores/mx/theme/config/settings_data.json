@@ -2,12 +2,15 @@
 	"current": {
 		"logo": "shopify://shop_images/landings-nambu-wordmark-green.webp",
 		"logo_width": 124,
+		"favicon": "shopify://shop_images/nambu-favicon-emblema.png",
 		"type_font": "questrial_n4",
 		"whatsapp_number": "+57 320 7948642",
 		"contact_email": "nambumx@gmail.com",
 		"show_coming_soon": true,
 		"cart_type": "drawer",
-		"cart_shipping_note": "Gratis"
+		"cart_shipping_note": "Gratis",
+		"instagram_url": "https://www.instagram.com/nambuoficial/",
+		"show_compare_price": false
 	},
 	"presets": {
 		"Default": {

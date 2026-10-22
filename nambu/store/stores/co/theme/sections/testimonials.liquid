@@ -1,6 +1,7 @@
 {%- comment -%}
 	Opiniones en carrusel (scroll-snap + flechas que mueven en todos los anchos).
 	Fuente: la lista elegida en la sección, o el metacampo custom.testimonials del producto.
+	Estilo «foto grande»: la foto de la persona arriba (sin foto, la tarjeta va sin ella); «avatar»: foto pequeña al pie.
 	Metaobjeto "testimonial": name, city, quote, body, photo, product.
 {%- endcomment -%}
 {%- liquid
@@ -9,9 +10,13 @@
 	else
 		assign entries = section.settings.testimonials
 	endif
+	assign photo_style = false
+	if section.settings.style == 'photo'
+		assign photo_style = true
+	endif
 -%}
 {%- if entries.size > 0 -%}
-	<section class="nb-voices" aria-labelledby="Voices-{{ section.id }}">
+	<section class="nb-voices{% if photo_style %} nb-voices--photo{% endif %}{% if section.settings.band %} nb-voices--band{% endif %}" aria-labelledby="Voices-{{ section.id }}">
 		<carousel-rail class="nb-voices__rail">
 			<div class="nb-shell nb-head">
 				<h2 id="Voices-{{ section.id }}" class="nb-h2">{{ section.settings.heading }}</h2>
@@ -22,18 +27,30 @@
 			</div>
 			<ul class="nb-voices__track" data-track>
 				{%- for entry in entries -%}
-					{%- assign tagged = entry.product.value -%}
+					{%- liquid
+						assign tagged = entry.product.value
+						assign show_tag = false
+						if tagged != blank and section.settings.source != 'product'
+							assign show_tag = true
+						endif
+					-%}
 					<li class="nb-voice">
-						<p class="nb-voice__quote">“{{ entry.quote.value }}”</p>
-						{%- if entry.body != blank -%}<p class="nb-voice__text">{{ entry.body.value }}</p>{%- endif -%}
-						<div class="nb-voice__who">
-							{%- if entry.photo != blank -%}
-								{{ entry.photo.value | image_url: width: 120, height: 120, crop: 'top' | image_tag: class: 'nb-voice__avatar', alt: '', loading: 'lazy' }}
-							{%- endif -%}
-							<p><strong>{{ entry.name.value }}</strong>{% if entry.city != blank %}<span>{{ entry.city.value }}</span>{% endif %}</p>
-							{%- if tagged != blank and section.settings.source != 'product' -%}
-								<a class="nb-voice__tag" href="{{ tagged.url }}">{{ tagged.title }}</a>
-							{%- endif -%}
+						{%- if photo_style and entry.photo != blank -%}
+							<figure class="nb-voice__media">
+								{%- assign photo_alt = entry.name.value | append: ', ' | append: tagged.title -%}
+								{{ entry.photo.value | image_url: width: 700 | image_tag: widths: '360, 540, 700', sizes: '(min-width: 900px) 300px, 76vw', class: 'nb-voice__photo', alt: photo_alt, loading: 'lazy' }}
+							</figure>
+						{%- endif -%}
+						<div class="nb-voice__body">
+							<p class="nb-voice__quote">“{{ entry.quote.value }}”</p>
+							{%- if entry.body != blank -%}<p class="nb-voice__text">{{ entry.body.value }}</p>{%- endif -%}
+							<div class="nb-voice__who">
+								{%- if photo_style == false and entry.photo != blank -%}
+									{{ entry.photo.value | image_url: width: 120, height: 120, crop: 'top' | image_tag: class: 'nb-voice__avatar', alt: '', loading: 'lazy' }}
+								{%- endif -%}
+								<p><strong>{{ entry.name.value }}</strong>{% if entry.city != blank %}<span>{{ entry.city.value }}</span>{% endif %}</p>
+								{%- if show_tag -%}<a class="nb-voice__tag" href="{{ tagged.url }}">{{ tagged.title | split: ':' | first }}</a>{%- endif -%}
+							</div>
 						</div>
 					</li>
 				{%- endfor -%}
@@ -54,7 +71,12 @@
 			{ "value": "section", "label": "Lista de esta sección" },
 			{ "value": "product", "label": "Opiniones del producto (metacampo)" }
 		] },
-		{ "type": "metaobject_list", "id": "testimonials", "label": "Opiniones", "metaobject_type": "testimonial", "limit": 12 }
+		{ "type": "metaobject_list", "id": "testimonials", "label": "Opiniones", "metaobject_type": "testimonial", "limit": 12 },
+		{ "type": "select", "id": "style", "label": "Estilo", "default": "avatar", "options": [
+			{ "value": "avatar", "label": "Foto pequeña" },
+			{ "value": "photo", "label": "Foto grande arriba" }
+		], "info": "Foto grande solo con fotos verticales de personas reales." },
+		{ "type": "checkbox", "id": "band", "label": "Fondo verde claro", "default": false }
 	],
 	"presets": [{ "name": "Opiniones" }]
 }

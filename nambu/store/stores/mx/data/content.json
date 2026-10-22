@@ -1,0 +1,193 @@
+{
+	"_about": "Contenido de Nambu México que carga scripts/seed.mjs (pnpm seed mx). Solo escribe lo que trae cada ficha: el Spray y los «Próximamente» llevan su color de tarjeta y, el Spray, la etiqueta «El más vendido» (lo es de la marca, por las ventas de Colombia) y sus tres plantas tal cual están en la tienda (el kit las referencia); el resto de su contenido (subtítulo, preguntas, opiniones) se cargó a mano el 2026-10-14 y no se toca aquí. Chest Relief y el Kit Respira Libre (2026-10-22) vienen de la tienda de Colombia con lo propio de México: precio en MXN y la pregunta de envío de México. «home_testimonials»: opiniones de la portada que no existían en México (Catalina y Carlos Mauricio ya estaban). «product_metafields», «ingredient_refs», «faq_refs» y «testimonial_refs»: como en stores/co/data/content.json. Precio, inventario, fotos y publicación de los productos no los carga el seed.",
+	"product_metafields": [
+		{
+			"key": "card_tint",
+			"name": "Color de la tarjeta",
+			"type": "single_line_text_field",
+			"choices": [
+				"verde",
+				"azul",
+				"lila",
+				"amarillo",
+				"naranja"
+			]
+		},
+		{
+			"key": "badge",
+			"name": "Etiqueta del producto",
+			"type": "single_line_text_field"
+		}
+	],
+	"shared_faqs": [
+		{
+			"handle": "envio-mexico",
+			"question": "¿Cuánto tarda en llegar mi pedido?",
+			"answer": "El envío es gratis y llega en 2 a 5 días hábiles a ciudades principales. Los tiempos son estimados y pueden variar por la paquetería, el clima o los días festivos."
+		}
+	],
+	"home_testimonials": [
+		{
+			"handle": "jose-fernando",
+			"name": "José Fernando",
+			"quote": "En la noche sentía la nariz completamente cerrada.",
+			"body": "Empecé a usar el spray mañana y noche. Me gusta mucho la sensación que deja y ya lo tengo siempre junto a la cama.",
+			"photo": "landings-spray-ugc-jose-fernando.webp",
+			"product": "spray-nasal-nambu"
+		},
+		{
+			"handle": "andres",
+			"name": "Andrés",
+			"quote": "Lo mío era esa flema pegada atrás.",
+			"body": "Pasaba aclarando la garganta porque sentía moco pegado atrás de la nariz. Me gustó poder usar el spray directo y dejarlo al lado de la cama.",
+			"photo": "landings-spray-ugc-andres.webp",
+			"product": "spray-nasal-nambu"
+		},
+		{
+			"handle": "andrea",
+			"name": "Andrea",
+			"quote": "Sacudir el cuarto era suficiente para empezar a estornudar.",
+			"body": "Quería algo que pudiera tener cerca y usar rápido. Lo que más me sorprendió de Nambu fue el tamaño del frasco, porque trae bastante.",
+			"photo": "landings-spray-ugc-andrea.webp",
+			"product": "spray-nasal-nambu"
+		}
+	],
+	"products": [
+		{
+			"handle": "spray-nasal-nambu",
+			"badge": "El más vendido",
+			"card_tint": "verde",
+			"ingredients": [
+				{
+					"handle": "conocido-por-su-uso-tradicional-durante-episodios-de-congestion-y-acumulacion-de-moco",
+					"name": "Eucalipto",
+					"image": "landings-spray-ingrediente-eucalipto.webp",
+					"description": "Conocido por su uso tradicional durante episodios de congestión y acumulación de moco."
+				},
+				{
+					"handle": "menta",
+					"name": "Menta",
+					"image": "landings-spray-ingrediente-menta.webp",
+					"description": "Su mentol genera una sensación refrescante asociada con una percepción más libre del paso del aire."
+				},
+				{
+					"handle": "regaliz",
+					"name": "Regaliz",
+					"image": "landings-spray-ingrediente-regaliz.webp",
+					"description": "Raíz utilizada tradicionalmente en preparaciones relacionadas con garganta, tos y secreciones."
+				}
+			]
+		},
+		{
+			"handle": "serum-piel-de-porcelana",
+			"card_tint": "azul"
+		},
+		{
+			"handle": "serum-niacinamida-10",
+			"card_tint": "lila"
+		},
+		{
+			"handle": "jabon-cuerpo-de-porcelana",
+			"card_tint": "azul"
+		},
+		{
+			"handle": "1-week",
+			"card_tint": "verde"
+		},
+		{
+			"handle": "golden-glow",
+			"card_tint": "amarillo"
+		},
+		{
+			"handle": "isoul",
+			"card_tint": "naranja"
+		},
+		{
+			"handle": "chest-relief",
+			"card_tint": "verde",
+			"subtitle": "Eucalipto · Menta · Tomillo",
+			"short_description": "El Ungüento Chest Relief de Nambu combina eucalipto, menta y tomillo colombiano en una aplicación sencilla que deja frescor donde más se necesita: pecho, espalda y cuello.",
+			"how_to_use": "<p>Aplica una cantidad suficiente de Ungüento Chest Relief de Nambu sobre el pecho, la espalda y el cuello.</p><p>Masajea suavemente hasta que el producto se absorba. Puedes usarlo según necesidad, especialmente antes de dormir, durante días de frío o cuando sientas el pecho y el cuello cargados.</p><p>Lávate las manos después de aplicarlo y evita el contacto con ojos, boca, fosas nasales o piel irritada.</p>",
+			"ingredients": [
+				{
+					"handle": "chest-relief-eucalipto",
+					"name": "Eucalipto",
+					"description": "Aporta una sensación fresca y despejada."
+				},
+				{
+					"handle": "chest-relief-menta",
+					"name": "Menta",
+					"description": "Deja ese frescor intenso que se siente al instante."
+				},
+				{
+					"handle": "chest-relief-tomillo",
+					"name": "Tomillo",
+					"description": "Complementa la experiencia con su aroma herbal cálido."
+				}
+			],
+			"faqs": [
+				{
+					"handle": "chest-relief-que-se-siente-al-aplicarlo",
+					"question": "¿Qué se siente al aplicarlo?",
+					"answer": "Deja una sensación fresca y herbal sobre la piel. El eucalipto y la menta se sienten durante el masaje, mientras el tomillo aporta ese aroma cálido de plantas tradicionales."
+				},
+				{
+					"handle": "chest-relief-se-aplica-dentro-de-la-nariz",
+					"question": "¿Se aplica dentro de la nariz?",
+					"answer": "No. Chest Relief es un ungüento de uso externo. Se aplica únicamente sobre pecho, espalda y cuello."
+				},
+				{
+					"handle": "chest-relief-cuando-es-mejor-usarlo",
+					"question": "¿Cuándo es mejor usarlo?",
+					"answer": "Muchas personas prefieren usarlo antes de dormir, después de una ducha caliente, en noches frías o cuando sienten el pecho y el cuello cargados."
+				},
+				{
+					"handle": "chest-relief-puedo-usarlo-todos-los-dias",
+					"question": "¿Puedo usarlo todos los días?",
+					"answer": "Puedes aplicarlo según necesidad, siguiendo las indicaciones de uso. Si tienes piel sensible, aplica primero una pequeña cantidad en una zona reducida."
+				},
+				{
+					"handle": "chest-relief-sirve-para-dormir-mas-comodo",
+					"question": "¿Sirve para dormir más cómodo?",
+					"answer": "Su masaje y sensación de frescor lo hacen una buena opción para acompañar la rutina de descanso cuando se siente el pecho cargado o el clima está pesado."
+				},
+				{
+					"handle": "chest-relief-reemplaza-un-tratamiento-medico",
+					"question": "¿Reemplaza un tratamiento médico?",
+					"answer": "Chest Relief de Nambu es un producto de bienestar y uso externo. Si tienes dificultad respiratoria fuerte, dolor en el pecho, fiebre persistente o síntomas que empeoran, busca atención médica."
+				}
+			],
+			"faq_refs": [
+				"envio-mexico"
+			],
+			"description": "<p>El Ungüento Chest Relief de Nambu es ese apoyo que uno quiere tener cerca cuando el pecho se siente cargado, el cuello tenso y respirar cómodo se vuelve difícil por el frío, los cambios de clima o una noche de congestión.</p><p>Su mezcla de eucalipto, menta y tomillo de territorios colombianos deja una sensación fresca y reconfortante al masajear el pecho, la espalda y el cuello. Es práctico, fácil de aplicar y pensado para usar en casa cuando el cuerpo pide un respiro.</p><h3>Frescor que se siente</h3><p>Chest Relief combina plantas tradicionalmente usadas por su aroma fresco y su sensación reconfortante al aplicarse sobre la piel.</p><p>La textura del ungüento permite hacer un masaje suave sobre el pecho, la espalda y el cuello, acompañando esos momentos en que se quiere sentir más comodidad al respirar.</p><h3>Ideal para tener cerca</h3><p>Chest Relief de Nambu es ideal para quienes buscan una sensación de alivio y frescor cuando sienten:</p><ul><li>Pecho cargado por clima frío o cambios de temperatura</li><li>Incomodidad en pecho, espalda o cuello</li><li>Sensación de respiración pesada durante la noche</li><li>Necesidad de un masaje reconfortante antes de descansar</li><li>Molestias respiratorias ocasionales que hacen difícil sentirse cómodo</li><li>Ganas de dormir con una sensación más fresca y relajada</li></ul>"
+		},
+		{
+			"handle": "kit-respira-libre",
+			"badge": "Promoción del mes",
+			"card_tint": "verde",
+			"subtitle": "Eucalipto · Menta · Regaliz · Tomillo",
+			"short_description": "Uno para la nariz, otro para el pecho, y un repuesto para que no te quedes a medias. Todo por $760 MXN.",
+			"how_to_use": "<p>Spray Nasal de Nambu: 2 aplicaciones por la nariz, 2 veces al día, en casa.</p><p>Chest Relief: masaje suave en pecho, espalda y cuello cuando lo necesites.</p>",
+			"ingredient_refs": [
+				"conocido-por-su-uso-tradicional-durante-episodios-de-congestion-y-acumulacion-de-moco",
+				"menta",
+				"regaliz",
+				"chest-relief-tomillo"
+			],
+			"faq_refs": [
+				"envio-mexico"
+			],
+			"testimonials": [
+				{
+					"handle": "kit-respira-libre-marta-lucia-r",
+					"name": "Marta Lucía R.",
+					"city": "52 años · Cali",
+					"quote": "Yo tenía el pecho cargado desde hacía semanas y dormía sentada.",
+					"body": "Con el spray en la mañana y en la noche, y el ungüento en la espalda, esa semana dormí acostada. Le pedí el kit a mi hermana también."
+				}
+			],
+			"description": "<p>Uno para la nariz, otro para el pecho, y un repuesto para que no te quedes a medias. Todo por $760 MXN.</p><ul><li>Spray Nasal de Nambu con eucalipto, menta y regaliz. Ayuda a despejar la respiración y mejora la sensación en 2 minutos.</li><li>Chest Relief con eucalipto, menta y tomillo de territorios colombianos. Alivia el pecho y la respiración con plantas tradicionales.</li><li>Dos sprays, uno para la casa y otro para el bolso o la mesa de noche.</li><li>Envío GRATIS a todo el país.</li></ul><p>Esta es la promoción del mes en Nambu: dos Spray Nasal de Nambu y el Chest Relief en un solo pedido, con envío gratis.</p>"
+		}
+	]
+}
